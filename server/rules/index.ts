@@ -31,6 +31,7 @@ export type {
 // ─── Rule Registry ─────────────────────────────────────────────────
 
 import { federalOvertime } from "./examples/federalOvertime.js";
+import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
 import type { Rule } from "./types.js";
 
 /**
@@ -39,4 +40,5 @@ import type { Rule } from "./types.js";
  */
 export const RULES: readonly Rule[] = [
   federalOvertime,
+  californiaDailyOvertime,
 ];

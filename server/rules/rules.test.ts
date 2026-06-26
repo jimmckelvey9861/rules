@@ -9,6 +9,7 @@
  */
 
 import { federalOvertime } from "./examples/federalOvertime.js";
+import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
 import {
@@ -256,6 +257,64 @@ function testRejectsBadEffectiveDate() {
   }, "RuleValidationError", "Rejects non-ISO effective date '2024'");
 }
 
+// ─── Test: California Daily Overtime Rule ────────────────────────────
+
+function testCaDailyOvertimeApplies() {
+  console.log("\n── CA Daily Overtime: applies when CA non-exempt > 8 hours ──\n");
+
+  const scenario: Scenario = {
+    "location.state": "CA",
+    "employee.exempt_status": "non_exempt",
+    "shift.hours_worked_today": 9,
+  };
+
+  const result = evaluateRule(californiaDailyOvertime, scenario);
+  assertEq(result.outcome, "violation", "Outcome is violation (overtime required)");
+  assertEq(result.ruleId, "ca-daily-overtime-8", "Rule ID matches");
+  assert(result.explanation.includes("overtime"), "Explanation mentions overtime");
+  assert(result.triggeredFacts.includes("location.state"), "Triggered facts include location.state");
+  assert(result.triggeredFacts.includes("shift.hours_worked_today"), "Triggered facts include shift.hours_worked_today");
+}
+
+function testCaDailyOvertimeDoesNotApplyAt8() {
+  console.log("\n── CA Daily Overtime: does not apply at exactly 8 hours ──\n");
+
+  const scenario: Scenario = {
+    "location.state": "CA",
+    "employee.exempt_status": "non_exempt",
+    "shift.hours_worked_today": 8,
+  };
+
+  const result = evaluateRule(californiaDailyOvertime, scenario);
+  assertEq(result.outcome, "passed", "Outcome is passed (no overtime at 8 hours)");
+}
+
+function testCaDailyOvertimeDoesNotApplyExempt() {
+  console.log("\n── CA Daily Overtime: does not apply when exempt ─────────\n");
+
+  const scenario: Scenario = {
+    "location.state": "CA",
+    "employee.exempt_status": "exempt",
+    "shift.hours_worked_today": 9,
+  };
+
+  const result = evaluateRule(californiaDailyOvertime, scenario);
+  assertEq(result.outcome, "passed", "Outcome is passed (exempt employee)");
+}
+
+function testCaDailyOvertimeDoesNotApplyOutsideCA() {
+  console.log("\n── CA Daily Overtime: does not apply in NY ──────────────\n");
+
+  const scenario: Scenario = {
+    "location.state": "NY",
+    "employee.exempt_status": "non_exempt",
+    "shift.hours_worked_today": 9,
+  };
+
+  const result = evaluateRule(californiaDailyOvertime, scenario);
+  assertEq(result.outcome, "passed", "Outcome is passed (not California)");
+}
+
 // ─── Test: Fact Registry ─────────────────────────────────────────────
 
 function testCanonicalFactsRegistered() {
@@ -388,6 +447,12 @@ function main() {
   testFederalOvertimeDoesNotApplyUnder40();
   testFederalOvertimeDoesNotApplyExempt();
   testEvaluateRulesSummary();
+
+  // California daily overtime tests
+  testCaDailyOvertimeApplies();
+  testCaDailyOvertimeDoesNotApplyAt8();
+  testCaDailyOvertimeDoesNotApplyExempt();
+  testCaDailyOvertimeDoesNotApplyOutsideCA();
 
   // Validation tests
   testRejectsUnknownFact();
