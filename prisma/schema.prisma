@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Jurisdiction {
+  id        String   @id @default(cuid())
+  name      String
+  type      String   // country, federal, federal_agency, state, state_agency, county, municipality, city, special_district, tribal_nation, coverage_region, etc.
+  subtype   String?  // borough, parish, independent_city, town, village, township, etc.
+  parentId  String?
+  parent    Jurisdiction?  @relation("JurisdictionHierarchy", fields: [parentId], references: [id])
+  children  Jurisdiction[] @relation("JurisdictionHierarchy")
+  state     String?  // two-letter state code for quick filtering
+  aliases   String[] @default([])
+  sortOrder Int      @default(0)
+
+  lawSources LawSource[]
+  cellStatuses MatrixCellStatus[]
+  crawlerCandidates CrawlerCandidate[]
+
+  @@index([parentId])
+  @@index([type])
+  @@index([state])
+}
+
+model LawCategory {
+  id        String   @id @default(cuid())
+  name      String
+  parentId  String?
+  parent    LawCategory?  @relation("LawCategoryHierarchy", fields: [parentId], references: [id])
+  children  LawCategory[] @relation("LawCategoryHierarchy")
+  level     Int      @default(0) // 0=top, 1=section, 2=subsection
+  sortOrder Int      @default(0)
+
+  lawSources LawSource[]
+  cellStatuses MatrixCellStatus[]
+  crawlerCandidates CrawlerCandidate[]
+
+  @@index([parentId])
+}
+
+model ApplicabilityVariable {
+  id          String  @id @default(cuid())
+  path        String  @unique // e.g. "employer.total_employees_global"
+  name        String  // human-readable label
+  category    String  // e.g. "Location", "Employer", "Employee", "Shift", "Schedule"
+  description String?
+
+  lawSources LawSourceApplicabilityVariable[]
+
+  @@index([category])
+}
+
+model LawSource {
+  id              String    @id @default(cuid())
+  title           String
+  jurisdictionId  String
+  jurisdiction    Jurisdiction @relation(fields: [jurisdictionId], references: [id])
+  lawCategoryId   String
+  lawCategory     LawCategory  @relation(fields: [lawCategoryId], references: [id])
+  summary         String?
+  structuredText  String?   // JSON or plain-text structured rule representation
+  sourceUrl       String?
+  sourceAuthority String?
+  effectiveDate   DateTime?
+  expirationDate  DateTime?
+  status          String    @default("active") // active, repealed, pending, draft
+  notes           String?
+  verificationStatus String @default("auto_generated") // auto_generated, verified, suspended
+  verificationNotes  String?
+  sourceCandidateId  String?
+
+  applicabilityVariables LawSourceApplicabilityVariable[]
+
+  @@index([jurisdictionId])
+  @@index([lawCategoryId])
+  @@index([jurisdictionId, lawCategoryId])
+}
+
+model CrawlerCandidate {
+  id                    String       @id @default(cuid())
+  title                 String?
+  sourceUrl             String
+  sourceAuthority       String?
+  guessedJurisdictionId String?
+  guessedJurisdiction   Jurisdiction? @relation(fields: [guessedJurisdictionId], references: [id])
+  guessedLawCategoryId  String?
+  guessedLawCategory    LawCategory?  @relation(fields: [guessedLawCategoryId], references: [id])
+  summary               String?
+  rawText               String?
+  rawPayload            Json?
+  confidence            Float?
+  status                String       @default("new") // new, promoted, rejected
+  notes                 String?
+  createdAt             DateTime     @default(now())
+  updatedAt             DateTime     @updatedAt
+
+  // Content assessment fields
+  contentAssessmentStatus String    @default("unchecked") // unchecked, actionable, not_actionable, unsure, error
+  contentAssessmentSummary String?
+  actionableFacts          Json?
+  assessedAt               DateTime?
+
+  // URL health fields
+  originalUrl           String?
+  finalUrl              String?
+  httpStatus            Int?
+  urlHealthStatus       String       @default("unchecked") // unchecked, ok, redirected, broken_url, manual_review, error
+  checkedAt             DateTime?
+  lastError             String?
+  failureReason         String?      // not_found, gone, forbidden, timeout, dns_error, ssl_error, connection_error, invalid_url, non_html, pdf, unknown_error
+  checkedMethod         String?      // GET, HEAD, BOTH
+  contentType           String?
+  contentLength         Int?
+  retryCount            Int          @default(0)
+  repairedFromUrl       String?
+
+  // Auto-approval cross-check fields
+  autoApprovalStatus    String       @default("unchecked") // unchecked, approved, mismatch, insufficient_data, error
+  autoApprovalSources   Json?
+  autoApprovalCheckedAt DateTime?
+  autoApprovalNotes     String?
+
+  @@index([status])
+  @@index([guessedJurisdictionId])
+  @@index([guessedLawCategoryId])
+  @@index([urlHealthStatus])
+}
+
+model MatrixCellStatus {
+  id              String      @id @default(cuid())
+  jurisdictionId  String
+  jurisdiction    Jurisdiction @relation(fields: [jurisdictionId], references: [id])
+  lawCategoryId   String
+  lawCategory     LawCategory  @relation(fields: [lawCategoryId], references: [id])
+  status          String      // no_law_found
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@unique([jurisdictionId, lawCategoryId])
+  @@index([jurisdictionId])
+  @@index([lawCategoryId])
+}
+
+model LawSourceApplicabilityVariable {
+  lawSourceId             String
+  lawSource               LawSource             @relation(fields: [lawSourceId], references: [id], onDelete: Cascade)
+  applicabilityVariableId String
+  applicabilityVariable   ApplicabilityVariable @relation(fields: [applicabilityVariableId], references: [id], onDelete: Cascade)
+
+  @@id([lawSourceId, applicabilityVariableId])
+  @@index([applicabilityVariableId])
+}
