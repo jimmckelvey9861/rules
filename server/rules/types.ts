@@ -14,6 +14,8 @@ export interface FactDefinition {
   type: FactType;
   description: string;
   enumValues?: string[];
+  deprecated?: boolean;
+  replacedBy?: string;
 }
 
 // ─── Condition DSL ─────────────────────────────────────────────────

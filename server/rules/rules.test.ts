@@ -11,6 +11,10 @@
 import { federalOvertime } from "./examples/federalOvertime.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
+import {
+  isKnownFact, isDeprecatedFact, getReplacementFact,
+  getCanonicalFacts, getDeprecatedFacts, getEnumValues, getFact,
+} from "./facts.js";
 import type { Rule, Scenario } from "./types.js";
 
 // ─── Test infrastructure ─────────────────────────────────────────────
@@ -252,6 +256,126 @@ function testRejectsBadEffectiveDate() {
   }, "RuleValidationError", "Rejects non-ISO effective date '2024'");
 }
 
+// ─── Test: Fact Registry ─────────────────────────────────────────────
+
+function testCanonicalFactsRegistered() {
+  console.log("\n── Fact Registry: canonical facts are registered ────────\n");
+
+  const expectedCanonical = [
+    "location.state", "location.city", "location.county", "location.country",
+    "employer.total_employees", "employer.total_employees_global", "employer.industry_tag",
+    "employee.exempt_status", "employee.regular_hourly_rate", "employee.is_minor",
+    "employee.employment_status", "employee.worker_type", "employee.job_category",
+    "shift.hours_worked_this_week", "shift.hours_worked_today", "shift.is_split_shift",
+    "shift.meal_break_provided", "shift.rest_break_provided",
+    "schedule.advance_notice_days", "schedule.was_changed", "schedule.change_type",
+    "leave.type", "leave.reason",
+    "termination.type", "termination.is_mass_layoff",
+    "payroll.pay_frequency",
+  ];
+
+  for (const path of expectedCanonical) {
+    assert(isKnownFact(path), `Canonical fact "${path}" is registered`);
+    assert(!isDeprecatedFact(path), `Canonical fact "${path}" is NOT deprecated`);
+  }
+}
+
+function testDeprecatedFactsPointToReplacements() {
+  console.log("\n── Fact Registry: deprecated facts point to replacements ─\n");
+
+  const expectedDeprecations: [string, string][] = [
+    ["employer.employee_count", "employer.total_employees"],
+    ["employer.industry", "employer.industry_tag"],
+    ["employee.hourly_rate", "employee.regular_hourly_rate"],
+    ["schedule.split_shift", "shift.is_split_shift"],
+    ["schedule.posted_days_in_advance", "schedule.advance_notice_days"],
+  ];
+
+  for (const [oldPath, newPath] of expectedDeprecations) {
+    assert(isKnownFact(oldPath), `Deprecated fact "${oldPath}" is still registered`);
+    assert(isDeprecatedFact(oldPath), `Fact "${oldPath}" is marked deprecated`);
+    assertEq(getReplacementFact(oldPath), newPath, `"${oldPath}" points to "${newPath}"`);
+    assert(isKnownFact(newPath), `Replacement "${newPath}" exists`);
+    assert(!isDeprecatedFact(newPath), `Replacement "${newPath}" is NOT deprecated`);
+  }
+}
+
+function testEnumFactsRejectInvalidValues() {
+  console.log("\n── Fact Registry: enum facts reject invalid values ───────\n");
+
+  // employer.industry_tag should have known values
+  const industryValues = getEnumValues("employer.industry_tag");
+  assert(industryValues !== undefined, "employer.industry_tag has enum values");
+  assert(industryValues!.includes("fast_food"), "industry_tag includes 'fast_food'");
+  assert(industryValues!.includes("healthcare"), "industry_tag includes 'healthcare'");
+  assert(!industryValues!.includes("zodiac"), "industry_tag does NOT include 'zodiac'");
+
+  // schedule.change_type
+  const changeValues = getEnumValues("schedule.change_type");
+  assert(changeValues !== undefined, "schedule.change_type has enum values");
+  assert(changeValues!.includes("hours_added"), "change_type includes 'hours_added'");
+  assert(changeValues!.includes("shift_cancelled"), "change_type includes 'shift_cancelled'");
+
+  // leave.type
+  const leaveValues = getEnumValues("leave.type");
+  assert(leaveValues !== undefined, "leave.type has enum values");
+  assert(leaveValues!.includes("sick"), "leave.type includes 'sick'");
+  assert(leaveValues!.includes("family"), "leave.type includes 'family'");
+
+  // termination.type
+  const termValues = getEnumValues("termination.type");
+  assert(termValues !== undefined, "termination.type has enum values");
+  assert(termValues!.includes("layoff"), "termination.type includes 'layoff'");
+
+  // createRule rejects invalid enum for new industry_tag fact
+  assertThrows(() => {
+    createRule({
+      id: "test-bad-industry",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "scheduling",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "employer.industry_tag", op: "=", value: "zodiac" },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "createRule rejects invalid industry_tag enum value");
+}
+
+function testFederalOvertimeStillPassesUnchanged() {
+  console.log("\n── Fact Registry: federal overtime rule still works ──────\n");
+
+  // The rule uses employee.exempt_status and shift.hours_worked_this_week
+  // Both must remain canonical (not deprecated)
+  assert(!isDeprecatedFact("employee.exempt_status"), "employee.exempt_status is not deprecated");
+  assert(!isDeprecatedFact("shift.hours_worked_this_week"), "shift.hours_worked_this_week is not deprecated");
+
+  // Rule still evaluates correctly
+  const scenario: Scenario = {
+    "employee.exempt_status": "non_exempt",
+    "shift.hours_worked_this_week": 45,
+  };
+  const result = evaluateRule(federalOvertime, scenario);
+  assertEq(result.outcome, "violation", "Federal overtime still triggers violation");
+}
+
+function testRegistryCounts() {
+  console.log("\n── Fact Registry: expected counts ───────────────────────\n");
+
+  const canonical = getCanonicalFacts();
+  const deprecated = getDeprecatedFacts();
+
+  assert(canonical.length >= 65, `At least 65 canonical facts (got ${canonical.length})`);
+  assertEq(deprecated.length, 5, "Exactly 5 deprecated facts");
+
+  // Every deprecated fact's replacement must exist
+  for (const dep of deprecated) {
+    assert(dep.replacedBy !== undefined, `Deprecated "${dep.path}" has replacedBy`);
+    assert(isKnownFact(dep.replacedBy!), `Replacement "${dep.replacedBy}" for "${dep.path}" exists`);
+  }
+}
+
 // ─── Run all tests ───────────────────────────────────────────────────
 
 function main() {
@@ -273,6 +397,13 @@ function main() {
   testRejectsInvalidOperatorForType();
   testRejectsInvalidEnumValue();
   testRejectsBadEffectiveDate();
+
+  // Fact registry tests
+  testCanonicalFactsRegistered();
+  testDeprecatedFactsPointToReplacements();
+  testEnumFactsRejectInvalidValues();
+  testFederalOvertimeStillPassesUnchanged();
+  testRegistryCounts();
 
   // Summary
   console.log("\n═══════════════════════════════════════════════════════════");

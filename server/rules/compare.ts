@@ -21,7 +21,7 @@ import type { Scenario, EvaluationResult } from "./types.js";
 const FIELD_MAP = [
   { old: "employee.exemption_status", new: "employee.exempt_status", note: "Renamed: exemption_status → exempt_status" },
   { old: "hours_worked_in_workweek", new: "shift.hours_worked_this_week", note: "Moved to shift namespace, renamed" },
-  { old: "regular_rate", new: "employee.hourly_rate", note: "Moved to employee namespace" },
+  { old: "regular_rate", new: "employee.regular_hourly_rate", note: "Moved to employee namespace, canonical name" },
 ] as const;
 
 // ─── Fixture Scenarios ─────────────────────────────────────────────
