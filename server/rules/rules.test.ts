@@ -10,6 +10,7 @@
 
 import { federalOvertime } from "./examples/federalOvertime.js";
 import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
+import { federalMinimumWage } from "./examples/federalMinimumWage.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
 import {
@@ -315,6 +316,66 @@ function testCaDailyOvertimeDoesNotApplyOutsideCA() {
   assertEq(result.outcome, "passed", "Outcome is passed (not California)");
 }
 
+// ─── Test: Federal Minimum Wage Rule ─────────────────────────────────
+
+function testFederalMinWageViolation() {
+  console.log("\n── Federal Min Wage: violation at $7.24 ─────────────────\n");
+
+  const scenario: Scenario = {
+    "location.country": "US",
+    "employee.exempt_status": "non_exempt",
+    "employee.regular_hourly_rate": 7.24,
+    "shift.date": "2025-01-15",
+  };
+
+  const result = evaluateRule(federalMinimumWage, scenario);
+  assertEq(result.outcome, "violation", "Outcome is violation ($7.24 < $7.25)");
+  assert(result.explanation.includes("7.24"), "Explanation mentions actual rate");
+  assert(result.explanation.includes("7.25"), "Explanation mentions minimum");
+}
+
+function testFederalMinWagePassesAtMinimum() {
+  console.log("\n── Federal Min Wage: passes at $7.25 ───────────────────\n");
+
+  const scenario: Scenario = {
+    "location.country": "US",
+    "employee.exempt_status": "non_exempt",
+    "employee.regular_hourly_rate": 7.25,
+    "shift.date": "2025-01-15",
+  };
+
+  const result = evaluateRule(federalMinimumWage, scenario);
+  assertEq(result.outcome, "passed", "Outcome is passed ($7.25 meets minimum)");
+}
+
+function testFederalMinWageExemptEmployee() {
+  console.log("\n── Federal Min Wage: does not apply to exempt ───────────\n");
+
+  const scenario: Scenario = {
+    "location.country": "US",
+    "employee.exempt_status": "exempt",
+    "employee.regular_hourly_rate": 5.00,
+    "shift.date": "2025-01-15",
+  };
+
+  const result = evaluateRule(federalMinimumWage, scenario);
+  assertEq(result.outcome, "passed", "Outcome is passed (exempt employee)");
+}
+
+function testFederalMinWagePreEffectiveDate() {
+  console.log("\n── Federal Min Wage: does not apply before 2009-07-24 ───\n");
+
+  const scenario: Scenario = {
+    "location.country": "US",
+    "employee.exempt_status": "non_exempt",
+    "employee.regular_hourly_rate": 5.00,
+    "shift.date": "2009-07-23",
+  };
+
+  const result = evaluateRule(federalMinimumWage, scenario);
+  assertEq(result.outcome, "passed", "Outcome is passed (before effective date)");
+}
+
 // ─── Test: Fact Registry ─────────────────────────────────────────────
 
 function testCanonicalFactsRegistered() {
@@ -447,6 +508,12 @@ function main() {
   testFederalOvertimeDoesNotApplyUnder40();
   testFederalOvertimeDoesNotApplyExempt();
   testEvaluateRulesSummary();
+
+  // Federal minimum wage tests
+  testFederalMinWageViolation();
+  testFederalMinWagePassesAtMinimum();
+  testFederalMinWageExemptEmployee();
+  testFederalMinWagePreEffectiveDate();
 
   // California daily overtime tests
   testCaDailyOvertimeApplies();
