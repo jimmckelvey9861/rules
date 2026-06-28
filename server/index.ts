@@ -1189,8 +1189,94 @@ app.get("/api/matrix-cell/:jurisdictionId/:lawCategoryId", async (req, res) => {
   });
 });
 
+// ══════════════════════════════════════════════════════════════════════
+// TypeScript Rule System API (Phase 2)
+// These endpoints serve rules from the deterministic TypeScript registry.
+// They do NOT replace the old JSON endpoints above.
+// ══════════════════════════════════════════════════════════════════════
+
+import { RULES, evaluateRules, getAllFacts } from "./rules/index.js";
+import type { Scenario } from "./rules/types.js";
+
+// GET /api/ts-rules
+// Returns all registered TypeScript rules (metadata only, no evaluation).
+app.get("/api/ts-rules", (_req, res) => {
+  const rules = RULES.map(r => ({
+    id: r.id,
+    title: r.title,
+    jurisdiction: r.jurisdiction,
+    topic: r.topic,
+    effectiveFrom: r.effectiveFrom,
+    effectiveTo: r.effectiveTo || null,
+    status: r.status,
+    citations: r.citations,
+    resultType: r.result.type,
+  }));
+  res.json({ count: rules.length, rules });
+});
+
+// GET /api/ts-rules/:id
+// Returns a single rule by ID with full detail.
+app.get("/api/ts-rules/:id", (req, res) => {
+  const rule = RULES.find(r => r.id === req.params.id);
+  if (!rule) {
+    res.status(404).json({ error: `Rule "${req.params.id}" not found` });
+    return;
+  }
+  res.json(rule);
+});
+
+// GET /api/ts-rules/facts
+// Returns the full fact registry (for building scenario forms).
+app.get("/api/ts-facts", (_req, res) => {
+  const facts = getAllFacts().map(f => ({
+    path: f.path,
+    type: f.type,
+    description: f.description,
+    enumValues: f.enumValues || null,
+    deprecated: f.deprecated || false,
+    replacedBy: f.replacedBy || null,
+  }));
+  res.json({ count: facts.length, facts });
+});
+
+// POST /api/ts-rules/evaluate
+// Evaluates all active TypeScript rules against a scenario.
+// Body: { scenario: { "fact.path": value, ... } }
+app.post("/api/ts-rules/evaluate", (req, res) => {
+  const { scenario } = req.body;
+
+  if (!scenario || typeof scenario !== "object" || Array.isArray(scenario)) {
+    res.status(400).json({ error: "Request body must contain a 'scenario' object with fact key-value pairs." });
+    return;
+  }
+
+  // Validate that all keys look like fact paths (basic sanity check)
+  for (const key of Object.keys(scenario)) {
+    if (!key.includes(".")) {
+      res.status(400).json({ error: `Invalid fact path: "${key}". Fact paths use dot notation (e.g. "employee.exempt_status").` });
+      return;
+    }
+  }
+
+  const result = evaluateRules(RULES, scenario as Scenario);
+
+  res.json({
+    scenario,
+    summary: {
+      violations: result.violations.length,
+      warnings: result.warnings.length,
+      passed: result.passed.length,
+    },
+    violations: result.violations,
+    warnings: result.warnings,
+    passed: result.passed,
+  });
+});
+
 const server = app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`  TypeScript rules: ${RULES.length} loaded`);
 });
 
 // ── Graceful shutdown ───────────────────────────────────────────────
