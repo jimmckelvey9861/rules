@@ -30,9 +30,45 @@ export class RuleValidationError extends Error {
 }
 
 /**
+ * Validation result returned by tryCreateRule().
+ */
+export interface CreateRuleResult {
+  rule: Rule | null;
+  errors: ValidationError[];
+}
+
+/**
+ * Create and validate a rule. Returns { rule, errors } without throwing.
+ * If validation fails, rule is null and errors describes what's wrong.
+ * The server can skip bad rules and keep running.
+ */
+export function tryCreateRule(definition: Rule): CreateRuleResult {
+  const errors = validateRuleDefinition(definition);
+  if (errors.length > 0) {
+    return { rule: null, errors };
+  }
+  return { rule: Object.freeze({ ...definition }), errors: [] };
+}
+
+/**
  * Create and validate a rule. Throws RuleValidationError if invalid.
+ * Use this in tests or when you want strict failure.
  */
 export function createRule(definition: Rule): Rule {
+  const errors = validateRuleDefinition(definition);
+
+  // ─── Throw if any errors ─────────────────────────────────────────
+  if (errors.length > 0) {
+    throw new RuleValidationError(definition.id || "(no id)", errors);
+  }
+
+  return Object.freeze({ ...definition });
+}
+
+/**
+ * Core validation logic — shared by createRule() and tryCreateRule().
+ */
+function validateRuleDefinition(definition: Rule): ValidationError[] {
   const errors: ValidationError[] = [];
 
   // ─── Required fields ─────────────────────────────────────────────
@@ -108,13 +144,7 @@ export function createRule(definition: Rule): Rule {
     validateResult(definition.result, errors);
   }
 
-  // ─── Throw if any errors ─────────────────────────────────────────
-  if (errors.length > 0) {
-    throw new RuleValidationError(definition.id || "(no id)", errors);
-  }
-
-  // Return the validated rule (frozen to prevent mutation)
-  return Object.freeze({ ...definition });
+  return errors;
 }
 
 function validateResult(result: Rule["result"], errors: ValidationError[]): void {

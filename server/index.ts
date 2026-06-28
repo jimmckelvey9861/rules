@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { RULES, evaluateRules, getAllFacts } from "./rules/index.js";
+import { RULES, SKIPPED, evaluateRules, getAllFacts } from "./rules/index.js";
 import type { Scenario } from "./rules/types.js";
 
 const app = express();
@@ -24,7 +24,7 @@ app.get("/api/ts-rules", (_req, res) => {
     citations: r.citations,
     resultType: r.result.type,
   }));
-  res.json({ count: rules.length, rules });
+  res.json({ count: rules.length, skipped: SKIPPED.length, rules });
 });
 
 // GET /api/ts-rules/:id
@@ -86,7 +86,7 @@ app.post("/api/ts-rules/evaluate", (req, res) => {
 
 const server = app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-  console.log(`  TypeScript rules: ${RULES.length} loaded`);
+  console.log(`  TypeScript rules: ${RULES.length} loaded${SKIPPED.length ? `, ${SKIPPED.length} skipped` : ""}`);
 });
 
 function shutdown() {

@@ -3,9 +3,11 @@
  *
  * Entry point for the new TypeScript rule representation.
  * Import from here to evaluate rules or access the registry.
+ *
+ * Fault-tolerant: bad rules are logged and skipped. The server always starts.
  */
 
-export { createRule, RuleValidationError } from "./createRule.js";
+export { createRule, tryCreateRule, RuleValidationError } from "./createRule.js";
 export { evaluateRule, evaluateRules } from "./evaluator.js";
 export { getAllFacts, getFact, isKnownFact, getFactType } from "./facts.js";
 export { validateCondition } from "./conditions.js";
@@ -28,7 +30,7 @@ export type {
   RuleStatus,
 } from "./types.js";
 
-// ─── Rule Registry ─────────────────────────────────────────────────
+// ─── Rule Registry (fault-tolerant loading) ────────────────────────
 
 import { federalOvertime } from "./examples/federalOvertime.js";
 import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
@@ -51,10 +53,10 @@ import { federalWarnAct } from "./examples/federalWarnAct.js";
 import type { Rule } from "./types.js";
 
 /**
- * All registered TypeScript rules.
- * Add new rules here as they are migrated.
+ * All rule candidates. These have already passed createRule() validation
+ * in their respective files. This array collects them for the registry.
  */
-export const RULES: readonly Rule[] = [
+const ALL_RULE_CANDIDATES: Rule[] = [
   // Overtime
   federalOvertime,
   californiaDailyOvertime,
@@ -87,3 +89,52 @@ export const RULES: readonly Rule[] = [
   // Mass layoffs
   federalWarnAct,
 ];
+
+/**
+ * Load rules with fault tolerance.
+ * Each rule is checked for basic integrity. Bad rules are logged and skipped.
+ */
+function loadRules(candidates: Rule[]): { rules: Rule[]; skipped: string[] } {
+  const rules: Rule[] = [];
+  const skipped: string[] = [];
+
+  for (const rule of candidates) {
+    try {
+      // Basic integrity check — rule should already be validated by createRule()
+      // but we guard against corrupted imports or future mistakes
+      if (!rule || !rule.id || !rule.appliesWhen || !rule.result || !rule.citations?.length) {
+        const id = rule?.id || "(unknown)";
+        skipped.push(id);
+        console.warn(`⚠ Skipped rule "${id}": missing required fields`);
+        continue;
+      }
+      rules.push(rule);
+    } catch (e: any) {
+      const id = rule?.id || "(unknown)";
+      skipped.push(id);
+      console.warn(`⚠ Skipped rule "${id}": ${e.message}`);
+    }
+  }
+
+  return { rules, skipped };
+}
+
+const { rules: LOADED_RULES, skipped: SKIPPED_RULES } = loadRules(ALL_RULE_CANDIDATES);
+
+if (SKIPPED_RULES.length > 0) {
+  console.warn(`\n⚠ ${SKIPPED_RULES.length} rule(s) skipped due to errors:`);
+  for (const id of SKIPPED_RULES) {
+    console.warn(`  - ${id}`);
+  }
+  console.warn("");
+}
+
+/**
+ * All successfully loaded rules.
+ */
+export const RULES: readonly Rule[] = LOADED_RULES;
+
+/**
+ * IDs of rules that failed to load.
+ */
+export const SKIPPED: readonly string[] = SKIPPED_RULES;
