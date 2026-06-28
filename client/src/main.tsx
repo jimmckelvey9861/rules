@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RulesExplorerPage />} />
-        <Route path="/rules/:id" element={<RuleDetailPage />} />
+        <Route path="/rules/*" element={<RuleDetailPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

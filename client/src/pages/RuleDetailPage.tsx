@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface Citation {
   source: string;
@@ -30,8 +30,10 @@ interface RuleDetail {
 }
 
 export function RuleDetailPage() {
-  const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const navigate = useNavigate();
+  // Extract rule ID from path — handles dots in IDs (e.g., "federal-minimum-wage-7.25")
+  const id = location.pathname.replace("/rules/", "");
   const [rule, setRule] = useState<RuleDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
