@@ -43,6 +43,7 @@ app.get("/api/ts-facts", (_req, res) => {
     path: f.path,
     type: f.type,
     description: f.description,
+    category: f.category || null,
     enumValues: f.enumValues || null,
     deprecated: f.deprecated || false,
     replacedBy: f.replacedBy || null,

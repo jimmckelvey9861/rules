@@ -19,6 +19,7 @@ interface TsFact {
   path: string;
   type: string;
   description: string;
+  category: string | null;
   enumValues: string[] | null;
   deprecated: boolean;
   replacedBy: string | null;
@@ -519,33 +520,70 @@ function TesterView({ facts, canonicalFacts, scenarioFields, evalResult, evaluat
   updateScenarioField: (i: number, key: "path" | "value", val: string) => void;
   handleEvaluate: () => void;
 }) {
+  // Group facts by category for the dropdown
+  const factsByCategory = useMemo(() => {
+    const groups: Record<string, TsFact[]> = {};
+    for (const f of canonicalFacts) {
+      const cat = f.category || "Other";
+      if (!groups[cat]) groups[cat] = [];
+      groups[cat].push(f);
+    }
+    return Object.entries(groups).sort(([a], [b]) => a.localeCompare(b));
+  }, [canonicalFacts]);
+
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h2 className="text-lg font-semibold mb-2">Scenario Tester</h2>
       <p className="text-sm text-gray-500 mb-4">Set fact values and evaluate all rules against the scenario.</p>
 
       <div className="space-y-2 mb-4">
-        {scenarioFields.map((field, i) => (
-          <div key={i} className="flex gap-2 items-center">
-            <select value={field.path} onChange={e => updateScenarioField(i, "path", e.target.value)} className="border rounded px-2 py-1.5 text-sm flex-1">
-              <option value="">Select fact...</option>
-              {canonicalFacts.map(f => <option key={f.path} value={f.path}>{f.path}</option>)}
-            </select>
-            {(() => {
-              const fact = facts.find(f => f.path === field.path);
-              if (fact?.enumValues) {
+        {scenarioFields.map((field, i) => {
+          const selectedFact = facts.find(f => f.path === field.path);
+          return (
+            <div key={i} className="flex gap-2 items-center">
+              <select value={field.path} onChange={e => updateScenarioField(i, "path", e.target.value)} className="border rounded px-2 py-1.5 text-sm flex-1">
+                <option value="">Select fact...</option>
+                {factsByCategory.map(([category, catFacts]) => (
+                  <optgroup key={category} label={category}>
+                    {catFacts.map(f => (
+                      <option key={f.path} value={f.path}>{f.path} — {f.description}</option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+              {(() => {
+                if (selectedFact?.enumValues) {
+                  return (
+                    <select value={field.value} onChange={e => updateScenarioField(i, "value", e.target.value)} className="border rounded px-2 py-1.5 text-sm w-44">
+                      <option value="">Select...</option>
+                      {selectedFact.enumValues.map(v => <option key={v} value={v}>{v}</option>)}
+                    </select>
+                  );
+                }
+                if (selectedFact?.type === "boolean") {
+                  return (
+                    <select value={field.value} onChange={e => updateScenarioField(i, "value", e.target.value)} className="border rounded px-2 py-1.5 text-sm w-44">
+                      <option value="">Select...</option>
+                      <option value="true">true</option>
+                      <option value="false">false</option>
+                    </select>
+                  );
+                }
                 return (
-                  <select value={field.value} onChange={e => updateScenarioField(i, "value", e.target.value)} className="border rounded px-2 py-1.5 text-sm w-40">
-                    <option value="">Select...</option>
-                    {fact.enumValues.map(v => <option key={v} value={v}>{v}</option>)}
-                  </select>
+                  <input
+                    type="text"
+                    value={field.value}
+                    onChange={e => updateScenarioField(i, "value", e.target.value)}
+                    placeholder={selectedFact?.type === "number" || selectedFact?.type === "money" ? "0" : selectedFact?.type === "date" ? "YYYY-MM-DD" : "value"}
+                    className="border rounded px-2 py-1.5 text-sm w-44"
+                  />
                 );
-              }
-              return <input type="text" value={field.value} onChange={e => updateScenarioField(i, "value", e.target.value)} placeholder="value" className="border rounded px-2 py-1.5 text-sm w-40" />;
-            })()}
-            <button onClick={() => removeScenarioField(i)} className="text-red-400 hover:text-red-600 text-lg px-2">×</button>
-          </div>
-        ))}
+              })()}
+              <span className="text-[10px] text-gray-400 w-14 text-center">{selectedFact?.type || ""}</span>
+              <button onClick={() => removeScenarioField(i)} className="text-red-400 hover:text-red-600 text-lg px-2">×</button>
+            </div>
+          );
+        })}
       </div>
 
       <div className="flex gap-2 mb-6">

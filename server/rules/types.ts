@@ -13,6 +13,7 @@ export interface FactDefinition {
   path: string;
   type: FactType;
   description: string;
+  category?: string;
   enumValues?: string[];
   deprecated?: boolean;
   replacedBy?: string;
