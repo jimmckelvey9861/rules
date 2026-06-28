@@ -32,7 +32,18 @@ export type {
 
 import { federalOvertime } from "./examples/federalOvertime.js";
 import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
+import { californiaDoubleTime } from "./examples/californiaDoubleTime.js";
+import { washingtonWeeklyOvertime } from "./examples/washingtonWeeklyOvertime.js";
 import { federalMinimumWage } from "./examples/federalMinimumWage.js";
+import {
+  alaskaMinimumWage,
+  californiaMinimumWage,
+  californiaFastFoodMinimumWage,
+  hawaiiMinimumWage,
+  newMexicoMinimumWage,
+  washingtonMinimumWage,
+} from "./examples/stateMinimumWages.js";
+import { ALL_LOCAL_MINIMUM_WAGES } from "./examples/localMinimumWages.js";
 import type { Rule } from "./types.js";
 
 /**
@@ -40,7 +51,23 @@ import type { Rule } from "./types.js";
  * Add new rules here as they are migrated.
  */
 export const RULES: readonly Rule[] = [
+  // Overtime
   federalOvertime,
   californiaDailyOvertime,
+  californiaDoubleTime,
+  washingtonWeeklyOvertime,
+
+  // Minimum wage — federal
   federalMinimumWage,
+
+  // Minimum wage — state
+  alaskaMinimumWage,
+  californiaMinimumWage,
+  californiaFastFoodMinimumWage,
+  hawaiiMinimumWage,
+  newMexicoMinimumWage,
+  washingtonMinimumWage,
+
+  // Minimum wage — local
+  ...ALL_LOCAL_MINIMUM_WAGES,
 ];

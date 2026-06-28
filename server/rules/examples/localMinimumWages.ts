@@ -1,0 +1,233 @@
+/**
+ * Local Minimum Wage Rules
+ *
+ * City/county minimum wages that exceed the state rate.
+ * Each locality gets its own rule with city-level geographic condition.
+ */
+
+import type { Rule } from "../types.js";
+import { createRule } from "../createRule.js";
+
+// ─── Helper to reduce boilerplate ──────────────────────────────────
+
+function localMinWageRule(opts: {
+  id: string;
+  city: string;
+  state: string;
+  minimum: number;
+  effectiveFrom: string;
+  citationSource: string;
+  citationUrl?: string;
+  citationSection?: string;
+  title?: string;
+}): Rule {
+  return createRule({
+    id: opts.id,
+    title: opts.title || `${opts.city} Minimum Wage`,
+    jurisdiction: opts.city,
+    topic: "minimum_wage",
+    effectiveFrom: opts.effectiveFrom,
+    status: "active",
+
+    appliesWhen: {
+      all: [
+        { fact: "location.state", op: "=", value: opts.state },
+        { fact: "location.city", op: "=", value: opts.city },
+        { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
+      ],
+    },
+
+    result: {
+      type: "minimum_required_value",
+      targetFact: "employee.regular_hourly_rate",
+      minimum: opts.minimum,
+      unit: "USD/hour",
+    },
+
+    citations: [
+      {
+        source: opts.citationSource,
+        url: opts.citationUrl,
+        section: opts.citationSection,
+      },
+    ],
+  });
+}
+
+// ─── California Cities ─────────────────────────────────────────────
+
+export const belmontMinimumWage = localMinWageRule({
+  id: "belmont-ca-mw-2026",
+  city: "Belmont", state: "CA", minimum: 18.95, effectiveFrom: "2026-01-01",
+  citationSource: "Belmont Municipal Code Ch. 8.10",
+});
+
+export const dalyCityMinimumWage = localMinWageRule({
+  id: "daly-city-ca-mw-2026",
+  city: "Daly City", state: "CA", minimum: 17.50, effectiveFrom: "2026-01-01",
+  citationSource: "Daly City Municipal Code Ch. 2.110",
+});
+
+export const fremontMinimumWage = localMinWageRule({
+  id: "fremont-ca-mw-2026",
+  city: "Fremont", state: "CA", minimum: 18.05, effectiveFrom: "2026-01-01",
+  citationSource: "Fremont Municipal Code Ch. 4.120",
+});
+
+export const halfMoonBayMinimumWage = localMinWageRule({
+  id: "half-moon-bay-ca-mw-2026",
+  city: "Half Moon Bay", state: "CA", minimum: 17.91, effectiveFrom: "2026-01-01",
+  citationSource: "Half Moon Bay Municipal Code Ch. 5.30",
+});
+
+export const losAngelesMinimumWage = localMinWageRule({
+  id: "los-angeles-ca-mw-2026",
+  city: "Los Angeles", state: "CA", minimum: 18.42, effectiveFrom: "2026-01-01",
+  citationSource: "Los Angeles Municipal Code §187.00 et seq.",
+  citationUrl: "https://wagesla.lacity.org/",
+});
+
+export const malibuMinimumWage = localMinWageRule({
+  id: "malibu-ca-mw-2026",
+  city: "Malibu", state: "CA", minimum: 17.91, effectiveFrom: "2026-01-01",
+  citationSource: "Malibu Municipal Code Ch. 5.25",
+});
+
+export const novatoMinimumWage = localMinWageRule({
+  id: "novato-ca-mw-2026",
+  city: "Novato", state: "CA", minimum: 17.73, effectiveFrom: "2026-01-01",
+  citationSource: "Novato Municipal Code Ch. V Art. 3",
+});
+
+export const pasadenaMinimumWage = localMinWageRule({
+  id: "pasadena-ca-mw-2026",
+  city: "Pasadena", state: "CA", minimum: 18.57, effectiveFrom: "2026-01-01",
+  citationSource: "Pasadena Municipal Code Ch. 5.09",
+});
+
+export const redwoodCityMinimumWage = localMinWageRule({
+  id: "redwood-city-ca-mw-2026",
+  city: "Redwood City", state: "CA", minimum: 18.65, effectiveFrom: "2026-01-01",
+  citationSource: "Redwood City Municipal Code Ch. 30",
+});
+
+export const richmondMinimumWage = localMinWageRule({
+  id: "richmond-ca-mw-2026",
+  city: "Richmond", state: "CA", minimum: 19.18, effectiveFrom: "2026-01-01",
+  citationSource: "Richmond Municipal Code Ch. 7.108",
+});
+
+export const sanCarlosMinimumWage = localMinWageRule({
+  id: "san-carlos-ca-mw-2026",
+  city: "San Carlos", state: "CA", minimum: 17.75, effectiveFrom: "2026-01-01",
+  citationSource: "San Carlos Municipal Code Ch. 8.20",
+});
+
+export const sanFranciscoMinimumWage = localMinWageRule({
+  id: "san-francisco-ca-mw-2026",
+  city: "San Francisco", state: "CA", minimum: 19.61, effectiveFrom: "2026-01-01",
+  citationSource: "San Francisco Administrative Code Ch. 12R",
+  citationUrl: "https://sfgov.org/olse/minimum-wage-ordinance",
+});
+
+export const sanJoseMinimumWage = localMinWageRule({
+  id: "san-jose-ca-mw-2025",
+  city: "San Jose", state: "CA", minimum: 18.45, effectiveFrom: "2025-01-01",
+  citationSource: "San Jose Municipal Code Ch. 4.100",
+});
+
+export const santaClaraMinimumWage = localMinWageRule({
+  id: "santa-clara-ca-mw-2026",
+  city: "Santa Clara", state: "CA", minimum: 18.70, effectiveFrom: "2026-01-01",
+  citationSource: "Santa Clara City Code Ch. 3.20",
+});
+
+export const sunnyvaleMinimumWage = localMinWageRule({
+  id: "sunnyvale-ca-mw-2026",
+  city: "Sunnyvale", state: "CA", minimum: 19.50, effectiveFrom: "2026-01-01",
+  citationSource: "Sunnyvale Municipal Code Ch. 4.08",
+});
+
+export const westHollywoodMinimumWage = localMinWageRule({
+  id: "west-hollywood-ca-mw-2026",
+  city: "West Hollywood", state: "CA", minimum: 20.25, effectiveFrom: "2026-01-01",
+  citationSource: "West Hollywood Municipal Code Ch. 5.50",
+});
+
+// ─── Colorado ──────────────────────────────────────────────────────
+
+export const boulderMinimumWage = localMinWageRule({
+  id: "boulder-co-mw-2026",
+  city: "Boulder", state: "CO", minimum: 15.57, effectiveFrom: "2026-01-01",
+  citationSource: "Boulder Revised Code Ch. 12-1",
+});
+
+export const denverMinimumWage = localMinWageRule({
+  id: "denver-co-mw-2025",
+  city: "Denver", state: "CO", minimum: 19.29, effectiveFrom: "2025-01-01",
+  citationSource: "Denver Revised Municipal Code §58-15",
+  citationUrl: "https://www.denvergov.org/Government/Agencies-Departments-Offices/Auditors-Office/Denver-Minimum-Wage",
+});
+
+// ─── Minnesota ─────────────────────────────────────────────────────
+
+export const minneapolisMinimumWage = localMinWageRule({
+  id: "minneapolis-mn-mw-2026",
+  city: "Minneapolis", state: "MN", minimum: 16.37, effectiveFrom: "2026-01-01",
+  citationSource: "Minneapolis Code of Ordinances Title 2 Ch. 40",
+  citationUrl: "https://www.minneapolismn.gov/government/government-data/datasource/minimum-wage/",
+});
+
+// ─── Oregon ────────────────────────────────────────────────────────
+
+export const portlandMetroMinimumWage = localMinWageRule({
+  id: "portland-metro-or-mw-2024",
+  city: "Portland Metro Area", state: "OR", minimum: 15.95, effectiveFrom: "2024-07-01",
+  citationSource: "ORS 653.025 (Portland Metro standard)",
+  citationUrl: "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx",
+});
+
+// ─── Washington ────────────────────────────────────────────────────
+
+export const seattleMinimumWage = localMinWageRule({
+  id: "seattle-wa-mw-2026",
+  city: "Seattle", state: "WA", minimum: 20.76, effectiveFrom: "2026-01-01",
+  citationSource: "Seattle Municipal Code Ch. 14.19",
+  citationUrl: "https://www.seattle.gov/laborstandards/ordinances/minimum-wage",
+});
+
+// ─── California: Hayward (multi-rate — large employer) ─────────────
+
+export const haywardMinimumWageLarge = localMinWageRule({
+  id: "hayward-ca-mw-large-2026",
+  city: "Hayward", state: "CA", minimum: 17.79, effectiveFrom: "2026-01-01",
+  citationSource: "Hayward Municipal Code Ch. 5 Art. 12",
+  title: "Hayward Minimum Wage (26+ employees)",
+});
+
+// ─── All local minimum wage rules ──────────────────────────────────
+
+export const ALL_LOCAL_MINIMUM_WAGES: readonly Rule[] = [
+  belmontMinimumWage,
+  dalyCityMinimumWage,
+  fremontMinimumWage,
+  halfMoonBayMinimumWage,
+  losAngelesMinimumWage,
+  malibuMinimumWage,
+  novatoMinimumWage,
+  pasadenaMinimumWage,
+  redwoodCityMinimumWage,
+  richmondMinimumWage,
+  sanCarlosMinimumWage,
+  sanFranciscoMinimumWage,
+  sanJoseMinimumWage,
+  santaClaraMinimumWage,
+  sunnyvaleMinimumWage,
+  westHollywoodMinimumWage,
+  boulderMinimumWage,
+  denverMinimumWage,
+  minneapolisMinimumWage,
+  portlandMetroMinimumWage,
+  seattleMinimumWage,
+  haywardMinimumWageLarge,
+];
