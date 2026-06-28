@@ -436,18 +436,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
                   }
 
                   return (
-                    <td key={col.id} className="border text-center">
-                      <button
-                        onClick={() => {
-                          if (cellRules.length === 1) navigate(`/rules/${cellRules[0].id}`);
-                          // TODO: multi-rule cell popup
-                        }}
-                        className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-500 text-white text-[10px] font-bold hover:bg-blue-600"
-                        title={cellRules.map(r => r.title).join("\n")}
-                      >
-                        {cellRules.length}
-                      </button>
-                    </td>
+                    <CellButton key={col.id} rules={cellRules} navigate={navigate} />
                   );
                 })}
               </tr>
@@ -456,6 +445,50 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
         </table>
       </div>
     </div>
+  );
+}
+
+function CellButton({ rules, navigate }: { rules: TsRule[]; navigate: (path: string) => void }) {
+  const [open, setOpen] = useState(false);
+
+  if (rules.length === 1) {
+    return (
+      <td className="border text-center">
+        <button
+          onClick={() => navigate(`/rules/${rules[0].id}`)}
+          className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-500 text-white text-[10px] font-bold hover:bg-blue-600"
+        >
+          1
+        </button>
+      </td>
+    );
+  }
+
+  return (
+    <td className="border text-center relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-500 text-white text-[10px] font-bold hover:bg-blue-600"
+      >
+        {rules.length}
+      </button>
+      {open && (
+        <>
+          <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
+          <div className="absolute z-50 top-full left-1/2 -translate-x-1/2 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-2 min-w-[240px]">
+            {rules.map(r => (
+              <button
+                key={r.id}
+                onClick={() => { setOpen(false); navigate(`/rules/${r.id}`); }}
+                className="block w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded"
+              >
+                {r.title}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </td>
   );
 }
 
