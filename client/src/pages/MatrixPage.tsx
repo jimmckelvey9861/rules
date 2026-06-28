@@ -214,12 +214,20 @@ export function MatrixPage() {
             Employment law source coverage by jurisdiction and category
           </p>
         </div>
-        <button
-          onClick={() => navigate("/candidates")}
-          className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded hover:bg-gray-200"
-        >
-          Candidates →
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => navigate("/rules")}
+            className="px-4 py-2 bg-blue-50 text-blue-700 text-sm font-medium rounded hover:bg-blue-100"
+          >
+            Rules Explorer
+          </button>
+          <button
+            onClick={() => navigate("/candidates")}
+            className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded hover:bg-gray-200"
+          >
+            Candidates →
+          </button>
+        </div>
       </header>
 
       {/* Filters */}
