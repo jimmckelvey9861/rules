@@ -1,6 +1,6 @@
 {
   "name": "third-rules-engine",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
@@ -8,31 +8,9 @@
     "dev:client": "cd client && npm run dev",
     "build": "cd client && npm run build",
     "typecheck": "tsc --noEmit && cd client && tsc --noEmit",
-    "db:migrate": "prisma migrate dev",
-    "db:seed": "tsx server/seed.ts",
-    "db:studio": "prisma studio",
-    "crawl": "tsx server/crawler/crawl.ts",
-    "crawl:federal-compensation": "tsx server/crawler/crawl-federal-compensation.ts",
-    "crawl:federal-all": "tsx server/crawler/crawl-federal-all.ts",
-    "crawl:states-ac": "tsx server/crawler/crawl-states-a-c.ts",
-    "crawl:ca-local-mw": "tsx server/crawler/crawl-ca-local-mw.ts",
-    "crawl:ca-local-mw-v2": "tsx server/crawler/crawl-ca-local-mw-v2.ts",
-    "import:old-seeds": "tsx server/crawler/import-old-seeds.ts",
-    "check:candidates": "tsx server/crawler/check-candidates.ts",
-    "repair:candidates": "tsx server/crawler/repair-candidates.ts",
-    "health:candidates": "tsx server/crawler/health-summary.ts",
-    "assess:candidates": "tsx server/crawler/assess-candidates.ts",
-    "reassess:minimum-wage": "tsx server/crawler/reassess-minimum-wage.ts",
-    "normalize:rules": "tsx server/normalizer/dry-run.ts",
-    "normalize:rules:apply": "tsx server/normalizer/apply.ts",
-    "test:rules": "tsx server/evaluator/test-rules.ts",
-    "test:new-rules": "tsx server/rules/rules.test.ts",
-    "compare:overtime": "tsx server/rules/compare.ts",
-    "crawl:all-mw": "tsx server/crawler/crawl-all-minimum-wage.ts",
-    "auto-check:min-wage": "tsx server/auto-check/run-auto-check.ts"
+    "test:new-rules": "tsx server/rules/rules.test.ts"
   },
   "dependencies": {
-    "@prisma/client": "^6.8.0",
     "cors": "^2.8.5",
     "express": "^4.21.0"
   },
@@ -41,7 +19,6 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.0.0",
     "concurrently": "^9.0.0",
-    "prisma": "^6.8.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   }

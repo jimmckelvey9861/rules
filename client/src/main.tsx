@@ -2,23 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import { MatrixPage } from "./pages/MatrixPage";
-import { LawDetailPage } from "./pages/LawDetailPage";
-import { CandidatesPage } from "./pages/CandidatesPage";
-import { CandidateDetailPage } from "./pages/CandidateDetailPage";
-import { CellReviewPage } from "./pages/CellReviewPage";
 import { RulesExplorerPage } from "./pages/RulesExplorerPage";
+import { RuleDetailPage } from "./pages/RuleDetailPage";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MatrixPage />} />
-        <Route path="/rules" element={<RulesExplorerPage />} />
-        <Route path="/laws/:id" element={<LawDetailPage />} />
-        <Route path="/candidates" element={<CandidatesPage />} />
-        <Route path="/candidates/:id" element={<CandidateDetailPage />} />
-        <Route path="/matrix-cell/:jurisdictionId/:lawCategoryId" element={<CellReviewPage />} />
+        <Route path="/" element={<RulesExplorerPage />} />
+        <Route path="/rules/:id" element={<RuleDetailPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

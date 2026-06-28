@@ -1,87 +1,59 @@
-# Law Inventory Browser
+# Employment Law Rules Engine
 
-A minimal two-screen web application for visualizing employment/labor law source coverage across U.S. jurisdictions.
+Deterministic TypeScript rule engine for U.S. employment law compliance.
 
 ## Architecture
 
-- **Frontend**: React + TypeScript + Vite + Tailwind CSS
-- **Backend**: Node + TypeScript + Express
-- **Database**: PostgreSQL (via Docker Compose) + Prisma ORM
-- **Data**: Static seed files derived from Employment Law Taxonomy, Location Ontology, and Applicability Variable Taxonomy
-
-## Screens
-
-1. **Law Matrix** (`/`) — Rows are law categories, columns are jurisdictions. Populated cells are clickable.
-2. **Law Detail** (`/laws/:id`) — Full details of a law source including applicability variables.
+Rules are defined as validated TypeScript objects — no database, no JSON blobs.
+Each rule is created with `createRule()` which enforces:
+- All referenced facts exist in the fact registry
+- Operators match fact types (no `>` on booleans)
+- No vague values ("varies", "unknown")
+- Required citation, effective date, and ID
 
 ## Quick Start
 
 ```bash
-cd /Users/jim/source/third_rules_engine
-
-# 1. Start PostgreSQL
-docker compose up -d
-
-# 2. Install dependencies
 npm install
-cd client && npm install && cd ..
-
-# 3. Run database migration
-npx prisma migrate dev --name init
-
-# 4. Seed the database
-npm run db:seed
-
-# 5. Start development servers (backend + frontend)
-npm run dev
+npm run dev          # Starts server (port 3001) + client (port 5173)
+npm run test:new-rules   # Run all tests
+npm run typecheck        # TypeScript type checking
 ```
 
-## URLs
+No database required. No Docker. No environment variables.
 
-| Service  | URL                        |
-|----------|----------------------------|
-| Frontend | http://localhost:5173       |
-| Backend  | http://localhost:3001       |
-| Prisma Studio | `npm run db:studio`   |
+## API
 
-## Available Scripts
+- `GET /api/ts-rules` — List all rules
+- `GET /api/ts-rules/:id` — Single rule detail
+- `GET /api/ts-facts` — Fact registry
+- `POST /api/ts-rules/evaluate` — Evaluate scenario against all rules
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start both backend and frontend in dev mode |
-| `npm run dev:server` | Start backend only |
-| `npm run dev:client` | Start frontend only |
-| `npm run build` | Build frontend for production |
-| `npm run typecheck` | Type-check both server and client |
-| `npm run db:migrate` | Run Prisma migrations |
-| `npm run db:seed` | Seed the database |
-| `npm run db:studio` | Open Prisma Studio |
+## Structure
 
-## API Endpoints
+```
+server/
+  index.ts              — Express server (4 endpoints)
+  rules/
+    types.ts            — Core type definitions
+    facts.ts            — Fact registry (75 facts)
+    conditions.ts       — Condition DSL validation
+    createRule.ts       — Rule factory with validation
+    evaluator.ts        — Pure deterministic evaluator
+    index.ts            — Public API + rule registry
+    rules.test.ts       — Tests
+    examples/           — All rule definitions
+client/
+  src/pages/
+    RulesExplorerPage   — Browse rules + scenario tester
+    RuleDetailPage      — Individual rule detail view
+```
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/jurisdictions` | All jurisdictions |
-| GET | `/api/law-categories` | All law categories |
-| GET | `/api/applicability-variables` | All applicability variables |
-| GET | `/api/law-sources` | All law sources |
-| GET | `/api/law-sources/:id` | Single law source with details |
-| GET | `/api/matrix` | Matrix data (categories, jurisdictions, cells) |
+## Rules (41)
 
-## Database Schema
-
-- **Jurisdiction** — Hierarchical location tree (federal → state → county → city)
-- **LawCategory** — Three-level taxonomy of employment law topics
-- **ApplicabilityVariable** — Variables needed to evaluate a law's applicability
-- **LawSource** — Individual law/regulation records
-- **LawSourceApplicabilityVariable** — Join table linking sources to variables
-
-## What This Is NOT
-
-- ❌ No crawler or automatic law extraction
-- ❌ No approval workflows
-- ❌ No compliance evaluation engine
-- ❌ No authentication
-- ❌ No queues or background jobs
-
-This is purely an **organized, inspectable law inventory browser**.
+- **Overtime**: Federal weekly, CA daily, CA double time, WA weekly
+- **Minimum wage**: Federal + 6 states + 22 cities
+- **Predictive scheduling**: Seattle, NYC (fast food, retail, clopening)
+- **Meal breaks**: CA first (>5hr) and second (>10hr)
+- **Leave**: Federal FMLA
+- **Mass layoffs**: Federal WARN Act

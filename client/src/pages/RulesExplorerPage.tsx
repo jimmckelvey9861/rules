@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface TsRule {
   id: string;
@@ -56,6 +57,7 @@ const RESULT_TYPE_LABELS: Record<string, string> = {
 };
 
 export function RulesExplorerPage() {
+  const navigate = useNavigate();
   const [rules, setRules] = useState<TsRule[]>([]);
   const [facts, setFacts] = useState<TsFact[]>([]);
   const [loading, setLoading] = useState(true);
@@ -167,12 +169,9 @@ export function RulesExplorerPage() {
             {rules.length} deterministic TypeScript rules · {canonicalFacts.length} registered facts
           </p>
         </div>
-        <a
-          href="/"
-          className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded hover:bg-gray-200"
-        >
-          ← Matrix
-        </a>
+        <span className="text-xs text-gray-400">
+          Deterministic Rule Engine
+        </span>
       </header>
 
       <div className="flex-1 overflow-auto p-6">
@@ -212,7 +211,7 @@ export function RulesExplorerPage() {
             {/* Rule cards */}
             <div className="space-y-2 max-h-[600px] overflow-y-auto">
               {filteredRules.map(rule => (
-                <div key={rule.id} className="bg-white border rounded-lg p-3">
+                <div key={rule.id} className="bg-white border rounded-lg p-3 cursor-pointer hover:border-blue-300 hover:shadow-sm transition-all" onClick={() => navigate(`/rules/${rule.id}`)}>
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <div className="font-medium text-sm text-gray-900">{rule.title}</div>

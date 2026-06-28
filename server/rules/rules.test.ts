@@ -2,8 +2,9 @@
  * Deterministic Rule System Tests
  *
  * Tests for:
- * - Rule evaluation (federal overtime)
+ * - Rule evaluation (federal overtime, CA daily overtime, federal minimum wage)
  * - createRule validation (rejects bad input)
+ * - Fact registry integrity
  *
  * Usage: npm run test:new-rules
  */
@@ -13,11 +14,8 @@ import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
 import { federalMinimumWage } from "./examples/federalMinimumWage.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
-import {
-  isKnownFact, isDeprecatedFact, getReplacementFact,
-  getCanonicalFacts, getDeprecatedFacts, getEnumValues, getFact,
-} from "./facts.js";
-import type { Rule, Scenario } from "./types.js";
+import { isKnownFact, getCanonicalFacts, getEnumValues } from "./facts.js";
+import type { Scenario } from "./types.js";
 
 // ─── Test infrastructure ─────────────────────────────────────────────
 
@@ -74,7 +72,6 @@ function testFederalOvertimeApplies() {
   const scenario: Scenario = {
     "employee.exempt_status": "non_exempt",
     "shift.hours_worked_this_week": 45,
-    "employee.hourly_rate": 20,
   };
 
   const result = evaluateRule(federalOvertime, scenario);
@@ -92,7 +89,6 @@ function testFederalOvertimeDoesNotApplyUnder40() {
   const scenario: Scenario = {
     "employee.exempt_status": "non_exempt",
     "shift.hours_worked_this_week": 40,
-    "employee.hourly_rate": 20,
   };
 
   const result = evaluateRule(federalOvertime, scenario);
@@ -107,7 +103,6 @@ function testFederalOvertimeDoesNotApplyExempt() {
   const scenario: Scenario = {
     "employee.exempt_status": "exempt",
     "shift.hours_worked_this_week": 50,
-    "employee.hourly_rate": 30,
   };
 
   const result = evaluateRule(federalOvertime, scenario);
@@ -128,134 +123,6 @@ function testEvaluateRulesSummary() {
   assertEq(summary.violations.length, 1, "1 violation in summary");
   assertEq(summary.passed.length, 0, "0 passed in summary");
   assertEq(summary.warnings.length, 0, "0 warnings in summary");
-}
-
-// ─── Test: createRule validation ─────────────────────────────────────
-
-function testRejectsUnknownFact() {
-  console.log("\n── createRule: rejects unknown fact ─────────────────────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "test-bad-fact",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "overtime",
-      effectiveFrom: "2024-01-01",
-      status: "active",
-      appliesWhen: { fact: "employee.zodiac_sign", op: "=", value: "aries" },
-      result: { type: "warning", message: "test" },
-      citations: [{ source: "Test Source" }],
-    });
-  }, "RuleValidationError", "Rejects unknown fact 'employee.zodiac_sign'");
-}
-
-function testRejectsVagueValues() {
-  console.log("\n── createRule: rejects vague values ─────────────────────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "test-vague",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "overtime",
-      effectiveFrom: "2024-01-01",
-      status: "active",
-      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "varies" },
-      result: { type: "warning", message: "test" },
-      citations: [{ source: "Test Source" }],
-    });
-  }, "RuleValidationError", "Rejects vague value 'varies'");
-}
-
-function testRejectsMissingId() {
-  console.log("\n── createRule: rejects missing id ───────────────────────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "overtime",
-      effectiveFrom: "2024-01-01",
-      status: "active",
-      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
-      result: { type: "warning", message: "test" },
-      citations: [{ source: "Test Source" }],
-    });
-  }, "RuleValidationError", "Rejects empty id");
-}
-
-function testRejectsMissingCitation() {
-  console.log("\n── createRule: rejects missing citation ─────────────────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "test-no-citation",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "overtime",
-      effectiveFrom: "2024-01-01",
-      status: "active",
-      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
-      result: { type: "warning", message: "test" },
-      citations: [],
-    });
-  }, "RuleValidationError", "Rejects empty citations array");
-}
-
-function testRejectsInvalidOperatorForType() {
-  console.log("\n── createRule: rejects invalid operator for boolean ─────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "test-bad-op",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "scheduling",
-      effectiveFrom: "2024-01-01",
-      status: "active",
-      appliesWhen: { fact: "schedule.split_shift", op: ">", value: true },
-      result: { type: "warning", message: "test" },
-      citations: [{ source: "Test Source" }],
-    });
-  }, "RuleValidationError", "Rejects '>' operator on boolean fact");
-}
-
-function testRejectsInvalidEnumValue() {
-  console.log("\n── createRule: rejects invalid enum value ───────────────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "test-bad-enum",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "overtime",
-      effectiveFrom: "2024-01-01",
-      status: "active",
-      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "maybe" },
-      result: { type: "warning", message: "test" },
-      citations: [{ source: "Test Source" }],
-    });
-  }, "RuleValidationError", "Rejects invalid enum value 'maybe'");
-}
-
-function testRejectsBadEffectiveDate() {
-  console.log("\n── createRule: rejects bad effective date ───────────────\n");
-
-  assertThrows(() => {
-    createRule({
-      id: "test-bad-date",
-      title: "Test Rule",
-      jurisdiction: "Federal",
-      topic: "overtime",
-      effectiveFrom: "2024",
-      status: "active",
-      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
-      result: { type: "warning", message: "test" },
-      citations: [{ source: "Test Source" }],
-    });
-  }, "RuleValidationError", "Rejects non-ISO effective date '2024'");
 }
 
 // ─── Test: California Daily Overtime Rule ────────────────────────────
@@ -376,6 +243,134 @@ function testFederalMinWagePreEffectiveDate() {
   assertEq(result.outcome, "passed", "Outcome is passed (before effective date)");
 }
 
+// ─── Test: createRule validation ─────────────────────────────────────
+
+function testRejectsUnknownFact() {
+  console.log("\n── createRule: rejects unknown fact ─────────────────────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "test-bad-fact",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "overtime",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "employee.zodiac_sign", op: "=", value: "aries" },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "Rejects unknown fact 'employee.zodiac_sign'");
+}
+
+function testRejectsVagueValues() {
+  console.log("\n── createRule: rejects vague values ─────────────────────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "test-vague",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "overtime",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "varies" },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "Rejects vague value 'varies'");
+}
+
+function testRejectsMissingId() {
+  console.log("\n── createRule: rejects missing id ───────────────────────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "overtime",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "Rejects empty id");
+}
+
+function testRejectsMissingCitation() {
+  console.log("\n── createRule: rejects missing citation ─────────────────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "test-no-citation",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "overtime",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
+      result: { type: "warning", message: "test" },
+      citations: [],
+    });
+  }, "RuleValidationError", "Rejects empty citations array");
+}
+
+function testRejectsInvalidOperatorForType() {
+  console.log("\n── createRule: rejects invalid operator for boolean ─────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "test-bad-op",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "scheduling",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "shift.is_split_shift", op: ">", value: true },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "Rejects '>' operator on boolean fact");
+}
+
+function testRejectsInvalidEnumValue() {
+  console.log("\n── createRule: rejects invalid enum value ───────────────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "test-bad-enum",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "overtime",
+      effectiveFrom: "2024-01-01",
+      status: "active",
+      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "maybe" },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "Rejects invalid enum value 'maybe'");
+}
+
+function testRejectsBadEffectiveDate() {
+  console.log("\n── createRule: rejects bad effective date ───────────────\n");
+
+  assertThrows(() => {
+    createRule({
+      id: "test-bad-date",
+      title: "Test Rule",
+      jurisdiction: "Federal",
+      topic: "overtime",
+      effectiveFrom: "2024",
+      status: "active",
+      appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
+      result: { type: "warning", message: "test" },
+      citations: [{ source: "Test Source" }],
+    });
+  }, "RuleValidationError", "Rejects non-ISO effective date '2024'");
+}
+
 // ─── Test: Fact Registry ─────────────────────────────────────────────
 
 function testCanonicalFactsRegistered() {
@@ -396,58 +391,32 @@ function testCanonicalFactsRegistered() {
 
   for (const path of expectedCanonical) {
     assert(isKnownFact(path), `Canonical fact "${path}" is registered`);
-    assert(!isDeprecatedFact(path), `Canonical fact "${path}" is NOT deprecated`);
-  }
-}
-
-function testDeprecatedFactsPointToReplacements() {
-  console.log("\n── Fact Registry: deprecated facts point to replacements ─\n");
-
-  const expectedDeprecations: [string, string][] = [
-    ["employer.employee_count", "employer.total_employees"],
-    ["employer.industry", "employer.industry_tag"],
-    ["employee.hourly_rate", "employee.regular_hourly_rate"],
-    ["schedule.split_shift", "shift.is_split_shift"],
-    ["schedule.posted_days_in_advance", "schedule.advance_notice_days"],
-  ];
-
-  for (const [oldPath, newPath] of expectedDeprecations) {
-    assert(isKnownFact(oldPath), `Deprecated fact "${oldPath}" is still registered`);
-    assert(isDeprecatedFact(oldPath), `Fact "${oldPath}" is marked deprecated`);
-    assertEq(getReplacementFact(oldPath), newPath, `"${oldPath}" points to "${newPath}"`);
-    assert(isKnownFact(newPath), `Replacement "${newPath}" exists`);
-    assert(!isDeprecatedFact(newPath), `Replacement "${newPath}" is NOT deprecated`);
   }
 }
 
 function testEnumFactsRejectInvalidValues() {
   console.log("\n── Fact Registry: enum facts reject invalid values ───────\n");
 
-  // employer.industry_tag should have known values
   const industryValues = getEnumValues("employer.industry_tag");
   assert(industryValues !== undefined, "employer.industry_tag has enum values");
   assert(industryValues!.includes("fast_food"), "industry_tag includes 'fast_food'");
   assert(industryValues!.includes("healthcare"), "industry_tag includes 'healthcare'");
   assert(!industryValues!.includes("zodiac"), "industry_tag does NOT include 'zodiac'");
 
-  // schedule.change_type
   const changeValues = getEnumValues("schedule.change_type");
   assert(changeValues !== undefined, "schedule.change_type has enum values");
   assert(changeValues!.includes("hours_added"), "change_type includes 'hours_added'");
   assert(changeValues!.includes("shift_cancelled"), "change_type includes 'shift_cancelled'");
 
-  // leave.type
   const leaveValues = getEnumValues("leave.type");
   assert(leaveValues !== undefined, "leave.type has enum values");
   assert(leaveValues!.includes("sick"), "leave.type includes 'sick'");
   assert(leaveValues!.includes("family"), "leave.type includes 'family'");
 
-  // termination.type
   const termValues = getEnumValues("termination.type");
   assert(termValues !== undefined, "termination.type has enum values");
   assert(termValues!.includes("layoff"), "termination.type includes 'layoff'");
 
-  // createRule rejects invalid enum for new industry_tag fact
   assertThrows(() => {
     createRule({
       id: "test-bad-industry",
@@ -463,37 +432,11 @@ function testEnumFactsRejectInvalidValues() {
   }, "RuleValidationError", "createRule rejects invalid industry_tag enum value");
 }
 
-function testFederalOvertimeStillPassesUnchanged() {
-  console.log("\n── Fact Registry: federal overtime rule still works ──────\n");
-
-  // The rule uses employee.exempt_status and shift.hours_worked_this_week
-  // Both must remain canonical (not deprecated)
-  assert(!isDeprecatedFact("employee.exempt_status"), "employee.exempt_status is not deprecated");
-  assert(!isDeprecatedFact("shift.hours_worked_this_week"), "shift.hours_worked_this_week is not deprecated");
-
-  // Rule still evaluates correctly
-  const scenario: Scenario = {
-    "employee.exempt_status": "non_exempt",
-    "shift.hours_worked_this_week": 45,
-  };
-  const result = evaluateRule(federalOvertime, scenario);
-  assertEq(result.outcome, "violation", "Federal overtime still triggers violation");
-}
-
 function testRegistryCounts() {
   console.log("\n── Fact Registry: expected counts ───────────────────────\n");
 
   const canonical = getCanonicalFacts();
-  const deprecated = getDeprecatedFacts();
-
   assert(canonical.length >= 65, `At least 65 canonical facts (got ${canonical.length})`);
-  assertEq(deprecated.length, 5, "Exactly 5 deprecated facts");
-
-  // Every deprecated fact's replacement must exist
-  for (const dep of deprecated) {
-    assert(dep.replacedBy !== undefined, `Deprecated "${dep.path}" has replacedBy`);
-    assert(isKnownFact(dep.replacedBy!), `Replacement "${dep.replacedBy}" for "${dep.path}" exists`);
-  }
 }
 
 // ─── Run all tests ───────────────────────────────────────────────────
@@ -503,25 +446,25 @@ function main() {
   console.log("  Deterministic Rule System — Tests");
   console.log("═══════════════════════════════════════════════════════════");
 
-  // Evaluation tests
+  // Federal overtime
   testFederalOvertimeApplies();
   testFederalOvertimeDoesNotApplyUnder40();
   testFederalOvertimeDoesNotApplyExempt();
   testEvaluateRulesSummary();
 
-  // Federal minimum wage tests
-  testFederalMinWageViolation();
-  testFederalMinWagePassesAtMinimum();
-  testFederalMinWageExemptEmployee();
-  testFederalMinWagePreEffectiveDate();
-
-  // California daily overtime tests
+  // California daily overtime
   testCaDailyOvertimeApplies();
   testCaDailyOvertimeDoesNotApplyAt8();
   testCaDailyOvertimeDoesNotApplyExempt();
   testCaDailyOvertimeDoesNotApplyOutsideCA();
 
-  // Validation tests
+  // Federal minimum wage
+  testFederalMinWageViolation();
+  testFederalMinWagePassesAtMinimum();
+  testFederalMinWageExemptEmployee();
+  testFederalMinWagePreEffectiveDate();
+
+  // createRule validation
   testRejectsUnknownFact();
   testRejectsVagueValues();
   testRejectsMissingId();
@@ -530,11 +473,9 @@ function main() {
   testRejectsInvalidEnumValue();
   testRejectsBadEffectiveDate();
 
-  // Fact registry tests
+  // Fact registry
   testCanonicalFactsRegistered();
-  testDeprecatedFactsPointToReplacements();
   testEnumFactsRejectInvalidValues();
-  testFederalOvertimeStillPassesUnchanged();
   testRegistryCounts();
 
   // Summary

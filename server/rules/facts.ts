@@ -175,25 +175,6 @@ const FACTS: FactDefinition[] = [
   },
   { path: "payroll.days_since_pay_period_end", type: "number", description: "Days elapsed since end of pay period (for timely payment rules)" },
 
-  // ═══════════════════════════════════════════════════════════════════
-  // DEPRECATED — Old names kept for backward compatibility
-  // ═══════════════════════════════════════════════════════════════════
-
-  { path: "employer.employee_count", type: "number", description: "[DEPRECATED] Total number of employees",
-    deprecated: true, replacedBy: "employer.total_employees",
-  },
-  { path: "employer.industry", type: "string", description: "[DEPRECATED] Employer industry classification",
-    deprecated: true, replacedBy: "employer.industry_tag",
-  },
-  { path: "employee.hourly_rate", type: "money", description: "[DEPRECATED] Employee hourly pay rate in dollars",
-    deprecated: true, replacedBy: "employee.regular_hourly_rate",
-  },
-  { path: "schedule.split_shift", type: "boolean", description: "[DEPRECATED] Whether this is a split shift",
-    deprecated: true, replacedBy: "shift.is_split_shift",
-  },
-  { path: "schedule.posted_days_in_advance", type: "number", description: "[DEPRECATED] Days in advance the schedule was posted",
-    deprecated: true, replacedBy: "schedule.advance_notice_days",
-  },
 ];
 
 /** Map from fact path to definition for O(1) lookup */
@@ -215,21 +196,7 @@ export function isKnownFact(path: string): boolean {
   return FACT_MAP.has(path);
 }
 
-/**
- * Check if a fact is deprecated.
- */
-export function isDeprecatedFact(path: string): boolean {
-  const fact = FACT_MAP.get(path);
-  return fact?.deprecated === true;
-}
 
-/**
- * Get the canonical replacement for a deprecated fact.
- */
-export function getReplacementFact(path: string): string | undefined {
-  const fact = FACT_MAP.get(path);
-  return fact?.replacedBy;
-}
 
 /**
  * Get the type of a registered fact.
@@ -246,17 +213,10 @@ export function getAllFacts(): readonly FactDefinition[] {
 }
 
 /**
- * Get only canonical (non-deprecated) fact definitions.
+ * Get all canonical fact definitions.
  */
 export function getCanonicalFacts(): readonly FactDefinition[] {
-  return FACTS.filter(f => !f.deprecated);
-}
-
-/**
- * Get only deprecated fact definitions.
- */
-export function getDeprecatedFacts(): readonly FactDefinition[] {
-  return FACTS.filter(f => f.deprecated === true);
+  return FACTS;
 }
 
 /**
