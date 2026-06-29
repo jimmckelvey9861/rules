@@ -162,6 +162,7 @@ const TOPIC_COLORS: Record<string, string> = {
   minimum_wage: "bg-green-100 text-green-800",
   predictive_scheduling: "bg-purple-100 text-purple-800",
   meal_break: "bg-yellow-100 text-yellow-800",
+  rest_break: "bg-amber-100 text-amber-800",
   family_medical_leave: "bg-pink-100 text-pink-800",
   warn_act: "bg-red-100 text-red-800",
 };

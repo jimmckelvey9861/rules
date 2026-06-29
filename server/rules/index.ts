@@ -48,6 +48,7 @@ import {
 import { ALL_LOCAL_MINIMUM_WAGES } from "./examples/localMinimumWages.js";
 // Old predictiveScheduling.ts superseded by fairWorkweek.ts (more detailed penalty tiers)
 import { ALL_MEAL_BREAK_RULES } from "./examples/californiaMealBreak.js";
+import { ALL_MEAL_REST_BREAK_RULES } from "./examples/mealRestBreaks.js";
 import { ALL_PRIORITY_STATE_MINIMUM_WAGES } from "./examples/priorityStateMinimumWages.js";
 import { ALL_PRIORITY_TIPPED_WAGES } from "./examples/priorityStateTippedWages.js";
 import { ALL_PRIORITY_STATE_OVERTIME } from "./examples/priorityStateOvertime.js";
@@ -95,6 +96,7 @@ const ALL_RULE_CANDIDATES: Rule[] = [
 
   // Meal & rest breaks
   ...ALL_MEAL_BREAK_RULES,
+  ...ALL_MEAL_REST_BREAK_RULES,
 
   // Leave
   federalFmla,
