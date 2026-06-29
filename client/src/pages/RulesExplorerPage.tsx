@@ -280,6 +280,9 @@ export function RulesExplorerPage() {
               {rules.length} rules · {canonicalFacts.length} facts · {topics.length} topics · {jurisdictions.length} jurisdictions
             </p>
           </div>
+          <a href="/scheduler" className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700">
+            Schedule Builder →
+          </a>
         </div>
         <div className="flex gap-1 mt-4">
           {(["matrix", "list", "tester"] as ViewMode[]).map(v => (

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { RULES, SKIPPED, evaluateRules, getAllFacts } from "./rules/index.js";
+import { schedulerRouter } from "./scheduler/index.js";
 import type { Scenario } from "./rules/types.js";
 
 const app = express();
@@ -81,6 +82,10 @@ app.post("/api/ts-rules/evaluate", (req, res) => {
     passed: result.passed,
   });
 });
+
+// ─── Scheduler API ─────────────────────────────────────────────────
+
+app.use("/api/scheduler", schedulerRouter);
 
 // ─── Start ─────────────────────────────────────────────────────────
 
