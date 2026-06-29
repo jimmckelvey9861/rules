@@ -180,6 +180,9 @@ const FACTS: FactDefinition[] = [
   { path: "shift.school_in_session", type: "boolean", description: "Whether school is in session (school year vs summer)", category: "4. Shift" },
   { path: "shift.hours_since_last_shift_end", type: "number", description: "Hours between end of last shift and start of this one (clopening)", category: "4. Shift" },
   { path: "shift.hours_worked_at_report", type: "number", description: "Hours actually worked when employee reported (for reporting time pay)", category: "4. Shift" },
+  { path: "shift.scheduled_hours", type: "number", description: "Originally scheduled shift length in hours", category: "4. Shift" },
+  { path: "shift.employee_reported", type: "boolean", description: "Whether the employee reported to work as scheduled", category: "4. Shift" },
+  { path: "shift.sent_home_early", type: "boolean", description: "Whether the employee was sent home before shift end", category: "4. Shift" },
 
   // 4.4 Breaks
   { path: "shift.meal_break_provided", type: "boolean", description: "Whether a meal break was provided", category: "4. Shift" },
