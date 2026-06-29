@@ -163,6 +163,8 @@ const FACTS: FactDefinition[] = [
   { path: "shift.date", type: "date", description: "Shift date (ISO YYYY-MM-DD)", category: "4. Shift" },
   { path: "shift.start_time", type: "string", description: "Shift start time (HH:MM, 24-hour)", category: "4. Shift" },
   { path: "shift.end_time", type: "string", description: "Shift end time (HH:MM, 24-hour)", category: "4. Shift" },
+  { path: "shift.start_hour", type: "number", description: "Shift start hour (0-23, for time-of-day comparisons)", category: "4. Shift" },
+  { path: "shift.end_hour", type: "number", description: "Shift end hour (0-23, for curfew comparisons)", category: "4. Shift" },
   { path: "shift.shift_length_hours", type: "number", description: "Length of the current shift in hours", category: "4. Shift" },
 
   // 4.2 Hours Worked
