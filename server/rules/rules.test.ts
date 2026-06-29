@@ -15,6 +15,7 @@ import { federalMinimumWage } from "./examples/federalMinimumWage.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
 import { isKnownFact, getCanonicalFacts, getEnumValues } from "./facts.js";
+import { RULES } from "./index.js";
 import type { Scenario } from "./types.js";
 
 // ─── Test infrastructure ─────────────────────────────────────────────
@@ -371,6 +372,79 @@ function testRejectsBadEffectiveDate() {
   }, "RuleValidationError", "Rejects non-ISO effective date '2024'");
 }
 
+// ─── Test: Rule Interactions (most restrictive wins) ─────────────────
+
+function testMostRestrictiveMinWageWins() {
+  console.log("\n── Rule Interactions: most restrictive min wage wins ─────\n");
+
+  // A worker in NY paid $7.24 — both federal ($7.25) and NY ($16.50) fire,
+  // but only NY should remain as a violation (it's more restrictive).
+  const scenario: Scenario = {
+    "location.country": "US",
+    "location.state": "NY",
+    "location.city": "New York",
+    "employee.exempt_status": "non_exempt",
+    "employee.regular_hourly_rate": 7.24,
+    "shift.date": "2025-06-01",
+    "shift.hours_worked_this_week": 30,
+  };
+
+  const result = evaluateRules(RULES, scenario);
+
+  // Find min wage violations
+  const minWageViolations = result.violations.filter(v => {
+    const rule = RULES.find(r => r.id === v.ruleId);
+    return rule?.topic === "minimum_wage";
+  });
+
+  // Should have exactly 1 min wage violation (the most restrictive)
+  assert(minWageViolations.length === 1,
+    `Expected 1 min wage violation, got ${minWageViolations.length}`);
+
+  // The winner should NOT be the federal rule (it's less restrictive)
+  assert(minWageViolations[0].ruleId !== "federal-minimum-wage-7.25",
+    `Federal min wage should be superseded, but it won`);
+
+  // The federal rule should be in passed with supersededBy set
+  const federalInPassed = result.passed.find(p => p.ruleId === "federal-minimum-wage-7.25");
+  assert(federalInPassed !== undefined,
+    `Federal min wage should be in passed (superseded)`);
+  assert(federalInPassed?.supersededBy !== undefined,
+    `Federal min wage should have supersededBy set`);
+}
+
+function testProhibitionsAllApply() {
+  console.log("\n── Rule Interactions: all prohibitions apply ─────────────\n");
+
+  // A 14-year-old in NY scheduled for 5 hours on a school day ending at 8pm.
+  // Multiple prohibition rules should fire and ALL should remain violations.
+  const scenario: Scenario = {
+    "location.state": "NY",
+    "employee.is_minor": true,
+    "employee.age": 14,
+    "employee.exempt_status": "non_exempt",
+    "shift.is_school_day": true,
+    "shift.school_in_session": true,
+    "shift.shift_length_hours": 5,
+    "shift.end_hour": 20,
+    "shift.date": "2025-06-01",
+  };
+
+  const result = evaluateRules(RULES, scenario);
+
+  // Should have at least 2 prohibition violations:
+  // 1. >3 hrs on school day (federal 14-15)
+  // 2. curfew past 7pm (federal 14-15, school year)
+  const prohibitions = result.violations.filter(v => v.explanation.startsWith("Prohibited:"));
+  assert(prohibitions.length >= 2,
+    `Expected at least 2 prohibition violations, got ${prohibitions.length}`);
+
+  // None should be superseded
+  const supersededProhibitions = prohibitions.filter(p => p.supersededBy);
+  assert(supersededProhibitions.length === 0,
+    `No prohibitions should be superseded, but ${supersededProhibitions.length} were`);
+}
+
 // ─── Test: Fact Registry ─────────────────────────────────────────────
 
 function testCanonicalFactsRegistered() {
@@ -472,6 +546,10 @@ function main() {
   testRejectsInvalidOperatorForType();
   testRejectsInvalidEnumValue();
   testRejectsBadEffectiveDate();
+
+  // Rule interactions
+  testMostRestrictiveMinWageWins();
+  testProhibitionsAllApply();
 
   // Fact registry
   testCanonicalFactsRegistered();

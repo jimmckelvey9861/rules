@@ -115,6 +115,7 @@ export interface EvaluationResult {
   outcome: EvaluationOutcome;
   explanation: string;
   triggeredFacts: string[];
+  supersededBy?: string;
   citation: Citation;
 }
 

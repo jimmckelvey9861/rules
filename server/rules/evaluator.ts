@@ -46,6 +46,8 @@ export function evaluateRule(rule: Rule, scenario: Scenario): EvaluationResult {
 
 /**
  * Evaluate multiple rules against a scenario.
+ * After individual evaluation, resolves interactions so that only the
+ * most restrictive rule per topic remains as a violation.
  */
 export function evaluateRules(rules: readonly Rule[], scenario: Scenario): EvaluationSummary {
   const summary: EvaluationSummary = { passed: [], warnings: [], violations: [] };
@@ -67,7 +69,159 @@ export function evaluateRules(rules: readonly Rule[], scenario: Scenario): Evalu
     }
   }
 
-  return summary;
+  return resolveInteractions(summary, rules);
+}
+
+// ─── Rule Interaction Resolution ───────────────────────────────────
+
+/**
+ * Resolves "most restrictive wins" within each topic.
+ *
+ * When multiple rules fire on the same topic (e.g., federal min wage
+ * AND state min wage), only the most restrictive remains a violation.
+ * Less restrictive rules are moved to passed with a supersededBy marker.
+ *
+ * Logic by result type:
+ * - minimum_required_value: highest minimum wins
+ * - required_break: longest minimumMinutes wins (per breakType)
+ * - premium_required: highest amount wins (per premiumType)
+ * - prohibition: ALL apply (cannot supersede a prohibition)
+ * - warning: ALL apply
+ */
+function resolveInteractions(summary: EvaluationSummary, rules: readonly Rule[]): EvaluationSummary {
+  const ruleMap = new Map(rules.map(r => [r.id, r]));
+
+  // Group violations by topic
+  const byTopic = new Map<string, EvaluationResult[]>();
+  for (const v of summary.violations) {
+    const rule = ruleMap.get(v.ruleId);
+    if (!rule) continue;
+    const topic = rule.topic;
+    if (!byTopic.has(topic)) byTopic.set(topic, []);
+    byTopic.get(topic)!.push(v);
+  }
+
+  const keptViolations: EvaluationResult[] = [];
+  const superseded: EvaluationResult[] = [];
+
+  for (const [topic, violations] of byTopic) {
+    if (violations.length <= 1) {
+      keptViolations.push(...violations);
+      continue;
+    }
+
+    // Get the rules for these violations
+    const withRules = violations.map(v => ({ result: v, rule: ruleMap.get(v.ruleId)! }));
+    const resultType = withRules[0].rule.result.type;
+
+    // If mixed result types within a topic, keep all (no safe comparison)
+    const allSameType = withRules.every(wr => wr.rule.result.type === resultType);
+    if (!allSameType) {
+      keptViolations.push(...violations);
+      continue;
+    }
+
+    switch (resultType) {
+      case "minimum_required_value": {
+        // Highest minimum wins
+        const sorted = withRules.sort((a, b) => {
+          const aMin = (a.rule.result as any).minimum;
+          const bMin = (b.rule.result as any).minimum;
+          return bMin - aMin; // descending
+        });
+        const winner = sorted[0];
+        keptViolations.push(winner.result);
+        for (let i = 1; i < sorted.length; i++) {
+          sorted[i].result.outcome = "passed";
+          sorted[i].result.supersededBy = winner.result.ruleId;
+          sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (more restrictive: ${(winner.rule.result as any).minimum} ${(winner.rule.result as any).unit})`;
+          superseded.push(sorted[i].result);
+        }
+        break;
+      }
+
+      case "required_break": {
+        // Group by breakType, then longest minimumMinutes wins within each group
+        const byBreakType = new Map<string, typeof withRules>();
+        for (const wr of withRules) {
+          const bt = (wr.rule.result as any).breakType;
+          if (!byBreakType.has(bt)) byBreakType.set(bt, []);
+          byBreakType.get(bt)!.push(wr);
+        }
+        for (const [_bt, group] of byBreakType) {
+          if (group.length <= 1) {
+            keptViolations.push(group[0].result);
+            continue;
+          }
+          const sorted = group.sort((a, b) => {
+            return (b.rule.result as any).minimumMinutes - (a.rule.result as any).minimumMinutes;
+          });
+          const winner = sorted[0];
+          keptViolations.push(winner.result);
+          for (let i = 1; i < sorted.length; i++) {
+            sorted[i].result.outcome = "passed";
+            sorted[i].result.supersededBy = winner.result.ruleId;
+            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (longer break: ${(winner.rule.result as any).minimumMinutes} min)`;
+            superseded.push(sorted[i].result);
+          }
+        }
+        break;
+      }
+
+      case "premium_required": {
+        // Group by premiumType, then highest amount wins
+        const byPremType = new Map<string, typeof withRules>();
+        for (const wr of withRules) {
+          const pt = (wr.rule.result as any).premiumType;
+          if (!byPremType.has(pt)) byPremType.set(pt, []);
+          byPremType.get(pt)!.push(wr);
+        }
+        for (const [_pt, group] of byPremType) {
+          if (group.length <= 1) {
+            keptViolations.push(group[0].result);
+            continue;
+          }
+          // If any lack a numeric amount, keep all (formula-based can't be compared)
+          const allHaveAmount = group.every(wr => (wr.rule.result as any).amount !== undefined);
+          if (!allHaveAmount) {
+            keptViolations.push(...group.map(g => g.result));
+            continue;
+          }
+          const sorted = group.sort((a, b) => {
+            return (b.rule.result as any).amount - (a.rule.result as any).amount;
+          });
+          const winner = sorted[0];
+          keptViolations.push(winner.result);
+          for (let i = 1; i < sorted.length; i++) {
+            sorted[i].result.outcome = "passed";
+            sorted[i].result.supersededBy = winner.result.ruleId;
+            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (higher premium: ${(winner.rule.result as any).amount})`;
+            superseded.push(sorted[i].result);
+          }
+        }
+        break;
+      }
+
+      case "prohibition":
+        // All prohibitions apply — cannot supersede
+        keptViolations.push(...violations);
+        break;
+
+      case "warning":
+        // All warnings apply
+        keptViolations.push(...violations);
+        break;
+
+      default:
+        keptViolations.push(...violations);
+    }
+  }
+
+  return {
+    violations: keptViolations,
+    warnings: summary.warnings,
+    passed: [...summary.passed, ...superseded],
+  };
 }
 
 // ─── Condition Evaluation ──────────────────────────────────────────
