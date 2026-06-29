@@ -104,8 +104,10 @@ interface LocationColumn {
 }
 
 const LOCATION_TAXONOMY: LocationColumn[] = [
+  // Federal
   { id: "fed", label: "Federal", level: 0, jurisdictions: ["Federal"] },
-  { id: "ak", label: "Alaska", level: 1, jurisdictions: ["AK"] },
+
+  // Priority states first
   { id: "ca", label: "California", level: 1, jurisdictions: ["CA"] },
   { id: "ca-belmont", label: "Belmont", level: 2, jurisdictions: ["Belmont"] },
   { id: "ca-daly-city", label: "Daly City", level: 2, jurisdictions: ["Daly City"] },
@@ -124,17 +126,31 @@ const LOCATION_TAXONOMY: LocationColumn[] = [
   { id: "ca-santa-clara", label: "Santa Clara", level: 2, jurisdictions: ["Santa Clara"] },
   { id: "ca-sunnyvale", label: "Sunnyvale", level: 2, jurisdictions: ["Sunnyvale"] },
   { id: "ca-west-hollywood", label: "West Hollywood", level: 2, jurisdictions: ["West Hollywood"] },
+  { id: "ct", label: "Connecticut", level: 1, jurisdictions: ["CT"] },
+  { id: "dc", label: "District of Columbia", level: 1, jurisdictions: ["DC"] },
+  { id: "md", label: "Maryland", level: 1, jurisdictions: ["MD"] },
+  { id: "md-montgomery", label: "Montgomery County", level: 2, jurisdictions: ["Montgomery County"] },
+  { id: "nj", label: "New Jersey", level: 1, jurisdictions: ["NJ"] },
+  { id: "nv", label: "Nevada", level: 1, jurisdictions: ["NV"] },
+  { id: "ny", label: "New York", level: 1, jurisdictions: ["NY"] },
+  { id: "ny-nyc", label: "New York City", level: 2, jurisdictions: ["New York City"] },
+  { id: "va", label: "Virginia", level: 1, jurisdictions: ["VA"] },
+
+  // Other states with rules
+  { id: "ak", label: "Alaska", level: 1, jurisdictions: ["AK"] },
   { id: "co", label: "Colorado", level: 1, jurisdictions: ["CO"] },
   { id: "co-boulder", label: "Boulder", level: 2, jurisdictions: ["Boulder"] },
   { id: "co-denver", label: "Denver", level: 2, jurisdictions: ["Denver"] },
   { id: "hi", label: "Hawaii", level: 1, jurisdictions: ["HI"] },
+  { id: "il", label: "Illinois", level: 1, jurisdictions: ["IL"] },
+  { id: "il-chicago", label: "Chicago", level: 2, jurisdictions: ["Chicago"] },
   { id: "mn", label: "Minnesota", level: 1, jurisdictions: ["MN"] },
   { id: "mn-minneapolis", label: "Minneapolis", level: 2, jurisdictions: ["Minneapolis"] },
   { id: "nm", label: "New Mexico", level: 1, jurisdictions: ["NM"] },
-  { id: "ny", label: "New York", level: 1, jurisdictions: ["NY"] },
-  { id: "ny-nyc", label: "New York City", level: 2, jurisdictions: ["New York City"] },
   { id: "or", label: "Oregon", level: 1, jurisdictions: ["OR"] },
   { id: "or-portland", label: "Portland Metro Area", level: 2, jurisdictions: ["Portland Metro Area"] },
+  { id: "pa", label: "Pennsylvania", level: 1, jurisdictions: ["PA"] },
+  { id: "pa-philadelphia", label: "Philadelphia", level: 2, jurisdictions: ["Philadelphia"] },
   { id: "wa", label: "Washington", level: 1, jurisdictions: ["WA"] },
   { id: "wa-seattle", label: "Seattle", level: 2, jurisdictions: ["Seattle"] },
 ];

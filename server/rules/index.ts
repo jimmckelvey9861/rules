@@ -46,8 +46,11 @@ import {
   washingtonMinimumWage,
 } from "./examples/stateMinimumWages.js";
 import { ALL_LOCAL_MINIMUM_WAGES } from "./examples/localMinimumWages.js";
-import { ALL_PREDICTIVE_SCHEDULING } from "./examples/predictiveScheduling.js";
+// Old predictiveScheduling.ts superseded by fairWorkweek.ts (more detailed penalty tiers)
 import { ALL_MEAL_BREAK_RULES } from "./examples/californiaMealBreak.js";
+import { ALL_PRIORITY_STATE_MINIMUM_WAGES } from "./examples/priorityStateMinimumWages.js";
+import { ALL_PRIORITY_STATE_OVERTIME } from "./examples/priorityStateOvertime.js";
+import { ALL_FAIR_WORKWEEK_RULES } from "./examples/fairWorkweek.js";
 import { federalFmla } from "./examples/federalFmla.js";
 import { federalWarnAct } from "./examples/federalWarnAct.js";
 import type { Rule } from "./types.js";
@@ -77,8 +80,14 @@ const ALL_RULE_CANDIDATES: Rule[] = [
   // Minimum wage — local
   ...ALL_LOCAL_MINIMUM_WAGES,
 
-  // Predictive scheduling
-  ...ALL_PREDICTIVE_SCHEDULING,
+  // Minimum wage — priority states (NY, DC, VA, MD, NJ, CT, NV)
+  ...ALL_PRIORITY_STATE_MINIMUM_WAGES,
+
+  // Overtime — priority states
+  ...ALL_PRIORITY_STATE_OVERTIME,
+
+  // Fair Workweek / Predictive Scheduling — full penalty tiers
+  ...ALL_FAIR_WORKWEEK_RULES,
 
   // Meal & rest breaks
   ...ALL_MEAL_BREAK_RULES,
