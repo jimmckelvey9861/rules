@@ -65,7 +65,7 @@ const LAW_TAXONOMY: TaxonomyRow[] = [
   { id: "2.1", label: "2.1 Meal Breaks", level: 1, topics: ["meal_break"] },
   { id: "2.2", label: "2.2 Rest Breaks", level: 1, topics: ["rest_break"] },
   { id: "2.3", label: "2.3 Predictive Scheduling", level: 1, topics: ["predictive_scheduling"] },
-  { id: "2.4", label: "2.4 Shift Structure Rules", level: 1, topics: ["shift_structure"] },
+  { id: "2.4", label: "2.4 Shift Structure Rules", level: 1, topics: ["shift_structure", "day_of_rest"] },
   { id: "2.5", label: "2.5 Hour Limits", level: 1, topics: ["hour_limits"] },
   { id: "2.6", label: "2.6 Availability & Flex Scheduling", level: 1, topics: ["flex_scheduling"] },
 

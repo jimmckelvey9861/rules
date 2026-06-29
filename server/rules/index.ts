@@ -50,6 +50,8 @@ import { ALL_LOCAL_MINIMUM_WAGES } from "./examples/localMinimumWages.js";
 import { ALL_MEAL_BREAK_RULES } from "./examples/californiaMealBreak.js";
 import { ALL_MEAL_REST_BREAK_RULES } from "./examples/mealRestBreaks.js";
 import { ALL_REPORTING_TIME_PAY_RULES } from "./examples/reportingTimePay.js";
+import { ALL_SPREAD_AND_SPLIT_SHIFT_RULES } from "./examples/spreadAndSplitShift.js";
+import { ALL_DAY_OF_REST_RULES } from "./examples/dayOfRest.js";
 import { ALL_PRIORITY_STATE_MINIMUM_WAGES } from "./examples/priorityStateMinimumWages.js";
 import { ALL_PRIORITY_TIPPED_WAGES } from "./examples/priorityStateTippedWages.js";
 import { ALL_PRIORITY_STATE_OVERTIME } from "./examples/priorityStateOvertime.js";
@@ -99,6 +101,8 @@ const ALL_RULE_CANDIDATES: Rule[] = [
   ...ALL_MEAL_BREAK_RULES,
   ...ALL_MEAL_REST_BREAK_RULES,
   ...ALL_REPORTING_TIME_PAY_RULES,
+  ...ALL_SPREAD_AND_SPLIT_SHIFT_RULES,
+  ...ALL_DAY_OF_REST_RULES,
 
   // Leave
   federalFmla,

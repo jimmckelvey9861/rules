@@ -183,6 +183,7 @@ const FACTS: FactDefinition[] = [
   { path: "shift.scheduled_hours", type: "number", description: "Originally scheduled shift length in hours", category: "4. Shift" },
   { path: "shift.employee_reported", type: "boolean", description: "Whether the employee reported to work as scheduled", category: "4. Shift" },
   { path: "shift.sent_home_early", type: "boolean", description: "Whether the employee was sent home before shift end", category: "4. Shift" },
+  { path: "shift.spread_of_hours", type: "number", description: "Total span from first clock-in to last clock-out in a day (includes breaks)", category: "4. Shift" },
 
   // 4.4 Breaks
   { path: "shift.meal_break_provided", type: "boolean", description: "Whether a meal break was provided", category: "4. Shift" },
