@@ -49,14 +49,17 @@ import { ALL_LOCAL_MINIMUM_WAGES } from "./examples/localMinimumWages.js";
 // Old predictiveScheduling.ts superseded by fairWorkweek.ts (more detailed penalty tiers)
 import { ALL_MEAL_BREAK_RULES } from "./examples/californiaMealBreak.js";
 import { ALL_MEAL_REST_BREAK_RULES } from "./examples/mealRestBreaks.js";
+import { ALL_ADDITIONAL_STATE_MEAL_BREAKS, ALL_ADDITIONAL_STATE_REST_BREAKS } from "./examples/allStateMealBreaks.js";
 import { ALL_REPORTING_TIME_PAY_RULES } from "./examples/reportingTimePay.js";
 import { ALL_SPREAD_AND_SPLIT_SHIFT_RULES } from "./examples/spreadAndSplitShift.js";
 import { ALL_DAY_OF_REST_RULES } from "./examples/dayOfRest.js";
 import { ALL_MINOR_LABOR_RULES } from "./examples/minorLabor.js";
 import { ALL_SICK_LEAVE_RULES } from "./examples/sickLeave.js";
 import { ALL_PRIORITY_STATE_MINIMUM_WAGES } from "./examples/priorityStateMinimumWages.js";
+import { ALL_REMAINING_STATE_MINIMUM_WAGES } from "./examples/allStateMinimumWages.js";
 import { ALL_PRIORITY_TIPPED_WAGES } from "./examples/priorityStateTippedWages.js";
 import { ALL_PRIORITY_STATE_OVERTIME } from "./examples/priorityStateOvertime.js";
+import { ALL_ADDITIONAL_STATE_OVERTIME } from "./examples/additionalStateOvertime.js";
 import { ALL_FAIR_WORKWEEK_RULES } from "./examples/fairWorkweek.js";
 import { federalFmla } from "./examples/federalFmla.js";
 import { federalWarnAct } from "./examples/federalWarnAct.js";
@@ -90,11 +93,17 @@ const ALL_RULE_CANDIDATES: Rule[] = [
   // Minimum wage — priority states (NY, DC, VA, MD, NJ, CT, NV)
   ...ALL_PRIORITY_STATE_MINIMUM_WAGES,
 
+  // Minimum wage — all remaining states (38 states)
+  ...ALL_REMAINING_STATE_MINIMUM_WAGES,
+
   // Minimum wage — tipped & industry-specific (priority states)
   ...ALL_PRIORITY_TIPPED_WAGES,
 
   // Overtime — priority states
   ...ALL_PRIORITY_STATE_OVERTIME,
+
+  // Overtime — additional states with non-federal rules
+  ...ALL_ADDITIONAL_STATE_OVERTIME,
 
   // Fair Workweek / Predictive Scheduling — full penalty tiers
   ...ALL_FAIR_WORKWEEK_RULES,
@@ -102,6 +111,8 @@ const ALL_RULE_CANDIDATES: Rule[] = [
   // Meal & rest breaks
   ...ALL_MEAL_BREAK_RULES,
   ...ALL_MEAL_REST_BREAK_RULES,
+  ...ALL_ADDITIONAL_STATE_MEAL_BREAKS,
+  ...ALL_ADDITIONAL_STATE_REST_BREAKS,
   ...ALL_REPORTING_TIME_PAY_RULES,
   ...ALL_SPREAD_AND_SPLIT_SHIFT_RULES,
   ...ALL_DAY_OF_REST_RULES,
