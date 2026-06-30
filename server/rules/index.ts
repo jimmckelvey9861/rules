@@ -51,6 +51,7 @@ import { ALL_MEAL_BREAK_RULES } from "./examples/californiaMealBreak.js";
 import { ALL_MEAL_REST_BREAK_RULES } from "./examples/mealRestBreaks.js";
 import { ALL_ADDITIONAL_STATE_MEAL_BREAKS, ALL_ADDITIONAL_STATE_REST_BREAKS } from "./examples/allStateMealBreaks.js";
 import { ALL_REPORTING_TIME_PAY_RULES } from "./examples/reportingTimePay.js";
+import { ALL_ADDITIONAL_REPORTING_TIME_RULES } from "./examples/allStateReportingTime.js";
 import { ALL_SPREAD_AND_SPLIT_SHIFT_RULES } from "./examples/spreadAndSplitShift.js";
 import { ALL_DAY_OF_REST_RULES } from "./examples/dayOfRest.js";
 import { ALL_MINOR_LABOR_RULES } from "./examples/minorLabor.js";
@@ -116,6 +117,7 @@ const ALL_RULE_CANDIDATES: Rule[] = [
   ...ALL_ADDITIONAL_STATE_MEAL_BREAKS,
   ...ALL_ADDITIONAL_STATE_REST_BREAKS,
   ...ALL_REPORTING_TIME_PAY_RULES,
+  ...ALL_ADDITIONAL_REPORTING_TIME_RULES,
   ...ALL_SPREAD_AND_SPLIT_SHIFT_RULES,
   ...ALL_DAY_OF_REST_RULES,
   ...ALL_MINOR_LABOR_RULES,
