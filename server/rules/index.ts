@@ -56,6 +56,7 @@ import { ALL_DAY_OF_REST_RULES } from "./examples/dayOfRest.js";
 import { ALL_MINOR_LABOR_RULES } from "./examples/minorLabor.js";
 import { ALL_REMAINING_MINOR_LABOR_RULES } from "./examples/allStateMinorLabor.js";
 import { ALL_SICK_LEAVE_RULES } from "./examples/sickLeave.js";
+import { ALL_REMAINING_SICK_LEAVE_RULES } from "./examples/allStateSickLeave.js";
 import { ALL_PRIORITY_STATE_MINIMUM_WAGES } from "./examples/priorityStateMinimumWages.js";
 import { ALL_REMAINING_STATE_MINIMUM_WAGES } from "./examples/allStateMinimumWages.js";
 import { ALL_PRIORITY_TIPPED_WAGES } from "./examples/priorityStateTippedWages.js";
@@ -122,6 +123,7 @@ const ALL_RULE_CANDIDATES: Rule[] = [
 
   // Sick leave accrual
   ...ALL_SICK_LEAVE_RULES,
+  ...ALL_REMAINING_SICK_LEAVE_RULES,
 
   // Leave
   federalFmla,
