@@ -50,7 +50,8 @@
       "citations": [
         {
           "source": "AS §23.10.332",
-          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332"
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
+          "kind": "statute"
         }
       ]
     },
@@ -102,7 +103,8 @@
       "citations": [
         {
           "source": "AS §23.10.332",
-          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332"
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
+          "kind": "statute"
         }
       ]
     },
@@ -154,7 +156,8 @@
       "citations": [
         {
           "source": "AS §23.10.332",
-          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332"
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
+          "kind": "statute"
         }
       ]
     },
@@ -206,7 +209,8 @@
       "citations": [
         {
           "source": "AS §23.10.332",
-          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332"
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
+          "kind": "statute"
         }
       ]
     },
@@ -239,7 +243,8 @@
         {
           "source": "Ala. Code §25-8-1 et seq.",
           "url": "https://law.justia.com/codes/alabama/title-25/chapter-8/",
-          "section": "§25-8-30 to §25-8-60"
+          "section": "§25-8-30 to §25-8-60",
+          "kind": "statute"
         }
       ]
     },
@@ -291,7 +296,8 @@
       "citations": [
         {
           "source": "Ark. Code §11-6-107",
-          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar"
+          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
+          "kind": "statute"
         }
       ]
     },
@@ -343,7 +349,8 @@
       "citations": [
         {
           "source": "Ark. Code §11-6-107",
-          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar"
+          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
+          "kind": "statute"
         }
       ]
     },
@@ -395,7 +402,8 @@
       "citations": [
         {
           "source": "Ark. Code §11-6-107",
-          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar"
+          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
+          "kind": "statute"
         }
       ]
     },
@@ -447,7 +455,8 @@
       "citations": [
         {
           "source": "Ark. Code §11-6-107",
-          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar"
+          "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
+          "kind": "statute"
         }
       ]
     },
@@ -499,7 +508,8 @@
       "citations": [
         {
           "source": "ARS §23-233",
-          "url": "https://www.azleg.gov/ars/23/00233.htm"
+          "url": "https://www.azleg.gov/ars/23/00233.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -551,7 +561,8 @@
       "citations": [
         {
           "source": "ARS §23-233",
-          "url": "https://www.azleg.gov/ars/23/00233.htm"
+          "url": "https://www.azleg.gov/ars/23/00233.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -603,7 +614,8 @@
       "citations": [
         {
           "source": "ARS §23-233",
-          "url": "https://www.azleg.gov/ars/23/00233.htm"
+          "url": "https://www.azleg.gov/ars/23/00233.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -655,7 +667,8 @@
       "citations": [
         {
           "source": "ARS §23-233",
-          "url": "https://www.azleg.gov/ars/23/00233.htm"
+          "url": "https://www.azleg.gov/ars/23/00233.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -708,7 +721,8 @@
         {
           "source": "CA Education Code §49116",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=49116.&lawCode=EDC",
-          "section": "Ed. Code §49116"
+          "section": "Ed. Code §49116",
+          "kind": "statute"
         }
       ]
     },
@@ -761,7 +775,8 @@
         {
           "source": "CA Labor Code §1391",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1391.&lawCode=LAB",
-          "section": "Lab. Code §1391"
+          "section": "Lab. Code §1391",
+          "kind": "statute"
         }
       ]
     },
@@ -814,7 +829,8 @@
         {
           "source": "CA Education Code §49116",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=49116.&lawCode=EDC",
-          "section": "Ed. Code §49116"
+          "section": "Ed. Code §49116",
+          "kind": "statute"
         }
       ]
     },
@@ -862,7 +878,8 @@
         {
           "source": "CA Labor Code §1391",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1391.&lawCode=LAB",
-          "section": "Lab. Code §1391"
+          "section": "Lab. Code §1391",
+          "kind": "statute"
         }
       ]
     },
@@ -914,7 +931,8 @@
       "citations": [
         {
           "source": "CYEPA, 8-12-105 C.R.S.",
-          "url": "https://cdle.colorado.gov/youth-employment"
+          "url": "https://cdle.colorado.gov/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -966,7 +984,8 @@
       "citations": [
         {
           "source": "CYEPA, 8-12-105 C.R.S.",
-          "url": "https://cdle.colorado.gov/youth-employment"
+          "url": "https://cdle.colorado.gov/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -1018,7 +1037,8 @@
       "citations": [
         {
           "source": "CYEPA, 8-12-105 C.R.S.",
-          "url": "https://cdle.colorado.gov/youth-employment"
+          "url": "https://cdle.colorado.gov/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -1070,7 +1090,8 @@
       "citations": [
         {
           "source": "CYEPA, 8-12-105 C.R.S.",
-          "url": "https://cdle.colorado.gov/youth-employment"
+          "url": "https://cdle.colorado.gov/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -1123,7 +1144,8 @@
         {
           "source": "CT Gen. Stat. §31-18",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-18",
-          "section": "§31-18"
+          "section": "§31-18",
+          "kind": "statute"
         }
       ]
     },
@@ -1176,7 +1198,8 @@
         {
           "source": "CT Gen. Stat. §31-18",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-18",
-          "section": "§31-18"
+          "section": "§31-18",
+          "kind": "statute"
         }
       ]
     },
@@ -1229,7 +1252,8 @@
         {
           "source": "CT Gen. Stat. §31-18",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-18",
-          "section": "§31-18"
+          "section": "§31-18",
+          "kind": "statute"
         }
       ]
     },
@@ -1282,7 +1306,8 @@
         {
           "source": "DC Code §32-219",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-219",
-          "section": "§32-219"
+          "section": "§32-219",
+          "kind": "statute"
         }
       ]
     },
@@ -1335,7 +1360,8 @@
         {
           "source": "DC Code §32-219",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-219",
-          "section": "§32-219"
+          "section": "§32-219",
+          "kind": "statute"
         }
       ]
     },
@@ -1388,7 +1414,8 @@
         {
           "source": "DC Code §32-219",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-219",
-          "section": "§32-219"
+          "section": "§32-219",
+          "kind": "statute"
         }
       ]
     },
@@ -1440,7 +1467,8 @@
       "citations": [
         {
           "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php"
+          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "kind": "statute"
         }
       ]
     },
@@ -1492,7 +1520,8 @@
       "citations": [
         {
           "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php"
+          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "kind": "statute"
         }
       ]
     },
@@ -1544,7 +1573,8 @@
       "citations": [
         {
           "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php"
+          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "kind": "statute"
         }
       ]
     },
@@ -1596,7 +1626,8 @@
       "citations": [
         {
           "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php"
+          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "kind": "statute"
         }
       ]
     },
@@ -1644,7 +1675,8 @@
         {
           "source": "29 CFR §570.35(a)(6)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(6)"
+          "section": "§570.35(a)(6)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1692,7 +1724,8 @@
         {
           "source": "29 CFR §570.35(a)(7)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(7)"
+          "section": "§570.35(a)(7)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1735,7 +1768,8 @@
         {
           "source": "29 CFR §570.35(a)(1)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(1)"
+          "section": "§570.35(a)(1)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1783,7 +1817,8 @@
         {
           "source": "29 CFR §570.35(a)(3)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(3)"
+          "section": "§570.35(a)(3)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1831,7 +1866,8 @@
         {
           "source": "29 CFR §570.35(a)(5)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(5)"
+          "section": "§570.35(a)(5)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1879,7 +1915,8 @@
         {
           "source": "29 CFR §570.35(a)(2)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(2)"
+          "section": "§570.35(a)(2)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1927,7 +1964,8 @@
         {
           "source": "29 CFR §570.35(a)(4)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(4)"
+          "section": "§570.35(a)(4)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1979,7 +2017,8 @@
       "citations": [
         {
           "source": "FL Stat. §450.081",
-          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law"
+          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
+          "kind": "statute"
         }
       ]
     },
@@ -2031,7 +2070,8 @@
       "citations": [
         {
           "source": "FL Stat. §450.081",
-          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law"
+          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
+          "kind": "statute"
         }
       ]
     },
@@ -2083,7 +2123,8 @@
       "citations": [
         {
           "source": "FL Stat. §450.081",
-          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law"
+          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
+          "kind": "statute"
         }
       ]
     },
@@ -2135,7 +2176,8 @@
       "citations": [
         {
           "source": "FL Stat. §450.081",
-          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law"
+          "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
+          "kind": "statute"
         }
       ]
     },
@@ -2187,7 +2229,8 @@
       "citations": [
         {
           "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor"
+          "url": "https://dol.georgia.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2239,7 +2282,8 @@
       "citations": [
         {
           "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor"
+          "url": "https://dol.georgia.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2291,7 +2335,8 @@
       "citations": [
         {
           "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor"
+          "url": "https://dol.georgia.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2343,7 +2388,8 @@
       "citations": [
         {
           "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor"
+          "url": "https://dol.georgia.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2395,7 +2441,8 @@
       "citations": [
         {
           "source": "HRS §390-2",
-          "url": "https://labor.hawaii.gov/wsd/child-labor/"
+          "url": "https://labor.hawaii.gov/wsd/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -2447,7 +2494,8 @@
       "citations": [
         {
           "source": "HRS §390-2",
-          "url": "https://labor.hawaii.gov/wsd/child-labor/"
+          "url": "https://labor.hawaii.gov/wsd/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -2499,7 +2547,8 @@
       "citations": [
         {
           "source": "HRS §390-2",
-          "url": "https://labor.hawaii.gov/wsd/child-labor/"
+          "url": "https://labor.hawaii.gov/wsd/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -2551,7 +2600,8 @@
       "citations": [
         {
           "source": "HRS §390-2",
-          "url": "https://labor.hawaii.gov/wsd/child-labor/"
+          "url": "https://labor.hawaii.gov/wsd/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -2603,7 +2653,8 @@
       "citations": [
         {
           "source": "Iowa Code §92.7",
-          "url": "https://www.iowadivisionoflabor.gov/child-labor"
+          "url": "https://www.iowadivisionoflabor.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2655,7 +2706,8 @@
       "citations": [
         {
           "source": "Iowa Code §92.7",
-          "url": "https://www.iowadivisionoflabor.gov/child-labor"
+          "url": "https://www.iowadivisionoflabor.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2707,7 +2759,8 @@
       "citations": [
         {
           "source": "Iowa Code §92.7",
-          "url": "https://www.iowadivisionoflabor.gov/child-labor"
+          "url": "https://www.iowadivisionoflabor.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2759,7 +2812,8 @@
       "citations": [
         {
           "source": "Iowa Code §92.7",
-          "url": "https://www.iowadivisionoflabor.gov/child-labor"
+          "url": "https://www.iowadivisionoflabor.gov/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2811,7 +2865,8 @@
       "citations": [
         {
           "source": "Idaho Code §44-1301",
-          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor"
+          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2863,7 +2918,8 @@
       "citations": [
         {
           "source": "Idaho Code §44-1301",
-          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor"
+          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2915,7 +2971,8 @@
       "citations": [
         {
           "source": "Idaho Code §44-1301",
-          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor"
+          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -2967,7 +3024,8 @@
       "citations": [
         {
           "source": "Idaho Code §44-1301",
-          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor"
+          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -3019,7 +3077,8 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html"
+          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "kind": "statute"
         }
       ]
     },
@@ -3071,7 +3130,8 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html"
+          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "kind": "statute"
         }
       ]
     },
@@ -3123,7 +3183,8 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html"
+          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "kind": "statute"
         }
       ]
     },
@@ -3175,7 +3236,8 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html"
+          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "kind": "statute"
         }
       ]
     },
@@ -3227,7 +3289,8 @@
       "citations": [
         {
           "source": "IC §20-33-3-32",
-          "url": "https://www.in.gov/dol/youth-employment/"
+          "url": "https://www.in.gov/dol/youth-employment/",
+          "kind": "statute"
         }
       ]
     },
@@ -3279,7 +3342,8 @@
       "citations": [
         {
           "source": "IC §20-33-3-32",
-          "url": "https://www.in.gov/dol/youth-employment/"
+          "url": "https://www.in.gov/dol/youth-employment/",
+          "kind": "statute"
         }
       ]
     },
@@ -3331,7 +3395,8 @@
       "citations": [
         {
           "source": "IC §20-33-3-32",
-          "url": "https://www.in.gov/dol/youth-employment/"
+          "url": "https://www.in.gov/dol/youth-employment/",
+          "kind": "statute"
         }
       ]
     },
@@ -3383,7 +3448,8 @@
       "citations": [
         {
           "source": "IC §20-33-3-32",
-          "url": "https://www.in.gov/dol/youth-employment/"
+          "url": "https://www.in.gov/dol/youth-employment/",
+          "kind": "statute"
         }
       ]
     },
@@ -3435,7 +3501,8 @@
       "citations": [
         {
           "source": "K.S.A. §38-601",
-          "url": "https://www.dol.ks.gov/laws/child-labor"
+          "url": "https://www.dol.ks.gov/laws/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -3487,7 +3554,8 @@
       "citations": [
         {
           "source": "K.S.A. §38-601",
-          "url": "https://www.dol.ks.gov/laws/child-labor"
+          "url": "https://www.dol.ks.gov/laws/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -3539,7 +3607,8 @@
       "citations": [
         {
           "source": "K.S.A. §38-601",
-          "url": "https://www.dol.ks.gov/laws/child-labor"
+          "url": "https://www.dol.ks.gov/laws/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -3591,7 +3660,8 @@
       "citations": [
         {
           "source": "K.S.A. §38-601",
-          "url": "https://www.dol.ks.gov/laws/child-labor"
+          "url": "https://www.dol.ks.gov/laws/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -3643,7 +3713,8 @@
       "citations": [
         {
           "source": "KRS §339.230",
-          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx"
+          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -3695,7 +3766,8 @@
       "citations": [
         {
           "source": "KRS §339.230",
-          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx"
+          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -3747,7 +3819,8 @@
       "citations": [
         {
           "source": "KRS §339.230",
-          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx"
+          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -3799,7 +3872,8 @@
       "citations": [
         {
           "source": "KRS §339.230",
-          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx"
+          "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -3851,7 +3925,8 @@
       "citations": [
         {
           "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp"
+          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "kind": "statute"
         }
       ]
     },
@@ -3903,7 +3978,8 @@
       "citations": [
         {
           "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp"
+          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "kind": "statute"
         }
       ]
     },
@@ -3955,7 +4031,8 @@
       "citations": [
         {
           "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp"
+          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "kind": "statute"
         }
       ]
     },
@@ -4007,7 +4084,8 @@
       "citations": [
         {
           "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp"
+          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "kind": "statute"
         }
       ]
     },
@@ -4059,7 +4137,8 @@
       "citations": [
         {
           "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws"
+          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "kind": "statute"
         }
       ]
     },
@@ -4111,7 +4190,8 @@
       "citations": [
         {
           "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws"
+          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "kind": "statute"
         }
       ]
     },
@@ -4163,7 +4243,8 @@
       "citations": [
         {
           "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws"
+          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "kind": "statute"
         }
       ]
     },
@@ -4215,7 +4296,8 @@
       "citations": [
         {
           "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws"
+          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "kind": "statute"
         }
       ]
     },
@@ -4268,7 +4350,8 @@
         {
           "source": "MD Code, Labor & Employment §3-211",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-211",
-          "section": "§3-211"
+          "section": "§3-211",
+          "kind": "statute"
         }
       ]
     },
@@ -4321,7 +4404,8 @@
         {
           "source": "MD Code, Labor & Employment §3-211",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-211",
-          "section": "§3-211"
+          "section": "§3-211",
+          "kind": "statute"
         }
       ]
     },
@@ -4373,7 +4457,8 @@
       "citations": [
         {
           "source": "26 MRSA §773",
-          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html"
+          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -4425,7 +4510,8 @@
       "citations": [
         {
           "source": "26 MRSA §773",
-          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html"
+          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -4477,7 +4563,8 @@
       "citations": [
         {
           "source": "26 MRSA §773",
-          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html"
+          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -4529,7 +4616,8 @@
       "citations": [
         {
           "source": "26 MRSA §773",
-          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html"
+          "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -4581,7 +4669,8 @@
       "citations": [
         {
           "source": "MCL §409.103",
-          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment"
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -4633,7 +4722,8 @@
       "citations": [
         {
           "source": "MCL §409.103",
-          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment"
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -4685,7 +4775,8 @@
       "citations": [
         {
           "source": "MCL §409.103",
-          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment"
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -4737,7 +4828,8 @@
       "citations": [
         {
           "source": "MCL §409.103",
-          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment"
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -4789,7 +4881,8 @@
       "citations": [
         {
           "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor"
+          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -4841,7 +4934,8 @@
       "citations": [
         {
           "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor"
+          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -4893,7 +4987,8 @@
       "citations": [
         {
           "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor"
+          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -4945,7 +5040,8 @@
       "citations": [
         {
           "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor"
+          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -4997,7 +5093,8 @@
       "citations": [
         {
           "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor"
+          "url": "https://labor.mo.gov/dls/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5049,7 +5146,8 @@
       "citations": [
         {
           "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor"
+          "url": "https://labor.mo.gov/dls/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5101,7 +5199,8 @@
       "citations": [
         {
           "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor"
+          "url": "https://labor.mo.gov/dls/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5153,7 +5252,8 @@
       "citations": [
         {
           "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor"
+          "url": "https://labor.mo.gov/dls/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5186,7 +5286,8 @@
         {
           "source": "Miss. Code §71-1-17 et seq.",
           "url": "https://law.justia.com/codes/mississippi/title-71/chapter-1/",
-          "section": "§71-1-17 to §71-1-29"
+          "section": "§71-1-17 to §71-1-29",
+          "kind": "statute"
         }
       ]
     },
@@ -5238,7 +5339,8 @@
       "citations": [
         {
           "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor"
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5290,7 +5392,8 @@
       "citations": [
         {
           "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor"
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5342,7 +5445,8 @@
       "citations": [
         {
           "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor"
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5394,7 +5498,8 @@
       "citations": [
         {
           "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor"
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5446,7 +5551,8 @@
       "citations": [
         {
           "source": "NCGS §95-25.5",
-          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules"
+          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
+          "kind": "statute"
         }
       ]
     },
@@ -5498,7 +5604,8 @@
       "citations": [
         {
           "source": "NCGS §95-25.5",
-          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules"
+          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
+          "kind": "statute"
         }
       ]
     },
@@ -5550,7 +5657,8 @@
       "citations": [
         {
           "source": "NCGS §95-25.5",
-          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules"
+          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
+          "kind": "statute"
         }
       ]
     },
@@ -5602,7 +5710,8 @@
       "citations": [
         {
           "source": "NCGS §95-25.5",
-          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules"
+          "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
+          "kind": "statute"
         }
       ]
     },
@@ -5654,7 +5763,8 @@
       "citations": [
         {
           "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor"
+          "url": "https://www.nd.gov/labor/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5706,7 +5816,8 @@
       "citations": [
         {
           "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor"
+          "url": "https://www.nd.gov/labor/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5758,7 +5869,8 @@
       "citations": [
         {
           "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor"
+          "url": "https://www.nd.gov/labor/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5810,7 +5922,8 @@
       "citations": [
         {
           "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor"
+          "url": "https://www.nd.gov/labor/child-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -5862,7 +5975,8 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor"
+          "url": "https://dol.nebraska.gov/ChildLabor",
+          "kind": "statute"
         }
       ]
     },
@@ -5914,7 +6028,8 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor"
+          "url": "https://dol.nebraska.gov/ChildLabor",
+          "kind": "statute"
         }
       ]
     },
@@ -5966,7 +6081,8 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor"
+          "url": "https://dol.nebraska.gov/ChildLabor",
+          "kind": "statute"
         }
       ]
     },
@@ -6018,7 +6134,8 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor"
+          "url": "https://dol.nebraska.gov/ChildLabor",
+          "kind": "statute"
         }
       ]
     },
@@ -6070,7 +6187,8 @@
       "citations": [
         {
           "source": "NH RSA §276-A:4",
-          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm"
+          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -6122,7 +6240,8 @@
       "citations": [
         {
           "source": "NH RSA §276-A:4",
-          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm"
+          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -6174,7 +6293,8 @@
       "citations": [
         {
           "source": "NH RSA §276-A:4",
-          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm"
+          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -6226,7 +6346,8 @@
       "citations": [
         {
           "source": "NH RSA §276-A:4",
-          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm"
+          "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -6279,7 +6400,8 @@
         {
           "source": "NJSA §34:2-21.3",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3"
+          "section": "§34:2-21.3",
+          "kind": "statute"
         }
       ]
     },
@@ -6332,7 +6454,8 @@
         {
           "source": "NJSA §34:2-21.3",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3"
+          "section": "§34:2-21.3",
+          "kind": "statute"
         }
       ]
     },
@@ -6385,7 +6508,8 @@
         {
           "source": "NJSA §34:2-21.3",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3"
+          "section": "§34:2-21.3",
+          "kind": "statute"
         }
       ]
     },
@@ -6438,7 +6562,8 @@
         {
           "source": "NJSA §34:2-21.3",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3"
+          "section": "§34:2-21.3",
+          "kind": "statute"
         }
       ]
     },
@@ -6490,7 +6615,8 @@
       "citations": [
         {
           "source": "NMSA §50-6-2",
-          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor"
+          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -6542,7 +6668,8 @@
       "citations": [
         {
           "source": "NMSA §50-6-2",
-          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor"
+          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -6594,7 +6721,8 @@
       "citations": [
         {
           "source": "NMSA §50-6-2",
-          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor"
+          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -6646,7 +6774,8 @@
       "citations": [
         {
           "source": "NMSA §50-6-2",
-          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor"
+          "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
+          "kind": "statute"
         }
       ]
     },
@@ -6699,7 +6828,8 @@
         {
           "source": "NRS §609.240",
           "url": "https://www.leg.state.nv.us/nrs/nrs-609.html#NRS609Sec240",
-          "section": "NRS §609.240"
+          "section": "NRS §609.240",
+          "kind": "statute"
         }
       ]
     },
@@ -6752,7 +6882,8 @@
         {
           "source": "NRS §609.240",
           "url": "https://www.leg.state.nv.us/nrs/nrs-609.html#NRS609Sec240",
-          "section": "NRS §609.240"
+          "section": "NRS §609.240",
+          "kind": "statute"
         }
       ]
     },
@@ -6805,7 +6936,8 @@
         {
           "source": "NRS §609.240",
           "url": "https://www.leg.state.nv.us/nrs/nrs-609.html#NRS609Sec240",
-          "section": "NRS §609.240"
+          "section": "NRS §609.240",
+          "kind": "statute"
         }
       ]
     },
@@ -6858,7 +6990,8 @@
         {
           "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133"
+          "section": "§133",
+          "kind": "regulation"
         }
       ]
     },
@@ -6911,7 +7044,8 @@
         {
           "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133"
+          "section": "§133",
+          "kind": "regulation"
         }
       ]
     },
@@ -6964,7 +7098,8 @@
         {
           "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133"
+          "section": "§133",
+          "kind": "regulation"
         }
       ]
     },
@@ -7017,7 +7152,8 @@
         {
           "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133"
+          "section": "§133",
+          "kind": "regulation"
         }
       ]
     },
@@ -7070,7 +7206,8 @@
         {
           "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133"
+          "section": "§133",
+          "kind": "regulation"
         }
       ]
     },
@@ -7122,7 +7259,8 @@
       "citations": [
         {
           "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor"
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -7174,7 +7312,8 @@
       "citations": [
         {
           "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor"
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -7226,7 +7365,8 @@
       "citations": [
         {
           "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor"
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -7278,7 +7418,8 @@
       "citations": [
         {
           "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor"
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "kind": "statute"
         }
       ]
     },
@@ -7330,7 +7471,8 @@
       "citations": [
         {
           "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html"
+          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -7382,7 +7524,8 @@
       "citations": [
         {
           "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html"
+          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -7434,7 +7577,8 @@
       "citations": [
         {
           "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html"
+          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -7486,7 +7630,8 @@
       "citations": [
         {
           "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html"
+          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -7538,7 +7683,8 @@
       "citations": [
         {
           "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx"
+          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7590,7 +7736,8 @@
       "citations": [
         {
           "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx"
+          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7642,7 +7789,8 @@
       "citations": [
         {
           "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx"
+          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7694,7 +7842,8 @@
       "citations": [
         {
           "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx"
+          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7746,7 +7895,8 @@
       "citations": [
         {
           "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx"
+          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7798,7 +7948,8 @@
       "citations": [
         {
           "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx"
+          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7850,7 +8001,8 @@
       "citations": [
         {
           "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx"
+          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7902,7 +8054,8 @@
       "citations": [
         {
           "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx"
+          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -7954,7 +8107,8 @@
       "citations": [
         {
           "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment"
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -8006,7 +8160,8 @@
       "citations": [
         {
           "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment"
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -8058,7 +8213,8 @@
       "citations": [
         {
           "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment"
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -8110,7 +8266,8 @@
       "citations": [
         {
           "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment"
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "kind": "statute"
         }
       ]
     },
@@ -8143,7 +8300,8 @@
         {
           "source": "S.C. Code §41-13-5 et seq.",
           "url": "https://www.scstatehouse.gov/code/t41c013.php",
-          "section": "§41-13-5 to §41-13-25"
+          "section": "§41-13-5 to §41-13-25",
+          "kind": "statute"
         }
       ]
     },
@@ -8195,7 +8353,8 @@
       "citations": [
         {
           "source": "SDCL §60-12-3",
-          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx"
+          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -8247,7 +8406,8 @@
       "citations": [
         {
           "source": "SDCL §60-12-3",
-          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx"
+          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -8299,7 +8459,8 @@
       "citations": [
         {
           "source": "SDCL §60-12-3",
-          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx"
+          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -8351,7 +8512,8 @@
       "citations": [
         {
           "source": "SDCL §60-12-3",
-          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx"
+          "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -8403,7 +8565,8 @@
       "citations": [
         {
           "source": "Tenn. Code §50-5-105",
-          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html"
+          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -8455,7 +8618,8 @@
       "citations": [
         {
           "source": "Tenn. Code §50-5-105",
-          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html"
+          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -8507,7 +8671,8 @@
       "citations": [
         {
           "source": "Tenn. Code §50-5-105",
-          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html"
+          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -8559,7 +8724,8 @@
       "citations": [
         {
           "source": "Tenn. Code §50-5-105",
-          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html"
+          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
+          "kind": "statute"
         }
       ]
     },
@@ -8611,7 +8777,8 @@
       "citations": [
         {
           "source": "Tex. Lab. Code §51.013",
-          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas"
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
         }
       ]
     },
@@ -8663,7 +8830,8 @@
       "citations": [
         {
           "source": "Tex. Lab. Code §51.013",
-          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas"
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
         }
       ]
     },
@@ -8715,7 +8883,8 @@
       "citations": [
         {
           "source": "Tex. Lab. Code §51.013",
-          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas"
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
         }
       ]
     },
@@ -8767,7 +8936,8 @@
       "citations": [
         {
           "source": "Tex. Lab. Code §51.013",
-          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas"
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
         }
       ]
     },
@@ -8819,7 +8989,8 @@
       "citations": [
         {
           "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/"
+          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -8871,7 +9042,8 @@
       "citations": [
         {
           "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/"
+          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -8923,7 +9095,8 @@
       "citations": [
         {
           "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/"
+          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -8975,7 +9148,8 @@
       "citations": [
         {
           "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/"
+          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -9028,7 +9202,8 @@
         {
           "source": "VA Code §40.1-100",
           "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter5/section40.1-100/",
-          "section": "§40.1-100"
+          "section": "§40.1-100",
+          "kind": "statute"
         }
       ]
     },
@@ -9081,7 +9256,8 @@
         {
           "source": "VA Code §40.1-100",
           "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter5/section40.1-100/",
-          "section": "§40.1-100"
+          "section": "§40.1-100",
+          "kind": "statute"
         }
       ]
     },
@@ -9133,7 +9309,8 @@
       "citations": [
         {
           "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet"
+          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "kind": "statute"
         }
       ]
     },
@@ -9185,7 +9362,8 @@
       "citations": [
         {
           "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet"
+          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "kind": "statute"
         }
       ]
     },
@@ -9237,7 +9415,8 @@
       "citations": [
         {
           "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet"
+          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "kind": "statute"
         }
       ]
     },
@@ -9289,7 +9468,8 @@
       "citations": [
         {
           "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet"
+          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "kind": "statute"
         }
       ]
     },
@@ -9341,7 +9521,8 @@
       "citations": [
         {
           "source": "WAC §296-125-028",
-          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work"
+          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
+          "kind": "regulation"
         }
       ]
     },
@@ -9393,7 +9574,8 @@
       "citations": [
         {
           "source": "WAC §296-125-028",
-          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work"
+          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
+          "kind": "regulation"
         }
       ]
     },
@@ -9445,7 +9627,8 @@
       "citations": [
         {
           "source": "WAC §296-125-028",
-          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work"
+          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
+          "kind": "regulation"
         }
       ]
     },
@@ -9497,7 +9680,8 @@
       "citations": [
         {
           "source": "WAC §296-125-028",
-          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work"
+          "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
+          "kind": "regulation"
         }
       ]
     },
@@ -9549,7 +9733,8 @@
       "citations": [
         {
           "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm"
+          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -9601,7 +9786,8 @@
       "citations": [
         {
           "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm"
+          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -9653,7 +9839,8 @@
       "citations": [
         {
           "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm"
+          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -9705,7 +9892,8 @@
       "citations": [
         {
           "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm"
+          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -9757,7 +9945,8 @@
       "citations": [
         {
           "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx"
+          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -9809,7 +9998,8 @@
       "citations": [
         {
           "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx"
+          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -9861,7 +10051,8 @@
       "citations": [
         {
           "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx"
+          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -9913,7 +10104,8 @@
       "citations": [
         {
           "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx"
+          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -9965,7 +10157,8 @@
       "citations": [
         {
           "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/"
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -10017,7 +10210,8 @@
       "citations": [
         {
           "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/"
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -10069,7 +10263,8 @@
       "citations": [
         {
           "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/"
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "kind": "statute"
         }
       ]
     },
@@ -10121,7 +10316,8 @@
       "citations": [
         {
           "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/"
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "kind": "statute"
         }
       ]
     }

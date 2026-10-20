@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      # The test suites only use node built-ins, so bun runs the TypeScript
+      # directly and no package install is needed.
+      - run: bun server/rules/rules.test.ts
+      - run: bun server/rules/validation.test.ts
+      - run: bun server/scheduler/buildScenario.test.ts
+      - run: bun server/reference/reference.test.ts

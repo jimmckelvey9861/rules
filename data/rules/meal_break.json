@@ -47,7 +47,8 @@
         {
           "source": "California Labor Code §512(a)",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)"
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
         }
       ]
     },
@@ -85,7 +86,8 @@
         {
           "source": "California Labor Code §512(a)",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)"
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
         }
       ]
     },
@@ -129,7 +131,8 @@
         {
           "source": "California Labor Code §512(a)",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)"
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
         }
       ]
     },
@@ -172,7 +175,8 @@
       "citations": [
         {
           "source": "COMPS Order #40, Rule 5.2.1",
-          "url": "https://cdle.colorado.gov/wage-and-hour-law/meal-and-rest-periods"
+          "url": "https://cdle.colorado.gov/wage-and-hour-law/meal-and-rest-periods",
+          "kind": "regulation"
         }
       ]
     },
@@ -210,7 +214,8 @@
         {
           "source": "Colorado COMPS Order #39",
           "url": "https://cdle.colorado.gov/comps-order",
-          "section": "7 CCR 1103-1 Rule 5.2"
+          "section": "7 CCR 1103-1 Rule 5.2",
+          "kind": "regulation"
         }
       ]
     },
@@ -254,7 +259,8 @@
         {
           "source": "CT Gen. Stat. §31-51ii",
           "url": "https://www.cga.ct.gov/current/pub/chap_558.htm#sec_31-51ii",
-          "section": "§31-51ii"
+          "section": "§31-51ii",
+          "kind": "statute"
         }
       ]
     },
@@ -292,7 +298,8 @@
         {
           "source": "Conn. Gen. Stat. §31-51ii",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm",
-          "section": "§31-51ii"
+          "section": "§31-51ii",
+          "kind": "statute"
         }
       ]
     },
@@ -335,7 +342,8 @@
       "citations": [
         {
           "source": "19 Del. C. §707",
-          "url": "https://dia.delawareworks.com/labor-law/breaks.php"
+          "url": "https://dia.delawareworks.com/labor-law/breaks.php",
+          "kind": "statute"
         }
       ]
     },
@@ -373,7 +381,8 @@
         {
           "source": "19 Del. C. §707",
           "url": "https://delcode.delaware.gov/title19/c007/index.html",
-          "section": "19 Del. C. §707"
+          "section": "19 Del. C. §707",
+          "kind": "statute"
         }
       ]
     },
@@ -417,7 +426,8 @@
         {
           "source": "820 ILCS 140/3",
           "url": "https://labor.illinois.gov/laws-rules/conmed/one-day-rest-in-seven-act.html",
-          "section": "820 ILCS 140/3"
+          "section": "820 ILCS 140/3",
+          "kind": "statute"
         }
       ]
     },
@@ -455,7 +465,8 @@
         {
           "source": "820 ILCS 140/3",
           "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
-          "section": "820 ILCS 140/3"
+          "section": "820 ILCS 140/3",
+          "kind": "statute"
         }
       ]
     },
@@ -498,7 +509,8 @@
       "citations": [
         {
           "source": "KRS §337.355",
-          "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx"
+          "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -536,7 +548,8 @@
         {
           "source": "KRS §337.355",
           "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=32207",
-          "section": "KRS §337.355"
+          "section": "KRS §337.355",
+          "kind": "statute"
         }
       ]
     },
@@ -580,7 +593,8 @@
         {
           "source": "MGL c.149 §100",
           "url": "https://www.mass.gov/info-details/massachusetts-law-about-meal-breaks",
-          "section": "c.149 §100"
+          "section": "c.149 §100",
+          "kind": "statute"
         }
       ]
     },
@@ -618,7 +632,8 @@
         {
           "source": "MGL c.149 §100",
           "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section100",
-          "section": "MGL c.149 §100"
+          "section": "MGL c.149 §100",
+          "kind": "statute"
         }
       ]
     },
@@ -672,7 +687,8 @@
         {
           "source": "MD Code, Labor & Employment §3-710",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
-          "section": "§3-710"
+          "section": "§3-710",
+          "kind": "statute"
         }
       ]
     },
@@ -721,7 +737,8 @@
         {
           "source": "MD Code, Labor & Employment §3-710",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
-          "section": "§3-710"
+          "section": "§3-710",
+          "kind": "statute"
         }
       ]
     },
@@ -759,7 +776,8 @@
         {
           "source": "Md. Code Lab. & Empl. §3-710",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
-          "section": "§3-710"
+          "section": "§3-710",
+          "kind": "statute"
         }
       ]
     },
@@ -802,7 +820,8 @@
       "citations": [
         {
           "source": "26 MRSA §601",
-          "url": "https://www.maine.gov/labor/labor_laws/rest_meal.html"
+          "url": "https://www.maine.gov/labor/labor_laws/rest_meal.html",
+          "kind": "statute"
         }
       ]
     },
@@ -840,7 +859,8 @@
         {
           "source": "26 MRSA §601",
           "url": "https://legislature.maine.gov/statutes/26/title26sec601.html",
-          "section": "26 MRSA §601"
+          "section": "26 MRSA §601",
+          "kind": "statute"
         }
       ]
     },
@@ -883,7 +903,8 @@
       "citations": [
         {
           "source": "Minn. Stat. §177.254",
-          "url": "https://www.dli.mn.gov/business/employment-practices/work-breaks-and-meal-time"
+          "url": "https://www.dli.mn.gov/business/employment-practices/work-breaks-and-meal-time",
+          "kind": "statute"
         }
       ]
     },
@@ -921,7 +942,8 @@
         {
           "source": "Minn. Stat. §177.254",
           "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
-          "section": "Minn. Stat. §177.254"
+          "section": "Minn. Stat. §177.254",
+          "kind": "statute"
         }
       ]
     },
@@ -964,7 +986,8 @@
       "citations": [
         {
           "source": "NDAC §46-02-07-02(5)",
-          "url": "https://www.nd.gov/labor/meal-periods-and-rest-breaks"
+          "url": "https://www.nd.gov/labor/meal-periods-and-rest-breaks",
+          "kind": "regulation"
         }
       ]
     },
@@ -1002,7 +1025,8 @@
         {
           "source": "ND Admin Code §46-02-07-02",
           "url": "https://www.nd.gov/labor/wage-and-hour",
-          "section": "NDAC §46-02-07-02"
+          "section": "NDAC §46-02-07-02",
+          "kind": "regulation"
         }
       ]
     },
@@ -1045,7 +1069,8 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. §48-212",
-          "url": "https://dol.nebraska.gov/LaborStandards/FAQ/Breaks"
+          "url": "https://dol.nebraska.gov/LaborStandards/FAQ/Breaks",
+          "kind": "statute"
         }
       ]
     },
@@ -1083,7 +1108,8 @@
         {
           "source": "Neb. Rev. Stat. §48-212",
           "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-212",
-          "section": "Neb. Rev. Stat. §48-212"
+          "section": "Neb. Rev. Stat. §48-212",
+          "kind": "statute"
         }
       ]
     },
@@ -1126,7 +1152,8 @@
       "citations": [
         {
           "source": "NH RSA §275:30-a",
-          "url": "https://www.nh.gov/labor/inspection/wage-hour/breaks.htm"
+          "url": "https://www.nh.gov/labor/inspection/wage-hour/breaks.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -1164,7 +1191,8 @@
         {
           "source": "RSA §275:30-a",
           "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275/275-30-a.htm",
-          "section": "RSA §275:30-a"
+          "section": "RSA §275:30-a",
+          "kind": "statute"
         }
       ]
     },
@@ -1208,7 +1236,8 @@
         {
           "source": "NRS §608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019(1)"
+          "section": "NRS §608.019(1)",
+          "kind": "statute"
         }
       ]
     },
@@ -1246,7 +1275,8 @@
         {
           "source": "NRS §608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019"
+          "section": "NRS §608.019",
+          "kind": "statute"
         }
       ]
     },
@@ -1290,7 +1320,8 @@
         {
           "source": "NY Labor Law §162(3)",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(3)"
+          "section": "§162(3)",
+          "kind": "statute"
         }
       ]
     },
@@ -1334,7 +1365,8 @@
         {
           "source": "NY Labor Law §162(1)",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(1)"
+          "section": "§162(1)",
+          "kind": "statute"
         }
       ]
     },
@@ -1378,7 +1410,8 @@
         {
           "source": "NY Labor Law §162(2)",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(2)"
+          "section": "§162(2)",
+          "kind": "statute"
         }
       ]
     },
@@ -1416,7 +1449,8 @@
         {
           "source": "NY Labor Law §162",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "NY Lab. Law §162"
+          "section": "NY Lab. Law §162",
+          "kind": "statute"
         }
       ]
     },
@@ -1459,7 +1493,8 @@
       "citations": [
         {
           "source": "ORS §653.261",
-          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx"
+          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -1497,7 +1532,8 @@
         {
           "source": "OAR 839-020-0050",
           "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
-          "section": "OAR 839-020-0050"
+          "section": "OAR 839-020-0050",
+          "kind": "regulation"
         }
       ]
     },
@@ -1540,7 +1576,8 @@
       "citations": [
         {
           "source": "RI Gen. Laws §28-3-14",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/breaks-and-lunches"
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/breaks-and-lunches",
+          "kind": "statute"
         }
       ]
     },
@@ -1578,7 +1615,8 @@
         {
           "source": "R.I. Gen. Laws §28-3-14",
           "url": "https://law.justia.com/codes/rhode-island/title-28/chapter-28-3/section-28-3-14/",
-          "section": "R.I. Gen. Laws §28-3-14"
+          "section": "R.I. Gen. Laws §28-3-14",
+          "kind": "statute"
         }
       ]
     },
@@ -1621,7 +1659,8 @@
       "citations": [
         {
           "source": "Tenn. Code §50-2-103(h)",
-          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/wages-breaks.html"
+          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/wages-breaks.html",
+          "kind": "statute"
         }
       ]
     },
@@ -1659,7 +1698,8 @@
         {
           "source": "Tenn. Code §50-2-103(h)",
           "url": "https://law.justia.com/codes/tennessee/title-50/chapter-2/part-1/section-50-2-103/",
-          "section": "Tenn. Code §50-2-103(h)"
+          "section": "Tenn. Code §50-2-103(h)",
+          "kind": "statute"
         }
       ]
     },
@@ -1702,7 +1742,8 @@
       "citations": [
         {
           "source": "21 VSA §304",
-          "url": "https://labor.vermont.gov/document/meal-break-fact-sheet"
+          "url": "https://labor.vermont.gov/document/meal-break-fact-sheet",
+          "kind": "statute"
         }
       ]
     },
@@ -1740,7 +1781,8 @@
         {
           "source": "21 V.S.A. §304",
           "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
-          "section": "21 V.S.A. §304"
+          "section": "21 V.S.A. §304",
+          "kind": "statute"
         }
       ]
     },
@@ -1784,7 +1826,8 @@
         {
           "source": "WAC §296-126-092",
           "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods",
-          "section": "WAC §296-126-092"
+          "section": "WAC §296-126-092",
+          "kind": "regulation"
         }
       ]
     },
@@ -1822,7 +1865,8 @@
         {
           "source": "WAC 296-126-092",
           "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks",
-          "section": "WAC 296-126-092"
+          "section": "WAC 296-126-092",
+          "kind": "regulation"
         }
       ]
     },
@@ -1865,7 +1909,8 @@
       "citations": [
         {
           "source": "W. Va. Code §21-3-10a",
-          "url": "https://labor.wv.gov/Pages/Breaks-and-Meals.aspx"
+          "url": "https://labor.wv.gov/Pages/Breaks-and-Meals.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -1903,7 +1948,8 @@
         {
           "source": "W. Va. Code §21-3-10a",
           "url": "https://www.wvlegislature.gov/wvcode/code.cfm?chap=21&art=3",
-          "section": "W. Va. Code §21-3-10a"
+          "section": "W. Va. Code §21-3-10a",
+          "kind": "statute"
         }
       ]
     }

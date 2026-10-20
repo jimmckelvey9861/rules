@@ -47,6 +47,10 @@ data/
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent, preemption)
   rules/<topic>.json    — All rules, one file per topic (476 rules across 13 topics)
   schema/               — JSON Schema for rule files (editor validation)
+  link-report.json      — Output of the link checker (written by npm run check-links)
+scripts/
+  checkLinks.ts         — Fetches every citation URL, writes data/link-report.json
+  classifyCitations.ts  — Fills in citation kind from the source wording
 server/
   index.ts              — Express server
   reference/
@@ -73,6 +77,20 @@ client/
     SchedulerPage       — Schedule editor
     ComplianceWorkbench — Scenario workbench
 ```
+
+## Sources and links
+
+Every citation carries a `kind` (`statute`, `regulation`, `ordinance`, `constitution`
+or `guidance`). Statutes and ordinances are the durable authority; guidance pages
+(agency FAQs) churn and may never be a rule's only citation. `npm run
+classify-citations` fills in `kind` for new citations from the wording of
+`source`.
+
+`npm run check-links` fetches every citation URL and writes
+`data/link-report.json` with status, final URL and a hash of the page text, so a
+later run can flag links that newly broke and pages whose text changed. The
+`Check citation links` workflow runs it nightly and on demand; its job summary
+lists the broken links and the report is attached as an artifact.
 
 ## Adding or changing a rule
 

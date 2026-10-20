@@ -9,7 +9,7 @@
  * - Vague values like "varies", "unknown", "depends", null in logic fields
  */
 
-import type { Rule } from "./types.js";
+import { CITATION_KINDS, type Rule } from "./types.js";
 import { validateCondition, type ValidationError } from "./conditions.js";
 
 /** Vague values that must not appear in string fields */
@@ -112,6 +112,12 @@ function validateRuleDefinition(definition: Rule): ValidationError[] {
       }
       if (typeof c.source === "string" && VAGUE_STRINGS.has(c.source.toLowerCase())) {
         errors.push({ path: `citations[${i}].source`, message: `Vague citation source: "${c.source}"` });
+      }
+      if (c.kind !== undefined && !CITATION_KINDS.includes(c.kind)) {
+        errors.push({ path: `citations[${i}].kind`, message: `kind must be one of: ${CITATION_KINDS.join(", ")}` });
+      }
+      if (c.url !== undefined && !/^https?:\/\/\S+$/.test(c.url)) {
+        errors.push({ path: `citations[${i}].url`, message: `url must be an absolute http(s) URL, got "${c.url}"` });
       }
     }
   }

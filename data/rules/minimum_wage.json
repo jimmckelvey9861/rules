@@ -33,7 +33,8 @@
         {
           "source": "Alaska Wage and Hour Act, AS 23.10.065",
           "url": "https://www.akleg.gov/basis/statutes.asp#23.10.065",
-          "section": "AS 23.10.065"
+          "section": "AS 23.10.065",
+          "kind": "statute"
         }
       ]
     },
@@ -66,8 +67,15 @@
       },
       "citations": [
         {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
           "source": "No state minimum wage law (federal applies)",
-          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#al"
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#al",
+          "kind": "guidance"
         }
       ]
     },
@@ -100,8 +108,9 @@
       },
       "citations": [
         {
-          "source": "Ark. Code §11-4-210",
-          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#ar"
+          "source": "Ark. Code \u00a711-4-210",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#ar",
+          "kind": "statute"
         }
       ]
     },
@@ -134,8 +143,9 @@
       },
       "citations": [
         {
-          "source": "ARS §23-363",
-          "url": "https://www.azleg.gov/ars/23/00363.htm"
+          "source": "ARS \u00a723-363",
+          "url": "https://www.azleg.gov/ars/23/00363.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -174,7 +184,8 @@
       "citations": [
         {
           "source": "Belmont Municipal Code Ch. 8.10",
-          "url": "https://www.belmont.gov/city-hall/finance/minimum-wage"
+          "url": "https://www.belmont.gov/city-hall/finance/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -213,7 +224,8 @@
       "citations": [
         {
           "source": "Boulder Revised Code Ch. 12-1",
-          "url": "https://bouldercolorado.gov/services/minimum-wage"
+          "url": "https://bouldercolorado.gov/services/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -253,7 +265,8 @@
         {
           "source": "California AB 1228 (Fast Food Minimum Wage)",
           "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB1228",
-          "section": "Cal. Lab. Code §1474"
+          "section": "Cal. Lab. Code \u00a71474",
+          "kind": "statute"
         }
       ]
     },
@@ -286,9 +299,10 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §1182.12",
+          "source": "California Labor Code \u00a71182.12",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1182.12.&lawCode=LAB",
-          "section": "Cal. Lab. Code §1182.12"
+          "section": "Cal. Lab. Code \u00a71182.12",
+          "kind": "statute"
         }
       ]
     },
@@ -328,7 +342,8 @@
         {
           "source": "Chicago Minimum Wage Ordinance",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/minimumwageinformation.html",
-          "section": "MCC §1-24-020"
+          "section": "MCC \u00a71-24-020",
+          "kind": "ordinance"
         }
       ]
     },
@@ -362,7 +377,8 @@
       "citations": [
         {
           "source": "COMPS Order #40",
-          "url": "https://cdle.colorado.gov/wage-and-hour-law/minimum-wage"
+          "url": "https://cdle.colorado.gov/wage-and-hour-law/minimum-wage",
+          "kind": "regulation"
         }
       ]
     },
@@ -395,9 +411,10 @@
       },
       "citations": [
         {
-          "source": "Connecticut General Statutes §31-58",
+          "source": "Connecticut General Statutes \u00a731-58",
           "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/minimum-wage.htm",
-          "section": "Conn. Gen. Stat. §31-58"
+          "section": "Conn. Gen. Stat. \u00a731-58",
+          "kind": "statute"
         }
       ]
     },
@@ -443,9 +460,10 @@
       },
       "citations": [
         {
-          "source": "Connecticut General Statutes §31-62",
+          "source": "Connecticut General Statutes \u00a731-62",
           "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/minimum-wage.htm",
-          "section": "Conn. Gen. Stat. §31-62 (tipped employees)"
+          "section": "Conn. Gen. Stat. \u00a731-62 (tipped employees)",
+          "kind": "statute"
         }
       ]
     },
@@ -484,7 +502,8 @@
       "citations": [
         {
           "source": "Daly City Municipal Code Ch. 2.110",
-          "url": "https://www.dalycity.org/minimumwage"
+          "url": "https://www.dalycity.org/minimumwage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -517,9 +536,10 @@
       },
       "citations": [
         {
-          "source": "DC Code §32-1003",
+          "source": "DC Code \u00a732-1003",
           "url": "https://does.dc.gov/service/office-wage-hour-compliance",
-          "section": "DC Code §32-1003"
+          "section": "DC Code \u00a732-1003",
+          "kind": "statute"
         }
       ]
     },
@@ -557,9 +577,10 @@
       },
       "citations": [
         {
-          "source": "DC Code §32-1003(f)",
+          "source": "DC Code \u00a732-1003(f)",
           "url": "https://does.dc.gov/service/office-wage-hour-compliance",
-          "section": "DC Code §32-1003(f)"
+          "section": "DC Code \u00a732-1003(f)",
+          "kind": "statute"
         }
       ]
     },
@@ -592,8 +613,9 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §902",
-          "url": "https://dia.delawareworks.com/labor-law/minimum-wage.php"
+          "source": "19 Del. C. \u00a7902",
+          "url": "https://dia.delawareworks.com/labor-law/minimum-wage.php",
+          "kind": "statute"
         }
       ]
     },
@@ -631,8 +653,9 @@
       },
       "citations": [
         {
-          "source": "Denver Revised Municipal Code §58-15",
-          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Auditors-Office/Denver-Minimum-Wage"
+          "source": "Denver Revised Municipal Code \u00a758-15",
+          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Auditors-Office/Denver-Minimum-Wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -665,9 +688,10 @@
       },
       "citations": [
         {
-          "source": "Fair Labor Standards Act §206(a)(1)",
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
           "url": "https://www.law.cornell.edu/uscode/text/29/206",
-          "section": "29 U.S.C. §206(a)(1)"
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
         }
       ]
     },
@@ -700,8 +724,9 @@
       },
       "citations": [
         {
-          "source": "FL Const. Art. X §24",
-          "url": "https://floridajobs.org/minimum-wage"
+          "source": "FL Const. Art. X \u00a724",
+          "url": "https://floridajobs.org/minimum-wage",
+          "kind": "constitution"
         }
       ]
     },
@@ -740,7 +765,8 @@
       "citations": [
         {
           "source": "Fremont Municipal Code Ch. 4.120",
-          "url": "https://www.fremont.gov/government/departments/human-services/minimum-wage"
+          "url": "https://www.fremont.gov/government/departments/human-services/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -773,8 +799,9 @@
       },
       "citations": [
         {
-          "source": "O.C.G.A. §34-4-3 (federal rate applies)",
-          "url": "https://dol.georgia.gov/minimum-wage"
+          "source": "O.C.G.A. \u00a734-4-3 (federal rate applies)",
+          "url": "https://dol.georgia.gov/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -813,7 +840,8 @@
       "citations": [
         {
           "source": "Half Moon Bay Municipal Code Ch. 5.30",
-          "url": "https://www.half-moon-bay.ca.us/minimumwage"
+          "url": "https://www.half-moon-bay.ca.us/minimumwage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -852,7 +880,8 @@
       "citations": [
         {
           "source": "Hayward Municipal Code Ch. 5 Art. 12",
-          "url": "https://www.hayward-ca.gov/your-government/programs/minimum-wage"
+          "url": "https://www.hayward-ca.gov/your-government/programs/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -885,9 +914,10 @@
       },
       "citations": [
         {
-          "source": "Hawaii Revised Statutes §387-2",
+          "source": "Hawaii Revised Statutes \u00a7387-2",
           "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0387/HRS_0387-0002.htm",
-          "section": "HRS §387-2"
+          "section": "HRS \u00a7387-2",
+          "kind": "statute"
         }
       ]
     },
@@ -920,8 +950,9 @@
       },
       "citations": [
         {
-          "source": "Iowa Code §91D.1",
-          "url": "https://www.iowadivisionoflabor.gov/minimum-wage"
+          "source": "Iowa Code \u00a791D.1",
+          "url": "https://www.iowadivisionoflabor.gov/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -954,8 +985,9 @@
       },
       "citations": [
         {
-          "source": "Idaho Code §44-1502",
-          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Minimum-Wage"
+          "source": "Idaho Code \u00a744-1502",
+          "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Minimum-Wage",
+          "kind": "statute"
         }
       ]
     },
@@ -989,7 +1021,8 @@
       "citations": [
         {
           "source": "820 ILCS 105/4a",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/minimum-wage-rates-702.html"
+          "url": "https://labor.illinois.gov/laws-rules/conmed/minimum-wage-rates-702.html",
+          "kind": "statute"
         }
       ]
     },
@@ -1022,8 +1055,9 @@
       },
       "citations": [
         {
-          "source": "IC §22-2-2-4",
-          "url": "https://www.in.gov/dol/wage-and-hour/minimum-wage/"
+          "source": "IC \u00a722-2-2-4",
+          "url": "https://www.in.gov/dol/wage-and-hour/minimum-wage/",
+          "kind": "statute"
         }
       ]
     },
@@ -1056,8 +1090,9 @@
       },
       "citations": [
         {
-          "source": "K.S.A. §44-1203",
-          "url": "https://www.dol.ks.gov/laws/minimum-wage"
+          "source": "K.S.A. \u00a744-1203",
+          "url": "https://www.dol.ks.gov/laws/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -1090,8 +1125,9 @@
       },
       "citations": [
         {
-          "source": "KRS §337.275",
-          "url": "https://labor.ky.gov/standards/Pages/Minimum-Wage.aspx"
+          "source": "KRS \u00a7337.275",
+          "url": "https://labor.ky.gov/standards/Pages/Minimum-Wage.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -1124,8 +1160,15 @@
       },
       "citations": [
         {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
           "source": "No state minimum wage law (federal applies)",
-          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#la"
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#la",
+          "kind": "guidance"
         }
       ]
     },
@@ -1163,8 +1206,9 @@
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code §187.00 et seq.",
-          "url": "https://wagesla.lacity.org/"
+          "source": "Los Angeles Municipal Code \u00a7187.00 et seq.",
+          "url": "https://wagesla.lacity.org/",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1197,8 +1241,9 @@
       },
       "citations": [
         {
-          "source": "MGL c.151 §1",
-          "url": "https://www.mass.gov/info-details/minimum-wage"
+          "source": "MGL c.151 \u00a71",
+          "url": "https://www.mass.gov/info-details/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -1237,7 +1282,8 @@
       "citations": [
         {
           "source": "Malibu Municipal Code Ch. 5.25",
-          "url": "https://www.malibucity.org/minimumwage"
+          "url": "https://www.malibucity.org/minimumwage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1270,9 +1316,10 @@
       },
       "citations": [
         {
-          "source": "Maryland Wage and Hour Law, Md. Code Lab. & Empl. §3-413",
+          "source": "Maryland Wage and Hour Law, Md. Code Lab. & Empl. \u00a73-413",
           "url": "https://www.dllr.state.md.us/labor/wages/minimumwagelawtext.shtml",
-          "section": "Md. Code Lab. & Empl. §3-413"
+          "section": "Md. Code Lab. & Empl. \u00a73-413",
+          "kind": "statute"
         }
       ]
     },
@@ -1305,8 +1352,9 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §664",
-          "url": "https://www.maine.gov/labor/labor_laws/minimum_wage.html"
+          "source": "26 MRSA \u00a7664",
+          "url": "https://www.maine.gov/labor/labor_laws/minimum_wage.html",
+          "kind": "statute"
         }
       ]
     },
@@ -1339,8 +1387,9 @@
       },
       "citations": [
         {
-          "source": "MCL §408.934",
-          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/minimum-wage"
+          "source": "MCL \u00a7408.934",
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -1379,7 +1428,8 @@
       "citations": [
         {
           "source": "Minneapolis Code of Ordinances Title 2 Ch. 40",
-          "url": "https://www.minneapolismn.gov/government/government-data/datasource/minimum-wage/"
+          "url": "https://www.minneapolismn.gov/government/government-data/datasource/minimum-wage/",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1412,8 +1462,9 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §177.24",
-          "url": "https://www.dli.mn.gov/business/employment-practices/minimum-wage-minnesota"
+          "source": "Minn. Stat. \u00a7177.24",
+          "url": "https://www.dli.mn.gov/business/employment-practices/minimum-wage-minnesota",
+          "kind": "statute"
         }
       ]
     },
@@ -1446,8 +1497,9 @@
       },
       "citations": [
         {
-          "source": "MO Const. Art. III §3(a)",
-          "url": "https://labor.mo.gov/dls/minimum-wage"
+          "source": "MO Const. Art. III \u00a73(a)",
+          "url": "https://labor.mo.gov/dls/minimum-wage",
+          "kind": "constitution"
         }
       ]
     },
@@ -1487,7 +1539,8 @@
         {
           "source": "Montgomery County Code Ch. 27, Art. XI",
           "url": "https://www.montgomerycountymd.gov/humanrights/Resources/Files/MinWageLaw.pdf",
-          "section": "Montgomery County Code §27-68"
+          "section": "Montgomery County Code \u00a727-68",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1520,8 +1573,15 @@
       },
       "citations": [
         {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
           "source": "No state minimum wage law (federal applies)",
-          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#ms"
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#ms",
+          "kind": "guidance"
         }
       ]
     },
@@ -1554,8 +1614,9 @@
       },
       "citations": [
         {
-          "source": "MCA §39-3-409",
-          "url": "https://erd.dli.mt.gov/labor-standards/wage-and-hour-payment-act/minimum-wage"
+          "source": "MCA \u00a739-3-409",
+          "url": "https://erd.dli.mt.gov/labor-standards/wage-and-hour-payment-act/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -1588,8 +1649,9 @@
       },
       "citations": [
         {
-          "source": "NCGS §95-25.3",
-          "url": "https://www.labor.nc.gov/workplace-rights/employee-rights-regarding-time-worked-and-wages-earned/minimum-wage-nc"
+          "source": "NCGS \u00a795-25.3",
+          "url": "https://www.labor.nc.gov/workplace-rights/employee-rights-regarding-time-worked-and-wages-earned/minimum-wage-nc",
+          "kind": "statute"
         }
       ]
     },
@@ -1622,8 +1684,9 @@
       },
       "citations": [
         {
-          "source": "NDCC §34-06-22",
-          "url": "https://www.nd.gov/labor/minimum-wage"
+          "source": "NDCC \u00a734-06-22",
+          "url": "https://www.nd.gov/labor/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -1656,8 +1719,9 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-1203",
-          "url": "https://dol.nebraska.gov/MinimumWage"
+          "source": "Neb. Rev. Stat. \u00a748-1203",
+          "url": "https://dol.nebraska.gov/MinimumWage",
+          "kind": "statute"
         }
       ]
     },
@@ -1695,9 +1759,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652, NYC Fast Food Worker Wage",
+          "source": "New York Labor Law \u00a7652, NYC Fast Food Worker Wage",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "NY Lab. Law §652 (fast food)"
+          "section": "NY Lab. Law \u00a7652 (fast food)",
+          "kind": "statute"
         }
       ]
     },
@@ -1735,9 +1800,10 @@
       },
       "citations": [
         {
-          "source": "NYC Minimum Wage (NY Labor Law §652)",
+          "source": "NYC Minimum Wage (NY Labor Law \u00a7652)",
           "url": "https://dol.ny.gov/minimum-wage-0",
-          "section": "NY Labor Law §652(a)(ii)"
+          "section": "NY Labor Law \u00a7652(a)(ii)",
+          "kind": "statute"
         }
       ]
     },
@@ -1780,9 +1846,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "12 NYCRR §146-1.3 (food service tip credit)"
+          "section": "12 NYCRR \u00a7146-1.3 (food service tip credit)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1829,9 +1896,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "12 NYCRR §146-1.3 (service tip credit)"
+          "section": "12 NYCRR \u00a7146-1.3 (service tip credit)",
+          "kind": "regulation"
         }
       ]
     },
@@ -1864,8 +1932,9 @@
       },
       "citations": [
         {
-          "source": "NH RSA §279:21",
-          "url": "https://www.nh.gov/labor/inspection/wage-hour/minimum-wage.htm"
+          "source": "NH RSA \u00a7279:21",
+          "url": "https://www.nh.gov/labor/inspection/wage-hour/minimum-wage.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -1900,7 +1969,8 @@
         {
           "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/minimumwage/",
-          "section": "N.J.S.A. 34:11-56a4"
+          "section": "N.J.S.A. 34:11-56a4",
+          "kind": "statute"
         }
       ]
     },
@@ -1940,7 +2010,8 @@
         {
           "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/minimumwage/",
-          "section": "N.J.S.A. 34:11-56a4 (small employer)"
+          "section": "N.J.S.A. 34:11-56a4 (small employer)",
+          "kind": "statute"
         }
       ]
     },
@@ -1980,7 +2051,8 @@
         {
           "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
           "url": "https://www.nj.gov/labor/wageandhour/tools-resources/minimumwage/",
-          "section": "N.J.S.A. 34:11-56a4 (tipped employees)"
+          "section": "N.J.S.A. 34:11-56a4 (tipped employees)",
+          "kind": "statute"
         }
       ]
     },
@@ -2013,9 +2085,10 @@
       },
       "citations": [
         {
-          "source": "New Mexico Minimum Wage Act, NMSA §50-4-22",
+          "source": "New Mexico Minimum Wage Act, NMSA \u00a750-4-22",
           "url": "https://nmonesource.com/nmos/nmsa/en/item/4383/index.do#!fragment/zoupio-_Toc140503771",
-          "section": "NMSA §50-4-22"
+          "section": "NMSA \u00a750-4-22",
+          "kind": "statute"
         }
       ]
     },
@@ -2054,7 +2127,8 @@
       "citations": [
         {
           "source": "Novato Municipal Code Ch. V Art. 3",
-          "url": "https://www.novato.org/government/city-manager/minimum-wage"
+          "url": "https://www.novato.org/government/city-manager/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2087,9 +2161,10 @@
       },
       "citations": [
         {
-          "source": "Nevada Revised Statutes §608.250",
+          "source": "Nevada Revised Statutes \u00a7608.250",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec250",
-          "section": "NRS §608.250"
+          "section": "NRS \u00a7608.250",
+          "kind": "statute"
         }
       ]
     },
@@ -2132,9 +2207,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652",
+          "source": "New York Labor Law \u00a7652",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "NY Lab. Law §652"
+          "section": "NY Lab. Law \u00a7652",
+          "kind": "statute"
         }
       ]
     },
@@ -2167,9 +2243,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652",
+          "source": "New York Labor Law \u00a7652",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "NY Lab. Law §652"
+          "section": "NY Lab. Law \u00a7652",
+          "kind": "statute"
         }
       ]
     },
@@ -2212,9 +2289,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652",
+          "source": "New York Labor Law \u00a7652",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "NY Lab. Law §652"
+          "section": "NY Lab. Law \u00a7652",
+          "kind": "statute"
         }
       ]
     },
@@ -2267,9 +2345,10 @@
       },
       "citations": [
         {
-          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
           "url": "https://dol.ny.gov/minimum-wage",
-          "section": "12 NYCRR §146-1.3 (upstate food service tip credit)"
+          "section": "12 NYCRR \u00a7146-1.3 (upstate food service tip credit)",
+          "kind": "regulation"
         }
       ]
     },
@@ -2302,8 +2381,9 @@
       },
       "citations": [
         {
-          "source": "OH Const. Art. II §34a",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/wage-and-hour/minimum-wage"
+          "source": "OH Const. Art. II \u00a734a",
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/wage-and-hour/minimum-wage",
+          "kind": "constitution"
         }
       ]
     },
@@ -2336,8 +2416,9 @@
       },
       "citations": [
         {
-          "source": "40 O.S. §197.2",
-          "url": "https://oklahoma.gov/omes/services/risk-management/minimum-wage.html"
+          "source": "40 O.S. \u00a7197.2",
+          "url": "https://oklahoma.gov/omes/services/risk-management/minimum-wage.html",
+          "kind": "statute"
         }
       ]
     },
@@ -2370,8 +2451,9 @@
       },
       "citations": [
         {
-          "source": "ORS §653.025",
-          "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx"
+          "source": "ORS \u00a7653.025",
+          "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -2404,8 +2486,9 @@
       },
       "citations": [
         {
-          "source": "43 P.S. §333.104",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/minimum-wage/Pages/default.aspx"
+          "source": "43 P.S. \u00a7333.104",
+          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/minimum-wage/Pages/default.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -2444,7 +2527,8 @@
       "citations": [
         {
           "source": "Pasadena Municipal Code Ch. 5.09",
-          "url": "https://www.cityofpasadena.net/minimum-wage/"
+          "url": "https://www.cityofpasadena.net/minimum-wage/",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2483,7 +2567,8 @@
       "citations": [
         {
           "source": "ORS 653.025 (Portland Metro standard)",
-          "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx"
+          "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -2522,7 +2607,8 @@
       "citations": [
         {
           "source": "Redwood City Municipal Code Ch. 30",
-          "url": "https://www.redwoodcity.org/departments/city-manager/minimum-wage"
+          "url": "https://www.redwoodcity.org/departments/city-manager/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2555,8 +2641,9 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-12-3",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/minimum-wage"
+          "source": "RI Gen. Laws \u00a728-12-3",
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -2595,7 +2682,8 @@
       "citations": [
         {
           "source": "Richmond Municipal Code Ch. 7.108",
-          "url": "https://www.ci.richmond.ca.us/minimumwage"
+          "url": "https://www.ci.richmond.ca.us/minimumwage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2634,7 +2722,8 @@
       "citations": [
         {
           "source": "San Carlos Municipal Code Ch. 8.20",
-          "url": "https://www.cityofsancarlos.org/government/departments/city-manager/minimum-wage"
+          "url": "https://www.cityofsancarlos.org/government/departments/city-manager/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2673,7 +2762,8 @@
       "citations": [
         {
           "source": "San Francisco Administrative Code Ch. 12R",
-          "url": "https://sfgov.org/olse/minimum-wage-ordinance"
+          "url": "https://sfgov.org/olse/minimum-wage-ordinance",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2712,7 +2802,8 @@
       "citations": [
         {
           "source": "San Jose Municipal Code Ch. 4.100",
-          "url": "https://www.sanjoseca.gov/your-government/departments-offices/office-of-equality-assurance/minimum-wage"
+          "url": "https://www.sanjoseca.gov/your-government/departments-offices/office-of-equality-assurance/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2751,7 +2842,8 @@
       "citations": [
         {
           "source": "Santa Clara City Code Ch. 3.20",
-          "url": "https://www.santaclaraca.gov/our-city/departments-a-f/city-manager/minimum-wage"
+          "url": "https://www.santaclaraca.gov/our-city/departments-a-f/city-manager/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2784,8 +2876,15 @@
       },
       "citations": [
         {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
           "source": "No state minimum wage law (federal applies)",
-          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#sc"
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#sc",
+          "kind": "guidance"
         }
       ]
     },
@@ -2818,8 +2917,9 @@
       },
       "citations": [
         {
-          "source": "SDCL §60-11-3",
-          "url": "https://dlr.sd.gov/employment_laws/minimum_wage.aspx"
+          "source": "SDCL \u00a760-11-3",
+          "url": "https://dlr.sd.gov/employment_laws/minimum_wage.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -2858,7 +2958,8 @@
       "citations": [
         {
           "source": "Seattle Municipal Code Ch. 14.19",
-          "url": "https://www.seattle.gov/laborstandards/ordinances/minimum-wage"
+          "url": "https://www.seattle.gov/laborstandards/ordinances/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2897,7 +2998,8 @@
       "citations": [
         {
           "source": "Sunnyvale Municipal Code Ch. 4.08",
-          "url": "https://www.sunnyvale.ca.gov/property-and-environment/business/minimum-wage"
+          "url": "https://www.sunnyvale.ca.gov/property-and-environment/business/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -2930,8 +3032,15 @@
       },
       "citations": [
         {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
           "source": "No state minimum wage law (federal applies)",
-          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#tn"
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#tn",
+          "kind": "guidance"
         }
       ]
     },
@@ -2964,8 +3073,9 @@
       },
       "citations": [
         {
-          "source": "Tex. Lab. Code §62.051",
-          "url": "https://www.twc.texas.gov/businesses/minimum-wage-law"
+          "source": "Tex. Lab. Code \u00a762.051",
+          "url": "https://www.twc.texas.gov/businesses/minimum-wage-law",
+          "kind": "statute"
         }
       ]
     },
@@ -2998,8 +3108,9 @@
       },
       "citations": [
         {
-          "source": "Utah Code §34-40-103",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/minimum-wage/"
+          "source": "Utah Code \u00a734-40-103",
+          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/minimum-wage/",
+          "kind": "statute"
         }
       ]
     },
@@ -3032,9 +3143,10 @@
       },
       "citations": [
         {
-          "source": "Virginia Minimum Wage Act, Code of Virginia §40.1-28.10",
+          "source": "Virginia Minimum Wage Act, Code of Virginia \u00a740.1-28.10",
           "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-28.10/",
-          "section": "Va. Code §40.1-28.10"
+          "section": "Va. Code \u00a740.1-28.10",
+          "kind": "statute"
         }
       ]
     },
@@ -3067,8 +3179,9 @@
       },
       "citations": [
         {
-          "source": "21 VSA §384",
-          "url": "https://labor.vermont.gov/minimum-wage"
+          "source": "21 VSA \u00a7384",
+          "url": "https://labor.vermont.gov/minimum-wage",
+          "kind": "statute"
         }
       ]
     },
@@ -3103,7 +3216,8 @@
         {
           "source": "RCW 49.46.020",
           "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.020",
-          "section": "RCW 49.46.020"
+          "section": "RCW 49.46.020",
+          "kind": "statute"
         }
       ]
     },
@@ -3142,7 +3256,8 @@
       "citations": [
         {
           "source": "West Hollywood Municipal Code Ch. 5.50",
-          "url": "https://www.weho.org/business/minimum-wage"
+          "url": "https://www.weho.org/business/minimum-wage",
+          "kind": "ordinance"
         }
       ]
     },
@@ -3175,8 +3290,9 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §104.01",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minimumwage.htm"
+          "source": "Wis. Stat. \u00a7104.01",
+          "url": "https://dwd.wisconsin.gov/er/laborstandards/minimumwage.htm",
+          "kind": "statute"
         }
       ]
     },
@@ -3209,8 +3325,9 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-5C-2",
-          "url": "https://labor.wv.gov/Pages/Minimum-Wage.aspx"
+          "source": "W. Va. Code \u00a721-5C-2",
+          "url": "https://labor.wv.gov/Pages/Minimum-Wage.aspx",
+          "kind": "statute"
         }
       ]
     },
@@ -3243,8 +3360,9 @@
       },
       "citations": [
         {
-          "source": "Wyo. Stat. §27-4-202",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/minimum-wage/"
+          "source": "Wyo. Stat. \u00a727-4-202",
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/minimum-wage/",
+          "kind": "statute"
         }
       ]
     }

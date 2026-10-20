@@ -31,7 +31,8 @@
         {
           "source": "Cal. Labor Code §551-552",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=551",
-          "section": "§551-552"
+          "section": "§551-552",
+          "kind": "statute"
         }
       ]
     },
@@ -64,7 +65,8 @@
         {
           "source": "820 ILCS 140 (One Day Rest in Seven Act)",
           "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
-          "section": "820 ILCS 140/2"
+          "section": "820 ILCS 140/2",
+          "kind": "statute"
         }
       ]
     },
@@ -97,7 +99,8 @@
         {
           "source": "MGL c.149 §48",
           "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section48",
-          "section": "§48-50"
+          "section": "§48-50",
+          "kind": "statute"
         }
       ]
     },
@@ -130,7 +133,8 @@
         {
           "source": "Minn. Stat. §624.01 (historical blue law)",
           "url": "https://www.revisor.mn.gov/statutes/cite/624.01",
-          "section": "§624.01"
+          "section": "§624.01",
+          "kind": "statute"
         }
       ]
     },
@@ -163,7 +167,8 @@
         {
           "source": "N.D. Cent. Code §12.1-30-01",
           "url": "https://www.ndlegis.gov/cencode/t12-1c30.pdf",
-          "section": "§12.1-30-01"
+          "section": "§12.1-30-01",
+          "kind": "statute"
         }
       ]
     },
@@ -201,7 +206,8 @@
         {
           "source": "NY Labor Law §161",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/161",
-          "section": "§161(1)"
+          "section": "§161(1)",
+          "kind": "statute"
         }
       ]
     },
@@ -234,7 +240,8 @@
         {
           "source": "Wis. Stat. §103.85",
           "url": "https://docs.legis.wisconsin.gov/statutes/statutes/103/85",
-          "section": "§103.85"
+          "section": "§103.85",
+          "kind": "statute"
         }
       ]
     }

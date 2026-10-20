@@ -42,7 +42,8 @@
         {
           "source": "California Labor Code §226.7 / IWC Order 5-2001",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=226.7.&lawCode=LAB",
-          "section": "Cal. Lab. Code §226.7"
+          "section": "Cal. Lab. Code §226.7",
+          "kind": "regulation"
         }
       ]
     },
@@ -80,7 +81,8 @@
         {
           "source": "IWC Orders / Cal. Lab. Code §226.7",
           "url": "https://www.dir.ca.gov/dlse/faq_restperiods.htm",
-          "section": "IWC Orders §11-12"
+          "section": "IWC Orders §11-12",
+          "kind": "regulation"
         }
       ]
     },
@@ -124,7 +126,8 @@
         {
           "source": "COMPS Order #40, Rule 5.2.2",
           "url": "https://cdle.colorado.gov/wage-and-hour-law/meal-and-rest-periods",
-          "section": "Rule 5.2.2"
+          "section": "Rule 5.2.2",
+          "kind": "regulation"
         }
       ]
     },
@@ -162,7 +165,8 @@
         {
           "source": "Colorado COMPS Order #39",
           "url": "https://cdle.colorado.gov/comps-order",
-          "section": "7 CCR 1103-1 Rule 5.1"
+          "section": "7 CCR 1103-1 Rule 5.1",
+          "kind": "regulation"
         }
       ]
     },
@@ -201,7 +205,8 @@
         {
           "source": "820 ILCS 140/3.1 (Hotel Room Attendant provisions)",
           "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
-          "section": "820 ILCS 140/3.1"
+          "section": "820 ILCS 140/3.1",
+          "kind": "statute"
         }
       ]
     },
@@ -245,7 +250,8 @@
         {
           "source": "KRS §337.365",
           "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx",
-          "section": "KRS §337.365"
+          "section": "KRS §337.365",
+          "kind": "statute"
         }
       ]
     },
@@ -283,7 +289,8 @@
         {
           "source": "KRS §337.365",
           "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=32209",
-          "section": "KRS §337.365"
+          "section": "KRS §337.365",
+          "kind": "statute"
         }
       ]
     },
@@ -327,7 +334,8 @@
         {
           "source": "Minn. Stat. §177.254",
           "url": "https://www.dli.mn.gov/business/employment-practices/work-breaks-and-meal-time",
-          "section": "§177.254"
+          "section": "§177.254",
+          "kind": "statute"
         }
       ]
     },
@@ -365,7 +373,8 @@
         {
           "source": "Minn. Stat. §177.254",
           "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
-          "section": "Minn. Stat. §177.254"
+          "section": "Minn. Stat. §177.254",
+          "kind": "statute"
         }
       ]
     },
@@ -409,7 +418,8 @@
         {
           "source": "NRS §608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019(2)"
+          "section": "NRS §608.019(2)",
+          "kind": "statute"
         }
       ]
     },
@@ -447,7 +457,8 @@
         {
           "source": "NRS §608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019"
+          "section": "NRS §608.019",
+          "kind": "statute"
         }
       ]
     },
@@ -491,7 +502,8 @@
         {
           "source": "ORS §653.261",
           "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
-          "section": "ORS §653.261"
+          "section": "ORS §653.261",
+          "kind": "statute"
         }
       ]
     },
@@ -529,7 +541,8 @@
         {
           "source": "OAR 839-020-0045",
           "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
-          "section": "OAR 839-020-0045"
+          "section": "OAR 839-020-0045",
+          "kind": "regulation"
         }
       ]
     },
@@ -563,7 +576,8 @@
         {
           "source": "21 V.S.A. §304",
           "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
-          "section": "21 V.S.A. §304"
+          "section": "21 V.S.A. §304",
+          "kind": "statute"
         }
       ]
     },
@@ -607,7 +621,8 @@
         {
           "source": "WAC §296-126-092",
           "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods",
-          "section": "WAC §296-126-092"
+          "section": "WAC §296-126-092",
+          "kind": "regulation"
         }
       ]
     },
@@ -645,7 +660,8 @@
         {
           "source": "WAC 296-126-092",
           "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks",
-          "section": "WAC 296-126-092"
+          "section": "WAC 296-126-092",
+          "kind": "regulation"
         }
       ]
     }

@@ -51,7 +51,8 @@
         {
           "source": "Chicago Municipal Code §1-25 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
-          "section": "Chi. Mun. Code §1-25-050"
+          "section": "Chi. Mun. Code §1-25-050",
+          "kind": "ordinance"
         }
       ]
     },
@@ -122,7 +123,8 @@
         {
           "source": "Chicago Municipal Code §1-25-050 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
-          "section": "Chi. Mun. Code §1-25-050"
+          "section": "Chi. Mun. Code §1-25-050",
+          "kind": "ordinance"
         }
       ]
     },
@@ -180,7 +182,8 @@
         {
           "source": "Chicago Municipal Code §1-25-055 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
-          "section": "Chi. Mun. Code §1-25-055"
+          "section": "Chi. Mun. Code §1-25-055",
+          "kind": "ordinance"
         }
       ]
     },
@@ -224,7 +227,8 @@
         {
           "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.org/fair-work-week",
-          "section": "LAMC §187.04"
+          "section": "LAMC §187.04",
+          "kind": "ordinance"
         }
       ]
     },
@@ -273,7 +277,8 @@
         {
           "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.org/fair-work-week",
-          "section": "LAMC §187.06"
+          "section": "LAMC §187.06",
+          "kind": "ordinance"
         }
       ]
     },
@@ -311,7 +316,8 @@
         {
           "source": "NYC Admin Code §20-1221 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1221"
+          "section": "NYC Admin Code §20-1221",
+          "kind": "ordinance"
         }
       ]
     },
@@ -370,7 +376,8 @@
         {
           "source": "NYC Admin Code §20-1222(a) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1222(a)"
+          "section": "NYC Admin Code §20-1222(a)",
+          "kind": "ordinance"
         }
       ]
     },
@@ -429,7 +436,8 @@
         {
           "source": "NYC Admin Code §20-1222(b) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1222(b)"
+          "section": "NYC Admin Code §20-1222(b)",
+          "kind": "ordinance"
         }
       ]
     },
@@ -491,7 +499,8 @@
         {
           "source": "NYC Admin Code §20-1222(b) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1222(b)"
+          "section": "NYC Admin Code §20-1222(b)",
+          "kind": "ordinance"
         }
       ]
     },
@@ -535,7 +544,8 @@
         {
           "source": "NYC Admin Code §20-1231 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1231"
+          "section": "NYC Admin Code §20-1231",
+          "kind": "ordinance"
         }
       ]
     },
@@ -578,7 +588,8 @@
         {
           "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1241"
+          "section": "NYC Admin Code §20-1241",
+          "kind": "ordinance"
         }
       ]
     },
@@ -621,7 +632,8 @@
         {
           "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1243"
+          "section": "NYC Admin Code §20-1243",
+          "kind": "ordinance"
         }
       ]
     },
@@ -669,7 +681,8 @@
         {
           "source": "Oregon Predictive Scheduling Law, ORS 653.455",
           "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
-          "section": "ORS 653.455"
+          "section": "ORS 653.455",
+          "kind": "statute"
         }
       ]
     },
@@ -732,7 +745,8 @@
         {
           "source": "Oregon Predictive Scheduling Law, ORS 653.455(4)(a)",
           "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
-          "section": "ORS 653.455(4)(a)"
+          "section": "ORS 653.455(4)(a)",
+          "kind": "statute"
         }
       ]
     },
@@ -798,7 +812,8 @@
         {
           "source": "Oregon Predictive Scheduling Law, ORS 653.455(4)(b)",
           "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
-          "section": "ORS 653.455(4)(b)"
+          "section": "ORS 653.455(4)(b)",
+          "kind": "statute"
         }
       ]
     },
@@ -851,7 +866,8 @@
         {
           "source": "Oregon Predictive Scheduling Law, ORS 653.455(5)",
           "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
-          "section": "ORS 653.455(5)"
+          "section": "ORS 653.455(5)",
+          "kind": "statute"
         }
       ]
     },
@@ -900,7 +916,8 @@
         {
           "source": "Philadelphia Code §9-4601 et seq. (Fair Workweek Employment Standards)",
           "url": "https://www.phila.gov/departments/department-of-labor/workers-rights/fair-workweek/",
-          "section": "Phila. Code §9-4603"
+          "section": "Phila. Code §9-4603",
+          "kind": "ordinance"
         }
       ]
     },
@@ -953,7 +970,8 @@
         {
           "source": "Philadelphia Code §9-4605 (Fair Workweek Employment Standards)",
           "url": "https://www.phila.gov/departments/department-of-labor/workers-rights/fair-workweek/",
-          "section": "Phila. Code §9-4605"
+          "section": "Phila. Code §9-4605",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1001,7 +1019,8 @@
         {
           "source": "San Francisco Administrative Code Ch. 12Z (Formula Retail Employee Rights)",
           "url": "https://sfgov.org/olse/formula-retail-employee-rights-ordinance",
-          "section": "SF Admin Code §12Z"
+          "section": "SF Admin Code §12Z",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1054,7 +1073,8 @@
         {
           "source": "San Francisco Administrative Code Ch. 12Z §12Z.6",
           "url": "https://sfgov.org/olse/formula-retail-employee-rights-ordinance",
-          "section": "SF Admin Code §12Z.6"
+          "section": "SF Admin Code §12Z.6",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1102,7 +1122,8 @@
         {
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
-          "section": "SMC 14.22.045"
+          "section": "SMC 14.22.045",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1168,7 +1189,8 @@
         {
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
-          "section": "SMC 14.22.045"
+          "section": "SMC 14.22.045",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1221,7 +1243,8 @@
         {
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
-          "section": "SMC 14.22.050"
+          "section": "SMC 14.22.050",
+          "kind": "ordinance"
         }
       ]
     }

@@ -12,7 +12,9 @@
     "test:new-rules": "tsx server/rules/rules.test.ts",
     "test:validation": "tsx server/rules/validation.test.ts",
     "test:scheduler": "tsx server/scheduler/buildScenario.test.ts",
-    "test:reference": "tsx server/reference/reference.test.ts"
+    "test:reference": "tsx server/reference/reference.test.ts",
+    "check-links": "tsx scripts/checkLinks.ts",
+    "classify-citations": "tsx scripts/classifyCitations.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",

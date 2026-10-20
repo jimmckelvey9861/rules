@@ -57,6 +57,11 @@ assert(findPreemptingAncestor("Portland Metro Area", "minimum_wage") === undefin
 assert(findPreemptingAncestor("Chicago", "minimum_wage") === undefined, "Illinois does not preempt Chicago's minimum wage");
 const texasPreemption = resolveJurisdiction("TX")?.preemption?.minimum_wage;
 assert(texasPreemption === "preempted", "Texas is recorded as preempting local minimum wage");
+console.log("\n═══ Citations ═══");
+const allCitations = RULES.flatMap(r => r.citations);
+assert(allCitations.every(c => c.kind !== undefined), `Every citation has a kind (${allCitations.filter(c => !c.kind).length} missing)`);
+assert(allCitations.every(c => c.url !== undefined), `Every citation has a URL (${allCitations.filter(c => !c.url).length} missing)`);
+assert(RULES.every(r => r.citations.some(c => c.kind !== "guidance")), "No rule rests on guidance alone");
 assert(SKIPPED_DETAILS.length === 0, `No rules rejected by reference cross-checks (${SKIPPED_DETAILS.map(s => s.id).join(", ") || "none"})`);
 
 console.log(`\n  Results: ${passed} passed, ${failed} failed`);

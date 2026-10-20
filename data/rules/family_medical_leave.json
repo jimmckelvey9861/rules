@@ -38,7 +38,8 @@
         {
           "source": "California Family Rights Act (CFRA) + CA PFL",
           "url": "https://www.dfeh.ca.gov/family-medical-pregnancy-leave/",
-          "section": "Gov. Code §12945.2"
+          "section": "Gov. Code §12945.2",
+          "kind": "statute"
         }
       ]
     },
@@ -78,7 +79,8 @@
         {
           "source": "Colorado FAMLI Act",
           "url": "https://famli.colorado.gov/",
-          "section": "C.R.S. §8-13.3-501 et seq."
+          "section": "C.R.S. §8-13.3-501 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -118,7 +120,8 @@
         {
           "source": "CT Paid Leave Act",
           "url": "https://ctpaidleave.org/",
-          "section": "Conn. Gen. Stat. §31-49e et seq."
+          "section": "Conn. Gen. Stat. §31-49e et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -158,7 +161,8 @@
         {
           "source": "DC Universal Paid Leave Act",
           "url": "https://does.dc.gov/page/dc-paid-family-leave",
-          "section": "DC Code §32-541.01 et seq."
+          "section": "DC Code §32-541.01 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -198,7 +202,8 @@
         {
           "source": "Healthy Delaware Families Act",
           "url": "https://dol.delaware.gov/paid-leave/",
-          "section": "19 Del. C. §37 et seq."
+          "section": "19 Del. C. §37 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -250,7 +255,8 @@
         {
           "source": "Family and Medical Leave Act, 29 U.S.C. §2612",
           "url": "https://www.law.cornell.edu/uscode/text/29/2612",
-          "section": "29 U.S.C. §2612"
+          "section": "29 U.S.C. §2612",
+          "kind": "statute"
         }
       ]
     },
@@ -290,7 +296,8 @@
         {
           "source": "MA Paid Family and Medical Leave (PFML)",
           "url": "https://www.mass.gov/info-details/paid-family-and-medical-leave-pfml-overview",
-          "section": "MGL c.175M"
+          "section": "MGL c.175M",
+          "kind": "statute"
         }
       ]
     },
@@ -330,7 +337,8 @@
         {
           "source": "Maryland FAMLI Act (Time to Care Act)",
           "url": "https://www.dllr.state.md.us/employment/famli.shtml",
-          "section": "Md. Code Lab. & Empl. §8.3-101 et seq."
+          "section": "Md. Code Lab. & Empl. §8.3-101 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -370,7 +378,8 @@
         {
           "source": "Minnesota Paid Leave",
           "url": "https://mn.gov/deed/paidleave/",
-          "section": "Minn. Stat. §268B"
+          "section": "Minn. Stat. §268B",
+          "kind": "statute"
         }
       ]
     },
@@ -410,7 +419,8 @@
         {
           "source": "NJ Family Leave Act + NJ FLI",
           "url": "https://myleavebenefits.nj.gov/worker/fli/",
-          "section": "N.J.S.A. 43:21-39.1 et seq."
+          "section": "N.J.S.A. 43:21-39.1 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -450,7 +460,8 @@
         {
           "source": "NY Paid Family Leave (PFL)",
           "url": "https://paidfamilyleave.ny.gov/",
-          "section": "Workers' Comp. Law Art. 9 §200 et seq."
+          "section": "Workers' Comp. Law Art. 9 §200 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -490,7 +501,8 @@
         {
           "source": "Oregon Paid Leave",
           "url": "https://paidleave.oregon.gov/",
-          "section": "ORS §657B"
+          "section": "ORS §657B",
+          "kind": "statute"
         }
       ]
     },
@@ -530,7 +542,8 @@
         {
           "source": "RI Temporary Caregiver Insurance (TCI)",
           "url": "https://dlt.ri.gov/individuals/temporary-disability-caregiver-insurance",
-          "section": "R.I. Gen. Laws §28-41-34 et seq."
+          "section": "R.I. Gen. Laws §28-41-34 et seq.",
+          "kind": "statute"
         }
       ]
     },
@@ -570,7 +583,8 @@
         {
           "source": "WA Paid Family & Medical Leave (PFML)",
           "url": "https://paidleave.wa.gov/",
-          "section": "RCW §50A"
+          "section": "RCW §50A",
+          "kind": "statute"
         }
       ]
     }

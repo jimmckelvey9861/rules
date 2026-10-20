@@ -12,6 +12,7 @@ export { createRule, tryCreateRule, RuleValidationError } from "./createRule.js"
 export { evaluateRule, evaluateRules } from "./evaluator.js";
 export { getAllFacts, getFact, isKnownFact, getFactType } from "./facts.js";
 export { validateCondition } from "./conditions.js";
+export { CITATION_KINDS } from "./types.js";
 
 export type {
   Rule,
@@ -28,6 +29,7 @@ export type {
   FactDefinition,
   FactType,
   Citation,
+  CitationKind,
   RuleStatus,
 } from "./types.js";
 

@@ -86,10 +86,22 @@ export type RuleResult =
 
 export type RuleStatus = "active" | "draft" | "repealed" | "pending";
 
+/**
+ * What kind of legal source a citation points at. Statutes and ordinances are
+ * the durable authority; regulations carry the specifics (rates, thresholds)
+ * and change more often; guidance pages (agency FAQs, fact sheets) are the
+ * least stable and should never be a rule's only citation.
+ */
+export type CitationKind = "statute" | "regulation" | "ordinance" | "constitution" | "guidance";
+
+export const CITATION_KINDS: readonly CitationKind[] = ["statute", "regulation", "ordinance", "constitution", "guidance"];
+
 export interface Citation {
+  /** Formal cite or document name, e.g. "Cal. Lab. Code §512(a)" */
   source: string;
   url?: string;
   section?: string;
+  kind?: CitationKind;
 }
 
 export interface Rule {

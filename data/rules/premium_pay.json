@@ -38,7 +38,8 @@
         {
           "source": "12 NYCRR §142-2.4",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
-          "section": "12 NYCRR §142-2.4"
+          "section": "12 NYCRR §142-2.4",
+          "kind": "regulation"
         }
       ]
     }
