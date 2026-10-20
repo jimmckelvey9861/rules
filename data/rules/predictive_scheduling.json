@@ -4,7 +4,7 @@
   "rules": [
     {
       "id": "chi-advance-notice-14day",
-      "title": "Chicago — 14-Day Advance Notice Required",
+      "title": "Chicago \u2014 14-Day Advance Notice Required",
       "jurisdiction": "Chicago",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -49,16 +49,16 @@
       },
       "citations": [
         {
-          "source": "Chicago Municipal Code §1-25 (Fair Workweek Ordinance)",
+          "source": "Chicago Municipal Code \u00a71-25 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
-          "section": "Chi. Mun. Code §1-25-050",
+          "section": "Chi. Mun. Code \u00a71-25-050",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "chi-change-under14-subtracted",
-      "title": "Chicago — Schedule Change Premium (hours subtracted with <14 days notice)",
+      "title": "Chicago \u2014 Schedule Change Premium (hours subtracted with <14 days notice)",
       "jurisdiction": "Chicago",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -121,16 +121,16 @@
       },
       "citations": [
         {
-          "source": "Chicago Municipal Code §1-25-050 (Fair Workweek Ordinance)",
+          "source": "Chicago Municipal Code \u00a71-25-050 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
-          "section": "Chi. Mun. Code §1-25-050",
+          "section": "Chi. Mun. Code \u00a71-25-050",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "chi-clopening-10hr",
-      "title": "Chicago — 10-Hour Rest Period",
+      "title": "Chicago \u2014 10-Hour Rest Period",
       "jurisdiction": "Chicago",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -180,16 +180,16 @@
       },
       "citations": [
         {
-          "source": "Chicago Municipal Code §1-25-055 (Fair Workweek Ordinance)",
+          "source": "Chicago Municipal Code \u00a71-25-055 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
-          "section": "Chi. Mun. Code §1-25-055",
+          "section": "Chi. Mun. Code \u00a71-25-055",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "la-advance-notice-14day",
-      "title": "Los Angeles — 14-Day Advance Notice Required (Retail)",
+      "title": "Los Angeles \u2014 14-Day Advance Notice Required (Retail)",
       "jurisdiction": "Los Angeles",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -225,16 +225,16 @@
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
-          "url": "https://wagesla.lacity.org/fair-work-week",
-          "section": "LAMC §187.04",
+          "source": "Los Angeles Municipal Code \u00a7187.04 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC \u00a7187.04",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "la-clopening-10hr",
-      "title": "Los Angeles — 10-Hour Rest Period (Retail)",
+      "title": "Los Angeles \u2014 10-Hour Rest Period (Retail)",
       "jurisdiction": "Los Angeles",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -275,16 +275,16 @@
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
-          "url": "https://wagesla.lacity.org/fair-work-week",
-          "section": "LAMC §187.06",
+          "source": "Los Angeles Municipal Code \u00a7187.06 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC \u00a7187.06",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-ff-advance-notice-14day",
-      "title": "NYC Fast Food — 14-Day Advance Notice Required",
+      "title": "NYC Fast Food \u2014 14-Day Advance Notice Required",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -314,16 +314,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1221 (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1221 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1221",
+          "section": "NYC Admin Code \u00a720-1221",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-ff-change-7-13day-premium",
-      "title": "NYC Fast Food — Schedule Change Premium (7-13 days notice)",
+      "title": "NYC Fast Food \u2014 Schedule Change Premium (7-13 days notice)",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -374,16 +374,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1222(a) (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1222(a) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1222(a)",
+          "section": "NYC Admin Code \u00a720-1222(a)",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-ff-change-under7-added-premium",
-      "title": "NYC Fast Food — Schedule Change Premium (<7 days, hours added)",
+      "title": "NYC Fast Food \u2014 Schedule Change Premium (<7 days, hours added)",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -434,16 +434,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1222(b) (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1222(b) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1222(b)",
+          "section": "NYC Admin Code \u00a720-1222(b)",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-ff-change-under7-subtracted-premium",
-      "title": "NYC Fast Food — Schedule Change Premium (<7 days, hours subtracted/cancelled)",
+      "title": "NYC Fast Food \u2014 Schedule Change Premium (<7 days, hours subtracted/cancelled)",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -497,16 +497,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1222(b) (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1222(b) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1222(b)",
+          "section": "NYC Admin Code \u00a720-1222(b)",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-ff-clopening-11hr",
-      "title": "NYC Fast Food — 11-Hour Rest Period (Clopening)",
+      "title": "NYC Fast Food \u2014 11-Hour Rest Period (Clopening)",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -542,16 +542,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1231 (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1231 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1231",
+          "section": "NYC Admin Code \u00a720-1231",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-retail-advance-notice-72hr",
-      "title": "NYC Retail — 72-Hour Advance Notice Required",
+      "title": "NYC Retail \u2014 72-Hour Advance Notice Required",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -586,16 +586,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1241 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1241",
+          "section": "NYC Admin Code \u00a720-1241",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "nyc-retail-on-call-ban",
-      "title": "NYC Retail — On-Call Scheduling Prohibited",
+      "title": "NYC Retail \u2014 On-Call Scheduling Prohibited",
       "jurisdiction": "New York City",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -630,16 +630,16 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1243 (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1243",
+          "section": "NYC Admin Code \u00a720-1243",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "or-advance-notice-14day",
-      "title": "Oregon — 14-Day Advance Notice Required",
+      "title": "Oregon \u2014 14-Day Advance Notice Required",
       "jurisdiction": "OR",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -688,7 +688,7 @@
     },
     {
       "id": "or-change-under7-added",
-      "title": "Oregon — Schedule Change Premium (<7 days, hours added)",
+      "title": "Oregon \u2014 Schedule Change Premium (<7 days, hours added)",
       "jurisdiction": "OR",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -752,7 +752,7 @@
     },
     {
       "id": "or-change-under7-subtracted",
-      "title": "Oregon — Schedule Change Premium (<7 days, hours subtracted/cancelled)",
+      "title": "Oregon \u2014 Schedule Change Premium (<7 days, hours subtracted/cancelled)",
       "jurisdiction": "OR",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -819,7 +819,7 @@
     },
     {
       "id": "or-clopening-10hr",
-      "title": "Oregon — Right to Rest (10-Hour Gap)",
+      "title": "Oregon \u2014 Right to Rest (10-Hour Gap)",
       "jurisdiction": "OR",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -873,7 +873,7 @@
     },
     {
       "id": "phl-advance-notice-14day",
-      "title": "Philadelphia — 14-Day Advance Notice Required",
+      "title": "Philadelphia \u2014 14-Day Advance Notice Required",
       "jurisdiction": "Philadelphia",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -914,16 +914,16 @@
       },
       "citations": [
         {
-          "source": "Philadelphia Code §9-4601 et seq. (Fair Workweek Employment Standards)",
-          "url": "https://www.phila.gov/departments/department-of-labor/workers-rights/fair-workweek/",
-          "section": "Phila. Code §9-4603",
+          "source": "Philadelphia Code \u00a79-4601 et seq. (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4603",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "phl-clopening-9hr",
-      "title": "Philadelphia — 9-Hour Rest Period",
+      "title": "Philadelphia \u2014 9-Hour Rest Period",
       "jurisdiction": "Philadelphia",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -968,16 +968,16 @@
       },
       "citations": [
         {
-          "source": "Philadelphia Code §9-4605 (Fair Workweek Employment Standards)",
-          "url": "https://www.phila.gov/departments/department-of-labor/workers-rights/fair-workweek/",
-          "section": "Phila. Code §9-4605",
+          "source": "Philadelphia Code \u00a79-4605 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4605",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "sf-advance-notice-14day",
-      "title": "San Francisco — 14-Day Advance Notice Required",
+      "title": "San Francisco \u2014 14-Day Advance Notice Required",
       "jurisdiction": "San Francisco",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -1018,15 +1018,15 @@
       "citations": [
         {
           "source": "San Francisco Administrative Code Ch. 12Z (Formula Retail Employee Rights)",
-          "url": "https://sfgov.org/olse/formula-retail-employee-rights-ordinance",
-          "section": "SF Admin Code §12Z",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "SF Admin Code \u00a712Z",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "sf-clopening-11hr",
-      "title": "San Francisco — Right to Rest (11-Hour Gap)",
+      "title": "San Francisco \u2014 Right to Rest (11-Hour Gap)",
       "jurisdiction": "San Francisco",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -1071,16 +1071,16 @@
       },
       "citations": [
         {
-          "source": "San Francisco Administrative Code Ch. 12Z §12Z.6",
-          "url": "https://sfgov.org/olse/formula-retail-employee-rights-ordinance",
-          "section": "SF Admin Code §12Z.6",
+          "source": "San Francisco Administrative Code Ch. 12Z \u00a712Z.6",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "SF Admin Code \u00a712Z.6",
           "kind": "ordinance"
         }
       ]
     },
     {
       "id": "sea-advance-notice-14day",
-      "title": "Seattle — 14-Day Advance Notice Required",
+      "title": "Seattle \u2014 14-Day Advance Notice Required",
       "jurisdiction": "Seattle",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -1129,7 +1129,7 @@
     },
     {
       "id": "sea-change-under14-subtracted",
-      "title": "Seattle — Schedule Change Premium (hours subtracted with <14 days notice)",
+      "title": "Seattle \u2014 Schedule Change Premium (hours subtracted with <14 days notice)",
       "jurisdiction": "Seattle",
       "topic": "predictive_scheduling",
       "status": "active",
@@ -1196,7 +1196,7 @@
     },
     {
       "id": "sea-clopening-10hr",
-      "title": "Seattle — 10-Hour Rest Period",
+      "title": "Seattle \u2014 10-Hour Rest Period",
       "jurisdiction": "Seattle",
       "topic": "predictive_scheduling",
       "status": "active",

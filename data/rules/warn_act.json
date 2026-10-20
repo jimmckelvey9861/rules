@@ -36,7 +36,7 @@
         {
           "source": "Cal-WARN Act",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=LAB&division=2.&title=&part=4.&chapter=4.&article=",
-          "section": "Cal. Labor Code §1400-1408",
+          "section": "Cal. Labor Code \u00a71400-1408",
           "kind": "statute"
         }
       ]
@@ -73,16 +73,16 @@
       },
       "citations": [
         {
-          "source": "Conn. Gen. Stat. §31-51n",
+          "source": "Conn. Gen. Stat. \u00a731-51n",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm",
-          "section": "§31-51n",
+          "section": "\u00a731-51n",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "federal-warn-act-60day",
-      "title": "Federal WARN Act — 60-Day Notice Requirement",
+      "title": "Federal WARN Act \u2014 60-Day Notice Requirement",
       "jurisdiction": "Federal",
       "topic": "warn_act",
       "status": "active",
@@ -117,9 +117,9 @@
       },
       "citations": [
         {
-          "source": "Worker Adjustment and Retraining Notification Act, 29 U.S.C. §2102",
+          "source": "Worker Adjustment and Retraining Notification Act, 29 U.S.C. \u00a72102",
           "url": "https://www.law.cornell.edu/uscode/text/29/2102",
-          "section": "29 U.S.C. §2102",
+          "section": "29 U.S.C. \u00a72102",
           "kind": "statute"
         }
       ]
@@ -156,9 +156,9 @@
       },
       "citations": [
         {
-          "source": "Ga. Code §34-6-1",
+          "source": "Ga. Code \u00a734-6-1",
           "url": "https://law.justia.com/codes/georgia/title-34/chapter-6/",
-          "section": "§34-6-1 et seq.",
+          "section": "\u00a734-6-1 et seq.",
           "kind": "statute"
         }
       ]
@@ -195,9 +195,9 @@
       },
       "citations": [
         {
-          "source": "HRS §394B",
+          "source": "HRS \u00a7394B",
           "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0394B/",
-          "section": "HRS §394B-9",
+          "section": "HRS \u00a7394B-9",
           "kind": "statute"
         }
       ]
@@ -234,9 +234,9 @@
       },
       "citations": [
         {
-          "source": "Iowa Code §84C",
+          "source": "Iowa Code \u00a784C",
           "url": "https://www.legis.iowa.gov/law/iowaCode/sections?codeChapter=84C",
-          "section": "Iowa Code §84C.1-84C.6",
+          "section": "Iowa Code \u00a784C.1-84C.6",
           "kind": "statute"
         }
       ]
@@ -312,9 +312,9 @@
       },
       "citations": [
         {
-          "source": "K.S.A. §44-616",
+          "source": "K.S.A. \u00a744-616",
           "url": "https://www.ksrevisor.org/statutes/chapters/ch44/044_006_0016.html",
-          "section": "K.S.A. §44-616",
+          "section": "K.S.A. \u00a744-616",
           "kind": "statute"
         }
       ]
@@ -351,9 +351,9 @@
       },
       "citations": [
         {
-          "source": "MGL c.151A §71A-71G",
+          "source": "MGL c.151A \u00a771A-71G",
           "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151A/Section71A",
-          "section": "MGL c.151A §71A",
+          "section": "MGL c.151A \u00a771A",
           "kind": "statute"
         }
       ]
@@ -390,9 +390,9 @@
       },
       "citations": [
         {
-          "source": "Md. Code Lab. & Empl. §11-301",
+          "source": "Md. Code Lab. & Empl. \u00a711-301",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=11-301",
-          "section": "§11-301 et seq.",
+          "section": "\u00a711-301 et seq.",
           "kind": "statute"
         }
       ]
@@ -429,9 +429,9 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §625-B",
+          "source": "26 MRSA \u00a7625-B",
           "url": "https://legislature.maine.gov/statutes/26/title26sec625-B.html",
-          "section": "26 MRSA §625-B",
+          "section": "26 MRSA \u00a7625-B",
           "kind": "statute"
         }
       ]
@@ -468,9 +468,9 @@
       },
       "citations": [
         {
-          "source": "MCL §450.731 et seq.",
+          "source": "MCL \u00a7450.731 et seq.",
           "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=MCL-450-731",
-          "section": "MCL §450.731-450.737",
+          "section": "MCL \u00a7450.731-450.737",
           "kind": "statute"
         }
       ]
@@ -507,9 +507,9 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §116L.976",
+          "source": "Minn. Stat. \u00a7116L.976",
           "url": "https://www.revisor.mn.gov/statutes/cite/116L.976",
-          "section": "Minn. Stat. §116L.976",
+          "section": "Minn. Stat. \u00a7116L.976",
           "kind": "statute"
         }
       ]
@@ -546,9 +546,9 @@
       },
       "citations": [
         {
-          "source": "RSA §275-F",
+          "source": "RSA \u00a7275-F",
           "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275-F/275-F-mrg.htm",
-          "section": "RSA §275-F:1 et seq.",
+          "section": "RSA \u00a7275-F:1 et seq.",
           "kind": "statute"
         }
       ]
@@ -624,9 +624,9 @@
       },
       "citations": [
         {
-          "source": "NY WARN Act (Labor Law §860)",
-          "url": "https://dol.ny.gov/warn-act",
-          "section": "NY Labor Law §860-860-i",
+          "source": "NY WARN Act (Labor Law \u00a7860)",
+          "url": "https://dol.ny.gov/worker-adjustment-and-retraining-notification-warn",
+          "section": "NY Labor Law \u00a7860-860-i",
           "kind": "statute"
         }
       ]
@@ -663,9 +663,9 @@
       },
       "citations": [
         {
-          "source": "ORC §4141.28",
+          "source": "ORC \u00a74141.28",
           "url": "https://codes.ohio.gov/ohio-revised-code/section-4141.28",
-          "section": "ORC §4141.28(C)",
+          "section": "ORC \u00a74141.28(C)",
           "kind": "statute"
         }
       ]
@@ -702,9 +702,9 @@
       },
       "citations": [
         {
-          "source": "ORS §285B.500",
+          "source": "ORS \u00a7285B.500",
           "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors285B.html",
-          "section": "ORS §285B.500-285B.524",
+          "section": "ORS \u00a7285B.500-285B.524",
           "kind": "statute"
         }
       ]
@@ -741,9 +741,9 @@
       },
       "citations": [
         {
-          "source": "73 P.S. §1851 et seq.",
+          "source": "73 P.S. \u00a71851 et seq.",
           "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/uconsCheck.cfm?yr=1988&sessInd=0&act=0180",
-          "section": "73 P.S. §1851-1855",
+          "section": "73 P.S. \u00a71851-1855",
           "kind": "statute"
         }
       ]
@@ -780,9 +780,9 @@
       },
       "citations": [
         {
-          "source": "S.C. Code §41-1-40",
+          "source": "S.C. Code \u00a741-1-40",
           "url": "https://www.scstatehouse.gov/code/t41c001.php",
-          "section": "S.C. Code §41-1-40",
+          "section": "S.C. Code \u00a741-1-40",
           "kind": "statute"
         }
       ]
@@ -819,9 +819,9 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-1-602",
+          "source": "Tenn. Code \u00a750-1-602",
           "url": "https://law.justia.com/codes/tennessee/title-50/chapter-1/part-6/",
-          "section": "Tenn. Code §50-1-601 et seq.",
+          "section": "Tenn. Code \u00a750-1-601 et seq.",
           "kind": "statute"
         }
       ]
@@ -858,9 +858,9 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §109.07",
+          "source": "Wis. Stat. \u00a7109.07",
           "url": "https://docs.legis.wisconsin.gov/statutes/statutes/109/07",
-          "section": "Wis. Stat. §109.07",
+          "section": "Wis. Stat. \u00a7109.07",
           "kind": "statute"
         }
       ]

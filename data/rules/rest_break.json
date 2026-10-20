@@ -40,16 +40,16 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §226.7 / IWC Order 5-2001",
+          "source": "California Labor Code \u00a7226.7 / IWC Order 5-2001",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=226.7.&lawCode=LAB",
-          "section": "Cal. Lab. Code §226.7",
+          "section": "Cal. Lab. Code \u00a7226.7",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "ca-rest-break-scheduling-warning",
-      "title": "California — Rest Break Required (per 4 hrs worked)",
+      "title": "California \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "CA",
       "topic": "rest_break",
       "status": "active",
@@ -79,9 +79,9 @@
       },
       "citations": [
         {
-          "source": "IWC Orders / Cal. Lab. Code §226.7",
+          "source": "IWC Orders / Cal. Lab. Code \u00a7226.7",
           "url": "https://www.dir.ca.gov/dlse/faq_restperiods.htm",
-          "section": "IWC Orders §11-12",
+          "section": "IWC Orders \u00a711-12",
           "kind": "regulation"
         }
       ]
@@ -133,7 +133,7 @@
     },
     {
       "id": "co-rest-break-scheduling-warning",
-      "title": "Colorado — Rest Break Required (per 4 hrs worked)",
+      "title": "Colorado \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "CO",
       "topic": "rest_break",
       "status": "active",
@@ -172,7 +172,7 @@
     },
     {
       "id": "il-rest-break",
-      "title": "Illinois Rest Break (hotel room attendants — 2×15 min per 7+ hr shift)",
+      "title": "Illinois Rest Break (hotel room attendants \u2014 2\u00d715 min per 7+ hr shift)",
       "jurisdiction": "IL",
       "topic": "rest_break",
       "status": "active",
@@ -198,7 +198,7 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "paid rest break (15 min × 2 per shift of 7+ hours, hotel room attendants in Cook County)",
+        "breakType": "paid rest break (15 min \u00d7 2 per shift of 7+ hours, hotel room attendants in Cook County)",
         "minimumMinutes": 15
       },
       "citations": [
@@ -248,16 +248,16 @@
       },
       "citations": [
         {
-          "source": "KRS §337.365",
+          "source": "KRS \u00a7337.365",
           "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx",
-          "section": "KRS §337.365",
+          "section": "KRS \u00a7337.365",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ky-rest-break-scheduling-warning",
-      "title": "Kentucky — Rest Break Required (per 4 hrs worked)",
+      "title": "Kentucky \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "KY",
       "topic": "rest_break",
       "status": "active",
@@ -287,9 +287,9 @@
       },
       "citations": [
         {
-          "source": "KRS §337.365",
+          "source": "KRS \u00a7337.365",
           "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=32209",
-          "section": "KRS §337.365",
+          "section": "KRS \u00a7337.365",
           "kind": "statute"
         }
       ]
@@ -332,16 +332,16 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §177.254",
-          "url": "https://www.dli.mn.gov/business/employment-practices/work-breaks-and-meal-time",
-          "section": "§177.254",
+          "source": "Minn. Stat. \u00a7177.254",
+          "url": "https://www.dli.mn.gov/business/employment-practices/employee-rights-faqs",
+          "section": "\u00a7177.254",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mn-rest-break-scheduling-warning",
-      "title": "Minnesota — Rest Break Required (per 4 hrs worked)",
+      "title": "Minnesota \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "MN",
       "topic": "rest_break",
       "status": "active",
@@ -371,9 +371,9 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §177.254",
+          "source": "Minn. Stat. \u00a7177.254",
           "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
-          "section": "Minn. Stat. §177.254",
+          "section": "Minn. Stat. \u00a7177.254",
           "kind": "statute"
         }
       ]
@@ -416,16 +416,16 @@
       },
       "citations": [
         {
-          "source": "NRS §608.019",
+          "source": "NRS \u00a7608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019(2)",
+          "section": "NRS \u00a7608.019(2)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nv-rest-break-scheduling-warning",
-      "title": "Nevada — Rest Break Required (per 4 hrs worked)",
+      "title": "Nevada \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "NV",
       "topic": "rest_break",
       "status": "active",
@@ -455,9 +455,9 @@
       },
       "citations": [
         {
-          "source": "NRS §608.019",
+          "source": "NRS \u00a7608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019",
+          "section": "NRS \u00a7608.019",
           "kind": "statute"
         }
       ]
@@ -500,16 +500,16 @@
       },
       "citations": [
         {
-          "source": "ORS §653.261",
+          "source": "ORS \u00a7653.261",
           "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
-          "section": "ORS §653.261",
+          "section": "ORS \u00a7653.261",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "or-rest-break-scheduling-warning",
-      "title": "Oregon — Rest Break Required (per 4 hrs worked)",
+      "title": "Oregon \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "OR",
       "topic": "rest_break",
       "status": "active",
@@ -574,9 +574,9 @@
       },
       "citations": [
         {
-          "source": "21 V.S.A. §304",
+          "source": "21 V.S.A. \u00a7304",
           "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
-          "section": "21 V.S.A. §304",
+          "section": "21 V.S.A. \u00a7304",
           "kind": "statute"
         }
       ]
@@ -619,16 +619,16 @@
       },
       "citations": [
         {
-          "source": "WAC §296-126-092",
-          "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods",
-          "section": "WAC §296-126-092",
+          "source": "WAC \u00a7296-126-092",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "WAC \u00a7296-126-092",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "wa-rest-break-scheduling-warning",
-      "title": "Washington — Rest Break Required (per 4 hrs worked)",
+      "title": "Washington \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "WA",
       "topic": "rest_break",
       "status": "active",
@@ -659,7 +659,7 @@
       "citations": [
         {
           "source": "WAC 296-126-092",
-          "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
           "section": "WAC 296-126-092",
           "kind": "regulation"
         }

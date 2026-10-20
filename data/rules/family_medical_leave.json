@@ -38,7 +38,7 @@
         {
           "source": "California Family Rights Act (CFRA) + CA PFL",
           "url": "https://www.dfeh.ca.gov/family-medical-pregnancy-leave/",
-          "section": "Gov. Code §12945.2",
+          "section": "Gov. Code \u00a712945.2",
           "kind": "statute"
         }
       ]
@@ -79,7 +79,7 @@
         {
           "source": "Colorado FAMLI Act",
           "url": "https://famli.colorado.gov/",
-          "section": "C.R.S. §8-13.3-501 et seq.",
+          "section": "C.R.S. \u00a78-13.3-501 et seq.",
           "kind": "statute"
         }
       ]
@@ -120,7 +120,7 @@
         {
           "source": "CT Paid Leave Act",
           "url": "https://ctpaidleave.org/",
-          "section": "Conn. Gen. Stat. §31-49e et seq.",
+          "section": "Conn. Gen. Stat. \u00a731-49e et seq.",
           "kind": "statute"
         }
       ]
@@ -161,7 +161,7 @@
         {
           "source": "DC Universal Paid Leave Act",
           "url": "https://does.dc.gov/page/dc-paid-family-leave",
-          "section": "DC Code §32-541.01 et seq.",
+          "section": "DC Code \u00a732-541.01 et seq.",
           "kind": "statute"
         }
       ]
@@ -202,14 +202,14 @@
         {
           "source": "Healthy Delaware Families Act",
           "url": "https://dol.delaware.gov/paid-leave/",
-          "section": "19 Del. C. §37 et seq.",
+          "section": "19 Del. C. \u00a737 et seq.",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "federal-fmla-eligibility",
-      "title": "Federal FMLA — Employee Eligibility",
+      "title": "Federal FMLA \u2014 Employee Eligibility",
       "jurisdiction": "Federal",
       "topic": "family_medical_leave",
       "status": "active",
@@ -253,9 +253,9 @@
       },
       "citations": [
         {
-          "source": "Family and Medical Leave Act, 29 U.S.C. §2612",
+          "source": "Family and Medical Leave Act, 29 U.S.C. \u00a72612",
           "url": "https://www.law.cornell.edu/uscode/text/29/2612",
-          "section": "29 U.S.C. §2612",
+          "section": "29 U.S.C. \u00a72612",
           "kind": "statute"
         }
       ]
@@ -295,7 +295,7 @@
       "citations": [
         {
           "source": "MA Paid Family and Medical Leave (PFML)",
-          "url": "https://www.mass.gov/info-details/paid-family-and-medical-leave-pfml-overview",
+          "url": "https://www.mass.gov/info-details/paid-family-and-medical-leave-pfml-overview-and-benefits",
           "section": "MGL c.175M",
           "kind": "statute"
         }
@@ -336,8 +336,8 @@
       "citations": [
         {
           "source": "Maryland FAMLI Act (Time to Care Act)",
-          "url": "https://www.dllr.state.md.us/employment/famli.shtml",
-          "section": "Md. Code Lab. & Empl. §8.3-101 et seq.",
+          "url": "https://paidleave.maryland.gov/",
+          "section": "Md. Code Lab. & Empl. \u00a78.3-101 et seq.",
           "kind": "statute"
         }
       ]
@@ -378,7 +378,7 @@
         {
           "source": "Minnesota Paid Leave",
           "url": "https://mn.gov/deed/paidleave/",
-          "section": "Minn. Stat. §268B",
+          "section": "Minn. Stat. \u00a7268B",
           "kind": "statute"
         }
       ]
@@ -460,7 +460,7 @@
         {
           "source": "NY Paid Family Leave (PFL)",
           "url": "https://paidfamilyleave.ny.gov/",
-          "section": "Workers' Comp. Law Art. 9 §200 et seq.",
+          "section": "Workers' Comp. Law Art. 9 \u00a7200 et seq.",
           "kind": "statute"
         }
       ]
@@ -501,7 +501,7 @@
         {
           "source": "Oregon Paid Leave",
           "url": "https://paidleave.oregon.gov/",
-          "section": "ORS §657B",
+          "section": "ORS \u00a7657B",
           "kind": "statute"
         }
       ]
@@ -542,7 +542,7 @@
         {
           "source": "RI Temporary Caregiver Insurance (TCI)",
           "url": "https://dlt.ri.gov/individuals/temporary-disability-caregiver-insurance",
-          "section": "R.I. Gen. Laws §28-41-34 et seq.",
+          "section": "R.I. Gen. Laws \u00a728-41-34 et seq.",
           "kind": "statute"
         }
       ]
@@ -583,7 +583,7 @@
         {
           "source": "WA Paid Family & Medical Leave (PFML)",
           "url": "https://paidleave.wa.gov/",
-          "section": "RCW §50A",
+          "section": "RCW \u00a750A",
           "kind": "statute"
         }
       ]

@@ -88,9 +88,13 @@ classify-citations` fills in `kind` for new citations from the wording of
 
 `npm run check-links` fetches every citation URL and writes
 `data/link-report.json` with status, final URL and a hash of the page text, so a
-later run can flag links that newly broke and pages whose text changed. The
-`Check citation links` workflow runs it nightly and on demand; its job summary
-lists the broken links and the report is attached as an artifact.
+later run can flag links that newly broke and pages whose text changed. Each URL
+gets a verdict: `ok`, `broken` (404/410 or DNS failure, the citation needs a new
+URL) or `blocked` (403/429/5xx, timeout or TLS error: the host refused an
+automated client, so the page is unverified but probably fine; several state
+legislature sites behave this way). The `Check citation links` workflow runs it
+nightly and on demand; its job summary lists broken and blocked links and the
+report is attached as an artifact. Only broken links fail the nightly run.
 
 ## Adding or changing a rule
 

@@ -4,7 +4,7 @@
   "rules": [
     {
       "id": "ak-minor-16-17-curfew",
-      "title": "Alaska: Minors 16-17 — Cannot work past 21:00 (school night)",
+      "title": "Alaska: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "AK",
       "topic": "minor_labor",
       "status": "active",
@@ -49,7 +49,7 @@
       },
       "citations": [
         {
-          "source": "AS §23.10.332",
+          "source": "AS \u00a723.10.332",
           "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
           "kind": "statute"
         }
@@ -57,7 +57,7 @@
     },
     {
       "id": "ak-minor-16-17-nonschool-day-hours",
-      "title": "Alaska: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Alaska: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "AK",
       "topic": "minor_labor",
       "status": "active",
@@ -102,7 +102,7 @@
       },
       "citations": [
         {
-          "source": "AS §23.10.332",
+          "source": "AS \u00a723.10.332",
           "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
           "kind": "statute"
         }
@@ -110,7 +110,7 @@
     },
     {
       "id": "ak-minor-16-17-school-day-hours",
-      "title": "Alaska: Minors 16-17 — Max 6 hours on a school day",
+      "title": "Alaska: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "AK",
       "topic": "minor_labor",
       "status": "active",
@@ -155,7 +155,7 @@
       },
       "citations": [
         {
-          "source": "AS §23.10.332",
+          "source": "AS \u00a723.10.332",
           "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
           "kind": "statute"
         }
@@ -163,7 +163,7 @@
     },
     {
       "id": "ak-minor-16-17-school-week-hours",
-      "title": "Alaska: Minors 16-17 — Max 24 hours in a school week",
+      "title": "Alaska: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "AK",
       "topic": "minor_labor",
       "status": "active",
@@ -208,7 +208,7 @@
       },
       "citations": [
         {
-          "source": "AS §23.10.332",
+          "source": "AS \u00a723.10.332",
           "url": "https://www.akleg.gov/basis/statutes.asp#23.10.332",
           "kind": "statute"
         }
@@ -241,16 +241,16 @@
       },
       "citations": [
         {
-          "source": "Ala. Code §25-8-1 et seq.",
+          "source": "Ala. Code \u00a725-8-1 et seq.",
           "url": "https://law.justia.com/codes/alabama/title-25/chapter-8/",
-          "section": "§25-8-30 to §25-8-60",
+          "section": "\u00a725-8-30 to \u00a725-8-60",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ar-minor-16-17-curfew",
-      "title": "Arkansas: Minors 16-17 — Cannot work past 23:00 (school night)",
+      "title": "Arkansas: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "AR",
       "topic": "minor_labor",
       "status": "active",
@@ -295,7 +295,7 @@
       },
       "citations": [
         {
-          "source": "Ark. Code §11-6-107",
+          "source": "Ark. Code \u00a711-6-107",
           "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
           "kind": "statute"
         }
@@ -303,7 +303,7 @@
     },
     {
       "id": "ar-minor-16-17-nonschool-day-hours",
-      "title": "Arkansas: Minors 16-17 — Max 10 hours on a non-school day",
+      "title": "Arkansas: Minors 16-17 \u2014 Max 10 hours on a non-school day",
       "jurisdiction": "AR",
       "topic": "minor_labor",
       "status": "active",
@@ -348,7 +348,7 @@
       },
       "citations": [
         {
-          "source": "Ark. Code §11-6-107",
+          "source": "Ark. Code \u00a711-6-107",
           "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
           "kind": "statute"
         }
@@ -356,7 +356,7 @@
     },
     {
       "id": "ar-minor-16-17-school-day-hours",
-      "title": "Arkansas: Minors 16-17 — Max 6 hours on a school day",
+      "title": "Arkansas: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "AR",
       "topic": "minor_labor",
       "status": "active",
@@ -401,7 +401,7 @@
       },
       "citations": [
         {
-          "source": "Ark. Code §11-6-107",
+          "source": "Ark. Code \u00a711-6-107",
           "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
           "kind": "statute"
         }
@@ -409,7 +409,7 @@
     },
     {
       "id": "ar-minor-16-17-school-week-hours",
-      "title": "Arkansas: Minors 16-17 — Max 48 hours in a school week",
+      "title": "Arkansas: Minors 16-17 \u2014 Max 48 hours in a school week",
       "jurisdiction": "AR",
       "topic": "minor_labor",
       "status": "active",
@@ -454,7 +454,7 @@
       },
       "citations": [
         {
-          "source": "Ark. Code §11-6-107",
+          "source": "Ark. Code \u00a711-6-107",
           "url": "https://www.dol.gov/agencies/whd/state/child-labor#ar",
           "kind": "statute"
         }
@@ -462,7 +462,7 @@
     },
     {
       "id": "az-minor-16-17-curfew",
-      "title": "Arizona: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Arizona: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "AZ",
       "topic": "minor_labor",
       "status": "active",
@@ -507,7 +507,7 @@
       },
       "citations": [
         {
-          "source": "ARS §23-233",
+          "source": "ARS \u00a723-233",
           "url": "https://www.azleg.gov/ars/23/00233.htm",
           "kind": "statute"
         }
@@ -515,7 +515,7 @@
     },
     {
       "id": "az-minor-16-17-nonschool-day-hours",
-      "title": "Arizona: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Arizona: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "AZ",
       "topic": "minor_labor",
       "status": "active",
@@ -560,7 +560,7 @@
       },
       "citations": [
         {
-          "source": "ARS §23-233",
+          "source": "ARS \u00a723-233",
           "url": "https://www.azleg.gov/ars/23/00233.htm",
           "kind": "statute"
         }
@@ -568,7 +568,7 @@
     },
     {
       "id": "az-minor-16-17-school-day-hours",
-      "title": "Arizona: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Arizona: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "AZ",
       "topic": "minor_labor",
       "status": "active",
@@ -613,7 +613,7 @@
       },
       "citations": [
         {
-          "source": "ARS §23-233",
+          "source": "ARS \u00a723-233",
           "url": "https://www.azleg.gov/ars/23/00233.htm",
           "kind": "statute"
         }
@@ -621,7 +621,7 @@
     },
     {
       "id": "az-minor-16-17-school-week-hours",
-      "title": "Arizona: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Arizona: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "AZ",
       "topic": "minor_labor",
       "status": "active",
@@ -666,7 +666,7 @@
       },
       "citations": [
         {
-          "source": "ARS §23-233",
+          "source": "ARS \u00a723-233",
           "url": "https://www.azleg.gov/ars/23/00233.htm",
           "kind": "statute"
         }
@@ -674,7 +674,7 @@
     },
     {
       "id": "ca-minor-16-17-curfew-school",
-      "title": "CA: Minors 16-17 — Cannot work past 10pm on a school night",
+      "title": "CA: Minors 16-17 \u2014 Cannot work past 10pm on a school night",
       "jurisdiction": "CA",
       "topic": "minor_labor",
       "status": "active",
@@ -719,16 +719,16 @@
       },
       "citations": [
         {
-          "source": "CA Education Code §49116",
+          "source": "CA Education Code \u00a749116",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=49116.&lawCode=EDC",
-          "section": "Ed. Code §49116",
+          "section": "Ed. Code \u00a749116",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ca-minor-16-17-nonschool-day-hours",
-      "title": "CA: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "CA: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "CA",
       "topic": "minor_labor",
       "status": "active",
@@ -773,16 +773,16 @@
       },
       "citations": [
         {
-          "source": "CA Labor Code §1391",
+          "source": "CA Labor Code \u00a71391",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1391.&lawCode=LAB",
-          "section": "Lab. Code §1391",
+          "section": "Lab. Code \u00a71391",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ca-minor-16-17-school-day-hours",
-      "title": "CA: Minors 16-17 — Max 4 hours on a school day",
+      "title": "CA: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "CA",
       "topic": "minor_labor",
       "status": "active",
@@ -827,16 +827,16 @@
       },
       "citations": [
         {
-          "source": "CA Education Code §49116",
+          "source": "CA Education Code \u00a749116",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=49116.&lawCode=EDC",
-          "section": "Ed. Code §49116",
+          "section": "Ed. Code \u00a749116",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ca-minor-16-17-week-hours",
-      "title": "CA: Minors 16-17 — Max 48 hours per week",
+      "title": "CA: Minors 16-17 \u2014 Max 48 hours per week",
       "jurisdiction": "CA",
       "topic": "minor_labor",
       "status": "active",
@@ -876,16 +876,16 @@
       },
       "citations": [
         {
-          "source": "CA Labor Code §1391",
+          "source": "CA Labor Code \u00a71391",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1391.&lawCode=LAB",
-          "section": "Lab. Code §1391",
+          "section": "Lab. Code \u00a71391",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "co-minor-16-17-curfew",
-      "title": "Colorado: Minors 16-17 — Cannot work past 21:00 (school night)",
+      "title": "Colorado: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "CO",
       "topic": "minor_labor",
       "status": "active",
@@ -938,7 +938,7 @@
     },
     {
       "id": "co-minor-16-17-nonschool-day-hours",
-      "title": "Colorado: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Colorado: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "CO",
       "topic": "minor_labor",
       "status": "active",
@@ -991,7 +991,7 @@
     },
     {
       "id": "co-minor-16-17-school-day-hours",
-      "title": "Colorado: Minors 16-17 — Max 6 hours on a school day",
+      "title": "Colorado: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "CO",
       "topic": "minor_labor",
       "status": "active",
@@ -1044,7 +1044,7 @@
     },
     {
       "id": "co-minor-16-17-school-week-hours",
-      "title": "Colorado: Minors 16-17 — Max 30 hours in a school week",
+      "title": "Colorado: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "CO",
       "topic": "minor_labor",
       "status": "active",
@@ -1097,7 +1097,7 @@
     },
     {
       "id": "ct-minor-16-17-curfew",
-      "title": "CT: Minors 16-17 — Cannot work past 10pm (school night)",
+      "title": "CT: Minors 16-17 \u2014 Cannot work past 10pm (school night)",
       "jurisdiction": "CT",
       "topic": "minor_labor",
       "status": "active",
@@ -1142,16 +1142,16 @@
       },
       "citations": [
         {
-          "source": "CT Gen. Stat. §31-18",
+          "source": "CT Gen. Stat. \u00a731-18",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-18",
-          "section": "§31-18",
+          "section": "\u00a731-18",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ct-minor-16-17-school-day-hours",
-      "title": "CT: Minors 16-17 — Max 6 hours on a school day",
+      "title": "CT: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "CT",
       "topic": "minor_labor",
       "status": "active",
@@ -1196,16 +1196,16 @@
       },
       "citations": [
         {
-          "source": "CT Gen. Stat. §31-18",
+          "source": "CT Gen. Stat. \u00a731-18",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-18",
-          "section": "§31-18",
+          "section": "\u00a731-18",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ct-minor-16-17-school-week-hours",
-      "title": "CT: Minors 16-17 — Max 32 hours in a school week",
+      "title": "CT: Minors 16-17 \u2014 Max 32 hours in a school week",
       "jurisdiction": "CT",
       "topic": "minor_labor",
       "status": "active",
@@ -1250,16 +1250,16 @@
       },
       "citations": [
         {
-          "source": "CT Gen. Stat. §31-18",
+          "source": "CT Gen. Stat. \u00a731-18",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-18",
-          "section": "§31-18",
+          "section": "\u00a731-18",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "dc-minor-16-17-curfew",
-      "title": "DC: Minors 16-17 — Cannot work past 10pm (school night)",
+      "title": "DC: Minors 16-17 \u2014 Cannot work past 10pm (school night)",
       "jurisdiction": "DC",
       "topic": "minor_labor",
       "status": "active",
@@ -1304,16 +1304,16 @@
       },
       "citations": [
         {
-          "source": "DC Code §32-219",
+          "source": "DC Code \u00a732-219",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-219",
-          "section": "§32-219",
+          "section": "\u00a732-219",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "dc-minor-16-17-nonschool-day-hours",
-      "title": "DC: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "DC: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "DC",
       "topic": "minor_labor",
       "status": "active",
@@ -1358,16 +1358,16 @@
       },
       "citations": [
         {
-          "source": "DC Code §32-219",
+          "source": "DC Code \u00a732-219",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-219",
-          "section": "§32-219",
+          "section": "\u00a732-219",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "dc-minor-16-17-school-day-hours",
-      "title": "DC: Minors 16-17 — Max 4 hours on a school day",
+      "title": "DC: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "DC",
       "topic": "minor_labor",
       "status": "active",
@@ -1412,16 +1412,16 @@
       },
       "citations": [
         {
-          "source": "DC Code §32-219",
+          "source": "DC Code \u00a732-219",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-219",
-          "section": "§32-219",
+          "section": "\u00a732-219",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "de-minor-16-17-curfew",
-      "title": "Delaware: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Delaware: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "DE",
       "topic": "minor_labor",
       "status": "active",
@@ -1466,15 +1466,15 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "source": "19 Del. C. \u00a7508",
+          "url": "https://labor.delaware.gov/divisions/industrial-affairs-old/labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "de-minor-16-17-nonschool-day-hours",
-      "title": "Delaware: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Delaware: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "DE",
       "topic": "minor_labor",
       "status": "active",
@@ -1519,15 +1519,15 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "source": "19 Del. C. \u00a7508",
+          "url": "https://labor.delaware.gov/divisions/industrial-affairs-old/labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "de-minor-16-17-school-day-hours",
-      "title": "Delaware: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Delaware: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "DE",
       "topic": "minor_labor",
       "status": "active",
@@ -1572,15 +1572,15 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "source": "19 Del. C. \u00a7508",
+          "url": "https://labor.delaware.gov/divisions/industrial-affairs-old/labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "de-minor-16-17-school-week-hours",
-      "title": "Delaware: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Delaware: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "DE",
       "topic": "minor_labor",
       "status": "active",
@@ -1625,15 +1625,15 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §508",
-          "url": "https://dia.delawareworks.com/labor-law/child-labor.php",
+          "source": "19 Del. C. \u00a7508",
+          "url": "https://labor.delaware.gov/divisions/industrial-affairs-old/labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-curfew",
-      "title": "Federal: Minors 14-15 — Cannot work past 7pm (9pm Jun 1–Labor Day)",
+      "title": "Federal: Minors 14-15 \u2014 Cannot work past 7pm (9pm Jun 1\u2013Labor Day)",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1673,16 +1673,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(6)",
+          "source": "29 CFR \u00a7570.35(a)(6)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(6)",
+          "section": "\u00a7570.35(a)(6)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-curfew-summer",
-      "title": "Federal: Minors 14-15 — Cannot work past 9pm (Jun 1–Labor Day)",
+      "title": "Federal: Minors 14-15 \u2014 Cannot work past 9pm (Jun 1\u2013Labor Day)",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1722,16 +1722,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(7)",
+          "source": "29 CFR \u00a7570.35(a)(7)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(7)",
+          "section": "\u00a7570.35(a)(7)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-early-start",
-      "title": "Federal: Minors 14-15 — Cannot work before 7am",
+      "title": "Federal: Minors 14-15 \u2014 Cannot work before 7am",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1766,16 +1766,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(1)",
+          "source": "29 CFR \u00a7570.35(a)(1)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(1)",
+          "section": "\u00a7570.35(a)(1)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-nonschool-day-hours",
-      "title": "Federal: Minors 14-15 — Max 8 hours on a non-school day",
+      "title": "Federal: Minors 14-15 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1815,16 +1815,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(3)",
+          "source": "29 CFR \u00a7570.35(a)(3)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(3)",
+          "section": "\u00a7570.35(a)(3)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-nonschool-week-hours",
-      "title": "Federal: Minors 14-15 — Max 40 hours in a non-school week",
+      "title": "Federal: Minors 14-15 \u2014 Max 40 hours in a non-school week",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1864,16 +1864,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(5)",
+          "source": "29 CFR \u00a7570.35(a)(5)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(5)",
+          "section": "\u00a7570.35(a)(5)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-school-day-hours",
-      "title": "Federal: Minors 14-15 — Max 3 hours on a school day",
+      "title": "Federal: Minors 14-15 \u2014 Max 3 hours on a school day",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1913,16 +1913,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(2)",
+          "source": "29 CFR \u00a7570.35(a)(2)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(2)",
+          "section": "\u00a7570.35(a)(2)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "federal-minor-14-15-school-week-hours",
-      "title": "Federal: Minors 14-15 — Max 18 hours in a school week",
+      "title": "Federal: Minors 14-15 \u2014 Max 18 hours in a school week",
       "jurisdiction": "Federal",
       "topic": "minor_labor",
       "status": "active",
@@ -1962,16 +1962,16 @@
       },
       "citations": [
         {
-          "source": "29 CFR §570.35(a)(4)",
+          "source": "29 CFR \u00a7570.35(a)(4)",
           "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "§570.35(a)(4)",
+          "section": "\u00a7570.35(a)(4)",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "fl-minor-16-17-curfew",
-      "title": "Florida: Minors 16-17 — Cannot work past 23:00 (school night)",
+      "title": "Florida: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "FL",
       "topic": "minor_labor",
       "status": "active",
@@ -2016,7 +2016,7 @@
       },
       "citations": [
         {
-          "source": "FL Stat. §450.081",
+          "source": "FL Stat. \u00a7450.081",
           "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
           "kind": "statute"
         }
@@ -2024,7 +2024,7 @@
     },
     {
       "id": "fl-minor-16-17-nonschool-day-hours",
-      "title": "Florida: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Florida: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "FL",
       "topic": "minor_labor",
       "status": "active",
@@ -2069,7 +2069,7 @@
       },
       "citations": [
         {
-          "source": "FL Stat. §450.081",
+          "source": "FL Stat. \u00a7450.081",
           "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
           "kind": "statute"
         }
@@ -2077,7 +2077,7 @@
     },
     {
       "id": "fl-minor-16-17-school-day-hours",
-      "title": "Florida: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Florida: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "FL",
       "topic": "minor_labor",
       "status": "active",
@@ -2122,7 +2122,7 @@
       },
       "citations": [
         {
-          "source": "FL Stat. §450.081",
+          "source": "FL Stat. \u00a7450.081",
           "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
           "kind": "statute"
         }
@@ -2130,7 +2130,7 @@
     },
     {
       "id": "fl-minor-16-17-school-week-hours",
-      "title": "Florida: Minors 16-17 — Max 30 hours in a school week",
+      "title": "Florida: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "FL",
       "topic": "minor_labor",
       "status": "active",
@@ -2175,7 +2175,7 @@
       },
       "citations": [
         {
-          "source": "FL Stat. §450.081",
+          "source": "FL Stat. \u00a7450.081",
           "url": "https://floridajobs.org/business-growth-and-partnerships/for-employers/child-labor-law",
           "kind": "statute"
         }
@@ -2183,7 +2183,7 @@
     },
     {
       "id": "ga-minor-16-17-curfew",
-      "title": "Georgia: Minors 16-17 — Cannot work past 21:00 (school night)",
+      "title": "Georgia: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "GA",
       "topic": "minor_labor",
       "status": "active",
@@ -2228,15 +2228,15 @@
       },
       "citations": [
         {
-          "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor",
+          "source": "O.C.G.A. \u00a739-2-2",
+          "url": "https://dol.georgia.gov/child-labor-work-hour-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ga-minor-16-17-nonschool-day-hours",
-      "title": "Georgia: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Georgia: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "GA",
       "topic": "minor_labor",
       "status": "active",
@@ -2281,15 +2281,15 @@
       },
       "citations": [
         {
-          "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor",
+          "source": "O.C.G.A. \u00a739-2-2",
+          "url": "https://dol.georgia.gov/child-labor-work-hour-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ga-minor-16-17-school-day-hours",
-      "title": "Georgia: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Georgia: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "GA",
       "topic": "minor_labor",
       "status": "active",
@@ -2334,15 +2334,15 @@
       },
       "citations": [
         {
-          "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor",
+          "source": "O.C.G.A. \u00a739-2-2",
+          "url": "https://dol.georgia.gov/child-labor-work-hour-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ga-minor-16-17-school-week-hours",
-      "title": "Georgia: Minors 16-17 — Max 40 hours in a school week",
+      "title": "Georgia: Minors 16-17 \u2014 Max 40 hours in a school week",
       "jurisdiction": "GA",
       "topic": "minor_labor",
       "status": "active",
@@ -2387,15 +2387,15 @@
       },
       "citations": [
         {
-          "source": "O.C.G.A. §39-2-2",
-          "url": "https://dol.georgia.gov/child-labor",
+          "source": "O.C.G.A. \u00a739-2-2",
+          "url": "https://dol.georgia.gov/child-labor-work-hour-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "hi-minor-16-17-curfew",
-      "title": "Hawaii: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Hawaii: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "HI",
       "topic": "minor_labor",
       "status": "active",
@@ -2440,7 +2440,7 @@
       },
       "citations": [
         {
-          "source": "HRS §390-2",
+          "source": "HRS \u00a7390-2",
           "url": "https://labor.hawaii.gov/wsd/child-labor/",
           "kind": "statute"
         }
@@ -2448,7 +2448,7 @@
     },
     {
       "id": "hi-minor-16-17-nonschool-day-hours",
-      "title": "Hawaii: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Hawaii: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "HI",
       "topic": "minor_labor",
       "status": "active",
@@ -2493,7 +2493,7 @@
       },
       "citations": [
         {
-          "source": "HRS §390-2",
+          "source": "HRS \u00a7390-2",
           "url": "https://labor.hawaii.gov/wsd/child-labor/",
           "kind": "statute"
         }
@@ -2501,7 +2501,7 @@
     },
     {
       "id": "hi-minor-16-17-school-day-hours",
-      "title": "Hawaii: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Hawaii: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "HI",
       "topic": "minor_labor",
       "status": "active",
@@ -2546,7 +2546,7 @@
       },
       "citations": [
         {
-          "source": "HRS §390-2",
+          "source": "HRS \u00a7390-2",
           "url": "https://labor.hawaii.gov/wsd/child-labor/",
           "kind": "statute"
         }
@@ -2554,7 +2554,7 @@
     },
     {
       "id": "hi-minor-16-17-school-week-hours",
-      "title": "Hawaii: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Hawaii: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "HI",
       "topic": "minor_labor",
       "status": "active",
@@ -2599,7 +2599,7 @@
       },
       "citations": [
         {
-          "source": "HRS §390-2",
+          "source": "HRS \u00a7390-2",
           "url": "https://labor.hawaii.gov/wsd/child-labor/",
           "kind": "statute"
         }
@@ -2607,7 +2607,7 @@
     },
     {
       "id": "ia-minor-16-17-curfew",
-      "title": "Iowa: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Iowa: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "IA",
       "topic": "minor_labor",
       "status": "active",
@@ -2652,7 +2652,7 @@
       },
       "citations": [
         {
-          "source": "Iowa Code §92.7",
+          "source": "Iowa Code \u00a792.7",
           "url": "https://www.iowadivisionoflabor.gov/child-labor",
           "kind": "statute"
         }
@@ -2660,7 +2660,7 @@
     },
     {
       "id": "ia-minor-16-17-nonschool-day-hours",
-      "title": "Iowa: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Iowa: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "IA",
       "topic": "minor_labor",
       "status": "active",
@@ -2705,7 +2705,7 @@
       },
       "citations": [
         {
-          "source": "Iowa Code §92.7",
+          "source": "Iowa Code \u00a792.7",
           "url": "https://www.iowadivisionoflabor.gov/child-labor",
           "kind": "statute"
         }
@@ -2713,7 +2713,7 @@
     },
     {
       "id": "ia-minor-16-17-school-day-hours",
-      "title": "Iowa: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Iowa: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "IA",
       "topic": "minor_labor",
       "status": "active",
@@ -2758,7 +2758,7 @@
       },
       "citations": [
         {
-          "source": "Iowa Code §92.7",
+          "source": "Iowa Code \u00a792.7",
           "url": "https://www.iowadivisionoflabor.gov/child-labor",
           "kind": "statute"
         }
@@ -2766,7 +2766,7 @@
     },
     {
       "id": "ia-minor-16-17-school-week-hours",
-      "title": "Iowa: Minors 16-17 — Max 28 hours in a school week",
+      "title": "Iowa: Minors 16-17 \u2014 Max 28 hours in a school week",
       "jurisdiction": "IA",
       "topic": "minor_labor",
       "status": "active",
@@ -2811,7 +2811,7 @@
       },
       "citations": [
         {
-          "source": "Iowa Code §92.7",
+          "source": "Iowa Code \u00a792.7",
           "url": "https://www.iowadivisionoflabor.gov/child-labor",
           "kind": "statute"
         }
@@ -2819,7 +2819,7 @@
     },
     {
       "id": "id-minor-16-17-curfew",
-      "title": "Idaho: Minors 16-17 — Cannot work past 21:00 (school night)",
+      "title": "Idaho: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "ID",
       "topic": "minor_labor",
       "status": "active",
@@ -2864,7 +2864,7 @@
       },
       "citations": [
         {
-          "source": "Idaho Code §44-1301",
+          "source": "Idaho Code \u00a744-1301",
           "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
           "kind": "statute"
         }
@@ -2872,7 +2872,7 @@
     },
     {
       "id": "id-minor-16-17-nonschool-day-hours",
-      "title": "Idaho: Minors 16-17 — Max 9 hours on a non-school day",
+      "title": "Idaho: Minors 16-17 \u2014 Max 9 hours on a non-school day",
       "jurisdiction": "ID",
       "topic": "minor_labor",
       "status": "active",
@@ -2917,7 +2917,7 @@
       },
       "citations": [
         {
-          "source": "Idaho Code §44-1301",
+          "source": "Idaho Code \u00a744-1301",
           "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
           "kind": "statute"
         }
@@ -2925,7 +2925,7 @@
     },
     {
       "id": "id-minor-16-17-school-day-hours",
-      "title": "Idaho: Minors 16-17 — Max 6 hours on a school day",
+      "title": "Idaho: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "ID",
       "topic": "minor_labor",
       "status": "active",
@@ -2970,7 +2970,7 @@
       },
       "citations": [
         {
-          "source": "Idaho Code §44-1301",
+          "source": "Idaho Code \u00a744-1301",
           "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
           "kind": "statute"
         }
@@ -2978,7 +2978,7 @@
     },
     {
       "id": "id-minor-16-17-school-week-hours",
-      "title": "Idaho: Minors 16-17 — Max 54 hours in a school week",
+      "title": "Idaho: Minors 16-17 \u2014 Max 54 hours in a school week",
       "jurisdiction": "ID",
       "topic": "minor_labor",
       "status": "active",
@@ -3023,7 +3023,7 @@
       },
       "citations": [
         {
-          "source": "Idaho Code §44-1301",
+          "source": "Idaho Code \u00a744-1301",
           "url": "https://www.labor.idaho.gov/dnn/Businesses/Wage-and-Hour-Resources/Child-Labor",
           "kind": "statute"
         }
@@ -3031,7 +3031,7 @@
     },
     {
       "id": "il-minor-16-17-curfew",
-      "title": "Illinois: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Illinois: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "IL",
       "topic": "minor_labor",
       "status": "active",
@@ -3077,14 +3077,14 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "url": "https://labor.illinois.gov/laws-rules/fls/child-labor-law.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "il-minor-16-17-nonschool-day-hours",
-      "title": "Illinois: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Illinois: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "IL",
       "topic": "minor_labor",
       "status": "active",
@@ -3130,14 +3130,14 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "url": "https://labor.illinois.gov/laws-rules/fls/child-labor-law.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "il-minor-16-17-school-day-hours",
-      "title": "Illinois: Minors 16-17 — Max 3 hours on a school day",
+      "title": "Illinois: Minors 16-17 \u2014 Max 3 hours on a school day",
       "jurisdiction": "IL",
       "topic": "minor_labor",
       "status": "active",
@@ -3183,14 +3183,14 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "url": "https://labor.illinois.gov/laws-rules/fls/child-labor-law.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "il-minor-16-17-school-week-hours",
-      "title": "Illinois: Minors 16-17 — Max 24 hours in a school week",
+      "title": "Illinois: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "IL",
       "topic": "minor_labor",
       "status": "active",
@@ -3236,14 +3236,14 @@
       "citations": [
         {
           "source": "820 ILCS 205/7",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/child-labor-law.html",
+          "url": "https://labor.illinois.gov/laws-rules/fls/child-labor-law.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "in-minor-16-17-curfew",
-      "title": "Indiana: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Indiana: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "IN",
       "topic": "minor_labor",
       "status": "active",
@@ -3288,7 +3288,7 @@
       },
       "citations": [
         {
-          "source": "IC §20-33-3-32",
+          "source": "IC \u00a720-33-3-32",
           "url": "https://www.in.gov/dol/youth-employment/",
           "kind": "statute"
         }
@@ -3296,7 +3296,7 @@
     },
     {
       "id": "in-minor-16-17-nonschool-day-hours",
-      "title": "Indiana: Minors 16-17 — Max 9 hours on a non-school day",
+      "title": "Indiana: Minors 16-17 \u2014 Max 9 hours on a non-school day",
       "jurisdiction": "IN",
       "topic": "minor_labor",
       "status": "active",
@@ -3341,7 +3341,7 @@
       },
       "citations": [
         {
-          "source": "IC §20-33-3-32",
+          "source": "IC \u00a720-33-3-32",
           "url": "https://www.in.gov/dol/youth-employment/",
           "kind": "statute"
         }
@@ -3349,7 +3349,7 @@
     },
     {
       "id": "in-minor-16-17-school-day-hours",
-      "title": "Indiana: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Indiana: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "IN",
       "topic": "minor_labor",
       "status": "active",
@@ -3394,7 +3394,7 @@
       },
       "citations": [
         {
-          "source": "IC §20-33-3-32",
+          "source": "IC \u00a720-33-3-32",
           "url": "https://www.in.gov/dol/youth-employment/",
           "kind": "statute"
         }
@@ -3402,7 +3402,7 @@
     },
     {
       "id": "in-minor-16-17-school-week-hours",
-      "title": "Indiana: Minors 16-17 — Max 30 hours in a school week",
+      "title": "Indiana: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "IN",
       "topic": "minor_labor",
       "status": "active",
@@ -3447,7 +3447,7 @@
       },
       "citations": [
         {
-          "source": "IC §20-33-3-32",
+          "source": "IC \u00a720-33-3-32",
           "url": "https://www.in.gov/dol/youth-employment/",
           "kind": "statute"
         }
@@ -3455,7 +3455,7 @@
     },
     {
       "id": "ks-minor-16-17-curfew",
-      "title": "Kansas: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Kansas: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "KS",
       "topic": "minor_labor",
       "status": "active",
@@ -3500,7 +3500,7 @@
       },
       "citations": [
         {
-          "source": "K.S.A. §38-601",
+          "source": "K.S.A. \u00a738-601",
           "url": "https://www.dol.ks.gov/laws/child-labor",
           "kind": "statute"
         }
@@ -3508,7 +3508,7 @@
     },
     {
       "id": "ks-minor-16-17-nonschool-day-hours",
-      "title": "Kansas: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Kansas: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "KS",
       "topic": "minor_labor",
       "status": "active",
@@ -3553,7 +3553,7 @@
       },
       "citations": [
         {
-          "source": "K.S.A. §38-601",
+          "source": "K.S.A. \u00a738-601",
           "url": "https://www.dol.ks.gov/laws/child-labor",
           "kind": "statute"
         }
@@ -3561,7 +3561,7 @@
     },
     {
       "id": "ks-minor-16-17-school-day-hours",
-      "title": "Kansas: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Kansas: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "KS",
       "topic": "minor_labor",
       "status": "active",
@@ -3606,7 +3606,7 @@
       },
       "citations": [
         {
-          "source": "K.S.A. §38-601",
+          "source": "K.S.A. \u00a738-601",
           "url": "https://www.dol.ks.gov/laws/child-labor",
           "kind": "statute"
         }
@@ -3614,7 +3614,7 @@
     },
     {
       "id": "ks-minor-16-17-school-week-hours",
-      "title": "Kansas: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Kansas: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "KS",
       "topic": "minor_labor",
       "status": "active",
@@ -3659,7 +3659,7 @@
       },
       "citations": [
         {
-          "source": "K.S.A. §38-601",
+          "source": "K.S.A. \u00a738-601",
           "url": "https://www.dol.ks.gov/laws/child-labor",
           "kind": "statute"
         }
@@ -3667,7 +3667,7 @@
     },
     {
       "id": "ky-minor-16-17-curfew",
-      "title": "Kentucky: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Kentucky: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "KY",
       "topic": "minor_labor",
       "status": "active",
@@ -3712,7 +3712,7 @@
       },
       "citations": [
         {
-          "source": "KRS §339.230",
+          "source": "KRS \u00a7339.230",
           "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
           "kind": "statute"
         }
@@ -3720,7 +3720,7 @@
     },
     {
       "id": "ky-minor-16-17-nonschool-day-hours",
-      "title": "Kentucky: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Kentucky: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "KY",
       "topic": "minor_labor",
       "status": "active",
@@ -3765,7 +3765,7 @@
       },
       "citations": [
         {
-          "source": "KRS §339.230",
+          "source": "KRS \u00a7339.230",
           "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
           "kind": "statute"
         }
@@ -3773,7 +3773,7 @@
     },
     {
       "id": "ky-minor-16-17-school-day-hours",
-      "title": "Kentucky: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Kentucky: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "KY",
       "topic": "minor_labor",
       "status": "active",
@@ -3818,7 +3818,7 @@
       },
       "citations": [
         {
-          "source": "KRS §339.230",
+          "source": "KRS \u00a7339.230",
           "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
           "kind": "statute"
         }
@@ -3826,7 +3826,7 @@
     },
     {
       "id": "ky-minor-16-17-school-week-hours",
-      "title": "Kentucky: Minors 16-17 — Max 30 hours in a school week",
+      "title": "Kentucky: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "KY",
       "topic": "minor_labor",
       "status": "active",
@@ -3871,7 +3871,7 @@
       },
       "citations": [
         {
-          "source": "KRS §339.230",
+          "source": "KRS \u00a7339.230",
           "url": "https://labor.ky.gov/standards/Pages/Child-Labor.aspx",
           "kind": "statute"
         }
@@ -3879,7 +3879,7 @@
     },
     {
       "id": "la-minor-16-17-curfew",
-      "title": "Louisiana: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Louisiana: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "LA",
       "topic": "minor_labor",
       "status": "active",
@@ -3924,15 +3924,15 @@
       },
       "citations": [
         {
-          "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "source": "La. R.S. \u00a723:214",
+          "url": "https://www.laworks.net/ors_minors.asp",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "la-minor-16-17-nonschool-day-hours",
-      "title": "Louisiana: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Louisiana: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "LA",
       "topic": "minor_labor",
       "status": "active",
@@ -3977,15 +3977,15 @@
       },
       "citations": [
         {
-          "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "source": "La. R.S. \u00a723:214",
+          "url": "https://www.laworks.net/ors_minors.asp",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "la-minor-16-17-school-day-hours",
-      "title": "Louisiana: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Louisiana: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "LA",
       "topic": "minor_labor",
       "status": "active",
@@ -4030,15 +4030,15 @@
       },
       "citations": [
         {
-          "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "source": "La. R.S. \u00a723:214",
+          "url": "https://www.laworks.net/ors_minors.asp",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "la-minor-16-17-school-week-hours",
-      "title": "Louisiana: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Louisiana: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "LA",
       "topic": "minor_labor",
       "status": "active",
@@ -4083,15 +4083,15 @@
       },
       "citations": [
         {
-          "source": "La. R.S. §23:214",
-          "url": "https://www.laworks.net/Youth_Services/YS_ChildLaborLaw.asp",
+          "source": "La. R.S. \u00a723:214",
+          "url": "https://www.laworks.net/ors_minors.asp",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ma-minor-16-17-curfew",
-      "title": "Massachusetts: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Massachusetts: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MA",
       "topic": "minor_labor",
       "status": "active",
@@ -4136,15 +4136,15 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "source": "MGL c.149 \u00a7\u00a766-67",
+          "url": "https://www.mass.gov/info-details/work-hours-restrictions-for-minors",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ma-minor-16-17-nonschool-day-hours",
-      "title": "Massachusetts: Minors 16-17 — Max 9 hours on a non-school day",
+      "title": "Massachusetts: Minors 16-17 \u2014 Max 9 hours on a non-school day",
       "jurisdiction": "MA",
       "topic": "minor_labor",
       "status": "active",
@@ -4189,15 +4189,15 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "source": "MGL c.149 \u00a7\u00a766-67",
+          "url": "https://www.mass.gov/info-details/work-hours-restrictions-for-minors",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ma-minor-16-17-school-day-hours",
-      "title": "Massachusetts: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Massachusetts: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MA",
       "topic": "minor_labor",
       "status": "active",
@@ -4242,15 +4242,15 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "source": "MGL c.149 \u00a7\u00a766-67",
+          "url": "https://www.mass.gov/info-details/work-hours-restrictions-for-minors",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ma-minor-16-17-school-week-hours",
-      "title": "Massachusetts: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Massachusetts: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MA",
       "topic": "minor_labor",
       "status": "active",
@@ -4295,15 +4295,15 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §§66-67",
-          "url": "https://www.mass.gov/info-details/child-labor-laws",
+          "source": "MGL c.149 \u00a7\u00a766-67",
+          "url": "https://www.mass.gov/info-details/work-hours-restrictions-for-minors",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "md-minor-16-17-curfew",
-      "title": "MD: Minors 16-17 — Cannot work past 11pm (school night)",
+      "title": "MD: Minors 16-17 \u2014 Cannot work past 11pm (school night)",
       "jurisdiction": "MD",
       "topic": "minor_labor",
       "status": "active",
@@ -4348,16 +4348,16 @@
       },
       "citations": [
         {
-          "source": "MD Code, Labor & Employment §3-211",
+          "source": "MD Code, Labor & Employment \u00a73-211",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-211",
-          "section": "§3-211",
+          "section": "\u00a73-211",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "md-minor-16-17-school-day-hours",
-      "title": "MD: Minors 16-17 — Max 4 hours on a school day",
+      "title": "MD: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MD",
       "topic": "minor_labor",
       "status": "active",
@@ -4402,16 +4402,16 @@
       },
       "citations": [
         {
-          "source": "MD Code, Labor & Employment §3-211",
+          "source": "MD Code, Labor & Employment \u00a73-211",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-211",
-          "section": "§3-211",
+          "section": "\u00a73-211",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "me-minor-16-17-curfew",
-      "title": "Maine: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Maine: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "ME",
       "topic": "minor_labor",
       "status": "active",
@@ -4456,7 +4456,7 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §773",
+          "source": "26 MRSA \u00a7773",
           "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
           "kind": "statute"
         }
@@ -4464,7 +4464,7 @@
     },
     {
       "id": "me-minor-16-17-nonschool-day-hours",
-      "title": "Maine: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Maine: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "ME",
       "topic": "minor_labor",
       "status": "active",
@@ -4509,7 +4509,7 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §773",
+          "source": "26 MRSA \u00a7773",
           "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
           "kind": "statute"
         }
@@ -4517,7 +4517,7 @@
     },
     {
       "id": "me-minor-16-17-school-day-hours",
-      "title": "Maine: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Maine: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "ME",
       "topic": "minor_labor",
       "status": "active",
@@ -4562,7 +4562,7 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §773",
+          "source": "26 MRSA \u00a7773",
           "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
           "kind": "statute"
         }
@@ -4570,7 +4570,7 @@
     },
     {
       "id": "me-minor-16-17-school-week-hours",
-      "title": "Maine: Minors 16-17 — Max 20 hours in a school week",
+      "title": "Maine: Minors 16-17 \u2014 Max 20 hours in a school week",
       "jurisdiction": "ME",
       "topic": "minor_labor",
       "status": "active",
@@ -4615,7 +4615,7 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §773",
+          "source": "26 MRSA \u00a7773",
           "url": "https://www.maine.gov/labor/labor_laws/child_labor.html",
           "kind": "statute"
         }
@@ -4623,7 +4623,7 @@
     },
     {
       "id": "mi-minor-16-17-curfew",
-      "title": "Michigan: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Michigan: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MI",
       "topic": "minor_labor",
       "status": "active",
@@ -4668,7 +4668,7 @@
       },
       "citations": [
         {
-          "source": "MCL §409.103",
+          "source": "MCL \u00a7409.103",
           "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
           "kind": "statute"
         }
@@ -4676,7 +4676,7 @@
     },
     {
       "id": "mi-minor-16-17-nonschool-day-hours",
-      "title": "Michigan: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Michigan: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MI",
       "topic": "minor_labor",
       "status": "active",
@@ -4721,7 +4721,7 @@
       },
       "citations": [
         {
-          "source": "MCL §409.103",
+          "source": "MCL \u00a7409.103",
           "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
           "kind": "statute"
         }
@@ -4729,7 +4729,7 @@
     },
     {
       "id": "mi-minor-16-17-school-day-hours",
-      "title": "Michigan: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Michigan: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MI",
       "topic": "minor_labor",
       "status": "active",
@@ -4774,7 +4774,7 @@
       },
       "citations": [
         {
-          "source": "MCL §409.103",
+          "source": "MCL \u00a7409.103",
           "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
           "kind": "statute"
         }
@@ -4782,7 +4782,7 @@
     },
     {
       "id": "mi-minor-16-17-school-week-hours",
-      "title": "Michigan: Minors 16-17 — Max 24 hours in a school week",
+      "title": "Michigan: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "MI",
       "topic": "minor_labor",
       "status": "active",
@@ -4827,7 +4827,7 @@
       },
       "citations": [
         {
-          "source": "MCL §409.103",
+          "source": "MCL \u00a7409.103",
           "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/youth-employment",
           "kind": "statute"
         }
@@ -4835,7 +4835,7 @@
     },
     {
       "id": "mn-minor-16-17-curfew",
-      "title": "Minnesota: Minors 16-17 — Cannot work past 23:00 (school night)",
+      "title": "Minnesota: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "MN",
       "topic": "minor_labor",
       "status": "active",
@@ -4880,15 +4880,15 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "source": "Minn. Stat. \u00a7181A.04",
+          "url": "https://www.dli.mn.gov/business/employment-practices/age-hours-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mn-minor-16-17-nonschool-day-hours",
-      "title": "Minnesota: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Minnesota: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MN",
       "topic": "minor_labor",
       "status": "active",
@@ -4933,15 +4933,15 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "source": "Minn. Stat. \u00a7181A.04",
+          "url": "https://www.dli.mn.gov/business/employment-practices/age-hours-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mn-minor-16-17-school-day-hours",
-      "title": "Minnesota: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Minnesota: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MN",
       "topic": "minor_labor",
       "status": "active",
@@ -4986,15 +4986,15 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "source": "Minn. Stat. \u00a7181A.04",
+          "url": "https://www.dli.mn.gov/business/employment-practices/age-hours-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mn-minor-16-17-school-week-hours",
-      "title": "Minnesota: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Minnesota: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MN",
       "topic": "minor_labor",
       "status": "active",
@@ -5039,15 +5039,15 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §181A.04",
-          "url": "https://www.dli.mn.gov/business/employment-practices/child-labor",
+          "source": "Minn. Stat. \u00a7181A.04",
+          "url": "https://www.dli.mn.gov/business/employment-practices/age-hours-restrictions",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mo-minor-16-17-curfew",
-      "title": "Missouri: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Missouri: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MO",
       "topic": "minor_labor",
       "status": "active",
@@ -5092,15 +5092,15 @@
       },
       "citations": [
         {
-          "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor",
+          "source": "RSMo \u00a7294.021",
+          "url": "https://labor.mo.gov/dls/youth-employment",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mo-minor-16-17-nonschool-day-hours",
-      "title": "Missouri: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Missouri: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MO",
       "topic": "minor_labor",
       "status": "active",
@@ -5145,15 +5145,15 @@
       },
       "citations": [
         {
-          "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor",
+          "source": "RSMo \u00a7294.021",
+          "url": "https://labor.mo.gov/dls/youth-employment",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mo-minor-16-17-school-day-hours",
-      "title": "Missouri: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Missouri: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MO",
       "topic": "minor_labor",
       "status": "active",
@@ -5198,15 +5198,15 @@
       },
       "citations": [
         {
-          "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor",
+          "source": "RSMo \u00a7294.021",
+          "url": "https://labor.mo.gov/dls/youth-employment",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mo-minor-16-17-school-week-hours",
-      "title": "Missouri: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Missouri: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MO",
       "topic": "minor_labor",
       "status": "active",
@@ -5251,8 +5251,8 @@
       },
       "citations": [
         {
-          "source": "RSMo §294.021",
-          "url": "https://labor.mo.gov/dls/child-labor",
+          "source": "RSMo \u00a7294.021",
+          "url": "https://labor.mo.gov/dls/youth-employment",
           "kind": "statute"
         }
       ]
@@ -5284,16 +5284,16 @@
       },
       "citations": [
         {
-          "source": "Miss. Code §71-1-17 et seq.",
+          "source": "Miss. Code \u00a771-1-17 et seq.",
           "url": "https://law.justia.com/codes/mississippi/title-71/chapter-1/",
-          "section": "§71-1-17 to §71-1-29",
+          "section": "\u00a771-1-17 to \u00a771-1-29",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mt-minor-16-17-curfew",
-      "title": "Montana: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Montana: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MT",
       "topic": "minor_labor",
       "status": "active",
@@ -5338,15 +5338,15 @@
       },
       "citations": [
         {
-          "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "source": "MCA \u00a741-2-110",
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mt-minor-16-17-nonschool-day-hours",
-      "title": "Montana: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Montana: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MT",
       "topic": "minor_labor",
       "status": "active",
@@ -5391,15 +5391,15 @@
       },
       "citations": [
         {
-          "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "source": "MCA \u00a741-2-110",
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mt-minor-16-17-school-day-hours",
-      "title": "Montana: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Montana: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MT",
       "topic": "minor_labor",
       "status": "active",
@@ -5444,15 +5444,15 @@
       },
       "citations": [
         {
-          "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "source": "MCA \u00a741-2-110",
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mt-minor-16-17-school-week-hours",
-      "title": "Montana: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Montana: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MT",
       "topic": "minor_labor",
       "status": "active",
@@ -5497,15 +5497,15 @@
       },
       "citations": [
         {
-          "source": "MCA §41-2-110",
-          "url": "https://erd.dli.mt.gov/labor-standards/child-labor",
+          "source": "MCA \u00a741-2-110",
+          "url": "https://erd.dli.mt.gov/labor-standards/child-labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nc-minor-16-17-curfew",
-      "title": "North Carolina: Minors 16-17 — Cannot work past 23:00 (school night)",
+      "title": "North Carolina: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "NC",
       "topic": "minor_labor",
       "status": "active",
@@ -5550,7 +5550,7 @@
       },
       "citations": [
         {
-          "source": "NCGS §95-25.5",
+          "source": "NCGS \u00a795-25.5",
           "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
           "kind": "statute"
         }
@@ -5558,7 +5558,7 @@
     },
     {
       "id": "nc-minor-16-17-nonschool-day-hours",
-      "title": "North Carolina: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "North Carolina: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NC",
       "topic": "minor_labor",
       "status": "active",
@@ -5603,7 +5603,7 @@
       },
       "citations": [
         {
-          "source": "NCGS §95-25.5",
+          "source": "NCGS \u00a795-25.5",
           "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
           "kind": "statute"
         }
@@ -5611,7 +5611,7 @@
     },
     {
       "id": "nc-minor-16-17-school-day-hours",
-      "title": "North Carolina: Minors 16-17 — Max 4 hours on a school day",
+      "title": "North Carolina: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NC",
       "topic": "minor_labor",
       "status": "active",
@@ -5656,7 +5656,7 @@
       },
       "citations": [
         {
-          "source": "NCGS §95-25.5",
+          "source": "NCGS \u00a795-25.5",
           "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
           "kind": "statute"
         }
@@ -5664,7 +5664,7 @@
     },
     {
       "id": "nc-minor-16-17-school-week-hours",
-      "title": "North Carolina: Minors 16-17 — Max 18 hours in a school week",
+      "title": "North Carolina: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "NC",
       "topic": "minor_labor",
       "status": "active",
@@ -5709,7 +5709,7 @@
       },
       "citations": [
         {
-          "source": "NCGS §95-25.5",
+          "source": "NCGS \u00a795-25.5",
           "url": "https://www.labor.nc.gov/workplace-rights/youth-employment-rules",
           "kind": "statute"
         }
@@ -5717,7 +5717,7 @@
     },
     {
       "id": "nd-minor-16-17-curfew",
-      "title": "North Dakota: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "North Dakota: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "ND",
       "topic": "minor_labor",
       "status": "active",
@@ -5762,15 +5762,15 @@
       },
       "citations": [
         {
-          "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor",
+          "source": "NDCC \u00a734-07-15",
+          "url": "https://www.nd.gov/labor/sites/www/files/documents/Brochures/Youth%20Employment%20in%20ND%20(2022.09).pdf",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nd-minor-16-17-nonschool-day-hours",
-      "title": "North Dakota: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "North Dakota: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "ND",
       "topic": "minor_labor",
       "status": "active",
@@ -5815,15 +5815,15 @@
       },
       "citations": [
         {
-          "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor",
+          "source": "NDCC \u00a734-07-15",
+          "url": "https://www.nd.gov/labor/sites/www/files/documents/Brochures/Youth%20Employment%20in%20ND%20(2022.09).pdf",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nd-minor-16-17-school-day-hours",
-      "title": "North Dakota: Minors 16-17 — Max 4 hours on a school day",
+      "title": "North Dakota: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "ND",
       "topic": "minor_labor",
       "status": "active",
@@ -5868,15 +5868,15 @@
       },
       "citations": [
         {
-          "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor",
+          "source": "NDCC \u00a734-07-15",
+          "url": "https://www.nd.gov/labor/sites/www/files/documents/Brochures/Youth%20Employment%20in%20ND%20(2022.09).pdf",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nd-minor-16-17-school-week-hours",
-      "title": "North Dakota: Minors 16-17 — Max 18 hours in a school week",
+      "title": "North Dakota: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "ND",
       "topic": "minor_labor",
       "status": "active",
@@ -5921,15 +5921,15 @@
       },
       "citations": [
         {
-          "source": "NDCC §34-07-15",
-          "url": "https://www.nd.gov/labor/child-labor",
+          "source": "NDCC \u00a734-07-15",
+          "url": "https://www.nd.gov/labor/sites/www/files/documents/Brochures/Youth%20Employment%20in%20ND%20(2022.09).pdf",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ne-minor-16-17-curfew",
-      "title": "Nebraska: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Nebraska: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "NE",
       "topic": "minor_labor",
       "status": "active",
@@ -5974,15 +5974,15 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor",
+          "source": "Neb. Rev. Stat. \u00a748-312",
+          "url": "https://dol.nebraska.gov/webdocs/getfile/3db852c8-65db-4ac1-b52d-d41ec46288a0",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ne-minor-16-17-nonschool-day-hours",
-      "title": "Nebraska: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Nebraska: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NE",
       "topic": "minor_labor",
       "status": "active",
@@ -6027,15 +6027,15 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor",
+          "source": "Neb. Rev. Stat. \u00a748-312",
+          "url": "https://dol.nebraska.gov/webdocs/getfile/3db852c8-65db-4ac1-b52d-d41ec46288a0",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ne-minor-16-17-school-day-hours",
-      "title": "Nebraska: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Nebraska: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NE",
       "topic": "minor_labor",
       "status": "active",
@@ -6080,15 +6080,15 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor",
+          "source": "Neb. Rev. Stat. \u00a748-312",
+          "url": "https://dol.nebraska.gov/webdocs/getfile/3db852c8-65db-4ac1-b52d-d41ec46288a0",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ne-minor-16-17-school-week-hours",
-      "title": "Nebraska: Minors 16-17 — Max 48 hours in a school week",
+      "title": "Nebraska: Minors 16-17 \u2014 Max 48 hours in a school week",
       "jurisdiction": "NE",
       "topic": "minor_labor",
       "status": "active",
@@ -6133,15 +6133,15 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-312",
-          "url": "https://dol.nebraska.gov/ChildLabor",
+          "source": "Neb. Rev. Stat. \u00a748-312",
+          "url": "https://dol.nebraska.gov/webdocs/getfile/3db852c8-65db-4ac1-b52d-d41ec46288a0",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nh-minor-16-17-curfew",
-      "title": "New Hampshire: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "New Hampshire: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "NH",
       "topic": "minor_labor",
       "status": "active",
@@ -6186,7 +6186,7 @@
       },
       "citations": [
         {
-          "source": "NH RSA §276-A:4",
+          "source": "NH RSA \u00a7276-A:4",
           "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
           "kind": "statute"
         }
@@ -6194,7 +6194,7 @@
     },
     {
       "id": "nh-minor-16-17-nonschool-day-hours",
-      "title": "New Hampshire: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "New Hampshire: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NH",
       "topic": "minor_labor",
       "status": "active",
@@ -6239,7 +6239,7 @@
       },
       "citations": [
         {
-          "source": "NH RSA §276-A:4",
+          "source": "NH RSA \u00a7276-A:4",
           "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
           "kind": "statute"
         }
@@ -6247,7 +6247,7 @@
     },
     {
       "id": "nh-minor-16-17-school-day-hours",
-      "title": "New Hampshire: Minors 16-17 — Max 4 hours on a school day",
+      "title": "New Hampshire: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NH",
       "topic": "minor_labor",
       "status": "active",
@@ -6292,7 +6292,7 @@
       },
       "citations": [
         {
-          "source": "NH RSA §276-A:4",
+          "source": "NH RSA \u00a7276-A:4",
           "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
           "kind": "statute"
         }
@@ -6300,7 +6300,7 @@
     },
     {
       "id": "nh-minor-16-17-school-week-hours",
-      "title": "New Hampshire: Minors 16-17 — Max 30 hours in a school week",
+      "title": "New Hampshire: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "NH",
       "topic": "minor_labor",
       "status": "active",
@@ -6345,7 +6345,7 @@
       },
       "citations": [
         {
-          "source": "NH RSA §276-A:4",
+          "source": "NH RSA \u00a7276-A:4",
           "url": "https://www.nh.gov/labor/inspection/youth-employment.htm",
           "kind": "statute"
         }
@@ -6353,7 +6353,7 @@
     },
     {
       "id": "nj-minor-16-17-curfew",
-      "title": "NJ: Minors 16-17 — Cannot work past 11pm (school night)",
+      "title": "NJ: Minors 16-17 \u2014 Cannot work past 11pm (school night)",
       "jurisdiction": "NJ",
       "topic": "minor_labor",
       "status": "active",
@@ -6398,16 +6398,16 @@
       },
       "citations": [
         {
-          "source": "NJSA §34:2-21.3",
-          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3",
+          "source": "NJSA \u00a734:2-21.3",
+          "url": "https://www.nj.gov/labor/worker-protections/myworkrights/youngworkers.shtml",
+          "section": "\u00a734:2-21.3",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nj-minor-16-17-nonschool-day-hours",
-      "title": "NJ: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "NJ: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NJ",
       "topic": "minor_labor",
       "status": "active",
@@ -6452,16 +6452,16 @@
       },
       "citations": [
         {
-          "source": "NJSA §34:2-21.3",
-          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3",
+          "source": "NJSA \u00a734:2-21.3",
+          "url": "https://www.nj.gov/labor/worker-protections/myworkrights/youngworkers.shtml",
+          "section": "\u00a734:2-21.3",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nj-minor-16-17-school-day-hours",
-      "title": "NJ: Minors 16-17 — Max 4 hours on a school day",
+      "title": "NJ: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NJ",
       "topic": "minor_labor",
       "status": "active",
@@ -6506,16 +6506,16 @@
       },
       "citations": [
         {
-          "source": "NJSA §34:2-21.3",
-          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3",
+          "source": "NJSA \u00a734:2-21.3",
+          "url": "https://www.nj.gov/labor/worker-protections/myworkrights/youngworkers.shtml",
+          "section": "\u00a734:2-21.3",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nj-minor-16-17-school-week-hours",
-      "title": "NJ: Minors 16-17 — Max 40 hours in a school week",
+      "title": "NJ: Minors 16-17 \u2014 Max 40 hours in a school week",
       "jurisdiction": "NJ",
       "topic": "minor_labor",
       "status": "active",
@@ -6560,16 +6560,16 @@
       },
       "citations": [
         {
-          "source": "NJSA §34:2-21.3",
-          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/childlaborlaw.shtml",
-          "section": "§34:2-21.3",
+          "source": "NJSA \u00a734:2-21.3",
+          "url": "https://www.nj.gov/labor/worker-protections/myworkrights/youngworkers.shtml",
+          "section": "\u00a734:2-21.3",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nm-minor-16-17-curfew",
-      "title": "New Mexico: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "New Mexico: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "NM",
       "topic": "minor_labor",
       "status": "active",
@@ -6614,7 +6614,7 @@
       },
       "citations": [
         {
-          "source": "NMSA §50-6-2",
+          "source": "NMSA \u00a750-6-2",
           "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
           "kind": "statute"
         }
@@ -6622,7 +6622,7 @@
     },
     {
       "id": "nm-minor-16-17-nonschool-day-hours",
-      "title": "New Mexico: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "New Mexico: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NM",
       "topic": "minor_labor",
       "status": "active",
@@ -6667,7 +6667,7 @@
       },
       "citations": [
         {
-          "source": "NMSA §50-6-2",
+          "source": "NMSA \u00a750-6-2",
           "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
           "kind": "statute"
         }
@@ -6675,7 +6675,7 @@
     },
     {
       "id": "nm-minor-16-17-school-day-hours",
-      "title": "New Mexico: Minors 16-17 — Max 4 hours on a school day",
+      "title": "New Mexico: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NM",
       "topic": "minor_labor",
       "status": "active",
@@ -6720,7 +6720,7 @@
       },
       "citations": [
         {
-          "source": "NMSA §50-6-2",
+          "source": "NMSA \u00a750-6-2",
           "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
           "kind": "statute"
         }
@@ -6728,7 +6728,7 @@
     },
     {
       "id": "nm-minor-16-17-school-week-hours",
-      "title": "New Mexico: Minors 16-17 — Max 40 hours in a school week",
+      "title": "New Mexico: Minors 16-17 \u2014 Max 40 hours in a school week",
       "jurisdiction": "NM",
       "topic": "minor_labor",
       "status": "active",
@@ -6773,7 +6773,7 @@
       },
       "citations": [
         {
-          "source": "NMSA §50-6-2",
+          "source": "NMSA \u00a750-6-2",
           "url": "https://www.dws.state.nm.us/Labor-Relations/Labor-Information/Child-Labor",
           "kind": "statute"
         }
@@ -6781,7 +6781,7 @@
     },
     {
       "id": "nv-minor-16-17-curfew",
-      "title": "NV: Minors 16-17 — Cannot work past 10pm when school next day",
+      "title": "NV: Minors 16-17 \u2014 Cannot work past 10pm when school next day",
       "jurisdiction": "NV",
       "topic": "minor_labor",
       "status": "active",
@@ -6826,16 +6826,16 @@
       },
       "citations": [
         {
-          "source": "NRS §609.240",
+          "source": "NRS \u00a7609.240",
           "url": "https://www.leg.state.nv.us/nrs/nrs-609.html#NRS609Sec240",
-          "section": "NRS §609.240",
+          "section": "NRS \u00a7609.240",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nv-minor-16-17-nonschool-day-hours",
-      "title": "NV: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "NV: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NV",
       "topic": "minor_labor",
       "status": "active",
@@ -6880,16 +6880,16 @@
       },
       "citations": [
         {
-          "source": "NRS §609.240",
+          "source": "NRS \u00a7609.240",
           "url": "https://www.leg.state.nv.us/nrs/nrs-609.html#NRS609Sec240",
-          "section": "NRS §609.240",
+          "section": "NRS \u00a7609.240",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nv-minor-16-17-school-day-hours",
-      "title": "NV: Minors 16-17 — Max 4 hours on a school day",
+      "title": "NV: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NV",
       "topic": "minor_labor",
       "status": "active",
@@ -6934,16 +6934,16 @@
       },
       "citations": [
         {
-          "source": "NRS §609.240",
+          "source": "NRS \u00a7609.240",
           "url": "https://www.leg.state.nv.us/nrs/nrs-609.html#NRS609Sec240",
-          "section": "NRS §609.240",
+          "section": "NRS \u00a7609.240",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ny-minor-16-17-curfew",
-      "title": "NY: Minors 16-17 — Cannot work past 10pm (school night)",
+      "title": "NY: Minors 16-17 \u2014 Cannot work past 10pm (school night)",
       "jurisdiction": "NY",
       "topic": "minor_labor",
       "status": "active",
@@ -6988,16 +6988,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "source": "NY Labor Law \u00a7133; 12 NYCRR \u00a7180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133",
+          "section": "\u00a7133",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "ny-minor-16-17-nonschool-day-hours",
-      "title": "NY: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "NY: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NY",
       "topic": "minor_labor",
       "status": "active",
@@ -7042,16 +7042,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "source": "NY Labor Law \u00a7133; 12 NYCRR \u00a7180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133",
+          "section": "\u00a7133",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "ny-minor-16-17-nonschool-week-hours",
-      "title": "NY: Minors 16-17 — Max 48 hours in a non-school week",
+      "title": "NY: Minors 16-17 \u2014 Max 48 hours in a non-school week",
       "jurisdiction": "NY",
       "topic": "minor_labor",
       "status": "active",
@@ -7096,16 +7096,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "source": "NY Labor Law \u00a7133; 12 NYCRR \u00a7180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133",
+          "section": "\u00a7133",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "ny-minor-16-17-school-day-hours",
-      "title": "NY: Minors 16-17 — Max 4 hours on a school day",
+      "title": "NY: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NY",
       "topic": "minor_labor",
       "status": "active",
@@ -7150,16 +7150,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "source": "NY Labor Law \u00a7133; 12 NYCRR \u00a7180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133",
+          "section": "\u00a7133",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "ny-minor-16-17-school-week-hours",
-      "title": "NY: Minors 16-17 — Max 28 hours in a school week",
+      "title": "NY: Minors 16-17 \u2014 Max 28 hours in a school week",
       "jurisdiction": "NY",
       "topic": "minor_labor",
       "status": "active",
@@ -7204,16 +7204,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "source": "NY Labor Law \u00a7133; 12 NYCRR \u00a7180-1.6",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
-          "section": "§133",
+          "section": "\u00a7133",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "oh-minor-16-17-curfew",
-      "title": "Ohio: Minors 16-17 — Cannot work past 23:00 (school night)",
+      "title": "Ohio: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "OH",
       "topic": "minor_labor",
       "status": "active",
@@ -7258,15 +7258,15 @@
       },
       "citations": [
         {
-          "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "source": "ORC \u00a74109.07",
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/wage-and-hour",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "oh-minor-16-17-nonschool-day-hours",
-      "title": "Ohio: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Ohio: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "OH",
       "topic": "minor_labor",
       "status": "active",
@@ -7311,15 +7311,15 @@
       },
       "citations": [
         {
-          "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "source": "ORC \u00a74109.07",
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/wage-and-hour",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "oh-minor-16-17-school-day-hours",
-      "title": "Ohio: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Ohio: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "OH",
       "topic": "minor_labor",
       "status": "active",
@@ -7364,15 +7364,15 @@
       },
       "citations": [
         {
-          "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "source": "ORC \u00a74109.07",
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/wage-and-hour",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "oh-minor-16-17-school-week-hours",
-      "title": "Ohio: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Ohio: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "OH",
       "topic": "minor_labor",
       "status": "active",
@@ -7417,15 +7417,15 @@
       },
       "citations": [
         {
-          "source": "ORC §4109.07",
-          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/minor-labor",
+          "source": "ORC \u00a74109.07",
+          "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/wage-and-hour",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ok-minor-16-17-curfew",
-      "title": "Oklahoma: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Oklahoma: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "OK",
       "topic": "minor_labor",
       "status": "active",
@@ -7470,15 +7470,15 @@
       },
       "citations": [
         {
-          "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "source": "40 O.S. \u00a775",
+          "url": "https://oklahoma.gov/labor/workplace-rights/child-labor.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ok-minor-16-17-nonschool-day-hours",
-      "title": "Oklahoma: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Oklahoma: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "OK",
       "topic": "minor_labor",
       "status": "active",
@@ -7523,15 +7523,15 @@
       },
       "citations": [
         {
-          "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "source": "40 O.S. \u00a775",
+          "url": "https://oklahoma.gov/labor/workplace-rights/child-labor.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ok-minor-16-17-school-day-hours",
-      "title": "Oklahoma: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Oklahoma: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "OK",
       "topic": "minor_labor",
       "status": "active",
@@ -7576,15 +7576,15 @@
       },
       "citations": [
         {
-          "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "source": "40 O.S. \u00a775",
+          "url": "https://oklahoma.gov/labor/workplace-rights/child-labor.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ok-minor-16-17-school-week-hours",
-      "title": "Oklahoma: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Oklahoma: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "OK",
       "topic": "minor_labor",
       "status": "active",
@@ -7629,15 +7629,15 @@
       },
       "citations": [
         {
-          "source": "40 O.S. §75",
-          "url": "https://oklahoma.gov/omes/services/risk-management/child-labor.html",
+          "source": "40 O.S. \u00a775",
+          "url": "https://oklahoma.gov/labor/workplace-rights/child-labor.html",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "or-minor-16-17-curfew",
-      "title": "Oregon: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Oregon: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "OR",
       "topic": "minor_labor",
       "status": "active",
@@ -7682,15 +7682,15 @@
       },
       "citations": [
         {
-          "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "source": "ORS \u00a7653.315",
+          "url": "https://www.oregon.gov/boli/employers/pages/minor-workers.aspx",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "or-minor-16-17-nonschool-day-hours",
-      "title": "Oregon: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Oregon: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "OR",
       "topic": "minor_labor",
       "status": "active",
@@ -7735,15 +7735,15 @@
       },
       "citations": [
         {
-          "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "source": "ORS \u00a7653.315",
+          "url": "https://www.oregon.gov/boli/employers/pages/minor-workers.aspx",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "or-minor-16-17-school-day-hours",
-      "title": "Oregon: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Oregon: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "OR",
       "topic": "minor_labor",
       "status": "active",
@@ -7788,15 +7788,15 @@
       },
       "citations": [
         {
-          "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "source": "ORS \u00a7653.315",
+          "url": "https://www.oregon.gov/boli/employers/pages/minor-workers.aspx",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "or-minor-16-17-school-week-hours",
-      "title": "Oregon: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Oregon: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "OR",
       "topic": "minor_labor",
       "status": "active",
@@ -7841,15 +7841,15 @@
       },
       "citations": [
         {
-          "source": "ORS §653.315",
-          "url": "https://www.oregon.gov/boli/workers/pages/minor-workers.aspx",
+          "source": "ORS \u00a7653.315",
+          "url": "https://www.oregon.gov/boli/employers/pages/minor-workers.aspx",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "pa-minor-16-17-curfew",
-      "title": "Pennsylvania: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Pennsylvania: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "PA",
       "topic": "minor_labor",
       "status": "active",
@@ -7894,15 +7894,15 @@
       },
       "citations": [
         {
-          "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "source": "43 P.S. \u00a740.3",
+          "url": "https://www.pa.gov/agencies/education/programs-and-services/schools/school-services/child-labor-law",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "pa-minor-16-17-nonschool-day-hours",
-      "title": "Pennsylvania: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Pennsylvania: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "PA",
       "topic": "minor_labor",
       "status": "active",
@@ -7947,15 +7947,15 @@
       },
       "citations": [
         {
-          "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "source": "43 P.S. \u00a740.3",
+          "url": "https://www.pa.gov/agencies/education/programs-and-services/schools/school-services/child-labor-law",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "pa-minor-16-17-school-day-hours",
-      "title": "Pennsylvania: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Pennsylvania: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "PA",
       "topic": "minor_labor",
       "status": "active",
@@ -8000,15 +8000,15 @@
       },
       "citations": [
         {
-          "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "source": "43 P.S. \u00a740.3",
+          "url": "https://www.pa.gov/agencies/education/programs-and-services/schools/school-services/child-labor-law",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "pa-minor-16-17-school-week-hours",
-      "title": "Pennsylvania: Minors 16-17 — Max 28 hours in a school week",
+      "title": "Pennsylvania: Minors 16-17 \u2014 Max 28 hours in a school week",
       "jurisdiction": "PA",
       "topic": "minor_labor",
       "status": "active",
@@ -8053,15 +8053,15 @@
       },
       "citations": [
         {
-          "source": "43 P.S. §40.3",
-          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/child-labor/Pages/default.aspx",
+          "source": "43 P.S. \u00a740.3",
+          "url": "https://www.pa.gov/agencies/education/programs-and-services/schools/school-services/child-labor-law",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ri-minor-16-17-curfew",
-      "title": "Rhode Island: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Rhode Island: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "RI",
       "topic": "minor_labor",
       "status": "active",
@@ -8106,15 +8106,15 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "source": "RI Gen. Laws \u00a728-3-11",
+          "url": "https://dlt.ri.gov/regulation-and-safety/labor-standards/labor-standards-faq",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ri-minor-16-17-nonschool-day-hours",
-      "title": "Rhode Island: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Rhode Island: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "RI",
       "topic": "minor_labor",
       "status": "active",
@@ -8159,15 +8159,15 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "source": "RI Gen. Laws \u00a728-3-11",
+          "url": "https://dlt.ri.gov/regulation-and-safety/labor-standards/labor-standards-faq",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ri-minor-16-17-school-day-hours",
-      "title": "Rhode Island: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Rhode Island: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "RI",
       "topic": "minor_labor",
       "status": "active",
@@ -8212,15 +8212,15 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "source": "RI Gen. Laws \u00a728-3-11",
+          "url": "https://dlt.ri.gov/regulation-and-safety/labor-standards/labor-standards-faq",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ri-minor-16-17-school-week-hours",
-      "title": "Rhode Island: Minors 16-17 — Max 24 hours in a school week",
+      "title": "Rhode Island: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "RI",
       "topic": "minor_labor",
       "status": "active",
@@ -8265,8 +8265,8 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-3-11",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/youth-employment",
+          "source": "RI Gen. Laws \u00a728-3-11",
+          "url": "https://dlt.ri.gov/regulation-and-safety/labor-standards/labor-standards-faq",
           "kind": "statute"
         }
       ]
@@ -8298,16 +8298,16 @@
       },
       "citations": [
         {
-          "source": "S.C. Code §41-13-5 et seq.",
+          "source": "S.C. Code \u00a741-13-5 et seq.",
           "url": "https://www.scstatehouse.gov/code/t41c013.php",
-          "section": "§41-13-5 to §41-13-25",
+          "section": "\u00a741-13-5 to \u00a741-13-25",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "sd-minor-16-17-curfew",
-      "title": "South Dakota: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "South Dakota: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "SD",
       "topic": "minor_labor",
       "status": "active",
@@ -8352,7 +8352,7 @@
       },
       "citations": [
         {
-          "source": "SDCL §60-12-3",
+          "source": "SDCL \u00a760-12-3",
           "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
           "kind": "statute"
         }
@@ -8360,7 +8360,7 @@
     },
     {
       "id": "sd-minor-16-17-nonschool-day-hours",
-      "title": "South Dakota: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "South Dakota: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "SD",
       "topic": "minor_labor",
       "status": "active",
@@ -8405,7 +8405,7 @@
       },
       "citations": [
         {
-          "source": "SDCL §60-12-3",
+          "source": "SDCL \u00a760-12-3",
           "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
           "kind": "statute"
         }
@@ -8413,7 +8413,7 @@
     },
     {
       "id": "sd-minor-16-17-school-day-hours",
-      "title": "South Dakota: Minors 16-17 — Max 4 hours on a school day",
+      "title": "South Dakota: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "SD",
       "topic": "minor_labor",
       "status": "active",
@@ -8458,7 +8458,7 @@
       },
       "citations": [
         {
-          "source": "SDCL §60-12-3",
+          "source": "SDCL \u00a760-12-3",
           "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
           "kind": "statute"
         }
@@ -8466,7 +8466,7 @@
     },
     {
       "id": "sd-minor-16-17-school-week-hours",
-      "title": "South Dakota: Minors 16-17 — Max 20 hours in a school week",
+      "title": "South Dakota: Minors 16-17 \u2014 Max 20 hours in a school week",
       "jurisdiction": "SD",
       "topic": "minor_labor",
       "status": "active",
@@ -8511,7 +8511,7 @@
       },
       "citations": [
         {
-          "source": "SDCL §60-12-3",
+          "source": "SDCL \u00a760-12-3",
           "url": "https://dlr.sd.gov/employment_laws/child_labor.aspx",
           "kind": "statute"
         }
@@ -8519,7 +8519,7 @@
     },
     {
       "id": "tn-minor-16-17-curfew",
-      "title": "Tennessee: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Tennessee: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "TN",
       "topic": "minor_labor",
       "status": "active",
@@ -8564,7 +8564,7 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-5-105",
+          "source": "Tenn. Code \u00a750-5-105",
           "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
           "kind": "statute"
         }
@@ -8572,7 +8572,7 @@
     },
     {
       "id": "tn-minor-16-17-nonschool-day-hours",
-      "title": "Tennessee: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Tennessee: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "TN",
       "topic": "minor_labor",
       "status": "active",
@@ -8617,7 +8617,7 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-5-105",
+          "source": "Tenn. Code \u00a750-5-105",
           "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
           "kind": "statute"
         }
@@ -8625,7 +8625,7 @@
     },
     {
       "id": "tn-minor-16-17-school-day-hours",
-      "title": "Tennessee: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Tennessee: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "TN",
       "topic": "minor_labor",
       "status": "active",
@@ -8670,7 +8670,7 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-5-105",
+          "source": "Tenn. Code \u00a750-5-105",
           "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
           "kind": "statute"
         }
@@ -8678,7 +8678,7 @@
     },
     {
       "id": "tn-minor-16-17-school-week-hours",
-      "title": "Tennessee: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Tennessee: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "TN",
       "topic": "minor_labor",
       "status": "active",
@@ -8723,7 +8723,7 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-5-105",
+          "source": "Tenn. Code \u00a750-5-105",
           "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/child-labor.html",
           "kind": "statute"
         }
@@ -8731,7 +8731,7 @@
     },
     {
       "id": "tx-minor-16-17-curfew",
-      "title": "Texas: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Texas: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "TX",
       "topic": "minor_labor",
       "status": "active",
@@ -8776,7 +8776,7 @@
       },
       "citations": [
         {
-          "source": "Tex. Lab. Code §51.013",
+          "source": "Tex. Lab. Code \u00a751.013",
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
@@ -8784,7 +8784,7 @@
     },
     {
       "id": "tx-minor-16-17-nonschool-day-hours",
-      "title": "Texas: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Texas: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "TX",
       "topic": "minor_labor",
       "status": "active",
@@ -8829,7 +8829,7 @@
       },
       "citations": [
         {
-          "source": "Tex. Lab. Code §51.013",
+          "source": "Tex. Lab. Code \u00a751.013",
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
@@ -8837,7 +8837,7 @@
     },
     {
       "id": "tx-minor-16-17-school-day-hours",
-      "title": "Texas: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Texas: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "TX",
       "topic": "minor_labor",
       "status": "active",
@@ -8882,7 +8882,7 @@
       },
       "citations": [
         {
-          "source": "Tex. Lab. Code §51.013",
+          "source": "Tex. Lab. Code \u00a751.013",
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
@@ -8890,7 +8890,7 @@
     },
     {
       "id": "tx-minor-16-17-school-week-hours",
-      "title": "Texas: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Texas: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "TX",
       "topic": "minor_labor",
       "status": "active",
@@ -8935,7 +8935,7 @@
       },
       "citations": [
         {
-          "source": "Tex. Lab. Code §51.013",
+          "source": "Tex. Lab. Code \u00a751.013",
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
@@ -8943,7 +8943,7 @@
     },
     {
       "id": "ut-minor-16-17-curfew",
-      "title": "Utah: Minors 16-17 — Cannot work past 21:00 (school night)",
+      "title": "Utah: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "UT",
       "topic": "minor_labor",
       "status": "active",
@@ -8988,15 +8988,15 @@
       },
       "citations": [
         {
-          "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "source": "Utah Code \u00a734-23-203",
+          "url": "https://laborcommission.utah.gov/laws-regulations/uald-laws-regulations/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ut-minor-16-17-nonschool-day-hours",
-      "title": "Utah: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Utah: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "UT",
       "topic": "minor_labor",
       "status": "active",
@@ -9041,15 +9041,15 @@
       },
       "citations": [
         {
-          "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "source": "Utah Code \u00a734-23-203",
+          "url": "https://laborcommission.utah.gov/laws-regulations/uald-laws-regulations/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ut-minor-16-17-school-day-hours",
-      "title": "Utah: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Utah: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "UT",
       "topic": "minor_labor",
       "status": "active",
@@ -9094,15 +9094,15 @@
       },
       "citations": [
         {
-          "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "source": "Utah Code \u00a734-23-203",
+          "url": "https://laborcommission.utah.gov/laws-regulations/uald-laws-regulations/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ut-minor-16-17-school-week-hours",
-      "title": "Utah: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Utah: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "UT",
       "topic": "minor_labor",
       "status": "active",
@@ -9147,15 +9147,15 @@
       },
       "citations": [
         {
-          "source": "Utah Code §34-23-203",
-          "url": "https://laborcommission.utah.gov/divisions/antidiscrimination-and-labor/child-labor/",
+          "source": "Utah Code \u00a734-23-203",
+          "url": "https://laborcommission.utah.gov/laws-regulations/uald-laws-regulations/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "va-minor-16-17-curfew",
-      "title": "VA: Minors 16-17 — Cannot work past 11pm (school night)",
+      "title": "VA: Minors 16-17 \u2014 Cannot work past 11pm (school night)",
       "jurisdiction": "VA",
       "topic": "minor_labor",
       "status": "active",
@@ -9200,16 +9200,16 @@
       },
       "citations": [
         {
-          "source": "VA Code §40.1-100",
+          "source": "VA Code \u00a740.1-100",
           "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter5/section40.1-100/",
-          "section": "§40.1-100",
+          "section": "\u00a740.1-100",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "va-minor-16-17-school-day-hours",
-      "title": "VA: Minors 16-17 — Max 4 hours on a school day",
+      "title": "VA: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "VA",
       "topic": "minor_labor",
       "status": "active",
@@ -9254,16 +9254,16 @@
       },
       "citations": [
         {
-          "source": "VA Code §40.1-100",
+          "source": "VA Code \u00a740.1-100",
           "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter5/section40.1-100/",
-          "section": "§40.1-100",
+          "section": "\u00a740.1-100",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "vt-minor-16-17-curfew",
-      "title": "Vermont: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Vermont: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "VT",
       "topic": "minor_labor",
       "status": "active",
@@ -9308,15 +9308,15 @@
       },
       "citations": [
         {
-          "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "source": "21 VSA \u00a7434",
+          "url": "https://labor.vermont.gov/child-labor",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "vt-minor-16-17-nonschool-day-hours",
-      "title": "Vermont: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Vermont: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "VT",
       "topic": "minor_labor",
       "status": "active",
@@ -9361,15 +9361,15 @@
       },
       "citations": [
         {
-          "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "source": "21 VSA \u00a7434",
+          "url": "https://labor.vermont.gov/child-labor",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "vt-minor-16-17-school-day-hours",
-      "title": "Vermont: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Vermont: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "VT",
       "topic": "minor_labor",
       "status": "active",
@@ -9414,15 +9414,15 @@
       },
       "citations": [
         {
-          "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "source": "21 VSA \u00a7434",
+          "url": "https://labor.vermont.gov/child-labor",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "vt-minor-16-17-school-week-hours",
-      "title": "Vermont: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Vermont: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "VT",
       "topic": "minor_labor",
       "status": "active",
@@ -9467,15 +9467,15 @@
       },
       "citations": [
         {
-          "source": "21 VSA §434",
-          "url": "https://labor.vermont.gov/document/child-labor-fact-sheet",
+          "source": "21 VSA \u00a7434",
+          "url": "https://labor.vermont.gov/child-labor",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wa-minor-16-17-curfew",
-      "title": "Washington: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Washington: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "WA",
       "topic": "minor_labor",
       "status": "active",
@@ -9520,7 +9520,7 @@
       },
       "citations": [
         {
-          "source": "WAC §296-125-028",
+          "source": "WAC \u00a7296-125-028",
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
@@ -9528,7 +9528,7 @@
     },
     {
       "id": "wa-minor-16-17-nonschool-day-hours",
-      "title": "Washington: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Washington: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WA",
       "topic": "minor_labor",
       "status": "active",
@@ -9573,7 +9573,7 @@
       },
       "citations": [
         {
-          "source": "WAC §296-125-028",
+          "source": "WAC \u00a7296-125-028",
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
@@ -9581,7 +9581,7 @@
     },
     {
       "id": "wa-minor-16-17-school-day-hours",
-      "title": "Washington: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Washington: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WA",
       "topic": "minor_labor",
       "status": "active",
@@ -9626,7 +9626,7 @@
       },
       "citations": [
         {
-          "source": "WAC §296-125-028",
+          "source": "WAC \u00a7296-125-028",
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
@@ -9634,7 +9634,7 @@
     },
     {
       "id": "wa-minor-16-17-school-week-hours",
-      "title": "Washington: Minors 16-17 — Max 20 hours in a school week",
+      "title": "Washington: Minors 16-17 \u2014 Max 20 hours in a school week",
       "jurisdiction": "WA",
       "topic": "minor_labor",
       "status": "active",
@@ -9679,7 +9679,7 @@
       },
       "citations": [
         {
-          "source": "WAC §296-125-028",
+          "source": "WAC \u00a7296-125-028",
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
@@ -9687,7 +9687,7 @@
     },
     {
       "id": "wi-minor-16-17-curfew",
-      "title": "Wisconsin: Minors 16-17 — Cannot work past 23:00 (school night)",
+      "title": "Wisconsin: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "WI",
       "topic": "minor_labor",
       "status": "active",
@@ -9732,15 +9732,15 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "source": "Wis. Stat. \u00a7103.68",
+          "url": "https://dwd.wisconsin.gov/eworkboard/minor-time/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wi-minor-16-17-nonschool-day-hours",
-      "title": "Wisconsin: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Wisconsin: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WI",
       "topic": "minor_labor",
       "status": "active",
@@ -9785,15 +9785,15 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "source": "Wis. Stat. \u00a7103.68",
+          "url": "https://dwd.wisconsin.gov/eworkboard/minor-time/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wi-minor-16-17-school-day-hours",
-      "title": "Wisconsin: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Wisconsin: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WI",
       "topic": "minor_labor",
       "status": "active",
@@ -9838,15 +9838,15 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "source": "Wis. Stat. \u00a7103.68",
+          "url": "https://dwd.wisconsin.gov/eworkboard/minor-time/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wi-minor-16-17-school-week-hours",
-      "title": "Wisconsin: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Wisconsin: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "WI",
       "topic": "minor_labor",
       "status": "active",
@@ -9891,15 +9891,15 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §103.68",
-          "url": "https://dwd.wisconsin.gov/er/laborstandards/minors.htm",
+          "source": "Wis. Stat. \u00a7103.68",
+          "url": "https://dwd.wisconsin.gov/eworkboard/minor-time/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wv-minor-16-17-curfew",
-      "title": "West Virginia: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "West Virginia: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "WV",
       "topic": "minor_labor",
       "status": "active",
@@ -9944,15 +9944,15 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "source": "W. Va. Code \u00a721-6-6",
+          "url": "https://labor.wv.gov/wage-hour-section",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wv-minor-16-17-nonschool-day-hours",
-      "title": "West Virginia: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "West Virginia: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WV",
       "topic": "minor_labor",
       "status": "active",
@@ -9997,15 +9997,15 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "source": "W. Va. Code \u00a721-6-6",
+          "url": "https://labor.wv.gov/wage-hour-section",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wv-minor-16-17-school-day-hours",
-      "title": "West Virginia: Minors 16-17 — Max 4 hours on a school day",
+      "title": "West Virginia: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WV",
       "topic": "minor_labor",
       "status": "active",
@@ -10050,15 +10050,15 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "source": "W. Va. Code \u00a721-6-6",
+          "url": "https://labor.wv.gov/wage-hour-section",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wv-minor-16-17-school-week-hours",
-      "title": "West Virginia: Minors 16-17 — Max 18 hours in a school week",
+      "title": "West Virginia: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "WV",
       "topic": "minor_labor",
       "status": "active",
@@ -10103,15 +10103,15 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-6-6",
-          "url": "https://labor.wv.gov/Pages/Child-Labor.aspx",
+          "source": "W. Va. Code \u00a721-6-6",
+          "url": "https://labor.wv.gov/wage-hour-section",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wy-minor-16-17-curfew",
-      "title": "Wyoming: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "title": "Wyoming: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "WY",
       "topic": "minor_labor",
       "status": "active",
@@ -10156,15 +10156,15 @@
       },
       "citations": [
         {
-          "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "source": "Wyo. Stat. \u00a727-6-108",
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/youth-and-parents/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wy-minor-16-17-nonschool-day-hours",
-      "title": "Wyoming: Minors 16-17 — Max 8 hours on a non-school day",
+      "title": "Wyoming: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WY",
       "topic": "minor_labor",
       "status": "active",
@@ -10209,15 +10209,15 @@
       },
       "citations": [
         {
-          "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "source": "Wyo. Stat. \u00a727-6-108",
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/youth-and-parents/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wy-minor-16-17-school-day-hours",
-      "title": "Wyoming: Minors 16-17 — Max 4 hours on a school day",
+      "title": "Wyoming: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WY",
       "topic": "minor_labor",
       "status": "active",
@@ -10262,15 +10262,15 @@
       },
       "citations": [
         {
-          "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "source": "Wyo. Stat. \u00a727-6-108",
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/youth-and-parents/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wy-minor-16-17-school-week-hours",
-      "title": "Wyoming: Minors 16-17 — Max 18 hours in a school week",
+      "title": "Wyoming: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "WY",
       "topic": "minor_labor",
       "status": "active",
@@ -10315,8 +10315,8 @@
       },
       "citations": [
         {
-          "source": "Wyo. Stat. §27-6-108",
-          "url": "https://dws.wyo.gov/dws-division/labor-standards/child-labor/",
+          "source": "Wyo. Stat. \u00a727-6-108",
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/youth-and-parents/",
           "kind": "statute"
         }
       ]

@@ -32,13 +32,13 @@
         "type": "premium_required",
         "premiumType": "split_shift_premium",
         "amount": 1,
-        "formula": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage × (hours worked + 1))"
+        "formula": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage \u00d7 (hours worked + 1))"
       },
       "citations": [
         {
-          "source": "IWC Wage Order 5-2001, §4(C)",
+          "source": "IWC Wage Order 5-2001, \u00a74(C)",
           "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
-          "section": "§4(C) Split Shift Premium",
+          "section": "\u00a74(C) Split Shift Premium",
           "kind": "regulation"
         }
       ]
@@ -82,9 +82,9 @@
       },
       "citations": [
         {
-          "source": "NRS §608.160",
+          "source": "NRS \u00a7608.160",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec160",
-          "section": "NRS §608.160",
+          "section": "NRS \u00a7608.160",
           "kind": "statute"
         }
       ]
@@ -122,9 +122,9 @@
       },
       "citations": [
         {
-          "source": "12 NYCRR §142-2.4 (Hospitality), §146-1.6 (Misc.)",
-          "url": "https://dol.ny.gov/system/files/documents/2021/03/cr142.pdf",
-          "section": "12 NYCRR §142-2.4",
+          "source": "12 NYCRR \u00a7142-2.4 (Hospitality), \u00a7146-1.6 (Misc.)",
+          "url": "https://dol.ny.gov/minimum-wage-order-miscellaneous-industries-and-occupations-cr142/",
+          "section": "12 NYCRR \u00a7142-2.4",
           "kind": "regulation"
         }
       ]

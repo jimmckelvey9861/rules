@@ -36,16 +36,16 @@
       },
       "citations": [
         {
-          "source": "AS §23.10.060",
+          "source": "AS \u00a723.10.060",
           "url": "https://www.akleg.gov/basis/statutes.asp#23.10.060",
-          "section": "AS §23.10.060",
+          "section": "AS \u00a723.10.060",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ca-daily-overtime-8",
-      "title": "California Daily Overtime (Labor Code §510)",
+      "title": "California Daily Overtime (Labor Code \u00a7510)",
       "jurisdiction": "CA",
       "topic": "overtime",
       "status": "active",
@@ -76,16 +76,16 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §510",
+          "source": "California Labor Code \u00a7510",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
-          "section": "Cal. Lab. Code §510",
+          "section": "Cal. Lab. Code \u00a7510",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ca-double-time-12",
-      "title": "California Double Time (Labor Code §510)",
+      "title": "California Double Time (Labor Code \u00a7510)",
       "jurisdiction": "CA",
       "topic": "overtime",
       "status": "active",
@@ -116,9 +116,9 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §510",
+          "source": "California Labor Code \u00a7510",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
-          "section": "Cal. Lab. Code §510",
+          "section": "Cal. Lab. Code \u00a7510",
           "kind": "statute"
         }
       ]
@@ -197,9 +197,9 @@
       },
       "citations": [
         {
-          "source": "Connecticut General Statutes §31-76c",
+          "source": "Connecticut General Statutes \u00a731-76c",
           "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/overtime.htm",
-          "section": "Conn. Gen. Stat. §31-76c",
+          "section": "Conn. Gen. Stat. \u00a731-76c",
           "kind": "statute"
         }
       ]
@@ -237,9 +237,9 @@
       },
       "citations": [
         {
-          "source": "DC Code §32-1003(c)",
+          "source": "DC Code \u00a732-1003(c)",
           "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1003",
-          "section": "DC Code §32-1003(c)",
+          "section": "DC Code \u00a732-1003(c)",
           "kind": "statute"
         }
       ]
@@ -272,9 +272,9 @@
       },
       "citations": [
         {
-          "source": "Fair Labor Standards Act §207(a)(1)",
+          "source": "Fair Labor Standards Act \u00a7207(a)(1)",
           "url": "https://www.law.cornell.edu/uscode/text/29/207",
-          "section": "29 U.S.C. §207(a)(1)",
+          "section": "29 U.S.C. \u00a7207(a)(1)",
           "kind": "statute"
         }
       ]
@@ -308,13 +308,13 @@
       "result": {
         "type": "premium_required",
         "premiumType": "overtime",
-        "formula": "1.5 × regular rate for hours over 40/week. State-enforced with different exemption standards than federal FLSA (domestic workers covered, salary threshold differs)."
+        "formula": "1.5 \u00d7 regular rate for hours over 40/week. State-enforced with different exemption standards than federal FLSA (domestic workers covered, salary threshold differs)."
       },
       "citations": [
         {
-          "source": "HRS §387-3",
+          "source": "HRS \u00a7387-3",
           "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0387/HRS_0387-0003.htm",
-          "section": "§387-3",
+          "section": "\u00a7387-3",
           "kind": "statute"
         }
       ]
@@ -352,9 +352,9 @@
       },
       "citations": [
         {
-          "source": "Maryland Wage and Hour Law, Md. Code Lab. & Empl. §3-415",
-          "url": "https://www.dllr.state.md.us/labor/wages/overtimelaw.shtml",
-          "section": "Md. Code Lab. & Empl. §3-415",
+          "source": "Maryland Wage and Hour Law, Md. Code Lab. & Empl. \u00a73-415",
+          "url": "https://labor.maryland.gov/labor/wagepay/wpotgenl.shtml",
+          "section": "Md. Code Lab. & Empl. \u00a73-415",
           "kind": "statute"
         }
       ]
@@ -388,13 +388,13 @@
       "result": {
         "type": "premium_required",
         "premiumType": "overtime",
-        "formula": "1.5 × regular rate for hours over 48/week. MN state threshold is 48 hours (higher than federal 40). Federal FLSA still applies at 40 hours for covered employers."
+        "formula": "1.5 \u00d7 regular rate for hours over 48/week. MN state threshold is 48 hours (higher than federal 40). Federal FLSA still applies at 40 hours for covered employers."
       },
       "citations": [
         {
-          "source": "Minn. Stat. §177.25",
+          "source": "Minn. Stat. \u00a7177.25",
           "url": "https://www.revisor.mn.gov/statutes/cite/177.25",
-          "section": "§177.25",
+          "section": "\u00a7177.25",
           "kind": "statute"
         }
       ]
@@ -433,7 +433,7 @@
       "citations": [
         {
           "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
-          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/overtime/",
+          "url": "https://www.nj.gov/labor/wageandhour/support/faqs/wageandhouremployerfaqs.shtml",
           "section": "N.J.S.A. 34:11-56a4",
           "kind": "statute"
         }
@@ -477,9 +477,9 @@
       },
       "citations": [
         {
-          "source": "Nevada Revised Statutes §608.018",
+          "source": "Nevada Revised Statutes \u00a7608.018",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec018",
-          "section": "NRS §608.018",
+          "section": "NRS \u00a7608.018",
           "kind": "statute"
         }
       ]
@@ -517,9 +517,9 @@
       },
       "citations": [
         {
-          "source": "Nevada Revised Statutes §608.018",
+          "source": "Nevada Revised Statutes \u00a7608.018",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec018",
-          "section": "NRS §608.018",
+          "section": "NRS \u00a7608.018",
           "kind": "statute"
         }
       ]
@@ -562,9 +562,9 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §170, 12 NYCRR §142-2.2",
-          "url": "https://dol.ny.gov/overtime",
-          "section": "12 NYCRR §142-2.2 (residential employees)",
+          "source": "NY Labor Law \u00a7170, 12 NYCRR \u00a7142-2.2",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/overtime-frequently-asked-questions_0.pdf",
+          "section": "12 NYCRR \u00a7142-2.2 (residential employees)",
           "kind": "regulation"
         }
       ]
@@ -602,9 +602,9 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §160, 12 NYCRR §142-2.2",
-          "url": "https://dol.ny.gov/overtime",
-          "section": "12 NYCRR §142-2.2",
+          "source": "NY Labor Law \u00a7160, 12 NYCRR \u00a7142-2.2",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/overtime-frequently-asked-questions_0.pdf",
+          "section": "12 NYCRR \u00a7142-2.2",
           "kind": "regulation"
         }
       ]
@@ -648,9 +648,9 @@
       },
       "citations": [
         {
-          "source": "ORS §652.020",
+          "source": "ORS \u00a7652.020",
           "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors652.html",
-          "section": "ORS §652.020",
+          "section": "ORS \u00a7652.020",
           "kind": "statute"
         }
       ]
@@ -688,9 +688,9 @@
       },
       "citations": [
         {
-          "source": "Virginia Overtime Wage Act, Code of Virginia §40.1-29.2",
+          "source": "Virginia Overtime Wage Act, Code of Virginia \u00a740.1-29.2",
           "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-29.2/",
-          "section": "Va. Code §40.1-29.2",
+          "section": "Va. Code \u00a740.1-29.2",
           "kind": "statute"
         }
       ]

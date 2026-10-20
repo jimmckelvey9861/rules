@@ -31,7 +31,7 @@
       },
       "citations": [
         {
-          "source": "ARS §23-372 (Prop 206)",
+          "source": "ARS \u00a723-372 (Prop 206)",
           "url": "https://www.azleg.gov/ars/23/00372.htm",
           "kind": "statute"
         }
@@ -39,7 +39,7 @@
     },
     {
       "id": "az-sick-leave-small",
-      "title": "Arizona Paid Sick Leave — <15 employees (1 hr per 30 hrs, up to 24 hrs/yr)",
+      "title": "Arizona Paid Sick Leave \u2014 <15 employees (1 hr per 30 hrs, up to 24 hrs/yr)",
       "jurisdiction": "AZ",
       "topic": "sick_leave",
       "status": "active",
@@ -66,7 +66,7 @@
       },
       "citations": [
         {
-          "source": "ARS §23-372 (Prop 206)",
+          "source": "ARS \u00a723-372 (Prop 206)",
           "url": "https://www.azleg.gov/ars/23/00372.htm",
           "kind": "statute"
         }
@@ -96,9 +96,9 @@
       },
       "citations": [
         {
-          "source": "Cal. Lab. Code §246",
+          "source": "Cal. Lab. Code \u00a7246",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
-          "section": "Lab. Code §246",
+          "section": "Lab. Code \u00a7246",
           "kind": "statute"
         }
       ]
@@ -133,8 +133,8 @@
       "citations": [
         {
           "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
-          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paid-leave-702.html",
-          "section": "MCC §1-24-045",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paidsickleaveinfo.html",
+          "section": "MCC \u00a71-24-045",
           "kind": "ordinance"
         }
       ]
@@ -163,9 +163,9 @@
       },
       "citations": [
         {
-          "source": "CO HFWA §8-13.3-403",
+          "source": "CO HFWA \u00a78-13.3-403",
           "url": "https://cdle.colorado.gov/paid-leave",
-          "section": "§8-13.3-403",
+          "section": "\u00a78-13.3-403",
           "kind": "statute"
         }
       ]
@@ -199,9 +199,9 @@
       },
       "citations": [
         {
-          "source": "CT Gen. Stat. §31-57s",
+          "source": "CT Gen. Stat. \u00a731-57s",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-57s",
-          "section": "§31-57s",
+          "section": "\u00a731-57s",
           "kind": "statute"
         }
       ]
@@ -236,8 +236,8 @@
       "citations": [
         {
           "source": "DC Accrued Sick and Safe Leave Act",
-          "url": "https://does.dc.gov/service/accrued-sick-and-safe-leave-act",
-          "section": "DC Code §32-531.01 et seq.",
+          "url": "https://does.dc.gov/sites/default/files/dc/sites/does/page_content/attachments/ASSLA%20Fact%20Sheet.pdf",
+          "section": "DC Code \u00a732-531.01 et seq.",
           "kind": "statute"
         }
       ]
@@ -272,8 +272,8 @@
       "citations": [
         {
           "source": "Denver Paid Sick & Safe Leave (HFWA local enforcement)",
-          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Auditors-Office/Denver-Workplace-Rights-and-Protections",
-          "section": "Denver DRMC §58-11 et seq.",
+          "url": "https://www.denvergov.org/files/assets/public/v/3/auditor/documents/denver-labor/2024/civil-wage-theft-rules-2024.pdf",
+          "section": "Denver DRMC \u00a758-11 et seq.",
           "kind": "ordinance"
         }
       ]
@@ -303,7 +303,7 @@
       "citations": [
         {
           "source": "820 ILCS 192 (PSLAA)",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/paid-leave-for-all-workers-act.html",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
           "kind": "statute"
         }
       ]
@@ -339,7 +339,7 @@
         {
           "source": "Los Angeles Paid Sick Leave Ordinance",
           "url": "https://wagesla.lacity.org/",
-          "section": "LAMC §187.00 et seq.",
+          "section": "LAMC \u00a7187.00 et seq.",
           "kind": "ordinance"
         }
       ]
@@ -368,16 +368,16 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §148C",
+          "source": "MGL c.149 \u00a7148C",
           "url": "https://www.mass.gov/info-details/earned-sick-time",
-          "section": "c.149 §148C",
+          "section": "c.149 \u00a7148C",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "md-sick-leave-paid",
-      "title": "MD Paid Sick & Safe Leave — 15+ employees (1 hr / 30 hrs, up to 64 hrs/yr)",
+      "title": "MD Paid Sick & Safe Leave \u2014 15+ employees (1 hr / 30 hrs, up to 64 hrs/yr)",
       "jurisdiction": "MD",
       "topic": "sick_leave",
       "status": "active",
@@ -404,16 +404,16 @@
       },
       "citations": [
         {
-          "source": "MD Healthy Working Families Act, Labor & Empl. §3-1304",
+          "source": "MD Healthy Working Families Act, Labor & Empl. \u00a73-1304",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
-          "section": "§3-1304",
+          "section": "\u00a73-1304",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "md-sick-leave-unpaid",
-      "title": "MD Unpaid Sick & Safe Leave — <15 employees (1 hr / 30 hrs, up to 64 hrs/yr)",
+      "title": "MD Unpaid Sick & Safe Leave \u2014 <15 employees (1 hr / 30 hrs, up to 64 hrs/yr)",
       "jurisdiction": "MD",
       "topic": "sick_leave",
       "status": "active",
@@ -440,9 +440,9 @@
       },
       "citations": [
         {
-          "source": "MD Healthy Working Families Act, Labor & Empl. §3-1304",
+          "source": "MD Healthy Working Families Act, Labor & Empl. \u00a73-1304",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
-          "section": "§3-1304",
+          "section": "\u00a73-1304",
           "kind": "statute"
         }
       ]
@@ -476,7 +476,7 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §637",
+          "source": "26 MRSA \u00a7637",
           "url": "https://www.maine.gov/labor/labor_laws/earned_paid_leave.html",
           "kind": "statute"
         }
@@ -506,7 +506,7 @@
       },
       "citations": [
         {
-          "source": "MCL §408.963 (IWOWA)",
+          "source": "MCL \u00a7408.963 (IWOWA)",
           "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/paid-medical-leave",
           "kind": "statute"
         }
@@ -543,7 +543,7 @@
         {
           "source": "Minneapolis Sick & Safe Time Ordinance",
           "url": "https://www.minneapolismn.gov/government/government-data/datasource/sick-safe-time/",
-          "section": "MCO §40.220",
+          "section": "MCO \u00a740.220",
           "kind": "ordinance"
         }
       ]
@@ -572,8 +572,8 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §181.9447",
-          "url": "https://www.dli.mn.gov/sick-and-safe-time",
+          "source": "Minn. Stat. \u00a7181.9447",
+          "url": "https://www.dli.mn.gov/sick-leave",
           "kind": "statute"
         }
       ]
@@ -608,8 +608,8 @@
       "citations": [
         {
           "source": "Montgomery County Earned Sick & Safe Leave Law",
-          "url": "https://www.montgomerycountymd.gov/humanrights/Resources/Files/EarnedSickandSafeLeave_EmployeeNotice.pdf",
-          "section": "MCC §27-76 et seq.",
+          "url": "https://www.montgomerycountymd.gov/humanrights/Resources/Files/Clean_Art_XIII_EarnedSafeandSickLeave.pdf",
+          "section": "MCC \u00a727-76 et seq.",
           "kind": "ordinance"
         }
       ]
@@ -645,7 +645,7 @@
         {
           "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
           "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
-          "section": "NYC Admin Code §20-911 et seq.",
+          "section": "NYC Admin Code \u00a720-911 et seq.",
           "kind": "ordinance"
         }
       ]
@@ -674,9 +674,9 @@
       },
       "citations": [
         {
-          "source": "NJSA §34:11D-1 et seq.",
+          "source": "NJSA \u00a734:11D-1 et seq.",
           "url": "https://www.nj.gov/labor/worker-protections/earnedsick/law.shtml",
-          "section": "§34:11D-2",
+          "section": "\u00a734:11D-2",
           "kind": "statute"
         }
       ]
@@ -705,7 +705,7 @@
       },
       "citations": [
         {
-          "source": "NMSA §50-17-1 (HWA)",
+          "source": "NMSA \u00a750-17-1 (HWA)",
           "url": "https://www.dws.state.nm.us/healthyworkplaces",
           "kind": "statute"
         }
@@ -713,7 +713,7 @@
     },
     {
       "id": "nv-paid-leave",
-      "title": "NV Paid Leave — 50+ employees (0.01923 hrs/hr worked, up to 40 hrs/yr)",
+      "title": "NV Paid Leave \u2014 50+ employees (0.01923 hrs/hr worked, up to 40 hrs/yr)",
       "jurisdiction": "NV",
       "topic": "sick_leave",
       "status": "active",
@@ -740,16 +740,16 @@
       },
       "citations": [
         {
-          "source": "NRS §608.0197 (SB 312)",
+          "source": "NRS \u00a7608.0197 (SB 312)",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0197",
-          "section": "NRS §608.0197",
+          "section": "NRS \u00a7608.0197",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ny-sick-leave-100-plus",
-      "title": "NY Paid Sick Leave — 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
+      "title": "NY Paid Sick Leave \u2014 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
       "jurisdiction": "NY",
       "topic": "sick_leave",
       "status": "active",
@@ -776,16 +776,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §196-b",
+          "source": "NY Labor Law \u00a7196-b",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
-          "section": "§196-b(1)(c)",
+          "section": "\u00a7196-b(1)(c)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ny-sick-leave-5-99",
-      "title": "NY Paid Sick Leave — 5-99 employees (1 hr / 30 hrs, up to 40 hrs/yr)",
+      "title": "NY Paid Sick Leave \u2014 5-99 employees (1 hr / 30 hrs, up to 40 hrs/yr)",
       "jurisdiction": "NY",
       "topic": "sick_leave",
       "status": "active",
@@ -817,9 +817,9 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §196-b",
+          "source": "NY Labor Law \u00a7196-b",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
-          "section": "§196-b(1)(b)",
+          "section": "\u00a7196-b(1)(b)",
           "kind": "statute"
         }
       ]
@@ -848,7 +848,7 @@
       },
       "citations": [
         {
-          "source": "ORS §653.601",
+          "source": "ORS \u00a7653.601",
           "url": "https://www.oregon.gov/boli/workers/pages/sick-time.aspx",
           "kind": "statute"
         }
@@ -884,8 +884,8 @@
       "citations": [
         {
           "source": "Promoting Healthy Families & Workplaces Ordinance",
-          "url": "https://www.phila.gov/departments/department-of-labor/worker-protections/paid-sick-leave/",
-          "section": "Phila. Code §9-4100 et seq.",
+          "url": "https://www.phila.gov/media/20250731151754/dol-paid-sick-leave-one-pager-en.pdf",
+          "section": "Phila. Code \u00a79-4100 et seq.",
           "kind": "ordinance"
         }
       ]
@@ -914,8 +914,8 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-57-4",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/healthy-and-safe-families-and-workplaces-act",
+          "source": "RI Gen. Laws \u00a728-57-4",
+          "url": "https://dlt.ri.gov/sites/g/files/xkgbur571/files/2024-12/LS%20Wage%20and%20Workplace%20Laws%20Guide_Rev_Dec2024.pdf",
           "kind": "statute"
         }
       ]
@@ -1016,8 +1016,8 @@
       },
       "citations": [
         {
-          "source": "21 VSA §483",
-          "url": "https://labor.vermont.gov/document/earned-sick-time-faqs",
+          "source": "21 VSA \u00a7483",
+          "url": "https://labor.vermont.gov/document/vermonts-earned-sick-time-act",
           "kind": "statute"
         }
       ]
@@ -1046,9 +1046,9 @@
       },
       "citations": [
         {
-          "source": "RCW §49.46.210 (I-1433)",
+          "source": "RCW \u00a749.46.210 (I-1433)",
           "url": "https://lni.wa.gov/workers-rights/leave/paid-sick-leave",
-          "section": "RCW §49.46.210",
+          "section": "RCW \u00a749.46.210",
           "kind": "statute"
         }
       ]

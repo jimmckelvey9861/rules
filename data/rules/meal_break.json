@@ -45,16 +45,16 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §512(a)",
+          "source": "California Labor Code \u00a7512(a)",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)",
+          "section": "Cal. Lab. Code \u00a7512(a)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ca-meal-break-scheduling-warning",
-      "title": "California — Meal Break Required (shifts > 5 hrs)",
+      "title": "California \u2014 Meal Break Required (shifts > 5 hrs)",
       "jurisdiction": "CA",
       "topic": "meal_break",
       "status": "active",
@@ -84,9 +84,9 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §512(a)",
+          "source": "California Labor Code \u00a7512(a)",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)",
+          "section": "Cal. Lab. Code \u00a7512(a)",
           "kind": "statute"
         }
       ]
@@ -129,9 +129,9 @@
       },
       "citations": [
         {
-          "source": "California Labor Code §512(a)",
+          "source": "California Labor Code \u00a7512(a)",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)",
+          "section": "Cal. Lab. Code \u00a7512(a)",
           "kind": "statute"
         }
       ]
@@ -182,7 +182,7 @@
     },
     {
       "id": "co-meal-break-scheduling-warning",
-      "title": "Colorado — Meal Break Required (shifts > 5 hrs)",
+      "title": "Colorado \u2014 Meal Break Required (shifts > 5 hrs)",
       "jurisdiction": "CO",
       "topic": "meal_break",
       "status": "active",
@@ -257,16 +257,16 @@
       },
       "citations": [
         {
-          "source": "CT Gen. Stat. §31-51ii",
+          "source": "CT Gen. Stat. \u00a731-51ii",
           "url": "https://www.cga.ct.gov/current/pub/chap_558.htm#sec_31-51ii",
-          "section": "§31-51ii",
+          "section": "\u00a731-51ii",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ct-meal-break-scheduling-warning",
-      "title": "Connecticut — Meal Break Required (shifts > 7.5 hrs)",
+      "title": "Connecticut \u2014 Meal Break Required (shifts > 7.5 hrs)",
       "jurisdiction": "CT",
       "topic": "meal_break",
       "status": "active",
@@ -296,9 +296,9 @@
       },
       "citations": [
         {
-          "source": "Conn. Gen. Stat. §31-51ii",
+          "source": "Conn. Gen. Stat. \u00a731-51ii",
           "url": "https://www.cga.ct.gov/current/pub/chap_557.htm",
-          "section": "§31-51ii",
+          "section": "\u00a731-51ii",
           "kind": "statute"
         }
       ]
@@ -341,15 +341,15 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §707",
-          "url": "https://dia.delawareworks.com/labor-law/breaks.php",
+          "source": "19 Del. C. \u00a7707",
+          "url": "https://labor.delaware.gov/divisions/industrial-affairs-old/labor-law/",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "de-meal-break-scheduling-warning",
-      "title": "Delaware — Meal Break Required (shifts > 7.5 hrs)",
+      "title": "Delaware \u2014 Meal Break Required (shifts > 7.5 hrs)",
       "jurisdiction": "DE",
       "topic": "meal_break",
       "status": "active",
@@ -379,9 +379,9 @@
       },
       "citations": [
         {
-          "source": "19 Del. C. §707",
+          "source": "19 Del. C. \u00a7707",
           "url": "https://delcode.delaware.gov/title19/c007/index.html",
-          "section": "19 Del. C. §707",
+          "section": "19 Del. C. \u00a7707",
           "kind": "statute"
         }
       ]
@@ -425,7 +425,7 @@
       "citations": [
         {
           "source": "820 ILCS 140/3",
-          "url": "https://labor.illinois.gov/laws-rules/conmed/one-day-rest-in-seven-act.html",
+          "url": "https://labor.illinois.gov/laws-rules/fls/odrisa.html",
           "section": "820 ILCS 140/3",
           "kind": "statute"
         }
@@ -433,7 +433,7 @@
     },
     {
       "id": "il-meal-break-scheduling-warning",
-      "title": "Illinois — Meal Break Required (shifts > 7.5 hrs)",
+      "title": "Illinois \u2014 Meal Break Required (shifts > 7.5 hrs)",
       "jurisdiction": "IL",
       "topic": "meal_break",
       "status": "active",
@@ -508,7 +508,7 @@
       },
       "citations": [
         {
-          "source": "KRS §337.355",
+          "source": "KRS \u00a7337.355",
           "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx",
           "kind": "statute"
         }
@@ -516,7 +516,7 @@
     },
     {
       "id": "ky-meal-break-scheduling-warning",
-      "title": "Kentucky — Meal Break Required (shifts > 5 hrs)",
+      "title": "Kentucky \u2014 Meal Break Required (shifts > 5 hrs)",
       "jurisdiction": "KY",
       "topic": "meal_break",
       "status": "active",
@@ -546,9 +546,9 @@
       },
       "citations": [
         {
-          "source": "KRS §337.355",
+          "source": "KRS \u00a7337.355",
           "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=32207",
-          "section": "KRS §337.355",
+          "section": "KRS \u00a7337.355",
           "kind": "statute"
         }
       ]
@@ -591,16 +591,16 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §100",
-          "url": "https://www.mass.gov/info-details/massachusetts-law-about-meal-breaks",
-          "section": "c.149 §100",
+          "source": "MGL c.149 \u00a7100",
+          "url": "https://www.mass.gov/guides/breaks-and-time-off",
+          "section": "c.149 \u00a7100",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ma-meal-break-scheduling-warning",
-      "title": "Massachusetts — Meal Break Required (shifts > 6 hrs)",
+      "title": "Massachusetts \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "MA",
       "topic": "meal_break",
       "status": "active",
@@ -630,9 +630,9 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §100",
+          "source": "MGL c.149 \u00a7100",
           "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section100",
-          "section": "MGL c.149 §100",
+          "section": "MGL c.149 \u00a7100",
           "kind": "statute"
         }
       ]
@@ -685,9 +685,9 @@
       },
       "citations": [
         {
-          "source": "MD Code, Labor & Employment §3-710",
+          "source": "MD Code, Labor & Employment \u00a73-710",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
-          "section": "§3-710",
+          "section": "\u00a73-710",
           "kind": "statute"
         }
       ]
@@ -735,16 +735,16 @@
       },
       "citations": [
         {
-          "source": "MD Code, Labor & Employment §3-710",
+          "source": "MD Code, Labor & Employment \u00a73-710",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
-          "section": "§3-710",
+          "section": "\u00a73-710",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "md-meal-break-scheduling-warning",
-      "title": "Maryland — Meal Break Required (shifts > 6 hrs)",
+      "title": "Maryland \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "MD",
       "topic": "meal_break",
       "status": "active",
@@ -774,9 +774,9 @@
       },
       "citations": [
         {
-          "source": "Md. Code Lab. & Empl. §3-710",
+          "source": "Md. Code Lab. & Empl. \u00a73-710",
           "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
-          "section": "§3-710",
+          "section": "\u00a73-710",
           "kind": "statute"
         }
       ]
@@ -819,7 +819,7 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §601",
+          "source": "26 MRSA \u00a7601",
           "url": "https://www.maine.gov/labor/labor_laws/rest_meal.html",
           "kind": "statute"
         }
@@ -827,7 +827,7 @@
     },
     {
       "id": "me-meal-break-scheduling-warning",
-      "title": "Maine — Meal Break Required (shifts > 6 hrs)",
+      "title": "Maine \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "ME",
       "topic": "meal_break",
       "status": "active",
@@ -857,9 +857,9 @@
       },
       "citations": [
         {
-          "source": "26 MRSA §601",
+          "source": "26 MRSA \u00a7601",
           "url": "https://legislature.maine.gov/statutes/26/title26sec601.html",
-          "section": "26 MRSA §601",
+          "section": "26 MRSA \u00a7601",
           "kind": "statute"
         }
       ]
@@ -902,15 +902,15 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §177.254",
-          "url": "https://www.dli.mn.gov/business/employment-practices/work-breaks-and-meal-time",
+          "source": "Minn. Stat. \u00a7177.254",
+          "url": "https://www.dli.mn.gov/business/employment-practices/employee-rights-faqs",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "mn-meal-break-scheduling-warning",
-      "title": "Minnesota — Meal Break Required (shifts > 8 hrs)",
+      "title": "Minnesota \u2014 Meal Break Required (shifts > 8 hrs)",
       "jurisdiction": "MN",
       "topic": "meal_break",
       "status": "active",
@@ -940,9 +940,9 @@
       },
       "citations": [
         {
-          "source": "Minn. Stat. §177.254",
+          "source": "Minn. Stat. \u00a7177.254",
           "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
-          "section": "Minn. Stat. §177.254",
+          "section": "Minn. Stat. \u00a7177.254",
           "kind": "statute"
         }
       ]
@@ -985,15 +985,15 @@
       },
       "citations": [
         {
-          "source": "NDAC §46-02-07-02(5)",
-          "url": "https://www.nd.gov/labor/meal-periods-and-rest-breaks",
+          "source": "NDAC \u00a746-02-07-02(5)",
+          "url": "https://www.nd.gov/labor/wage-and-hour-topics",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "nd-meal-break-scheduling-warning",
-      "title": "North Dakota — Meal Break Required (shifts > 5 hrs)",
+      "title": "North Dakota \u2014 Meal Break Required (shifts > 5 hrs)",
       "jurisdiction": "ND",
       "topic": "meal_break",
       "status": "active",
@@ -1023,9 +1023,9 @@
       },
       "citations": [
         {
-          "source": "ND Admin Code §46-02-07-02",
-          "url": "https://www.nd.gov/labor/wage-and-hour",
-          "section": "NDAC §46-02-07-02",
+          "source": "ND Admin Code \u00a746-02-07-02",
+          "url": "https://www.nd.gov/labor/wage-and-hour-topics",
+          "section": "NDAC \u00a746-02-07-02",
           "kind": "regulation"
         }
       ]
@@ -1068,15 +1068,15 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-212",
-          "url": "https://dol.nebraska.gov/LaborStandards/FAQ/Breaks",
+          "source": "Neb. Rev. Stat. \u00a748-212",
+          "url": "https://www.dol.nebraska.gov/LaborStandards/FAQ/General",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ne-meal-break-scheduling-warning",
-      "title": "Nebraska — Meal Break Required (shifts > 8 hrs)",
+      "title": "Nebraska \u2014 Meal Break Required (shifts > 8 hrs)",
       "jurisdiction": "NE",
       "topic": "meal_break",
       "status": "active",
@@ -1106,9 +1106,9 @@
       },
       "citations": [
         {
-          "source": "Neb. Rev. Stat. §48-212",
+          "source": "Neb. Rev. Stat. \u00a748-212",
           "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-212",
-          "section": "Neb. Rev. Stat. §48-212",
+          "section": "Neb. Rev. Stat. \u00a748-212",
           "kind": "statute"
         }
       ]
@@ -1151,7 +1151,7 @@
       },
       "citations": [
         {
-          "source": "NH RSA §275:30-a",
+          "source": "NH RSA \u00a7275:30-a",
           "url": "https://www.nh.gov/labor/inspection/wage-hour/breaks.htm",
           "kind": "statute"
         }
@@ -1159,7 +1159,7 @@
     },
     {
       "id": "nh-meal-break-scheduling-warning",
-      "title": "New Hampshire — Meal Break Required (shifts > 5 hrs)",
+      "title": "New Hampshire \u2014 Meal Break Required (shifts > 5 hrs)",
       "jurisdiction": "NH",
       "topic": "meal_break",
       "status": "active",
@@ -1189,9 +1189,9 @@
       },
       "citations": [
         {
-          "source": "RSA §275:30-a",
+          "source": "RSA \u00a7275:30-a",
           "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275/275-30-a.htm",
-          "section": "RSA §275:30-a",
+          "section": "RSA \u00a7275:30-a",
           "kind": "statute"
         }
       ]
@@ -1234,16 +1234,16 @@
       },
       "citations": [
         {
-          "source": "NRS §608.019",
+          "source": "NRS \u00a7608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019(1)",
+          "section": "NRS \u00a7608.019(1)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "nv-meal-break-scheduling-warning",
-      "title": "Nevada — Meal Break Required (shifts > 8 hrs)",
+      "title": "Nevada \u2014 Meal Break Required (shifts > 8 hrs)",
       "jurisdiction": "NV",
       "topic": "meal_break",
       "status": "active",
@@ -1273,9 +1273,9 @@
       },
       "citations": [
         {
-          "source": "NRS §608.019",
+          "source": "NRS \u00a7608.019",
           "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
-          "section": "NRS §608.019",
+          "section": "NRS \u00a7608.019",
           "kind": "statute"
         }
       ]
@@ -1318,16 +1318,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §162(3)",
+          "source": "NY Labor Law \u00a7162(3)",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(3)",
+          "section": "\u00a7162(3)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ny-meal-break-factory",
-      "title": "New York Meal Break — Factory (60 min noon break)",
+      "title": "New York Meal Break \u2014 Factory (60 min noon break)",
       "jurisdiction": "NY",
       "topic": "meal_break",
       "status": "active",
@@ -1363,16 +1363,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §162(1)",
+          "source": "NY Labor Law \u00a7162(1)",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(1)",
+          "section": "\u00a7162(1)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ny-meal-break-nonfactory",
-      "title": "New York Meal Break — Non-Factory (>6 hr shift spanning noon)",
+      "title": "New York Meal Break \u2014 Non-Factory (>6 hr shift spanning noon)",
       "jurisdiction": "NY",
       "topic": "meal_break",
       "status": "active",
@@ -1408,16 +1408,16 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §162(2)",
+          "source": "NY Labor Law \u00a7162(2)",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(2)",
+          "section": "\u00a7162(2)",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ny-meal-break-scheduling-warning",
-      "title": "New York — Meal Break Required (shifts > 6 hrs)",
+      "title": "New York \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "NY",
       "topic": "meal_break",
       "status": "active",
@@ -1447,9 +1447,9 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §162",
+          "source": "NY Labor Law \u00a7162",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "NY Lab. Law §162",
+          "section": "NY Lab. Law \u00a7162",
           "kind": "statute"
         }
       ]
@@ -1492,7 +1492,7 @@
       },
       "citations": [
         {
-          "source": "ORS §653.261",
+          "source": "ORS \u00a7653.261",
           "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
           "kind": "statute"
         }
@@ -1500,7 +1500,7 @@
     },
     {
       "id": "or-meal-break-scheduling-warning",
-      "title": "Oregon — Meal Break Required (shifts > 6 hrs)",
+      "title": "Oregon \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "OR",
       "topic": "meal_break",
       "status": "active",
@@ -1575,15 +1575,15 @@
       },
       "citations": [
         {
-          "source": "RI Gen. Laws §28-3-14",
-          "url": "https://dlt.ri.gov/individuals/workplace-protections/breaks-and-lunches",
+          "source": "RI Gen. Laws \u00a728-3-14",
+          "url": "https://dlt.ri.gov/regulation-and-safety/labor-standards/labor-standards-faq",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "ri-meal-break-scheduling-warning",
-      "title": "Rhode Island — Meal Break Required (shifts > 6 hrs)",
+      "title": "Rhode Island \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "RI",
       "topic": "meal_break",
       "status": "active",
@@ -1613,9 +1613,9 @@
       },
       "citations": [
         {
-          "source": "R.I. Gen. Laws §28-3-14",
+          "source": "R.I. Gen. Laws \u00a728-3-14",
           "url": "https://law.justia.com/codes/rhode-island/title-28/chapter-28-3/section-28-3-14/",
-          "section": "R.I. Gen. Laws §28-3-14",
+          "section": "R.I. Gen. Laws \u00a728-3-14",
           "kind": "statute"
         }
       ]
@@ -1658,7 +1658,7 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-2-103(h)",
+          "source": "Tenn. Code \u00a750-2-103(h)",
           "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/wages-breaks.html",
           "kind": "statute"
         }
@@ -1666,7 +1666,7 @@
     },
     {
       "id": "tn-meal-break-scheduling-warning",
-      "title": "Tennessee — Meal Break Required (shifts > 6 hrs)",
+      "title": "Tennessee \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "TN",
       "topic": "meal_break",
       "status": "active",
@@ -1696,9 +1696,9 @@
       },
       "citations": [
         {
-          "source": "Tenn. Code §50-2-103(h)",
+          "source": "Tenn. Code \u00a750-2-103(h)",
           "url": "https://law.justia.com/codes/tennessee/title-50/chapter-2/part-1/section-50-2-103/",
-          "section": "Tenn. Code §50-2-103(h)",
+          "section": "Tenn. Code \u00a750-2-103(h)",
           "kind": "statute"
         }
       ]
@@ -1741,15 +1741,15 @@
       },
       "citations": [
         {
-          "source": "21 VSA §304",
-          "url": "https://labor.vermont.gov/document/meal-break-fact-sheet",
+          "source": "21 VSA \u00a7304",
+          "url": "https://labor.vermont.gov/rights-and-wages/wage-and-hour",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "vt-meal-break-scheduling-warning",
-      "title": "Vermont — Meal Break Required (shifts > 6 hrs)",
+      "title": "Vermont \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "VT",
       "topic": "meal_break",
       "status": "active",
@@ -1779,9 +1779,9 @@
       },
       "citations": [
         {
-          "source": "21 V.S.A. §304",
+          "source": "21 V.S.A. \u00a7304",
           "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
-          "section": "21 V.S.A. §304",
+          "section": "21 V.S.A. \u00a7304",
           "kind": "statute"
         }
       ]
@@ -1824,16 +1824,16 @@
       },
       "citations": [
         {
-          "source": "WAC §296-126-092",
-          "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods",
-          "section": "WAC §296-126-092",
+          "source": "WAC \u00a7296-126-092",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "WAC \u00a7296-126-092",
           "kind": "regulation"
         }
       ]
     },
     {
       "id": "wa-meal-break-scheduling-warning",
-      "title": "Washington — Meal Break Required (shifts > 5 hrs)",
+      "title": "Washington \u2014 Meal Break Required (shifts > 5 hrs)",
       "jurisdiction": "WA",
       "topic": "meal_break",
       "status": "active",
@@ -1864,7 +1864,7 @@
       "citations": [
         {
           "source": "WAC 296-126-092",
-          "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
           "section": "WAC 296-126-092",
           "kind": "regulation"
         }
@@ -1908,15 +1908,15 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-3-10a",
-          "url": "https://labor.wv.gov/Pages/Breaks-and-Meals.aspx",
+          "source": "W. Va. Code \u00a721-3-10a",
+          "url": "https://labor.wv.gov/Wage-Hour/More/Employee-Meal-Break-Requirements/Pages/Statute-and-Legislative-Rule.aspx",
           "kind": "statute"
         }
       ]
     },
     {
       "id": "wv-meal-break-scheduling-warning",
-      "title": "West Virginia — Meal Break Required (shifts > 6 hrs)",
+      "title": "West Virginia \u2014 Meal Break Required (shifts > 6 hrs)",
       "jurisdiction": "WV",
       "topic": "meal_break",
       "status": "active",
@@ -1946,9 +1946,9 @@
       },
       "citations": [
         {
-          "source": "W. Va. Code §21-3-10a",
+          "source": "W. Va. Code \u00a721-3-10a",
           "url": "https://www.wvlegislature.gov/wvcode/code.cfm?chap=21&art=3",
-          "section": "W. Va. Code §21-3-10a",
+          "section": "W. Va. Code \u00a721-3-10a",
           "kind": "statute"
         }
       ]

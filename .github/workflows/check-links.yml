@@ -21,7 +21,7 @@ jobs:
         with:
           bun-version: latest
       - name: Check every citation URL
-        # Strict (job fails on any broken link) only on the nightly schedule.
+        # Strict (job fails on any genuinely broken link; bot-blocked hosts only warn) only on the nightly schedule.
         run: bun scripts/checkLinks.ts ${{ github.event_name == 'schedule' && '--strict' || '' }}
       - name: Upload report
         if: always()
