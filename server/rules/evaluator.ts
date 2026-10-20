@@ -17,6 +17,7 @@ import type {
   RuleResult,
 } from "./types.js";
 import { getObligation } from "../reference/vocabulary.js";
+import { compare } from "./partialEvaluate.js";
 
 /** The numeric parameter that decides "most protective" for this result's obligation, if any. */
 function compareValue(result: RuleResult): number | undefined {
@@ -272,27 +273,7 @@ function evaluateComparison(comp: ComparisonCondition, scenario: Scenario, trigg
 
   triggeredFacts.push(comp.fact);
 
-  let met: boolean;
-  switch (comp.op) {
-    case "=":
-      met = actual === comp.value; break;
-    case "!=":
-      met = actual !== comp.value; break;
-    case ">":
-      met = (actual as number) > (comp.value as number); break;
-    case ">=":
-      met = (actual as number) >= (comp.value as number); break;
-    case "<":
-      met = (actual as number) < (comp.value as number); break;
-    case "<=":
-      met = (actual as number) <= (comp.value as number); break;
-    case "in":
-      met = Array.isArray(comp.value) && (comp.value as Array<string | number>).includes(actual as string | number); break;
-    case "not_in":
-      met = Array.isArray(comp.value) && !(comp.value as Array<string | number>).includes(actual as string | number); break;
-    default:
-      met = false;
-  }
+  const met = compare(comp.op, actual, comp.value);
 
   conditionDetails.push({ fact: comp.fact, op: comp.op, expected: comp.value, actual, met });
   return met;

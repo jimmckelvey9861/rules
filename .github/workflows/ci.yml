@@ -19,3 +19,4 @@ jobs:
       - run: bun server/rules/validation.test.ts
       - run: bun server/scheduler/buildScenario.test.ts
       - run: bun server/reference/reference.test.ts
+      - run: bun server/packs/rulePack.test.ts

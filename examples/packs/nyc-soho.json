@@ -1,0 +1,2785 @@
+{
+  "format": "kronto-rule-pack/1",
+  "generatedAt": "2026-10-20T21:02:34.649Z",
+  "asOf": "2026-10-20",
+  "rulesVersion": "2b61e4ed33aef827",
+  "vocabularyVersion": "2026-10-20",
+  "business": "Northwind Outfitters (sample)",
+  "location": {
+    "id": "nyc-soho",
+    "name": "New York, SoHo",
+    "facts": {
+      "location.country": "US",
+      "location.state": "NY",
+      "location.city": "New York City",
+      "location.county": "New York",
+      "employer.total_employees_state": 260,
+      "employer.total_employees_city": 210,
+      "employer.total_employees_at_location": 45
+    }
+  },
+  "jurisdictions": [
+    {
+      "id": "us-ny-new-york-city",
+      "name": "New York City",
+      "type": "city",
+      "fips": "3651000"
+    },
+    {
+      "id": "us-ny",
+      "name": "New York",
+      "type": "state",
+      "fips": "36"
+    },
+    {
+      "id": "us",
+      "name": "Federal",
+      "type": "federal"
+    }
+  ],
+  "rules": [
+    {
+      "id": "ny-day-of-rest",
+      "title": "New York Day of Rest (24 consecutive hours off per calendar week)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "day_of_rest",
+      "topicCode": "sched.shift_structure.day_of_rest",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.is_seventh_consecutive_day"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Scheduling employee to work 7 consecutive days without 24 consecutive hours of rest",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §161",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/161",
+          "section": "§161(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-fmla-eligibility",
+      "title": "Federal FMLA — Employee Eligibility",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "family_medical_leave",
+      "topicCode": "leave.family_medical",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1993-08-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 12
+          },
+          {
+            "fact": "employee.hours_worked_last_12_months",
+            "op": ">=",
+            "value": 1250
+          },
+          {
+            "fact": "leave.type",
+            "op": "in",
+            "value": [
+              "family",
+              "medical",
+              "parental"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.hours_worked_last_12_months",
+        "employee.tenure_months",
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": false
+        },
+        "summary": "Employee is FMLA-eligible: entitled to up to 12 weeks unpaid job-protected leave",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Family and Medical Leave Act, 29 U.S.C. §2612",
+          "url": "https://www.law.cornell.edu/uscode/text/29/2612",
+          "section": "29 U.S.C. §2612",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-family-medical-leave",
+      "title": "New York Family & Medical Leave (12 weeks, paid)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "family_medical_leave",
+      "topicCode": "leave.family_medical",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "fact": "employee.tenure_months",
+        "op": ">=",
+        "value": 12
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.tenure_months"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NY Paid Family Leave (PFL)",
+          "url": "https://paidfamilyleave.ny.gov/",
+          "section": "Workers' Comp. Law Art. 9 §200 et seq.",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-evening",
+      "title": "New York Additional Evening Meal Break (shift past 7pm)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "meal_break",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 10
+        },
+        "summary": "20-minute meal break for shifts of 10+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(3)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(3)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-nonfactory",
+      "title": "New York Meal Break — Non-Factory (>6 hr shift spanning noon)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "meal_break",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(2)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(2)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-scheduling-warning",
+      "title": "New York — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "meal_break",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "New York requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "NY Lab. Law §162",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ny-mw-2026",
+      "title": "New York City Minimum Wage ($17.00/hr)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Minimum Wage (NY Labor Law §652)",
+          "url": "https://dol.ny.gov/minimum-wage-0",
+          "section": "NY Labor Law §652(a)(ii)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-food-service-mw-2025",
+      "title": "NYC Tipped Food Service Worker Cash Wage ($12.50)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "food_service"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.city"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.job_category",
+        "employee.tipped_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.5
+        },
+        "summary": "$12.50 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR §146-1.3 (food service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-service-mw-2025",
+      "title": "NYC Tipped Service Worker Cash Wage ($14.50)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "hotel",
+              "retail",
+              "other"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.city"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.job_category",
+        "employee.tipped_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.5
+        },
+        "summary": "$14.50 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR §146-1.3 (service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-downstate-2025",
+      "title": "New York Minimum Wage (NYC, Nassau, Suffolk, Westchester)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law §652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-statewide-2025",
+      "title": "New York Minimum Wage (Statewide Floor)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law §652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew",
+      "title": "Federal: Minors 14-15 — Cannot work past 7pm (9pm Jun 1–Labor Day)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 19
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 19,
+          "school_night": true
+        },
+        "summary": "Scheduling a 14-15 year old to work past 7:00 PM during the school year",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(6)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(6)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew-summer",
+      "title": "Federal: Minors 14-15 — Cannot work past 9pm (Jun 1–Labor Day)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 21
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 21,
+          "school_night": false
+        },
+        "summary": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(7)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(7)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-early-start",
+      "title": "Federal: Minors 14-15 — Cannot work before 7am",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.start_hour",
+            "op": "<",
+            "value": 7
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.start_hour"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "earliest_start_hour": 7
+        },
+        "summary": "Scheduling a 14-15 year old to work before 7:00 AM",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(1)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(1)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-day-hours",
+      "title": "Federal: Minors 14-15 — Max 8 hours on a non-school day",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 8 hours on a non-school day",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(3)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(3)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-week-hours",
+      "title": "Federal: Minors 14-15 — Max 40 hours in a non-school week",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 40,
+          "school_week": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 40 hours in a non-school week",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(5)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(5)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-day-hours",
+      "title": "Federal: Minors 14-15 — Max 3 hours on a school day",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 3,
+          "school_day": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 3 hours on a school day",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(2)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(2)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-week-hours",
+      "title": "Federal: Minors 14-15 — Max 18 hours in a school week",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 18
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 18 hours in a school week",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(4)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(4)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-minor-16-17-curfew",
+      "title": "NY: Minors 16-17 — Cannot work past 10pm (school night)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 22
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.is_school_day"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in NY",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
+          "section": "§133",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-minor-16-17-nonschool-day-hours",
+      "title": "NY: Minors 16-17 — Max 8 hours on a non-school day",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NY",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
+          "section": "§133",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-minor-16-17-nonschool-week-hours",
+      "title": "NY: Minors 16-17 — Max 48 hours in a non-school week",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 48
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 48,
+          "school_week": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 48 hours in a non-school week in NY",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
+          "section": "§133",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-minor-16-17-school-day-hours",
+      "title": "NY: Minors 16-17 — Max 4 hours on a school day",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NY",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
+          "section": "§133",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-minor-16-17-school-week-hours",
+      "title": "NY: Minors 16-17 — Max 28 hours in a school week",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 28
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 28,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 28 hours in a school week in NY",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §133; 12 NYCRR §180-1.6",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/133",
+          "section": "§133",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-overtime-weekly-40",
+      "title": "Federal Weekly Overtime (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1940-10-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_this_week"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §207(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. §207(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-residential-overtime-44",
+      "title": "New York Residential Worker Overtime (44 hours)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "domestic"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 44
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.job_category",
+        "shift.hours_worked_this_week"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 44,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 44 in a week",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §170, 12 NYCRR §142-2.2",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/overtime-frequently-asked-questions_0.pdf",
+          "section": "12 NYCRR §142-2.2 (residential employees)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-weekly-overtime-40",
+      "title": "New York Weekly Overtime",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_this_week"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §160, 12 NYCRR §142-2.2",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/overtime-frequently-asked-questions_0.pdf",
+          "section": "12 NYCRR §142-2.2",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-advance-notice-72hr",
+      "title": "NYC Retail — 72-Hour Advance Notice Required",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "predictive_scheduling",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "fact": "schedule.advance_notice_days",
+        "op": "<",
+        "value": 3
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 3
+        },
+        "summary": "Posting retail employee schedules with less than 72 hours advance notice",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1241",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-on-call-ban",
+      "title": "NYC Retail — On-Call Scheduling Prohibited",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "predictive_scheduling",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "fact": "shift.is_on_call",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "shift.is_on_call"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.on_call_ban",
+        "params": {},
+        "summary": "Requiring retail employees to be on-call (must schedule or not schedule; cannot require availability without pay)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1243",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ny-spread-of-hours",
+      "title": "New York Spread of Hours Pay (>10 hr span = +1 hr at min wage)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "premium_pay",
+      "topicCode": "pay.premium",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.spread_of_hours"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.spread_of_hours",
+        "params": {
+          "amount": 1,
+          "spread_hours": 10,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.4",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.4",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-call-in-pay",
+      "title": "New York Call-In Pay (minimum 4 hours)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "reporting_time_pay",
+      "topicCode": "pay.premium.reporting_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.employee_reported",
+        "shift.hours_worked_at_report",
+        "shift.sent_home_early"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 4,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours (or scheduled hours if less) at applicable minimum wage",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.3",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.3",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-call-in-pay-oncall",
+      "title": "New York Call-In Pay — On-Call Employee (minimum 4 hours)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "reporting_time_pay",
+      "topicCode": "pay.premium.reporting_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.employee_reported",
+        "shift.hours_worked_at_report",
+        "shift.is_on_call"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 4,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours at applicable minimum wage when called in from on-call status",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.3",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.3",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "new-york-city-sick-leave",
+      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "sick_leave",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.city"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
+          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
+          "section": "NYC Admin Code §20-911 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-leave-100-plus",
+      "title": "NY Paid Sick Leave — 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sick_leave",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "§196-b(1)(c)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-split-shift-premium",
+      "title": "New York Split Shift / Spread-of-Hours Premium (extra hour at min wage)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "split_shift_premium",
+      "topicCode": "pay.premium.split_shift",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.spread_of_hours"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at basic minimum hourly wage when interval between start and end of workday exceeds 10 hours. Applies to all industries covered by NY wage orders.",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.4 (Hospitality), §146-1.6 (Misc.)",
+          "url": "https://dol.ny.gov/minimum-wage-order-miscellaneous-industries-and-occupations-cr142/",
+          "section": "12 NYCRR §142-2.4",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-warn-act",
+      "title": "New York Mini-WARN Act (90-day notice, 50+ employees)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "warn_act",
+      "topicCode": "sep.warn",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2009-02-01",
+      "appliesWhen": {
+        "fact": "termination.is_mass_layoff",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.is_mass_layoff"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 90,
+          "employee_threshold": 50
+        },
+        "summary": "New York requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50 employees in prior 12 months).",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NY WARN Act (Labor Law §860)",
+          "url": "https://dol.ny.gov/worker-adjustment-and-retraining-notification-warn",
+          "section": "NY Labor Law §860-860-i",
+          "kind": "statute"
+        }
+      ]
+    }
+  ],
+  "obligations": [
+    {
+      "code": "break.meal",
+      "name": "Meal break",
+      "description": "An uninterrupted meal period owed once a shift reaches a given length.",
+      "behaviors": [
+        "required_break",
+        "warning"
+      ],
+      "kronto": "block",
+      "compareParam": "minimum_minutes",
+      "params": [
+        {
+          "name": "minimum_minutes",
+          "type": "number",
+          "unit": "minutes",
+          "required": true,
+          "description": "Minimum length of the meal period"
+        },
+        {
+          "name": "after_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Shift length at which the meal period is owed"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the meal period must be paid (usually false)"
+        }
+      ],
+      "synonyms": [
+        "meal period",
+        "lunch break",
+        "lunch period",
+        "eating period"
+      ]
+    },
+    {
+      "code": "leave.family_medical",
+      "name": "Family and medical leave entitlement",
+      "description": "Weeks of job-protected family or medical leave the employee is entitled to in a benefit year.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "leave.family_medical_weeks_available",
+      "compareParam": "weeks",
+      "params": [
+        {
+          "name": "weeks",
+          "type": "number",
+          "unit": "weeks",
+          "required": true,
+          "description": "Weeks of leave available"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave is paid (state insurance programs) or unpaid (federal FMLA)"
+        }
+      ],
+      "synonyms": [
+        "FMLA",
+        "PFML",
+        "PFL",
+        "paid family leave",
+        "family leave insurance",
+        "FAMLI"
+      ]
+    },
+    {
+      "code": "leave.sick.accrual",
+      "name": "Paid sick leave accrual",
+      "description": "Sick (or safe) leave the employee accrues per hour worked, with a yearly cap.",
+      "behaviors": [
+        "minimum_required_value"
+      ],
+      "kronto": "inform",
+      "targetFact": "leave.hours_accrued",
+      "compareParam": "annual_cap_hours",
+      "params": [
+        {
+          "name": "annual_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Hours of leave the employee must be able to accrue (or use) per year"
+        },
+        {
+          "name": "hours_worked_per_hour_accrued",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours worked to accrue one hour of leave (30 means 1 hour per 30 worked)"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave is paid"
+        }
+      ],
+      "synonyms": [
+        "earned sick time",
+        "paid sick and safe time",
+        "PSST",
+        "earned paid leave",
+        "sick and safe leave"
+      ]
+    },
+    {
+      "code": "minor.curfew",
+      "name": "Minor work-hour curfew",
+      "description": "Earliest start or latest end time a minor may work, often differing on school nights.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "latest_end_hour",
+          "type": "number",
+          "unit": "hour_of_day",
+          "required": false,
+          "description": "Work must end by this hour (21 = 9 PM; 24 and above means after midnight)"
+        },
+        {
+          "name": "earliest_start_hour",
+          "type": "number",
+          "unit": "hour_of_day",
+          "required": false,
+          "description": "Work may not start before this hour"
+        },
+        {
+          "name": "school_night",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the limit applies only before a school day, false when it applies only outside the school year; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "night work restriction",
+        "child labor hours",
+        "youth employment hours",
+        "nightwork"
+      ]
+    },
+    {
+      "code": "minor.daily_hours_max",
+      "name": "Minor daily hours limit",
+      "description": "Most hours a minor may work in one day.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Maximum hours in the day"
+        },
+        {
+          "name": "school_day",
+          "type": "boolean",
+          "required": false,
+          "description": "True for school days, false for non-school days; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "child labor daily limit",
+        "hours per day for minors"
+      ]
+    },
+    {
+      "code": "minor.weekly_hours_max",
+      "name": "Minor weekly hours limit",
+      "description": "Most hours a minor may work in one week.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Maximum hours in the week"
+        },
+        {
+          "name": "school_week",
+          "type": "boolean",
+          "required": false,
+          "description": "True for weeks when school is in session, false for non-school weeks; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "child labor weekly limit",
+        "hours per week for minors"
+      ]
+    },
+    {
+      "code": "premium.overtime",
+      "name": "Overtime premium",
+      "description": "A multiple of the regular rate owed for hours past a daily or weekly threshold.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "multiplier",
+      "params": [
+        {
+          "name": "multiplier",
+          "type": "number",
+          "unit": "multiplier",
+          "required": true,
+          "description": "Multiple of the regular rate (1.5, 2)"
+        },
+        {
+          "name": "threshold_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours after which the premium applies"
+        },
+        {
+          "name": "period",
+          "type": "enum",
+          "values": [
+            "day",
+            "week"
+          ],
+          "required": false,
+          "description": "Whether the threshold is per workday or per workweek"
+        }
+      ],
+      "synonyms": [
+        "time and a half",
+        "double time",
+        "OT",
+        "daily overtime",
+        "weekly overtime"
+      ]
+    },
+    {
+      "code": "premium.reporting_time",
+      "name": "Reporting time pay",
+      "description": "Minimum pay owed when an employee reports for a scheduled shift and is sent home early or not put to work.",
+      "behaviors": [
+        "premium_required",
+        "minimum_required_value"
+      ],
+      "kronto": "premium",
+      "targetFact": "shift.paid_hours",
+      "compareParam": "minimum_hours",
+      "params": [
+        {
+          "name": "minimum_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Minimum hours that must be paid"
+        },
+        {
+          "name": "maximum_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Cap on the hours owed under the rule"
+        },
+        {
+          "name": "fraction_of_scheduled",
+          "type": "number",
+          "required": false,
+          "description": "Fraction of the scheduled shift that must be paid (0.5 = half)"
+        },
+        {
+          "name": "rate_basis",
+          "type": "enum",
+          "values": [
+            "regular_rate",
+            "minimum_wage"
+          ],
+          "required": false,
+          "description": "Which rate the hours are paid at"
+        }
+      ],
+      "synonyms": [
+        "show-up pay",
+        "call-in pay",
+        "reporting pay",
+        "send-home pay",
+        "minimum daily pay"
+      ]
+    },
+    {
+      "code": "premium.split_shift",
+      "name": "Split shift premium",
+      "description": "Extra pay owed when the workday is split by an unpaid, non-meal gap.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        {
+          "name": "amount",
+          "type": "number",
+          "unit": "hours_pay",
+          "required": true,
+          "description": "Hours of pay owed"
+        },
+        {
+          "name": "rate_basis",
+          "type": "enum",
+          "values": [
+            "regular_rate",
+            "minimum_wage"
+          ],
+          "required": false,
+          "description": "Which rate the premium is paid at"
+        }
+      ],
+      "synonyms": [
+        "split shift pay",
+        "split shift differential"
+      ]
+    },
+    {
+      "code": "premium.spread_of_hours",
+      "name": "Spread of hours premium",
+      "description": "Extra pay owed when the span from the first to the last hour of the workday exceeds a threshold.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        {
+          "name": "amount",
+          "type": "number",
+          "unit": "hours_pay",
+          "required": true,
+          "description": "Hours of pay owed"
+        },
+        {
+          "name": "spread_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Workday span that triggers the premium"
+        },
+        {
+          "name": "rate_basis",
+          "type": "enum",
+          "values": [
+            "regular_rate",
+            "minimum_wage"
+          ],
+          "required": false,
+          "description": "Which rate the premium is paid at"
+        }
+      ],
+      "synonyms": [
+        "spread of hours pay",
+        "long day premium"
+      ]
+    },
+    {
+      "code": "rest.weekly_day_of_rest",
+      "name": "Weekly day of rest",
+      "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "max_consecutive_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most consecutive days the employee may be scheduled"
+        },
+        {
+          "name": "rest_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Consecutive hours of rest owed in each period"
+        },
+        {
+          "name": "period_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Length of the period the rest is owed in (usually 7)"
+        }
+      ],
+      "synonyms": [
+        "one day rest in seven",
+        "seventh day rest",
+        "day off requirement",
+        "Sunday rest"
+      ]
+    },
+    {
+      "code": "sched.advance_notice",
+      "name": "Advance schedule notice",
+      "description": "The schedule must be posted at least this far ahead of the first shift on it.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Minimum days between posting and the first shift (72 hours = 3)"
+        }
+      ],
+      "synonyms": [
+        "schedule posting requirement",
+        "14-day notice",
+        "written work schedule"
+      ]
+    },
+    {
+      "code": "sched.on_call_ban",
+      "name": "On-call scheduling ban",
+      "description": "The employer may not require the employee to be available without scheduling and paying them.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [],
+      "synonyms": [
+        "on-call ban",
+        "call-in shift ban",
+        "standby prohibition"
+      ]
+    },
+    {
+      "code": "sep.warn_notice",
+      "name": "Mass layoff / plant closing notice (WARN)",
+      "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Days of advance notice required"
+        },
+        {
+          "name": "employee_threshold",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size (or affected count) at which the law applies"
+        }
+      ],
+      "synonyms": [
+        "WARN Act",
+        "mini-WARN",
+        "plant closing law",
+        "mass layoff notice",
+        "Worker Adjustment and Retraining Notification"
+      ]
+    },
+    {
+      "code": "wage.minimum",
+      "name": "Minimum wage",
+      "description": "The lowest hourly rate an employer may pay a covered employee.",
+      "behaviors": [
+        "minimum_required_value"
+      ],
+      "kronto": "block",
+      "targetFact": "employee.regular_hourly_rate",
+      "compareParam": "rate",
+      "params": [
+        {
+          "name": "rate",
+          "type": "number",
+          "unit": "usd_per_hour",
+          "required": true,
+          "description": "Minimum hourly rate"
+        }
+      ],
+      "synonyms": [
+        "minimum hourly rate",
+        "wage floor",
+        "living wage (local ordinances)"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "path": "employee.age",
+      "type": "number",
+      "description": "Employee age in years",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.exempt_status",
+      "type": "enum",
+      "description": "FLSA exemption status",
+      "category": "3. Employee",
+      "enumValues": [
+        "exempt",
+        "non_exempt"
+      ]
+    },
+    {
+      "path": "employee.hours_worked_last_12_months",
+      "type": "number",
+      "description": "Total hours worked in prior 12 months (for FMLA eligibility)",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.is_minor",
+      "type": "boolean",
+      "description": "Whether employee is under 18",
+      "category": "3. Employee",
+      "derived": "employee.age < 18"
+    },
+    {
+      "path": "employee.job_category",
+      "type": "enum",
+      "description": "Occupation category for industry-specific rules",
+      "category": "3. Employee",
+      "enumValues": [
+        "food_service",
+        "healthcare",
+        "retail",
+        "hotel",
+        "security",
+        "domestic",
+        "agricultural",
+        "office",
+        "driver",
+        "nurse",
+        "other"
+      ]
+    },
+    {
+      "path": "employee.tenure_months",
+      "type": "number",
+      "description": "Months employed with current employer",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.tipped_status",
+      "type": "enum",
+      "description": "Whether employee receives tips",
+      "category": "3. Employee",
+      "enumValues": [
+        "tipped",
+        "non_tipped"
+      ]
+    },
+    {
+      "path": "leave.type",
+      "type": "enum",
+      "description": "Type of leave requested",
+      "category": "6. Leave",
+      "enumValues": [
+        "sick",
+        "family",
+        "medical",
+        "parental",
+        "bereavement",
+        "jury_duty",
+        "voting",
+        "domestic_violence",
+        "military",
+        "school_activity"
+      ]
+    },
+    {
+      "path": "schedule.advance_notice_days",
+      "type": "number",
+      "description": "Days in advance the schedule was posted",
+      "category": "5. Schedule",
+      "derived": "whole days from the date the shift (or its latest amendment) was communicated to the employee to the shift date"
+    },
+    {
+      "path": "shift.employee_reported",
+      "type": "boolean",
+      "description": "Whether the employee reported to work as scheduled",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.end_hour",
+      "type": "number",
+      "description": "Shift end hour (0-23, for curfew comparisons)",
+      "category": "4. Shift",
+      "derived": "hour component of the shift end time (0-23)"
+    },
+    {
+      "path": "shift.hours_worked_at_report",
+      "type": "number",
+      "description": "Hours actually worked when employee reported (for reporting time pay)",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.hours_worked_this_week",
+      "type": "number",
+      "description": "Hours worked in the current workweek",
+      "category": "4. Shift",
+      "derived": "this shift's length plus the length of every other shift for the employee in the same workweek"
+    },
+    {
+      "path": "shift.is_on_call",
+      "type": "boolean",
+      "description": "Whether this is an on-call shift",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.is_school_day",
+      "type": "boolean",
+      "description": "Whether it is a school day (for minor labor rules)",
+      "category": "4. Shift",
+      "derived": "weekday during the school year (simplified: Monday to Friday, September to mid-June)"
+    },
+    {
+      "path": "shift.is_seventh_consecutive_day",
+      "type": "boolean",
+      "description": "Whether this is the 7th consecutive day worked",
+      "category": "4. Shift",
+      "derived": "shift.consecutive_days_worked >= 7"
+    },
+    {
+      "path": "shift.meal_break_provided",
+      "type": "boolean",
+      "description": "Whether a meal break was provided",
+      "category": "4. Shift",
+      "derived": "the shift has at least one break of type meal"
+    },
+    {
+      "path": "shift.school_in_session",
+      "type": "boolean",
+      "description": "Whether school is in session (school year vs summer)",
+      "category": "4. Shift",
+      "derived": "date falls in the school year (simplified: September to mid-June)"
+    },
+    {
+      "path": "shift.sent_home_early",
+      "type": "boolean",
+      "description": "Whether the employee was sent home before shift end",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.shift_length_hours",
+      "type": "number",
+      "description": "Length of the current shift in hours",
+      "category": "4. Shift",
+      "derived": "(end time - start time) in hours; an end time at or before the start time means the shift crosses midnight"
+    },
+    {
+      "path": "shift.spread_of_hours",
+      "type": "number",
+      "description": "Total span from first clock-in to last clock-out in a day (includes breaks)",
+      "category": "4. Shift",
+      "derived": "hours from the earliest start to the latest end across all of the employee's shifts on the same date"
+    },
+    {
+      "path": "shift.start_hour",
+      "type": "number",
+      "description": "Shift start hour (0-23, for time-of-day comparisons)",
+      "category": "4. Shift",
+      "derived": "hour component of the shift start time (0-23)"
+    },
+    {
+      "path": "termination.is_mass_layoff",
+      "type": "boolean",
+      "description": "Whether this is part of a mass layoff",
+      "category": "7. Termination"
+    }
+  ],
+  "stats": {
+    "rulesConsidered": 476,
+    "rulesIncluded": 36,
+    "excludedByProfile": 440,
+    "excludedExpired": 0,
+    "excludedInactive": 0,
+    "fullyResolved": 2
+  },
+  "checksum": "85c438db23a6b68d4544bab9c5198c5373cfdf5b95693ae50202f2a7affefa23"
+}

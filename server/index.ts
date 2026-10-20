@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { RULES, SKIPPED, evaluateRules, getAllFacts } from "./rules/index.js";
 import { schedulerRouter } from "./scheduler/index.js";
+import { packsRouter } from "./packs/index.js";
 import { buildCoverageMatrix, summarizeCoverage, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./rules/coverageMatrix.js";
 import { TAXONOMY, getAllTaxonomyNodes } from "./reference/taxonomy.js";
 import { JURISDICTIONS_FILE, getJurisdictionChain } from "./reference/jurisdictions.js";
@@ -126,6 +127,7 @@ app.get("/api/jurisdictions/:key/chain", (req, res) => {
 // ─── Scheduler API ─────────────────────────────────────────────────
 
 app.use("/api/scheduler", schedulerRouter);
+app.use("/api/packs", packsRouter);
 
 // ─── Start ─────────────────────────────────────────────────────────
 

@@ -40,6 +40,8 @@ No database required. No Docker. No environment variables.
 - `GET /api/jurisdictions` — Jurisdiction records with parent links and preemption flags
 - `GET /api/jurisdictions/:key/chain` — A jurisdiction and its ancestors
 - `GET /api/vocabulary` — Obligation types with their typed parameters
+- `POST /api/packs/build` — Rule packs for a business profile (one per location)
+- `GET /api/packs/sample`, `GET /api/packs/sample/:locationId` — Packs for the sample retail chain
 
 ## Structure
 
@@ -48,10 +50,12 @@ data/
   taxonomy.json         — 9 categories > 28 topics > 63 sub-topics, enforcement target per topic
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent, preemption)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
+  profiles/             — Business profiles (sample multi-state retail chain)
   rules/<topic>.json    — All rules, one file per topic (476 rules across 13 topics)
   schema/               — JSON Schema for rule files (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
+  buildPacks.ts         — Writes one rule pack per location for a business profile
   checkLinks.ts         — Fetches every citation URL, writes data/link-report.json
   classifyCitations.ts  — Fills in citation kind from the source wording
 server/
@@ -62,6 +66,13 @@ server/
     vocabulary.ts       — Result vocabulary loader + param validation
     jurisdictions.ts    — Jurisdiction loader, chain + preemption lookups
     reference.test.ts   — Reference data tests
+    vocabulary.ts       — Result vocabulary loader + param validation
+  packs/
+    buildRulePack.ts    — Engine A: applicability per location, emits rule packs
+    index.ts            — /api/packs routes
+    rulePack.test.ts    — Engine A tests
+  rules/
+    partialEvaluate.ts  — Three-valued condition evaluation against partial facts
   rules/
     types.ts            — Core type definitions
     facts.ts            — Fact registry (115 facts)
@@ -103,6 +114,31 @@ its typed parameters, the parameter that decides "most protective" when several
 rules of the same obligation apply, and synonyms for the authoring tool. The
 validator rejects a result whose obligation is unknown or whose params do not
 match the declaration. `summary` is one plain-English sentence for display.
+
+## Rule packs for Kronto (Engine A)
+
+The engine has two halves. Engine B is the per-shift compliance evaluator
+(`evaluateRules`). Engine A is applicability: given a business profile, which
+rules can apply at each location?
+
+A business profile is business-level facts only (`location.*` and `employer.*`
+paths from the fact registry), shared employer facts plus per-location facts.
+See `data/profiles/sample-retail-chain.json`. `buildRulePack` evaluates every
+rule's conditions against those facts with three-valued logic: a rule whose
+business conditions fail is dropped, and a rule that survives is shipped with
+those conditions removed, leaving only the employee, shift, schedule and leave
+logic the scheduler must test per shift.
+
+A pack (`kronto-rule-pack/1`) is self-contained: the rules (valid `Rule`
+objects, so the shared evaluator runs them unchanged, each with its Kronto
+action, taxonomy code and jurisdiction id), the obligation definitions they
+use, the fact definitions they still need with recipes for derived facts, the
+location's jurisdiction chain, a rules-version hash and a checksum.
+
+```
+npm run build-packs                      # sample chain -> examples/packs/<location>.json
+npm run build-packs -- profile.json out/ --as-of 2027-01-01
+```
 
 ## Sources and links
 
