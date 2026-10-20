@@ -4,19 +4,25 @@ Deterministic TypeScript rule engine for U.S. employment law compliance.
 
 ## Architecture
 
-Rules are defined as validated TypeScript objects — no database, no JSON blobs.
-Each rule is created with `createRule()` which enforces:
+Rules are plain JSON data files under `data/rules/`, one file per topic, loaded
+at startup through the same validator that used to guard hand-written TypeScript
+rules. Reference data (the rule taxonomy and the jurisdiction tree) also lives
+under `data/`. The validator enforces:
 - All referenced facts exist in the fact registry
 - Operators match fact types (no `>` on booleans)
 - No vague values ("varies", "unknown")
 - Required citation, effective date, and ID
+- Topic resolves to a node in `data/taxonomy.json`
+- Jurisdiction resolves to a record in `data/jurisdictions.json`, and no local
+  rule sits on a topic its state preempts
+- Unique rule ids across all files
 
 ## Quick Start
 
 ```bash
 npm install
 npm run dev          # Starts server (port 3001) + client (port 5173)
-npm run test:new-rules   # Run all tests
+npm test                 # Run all four test suites
 npm run typecheck        # TypeScript type checking
 ```
 
@@ -28,32 +34,54 @@ No database required. No Docker. No environment variables.
 - `GET /api/ts-rules/:id` — Single rule detail
 - `GET /api/ts-facts` — Fact registry
 - `POST /api/ts-rules/evaluate` — Evaluate scenario against all rules
+- `GET /api/coverage` — Jurisdiction × topic coverage matrix
+- `GET /api/taxonomy` — Category > topic > sub-topic tree with enforcement targets
+- `GET /api/jurisdictions` — Jurisdiction records with parent links and preemption flags
+- `GET /api/jurisdictions/:key/chain` — A jurisdiction and its ancestors
 
 ## Structure
 
 ```
+data/
+  taxonomy.json         — 9 categories > 28 topics > 63 sub-topics, enforcement target per topic
+  jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent, preemption)
+  rules/<topic>.json    — All rules, one file per topic (476 rules across 13 topics)
+  schema/               — JSON Schema for rule files (editor validation)
 server/
-  index.ts              — Express server (4 endpoints)
+  index.ts              — Express server
+  reference/
+    dataFiles.ts        — Reads /data
+    taxonomy.ts         — Taxonomy loader + lookups
+    jurisdictions.ts    — Jurisdiction loader, chain + preemption lookups
+    reference.test.ts   — Reference data tests
   rules/
     types.ts            — Core type definitions
-    facts.ts            — Fact registry (75 facts)
+    facts.ts            — Fact registry (115 facts)
     conditions.ts       — Condition DSL validation
-    createRule.ts       — Rule factory with validation
+    createRule.ts       — Rule validator
+    loadRules.ts        — Loads and cross-checks data/rules/*.json
     evaluator.ts        — Pure deterministic evaluator
+    coverageMatrix.ts   — Jurisdiction × topic coverage tracking
     index.ts            — Public API + rule registry
-    rules.test.ts       — Tests
-    examples/           — All rule definitions
+    rules.test.ts, validation.test.ts — Tests
+  scheduler/
+    buildScenario.ts    — Turns shift + employee + store data into a fact map
 client/
   src/pages/
     RulesExplorerPage   — Browse rules + scenario tester
     RuleDetailPage      — Individual rule detail view
+    SchedulerPage       — Schedule editor
+    ComplianceWorkbench — Scenario workbench
 ```
 
-## Rules (41)
+## Adding or changing a rule
 
-- **Overtime**: Federal weekly, CA daily, CA double time, WA weekly
-- **Minimum wage**: Federal + 6 states + 22 cities
-- **Predictive scheduling**: Seattle, NYC (fast food, retail, clopening)
-- **Meal breaks**: CA first (>5hr) and second (>10hr)
-- **Leave**: Federal FMLA
-- **Mass layoffs**: Federal WARN Act
+1. Edit the topic's file under `data/rules/` (or add a new topic file whose `topic`
+   is a code or legacy topic from `data/taxonomy.json`).
+2. Run `npm test`. A rule that fails validation is reported with its file, id and
+   the failing path, and is skipped at runtime rather than crashing the server.
+
+## Rules
+
+476 rules across 13 topics and 78 jurisdictions. `GET /api/coverage` reports which
+jurisdiction × topic cells have a rule, are confirmed to have no law, or are unchecked.

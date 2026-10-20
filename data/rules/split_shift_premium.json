@@ -1,0 +1,130 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "split_shift_premium",
+  "rules": [
+    {
+      "id": "ca-split-shift-premium",
+      "title": "California Split Shift Premium (+1 hr at state minimum wage)",
+      "jurisdiction": "CA",
+      "topic": "split_shift_premium",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "split_shift_premium",
+        "amount": 1,
+        "formula": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage × (hours worked + 1))"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §4(C)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§4(C) Split Shift Premium"
+        }
+      ]
+    },
+    {
+      "id": "nv-split-shift-premium",
+      "title": "Nevada Split Shift Premium (spread >10 hrs = +1 hr at min wage)",
+      "jurisdiction": "NV",
+      "topic": "split_shift_premium",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "split_shift_premium",
+        "amount": 1,
+        "formula": "1 additional hour at the applicable minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "NRS §608.160",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec160",
+          "section": "NRS §608.160"
+        }
+      ]
+    },
+    {
+      "id": "ny-split-shift-premium",
+      "title": "New York Split Shift / Spread-of-Hours Premium (extra hour at min wage)",
+      "jurisdiction": "NY",
+      "topic": "split_shift_premium",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "split_shift_spread_of_hours",
+        "formula": "1 additional hour at basic minimum hourly wage when interval between start and end of workday exceeds 10 hours. Applies to all industries covered by NY wage orders."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.4 (Hospitality), §146-1.6 (Misc.)",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/cr142.pdf",
+          "section": "12 NYCRR §142-2.4"
+        }
+      ]
+    }
+  ]
+}

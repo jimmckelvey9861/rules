@@ -131,7 +131,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.1 minimum_wage — CA rule fires when rate too low
-  const caMinWage = RULES.find(r => r.topic === "minimum_wage" && r.jurisdiction === "CA" && r.id.includes("minimum-wage"));
+  const caMinWage = RULES.find(r => r.topic === "minimum_wage" && r.jurisdiction === "CA" && r.id.includes("minimum-wage") && !JSON.stringify(r.appliesWhen).includes("industry_tag"));
   if (caMinWage) {
     const fires = evaluateRule(caMinWage, {
       "location.state": "CA",
@@ -426,9 +426,11 @@ function level3_crossRuleConsistency() {
     const stateCondition = extractStateFromConditions(localRule.appliesWhen);
     if (!stateCondition) continue;
 
+    // General state floor only — industry-specific floors (e.g. CA fast food) are higher by design
     const stateRule = stateMinWageRules.find(r =>
       r.jurisdiction === stateCondition &&
-      r.result.type === "minimum_required_value"
+      r.result.type === "minimum_required_value" &&
+      !JSON.stringify(r.appliesWhen).includes("industry_tag")
     );
     if (!stateRule) continue;
 

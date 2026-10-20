@@ -1,0 +1,1229 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "predictive_scheduling",
+  "rules": [
+    {
+      "id": "chi-advance-notice-14day",
+      "title": "Chicago — 14-Day Advance Notice Required",
+      "jurisdiction": "Chicago",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "1 hour of pay per affected shift (schedule posted with less than 14 days notice)"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code §1-25 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code §1-25-050"
+        }
+      ]
+    },
+    {
+      "id": "chi-change-under14-subtracted",
+      "title": "Chicago — Schedule Change Premium (hours subtracted with <14 days notice)",
+      "jurisdiction": "Chicago",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "50% of pay for subtracted/cancelled hours (predictability pay)"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code §1-25-050 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code §1-25-050"
+        }
+      ]
+    },
+    {
+      "id": "chi-clopening-10hr",
+      "title": "Chicago — 10-Hour Rest Period",
+      "jurisdiction": "Chicago",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "clopening_premium",
+        "formula": "$100 per occurrence or 1.25x rate for hours within the rest period (whichever is greater)"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code §1-25-055 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code §1-25-055"
+        }
+      ]
+    },
+    {
+      "id": "la-advance-notice-14day",
+      "title": "Los Angeles — 14-Day Advance Notice Required (Retail)",
+      "jurisdiction": "Los Angeles",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.org/fair-work-week",
+          "section": "LAMC §187.04"
+        }
+      ]
+    },
+    {
+      "id": "la-clopening-10hr",
+      "title": "Los Angeles — 10-Hour Rest Period (Retail)",
+      "jurisdiction": "Los Angeles",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "clopening_premium",
+        "formula": "1.5x pay rate for hours worked within the 10-hour rest period"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.org/fair-work-week",
+          "section": "LAMC §187.06"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-advance-notice-14day",
+      "title": "NYC Fast Food — 14-Day Advance Notice Required",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Posting fast food employee schedules with less than 14 days advance notice"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1221 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1221"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-change-7-13day-premium",
+      "title": "NYC Fast Food — Schedule Change Premium (7-13 days notice)",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 7
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "$10 per schedule change (added hours or changed time with 7-13 days notice)"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1222(a) (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1222(a)"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-change-under7-added-premium",
+      "title": "NYC Fast Food — Schedule Change Premium (<7 days, hours added)",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 7
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "=",
+            "value": "hours_added"
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "$15 per schedule change (hours added with less than 7 days notice)"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1222(b) (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1222(b)"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-change-under7-subtracted-premium",
+      "title": "NYC Fast Food — Schedule Change Premium (<7 days, hours subtracted/cancelled)",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 7
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "$75 per schedule change (hours subtracted or shift cancelled with less than 7 days notice)"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1222(b) (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1222(b)"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-clopening-11hr",
+      "title": "NYC Fast Food — 11-Hour Rest Period (Clopening)",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 11
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "clopening_premium",
+        "formula": "$100 per clopening violation (scheduling closing and opening shifts less than 11 hours apart without written consent)"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1231 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1231"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-advance-notice-72hr",
+      "title": "NYC Retail — 72-Hour Advance Notice Required",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 20
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Posting retail employee schedules with less than 72 hours advance notice"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1241"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-on-call-ban",
+      "title": "NYC Retail — On-Call Scheduling Prohibited",
+      "jurisdiction": "New York City",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 20
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Requiring retail employees to be on-call (must schedule or not schedule; cannot require availability without pay)"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1243"
+        }
+      ]
+    },
+    {
+      "id": "or-advance-notice-14day",
+      "title": "Oregon — 14-Day Advance Notice Required",
+      "jurisdiction": "OR",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "1 hour of pay per shift for schedule posted with less than 14 days notice"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.455",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.455"
+        }
+      ]
+    },
+    {
+      "id": "or-change-under7-added",
+      "title": "Oregon — Schedule Change Premium (<7 days, hours added)",
+      "jurisdiction": "OR",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 7
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "=",
+            "value": "hours_added"
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "1 hour of pay at regular rate (hours added with less than 7 days notice)"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.455(4)(a)",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.455(4)(a)"
+        }
+      ]
+    },
+    {
+      "id": "or-change-under7-subtracted",
+      "title": "Oregon — Schedule Change Premium (<7 days, hours subtracted/cancelled)",
+      "jurisdiction": "OR",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 7
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "One-half of scheduled hours at regular rate (hours subtracted or shift cancelled with less than 7 days notice)"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.455(4)(b)",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.455(4)(b)"
+        }
+      ]
+    },
+    {
+      "id": "or-clopening-10hr",
+      "title": "Oregon — Right to Rest (10-Hour Gap)",
+      "jurisdiction": "OR",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "clopening_premium",
+        "formula": "1.5x pay rate for all hours worked within the 10-hour rest period"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.455(5)",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.455(5)"
+        }
+      ]
+    },
+    {
+      "id": "phl-advance-notice-14day",
+      "title": "Philadelphia — 14-Day Advance Notice Required",
+      "jurisdiction": "Philadelphia",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "$40 per schedule change (less than 14 days notice); $56 if less than 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code §9-4601 et seq. (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/departments/department-of-labor/workers-rights/fair-workweek/",
+          "section": "Phila. Code §9-4603"
+        }
+      ]
+    },
+    {
+      "id": "phl-clopening-9hr",
+      "title": "Philadelphia — 9-Hour Rest Period",
+      "jurisdiction": "Philadelphia",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 9
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Scheduling an employee to work with less than 9 hours rest between shifts without written consent"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code §9-4605 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/departments/department-of-labor/workers-rights/fair-workweek/",
+          "section": "Phila. Code §9-4605"
+        }
+      ]
+    },
+    {
+      "id": "sf-advance-notice-14day",
+      "title": "San Francisco — 14-Day Advance Notice Required",
+      "jurisdiction": "San Francisco",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "1-4 hours of pay depending on change type (predictability pay)"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Administrative Code Ch. 12Z (Formula Retail Employee Rights)",
+          "url": "https://sfgov.org/olse/formula-retail-employee-rights-ordinance",
+          "section": "SF Admin Code §12Z"
+        }
+      ]
+    },
+    {
+      "id": "sf-clopening-11hr",
+      "title": "San Francisco — Right to Rest (11-Hour Gap)",
+      "jurisdiction": "San Francisco",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 11
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "clopening_premium",
+        "formula": "1.25x pay rate for hours worked within the 11-hour rest period"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Administrative Code Ch. 12Z §12Z.6",
+          "url": "https://sfgov.org/olse/formula-retail-employee-rights-ordinance",
+          "section": "SF Admin Code §12Z.6"
+        }
+      ]
+    },
+    {
+      "id": "sea-advance-notice-14day",
+      "title": "Seattle — 14-Day Advance Notice Required",
+      "jurisdiction": "Seattle",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "1 hour of pay per shift for schedule posted with less than 14 days notice"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.045"
+        }
+      ]
+    },
+    {
+      "id": "sea-change-under14-subtracted",
+      "title": "Seattle — Schedule Change Premium (hours subtracted with <14 days notice)",
+      "jurisdiction": "Seattle",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "schedule_change_premium",
+        "formula": "50% of pay for subtracted/cancelled hours (predictability pay)"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.045"
+        }
+      ]
+    },
+    {
+      "id": "sea-clopening-10hr",
+      "title": "Seattle — 10-Hour Rest Period",
+      "jurisdiction": "Seattle",
+      "topic": "predictive_scheduling",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "clopening_premium",
+        "formula": "1.5x pay rate for hours worked within the 10-hour rest period"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.050"
+        }
+      ]
+    }
+  ]
+}

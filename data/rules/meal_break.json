@@ -1,0 +1,1911 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "meal_break",
+  "rules": [
+    {
+      "id": "ca-meal-break-first-5hr",
+      "title": "California First Meal Break (>5 hours)",
+      "jurisdiction": "CA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-scheduling-warning",
+      "title": "California — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "CA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "California requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-second-10hr",
+      "title": "California Second Meal Break (>10 hours)",
+      "jurisdiction": "CA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)"
+        }
+      ]
+    },
+    {
+      "id": "co-meal-break-5hr",
+      "title": "Colorado Meal Break (30 min for 5+ hr shift)",
+      "jurisdiction": "CO",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #40, Rule 5.2.1",
+          "url": "https://cdle.colorado.gov/wage-and-hour-law/meal-and-rest-periods"
+        }
+      ]
+    },
+    {
+      "id": "co-meal-break-scheduling-warning",
+      "title": "Colorado — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "CO",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Colorado requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "Colorado COMPS Order #39",
+          "url": "https://cdle.colorado.gov/comps-order",
+          "section": "7 CCR 1103-1 Rule 5.2"
+        }
+      ]
+    },
+    {
+      "id": "ct-meal-break-7.5hr",
+      "title": "Connecticut Meal Break (7.5+ consecutive hours)",
+      "jurisdiction": "CT",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2003-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "CT Gen. Stat. §31-51ii",
+          "url": "https://www.cga.ct.gov/current/pub/chap_558.htm#sec_31-51ii",
+          "section": "§31-51ii"
+        }
+      ]
+    },
+    {
+      "id": "ct-meal-break-scheduling-warning",
+      "title": "Connecticut — Meal Break Required (shifts > 7.5 hrs)",
+      "jurisdiction": "CT",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1990-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Connecticut requires a 30-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. §31-51ii",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm",
+          "section": "§31-51ii"
+        }
+      ]
+    },
+    {
+      "id": "de-meal-break-7.5hr",
+      "title": "Delaware Meal Break (30 min for 7.5+ hr shift)",
+      "jurisdiction": "DE",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. §707",
+          "url": "https://dia.delawareworks.com/labor-law/breaks.php"
+        }
+      ]
+    },
+    {
+      "id": "de-meal-break-scheduling-warning",
+      "title": "Delaware — Meal Break Required (shifts > 7.5 hrs)",
+      "jurisdiction": "DE",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1993-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Delaware requires a 30-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. §707",
+          "url": "https://delcode.delaware.gov/title19/c007/index.html",
+          "section": "19 Del. C. §707"
+        }
+      ]
+    },
+    {
+      "id": "il-meal-break-7.5hr",
+      "title": "Illinois Meal Break (20 min for 7.5+ hr shift)",
+      "jurisdiction": "IL",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 20
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140/3",
+          "url": "https://labor.illinois.gov/laws-rules/conmed/one-day-rest-in-seven-act.html",
+          "section": "820 ILCS 140/3"
+        }
+      ]
+    },
+    {
+      "id": "il-meal-break-scheduling-warning",
+      "title": "Illinois — Meal Break Required (shifts > 7.5 hrs)",
+      "jurisdiction": "IL",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Illinois requires a 20-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140/3",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
+          "section": "820 ILCS 140/3"
+        }
+      ]
+    },
+    {
+      "id": "ky-meal-break-5hr",
+      "title": "Kentucky Meal Break (30 min for 5+ hr shift)",
+      "jurisdiction": "KY",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "KRS §337.355",
+          "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx"
+        }
+      ]
+    },
+    {
+      "id": "ky-meal-break-scheduling-warning",
+      "title": "Kentucky — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "KY",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1974-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Kentucky requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "KRS §337.355",
+          "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=32207",
+          "section": "KRS §337.355"
+        }
+      ]
+    },
+    {
+      "id": "ma-meal-break-6hr",
+      "title": "Massachusetts Meal Break (30 min for 6+ hr shift)",
+      "jurisdiction": "MA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 §100",
+          "url": "https://www.mass.gov/info-details/massachusetts-law-about-meal-breaks",
+          "section": "c.149 §100"
+        }
+      ]
+    },
+    {
+      "id": "ma-meal-break-scheduling-warning",
+      "title": "Massachusetts — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "MA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1994-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Massachusetts requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 §100",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section100",
+          "section": "MGL c.149 §100"
+        }
+      ]
+    },
+    {
+      "id": "md-meal-break-retail-4hr",
+      "title": "Maryland Retail Break (15 min for 4-6 hour shift)",
+      "jurisdiction": "MD",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 15
+      },
+      "citations": [
+        {
+          "source": "MD Code, Labor & Employment §3-710",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
+          "section": "§3-710"
+        }
+      ]
+    },
+    {
+      "id": "md-meal-break-retail-6hr",
+      "title": "Maryland Retail Break (30 min for 6+ hour shift)",
+      "jurisdiction": "MD",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "MD Code, Labor & Employment §3-710",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
+          "section": "§3-710"
+        }
+      ]
+    },
+    {
+      "id": "md-meal-break-scheduling-warning",
+      "title": "Maryland — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "MD",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Maryland requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "Md. Code Lab. & Empl. §3-710",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-710",
+          "section": "§3-710"
+        }
+      ]
+    },
+    {
+      "id": "me-meal-break-6hr",
+      "title": "Maine Meal Break (30 min for 6+ hr shift)",
+      "jurisdiction": "ME",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "26 MRSA §601",
+          "url": "https://www.maine.gov/labor/labor_laws/rest_meal.html"
+        }
+      ]
+    },
+    {
+      "id": "me-meal-break-scheduling-warning",
+      "title": "Maine — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "ME",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Maine requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA §601",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec601.html",
+          "section": "26 MRSA §601"
+        }
+      ]
+    },
+    {
+      "id": "mn-meal-break-8hr",
+      "title": "Minnesota Meal Break (30 min for 8+ hr shift)",
+      "jurisdiction": "MN",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. §177.254",
+          "url": "https://www.dli.mn.gov/business/employment-practices/work-breaks-and-meal-time"
+        }
+      ]
+    },
+    {
+      "id": "mn-meal-break-scheduling-warning",
+      "title": "Minnesota — Meal Break Required (shifts > 8 hrs)",
+      "jurisdiction": "MN",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Minnesota requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. §177.254",
+          "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
+          "section": "Minn. Stat. §177.254"
+        }
+      ]
+    },
+    {
+      "id": "nd-meal-break-5hr",
+      "title": "North Dakota Meal Break (30 min for 5+ hr shift)",
+      "jurisdiction": "ND",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "NDAC §46-02-07-02(5)",
+          "url": "https://www.nd.gov/labor/meal-periods-and-rest-breaks"
+        }
+      ]
+    },
+    {
+      "id": "nd-meal-break-scheduling-warning",
+      "title": "North Dakota — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "ND",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1990-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "North Dakota requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "ND Admin Code §46-02-07-02",
+          "url": "https://www.nd.gov/labor/wage-and-hour",
+          "section": "NDAC §46-02-07-02"
+        }
+      ]
+    },
+    {
+      "id": "ne-meal-break-8hr",
+      "title": "Nebraska Meal Break (30 min for 8+ hr shift)",
+      "jurisdiction": "NE",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. §48-212",
+          "url": "https://dol.nebraska.gov/LaborStandards/FAQ/Breaks"
+        }
+      ]
+    },
+    {
+      "id": "ne-meal-break-scheduling-warning",
+      "title": "Nebraska — Meal Break Required (shifts > 8 hrs)",
+      "jurisdiction": "NE",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Nebraska requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. §48-212",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-212",
+          "section": "Neb. Rev. Stat. §48-212"
+        }
+      ]
+    },
+    {
+      "id": "nh-meal-break-5hr",
+      "title": "New Hampshire Meal Break (30 min for 5+ hr shift)",
+      "jurisdiction": "NH",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "NH RSA §275:30-a",
+          "url": "https://www.nh.gov/labor/inspection/wage-hour/breaks.htm"
+        }
+      ]
+    },
+    {
+      "id": "nh-meal-break-scheduling-warning",
+      "title": "New Hampshire — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "NH",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "New Hampshire requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "RSA §275:30-a",
+          "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275/275-30-a.htm",
+          "section": "RSA §275:30-a"
+        }
+      ]
+    },
+    {
+      "id": "nv-meal-break-8hr",
+      "title": "Nevada Meal Break (8+ hour continuous shift)",
+      "jurisdiction": "NV",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "NRS §608.019",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
+          "section": "NRS §608.019(1)"
+        }
+      ]
+    },
+    {
+      "id": "nv-meal-break-scheduling-warning",
+      "title": "Nevada — Meal Break Required (shifts > 8 hrs)",
+      "jurisdiction": "NV",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Nevada requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "NRS §608.019",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
+          "section": "NRS §608.019"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-evening",
+      "title": "New York Additional Evening Meal Break (shift past 7pm)",
+      "jurisdiction": "NY",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 20
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(3)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(3)"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-factory",
+      "title": "New York Meal Break — Factory (60 min noon break)",
+      "jurisdiction": "NY",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "manufacturing"
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 60
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(1)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(1)"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-nonfactory",
+      "title": "New York Meal Break — Non-Factory (>6 hr shift spanning noon)",
+      "jurisdiction": "NY",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "!=",
+            "value": "manufacturing"
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(2)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(2)"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-scheduling-warning",
+      "title": "New York — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "NY",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "New York requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "NY Lab. Law §162"
+        }
+      ]
+    },
+    {
+      "id": "or-meal-break-6hr",
+      "title": "Oregon Meal Break (30 min for 6+ hr shift)",
+      "jurisdiction": "OR",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "ORS §653.261",
+          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx"
+        }
+      ]
+    },
+    {
+      "id": "or-meal-break-scheduling-warning",
+      "title": "Oregon — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "OR",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Oregon requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0050",
+          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
+          "section": "OAR 839-020-0050"
+        }
+      ]
+    },
+    {
+      "id": "ri-meal-break-6hr",
+      "title": "Rhode Island Meal Break (20 min for 6+ hr shift)",
+      "jurisdiction": "RI",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 20
+      },
+      "citations": [
+        {
+          "source": "RI Gen. Laws §28-3-14",
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/breaks-and-lunches"
+        }
+      ]
+    },
+    {
+      "id": "ri-meal-break-scheduling-warning",
+      "title": "Rhode Island — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "RI",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Rhode Island requires a 20-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws §28-3-14",
+          "url": "https://law.justia.com/codes/rhode-island/title-28/chapter-28-3/section-28-3-14/",
+          "section": "R.I. Gen. Laws §28-3-14"
+        }
+      ]
+    },
+    {
+      "id": "tn-meal-break-6hr",
+      "title": "Tennessee Meal Break (30 min for 6+ hr shift)",
+      "jurisdiction": "TN",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code §50-2-103(h)",
+          "url": "https://www.tn.gov/workforce/employees/labor-laws/labor-laws-redirect/wages-breaks.html"
+        }
+      ]
+    },
+    {
+      "id": "tn-meal-break-scheduling-warning",
+      "title": "Tennessee — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "TN",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2005-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Tennessee requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code §50-2-103(h)",
+          "url": "https://law.justia.com/codes/tennessee/title-50/chapter-2/part-1/section-50-2-103/",
+          "section": "Tenn. Code §50-2-103(h)"
+        }
+      ]
+    },
+    {
+      "id": "vt-meal-break-6hr",
+      "title": "Vermont Meal Break (30 min for 6+ hr shift)",
+      "jurisdiction": "VT",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "21 VSA §304",
+          "url": "https://labor.vermont.gov/document/meal-break-fact-sheet"
+        }
+      ]
+    },
+    {
+      "id": "vt-meal-break-scheduling-warning",
+      "title": "Vermont — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "VT",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "1970-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Vermont requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. §304",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
+          "section": "21 V.S.A. §304"
+        }
+      ]
+    },
+    {
+      "id": "wa-meal-break-5hr",
+      "title": "Washington Meal Break (30 min for 5+ hr shift)",
+      "jurisdiction": "WA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 30
+      },
+      "citations": [
+        {
+          "source": "WAC §296-126-092",
+          "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods",
+          "section": "WAC §296-126-092"
+        }
+      ]
+    },
+    {
+      "id": "wa-meal-break-scheduling-warning",
+      "title": "Washington — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "WA",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2005-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "Washington requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-092",
+          "url": "https://lni.wa.gov/workers-rights/workplace-policies/rest-breaks",
+          "section": "WAC 296-126-092"
+        }
+      ]
+    },
+    {
+      "id": "wv-meal-break-6hr",
+      "title": "West Virginia Meal Break (20 min for 6+ hr shift)",
+      "jurisdiction": "WV",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "breakType": "meal",
+        "minimumMinutes": 20
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code §21-3-10a",
+          "url": "https://labor.wv.gov/Pages/Breaks-and-Meals.aspx"
+        }
+      ]
+    },
+    {
+      "id": "wv-meal-break-scheduling-warning",
+      "title": "West Virginia — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "WV",
+      "topic": "meal_break",
+      "status": "active",
+      "effectiveFrom": "2013-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "message": "West Virginia requires a 20-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code §21-3-10a",
+          "url": "https://www.wvlegislature.gov/wvcode/code.cfm?chap=21&art=3",
+          "section": "W. Va. Code §21-3-10a"
+        }
+      ]
+    }
+  ]
+}

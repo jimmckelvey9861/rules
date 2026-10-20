@@ -9,13 +9,19 @@
  * Usage: npm run test:new-rules
  */
 
-import { federalOvertime } from "./examples/federalOvertime.js";
-import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
-import { federalMinimumWage } from "./examples/federalMinimumWage.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
 import { isKnownFact, getCanonicalFacts, getEnumValues } from "./facts.js";
-import { RULES } from "./index.js";
+import { RULES, getRule } from "./index.js";
+
+function mustGetRule(id: string) {
+  const rule = getRule(id);
+  if (!rule) throw new Error(`Test fixture rule "${id}" is not loaded from data/rules`);
+  return rule;
+}
+const federalOvertime = mustGetRule("federal-overtime-weekly-40");
+const californiaDailyOvertime = mustGetRule("ca-daily-overtime-8");
+const federalMinimumWage = mustGetRule("federal-minimum-wage-7.25");
 import type { Scenario } from "./types.js";
 
 // ─── Test infrastructure ─────────────────────────────────────────────

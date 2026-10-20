@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rules-file.schema.json",
+  "title": "Rules file",
+  "description": "One file per topic under data/rules. Mirrors the Rule type in server/rules/types.ts; createRule() remains the authoritative validator (fact names, operator/type agreement, vague values).",
+  "type": "object",
+  "required": ["topic", "rules"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "topic": { "type": "string", "description": "Legacy topic string or taxonomy code; every rule in the file must carry the same topic" },
+    "rules": { "type": "array", "items": { "$ref": "#/$defs/rule" } }
+  },
+  "$defs": {
+    "isoDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "comparison": {
+      "type": "object",
+      "required": ["fact", "op", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "fact": { "type": "string", "description": "A path registered in server/rules/facts.ts" },
+        "op": { "enum": ["=", "!=", ">", ">=", "<", "<=", "in", "not_in"] },
+        "value": {
+          "oneOf": [
+            { "type": "string" }, { "type": "number" }, { "type": "boolean" },
+            { "type": "array", "items": { "type": "string" } },
+            { "type": "array", "items": { "type": "number" } }
+          ]
+        }
+      }
+    },
+    "condition": {
+      "oneOf": [
+        { "$ref": "#/$defs/comparison" },
+        { "type": "object", "required": ["all"], "additionalProperties": false, "properties": { "all": { "type": "array", "items": { "$ref": "#/$defs/condition" } } } },
+        { "type": "object", "required": ["any"], "additionalProperties": false, "properties": { "any": { "type": "array", "items": { "$ref": "#/$defs/condition" } } } },
+        { "type": "object", "required": ["not"], "additionalProperties": false, "properties": { "not": { "$ref": "#/$defs/condition" } } }
+      ]
+    },
+    "result": {
+      "oneOf": [
+        { "type": "object", "required": ["type", "targetFact", "minimum", "unit"], "properties": { "type": { "const": "minimum_required_value" }, "targetFact": { "type": "string" }, "minimum": { "type": "number" }, "unit": { "type": "string" } } },
+        { "type": "object", "required": ["type", "breakType", "minimumMinutes"], "properties": { "type": { "const": "required_break" }, "breakType": { "type": "string" }, "minimumMinutes": { "type": "number", "exclusiveMinimum": 0 } } },
+        { "type": "object", "required": ["type", "premiumType"], "properties": { "type": { "const": "premium_required" }, "premiumType": { "type": "string" }, "amount": { "type": "number" }, "formula": { "type": "string" } } },
+        { "type": "object", "required": ["type", "prohibitedAction"], "properties": { "type": { "const": "prohibition" }, "prohibitedAction": { "type": "string" } } },
+        { "type": "object", "required": ["type", "message"], "properties": { "type": { "const": "warning" }, "message": { "type": "string" } } }
+      ]
+    },
+    "citation": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {
+        "source": { "type": "string", "description": "Formal cite or document name" },
+        "url": { "type": "string", "format": "uri" },
+        "section": { "type": "string" }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "required": ["id", "title", "jurisdiction", "topic", "effectiveFrom", "appliesWhen", "result", "citations", "status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string" },
+        "jurisdiction": { "type": "string", "description": "A ruleKey from data/jurisdictions.json" },
+        "topic": { "type": "string", "description": "A legacy topic or taxonomy code from data/taxonomy.json" },
+        "status": { "enum": ["active", "draft", "repealed", "pending"] },
+        "effectiveFrom": { "$ref": "#/$defs/isoDate" },
+        "effectiveTo": { "$ref": "#/$defs/isoDate" },
+        "appliesWhen": { "$ref": "#/$defs/condition" },
+        "result": { "$ref": "#/$defs/result" },
+        "citations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/citation" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "premium_pay",
+  "rules": [
+    {
+      "id": "ny-spread-of-hours",
+      "title": "New York Spread of Hours Pay (>10 hr span = +1 hr at min wage)",
+      "jurisdiction": "NY",
+      "topic": "premium_pay",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "spread_of_hours",
+        "amount": 1,
+        "formula": "1 additional hour at the applicable minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.4",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.4"
+        }
+      ]
+    }
+  ]
+}

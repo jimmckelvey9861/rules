@@ -1,0 +1,847 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "warn_act",
+  "rules": [
+    {
+      "id": "ca-warn-act",
+      "title": "California Mini-WARN Act (60-day notice, 75+ employees)",
+      "jurisdiction": "CA",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2003-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 75
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "California requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees."
+      },
+      "citations": [
+        {
+          "source": "Cal-WARN Act",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=LAB&division=2.&title=&part=4.&chapter=4.&article=",
+          "section": "Cal. Labor Code §1400-1408"
+        }
+      ]
+    },
+    {
+      "id": "ct-warn-act",
+      "title": "Connecticut Mini-WARN Act (90-day notice, 100+ employees)",
+      "jurisdiction": "CT",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1985-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Connecticut requires 90 days advance written notice before plant closing or mass layoff affecting 100+ employees. Requires continuation of group health insurance for 120 days."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. §31-51n",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm",
+          "section": "§31-51n"
+        }
+      ]
+    },
+    {
+      "id": "federal-warn-act-60day",
+      "title": "Federal WARN Act — 60-Day Notice Requirement",
+      "jurisdiction": "Federal",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1989-02-04",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.country",
+            "op": "=",
+            "value": "US"
+          },
+          {
+            "fact": "employer.total_employees_at_location",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "termination.notice_days_given",
+            "op": "<",
+            "value": 60
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Mass layoff or plant closing without 60 calendar days advance written notice to affected employees"
+      },
+      "citations": [
+        {
+          "source": "Worker Adjustment and Retraining Notification Act, 29 U.S.C. §2102",
+          "url": "https://www.law.cornell.edu/uscode/text/29/2102",
+          "section": "29 U.S.C. §2102"
+        }
+      ]
+    },
+    {
+      "id": "ga-warn-act",
+      "title": "Georgia Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "GA",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1993-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Georgia requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Requires filing with GA DOL Commissioner."
+      },
+      "citations": [
+        {
+          "source": "Ga. Code §34-6-1",
+          "url": "https://law.justia.com/codes/georgia/title-34/chapter-6/",
+          "section": "§34-6-1 et seq."
+        }
+      ]
+    },
+    {
+      "id": "hi-warn-act",
+      "title": "Hawaii Mini-WARN Act (60-day notice, 50+ employees)",
+      "jurisdiction": "HI",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1987-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Hawaii requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Lower threshold than federal (50 vs 100). Covers partial closings."
+      },
+      "citations": [
+        {
+          "source": "HRS §394B",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0394B/",
+          "section": "HRS §394B-9"
+        }
+      ]
+    },
+    {
+      "id": "ia-warn-act",
+      "title": "Iowa Mini-WARN Act (30-day notice, 25+ employees)",
+      "jurisdiction": "IA",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1990-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Iowa requires 30 days advance written notice before plant closing or mass layoff affecting 25+ employees. Very low threshold (25 employees). 30-day notice."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code §84C",
+          "url": "https://www.legis.iowa.gov/law/iowaCode/sections?codeChapter=84C",
+          "section": "Iowa Code §84C.1-84C.6"
+        }
+      ]
+    },
+    {
+      "id": "il-warn-act",
+      "title": "Illinois Mini-WARN Act (60-day notice, 75+ employees)",
+      "jurisdiction": "IL",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2005-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 75
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Illinois requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees. Lower threshold than federal (75 vs 100)."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 65 (IL WARN)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2588",
+          "section": "820 ILCS 65/1 et seq."
+        }
+      ]
+    },
+    {
+      "id": "ks-warn-act",
+      "title": "Kansas Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "KS",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Kansas requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Secretary of Human Resources required."
+      },
+      "citations": [
+        {
+          "source": "K.S.A. §44-616",
+          "url": "https://www.ksrevisor.org/statutes/chapters/ch44/044_006_0016.html",
+          "section": "K.S.A. §44-616"
+        }
+      ]
+    },
+    {
+      "id": "ma-warn-act",
+      "title": "Massachusetts Mini-WARN Act (90-day notice, 50+ employees)",
+      "jurisdiction": "MA",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1984-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Massachusetts requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50). Includes reemployment assistance."
+      },
+      "citations": [
+        {
+          "source": "MGL c.151A §71A-71G",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151A/Section71A",
+          "section": "MGL c.151A §71A"
+        }
+      ]
+    },
+    {
+      "id": "md-warn-act",
+      "title": "Maryland Mini-WARN Act (60-day notice, 50+ employees)",
+      "jurisdiction": "MD",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2020-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Maryland requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Economic Stabilization Act. Covers relocations. Threshold: 50 employees."
+      },
+      "citations": [
+        {
+          "source": "Md. Code Lab. & Empl. §11-301",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=11-301",
+          "section": "§11-301 et seq."
+        }
+      ]
+    },
+    {
+      "id": "me-warn-act",
+      "title": "Maine Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "ME",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Maine requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Severance pay required: 1 week per year of service for 3+ year employees."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA §625-B",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec625-B.html",
+          "section": "26 MRSA §625-B"
+        }
+      ]
+    },
+    {
+      "id": "mi-warn-act",
+      "title": "Michigan Mini-WARN Act (60-day notice, 25+ employees)",
+      "jurisdiction": "MI",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Michigan requires 60 days advance written notice before plant closing or mass layoff affecting 25+ employees. Very low threshold (25 employees). Notification to state workforce agency."
+      },
+      "citations": [
+        {
+          "source": "MCL §450.731 et seq.",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=MCL-450-731",
+          "section": "MCL §450.731-450.737"
+        }
+      ]
+    },
+    {
+      "id": "mn-warn-act",
+      "title": "Minnesota Mini-WARN Act (60-day notice, 50+ employees)",
+      "jurisdiction": "MN",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Minnesota requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Covers closings and substantial layoffs (50+ employees)."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. §116L.976",
+          "url": "https://www.revisor.mn.gov/statutes/cite/116L.976",
+          "section": "Minn. Stat. §116L.976"
+        }
+      ]
+    },
+    {
+      "id": "nh-warn-act",
+      "title": "New Hampshire Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "NH",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1989-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "New Hampshire requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees."
+      },
+      "citations": [
+        {
+          "source": "RSA §275-F",
+          "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275-F/275-F-mrg.htm",
+          "section": "RSA §275-F:1 et seq."
+        }
+      ]
+    },
+    {
+      "id": "nj-warn-act",
+      "title": "New Jersey Mini-WARN Act (90-day notice, 100+ employees)",
+      "jurisdiction": "NJ",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2020-07-19",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "New Jersey requires 90 days advance written notice before plant closing or mass layoff affecting 100+ employees. 90-day notice (longer than federal). Severance pay: 1 week per year of service."
+      },
+      "citations": [
+        {
+          "source": "NJ WARN Act (N.J.S.A. 34:21-1)",
+          "url": "https://www.nj.gov/labor/worker-protections/earnedsick/law.shtml",
+          "section": "N.J.S.A. 34:21-1 et seq."
+        }
+      ]
+    },
+    {
+      "id": "ny-warn-act",
+      "title": "New York Mini-WARN Act (90-day notice, 50+ employees)",
+      "jurisdiction": "NY",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2009-02-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "New York requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50 employees in prior 12 months)."
+      },
+      "citations": [
+        {
+          "source": "NY WARN Act (Labor Law §860)",
+          "url": "https://dol.ny.gov/warn-act",
+          "section": "NY Labor Law §860-860-i"
+        }
+      ]
+    },
+    {
+      "id": "oh-warn-act",
+      "title": "Ohio Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "OH",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Ohio requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Director of Job and Family Services."
+      },
+      "citations": [
+        {
+          "source": "ORC §4141.28",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4141.28",
+          "section": "ORC §4141.28(C)"
+        }
+      ]
+    },
+    {
+      "id": "or-warn-act",
+      "title": "Oregon Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "OR",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Oregon requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Dislocated Worker Unit. Covers relocations 100+ miles."
+      },
+      "citations": [
+        {
+          "source": "ORS §285B.500",
+          "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors285B.html",
+          "section": "ORS §285B.500-285B.524"
+        }
+      ]
+    },
+    {
+      "id": "pa-warn-act",
+      "title": "Pennsylvania Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "PA",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Pennsylvania requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to PA Dept of Labor & Industry."
+      },
+      "citations": [
+        {
+          "source": "73 P.S. §1851 et seq.",
+          "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/uconsCheck.cfm?yr=1988&sessInd=0&act=0180",
+          "section": "73 P.S. §1851-1855"
+        }
+      ]
+    },
+    {
+      "id": "sc-warn-act",
+      "title": "South Carolina Mini-WARN Act (60-day notice, 100+ employees)",
+      "jurisdiction": "SC",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "South Carolina requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to SC Dept of Employment and Workforce."
+      },
+      "citations": [
+        {
+          "source": "S.C. Code §41-1-40",
+          "url": "https://www.scstatehouse.gov/code/t41c001.php",
+          "section": "S.C. Code §41-1-40"
+        }
+      ]
+    },
+    {
+      "id": "tn-warn-act",
+      "title": "Tennessee Mini-WARN Act (60-day notice, 50+ employees)",
+      "jurisdiction": "TN",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1989-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Tennessee requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Lower threshold (50 employees). Notification to Commissioner of Labor."
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code §50-1-602",
+          "url": "https://law.justia.com/codes/tennessee/title-50/chapter-1/part-6/",
+          "section": "Tenn. Code §50-1-601 et seq."
+        }
+      ]
+    },
+    {
+      "id": "wi-warn-act",
+      "title": "Wisconsin Mini-WARN Act (60-day notice, 50+ employees)",
+      "jurisdiction": "WI",
+      "topic": "warn_act",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "fact": "termination.is_mass_layoff",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "prohibitedAction": "Wisconsin requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Business Closing and Mass Layoff Law. Threshold: 50 employees."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. §109.07",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/109/07",
+          "section": "Wis. Stat. §109.07"
+        }
+      ]
+    }
+  ]
+}

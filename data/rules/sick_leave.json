@@ -1,0 +1,1026 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sick_leave",
+  "rules": [
+    {
+      "id": "az-sick-leave",
+      "title": "Arizona Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "AZ",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "ARS §23-372 (Prop 206)",
+          "url": "https://www.azleg.gov/ars/23/00372.htm"
+        }
+      ]
+    },
+    {
+      "id": "az-sick-leave-small",
+      "title": "Arizona Paid Sick Leave — <15 employees (1 hr per 30 hrs, up to 24 hrs/yr)",
+      "jurisdiction": "AZ",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 24,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "ARS §23-372 (Prop 206)",
+          "url": "https://www.azleg.gov/ars/23/00372.htm"
+        }
+      ]
+    },
+    {
+      "id": "ca-sick-leave",
+      "title": "California Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "CA",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "Lab. Code §246"
+        }
+      ]
+    },
+    {
+      "id": "chicago-sick-leave",
+      "title": "Chicago Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
+      "jurisdiction": "Chicago",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 40,
+        "unit": "hours/year (accrued at 1 hr per 40 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paid-leave-702.html",
+          "section": "MCC §1-24-045"
+        }
+      ]
+    },
+    {
+      "id": "co-sick-leave",
+      "title": "Colorado Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
+      "jurisdiction": "CO",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 48,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "CO HFWA §8-13.3-403",
+          "url": "https://cdle.colorado.gov/paid-leave",
+          "section": "§8-13.3-403"
+        }
+      ]
+    },
+    {
+      "id": "ct-sick-leave",
+      "title": "CT Paid Sick Leave (1 hr / 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "CT",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "CT Gen. Stat. §31-57s",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-57s",
+          "section": "§31-57s"
+        }
+      ]
+    },
+    {
+      "id": "dc-sick-leave",
+      "title": "DC Accrued Sick and Safe Leave (1 hr per 37 hrs, up to 7 days/yr)",
+      "jurisdiction": "DC",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2008-11-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 56,
+        "unit": "hours per year (accrued at 1 hr per 37 hrs worked; 100+ employees = 7 days; 25-99 = 5 days; 1-24 = 3 days)"
+      },
+      "citations": [
+        {
+          "source": "DC Accrued Sick and Safe Leave Act",
+          "url": "https://does.dc.gov/service/accrued-sick-and-safe-leave-act",
+          "section": "DC Code §32-531.01 et seq."
+        }
+      ]
+    },
+    {
+      "id": "denver-sick-leave",
+      "title": "Denver Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Denver",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2022-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Denver"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 48,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Denver Paid Sick & Safe Leave (HFWA local enforcement)",
+          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Auditors-Office/Denver-Workplace-Rights-and-Protections",
+          "section": "Denver DRMC §58-11 et seq."
+        }
+      ]
+    },
+    {
+      "id": "il-sick-leave",
+      "title": "Illinois Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "IL",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 192 (PSLAA)",
+          "url": "https://labor.illinois.gov/laws-rules/conmed/paid-leave-for-all-workers-act.html"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-sick-leave",
+      "title": "Los Angeles Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Los Angeles",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2016-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 48,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Paid Sick Leave Ordinance",
+          "url": "https://wagesla.lacity.org/",
+          "section": "LAMC §187.00 et seq."
+        }
+      ]
+    },
+    {
+      "id": "ma-sick-leave",
+      "title": "Massachusetts Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "MA",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2015-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 §148C",
+          "url": "https://www.mass.gov/info-details/earned-sick-time",
+          "section": "c.149 §148C"
+        }
+      ]
+    },
+    {
+      "id": "md-sick-leave-paid",
+      "title": "MD Paid Sick & Safe Leave — 15+ employees (1 hr / 30 hrs, up to 64 hrs/yr)",
+      "jurisdiction": "MD",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-02-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 64,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "MD Healthy Working Families Act, Labor & Empl. §3-1304",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
+          "section": "§3-1304"
+        }
+      ]
+    },
+    {
+      "id": "md-sick-leave-unpaid",
+      "title": "MD Unpaid Sick & Safe Leave — <15 employees (1 hr / 30 hrs, up to 64 hrs/yr)",
+      "jurisdiction": "MD",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-02-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 64,
+        "unit": "hours per year unpaid (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "MD Healthy Working Families Act, Labor & Empl. §3-1304",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
+          "section": "§3-1304"
+        }
+      ]
+    },
+    {
+      "id": "me-sick-leave",
+      "title": "Maine Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "ME",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "26 MRSA §637",
+          "url": "https://www.maine.gov/labor/labor_laws/earned_paid_leave.html"
+        }
+      ]
+    },
+    {
+      "id": "mi-sick-leave",
+      "title": "Michigan Paid Sick Leave (1 hr per 35 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "MI",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2019-03-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 35 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "MCL §408.963 (IWOWA)",
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/paid-medical-leave"
+        }
+      ]
+    },
+    {
+      "id": "minneapolis-sick-leave",
+      "title": "Minneapolis Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Minneapolis",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Minneapolis"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 48,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Minneapolis Sick & Safe Time Ordinance",
+          "url": "https://www.minneapolismn.gov/government/government-data/datasource/sick-safe-time/",
+          "section": "MCO §40.220"
+        }
+      ]
+    },
+    {
+      "id": "mn-sick-leave",
+      "title": "Minnesota Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
+      "jurisdiction": "MN",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 48,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. §181.9447",
+          "url": "https://www.dli.mn.gov/sick-and-safe-time"
+        }
+      ]
+    },
+    {
+      "id": "montgomery-county-sick-leave",
+      "title": "Montgomery County Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
+      "jurisdiction": "Montgomery County",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2016-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Montgomery County"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 56,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Montgomery County Earned Sick & Safe Leave Law",
+          "url": "https://www.montgomerycountymd.gov/humanrights/Resources/Files/EarnedSickandSafeLeave_EmployeeNotice.pdf",
+          "section": "MCC §27-76 et seq."
+        }
+      ]
+    },
+    {
+      "id": "new-york-city-sick-leave",
+      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
+      "jurisdiction": "New York City",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 56,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
+          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
+          "section": "NYC Admin Code §20-911 et seq."
+        }
+      ]
+    },
+    {
+      "id": "nj-sick-leave",
+      "title": "NJ Earned Sick Leave (1 hr / 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "NJ",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-10-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per benefit year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "NJSA §34:11D-1 et seq.",
+          "url": "https://www.nj.gov/labor/worker-protections/earnedsick/law.shtml",
+          "section": "§34:11D-2"
+        }
+      ]
+    },
+    {
+      "id": "nm-sick-leave",
+      "title": "New Mexico Paid Sick Leave (1 hr per 30 hrs worked, up to 64 hrs/yr)",
+      "jurisdiction": "NM",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2022-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 64,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "NMSA §50-17-1 (HWA)",
+          "url": "https://www.dws.state.nm.us/healthyworkplaces"
+        }
+      ]
+    },
+    {
+      "id": "nv-paid-leave",
+      "title": "NV Paid Leave — 50+ employees (0.01923 hrs/hr worked, up to 40 hrs/yr)",
+      "jurisdiction": "NV",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per benefit year (accrued at 0.01923 hrs per hr worked)"
+      },
+      "citations": [
+        {
+          "source": "NRS §608.0197 (SB 312)",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0197",
+          "section": "NRS §608.0197"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-leave-100-plus",
+      "title": "NY Paid Sick Leave — 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
+      "jurisdiction": "NY",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 56,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "§196-b(1)(c)"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-leave-5-99",
+      "title": "NY Paid Sick Leave — 5-99 employees (1 hr / 30 hrs, up to 40 hrs/yr)",
+      "jurisdiction": "NY",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 100
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "§196-b(1)(b)"
+        }
+      ]
+    },
+    {
+      "id": "or-sick-leave",
+      "title": "Oregon Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "OR",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2016-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "ORS §653.601",
+          "url": "https://www.oregon.gov/boli/workers/pages/sick-time.aspx"
+        }
+      ]
+    },
+    {
+      "id": "philadelphia-sick-leave",
+      "title": "Philadelphia Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
+      "jurisdiction": "Philadelphia",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2015-05-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 40,
+        "unit": "hours/year (accrued at 1 hr per 40 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Promoting Healthy Families & Workplaces Ordinance",
+          "url": "https://www.phila.gov/departments/department-of-labor/worker-protections/paid-sick-leave/",
+          "section": "Phila. Code §9-4100 et seq."
+        }
+      ]
+    },
+    {
+      "id": "ri-sick-leave",
+      "title": "Rhode Island Paid Sick Leave (1 hr per 35 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "RI",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 35 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "RI Gen. Laws §28-57-4",
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/healthy-and-safe-families-and-workplaces-act"
+        }
+      ]
+    },
+    {
+      "id": "san-francisco-sick-leave",
+      "title": "San Francisco Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
+      "jurisdiction": "San Francisco",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2007-02-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 72,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Paid Sick Leave Ordinance",
+          "url": "https://sfgov.org/olse/paid-sick-leave-ordinance-pslo",
+          "section": "SF Admin Code Ch. 12W"
+        }
+      ]
+    },
+    {
+      "id": "seattle-sick-leave",
+      "title": "Seattle Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
+      "jurisdiction": "Seattle",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2012-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.sick_hours_accrued",
+        "minimum": 72,
+        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "Seattle Paid Sick & Safe Time Ordinance",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/paid-sick-and-safe-time",
+          "section": "SMC 14.16"
+        }
+      ]
+    },
+    {
+      "id": "vt-sick-leave",
+      "title": "Vermont Paid Sick Leave (1 hr per 52 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "VT",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 52 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "21 VSA §483",
+          "url": "https://labor.vermont.gov/document/earned-sick-time-faqs"
+        }
+      ]
+    },
+    {
+      "id": "wa-sick-leave",
+      "title": "Washington Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "WA",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "leave.hours_accrued",
+        "minimum": 40,
+        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+      },
+      "citations": [
+        {
+          "source": "RCW §49.46.210 (I-1433)",
+          "url": "https://lni.wa.gov/workers-rights/leave/paid-sick-leave",
+          "section": "RCW §49.46.210"
+        }
+      ]
+    }
+  ]
+}

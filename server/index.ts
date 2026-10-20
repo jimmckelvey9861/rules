@@ -3,6 +3,8 @@ import cors from "cors";
 import { RULES, SKIPPED, evaluateRules, getAllFacts } from "./rules/index.js";
 import { schedulerRouter } from "./scheduler/index.js";
 import { buildCoverageMatrix, summarizeCoverage, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./rules/coverageMatrix.js";
+import { TAXONOMY, getAllTaxonomyNodes } from "./reference/taxonomy.js";
+import { JURISDICTIONS_FILE, getJurisdictionChain } from "./reference/jurisdictions.js";
 import type { Scenario } from "./rules/types.js";
 
 const app = express();
@@ -91,6 +93,28 @@ app.get("/api/coverage", (_req, res) => {
   const matrix = buildCoverageMatrix(RULES);
   const summary = summarizeCoverage(matrix);
   res.json({ states: ALL_STATES, locals: ALL_LOCALS, topics: ALL_TOPICS, summary, matrix });
+});
+
+// ─── Reference Data API ────────────────────────────────────────────
+
+// GET /api/taxonomy — the category > topic > sub-topic tree plus a flat node list
+app.get("/api/taxonomy", (_req, res) => {
+  res.json({ version: TAXONOMY.version, categories: TAXONOMY.categories, nodes: getAllTaxonomyNodes() });
+});
+
+// GET /api/jurisdictions — every jurisdiction record with parent links and preemption flags
+app.get("/api/jurisdictions", (_req, res) => {
+  res.json(JURISDICTIONS_FILE);
+});
+
+// GET /api/jurisdictions/:key/chain — a jurisdiction (by id or ruleKey) and its ancestors, nearest first
+app.get("/api/jurisdictions/:key/chain", (req, res) => {
+  const chain = getJurisdictionChain(req.params.key);
+  if (chain.length === 0) {
+    res.status(404).json({ error: `Unknown jurisdiction: ${req.params.key}` });
+    return;
+  }
+  res.json(chain);
 });
 
 // ─── Scheduler API ─────────────────────────────────────────────────

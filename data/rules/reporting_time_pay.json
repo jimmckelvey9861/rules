@@ -1,0 +1,549 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "reporting_time_pay",
+  "rules": [
+    {
+      "id": "ca-reporting-time-pay",
+      "title": "California Reporting Time Pay (half scheduled shift, min 2 hrs, max 4 hrs)",
+      "jurisdiction": "CA",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "formula": "Half the scheduled shift hours at regular rate (minimum 2 hours, maximum 4 hours)"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §5(A)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§5(A) Reporting Time Pay"
+        }
+      ]
+    },
+    {
+      "id": "ca-reporting-time-pay-second",
+      "title": "California Second Reporting Time Pay (minimum 2 hours)",
+      "jurisdiction": "CA",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 2
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "amount": 2,
+        "formula": "Pay for minimum 2 hours at regular rate for second reporting in one workday"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §5(B)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§5(B) Reporting Time Pay — Second Report"
+        }
+      ]
+    },
+    {
+      "id": "ct-reporting-time-pay",
+      "title": "Connecticut Reporting Time Pay (minimum 4 hours)",
+      "jurisdiction": "CT",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2003-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "amount": 4,
+        "formula": "Pay for minimum 4 hours at minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "CT Regs. §31-62-D1",
+          "url": "https://www.ctdol.state.ct.us/wgwkstnd/laws-regs/statute31-62.htm",
+          "section": "§31-62-D1"
+        }
+      ]
+    },
+    {
+      "id": "dc-reporting-time-pay",
+      "title": "DC Reporting Time Pay (4 hours minimum)",
+      "jurisdiction": "DC",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "1993-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "shift.paid_hours",
+        "minimum": 4,
+        "unit": "hours at minimum wage when employee reports but is sent home"
+      },
+      "citations": [
+        {
+          "source": "DC Mun. Regs. 7-907",
+          "url": "https://www.dol.dc.gov/page/office-wage-hour-compliance",
+          "section": "7 DCMR §907"
+        }
+      ]
+    },
+    {
+      "id": "ma-reporting-time-pay",
+      "title": "Massachusetts Reporting Time Pay (minimum 3 hours)",
+      "jurisdiction": "MA",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.scheduled_hours",
+            "op": ">=",
+            "value": 3
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "amount": 3,
+        "formula": "Pay for minimum 3 hours at minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "454 CMR 27.04(1)",
+          "url": "https://www.mass.gov/info-details/454-cmr-2700-minimum-wage",
+          "section": "454 CMR 27.04(1)"
+        }
+      ]
+    },
+    {
+      "id": "nh-reporting-time-pay",
+      "title": "New Hampshire Reporting Time Pay (minimum 2 hours)",
+      "jurisdiction": "NH",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 2
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "amount": 2,
+        "formula": "Pay for minimum 2 hours at regular rate"
+      },
+      "citations": [
+        {
+          "source": "NH RSA §275:43-a",
+          "url": "https://www.nh.gov/labor/inspection/wage-hour/minimum-wage.htm",
+          "section": "RSA §275:43-a"
+        }
+      ]
+    },
+    {
+      "id": "nj-reporting-time-pay",
+      "title": "New Jersey Reporting Time Pay (1 hour minimum)",
+      "jurisdiction": "NJ",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "1966-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "targetFact": "shift.paid_hours",
+        "minimum": 1,
+        "unit": "hours at minimum wage when employee reports but is sent home"
+      },
+      "citations": [
+        {
+          "source": "N.J.A.C. 12:56-5.5",
+          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/wageandhourlaws.shtml",
+          "section": "N.J.A.C. 12:56-5.5"
+        }
+      ]
+    },
+    {
+      "id": "ny-call-in-pay",
+      "title": "New York Call-In Pay (minimum 4 hours)",
+      "jurisdiction": "NY",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "call_in_pay",
+        "amount": 4,
+        "formula": "Pay for minimum 4 hours (or scheduled hours if less) at applicable minimum wage"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.3",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.3"
+        }
+      ]
+    },
+    {
+      "id": "ny-call-in-pay-oncall",
+      "title": "New York Call-In Pay — On-Call Employee (minimum 4 hours)",
+      "jurisdiction": "NY",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "call_in_pay",
+        "amount": 4,
+        "formula": "Pay for minimum 4 hours at applicable minimum wage when called in from on-call status"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.3",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.3"
+        }
+      ]
+    },
+    {
+      "id": "or-reporting-time-pay",
+      "title": "Oregon Reporting Time Pay (half scheduled shift, min 1 hr)",
+      "jurisdiction": "OR",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "formula": "Half the scheduled shift at regular rate (minimum 1 hour)"
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0041",
+          "url": "https://www.oregon.gov/boli/workers/pages/reporting-time-pay.aspx",
+          "section": "OAR 839-020-0041"
+        }
+      ]
+    },
+    {
+      "id": "ri-reporting-time-pay",
+      "title": "Rhode Island Reporting Time Pay (3 hrs if scheduled 8+)",
+      "jurisdiction": "RI",
+      "topic": "reporting_time_pay",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.scheduled_hours",
+            "op": ">=",
+            "value": 8
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "premiumType": "reporting_time_pay",
+        "amount": 3,
+        "formula": "Pay for minimum 3 hours at regular rate when scheduled for 8+ hours"
+      },
+      "citations": [
+        {
+          "source": "RI Gen. Laws §28-3-4",
+          "url": "https://dlt.ri.gov/individuals/workplace-protections/reporting-pay",
+          "section": "§28-3-4"
+        }
+      ]
+    }
+  ]
+}
