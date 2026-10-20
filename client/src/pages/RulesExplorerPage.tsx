@@ -310,24 +310,27 @@ export function RulesExplorerPage() {
   return (
     <div className="h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white border-b px-6 py-4 flex-shrink-0">
+      <header className="bg-white border-b border-gray-200 px-6 py-4 flex-shrink-0 shadow-xs">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Employment Law Rules Engine</h1>
-            <p className="text-sm text-gray-500 mt-1">
-              {rules.length} rules · {canonicalFacts.length} facts · {topics.length} topics · {jurisdictions.length} jurisdictions
-            </p>
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand text-white font-bold text-xl shadow-sm">§</div>
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900">Employment Law Rules Engine</h1>
+              <p className="text-sm text-gray-500 mt-0.5">
+                {rules.length} rules · {canonicalFacts.length} facts · {topics.length} topics · {jurisdictions.length} jurisdictions
+              </p>
+            </div>
           </div>
-          <a href="/scheduler" className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700">
-            Schedule Builder →
+          <a href="/workbench" className="btn-primary">
+            Compliance Workbench →
           </a>
         </div>
-        <div className="flex gap-1 mt-4">
+        <div className="flex gap-1 mt-5">
           {(["matrix", "list", "tester"] as ViewMode[]).map(v => (
             <button
               key={v}
               onClick={() => setView(v)}
-              className={`px-4 py-2 text-sm font-medium rounded-t ${view === v ? "bg-white border border-b-0 text-gray-900" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+              className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors ${view === v ? "bg-brand-50 text-brand-700" : "text-gray-500 hover:bg-gray-100 hover:text-gray-700"}`}
             >
               {v === "matrix" ? "Coverage Matrix" : v === "list" ? "Rule List" : "Scenario Tester"}
             </button>
@@ -358,8 +361,20 @@ export function RulesExplorerPage() {
 // Matrix View — Law Taxonomy rows × Location Ontology columns
 // ═══════════════════════════════════════════════════════════════════════
 
+interface CoverageData {
+  states: string[];
+  topics: string[];
+  summary: { total_cells: number; has_rule: number; no_law: number; not_checked: number; coverage_percent: number };
+  matrix: Record<string, Record<string, { status: "has_rule" | "no_law" | "not_checked" }>>;
+}
+
 function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: string) => void }) {
   const [populatedOnly, setPopulatedOnly] = useState(true);
+  const [coverage, setCoverage] = useState<CoverageData | null>(null);
+
+  useEffect(() => {
+    fetch("/api/coverage").then(r => r.json()).then(setCoverage).catch(() => {});
+  }, []);
 
   // Build lookup: for each (taxonomyRow, locationCol) → matching rules
   const cellMap = useMemo(() => {
@@ -425,6 +440,20 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
     });
   }, [populatedOnly, populatedCols]);
 
+  // Helper: look up coverage status for an empty cell
+  function getCoverageStatus(row: TaxonomyRow, col: LocationColumn): "no_law" | "not_checked" | null {
+    if (!coverage || row.level === 0) return null;
+    // Map the location column to a state code (only works for state-level columns)
+    const jurisdiction = col.jurisdictions[0];
+    if (!jurisdiction || !coverage.matrix[jurisdiction]) return null;
+    // Check each topic this row maps to
+    for (const topic of row.topics) {
+      const cell = coverage.matrix[jurisdiction]?.[topic];
+      if (cell) return cell.status === "no_law" ? "no_law" : "not_checked";
+    }
+    return null;
+  }
+
   return (
     <div className="p-4">
       {/* Controls */}
@@ -441,6 +470,14 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
         <span className="text-xs text-gray-400">
           {visibleRows.length} rows × {visibleCols.length} columns · {cellMap.size} populated cells
         </span>
+        {coverage && (
+          <span className="text-xs text-gray-400 ml-auto flex items-center gap-3">
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-gray-100 border border-gray-200 inline-block"></span> No law</span>
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-amber-50 border border-amber-200 inline-block"></span> Not yet checked</span>
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-blue-500 inline-block"></span> Has rule</span>
+            <span className="ml-2 font-medium">{coverage.summary.coverage_percent}% resolved</span>
+          </span>
+        )}
       </div>
 
       {/* Table */}
@@ -486,9 +523,19 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
                   const cellRules = cellMap.get(key);
 
                   if (!cellRules || cellRules.length === 0) {
+                    const status = getCoverageStatus(row, col);
+                    const cellClass = status === "no_law"
+                      ? "border text-center bg-gray-50"
+                      : status === "not_checked"
+                      ? "border text-center bg-amber-50"
+                      : "border text-center";
+                    const cellContent = row.level === 0 ? null
+                      : status === "no_law" ? <span className="text-gray-300 text-[10px]" title="No state law exists">—</span>
+                      : status === "not_checked" ? <span className="text-amber-400 text-[10px]" title="Law exists, rule not yet encoded">?</span>
+                      : <span className="text-gray-200">—</span>;
                     return (
-                      <td key={col.id} className="border text-center">
-                        {row.level === 0 ? null : <span className="text-gray-200">—</span>}
+                      <td key={col.id} className={cellClass}>
+                        {cellContent}
                       </td>
                     );
                   }

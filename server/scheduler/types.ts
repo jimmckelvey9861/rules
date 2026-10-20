@@ -6,12 +6,28 @@
  * fact map that the rule engine evaluates.
  */
 
+export interface ShiftBreak {
+  type: "meal" | "rest";
+  startTime: string;    // HH:MM (24-hour)
+  durationMinutes: number;
+  paid: boolean;
+}
+
+export interface ShiftOriginal {
+  startTime: string;    // HH:MM — what the shift was before amendment
+  endTime: string;      // HH:MM — what the shift was before amendment
+}
+
 export interface ShiftAssignment {
   id: string;
   employeeId: string;
   date: string;         // YYYY-MM-DD
   startTime: string;    // HH:MM (24-hour)
   endTime: string;      // HH:MM (24-hour)
+  breaks?: ShiftBreak[];
+  original?: ShiftOriginal; // Set when a published shift is amended
+  publishedDate?: string;   // When this shift was first communicated to the employee
+  amendedDate?: string;     // When the amendment was made (if amended)
 }
 
 export interface EmployeeProfile {

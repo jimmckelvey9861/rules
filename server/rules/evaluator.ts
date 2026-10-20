@@ -13,6 +13,7 @@ import type {
   EvaluationResult,
   EvaluationSummary,
   EvaluationOutcome,
+  ConditionDetail,
 } from "./types.js";
 
 /**
@@ -20,28 +21,29 @@ import type {
  */
 export function evaluateRule(rule: Rule, scenario: Scenario): EvaluationResult {
   const triggeredFacts: string[] = [];
+  const conditionDetails: ConditionDetail[] = [];
 
   // Check if the rule's effective date range covers the scenario
   const shiftDate = scenario["shift.date"] as string | undefined;
   if (shiftDate) {
     if (rule.effectiveFrom > shiftDate) {
-      return buildResult(rule, "passed", "Rule not yet effective", triggeredFacts);
+      return buildResult(rule, "passed", "Rule not yet effective", triggeredFacts, conditionDetails);
     }
     if (rule.effectiveTo && rule.effectiveTo < shiftDate) {
-      return buildResult(rule, "passed", "Rule no longer effective", triggeredFacts);
+      return buildResult(rule, "passed", "Rule no longer effective", triggeredFacts, conditionDetails);
     }
   }
 
   // Evaluate the condition tree
-  const applies = evaluateCondition(rule.appliesWhen, scenario, triggeredFacts);
+  const applies = evaluateCondition(rule.appliesWhen, scenario, triggeredFacts, conditionDetails);
 
   if (!applies) {
-    return buildResult(rule, "passed", "Conditions not met — rule does not apply", triggeredFacts);
+    return buildResult(rule, "passed", "Conditions not met — rule does not apply", triggeredFacts, conditionDetails);
   }
 
   // Conditions met — determine outcome based on result type
   const outcome = determineOutcome(rule, scenario);
-  return buildResult(rule, outcome.outcome, outcome.explanation, triggeredFacts);
+  return buildResult(rule, outcome.outcome, outcome.explanation, triggeredFacts, conditionDetails);
 }
 
 /**
@@ -226,53 +228,58 @@ function resolveInteractions(summary: EvaluationSummary, rules: readonly Rule[])
 
 // ─── Condition Evaluation ──────────────────────────────────────────
 
-function evaluateCondition(condition: Condition, scenario: Scenario, triggeredFacts: string[]): boolean {
+function evaluateCondition(condition: Condition, scenario: Scenario, triggeredFacts: string[], conditionDetails: ConditionDetail[]): boolean {
   if ("all" in condition) {
-    return condition.all.every(c => evaluateCondition(c, scenario, triggeredFacts));
+    return condition.all.every(c => evaluateCondition(c, scenario, triggeredFacts, conditionDetails));
   }
 
   if ("any" in condition) {
-    return condition.any.some(c => evaluateCondition(c, scenario, triggeredFacts));
+    return condition.any.some(c => evaluateCondition(c, scenario, triggeredFacts, conditionDetails));
   }
 
   if ("not" in condition) {
-    return !evaluateCondition(condition.not, scenario, triggeredFacts);
+    return !evaluateCondition(condition.not, scenario, triggeredFacts, conditionDetails);
   }
 
   // ComparisonCondition
-  return evaluateComparison(condition as ComparisonCondition, scenario, triggeredFacts);
+  return evaluateComparison(condition as ComparisonCondition, scenario, triggeredFacts, conditionDetails);
 }
 
-function evaluateComparison(comp: ComparisonCondition, scenario: Scenario, triggeredFacts: string[]): boolean {
+function evaluateComparison(comp: ComparisonCondition, scenario: Scenario, triggeredFacts: string[], conditionDetails: ConditionDetail[]): boolean {
   const actual = scenario[comp.fact];
 
   // If the fact is not present in the scenario, the comparison fails
   if (actual === undefined) {
+    conditionDetails.push({ fact: comp.fact, op: comp.op, expected: comp.value, actual: undefined, met: false });
     return false;
   }
 
   triggeredFacts.push(comp.fact);
 
+  let met: boolean;
   switch (comp.op) {
     case "=":
-      return actual === comp.value;
+      met = actual === comp.value; break;
     case "!=":
-      return actual !== comp.value;
+      met = actual !== comp.value; break;
     case ">":
-      return (actual as number) > (comp.value as number);
+      met = (actual as number) > (comp.value as number); break;
     case ">=":
-      return (actual as number) >= (comp.value as number);
+      met = (actual as number) >= (comp.value as number); break;
     case "<":
-      return (actual as number) < (comp.value as number);
+      met = (actual as number) < (comp.value as number); break;
     case "<=":
-      return (actual as number) <= (comp.value as number);
+      met = (actual as number) <= (comp.value as number); break;
     case "in":
-      return Array.isArray(comp.value) && (comp.value as Array<string | number>).includes(actual as string | number);
+      met = Array.isArray(comp.value) && (comp.value as Array<string | number>).includes(actual as string | number); break;
     case "not_in":
-      return Array.isArray(comp.value) && !(comp.value as Array<string | number>).includes(actual as string | number);
+      met = Array.isArray(comp.value) && !(comp.value as Array<string | number>).includes(actual as string | number); break;
     default:
-      return false;
+      met = false;
   }
+
+  conditionDetails.push({ fact: comp.fact, op: comp.op, expected: comp.value, actual, met });
+  return met;
 }
 
 // ─── Outcome Determination ─────────────────────────────────────────
@@ -338,6 +345,7 @@ function buildResult(
   outcome: EvaluationOutcome,
   explanation: string,
   triggeredFacts: string[],
+  conditionDetails: ConditionDetail[] = [],
 ): EvaluationResult {
   return {
     ruleId: rule.id,
@@ -345,6 +353,7 @@ function buildResult(
     outcome,
     explanation,
     triggeredFacts: [...new Set(triggeredFacts)],
+    conditionDetails,
     citation: rule.citations[0],
   };
 }

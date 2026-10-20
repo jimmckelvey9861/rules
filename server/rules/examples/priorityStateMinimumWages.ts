@@ -14,6 +14,38 @@ import { createRule } from "../createRule.js";
 // ─── New York ──────────────────────────────────────────────────────
 
 // NY has regional rates: NYC/Nassau/Suffolk/Westchester = $17.00, rest of state = $16.00
+// Statewide floor: fires when location.city is not provided (uses lower upstate rate)
+
+export const newYorkMinimumWageStatewide: Rule = createRule({
+  id: "ny-minimum-wage-statewide-2025",
+  title: "New York Minimum Wage (Statewide Floor)",
+  jurisdiction: "NY",
+  topic: "minimum_wage",
+  effectiveFrom: "2025-01-01",
+  status: "active",
+
+  appliesWhen: {
+    all: [
+      { fact: "location.state", op: "=", value: "NY" },
+      { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
+    ],
+  },
+
+  result: {
+    type: "minimum_required_value",
+    targetFact: "employee.regular_hourly_rate",
+    minimum: 16.00,
+    unit: "USD/hour",
+  },
+
+  citations: [
+    {
+      source: "New York Labor Law §652",
+      url: "https://dol.ny.gov/minimum-wage",
+      section: "NY Lab. Law §652",
+    },
+  ],
+});
 
 export const newYorkMinimumWageDownstate: Rule = createRule({
   id: "ny-minimum-wage-downstate-2025",
@@ -347,6 +379,7 @@ export const nevadaMinimumWage: Rule = createRule({
 // ─── Export ────────────────────────────────────────────────────────
 
 export const ALL_PRIORITY_STATE_MINIMUM_WAGES: readonly Rule[] = [
+  newYorkMinimumWageStatewide,
   newYorkMinimumWageDownstate,
   newYorkMinimumWageUpstate,
   dcMinimumWage,

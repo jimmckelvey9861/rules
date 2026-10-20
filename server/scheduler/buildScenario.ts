@@ -23,6 +23,7 @@ export function buildScenario(
   store: StoreLocation,
   employer: EmployerProfile,
   weekContext: WeekContext,
+  publishedDate?: string | null,
 ): Scenario {
   const scenario: Scenario = {};
 
@@ -113,10 +114,60 @@ export function buildScenario(
   scenario["shift.is_school_day"] = isSchoolDay;
   scenario["shift.school_in_session"] = schoolInSession;
 
-  // Meal/rest break defaults (not provided unless explicitly set)
-  // The scheduler should set these if breaks are scheduled
-  scenario["shift.meal_break_provided"] = false;
-  scenario["shift.rest_break_provided"] = false;
+  // Meal/rest breaks — derived from shift.breaks array
+  const mealBreaks = (shift.breaks || []).filter(b => b.type === "meal");
+  const restBreaks = (shift.breaks || []).filter(b => b.type === "rest");
+  scenario["shift.meal_break_provided"] = mealBreaks.length > 0;
+  scenario["shift.rest_break_provided"] = restBreaks.length > 0;
+  if (mealBreaks.length > 0) {
+    scenario["shift.meal_break_minutes"] = mealBreaks.reduce((sum, b) => sum + b.durationMinutes, 0);
+  }
+  if (restBreaks.length > 0) {
+    scenario["shift.rest_break_minutes"] = restBreaks.reduce((sum, b) => sum + b.durationMinutes, 0);
+  }
+  // Waiver: meal break is considered waived only if shift ≤ 6 hrs and no meal break
+  scenario["shift.meal_break_waived"] = shiftHours <= 6 && mealBreaks.length === 0;
+
+  // ─── Schedule / Fair Workweek facts ────────────────────────────
+  // Uses per-shift publishedDate (when THIS shift was first communicated)
+  const effectivePublishDate = shift.publishedDate || publishedDate;
+  if (effectivePublishDate) {
+    const shiftDate = new Date(shift.date + "T00:00:00");
+    const pubDate = new Date(effectivePublishDate + "T00:00:00");
+    const advanceNoticeDays = Math.floor((shiftDate.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24));
+    scenario["schedule.advance_notice_days"] = advanceNoticeDays;
+
+    if (shift.original) {
+      // This shift was amended after publishing
+      scenario["schedule.was_changed"] = true;
+      scenario["schedule.employer_initiated"] = true;
+      scenario["schedule.employee_consented"] = false;
+
+      // Advance notice for the CHANGE is based on amendedDate
+      if (shift.amendedDate) {
+        const amendDate = new Date(shift.amendedDate + "T00:00:00");
+        const changeNoticeDays = Math.floor((shiftDate.getTime() - amendDate.getTime()) / (1000 * 60 * 60 * 24));
+        scenario["schedule.advance_notice_days"] = changeNoticeDays;
+      }
+
+      // Derive change type from the diff
+      const originalHours = computeShiftLength(shift.original.startTime, shift.original.endTime);
+      const currentHours = shiftHours;
+
+      if (currentHours > originalHours) {
+        scenario["schedule.change_type"] = "hours_added";
+        scenario["schedule.hours_added"] = Math.round((currentHours - originalHours) * 10) / 10;
+      } else if (currentHours < originalHours) {
+        scenario["schedule.change_type"] = "hours_reduced";
+        scenario["schedule.hours_reduced"] = Math.round((originalHours - currentHours) * 10) / 10;
+      } else {
+        // Same duration but different times
+        scenario["schedule.change_type"] = "time_changed";
+      }
+    } else {
+      scenario["schedule.was_changed"] = false;
+    }
+  }
 
   return scenario;
 }

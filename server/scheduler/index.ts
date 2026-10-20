@@ -11,6 +11,26 @@ import { Router } from "express";
 import { STORES, EMPLOYER, EMPLOYEES } from "./dummyData.js";
 import { buildScenario } from "./buildScenario.js";
 import { evaluateRules, RULES } from "../rules/index.js";
+
+/**
+ * Topics relevant to shift scheduling. Entitlement topics (sick leave, FMLA,
+ * WARN act) are excluded — they're for leave/termination evaluation, not
+ * shift compliance.
+ */
+const SCHEDULING_TOPICS = new Set([
+  "minimum_wage",
+  "overtime",
+  "meal_break",
+  "rest_break",
+  "predictive_scheduling",
+  "minor_labor",
+  "day_of_rest",
+  "split_shift_premium",
+  "premium_pay",
+  "reporting_time_pay",
+]);
+
+const SCHEDULING_RULES = RULES.filter(r => SCHEDULING_TOPICS.has(r.topic));
 import type { ShiftAssignment, WeekContext } from "./types.js";
 
 export const schedulerRouter = Router();
@@ -32,11 +52,13 @@ schedulerRouter.get("/employees/:storeId", (req, res) => {
 
 // POST /api/scheduler/check-shift
 schedulerRouter.post("/check-shift", (req, res) => {
-  const { shift, employeeId, storeId, weekContext } = req.body as {
+  const { shift, employeeId, storeId, weekContext, publishedDate, employeeOverrides } = req.body as {
     shift: ShiftAssignment;
     employeeId: string;
     storeId: string;
     weekContext?: WeekContext;
+    publishedDate?: string | null;
+    employeeOverrides?: Partial<import("./types.js").EmployeeProfile>;
   };
 
   // Validate inputs
@@ -70,9 +92,14 @@ schedulerRouter.post("/check-shift", (req, res) => {
     priorWeekShifts: [],
   };
 
-  // Build scenario and evaluate
-  const scenario = buildScenario(shift, employee, store, EMPLOYER, ctx);
-  const result = evaluateRules(RULES, scenario);
+  // Apply overrides (client-side edits to employee attributes)
+  const effectiveEmployee = employeeOverrides
+    ? { ...employee, ...employeeOverrides }
+    : employee;
+
+  // Build scenario and evaluate (scheduling-relevant rules only)
+  const scenario = buildScenario(shift, effectiveEmployee, store, EMPLOYER, ctx, publishedDate);
+  const result = evaluateRules(SCHEDULING_RULES, scenario);
 
   res.json({
     shift,
@@ -82,6 +109,7 @@ schedulerRouter.post("/check-shift", (req, res) => {
     summary: {
       violations: result.violations.length,
       warnings: result.warnings.length,
+      passed: result.passed.length,
     },
     violations: result.violations,
     warnings: result.warnings,

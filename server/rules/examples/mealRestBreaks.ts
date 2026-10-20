@@ -30,7 +30,6 @@ export const nyMealBreakNonFactory: Rule = createRule({
   appliesWhen: {
     all: [
       { fact: "location.state", op: "=", value: "NY" },
-      { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
       { fact: "shift.shift_length_hours", op: ">", value: 6 },
       { fact: "shift.meal_break_provided", op: "=", value: false },
       { fact: "employer.industry_tag", op: "!=", value: "manufacturing" },
@@ -67,7 +66,6 @@ export const nyMealBreakFactory: Rule = createRule({
   appliesWhen: {
     all: [
       { fact: "location.state", op: "=", value: "NY" },
-      { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
       { fact: "shift.shift_length_hours", op: ">", value: 6 },
       { fact: "shift.meal_break_provided", op: "=", value: false },
       { fact: "employer.industry_tag", op: "=", value: "manufacturing" },

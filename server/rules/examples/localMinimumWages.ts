@@ -221,6 +221,34 @@ export const haywardMinimumWageLarge = localMinWageRule({
   title: "Hayward Minimum Wage (26+ employees)",
 });
 
+// ─── Illinois Cities ───────────────────────────────────────────────
+
+export const chicagoMinimumWage = localMinWageRule({
+  id: "chicago-il-mw-2025",
+  city: "Chicago",
+  state: "IL",
+  minimum: 16.20,
+  effectiveFrom: "2025-07-01",
+  citationSource: "Chicago Minimum Wage Ordinance",
+  citationUrl: "https://www.chicago.gov/city/en/depts/bacp/supp_info/minimumwageinformation.html",
+  citationSection: "MCC §1-24-020",
+  title: "Chicago Minimum Wage ($16.20/hr)",
+});
+
+// ─── New York Cities ───────────────────────────────────────────────
+
+export const newYorkCityMinimumWage = localMinWageRule({
+  id: "nyc-ny-mw-2026",
+  city: "New York City",
+  state: "NY",
+  minimum: 17.00,
+  effectiveFrom: "2026-01-01",
+  citationSource: "NYC Minimum Wage (NY Labor Law §652)",
+  citationUrl: "https://dol.ny.gov/minimum-wage-0",
+  citationSection: "NY Labor Law §652(a)(ii)",
+  title: "New York City Minimum Wage ($17.00/hr)",
+});
+
 // ─── All local minimum wage rules ──────────────────────────────────
 
 export const ALL_LOCAL_MINIMUM_WAGES: readonly Rule[] = [
@@ -246,4 +274,6 @@ export const ALL_LOCAL_MINIMUM_WAGES: readonly Rule[] = [
   portlandMetroMinimumWage,
   seattleMinimumWage,
   haywardMinimumWageLarge,
+  chicagoMinimumWage,
+  newYorkCityMinimumWage,
 ];

@@ -238,15 +238,18 @@ export function SchedulerPage() {
     <div className="min-h-screen bg-gray-50 p-4">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Schedule Builder</h1>
-          <p className="text-sm text-gray-500">Real-time compliance checking • {shifts.length} shifts scheduled</p>
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand text-white font-bold text-xl shadow-sm">§</div>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">Schedule Builder</h1>
+            <p className="text-sm text-gray-500">Real-time compliance checking • {shifts.length} shifts scheduled</p>
+          </div>
         </div>
         <a href="/" className="text-sm text-blue-600 hover:underline">← Rules Explorer</a>
       </div>
 
       {/* Controls */}
-      <div className="flex items-center gap-4 mb-4 bg-white rounded-lg shadow px-4 py-3">
+      <div className="flex items-center gap-4 mb-4 bg-white rounded-lg shadow-card border border-gray-200 px-4 py-3">
         {/* Store selector */}
         <div className="flex items-center gap-2">
           <label className="text-sm font-medium text-gray-700">Store:</label>
@@ -281,7 +284,7 @@ export function SchedulerPage() {
       )}
 
       {/* Calendar Grid */}
-      <div className="bg-white rounded-lg shadow overflow-x-auto">
+      <div className="bg-white rounded-lg shadow-card border border-gray-200 overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-gray-100">

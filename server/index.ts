@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { RULES, SKIPPED, evaluateRules, getAllFacts } from "./rules/index.js";
 import { schedulerRouter } from "./scheduler/index.js";
+import { buildCoverageMatrix, summarizeCoverage, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./rules/coverageMatrix.js";
 import type { Scenario } from "./rules/types.js";
 
 const app = express();
@@ -81,6 +82,15 @@ app.post("/api/ts-rules/evaluate", (req, res) => {
     warnings: result.warnings,
     passed: result.passed,
   });
+});
+
+// ─── Coverage Matrix API ───────────────────────────────────────────
+
+// GET /api/coverage
+app.get("/api/coverage", (_req, res) => {
+  const matrix = buildCoverageMatrix(RULES);
+  const summary = summarizeCoverage(matrix);
+  res.json({ states: ALL_STATES, locals: ALL_LOCALS, topics: ALL_TOPICS, summary, matrix });
 });
 
 // ─── Scheduler API ─────────────────────────────────────────────────

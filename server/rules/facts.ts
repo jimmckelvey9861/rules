@@ -183,6 +183,7 @@ const FACTS: FactDefinition[] = [
   { path: "shift.hours_since_last_shift_end", type: "number", description: "Hours between end of last shift and start of this one (clopening)", category: "4. Shift" },
   { path: "shift.hours_worked_at_report", type: "number", description: "Hours actually worked when employee reported (for reporting time pay)", category: "4. Shift" },
   { path: "shift.scheduled_hours", type: "number", description: "Originally scheduled shift length in hours", category: "4. Shift" },
+  { path: "shift.paid_hours", type: "number", description: "Actual hours paid for the shift (may differ from worked hours due to reporting time pay)", category: "4. Shift" },
   { path: "shift.employee_reported", type: "boolean", description: "Whether the employee reported to work as scheduled", category: "4. Shift" },
   { path: "shift.sent_home_early", type: "boolean", description: "Whether the employee was sent home before shift end", category: "4. Shift" },
   { path: "shift.spread_of_hours", type: "number", description: "Total span from first clock-in to last clock-out in a day (includes breaks)", category: "4. Shift" },
@@ -243,6 +244,8 @@ const FACTS: FactDefinition[] = [
   { path: "leave.medical_certification_provided", type: "boolean", description: "Whether medical certification was provided", category: "6. Leave" },
   { path: "leave.start_date", type: "date", description: "Leave start date (ISO YYYY-MM-DD)", category: "6. Leave" },
   { path: "leave.end_date", type: "date", description: "Leave end date (ISO YYYY-MM-DD)", category: "6. Leave" },
+  { path: "leave.family_medical_weeks_available", type: "number", description: "Weeks of family/medical leave available per year", category: "6. Leave" },
+  { path: "leave.sick_hours_accrued", type: "number", description: "Sick leave hours accrued/available", category: "6. Leave" },
 
   // ═══════════════════════════════════════════════════════════════════
   // 7. TERMINATION — Final Pay & Separation

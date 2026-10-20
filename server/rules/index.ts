@@ -64,6 +64,12 @@ import { ALL_PRIORITY_TIPPED_WAGES } from "./examples/priorityStateTippedWages.j
 import { ALL_PRIORITY_STATE_OVERTIME } from "./examples/priorityStateOvertime.js";
 import { ALL_ADDITIONAL_STATE_OVERTIME } from "./examples/additionalStateOvertime.js";
 import { ALL_FAIR_WORKWEEK_RULES } from "./examples/fairWorkweek.js";
+import { ALL_SCHEDULING_BREAK_WARNINGS } from "./examples/schedulingBreakWarnings.js";
+import { ALL_LOCAL_SICK_LEAVE_RULES } from "./examples/localSickLeave.js";
+import { ALL_STATE_WARN_ACT_RULES } from "./examples/allStateWarnAct.js";
+import { ALL_STATE_FAMILY_LEAVE_RULES } from "./examples/allStateFamilyLeave.js";
+import { ALL_ADDITIONAL_DAY_OF_REST_RULES } from "./examples/allStateDayOfRest.js";
+import { ALL_REMAINING_GAP_RULES } from "./examples/remainingGapRules.js";
 import { federalFmla } from "./examples/federalFmla.js";
 import { federalWarnAct } from "./examples/federalWarnAct.js";
 import type { Rule } from "./types.js";
@@ -130,8 +136,26 @@ const ALL_RULE_CANDIDATES: Rule[] = [
   // Leave
   federalFmla,
 
+  // State family & medical leave (13 states)
+  ...ALL_STATE_FAMILY_LEAVE_RULES,
+
+  // Day of rest (6 additional states)
+  ...ALL_ADDITIONAL_DAY_OF_REST_RULES,
+
   // Mass layoffs
   federalWarnAct,
+
+  // State mini-WARN acts (21 states)
+  ...ALL_STATE_WARN_ACT_RULES,
+
+  // Remaining gaps: minor labor, overtime, reporting time, rest breaks, sick leave, split shift
+  ...ALL_REMAINING_GAP_RULES,
+
+  // Local sick leave ordinances (9 cities)
+  ...ALL_LOCAL_SICK_LEAVE_RULES,
+
+  // Scheduling-time break warnings (fire on shift length alone)
+  ...ALL_SCHEDULING_BREAK_WARNINGS,
 ];
 
 /**

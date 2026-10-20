@@ -109,12 +109,21 @@ export interface Rule {
 
 export type EvaluationOutcome = "violation" | "warning" | "passed";
 
+export interface ConditionDetail {
+  fact: string;
+  op: string;
+  expected: unknown;
+  actual: unknown;
+  met: boolean;
+}
+
 export interface EvaluationResult {
   ruleId: string;
   title: string;
   outcome: EvaluationOutcome;
   explanation: string;
   triggeredFacts: string[];
+  conditionDetails: ConditionDetail[];
   supersededBy?: string;
   citation: Citation;
 }
