@@ -5,6 +5,12 @@ on:
     # 09:00 UTC daily
     - cron: "0 9 * * *"
   workflow_dispatch:
+  # On a PR that touches the rules or the checker, run as a report (never fails the PR).
+  pull_request:
+    paths:
+      - "data/rules/**"
+      - "scripts/checkLinks.ts"
+      - ".github/workflows/check-links.yml"
 
 jobs:
   check-links:
@@ -15,7 +21,8 @@ jobs:
         with:
           bun-version: latest
       - name: Check every citation URL
-        run: bun scripts/checkLinks.ts --strict
+        # Strict (job fails on any broken link) only on the nightly schedule.
+        run: bun scripts/checkLinks.ts ${{ github.event_name == 'schedule' && '--strict' || '' }}
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
