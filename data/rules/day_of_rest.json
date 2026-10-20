@@ -29,9 +29,9 @@
       },
       "citations": [
         {
-          "source": "Cal. Labor Code §551-552",
+          "source": "Cal. Labor Code \u00a7551-552",
           "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=551",
-          "section": "§551-552",
+          "section": "\u00a7551-552",
           "kind": "statute"
         }
       ]
@@ -97,9 +97,9 @@
       },
       "citations": [
         {
-          "source": "MGL c.149 §48",
+          "source": "MGL c.149 \u00a748",
           "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section48",
-          "section": "§48-50",
+          "section": "\u00a748-50",
           "kind": "statute"
         }
       ]
@@ -127,13 +127,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Minnesota law provides that no employer may require an employee to work seven days in a row without providing a day of rest. Limited applicability — primarily enforced through local ordinance and common law."
+        "message": "Minnesota law provides that no employer may require an employee to work seven days in a row without providing a day of rest. Limited applicability \u2014 primarily enforced through local ordinance and common law."
       },
       "citations": [
         {
-          "source": "Minn. Stat. §624.01 (historical blue law)",
+          "source": "Minn. Stat. \u00a7624.01 (historical blue law)",
           "url": "https://www.revisor.mn.gov/statutes/cite/624.01",
-          "section": "§624.01",
+          "section": "\u00a7624.01",
           "kind": "statute"
         }
       ]
@@ -165,9 +165,9 @@
       },
       "citations": [
         {
-          "source": "N.D. Cent. Code §12.1-30-01",
+          "source": "N.D. Cent. Code \u00a712.1-30-01",
           "url": "https://www.ndlegis.gov/cencode/t12-1c30.pdf",
-          "section": "§12.1-30-01",
+          "section": "\u00a712.1-30-01",
           "kind": "statute"
         }
       ]
@@ -204,9 +204,9 @@
       },
       "citations": [
         {
-          "source": "NY Labor Law §161",
+          "source": "NY Labor Law \u00a7161",
           "url": "https://www.nysenate.gov/legislation/laws/LAB/161",
-          "section": "§161(1)",
+          "section": "\u00a7161(1)",
           "kind": "statute"
         }
       ]
@@ -238,9 +238,9 @@
       },
       "citations": [
         {
-          "source": "Wis. Stat. §103.85",
+          "source": "Wis. Stat. \u00a7103.85",
           "url": "https://docs.legis.wisconsin.gov/statutes/statutes/103/85",
-          "section": "§103.85",
+          "section": "\u00a7103.85",
           "kind": "statute"
         }
       ]
