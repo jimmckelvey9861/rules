@@ -25,7 +25,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling an employee to work more than 6 consecutive days without a day of rest. Employee may voluntarily choose to work the 7th day. Exemptions for emergencies and certain industries."
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6
+        },
+        "summary": "Scheduling an employee to work more than 6 consecutive days without a day of rest. Employee may voluntarily choose to work the 7th day. Exemptions for emergencies and certain industries."
       },
       "citations": [
         {
@@ -59,7 +63,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Failing to provide at least 24 consecutive hours of rest in every consecutive 7-day period. Amended 2023: employer must also provide a meal period of 20 minutes for every 7.5-hour shift."
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Failing to provide at least 24 consecutive hours of rest in every consecutive 7-day period. Amended 2023: employer must also provide a meal period of 20 minutes for every 7.5-hour shift."
       },
       "citations": [
         {
@@ -93,7 +102,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Requiring an employee to work more than 6 days in a calendar week. Manufacturing employees may not work more than 6 days in a calendar week."
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "period_days": 7
+        },
+        "summary": "Requiring an employee to work more than 6 days in a calendar week. Manufacturing employees may not work more than 6 days in a calendar week."
       },
       "citations": [
         {
@@ -127,7 +141,11 @@
       },
       "result": {
         "type": "warning",
-        "message": "Minnesota law provides that no employer may require an employee to work seven days in a row without providing a day of rest. Limited applicability \u2014 primarily enforced through local ordinance and common law."
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6
+        },
+        "summary": "Minnesota law provides that no employer may require an employee to work seven days in a row without providing a day of rest. Limited applicability \u2014 primarily enforced through local ordinance and common law."
       },
       "citations": [
         {
@@ -161,7 +179,9 @@
       },
       "result": {
         "type": "warning",
-        "message": "North Dakota Sunday closing law limits certain commercial activities on Sunday. While not a pure day-of-rest employment mandate, it restricts retail/commercial scheduling on Sundays for covered establishments."
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {},
+        "summary": "North Dakota Sunday closing law limits certain commercial activities on Sunday. While not a pure day-of-rest employment mandate, it restricts retail/commercial scheduling on Sundays for covered establishments."
       },
       "citations": [
         {
@@ -200,7 +220,13 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling employee to work 7 consecutive days without 24 consecutive hours of rest"
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Scheduling employee to work 7 consecutive days without 24 consecutive hours of rest"
       },
       "citations": [
         {
@@ -234,7 +260,13 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Requiring employees in a factory or mercantile establishment to work without at least 24 consecutive hours of rest in every 7 consecutive days. Exemptions for janitors, watchmen, and certain continuous-process industries."
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Requiring employees in a factory or mercantile establishment to work without at least 24 consecutive hours of rest in every 7 consecutive days. Exemptions for janitors, watchmen, and certain continuous-process industries."
       },
       "citations": [
         {

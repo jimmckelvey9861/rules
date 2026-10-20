@@ -30,9 +30,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "spread_of_hours",
-        "amount": 1,
-        "formula": "1 additional hour at the applicable minimum wage rate"
+        "obligation": "premium.spread_of_hours",
+        "params": {
+          "amount": 1,
+          "spread_hours": 10,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate"
       },
       "citations": [
         {

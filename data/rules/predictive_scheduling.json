@@ -44,8 +44,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "1 hour of pay per affected shift (schedule posted with less than 14 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14
+        },
+        "summary": "1 hour of pay per affected shift (schedule posted with less than 14 days notice)"
       },
       "citations": [
         {
@@ -116,8 +121,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "50% of pay for subtracted/cancelled hours (predictability pay)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "50% of pay for subtracted/cancelled hours (predictability pay)"
       },
       "citations": [
         {
@@ -175,8 +186,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "clopening_premium",
-        "formula": "$100 per occurrence or 1.25x rate for hours within the rest period (whichever is greater)"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 10,
+          "amount": 100,
+          "unit": "usd"
+        },
+        "summary": "$100 per occurrence or 1.25x rate for hours within the rest period (whichever is greater)"
       },
       "citations": [
         {
@@ -220,8 +236,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14
+        },
+        "summary": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)"
       },
       "citations": [
         {
@@ -270,8 +291,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "clopening_premium",
-        "formula": "1.5x pay rate for hours worked within the 10-hour rest period"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5x pay rate for hours worked within the 10-hour rest period"
       },
       "citations": [
         {
@@ -310,7 +336,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Posting fast food employee schedules with less than 14 days advance notice"
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "Posting fast food employee schedules with less than 14 days advance notice"
       },
       "citations": [
         {
@@ -369,8 +399,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "$10 per schedule change (added hours or changed time with 7-13 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 10,
+          "unit": "usd",
+          "notice_window_days": 14,
+          "change_type": "hours_added"
+        },
+        "summary": "$10 per schedule change (added hours or changed time with 7-13 days notice)"
       },
       "citations": [
         {
@@ -429,8 +465,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "$15 per schedule change (hours added with less than 7 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 15,
+          "unit": "usd",
+          "notice_window_days": 7,
+          "change_type": "hours_added"
+        },
+        "summary": "$15 per schedule change (hours added with less than 7 days notice)"
       },
       "citations": [
         {
@@ -492,8 +534,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "$75 per schedule change (hours subtracted or shift cancelled with less than 7 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 75,
+          "unit": "usd",
+          "notice_window_days": 7,
+          "change_type": "hours_reduced"
+        },
+        "summary": "$75 per schedule change (hours subtracted or shift cancelled with less than 7 days notice)"
       },
       "citations": [
         {
@@ -537,8 +585,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "clopening_premium",
-        "formula": "$100 per clopening violation (scheduling closing and opening shifts less than 11 hours apart without written consent)"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 11,
+          "amount": 100,
+          "unit": "usd"
+        },
+        "summary": "$100 per clopening violation (scheduling closing and opening shifts less than 11 hours apart without written consent)"
       },
       "citations": [
         {
@@ -582,7 +635,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Posting retail employee schedules with less than 72 hours advance notice"
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 3
+        },
+        "summary": "Posting retail employee schedules with less than 72 hours advance notice"
       },
       "citations": [
         {
@@ -626,7 +683,9 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Requiring retail employees to be on-call (must schedule or not schedule; cannot require availability without pay)"
+        "obligation": "sched.on_call_ban",
+        "params": {},
+        "summary": "Requiring retail employees to be on-call (must schedule or not schedule; cannot require availability without pay)"
       },
       "citations": [
         {
@@ -674,8 +733,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "1 hour of pay per shift for schedule posted with less than 14 days notice"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14
+        },
+        "summary": "1 hour of pay per shift for schedule posted with less than 14 days notice"
       },
       "citations": [
         {
@@ -738,8 +802,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "1 hour of pay at regular rate (hours added with less than 7 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 7,
+          "change_type": "hours_added"
+        },
+        "summary": "1 hour of pay at regular rate (hours added with less than 7 days notice)"
       },
       "citations": [
         {
@@ -805,8 +875,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "One-half of scheduled hours at regular rate (hours subtracted or shift cancelled with less than 7 days notice)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 7,
+          "change_type": "hours_reduced"
+        },
+        "summary": "One-half of scheduled hours at regular rate (hours subtracted or shift cancelled with less than 7 days notice)"
       },
       "citations": [
         {
@@ -859,8 +935,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "clopening_premium",
-        "formula": "1.5x pay rate for all hours worked within the 10-hour rest period"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5x pay rate for all hours worked within the 10-hour rest period"
       },
       "citations": [
         {
@@ -909,8 +990,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "$40 per schedule change (less than 14 days notice); $56 if less than 24 hours notice"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 40,
+          "unit": "usd",
+          "notice_window_days": 14
+        },
+        "summary": "$40 per schedule change (less than 14 days notice); $56 if less than 24 hours notice"
       },
       "citations": [
         {
@@ -964,7 +1050,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling an employee to work with less than 9 hours rest between shifts without written consent"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 9
+        },
+        "summary": "Scheduling an employee to work with less than 9 hours rest between shifts without written consent"
       },
       "citations": [
         {
@@ -1012,8 +1102,11 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "1-4 hours of pay depending on change type (predictability pay)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "notice_window_days": 14
+        },
+        "summary": "1-4 hours of pay depending on change type (predictability pay)"
       },
       "citations": [
         {
@@ -1066,8 +1159,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "clopening_premium",
-        "formula": "1.25x pay rate for hours worked within the 11-hour rest period"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 11,
+          "amount": 1.25,
+          "unit": "multiplier"
+        },
+        "summary": "1.25x pay rate for hours worked within the 11-hour rest period"
       },
       "citations": [
         {
@@ -1115,8 +1213,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "1 hour of pay per shift for schedule posted with less than 14 days notice"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14
+        },
+        "summary": "1 hour of pay per shift for schedule posted with less than 14 days notice"
       },
       "citations": [
         {
@@ -1182,8 +1285,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "schedule_change_premium",
-        "formula": "50% of pay for subtracted/cancelled hours (predictability pay)"
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "50% of pay for subtracted/cancelled hours (predictability pay)"
       },
       "citations": [
         {
@@ -1236,8 +1345,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "clopening_premium",
-        "formula": "1.5x pay rate for hours worked within the 10-hour rest period"
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5x pay rate for hours worked within the 10-hour rest period"
       },
       "citations": [
         {

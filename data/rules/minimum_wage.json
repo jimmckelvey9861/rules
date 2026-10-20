@@ -25,9 +25,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 13,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 13
+        },
+        "summary": "$13.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -61,9 +63,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -102,9 +106,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 11,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 11
+        },
+        "summary": "$11.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -137,9 +143,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 14.7,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.7
+        },
+        "summary": "$14.70 per hour minimum wage"
       },
       "citations": [
         {
@@ -177,9 +185,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.95,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.95
+        },
+        "summary": "$18.95 per hour minimum wage"
       },
       "citations": [
         {
@@ -217,9 +227,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15.57,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.57
+        },
+        "summary": "$15.57 per hour minimum wage"
       },
       "citations": [
         {
@@ -257,9 +269,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 20,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20
+        },
+        "summary": "$20.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -293,9 +307,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.5
+        },
+        "summary": "$16.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -334,9 +350,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16.2,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.2
+        },
+        "summary": "$16.20 per hour minimum wage"
       },
       "citations": [
         {
@@ -370,9 +388,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 14.81,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.81
+        },
+        "summary": "$14.81 per hour minimum wage"
       },
       "citations": [
         {
@@ -405,9 +425,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16.94,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.94
+        },
+        "summary": "$16.94 per hour minimum wage"
       },
       "citations": [
         {
@@ -454,9 +476,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.cash_wage",
-        "minimum": 6.38,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 6.38
+        },
+        "summary": "$6.38 per hour minimum wage"
       },
       "citations": [
         {
@@ -495,9 +519,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.5
+        },
+        "summary": "$17.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -530,9 +556,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.95,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.95
+        },
+        "summary": "$17.95 per hour minimum wage"
       },
       "citations": [
         {
@@ -571,9 +599,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.cash_wage",
-        "minimum": 10,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10
+        },
+        "summary": "$10.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -607,9 +637,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 13.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 13.25
+        },
+        "summary": "$13.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -647,9 +679,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 19.29,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.29
+        },
+        "summary": "$19.29 per hour minimum wage"
       },
       "citations": [
         {
@@ -682,9 +716,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -718,9 +754,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 14,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14
+        },
+        "summary": "$14.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -758,9 +796,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.05,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.05
+        },
+        "summary": "$18.05 per hour minimum wage"
       },
       "citations": [
         {
@@ -793,9 +833,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -833,9 +875,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.91,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.91
+        },
+        "summary": "$17.91 per hour minimum wage"
       },
       "citations": [
         {
@@ -873,9 +917,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.79,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.79
+        },
+        "summary": "$17.79 per hour minimum wage"
       },
       "citations": [
         {
@@ -908,9 +954,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -944,9 +992,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -979,9 +1029,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1014,9 +1066,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -1049,9 +1103,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1084,9 +1140,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1119,9 +1177,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1154,9 +1214,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1200,9 +1262,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.42,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.42
+        },
+        "summary": "$18.42 per hour minimum wage"
       },
       "citations": [
         {
@@ -1235,9 +1299,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -1275,9 +1341,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.91,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.91
+        },
+        "summary": "$17.91 per hour minimum wage"
       },
       "citations": [
         {
@@ -1310,9 +1378,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -1346,9 +1416,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 14.65,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.65
+        },
+        "summary": "$14.65 per hour minimum wage"
       },
       "citations": [
         {
@@ -1381,9 +1453,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 10.56,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.56
+        },
+        "summary": "$10.56 per hour minimum wage"
       },
       "citations": [
         {
@@ -1421,9 +1495,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16.37,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.37
+        },
+        "summary": "$16.37 per hour minimum wage"
       },
       "citations": [
         {
@@ -1456,9 +1532,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 11.13,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 11.13
+        },
+        "summary": "$11.13 per hour minimum wage"
       },
       "citations": [
         {
@@ -1491,9 +1569,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -1531,9 +1611,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.15,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.15
+        },
+        "summary": "$17.15 per hour minimum wage"
       },
       "citations": [
         {
@@ -1567,9 +1649,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1608,9 +1692,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 10.55,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.55
+        },
+        "summary": "$10.55 per hour minimum wage"
       },
       "citations": [
         {
@@ -1643,9 +1729,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1678,9 +1766,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1713,9 +1803,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 13.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 13.5
+        },
+        "summary": "$13.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -1753,9 +1845,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 20,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20
+        },
+        "summary": "$20.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -1794,9 +1888,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -1840,9 +1936,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.cash_wage",
-        "minimum": 12.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.5
+        },
+        "summary": "$12.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -1890,9 +1988,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.cash_wage",
-        "minimum": 14.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.5
+        },
+        "summary": "$14.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -1926,9 +2026,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -1961,9 +2063,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15.92,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.92
+        },
+        "summary": "$15.92 per hour minimum wage"
       },
       "citations": [
         {
@@ -2002,9 +2106,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15.23,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.23
+        },
+        "summary": "$15.23 per hour minimum wage"
       },
       "citations": [
         {
@@ -2043,9 +2149,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.cash_wage",
-        "minimum": 5.62,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 5.62
+        },
+        "summary": "$5.62 per hour minimum wage"
       },
       "citations": [
         {
@@ -2079,9 +2187,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 12,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12
+        },
+        "summary": "$12.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -2120,9 +2230,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.73,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.73
+        },
+        "summary": "$17.73 per hour minimum wage"
       },
       "citations": [
         {
@@ -2155,9 +2267,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 12,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12
+        },
+        "summary": "$12.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -2201,9 +2315,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -2237,9 +2353,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -2283,9 +2401,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -2339,9 +2459,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.cash_wage",
-        "minimum": 10.65,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.65
+        },
+        "summary": "$10.65 per hour minimum wage"
       },
       "citations": [
         {
@@ -2375,9 +2497,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 10.7,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.7
+        },
+        "summary": "$10.70 per hour minimum wage"
       },
       "citations": [
         {
@@ -2410,9 +2534,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -2445,9 +2571,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 14.7,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.7
+        },
+        "summary": "$14.70 per hour minimum wage"
       },
       "citations": [
         {
@@ -2480,9 +2608,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -2520,9 +2650,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.57,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.57
+        },
+        "summary": "$18.57 per hour minimum wage"
       },
       "citations": [
         {
@@ -2560,9 +2692,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15.95,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.95
+        },
+        "summary": "$15.95 per hour minimum wage"
       },
       "citations": [
         {
@@ -2600,9 +2734,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.65,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.65
+        },
+        "summary": "$18.65 per hour minimum wage"
       },
       "citations": [
         {
@@ -2635,9 +2771,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 15,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
       },
       "citations": [
         {
@@ -2675,9 +2813,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 19.18,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.18
+        },
+        "summary": "$19.18 per hour minimum wage"
       },
       "citations": [
         {
@@ -2715,9 +2855,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 17.75,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.75
+        },
+        "summary": "$17.75 per hour minimum wage"
       },
       "citations": [
         {
@@ -2755,9 +2897,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 19.61,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.61
+        },
+        "summary": "$19.61 per hour minimum wage"
       },
       "citations": [
         {
@@ -2795,9 +2939,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.45,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.45
+        },
+        "summary": "$18.45 per hour minimum wage"
       },
       "citations": [
         {
@@ -2835,9 +2981,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 18.7,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.7
+        },
+        "summary": "$18.70 per hour minimum wage"
       },
       "citations": [
         {
@@ -2870,9 +3018,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -2911,9 +3061,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 11.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 11.5
+        },
+        "summary": "$11.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -2951,9 +3103,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 20.76,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20.76
+        },
+        "summary": "$20.76 per hour minimum wage"
       },
       "citations": [
         {
@@ -2991,9 +3145,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 19.5,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.5
+        },
+        "summary": "$19.50 per hour minimum wage"
       },
       "citations": [
         {
@@ -3026,9 +3182,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -3067,9 +3225,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -3102,9 +3262,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -3137,9 +3299,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 12.77,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.77
+        },
+        "summary": "$12.77 per hour minimum wage"
       },
       "citations": [
         {
@@ -3173,9 +3337,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 14.01,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.01
+        },
+        "summary": "$14.01 per hour minimum wage"
       },
       "citations": [
         {
@@ -3208,9 +3374,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 16.66,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.66
+        },
+        "summary": "$16.66 per hour minimum wage"
       },
       "citations": [
         {
@@ -3249,9 +3417,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 20.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20.25
+        },
+        "summary": "$20.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -3284,9 +3454,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {
@@ -3319,9 +3491,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 8.75,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 8.75
+        },
+        "summary": "$8.75 per hour minimum wage"
       },
       "citations": [
         {
@@ -3354,9 +3528,11 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "employee.regular_hourly_rate",
-        "minimum": 7.25,
-        "unit": "USD/hour"
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
       },
       "citations": [
         {

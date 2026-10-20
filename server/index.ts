@@ -5,6 +5,7 @@ import { schedulerRouter } from "./scheduler/index.js";
 import { buildCoverageMatrix, summarizeCoverage, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./rules/coverageMatrix.js";
 import { TAXONOMY, getAllTaxonomyNodes } from "./reference/taxonomy.js";
 import { JURISDICTIONS_FILE, getJurisdictionChain } from "./reference/jurisdictions.js";
+import { VOCABULARY } from "./reference/vocabulary.js";
 import type { Scenario } from "./rules/types.js";
 
 const app = express();
@@ -100,6 +101,11 @@ app.get("/api/coverage", (_req, res) => {
 // GET /api/taxonomy — the category > topic > sub-topic tree plus a flat node list
 app.get("/api/taxonomy", (_req, res) => {
   res.json({ version: TAXONOMY.version, categories: TAXONOMY.categories, nodes: getAllTaxonomyNodes() });
+});
+
+// GET /api/vocabulary — the result vocabulary: obligation types with their typed parameters
+app.get("/api/vocabulary", (_req, res) => {
+  res.json(VOCABULARY);
 });
 
 // GET /api/jurisdictions — every jurisdiction record with parent links and preemption flags

@@ -30,9 +30,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -71,9 +74,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -112,9 +118,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -153,9 +162,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -194,9 +206,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -249,7 +264,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Employee is FMLA-eligible: entitled to up to 12 weeks unpaid job-protected leave"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": false
+        },
+        "summary": "Employee is FMLA-eligible: entitled to up to 12 weeks unpaid job-protected leave"
       },
       "citations": [
         {
@@ -288,9 +308,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 26,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 26,
+          "paid": true
+        },
+        "summary": "26 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -329,9 +352,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -370,9 +396,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 20,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 20,
+          "paid": true
+        },
+        "summary": "20 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -411,9 +440,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -452,9 +484,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 12,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -493,9 +528,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 16,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 16,
+          "paid": true
+        },
+        "summary": "16 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -534,9 +572,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 6,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 6,
+          "paid": true
+        },
+        "summary": "6 weeks of paid family and medical leave"
       },
       "citations": [
         {
@@ -575,9 +616,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.family_medical_weeks_available",
-        "minimum": 16,
-        "unit": "weeks (paid)"
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 16,
+          "paid": true
+        },
+        "summary": "16 weeks of paid family and medical leave"
       },
       "citations": [
         {

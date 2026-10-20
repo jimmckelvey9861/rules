@@ -45,7 +45,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 21:00 on a school night in AK"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 21,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 21:00 on a school night in AK"
       },
       "citations": [
         {
@@ -98,7 +105,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in AK"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in AK"
       },
       "citations": [
         {
@@ -151,7 +165,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 6 hours on a school day in AK"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 6,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 6 hours on a school day in AK"
       },
       "citations": [
         {
@@ -204,7 +225,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 24 hours in a school week in AK"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 24,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 24 hours in a school week in AK"
       },
       "citations": [
         {
@@ -237,7 +265,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Employing minors in violation of Alabama child labor law. Minors under 18 may not work in hazardous occupations. Minors 14-15: max 8 hrs/day, 40 hrs/week during non-school weeks; 3 hrs/school day, 18 hrs/school week. May not work before 7am or after 7pm (9pm June-Labor Day). Employment certificate required."
+        "obligation": "minor.general_restrictions",
+        "params": {
+          "age_max": 17
+        },
+        "summary": "Employing minors in violation of Alabama child labor law. Minors under 18 may not work in hazardous occupations. Minors 14-15: max 8 hrs/day, 40 hrs/week during non-school weeks; 3 hrs/school day, 18 hrs/school week. May not work before 7am or after 7pm (9pm June-Labor Day). Employment certificate required."
       },
       "citations": [
         {
@@ -291,7 +323,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 23:00 on a school night in AR"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 23:00 on a school night in AR"
       },
       "citations": [
         {
@@ -344,7 +383,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 10 hours on a non-school day in AR"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 10,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 10 hours on a non-school day in AR"
       },
       "citations": [
         {
@@ -397,7 +443,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 6 hours on a school day in AR"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 6,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 6 hours on a school day in AR"
       },
       "citations": [
         {
@@ -450,7 +503,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 48 hours in a school week in AR"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 48,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 48 hours in a school week in AR"
       },
       "citations": [
         {
@@ -503,7 +563,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in AZ"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in AZ"
       },
       "citations": [
         {
@@ -556,7 +623,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in AZ"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in AZ"
       },
       "citations": [
         {
@@ -609,7 +683,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in AZ"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in AZ"
       },
       "citations": [
         {
@@ -662,7 +743,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in AZ"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in AZ"
       },
       "citations": [
         {
@@ -715,7 +803,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in CA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in CA"
       },
       "citations": [
         {
@@ -769,7 +864,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in CA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in CA"
       },
       "citations": [
         {
@@ -823,7 +925,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in CA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in CA"
       },
       "citations": [
         {
@@ -872,7 +981,13 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 48 hours in a week in CA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 48
+        },
+        "summary": "Scheduling a 16-17 year old for more than 48 hours in a week in CA"
       },
       "citations": [
         {
@@ -926,7 +1041,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 21:00 on a school night in CO"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 21,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 21:00 on a school night in CO"
       },
       "citations": [
         {
@@ -979,7 +1101,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in CO"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in CO"
       },
       "citations": [
         {
@@ -1032,7 +1161,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 6 hours on a school day in CO"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 6,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 6 hours on a school day in CO"
       },
       "citations": [
         {
@@ -1085,7 +1221,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 30 hours in a school week in CO"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 30,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 30 hours in a school week in CO"
       },
       "citations": [
         {
@@ -1138,7 +1281,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in CT"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in CT"
       },
       "citations": [
         {
@@ -1192,7 +1342,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 6 hours on a school day in CT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 6,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 6 hours on a school day in CT"
       },
       "citations": [
         {
@@ -1246,7 +1403,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 32 hours in a school week in CT"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 32,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 32 hours in a school week in CT"
       },
       "citations": [
         {
@@ -1300,7 +1464,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in DC"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in DC"
       },
       "citations": [
         {
@@ -1354,7 +1525,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in DC"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in DC"
       },
       "citations": [
         {
@@ -1408,7 +1586,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in DC"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in DC"
       },
       "citations": [
         {
@@ -1462,7 +1647,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in DE"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in DE"
       },
       "citations": [
         {
@@ -1515,7 +1707,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in DE"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in DE"
       },
       "citations": [
         {
@@ -1568,7 +1767,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in DE"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in DE"
       },
       "citations": [
         {
@@ -1621,7 +1827,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in DE"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in DE"
       },
       "citations": [
         {
@@ -1669,7 +1882,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old to work past 7:00 PM during the school year"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 19,
+          "school_night": true
+        },
+        "summary": "Scheduling a 14-15 year old to work past 7:00 PM during the school year"
       },
       "citations": [
         {
@@ -1718,7 +1938,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 21,
+          "school_night": false
+        },
+        "summary": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)"
       },
       "citations": [
         {
@@ -1762,7 +1989,13 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old to work before 7:00 AM"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "earliest_start_hour": 7
+        },
+        "summary": "Scheduling a 14-15 year old to work before 7:00 AM"
       },
       "citations": [
         {
@@ -1811,7 +2044,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old for more than 8 hours on a non-school day"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 8 hours on a non-school day"
       },
       "citations": [
         {
@@ -1860,7 +2100,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old for more than 40 hours in a non-school week"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 40,
+          "school_week": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 40 hours in a non-school week"
       },
       "citations": [
         {
@@ -1909,7 +2156,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old for more than 3 hours on a school day"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 3,
+          "school_day": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 3 hours on a school day"
       },
       "citations": [
         {
@@ -1958,7 +2212,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 14-15 year old for more than 18 hours in a school week"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 18 hours in a school week"
       },
       "citations": [
         {
@@ -2012,7 +2273,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 23:00 on a school night in FL"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 23:00 on a school night in FL"
       },
       "citations": [
         {
@@ -2065,7 +2333,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in FL"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in FL"
       },
       "citations": [
         {
@@ -2118,7 +2393,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in FL"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in FL"
       },
       "citations": [
         {
@@ -2171,7 +2453,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 30 hours in a school week in FL"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 30,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 30 hours in a school week in FL"
       },
       "citations": [
         {
@@ -2224,7 +2513,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 21:00 on a school night in GA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 21,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 21:00 on a school night in GA"
       },
       "citations": [
         {
@@ -2277,7 +2573,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in GA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in GA"
       },
       "citations": [
         {
@@ -2330,7 +2633,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in GA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in GA"
       },
       "citations": [
         {
@@ -2383,7 +2693,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 40 hours in a school week in GA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 40,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 40 hours in a school week in GA"
       },
       "citations": [
         {
@@ -2436,7 +2753,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in HI"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in HI"
       },
       "citations": [
         {
@@ -2489,7 +2813,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in HI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in HI"
       },
       "citations": [
         {
@@ -2542,7 +2873,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in HI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in HI"
       },
       "citations": [
         {
@@ -2595,7 +2933,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in HI"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in HI"
       },
       "citations": [
         {
@@ -2648,7 +2993,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in IA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in IA"
       },
       "citations": [
         {
@@ -2701,7 +3053,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in IA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in IA"
       },
       "citations": [
         {
@@ -2754,7 +3113,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in IA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in IA"
       },
       "citations": [
         {
@@ -2807,7 +3173,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 28 hours in a school week in IA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 28,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 28 hours in a school week in IA"
       },
       "citations": [
         {
@@ -2860,7 +3233,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 21:00 on a school night in ID"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 21,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 21:00 on a school night in ID"
       },
       "citations": [
         {
@@ -2913,7 +3293,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 9 hours on a non-school day in ID"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 9,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 9 hours on a non-school day in ID"
       },
       "citations": [
         {
@@ -2966,7 +3353,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 6 hours on a school day in ID"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 6,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 6 hours on a school day in ID"
       },
       "citations": [
         {
@@ -3019,7 +3413,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 54 hours in a school week in ID"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 54,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 54 hours in a school week in ID"
       },
       "citations": [
         {
@@ -3072,7 +3473,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in IL"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in IL"
       },
       "citations": [
         {
@@ -3125,7 +3533,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in IL"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in IL"
       },
       "citations": [
         {
@@ -3178,7 +3593,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 3 hours on a school day in IL"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 3,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 3 hours on a school day in IL"
       },
       "citations": [
         {
@@ -3231,7 +3653,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 24 hours in a school week in IL"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 24,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 24 hours in a school week in IL"
       },
       "citations": [
         {
@@ -3284,7 +3713,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in IN"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in IN"
       },
       "citations": [
         {
@@ -3337,7 +3773,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 9 hours on a non-school day in IN"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 9,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 9 hours on a non-school day in IN"
       },
       "citations": [
         {
@@ -3390,7 +3833,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in IN"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in IN"
       },
       "citations": [
         {
@@ -3443,7 +3893,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 30 hours in a school week in IN"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 30,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 30 hours in a school week in IN"
       },
       "citations": [
         {
@@ -3496,7 +3953,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in KS"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in KS"
       },
       "citations": [
         {
@@ -3549,7 +4013,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in KS"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in KS"
       },
       "citations": [
         {
@@ -3602,7 +4073,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in KS"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in KS"
       },
       "citations": [
         {
@@ -3655,7 +4133,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in KS"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in KS"
       },
       "citations": [
         {
@@ -3708,7 +4193,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in KY"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in KY"
       },
       "citations": [
         {
@@ -3761,7 +4253,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in KY"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in KY"
       },
       "citations": [
         {
@@ -3814,7 +4313,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in KY"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in KY"
       },
       "citations": [
         {
@@ -3867,7 +4373,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 30 hours in a school week in KY"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 30,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 30 hours in a school week in KY"
       },
       "citations": [
         {
@@ -3920,7 +4433,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in LA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in LA"
       },
       "citations": [
         {
@@ -3973,7 +4493,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in LA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in LA"
       },
       "citations": [
         {
@@ -4026,7 +4553,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in LA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in LA"
       },
       "citations": [
         {
@@ -4079,7 +4613,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in LA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in LA"
       },
       "citations": [
         {
@@ -4132,7 +4673,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in MA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in MA"
       },
       "citations": [
         {
@@ -4185,7 +4733,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 9 hours on a non-school day in MA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 9,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 9 hours on a non-school day in MA"
       },
       "citations": [
         {
@@ -4238,7 +4793,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in MA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in MA"
       },
       "citations": [
         {
@@ -4291,7 +4853,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in MA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in MA"
       },
       "citations": [
         {
@@ -4344,7 +4913,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 11:00 PM on a school night in MD"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 11:00 PM on a school night in MD"
       },
       "citations": [
         {
@@ -4398,7 +4974,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in MD"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in MD"
       },
       "citations": [
         {
@@ -4452,7 +5035,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in ME"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in ME"
       },
       "citations": [
         {
@@ -4505,7 +5095,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in ME"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in ME"
       },
       "citations": [
         {
@@ -4558,7 +5155,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in ME"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in ME"
       },
       "citations": [
         {
@@ -4611,7 +5215,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 20 hours in a school week in ME"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 20,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 20 hours in a school week in ME"
       },
       "citations": [
         {
@@ -4664,7 +5275,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in MI"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in MI"
       },
       "citations": [
         {
@@ -4717,7 +5335,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MI"
       },
       "citations": [
         {
@@ -4770,7 +5395,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in MI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in MI"
       },
       "citations": [
         {
@@ -4823,7 +5455,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 24 hours in a school week in MI"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 24,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 24 hours in a school week in MI"
       },
       "citations": [
         {
@@ -4876,7 +5515,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 23:00 on a school night in MN"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 23:00 on a school night in MN"
       },
       "citations": [
         {
@@ -4929,7 +5575,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MN"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MN"
       },
       "citations": [
         {
@@ -4982,7 +5635,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in MN"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in MN"
       },
       "citations": [
         {
@@ -5035,7 +5695,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in MN"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in MN"
       },
       "citations": [
         {
@@ -5088,7 +5755,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in MO"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in MO"
       },
       "citations": [
         {
@@ -5141,7 +5815,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MO"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MO"
       },
       "citations": [
         {
@@ -5194,7 +5875,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in MO"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in MO"
       },
       "citations": [
         {
@@ -5247,7 +5935,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in MO"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in MO"
       },
       "citations": [
         {
@@ -5280,7 +5975,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Employing minors in violation of Mississippi child labor law. Minors under 16 may not work during school hours. Minors under 16: max 8 hrs/day, 44 hrs/week (non-school); 3 hrs/school day, 18 hrs/school week. May not work before 7am or after 7pm (9pm June-Labor Day). No minor under 14 may be employed except in agriculture or domestic service."
+        "obligation": "minor.general_restrictions",
+        "params": {
+          "age_max": 17
+        },
+        "summary": "Employing minors in violation of Mississippi child labor law. Minors under 16 may not work during school hours. Minors under 16: max 8 hrs/day, 44 hrs/week (non-school); 3 hrs/school day, 18 hrs/school week. May not work before 7am or after 7pm (9pm June-Labor Day). No minor under 14 may be employed except in agriculture or domestic service."
       },
       "citations": [
         {
@@ -5334,7 +6033,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in MT"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in MT"
       },
       "citations": [
         {
@@ -5387,7 +6093,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in MT"
       },
       "citations": [
         {
@@ -5440,7 +6153,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in MT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in MT"
       },
       "citations": [
         {
@@ -5493,7 +6213,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in MT"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in MT"
       },
       "citations": [
         {
@@ -5546,7 +6273,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 23:00 on a school night in NC"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 23:00 on a school night in NC"
       },
       "citations": [
         {
@@ -5599,7 +6333,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NC"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NC"
       },
       "citations": [
         {
@@ -5652,7 +6393,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NC"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NC"
       },
       "citations": [
         {
@@ -5705,7 +6453,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in NC"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in NC"
       },
       "citations": [
         {
@@ -5758,7 +6513,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in ND"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in ND"
       },
       "citations": [
         {
@@ -5811,7 +6573,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in ND"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in ND"
       },
       "citations": [
         {
@@ -5864,7 +6633,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in ND"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in ND"
       },
       "citations": [
         {
@@ -5917,7 +6693,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in ND"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in ND"
       },
       "citations": [
         {
@@ -5970,7 +6753,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in NE"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in NE"
       },
       "citations": [
         {
@@ -6023,7 +6813,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NE"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NE"
       },
       "citations": [
         {
@@ -6076,7 +6873,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NE"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NE"
       },
       "citations": [
         {
@@ -6129,7 +6933,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 48 hours in a school week in NE"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 48,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 48 hours in a school week in NE"
       },
       "citations": [
         {
@@ -6182,7 +6993,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in NH"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in NH"
       },
       "citations": [
         {
@@ -6235,7 +7053,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NH"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NH"
       },
       "citations": [
         {
@@ -6288,7 +7113,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NH"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NH"
       },
       "citations": [
         {
@@ -6341,7 +7173,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 30 hours in a school week in NH"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 30,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 30 hours in a school week in NH"
       },
       "citations": [
         {
@@ -6394,7 +7233,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 11:00 PM on a school night in NJ"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 11:00 PM on a school night in NJ"
       },
       "citations": [
         {
@@ -6448,7 +7294,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NJ"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NJ"
       },
       "citations": [
         {
@@ -6502,7 +7355,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NJ"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NJ"
       },
       "citations": [
         {
@@ -6556,7 +7416,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 40 hours in a school week in NJ"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 40,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 40 hours in a school week in NJ"
       },
       "citations": [
         {
@@ -6610,7 +7477,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in NM"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in NM"
       },
       "citations": [
         {
@@ -6663,7 +7537,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NM"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NM"
       },
       "citations": [
         {
@@ -6716,7 +7597,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NM"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NM"
       },
       "citations": [
         {
@@ -6769,7 +7657,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 40 hours in a school week in NM"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 40,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 40 hours in a school week in NM"
       },
       "citations": [
         {
@@ -6822,7 +7717,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 10:00 PM when school is the next day in NV"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM when school is the next day in NV"
       },
       "citations": [
         {
@@ -6876,7 +7778,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NV"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NV"
       },
       "citations": [
         {
@@ -6930,7 +7839,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NV"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NV"
       },
       "citations": [
         {
@@ -6984,7 +7900,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in NY"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in NY"
       },
       "citations": [
         {
@@ -7038,7 +7961,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NY"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in NY"
       },
       "citations": [
         {
@@ -7092,7 +8022,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 48 hours in a non-school week in NY"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 48,
+          "school_week": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 48 hours in a non-school week in NY"
       },
       "citations": [
         {
@@ -7146,7 +8083,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in NY"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in NY"
       },
       "citations": [
         {
@@ -7200,7 +8144,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 28 hours in a school week in NY"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 28,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 28 hours in a school week in NY"
       },
       "citations": [
         {
@@ -7254,7 +8205,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 23:00 on a school night in OH"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 23:00 on a school night in OH"
       },
       "citations": [
         {
@@ -7307,7 +8265,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in OH"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in OH"
       },
       "citations": [
         {
@@ -7360,7 +8325,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in OH"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in OH"
       },
       "citations": [
         {
@@ -7413,7 +8385,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in OH"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in OH"
       },
       "citations": [
         {
@@ -7466,7 +8445,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in OK"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in OK"
       },
       "citations": [
         {
@@ -7519,7 +8505,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in OK"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in OK"
       },
       "citations": [
         {
@@ -7572,7 +8565,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in OK"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in OK"
       },
       "citations": [
         {
@@ -7625,7 +8625,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in OK"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in OK"
       },
       "citations": [
         {
@@ -7678,7 +8685,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in OR"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in OR"
       },
       "citations": [
         {
@@ -7731,7 +8745,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in OR"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in OR"
       },
       "citations": [
         {
@@ -7784,7 +8805,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in OR"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in OR"
       },
       "citations": [
         {
@@ -7837,7 +8865,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in OR"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in OR"
       },
       "citations": [
         {
@@ -7890,7 +8925,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in PA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in PA"
       },
       "citations": [
         {
@@ -7943,7 +8985,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in PA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in PA"
       },
       "citations": [
         {
@@ -7996,7 +9045,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in PA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in PA"
       },
       "citations": [
         {
@@ -8049,7 +9105,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 28 hours in a school week in PA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 28,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 28 hours in a school week in PA"
       },
       "citations": [
         {
@@ -8102,7 +9165,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in RI"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in RI"
       },
       "citations": [
         {
@@ -8155,7 +9225,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in RI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in RI"
       },
       "citations": [
         {
@@ -8208,7 +9285,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in RI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in RI"
       },
       "citations": [
         {
@@ -8261,7 +9345,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 24 hours in a school week in RI"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 24,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 24 hours in a school week in RI"
       },
       "citations": [
         {
@@ -8294,7 +9385,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Employing minors in violation of South Carolina child labor law. Minors 14-15: max 8 hrs/day, 40 hrs/week (non-school); 3 hrs/school day, 18 hrs/school week. Not before 7am or after 7pm (9pm June-Labor Day). Minors under 16 may not work in manufacturing or hazardous occupations. Employment certificate required."
+        "obligation": "minor.general_restrictions",
+        "params": {
+          "age_max": 17
+        },
+        "summary": "Employing minors in violation of South Carolina child labor law. Minors 14-15: max 8 hrs/day, 40 hrs/week (non-school); 3 hrs/school day, 18 hrs/school week. Not before 7am or after 7pm (9pm June-Labor Day). Minors under 16 may not work in manufacturing or hazardous occupations. Employment certificate required."
       },
       "citations": [
         {
@@ -8348,7 +9443,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in SD"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in SD"
       },
       "citations": [
         {
@@ -8401,7 +9503,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in SD"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in SD"
       },
       "citations": [
         {
@@ -8454,7 +9563,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in SD"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in SD"
       },
       "citations": [
         {
@@ -8507,7 +9623,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 20 hours in a school week in SD"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 20,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 20 hours in a school week in SD"
       },
       "citations": [
         {
@@ -8560,7 +9683,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in TN"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in TN"
       },
       "citations": [
         {
@@ -8613,7 +9743,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in TN"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in TN"
       },
       "citations": [
         {
@@ -8666,7 +9803,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in TN"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in TN"
       },
       "citations": [
         {
@@ -8719,7 +9863,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in TN"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in TN"
       },
       "citations": [
         {
@@ -8772,7 +9923,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in TX"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in TX"
       },
       "citations": [
         {
@@ -8825,7 +9983,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in TX"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in TX"
       },
       "citations": [
         {
@@ -8878,7 +10043,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in TX"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in TX"
       },
       "citations": [
         {
@@ -8931,7 +10103,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in TX"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in TX"
       },
       "citations": [
         {
@@ -8984,7 +10163,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 21:00 on a school night in UT"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 21,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 21:00 on a school night in UT"
       },
       "citations": [
         {
@@ -9037,7 +10223,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in UT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in UT"
       },
       "citations": [
         {
@@ -9090,7 +10283,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in UT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in UT"
       },
       "citations": [
         {
@@ -9143,7 +10343,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in UT"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in UT"
       },
       "citations": [
         {
@@ -9196,7 +10403,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 11:00 PM on a school night in VA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 11:00 PM on a school night in VA"
       },
       "citations": [
         {
@@ -9250,7 +10464,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in VA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in VA"
       },
       "citations": [
         {
@@ -9304,7 +10525,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in VT"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in VT"
       },
       "citations": [
         {
@@ -9357,7 +10585,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in VT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in VT"
       },
       "citations": [
         {
@@ -9410,7 +10645,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in VT"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in VT"
       },
       "citations": [
         {
@@ -9463,7 +10705,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in VT"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in VT"
       },
       "citations": [
         {
@@ -9516,7 +10765,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in WA"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in WA"
       },
       "citations": [
         {
@@ -9569,7 +10825,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WA"
       },
       "citations": [
         {
@@ -9622,7 +10885,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in WA"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in WA"
       },
       "citations": [
         {
@@ -9675,7 +10945,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 20 hours in a school week in WA"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 20,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 20 hours in a school week in WA"
       },
       "citations": [
         {
@@ -9728,7 +11005,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 23:00 on a school night in WI"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 23,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 23:00 on a school night in WI"
       },
       "citations": [
         {
@@ -9781,7 +11065,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WI"
       },
       "citations": [
         {
@@ -9834,7 +11125,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in WI"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in WI"
       },
       "citations": [
         {
@@ -9887,7 +11185,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in WI"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in WI"
       },
       "citations": [
         {
@@ -9940,7 +11245,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in WV"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in WV"
       },
       "citations": [
         {
@@ -9993,7 +11305,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WV"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WV"
       },
       "citations": [
         {
@@ -10046,7 +11365,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in WV"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in WV"
       },
       "citations": [
         {
@@ -10099,7 +11425,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in WV"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in WV"
       },
       "citations": [
         {
@@ -10152,7 +11485,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old to work past 22:00 on a school night in WY"
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in WY"
       },
       "citations": [
         {
@@ -10205,7 +11545,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WY"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in WY"
       },
       "citations": [
         {
@@ -10258,7 +11605,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 4 hours on a school day in WY"
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in WY"
       },
       "citations": [
         {
@@ -10311,7 +11665,14 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Scheduling a 16-17 year old for more than 18 hours in a school week in WY"
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in WY"
       },
       "citations": [
         {

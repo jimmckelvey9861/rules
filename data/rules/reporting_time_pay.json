@@ -40,8 +40,14 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "formula": "Half the scheduled shift hours at regular rate (minimum 2 hours, maximum 4 hours)"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 2,
+          "maximum_hours": 4,
+          "fraction_of_scheduled": 0.5,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Half the scheduled shift hours at regular rate (minimum 2 hours, maximum 4 hours)"
       },
       "citations": [
         {
@@ -95,9 +101,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "amount": 2,
-        "formula": "Pay for minimum 2 hours at regular rate for second reporting in one workday"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 2,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Pay for minimum 2 hours at regular rate for second reporting in one workday"
       },
       "citations": [
         {
@@ -146,9 +155,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "amount": 4,
-        "formula": "Pay for minimum 4 hours at minimum wage rate"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 4,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours at minimum wage rate"
       },
       "citations": [
         {
@@ -187,9 +199,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "shift.paid_hours",
-        "minimum": 4,
-        "unit": "hours at minimum wage when employee reports but is sent home"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 4,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours at minimum wage when the employee reports to work and is sent home"
       },
       "citations": [
         {
@@ -243,9 +258,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "amount": 3,
-        "formula": "Pay for minimum 3 hours at minimum wage rate"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 3,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 3 hours at minimum wage rate"
       },
       "citations": [
         {
@@ -294,9 +312,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "amount": 2,
-        "formula": "Pay for minimum 2 hours at regular rate"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 2,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Pay for minimum 2 hours at regular rate"
       },
       "citations": [
         {
@@ -335,9 +356,12 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "shift.paid_hours",
-        "minimum": 1,
-        "unit": "hours at minimum wage when employee reports but is sent home"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours at minimum wage when the employee reports to work and is sent home"
       },
       "citations": [
         {
@@ -386,9 +410,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "call_in_pay",
-        "amount": 4,
-        "formula": "Pay for minimum 4 hours (or scheduled hours if less) at applicable minimum wage"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 4,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours (or scheduled hours if less) at applicable minimum wage"
       },
       "citations": [
         {
@@ -437,9 +464,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "call_in_pay",
-        "amount": 4,
-        "formula": "Pay for minimum 4 hours at applicable minimum wage when called in from on-call status"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 4,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "Pay for minimum 4 hours at applicable minimum wage when called in from on-call status"
       },
       "citations": [
         {
@@ -488,8 +518,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "formula": "Half the scheduled shift at regular rate (minimum 1 hour)"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 1,
+          "fraction_of_scheduled": 0.5,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Half the scheduled shift at regular rate (minimum 1 hour)"
       },
       "citations": [
         {
@@ -543,9 +578,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "reporting_time_pay",
-        "amount": 3,
-        "formula": "Pay for minimum 3 hours at regular rate when scheduled for 8+ hours"
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 3,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Pay for minimum 3 hours at regular rate when scheduled for 8+ hours"
       },
       "citations": [
         {

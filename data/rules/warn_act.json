@@ -30,7 +30,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "California requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 75
+        },
+        "summary": "California requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees."
       },
       "citations": [
         {
@@ -69,7 +74,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Connecticut requires 90 days advance written notice before plant closing or mass layoff affecting 100+ employees. Requires continuation of group health insurance for 120 days."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 90,
+          "employee_threshold": 100
+        },
+        "summary": "Connecticut requires 90 days advance written notice before plant closing or mass layoff affecting 100+ employees. Requires continuation of group health insurance for 120 days."
       },
       "citations": [
         {
@@ -113,7 +123,11 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Mass layoff or plant closing without 60 calendar days advance written notice to affected employees"
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60
+        },
+        "summary": "Mass layoff or plant closing without 60 calendar days advance written notice to affected employees"
       },
       "citations": [
         {
@@ -152,7 +166,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Georgia requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Requires filing with GA DOL Commissioner."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "Georgia requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Requires filing with GA DOL Commissioner."
       },
       "citations": [
         {
@@ -191,7 +210,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Hawaii requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Lower threshold than federal (50 vs 100). Covers partial closings."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 50
+        },
+        "summary": "Hawaii requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Lower threshold than federal (50 vs 100). Covers partial closings."
       },
       "citations": [
         {
@@ -230,7 +254,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Iowa requires 30 days advance written notice before plant closing or mass layoff affecting 25+ employees. Very low threshold (25 employees). 30-day notice."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 30,
+          "employee_threshold": 25
+        },
+        "summary": "Iowa requires 30 days advance written notice before plant closing or mass layoff affecting 25+ employees. Very low threshold (25 employees). 30-day notice."
       },
       "citations": [
         {
@@ -269,7 +298,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Illinois requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees. Lower threshold than federal (75 vs 100)."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 75
+        },
+        "summary": "Illinois requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees. Lower threshold than federal (75 vs 100)."
       },
       "citations": [
         {
@@ -308,7 +342,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Kansas requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Secretary of Human Resources required."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "Kansas requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Secretary of Human Resources required."
       },
       "citations": [
         {
@@ -347,7 +386,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Massachusetts requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50). Includes reemployment assistance."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 90,
+          "employee_threshold": 50
+        },
+        "summary": "Massachusetts requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50). Includes reemployment assistance."
       },
       "citations": [
         {
@@ -386,7 +430,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Maryland requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Economic Stabilization Act. Covers relocations. Threshold: 50 employees."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 50
+        },
+        "summary": "Maryland requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Economic Stabilization Act. Covers relocations. Threshold: 50 employees."
       },
       "citations": [
         {
@@ -425,7 +474,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Maine requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Severance pay required: 1 week per year of service for 3+ year employees."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "Maine requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Severance pay required: 1 week per year of service for 3+ year employees."
       },
       "citations": [
         {
@@ -464,7 +518,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Michigan requires 60 days advance written notice before plant closing or mass layoff affecting 25+ employees. Very low threshold (25 employees). Notification to state workforce agency."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 25
+        },
+        "summary": "Michigan requires 60 days advance written notice before plant closing or mass layoff affecting 25+ employees. Very low threshold (25 employees). Notification to state workforce agency."
       },
       "citations": [
         {
@@ -503,7 +562,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Minnesota requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Covers closings and substantial layoffs (50+ employees)."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 50
+        },
+        "summary": "Minnesota requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Covers closings and substantial layoffs (50+ employees)."
       },
       "citations": [
         {
@@ -542,7 +606,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "New Hampshire requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "New Hampshire requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees."
       },
       "citations": [
         {
@@ -581,7 +650,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "New Jersey requires 90 days advance written notice before plant closing or mass layoff affecting 100+ employees. 90-day notice (longer than federal). Severance pay: 1 week per year of service."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 90,
+          "employee_threshold": 100
+        },
+        "summary": "New Jersey requires 90 days advance written notice before plant closing or mass layoff affecting 100+ employees. 90-day notice (longer than federal). Severance pay: 1 week per year of service."
       },
       "citations": [
         {
@@ -620,7 +694,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "New York requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50 employees in prior 12 months)."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 90,
+          "employee_threshold": 50
+        },
+        "summary": "New York requires 90 days advance written notice before plant closing or mass layoff affecting 50+ employees. 90-day notice, lower threshold (50 employees in prior 12 months)."
       },
       "citations": [
         {
@@ -659,7 +738,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Ohio requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Director of Job and Family Services."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "Ohio requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Director of Job and Family Services."
       },
       "citations": [
         {
@@ -698,7 +782,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Oregon requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Dislocated Worker Unit. Covers relocations 100+ miles."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "Oregon requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to Dislocated Worker Unit. Covers relocations 100+ miles."
       },
       "citations": [
         {
@@ -737,7 +826,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Pennsylvania requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to PA Dept of Labor & Industry."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "Pennsylvania requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to PA Dept of Labor & Industry."
       },
       "citations": [
         {
@@ -776,7 +870,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "South Carolina requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to SC Dept of Employment and Workforce."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 100
+        },
+        "summary": "South Carolina requires 60 days advance written notice before plant closing or mass layoff affecting 100+ employees. Notification to SC Dept of Employment and Workforce."
       },
       "citations": [
         {
@@ -815,7 +914,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Tennessee requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Lower threshold (50 employees). Notification to Commissioner of Labor."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 50
+        },
+        "summary": "Tennessee requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Lower threshold (50 employees). Notification to Commissioner of Labor."
       },
       "citations": [
         {
@@ -854,7 +958,12 @@
       },
       "result": {
         "type": "prohibition",
-        "prohibitedAction": "Wisconsin requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Business Closing and Mass Layoff Law. Threshold: 50 employees."
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 50
+        },
+        "summary": "Wisconsin requires 60 days advance written notice before plant closing or mass layoff affecting 50+ employees. Business Closing and Mass Layoff Law. Threshold: 50 employees."
       },
       "citations": [
         {

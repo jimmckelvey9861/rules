@@ -25,9 +25,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -60,9 +64,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 24,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 24,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "24 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -90,9 +98,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -126,9 +138,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 40,
-        "unit": "hours/year (accrued at 1 hr per 40 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
       },
       "citations": [
         {
@@ -157,9 +173,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 48,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -193,9 +213,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
       },
       "citations": [
         {
@@ -229,9 +253,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 56,
-        "unit": "hours per year (accrued at 1 hr per 37 hrs worked; 100+ employees = 7 days; 25-99 = 5 days; 1-24 = 3 days)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 37,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 37 hours worked (100+ employees = 7 days; 25-99 = 5 days; 1-24 = 3 days)"
       },
       "citations": [
         {
@@ -265,9 +293,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 48,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -296,9 +328,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
       },
       "citations": [
         {
@@ -331,9 +367,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 48,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -362,9 +402,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -398,9 +442,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 64,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 64,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "64 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -434,9 +482,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 64,
-        "unit": "hours per year unpaid (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 64,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": false
+        },
+        "summary": "64 hours of unpaid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -470,9 +522,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
       },
       "citations": [
         {
@@ -500,9 +556,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 35 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 35,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 35 hours worked"
       },
       "citations": [
         {
@@ -535,9 +595,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 48,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -566,9 +630,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 48,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -601,9 +669,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 56,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -637,9 +709,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 56,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -668,9 +744,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per benefit year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -699,9 +779,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 64,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 64,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "64 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -734,9 +818,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per benefit year (accrued at 0.01923 hrs per hr worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 52,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 52 hours worked"
       },
       "citations": [
         {
@@ -770,9 +858,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 56,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -811,9 +903,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -842,9 +938,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -877,9 +977,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 40,
-        "unit": "hours/year (accrued at 1 hr per 40 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
       },
       "citations": [
         {
@@ -908,9 +1012,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 35 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 35,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 35 hours worked"
       },
       "citations": [
         {
@@ -943,9 +1051,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 72,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -979,9 +1091,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.sick_hours_accrued",
-        "minimum": 72,
-        "unit": "hours/year (accrued at 1 hr per 30 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
       },
       "citations": [
         {
@@ -1010,9 +1126,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 52 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 52,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 52 hours worked"
       },
       "citations": [
         {
@@ -1040,9 +1160,13 @@
       },
       "result": {
         "type": "minimum_required_value",
-        "targetFact": "leave.hours_accrued",
-        "minimum": 40,
-        "unit": "hours per year (accrued at 1 hr per 40 hrs worked)"
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
       },
       "citations": [
         {

@@ -4,7 +4,8 @@
  * Usage: npm run test:reference
  */
 
-import { RULES, SKIPPED_DETAILS } from "../rules/index.js";
+import { RULES, SKIPPED_DETAILS, evaluateRules } from "../rules/index.js";
+import { VOCABULARY, getAllObligations, getObligation, resolveObligation, validateObligationParams } from "./vocabulary.js";
 import { ALL_LOCALS, ALL_STATES, ALL_TOPICS } from "../rules/coverageMatrix.js";
 import { TAXONOMY, getAllTaxonomyNodes, resolveTopic, getEnforcementTarget } from "./taxonomy.js";
 import {
@@ -57,6 +58,27 @@ assert(findPreemptingAncestor("Portland Metro Area", "minimum_wage") === undefin
 assert(findPreemptingAncestor("Chicago", "minimum_wage") === undefined, "Illinois does not preempt Chicago's minimum wage");
 const texasPreemption = resolveJurisdiction("TX")?.preemption?.minimum_wage;
 assert(texasPreemption === "preempted", "Texas is recorded as preempting local minimum wage");
+console.log("\n═══ Result vocabulary ═══");
+const obligations = getAllObligations();
+assert(obligations.length >= 19, `At least 19 obligation types (got ${obligations.length})`);
+assert(obligations.every(o => /^[a-z_]+(\.[a-z_]+)+$/.test(o.code)), "Every obligation code is dotted lowercase");
+assert(new Set(obligations.map(o => o.code)).size === obligations.length, "Obligation codes are unique");
+assert(obligations.every(o => o.params.every(p => !p.unit || p.unit in VOCABULARY.units)), "Every param unit is declared in the units table");
+assert(obligations.filter(o => o.behaviors.includes("minimum_required_value")).every(o => o.targetFact && o.compareParam), "Every minimum_required_value obligation has a targetFact and compareParam");
+assert(RULES.every(r => getObligation(r.result.obligation) !== undefined), "Every rule names a known obligation");
+assert(RULES.every(r => getObligation(r.result.obligation)!.behaviors.includes(r.result.type)), "Every rule uses a behaviour its obligation allows");
+assert(RULES.every(r => validateObligationParams(r.result.obligation, r.result.params).length === 0), "Every rule's params match its obligation");
+assert(RULES.every(r => r.result.summary.trim().length > 0), "Every rule has a summary");
+const usedObligations = new Set(RULES.map(r => r.result.obligation));
+assert(obligations.every(o => usedObligations.has(o.code)), `Every obligation is used by at least one rule (unused: ${obligations.filter(o => !usedObligations.has(o.code)).map(o => o.code).join(", ") || "none"})`);
+assert(resolveObligation("predictability pay")?.code === "premium.schedule_change", "Synonym lookup: predictability pay -> premium.schedule_change");
+assert(resolveObligation("WARN Act")?.code === "sep.warn_notice", "Synonym lookup: WARN Act -> sep.warn_notice");
+assert(RULES.filter(r => r.result.obligation === "wage.minimum").every(r => typeof r.result.params.rate === "number"), "Every minimum wage rule carries a numeric rate");
+assert(RULES.filter(r => r.result.obligation.startsWith("minor.") && r.result.obligation !== "minor.general_restrictions").every(r => typeof r.result.params.age_min === "number" && typeof r.result.params.age_max === "number"), "Every specific minor-labor rule carries an age range");
+const caMinWage = evaluateRules(RULES, { "location.state": "CA", "employee.exempt_status": "non_exempt", "employee.regular_hourly_rate": 7.0, "shift.hours_worked_today": 4, "shift.hours_worked_this_week": 20 });
+const caWinner = caMinWage.violations.filter(v => RULES.find(r => r.id === v.ruleId)?.result.obligation === "wage.minimum");
+assert(caWinner.length === 1 && caWinner[0].ruleId === "ca-minimum-wage-2025", `Most protective minimum wage wins through the vocabulary compare param (got ${caWinner.map(v => v.ruleId).join(", ")})`);
+
 console.log("\n═══ Citations ═══");
 const allCitations = RULES.flatMap(r => r.citations);
 assert(allCitations.every(c => c.kind !== undefined), `Every citation has a kind (${allCitations.filter(c => !c.kind).length} missing)`);

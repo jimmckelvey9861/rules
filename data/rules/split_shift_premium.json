@@ -30,9 +30,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "split_shift_premium",
-        "amount": 1,
-        "formula": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage \u00d7 (hours worked + 1))"
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage \u00d7 (hours worked + 1))"
       },
       "citations": [
         {
@@ -76,9 +79,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "split_shift_premium",
-        "amount": 1,
-        "formula": "1 additional hour at the applicable minimum wage rate"
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate"
       },
       "citations": [
         {
@@ -117,8 +123,12 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "split_shift_spread_of_hours",
-        "formula": "1 additional hour at basic minimum hourly wage when interval between start and end of workday exceeds 10 hours. Applies to all industries covered by NY wage orders."
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at basic minimum hourly wage when interval between start and end of workday exceeds 10 hours. Applies to all industries covered by NY wage orders."
       },
       "citations": [
         {

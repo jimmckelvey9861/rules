@@ -13,6 +13,7 @@ under `data/`. The validator enforces:
 - No vague values ("varies", "unknown")
 - Required citation, effective date, and ID
 - Topic resolves to a node in `data/taxonomy.json`
+- Result names an obligation from `data/result-vocabulary.json` and its params match
 - Jurisdiction resolves to a record in `data/jurisdictions.json`, and no local
   rule sits on a topic its state preempts
 - Unique rule ids across all files
@@ -38,6 +39,7 @@ No database required. No Docker. No environment variables.
 - `GET /api/taxonomy` — Category > topic > sub-topic tree with enforcement targets
 - `GET /api/jurisdictions` — Jurisdiction records with parent links and preemption flags
 - `GET /api/jurisdictions/:key/chain` — A jurisdiction and its ancestors
+- `GET /api/vocabulary` — Obligation types with their typed parameters
 
 ## Structure
 
@@ -45,6 +47,7 @@ No database required. No Docker. No environment variables.
 data/
   taxonomy.json         — 9 categories > 28 topics > 63 sub-topics, enforcement target per topic
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent, preemption)
+  result-vocabulary.json — The obligation types a rule can impose, with typed parameters
   rules/<topic>.json    — All rules, one file per topic (476 rules across 13 topics)
   schema/               — JSON Schema for rule files (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
@@ -56,6 +59,7 @@ server/
   reference/
     dataFiles.ts        — Reads /data
     taxonomy.ts         — Taxonomy loader + lookups
+    vocabulary.ts       — Result vocabulary loader + param validation
     jurisdictions.ts    — Jurisdiction loader, chain + preemption lookups
     reference.test.ts   — Reference data tests
   rules/
@@ -77,6 +81,28 @@ client/
     SchedulerPage       — Schedule editor
     ComplianceWorkbench — Scenario workbench
 ```
+
+## Results and the obligation vocabulary
+
+A rule's `result` says what the law requires when the rule applies:
+
+```json
+"result": {
+  "type": "required_break",
+  "obligation": "break.meal",
+  "params": { "minimum_minutes": 30, "after_hours": 5 },
+  "summary": "30-minute meal break for shifts of 5+ hours"
+}
+```
+
+`type` is the engine behaviour (`minimum_required_value`, `required_break`,
+`premium_required`, `prohibition`, `warning`). `obligation` is a code from
+`data/result-vocabulary.json`, which declares for each obligation the behaviours
+it may use, what Kronto should do when it fires (`block`, `premium`, `inform`),
+its typed parameters, the parameter that decides "most protective" when several
+rules of the same obligation apply, and synonyms for the authoring tool. The
+validator rejects a result whose obligation is unknown or whose params do not
+match the declaration. `summary` is one plain-English sentence for display.
 
 ## Sources and links
 

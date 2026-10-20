@@ -30,9 +30,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5,
-        "formula": "Time-and-a-half for all hours worked beyond 8 in a single workday"
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "Time-and-a-half for all hours worked beyond 8 in a single workday"
       },
       "citations": [
         {
@@ -71,8 +75,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "1.5x regular rate for hours over 8 in a day"
       },
       "citations": [
         {
@@ -111,8 +120,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "double_time",
-        "amount": 2
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 2,
+          "threshold_hours": 12,
+          "period": "day"
+        },
+        "summary": "2x regular rate for hours over 12 in a day"
       },
       "citations": [
         {
@@ -151,9 +165,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5,
-        "formula": "Time-and-a-half for all hours worked beyond 12 in a single workday"
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 12,
+          "period": "day"
+        },
+        "summary": "Time-and-a-half for all hours worked beyond 12 in a single workday"
       },
       "citations": [
         {
@@ -192,8 +210,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -232,8 +255,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -267,8 +295,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -307,8 +340,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "formula": "1.5 \u00d7 regular rate for hours over 40/week. State-enforced with different exemption standards than federal FLSA (domestic workers covered, salary threshold differs)."
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5 \u00d7 regular rate for hours over 40/week. State-enforced with different exemption standards than federal FLSA (domestic workers covered, salary threshold differs)."
       },
       "citations": [
         {
@@ -347,8 +385,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -387,8 +430,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "formula": "1.5 \u00d7 regular rate for hours over 48/week. MN state threshold is 48 hours (higher than federal 40). Federal FLSA still applies at 40 hours for covered employers."
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 48,
+          "period": "week"
+        },
+        "summary": "1.5 \u00d7 regular rate for hours over 48/week. MN state threshold is 48 hours (higher than federal 40). Federal FLSA still applies at 40 hours for covered employers."
       },
       "citations": [
         {
@@ -427,8 +475,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -472,8 +525,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "1.5x regular rate for hours over 8 in a day"
       },
       "citations": [
         {
@@ -512,8 +570,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -557,8 +620,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 44,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 44 in a week"
       },
       "citations": [
         {
@@ -597,8 +665,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -642,9 +715,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5,
-        "formula": "Time-and-a-half for all hours worked beyond 10 in a single workday (manufacturing only)"
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 10,
+          "period": "day"
+        },
+        "summary": "Time-and-a-half for all hours worked beyond 10 in a single workday (manufacturing only)"
       },
       "citations": [
         {
@@ -683,8 +760,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {
@@ -723,8 +805,13 @@
       },
       "result": {
         "type": "premium_required",
-        "premiumType": "overtime",
-        "amount": 1.5
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
       },
       "citations": [
         {

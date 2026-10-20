@@ -35,8 +35,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 3.5+ hours"
       },
       "citations": [
         {
@@ -75,7 +79,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "California requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "California requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {
@@ -119,8 +129,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
       },
       "citations": [
         {
@@ -159,7 +173,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Colorado requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Colorado requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {
@@ -198,8 +218,11 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "paid rest break (15 min \u00d7 2 per shift of 7+ hours, hotel room attendants in Cook County)",
-        "minimumMinutes": 15
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 15
+        },
+        "summary": "Paid rest break (15 min \u00d7 2 per shift of 7+ hours, hotel room attendants in Cook County)"
       },
       "citations": [
         {
@@ -243,8 +266,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
       },
       "citations": [
         {
@@ -283,7 +310,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Kentucky requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Kentucky requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {
@@ -327,8 +360,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
       },
       "citations": [
         {
@@ -367,7 +404,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Minnesota requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Minnesota requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {
@@ -411,8 +454,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 3.5+ hours"
       },
       "citations": [
         {
@@ -451,7 +498,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Nevada requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Nevada requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {
@@ -495,8 +548,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
       },
       "citations": [
         {
@@ -535,7 +592,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Oregon requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Oregon requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {
@@ -569,8 +632,11 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "reasonable opportunities during work periods to eat and use toilet facilities (no specific duration mandated)",
-        "minimumMinutes": 1
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 1
+        },
+        "summary": "Reasonable opportunities during work periods to eat and use toilet facilities (no specific duration mandated)"
       },
       "citations": [
         {
@@ -614,8 +680,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "rest",
-        "minimumMinutes": 10
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
       },
       "citations": [
         {
@@ -654,7 +724,13 @@
       },
       "result": {
         "type": "warning",
-        "message": "Washington requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Washington requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
       },
       "citations": [
         {

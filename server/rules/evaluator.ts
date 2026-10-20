@@ -14,7 +14,23 @@ import type {
   EvaluationSummary,
   EvaluationOutcome,
   ConditionDetail,
+  RuleResult,
 } from "./types.js";
+import { getObligation } from "../reference/vocabulary.js";
+
+/** The numeric parameter that decides "most protective" for this result's obligation, if any. */
+function compareValue(result: RuleResult): number | undefined {
+  const ob = getObligation(result.obligation);
+  const key = ob?.compareParam;
+  const v = key ? result.params[key] : undefined;
+  return typeof v === "number" ? v : undefined;
+}
+
+/** Results of the same obligation are only comparable when they are expressed in the same unit. */
+function compareUnit(result: RuleResult): string {
+  const u = result.params["unit"];
+  return typeof u === "string" ? u : "";
+}
 
 /**
  * Evaluate a single rule against a scenario.
@@ -83,10 +99,11 @@ export function evaluateRules(rules: readonly Rule[], scenario: Scenario): Evalu
  * AND state min wage), only the most restrictive remains a violation.
  * Less restrictive rules are moved to passed with a supersededBy marker.
  *
- * Logic by result type:
- * - minimum_required_value: highest minimum wins
- * - required_break: longest minimumMinutes wins (per breakType)
- * - premium_required: highest amount wins (per premiumType)
+ * Logic by result type, comparing the obligation's compareParam
+ * (see data/result-vocabulary.json):
+ * - minimum_required_value: highest value wins (per obligation)
+ * - required_break: longest minimum_minutes wins (per obligation)
+ * - premium_required: highest amount wins (per obligation, same unit only)
  * - prohibition: ALL apply (cannot supersede a prohibition)
  * - warning: ALL apply
  */
@@ -125,45 +142,51 @@ function resolveInteractions(summary: EvaluationSummary, rules: readonly Rule[])
 
     switch (resultType) {
       case "minimum_required_value": {
-        // Highest minimum wins
-        const sorted = withRules.sort((a, b) => {
-          const aMin = (a.rule.result as any).minimum;
-          const bMin = (b.rule.result as any).minimum;
-          return bMin - aMin; // descending
-        });
-        const winner = sorted[0];
-        keptViolations.push(winner.result);
-        for (let i = 1; i < sorted.length; i++) {
-          sorted[i].result.outcome = "passed";
-          sorted[i].result.supersededBy = winner.result.ruleId;
-          sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (more restrictive: ${(winner.rule.result as any).minimum} ${(winner.rule.result as any).unit})`;
-          superseded.push(sorted[i].result);
-        }
-        break;
-      }
-
-      case "required_break": {
-        // Group by breakType, then longest minimumMinutes wins within each group
-        const byBreakType = new Map<string, typeof withRules>();
+        // Highest value wins, within each obligation
+        const byObligation = new Map<string, typeof withRules>();
         for (const wr of withRules) {
-          const bt = (wr.rule.result as any).breakType;
-          if (!byBreakType.has(bt)) byBreakType.set(bt, []);
-          byBreakType.get(bt)!.push(wr);
+          const key = wr.rule.result.obligation;
+          if (!byObligation.has(key)) byObligation.set(key, []);
+          byObligation.get(key)!.push(wr);
         }
-        for (const [_bt, group] of byBreakType) {
-          if (group.length <= 1) {
-            keptViolations.push(group[0].result);
+        for (const [_ob, group] of byObligation) {
+          if (group.length <= 1 || !group.every(wr => compareValue(wr.rule.result) !== undefined)) {
+            keptViolations.push(...group.map(g => g.result));
             continue;
           }
-          const sorted = group.sort((a, b) => {
-            return (b.rule.result as any).minimumMinutes - (a.rule.result as any).minimumMinutes;
-          });
+          const sorted = group.sort((a, b) => compareValue(b.rule.result)! - compareValue(a.rule.result)!);
           const winner = sorted[0];
           keptViolations.push(winner.result);
           for (let i = 1; i < sorted.length; i++) {
             sorted[i].result.outcome = "passed";
             sorted[i].result.supersededBy = winner.result.ruleId;
-            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (longer break: ${(winner.rule.result as any).minimumMinutes} min)`;
+            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (more restrictive: ${winner.rule.result.summary})`;
+            superseded.push(sorted[i].result);
+          }
+        }
+        break;
+      }
+
+      case "required_break": {
+        // Group by obligation (break.meal, break.rest), then longest minimum_minutes wins
+        const byObligation = new Map<string, typeof withRules>();
+        for (const wr of withRules) {
+          const key = wr.rule.result.obligation;
+          if (!byObligation.has(key)) byObligation.set(key, []);
+          byObligation.get(key)!.push(wr);
+        }
+        for (const [_ob, group] of byObligation) {
+          if (group.length <= 1 || !group.every(wr => compareValue(wr.rule.result) !== undefined)) {
+            keptViolations.push(...group.map(g => g.result));
+            continue;
+          }
+          const sorted = group.sort((a, b) => compareValue(b.rule.result)! - compareValue(a.rule.result)!);
+          const winner = sorted[0];
+          keptViolations.push(winner.result);
+          for (let i = 1; i < sorted.length; i++) {
+            sorted[i].result.outcome = "passed";
+            sorted[i].result.supersededBy = winner.result.ruleId;
+            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (longer break: ${compareValue(winner.rule.result)} min)`;
             superseded.push(sorted[i].result);
           }
         }
@@ -171,33 +194,26 @@ function resolveInteractions(summary: EvaluationSummary, rules: readonly Rule[])
       }
 
       case "premium_required": {
-        // Group by premiumType, then highest amount wins
-        const byPremType = new Map<string, typeof withRules>();
+        // Group by obligation and unit, then highest compare value wins
+        const byObligation = new Map<string, typeof withRules>();
         for (const wr of withRules) {
-          const pt = (wr.rule.result as any).premiumType;
-          if (!byPremType.has(pt)) byPremType.set(pt, []);
-          byPremType.get(pt)!.push(wr);
+          const key = `${wr.rule.result.obligation}|${compareUnit(wr.rule.result)}`;
+          if (!byObligation.has(key)) byObligation.set(key, []);
+          byObligation.get(key)!.push(wr);
         }
-        for (const [_pt, group] of byPremType) {
-          if (group.length <= 1) {
-            keptViolations.push(group[0].result);
-            continue;
-          }
-          // If any lack a numeric amount, keep all (formula-based can't be compared)
-          const allHaveAmount = group.every(wr => (wr.rule.result as any).amount !== undefined);
-          if (!allHaveAmount) {
+        for (const [_key, group] of byObligation) {
+          // If any lack a numeric compare value, keep all (prose-only premiums cannot be compared)
+          if (group.length <= 1 || !group.every(wr => compareValue(wr.rule.result) !== undefined)) {
             keptViolations.push(...group.map(g => g.result));
             continue;
           }
-          const sorted = group.sort((a, b) => {
-            return (b.rule.result as any).amount - (a.rule.result as any).amount;
-          });
+          const sorted = group.sort((a, b) => compareValue(b.rule.result)! - compareValue(a.rule.result)!);
           const winner = sorted[0];
           keptViolations.push(winner.result);
           for (let i = 1; i < sorted.length; i++) {
             sorted[i].result.outcome = "passed";
             sorted[i].result.supersededBy = winner.result.ruleId;
-            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (higher premium: ${(winner.rule.result as any).amount})`;
+            sorted[i].result.explanation = `Superseded by ${winner.result.ruleId} (higher premium: ${compareValue(winner.rule.result)})`;
             superseded.push(sorted[i].result);
           }
         }
@@ -286,51 +302,58 @@ function evaluateComparison(comp: ComparisonCondition, scenario: Scenario, trigg
 
 function determineOutcome(rule: Rule, scenario: Scenario): { outcome: EvaluationOutcome; explanation: string } {
   const result = rule.result;
+  const obligation = getObligation(result.obligation);
+  const label = obligation?.name ?? result.obligation;
 
   switch (result.type) {
     case "minimum_required_value": {
-      const actual = scenario[result.targetFact] as number | undefined;
-      if (actual === undefined) {
-        return { outcome: "warning", explanation: `Cannot verify: "${result.targetFact}" not provided in scenario` };
+      const targetFact = obligation?.targetFact;
+      const minimum = compareValue(result);
+      if (!targetFact || minimum === undefined) {
+        return { outcome: "warning", explanation: `Cannot verify ${label}: obligation has no target fact or compare value` };
       }
-      if (actual < result.minimum) {
+      const actual = scenario[targetFact] as number | undefined;
+      if (actual === undefined) {
+        return { outcome: "warning", explanation: `Cannot verify: "${targetFact}" not provided in scenario` };
+      }
+      const unit = obligation?.params.find(p => p.name === obligation.compareParam)?.unit ?? "";
+      if (actual < minimum) {
         return {
           outcome: "violation",
-          explanation: `${result.targetFact} is ${actual} ${result.unit}, below minimum of ${result.minimum} ${result.unit}`,
+          explanation: `${targetFact} is ${actual} ${unit}, below minimum of ${minimum} ${unit} (${result.summary})`,
         };
       }
       return {
         outcome: "passed",
-        explanation: `${result.targetFact} is ${actual} ${result.unit}, meets minimum of ${result.minimum} ${result.unit}`,
+        explanation: `${targetFact} is ${actual} ${unit}, meets minimum of ${minimum} ${unit}`,
       };
     }
 
     case "premium_required": {
-      // When conditions are met, a premium is required — flag as violation
+      // When conditions are met, a premium is owed — flag as violation
       // (the scenario doesn't tell us if the premium was paid)
-      const amountStr = result.amount !== undefined ? `${result.amount}x` : result.formula || "";
       return {
         outcome: "violation",
-        explanation: `${result.premiumType} premium required: ${amountStr}`,
+        explanation: `Premium required (${label.toLowerCase()}): ${result.summary}`,
       };
     }
 
     case "required_break": {
       return {
         outcome: "violation",
-        explanation: `${result.breakType} break of at least ${result.minimumMinutes} minutes is required`,
+        explanation: `${label} of at least ${result.params.minimum_minutes} minutes is required (${result.summary})`,
       };
     }
 
     case "prohibition": {
       return {
         outcome: "violation",
-        explanation: `Prohibited: ${result.prohibitedAction}`,
+        explanation: `Prohibited: ${result.summary}`,
       };
     }
 
     case "warning": {
-      return { outcome: "warning", explanation: result.message };
+      return { outcome: "warning", explanation: result.summary };
     }
 
     default:

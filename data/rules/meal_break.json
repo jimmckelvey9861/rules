@@ -40,8 +40,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours"
       },
       "citations": [
         {
@@ -80,7 +84,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "California requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "California requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -124,8 +133,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 10
+        },
+        "summary": "30-minute meal break for shifts of 10+ hours"
       },
       "citations": [
         {
@@ -169,8 +182,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours"
       },
       "citations": [
         {
@@ -208,7 +225,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Colorado requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "Colorado requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -252,8 +274,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 7.5
+        },
+        "summary": "30-minute meal break for shifts of 7.5+ hours"
       },
       "citations": [
         {
@@ -292,7 +318,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Connecticut requires a 30-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 7.5
+        },
+        "summary": "Connecticut requires a 30-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -336,8 +367,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 7.5
+        },
+        "summary": "30-minute meal break for shifts of 7.5+ hours"
       },
       "citations": [
         {
@@ -375,7 +410,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Delaware requires a 30-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 7.5
+        },
+        "summary": "Delaware requires a 30-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -419,8 +459,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 20
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 7.5
+        },
+        "summary": "20-minute meal break for shifts of 7.5+ hours"
       },
       "citations": [
         {
@@ -459,7 +503,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Illinois requires a 20-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 7.5
+        },
+        "summary": "Illinois requires a 20-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -503,8 +552,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours"
       },
       "citations": [
         {
@@ -542,7 +595,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Kentucky requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "Kentucky requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -586,8 +644,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -626,7 +688,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Massachusetts requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "Massachusetts requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -680,8 +747,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 15
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 15,
+          "after_hours": 4
+        },
+        "summary": "15-minute meal break for shifts of 4+ hours"
       },
       "citations": [
         {
@@ -730,8 +801,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -770,7 +845,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Maryland requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "Maryland requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -814,8 +894,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -853,7 +937,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Maine requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "Maine requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -897,8 +986,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 8
+        },
+        "summary": "30-minute meal break for shifts of 8+ hours"
       },
       "citations": [
         {
@@ -936,7 +1029,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Minnesota requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 8
+        },
+        "summary": "Minnesota requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -980,8 +1078,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours"
       },
       "citations": [
         {
@@ -1019,7 +1121,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "North Dakota requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "North Dakota requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1063,8 +1170,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 8
+        },
+        "summary": "30-minute meal break for shifts of 8+ hours"
       },
       "citations": [
         {
@@ -1102,7 +1213,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Nebraska requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 8
+        },
+        "summary": "Nebraska requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1146,8 +1262,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours"
       },
       "citations": [
         {
@@ -1185,7 +1305,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "New Hampshire requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "New Hampshire requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1229,8 +1354,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 8
+        },
+        "summary": "30-minute meal break for shifts of 8+ hours"
       },
       "citations": [
         {
@@ -1269,7 +1398,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Nevada requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 8
+        },
+        "summary": "Nevada requires a 30-minute meal break for shifts over 8 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1313,8 +1447,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 20
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 10
+        },
+        "summary": "20-minute meal break for shifts of 10+ hours"
       },
       "citations": [
         {
@@ -1358,8 +1496,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 60
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 60,
+          "after_hours": 6
+        },
+        "summary": "60-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1403,8 +1545,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1443,7 +1589,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "New York requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "New York requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1487,8 +1638,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1526,7 +1681,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Oregon requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "Oregon requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1570,8 +1730,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 20
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 6
+        },
+        "summary": "20-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1609,7 +1773,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Rhode Island requires a 20-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 6
+        },
+        "summary": "Rhode Island requires a 20-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1653,8 +1822,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1692,7 +1865,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Tennessee requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "Tennessee requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1736,8 +1914,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1775,7 +1957,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Vermont requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "Vermont requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1819,8 +2006,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 30
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours"
       },
       "citations": [
         {
@@ -1859,7 +2050,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "Washington requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "Washington requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
@@ -1903,8 +2099,12 @@
       },
       "result": {
         "type": "required_break",
-        "breakType": "meal",
-        "minimumMinutes": 20
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 6
+        },
+        "summary": "20-minute meal break for shifts of 6+ hours"
       },
       "citations": [
         {
@@ -1942,7 +2142,12 @@
       },
       "result": {
         "type": "warning",
-        "message": "West Virginia requires a 20-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 6
+        },
+        "summary": "West Virginia requires a 20-minute meal break for shifts over 6 hours. Ensure a break is scheduled."
       },
       "citations": [
         {
