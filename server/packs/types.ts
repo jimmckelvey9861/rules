@@ -45,7 +45,7 @@ export interface PackResult extends RuleResult {
  */
 export interface PackRule extends Omit<Rule, "result"> {
   result: PackResult;
-  /** Taxonomy node code for the topic, e.g. "sched.predictive" */
+  /** Topic-level taxonomy code the rule's sub-topic (`topic`) belongs to, e.g. "sched.predictive" */
   topicCode: string;
   enforcement: EnforcementTarget;
   jurisdictionId: string;

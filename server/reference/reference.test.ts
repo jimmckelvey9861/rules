@@ -7,7 +7,9 @@
 import { RULES, SKIPPED_DETAILS, evaluateRules } from "../rules/index.js";
 import { VOCABULARY, getAllObligations, getObligation, resolveObligation, validateObligationParams } from "./vocabulary.js";
 import { ALL_LOCALS, ALL_STATES, ALL_TOPICS } from "../rules/coverageMatrix.js";
-import { TAXONOMY, getAllTaxonomyNodes, resolveTopic, getEnforcementTarget } from "./taxonomy.js";
+import { TAXONOMY, getAllTaxonomyNodes, resolveTopic, getEnforcementTarget, topicCodeOf, legacyTopicFor } from "./taxonomy.js";
+import { matrixTopicFor, MATRIX_ROWS_BY_TOPIC_CODE } from "../rules/coverageMatrix.js";
+import { listJsonFiles, readJsonFile } from "./dataFiles.js";
 import {
   JURISDICTIONS, resolveJurisdiction, getJurisdictionChain, findPreemptingAncestor, getJurisdictionsByType,
 } from "./jurisdictions.js";
@@ -31,7 +33,19 @@ for (const topic of ALL_TOPICS) {
   assert(resolveTopic(topic) !== undefined, `Coverage-matrix topic "${topic}" resolves to a taxonomy node`);
 }
 const ruleTopics = [...new Set(RULES.map(r => r.topic))];
-assert(ruleTopics.every(t => resolveTopic(t) !== undefined), `All ${ruleTopics.length} rule topics resolve to taxonomy nodes`);
+assert(ruleTopics.every(t => resolveTopic(t)?.level === "subtopic"), `All ${ruleTopics.length} rule topics are taxonomy sub-topic codes`);
+assert(ruleTopics.every(t => legacyTopicFor(t) !== undefined), "Every rule topic maps back to a legacy topic for preemption flags");
+assert(RULES.every(r => matrixTopicFor(r.topic, r.result.obligation) !== undefined), "Every rule lands on a coverage-matrix row");
+assert(topicCodeOf("pay.minimum_wage.general") === "pay.minimum_wage" && topicCodeOf("pay.minimum_wage") === "pay.minimum_wage", "topicCodeOf climbs from a sub-topic to its topic");
+assert(legacyTopicFor("pay.tipped.cash_wage") === "tipped_compensation" && legacyTopicFor("pay.premium.reporting_time") === "reporting_time_pay" && legacyTopicFor("pay.premium.on_call") === "premium_pay", "legacyTopicFor prefers the sub-topic's own legacy name, else the topic's");
+assert(matrixTopicFor("pay.tipped.cash_wage") === "minimum_wage" && matrixTopicFor("sched.shift_structure.clopening") === "predictive_scheduling" && matrixTopicFor("pay.premium.split_shift", "premium.spread_of_hours") === "premium_pay" && matrixTopicFor("pay.premium.split_shift", "premium.split_shift") === "split_shift_premium", "matrixTopicFor folds sub-topics onto the historical matrix rows");
+assert(RULES.every(r => (MATRIX_ROWS_BY_TOPIC_CODE[topicCodeOf(r.topic) ?? ""] ?? []).includes(matrixTopicFor(r.topic, r.result.obligation)!)), "MATRIX_ROWS_BY_TOPIC_CODE agrees with matrixTopicFor for every rule");
+for (const file of listJsonFiles("rules")) {
+  const parsed = readJsonFile<{ topic: string; rules: { topic: string }[] }>(file);
+  const topicNode = resolveTopic(parsed.topic);
+  assert(topicNode?.level === "topic" && file.endsWith(`${parsed.topic}.json`), `Rules file ${file} is named after its topic-level code`);
+  assert(parsed.rules.every(r => topicCodeOf(r.topic) === parsed.topic), `Every rule in ${file} belongs to topic ${parsed.topic}`);
+}
 assert(ruleTopics.every(t => getEnforcementTarget(t) !== undefined), "Every rule topic has an enforcement target");
 assert(getEnforcementTarget("predictive_scheduling") === "kronto", "Predictive scheduling is enforced by Kronto");
 assert(getEnforcementTarget("warn_act") === "hr", "WARN notices are an HR duty, not a scheduler duty");

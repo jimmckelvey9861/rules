@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "warn_act",
+  "topic": "sep.warn",
   "rules": [
     {
       "id": "ca-warn-act",
       "title": "California Mini-WARN Act (60-day notice, 75+ employees)",
       "jurisdiction": "CA",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2003-01-01",
       "appliesWhen": {
@@ -50,7 +50,7 @@
       "id": "ct-warn-act",
       "title": "Connecticut Mini-WARN Act (90-day notice, 100+ employees)",
       "jurisdiction": "CT",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1985-01-01",
       "appliesWhen": {
@@ -94,7 +94,7 @@
       "id": "federal-warn-act-60day",
       "title": "Federal WARN Act \u2014 60-Day Notice Requirement",
       "jurisdiction": "Federal",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1989-02-04",
       "appliesWhen": {
@@ -142,7 +142,7 @@
       "id": "ga-warn-act",
       "title": "Georgia Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "GA",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1993-01-01",
       "appliesWhen": {
@@ -186,7 +186,7 @@
       "id": "hi-warn-act",
       "title": "Hawaii Mini-WARN Act (60-day notice, 50+ employees)",
       "jurisdiction": "HI",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1987-01-01",
       "appliesWhen": {
@@ -230,7 +230,7 @@
       "id": "ia-warn-act",
       "title": "Iowa Mini-WARN Act (30-day notice, 25+ employees)",
       "jurisdiction": "IA",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1990-01-01",
       "appliesWhen": {
@@ -274,7 +274,7 @@
       "id": "il-warn-act",
       "title": "Illinois Mini-WARN Act (60-day notice, 75+ employees)",
       "jurisdiction": "IL",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2005-01-01",
       "appliesWhen": {
@@ -318,7 +318,7 @@
       "id": "ks-warn-act",
       "title": "Kansas Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "KS",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1988-01-01",
       "appliesWhen": {
@@ -362,7 +362,7 @@
       "id": "ma-warn-act",
       "title": "Massachusetts Mini-WARN Act (90-day notice, 50+ employees)",
       "jurisdiction": "MA",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1984-01-01",
       "appliesWhen": {
@@ -406,7 +406,7 @@
       "id": "md-warn-act",
       "title": "Maryland Mini-WARN Act (60-day notice, 50+ employees)",
       "jurisdiction": "MD",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2020-10-01",
       "appliesWhen": {
@@ -450,7 +450,7 @@
       "id": "me-warn-act",
       "title": "Maine Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "ME",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -494,7 +494,7 @@
       "id": "mi-warn-act",
       "title": "Michigan Mini-WARN Act (60-day notice, 25+ employees)",
       "jurisdiction": "MI",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -538,7 +538,7 @@
       "id": "mn-warn-act",
       "title": "Minnesota Mini-WARN Act (60-day notice, 50+ employees)",
       "jurisdiction": "MN",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1988-01-01",
       "appliesWhen": {
@@ -582,7 +582,7 @@
       "id": "nh-warn-act",
       "title": "New Hampshire Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "NH",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1989-01-01",
       "appliesWhen": {
@@ -626,7 +626,7 @@
       "id": "nj-warn-act",
       "title": "New Jersey Mini-WARN Act (90-day notice, 100+ employees)",
       "jurisdiction": "NJ",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2020-07-19",
       "appliesWhen": {
@@ -670,7 +670,7 @@
       "id": "ny-warn-act",
       "title": "New York Mini-WARN Act (90-day notice, 50+ employees)",
       "jurisdiction": "NY",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2009-02-01",
       "appliesWhen": {
@@ -714,7 +714,7 @@
       "id": "oh-warn-act",
       "title": "Ohio Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "OH",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1988-01-01",
       "appliesWhen": {
@@ -758,7 +758,7 @@
       "id": "or-warn-act",
       "title": "Oregon Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "OR",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -802,7 +802,7 @@
       "id": "pa-warn-act",
       "title": "Pennsylvania Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "PA",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1988-01-01",
       "appliesWhen": {
@@ -846,7 +846,7 @@
       "id": "sc-warn-act",
       "title": "South Carolina Mini-WARN Act (60-day notice, 100+ employees)",
       "jurisdiction": "SC",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -890,7 +890,7 @@
       "id": "tn-warn-act",
       "title": "Tennessee Mini-WARN Act (60-day notice, 50+ employees)",
       "jurisdiction": "TN",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1989-01-01",
       "appliesWhen": {
@@ -934,7 +934,7 @@
       "id": "wi-warn-act",
       "title": "Wisconsin Mini-WARN Act (60-day notice, 50+ employees)",
       "jurisdiction": "WI",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "status": "active",
       "effectiveFrom": "1988-01-01",
       "appliesWhen": {

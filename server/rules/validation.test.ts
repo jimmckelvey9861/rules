@@ -5,7 +5,11 @@
  */
 
 import { RULES, SKIPPED, evaluateRule, evaluateRules, getAllFacts, isKnownFact } from "./index.js";
-import { buildCoverageMatrix, summarizeCoverage, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./coverageMatrix.js";
+import { buildCoverageMatrix, summarizeCoverage, matrixTopicFor, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./coverageMatrix.js";
+import { resolveTopic } from "../reference/taxonomy.js";
+
+/** The coverage-matrix row (legacy topic name) a rule is tracked under. */
+const row = (r: Rule | undefined) => r ? matrixTopicFor(r.topic, r.result.obligation) : undefined;
 import type { Scenario, Rule } from "./types.js";
 
 // ─── Test Harness ──────────────────────────────────────────────────
@@ -106,10 +110,11 @@ function level1_structuralIntegrity() {
   const badDates = RULES.filter(r => !/^\d{4}-\d{2}-\d{2}$/.test(r.effectiveFrom));
   assertEq(badDates.length, 0, `All effectiveFrom dates are ISO format (${badDates.length} invalid)`);
 
-  // 1.9 All topics are recognized
-  const knownTopics = new Set(ALL_TOPICS);
-  const unknownTopics = RULES.filter(r => !knownTopics.has(r.topic as any));
-  assertEq(unknownTopics.length, 0, `All rule topics are in ALL_TOPICS (${unknownTopics.length} unknown)`);
+  // 1.9 All topics are taxonomy sub-topic codes that map onto a coverage-matrix row
+  const notSubtopic = RULES.filter(r => resolveTopic(r.topic)?.level !== "subtopic");
+  assertEq(notSubtopic.length, 0, `All rule topics are taxonomy sub-topic codes (${notSubtopic.length} are not)`);
+  const unknownTopics = RULES.filter(r => row(r) === undefined);
+  assertEq(unknownTopics.length, 0, `All rule topics map onto a coverage-matrix row (${unknownTopics.length} unmapped)`);
   if (unknownTopics.length > 0) {
     const uniq = [...new Set(unknownTopics.map(r => r.topic))];
     console.log(`    Unknown topics: ${uniq.join(", ")}`);
@@ -127,11 +132,11 @@ function level2_behavioralCorrectness() {
 
   // Helper: find a rule by topic and jurisdiction
   function findRule(topic: string, jurisdiction: string): Rule | undefined {
-    return RULES.find(r => r.topic === topic && r.jurisdiction === jurisdiction);
+    return RULES.find(r => row(r) === topic && r.jurisdiction === jurisdiction);
   }
 
   // 2.1 minimum_wage — CA rule fires when rate too low
-  const caMinWage = RULES.find(r => r.topic === "minimum_wage" && r.jurisdiction === "CA" && r.id.includes("minimum-wage") && !JSON.stringify(r.appliesWhen).includes("industry_tag"));
+  const caMinWage = RULES.find(r => row(r) === "minimum_wage" && r.jurisdiction === "CA" && r.id.includes("minimum-wage") && !JSON.stringify(r.appliesWhen).includes("industry_tag"));
   if (caMinWage) {
     const fires = evaluateRule(caMinWage, {
       "location.state": "CA",
@@ -179,7 +184,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.3 meal_break — CA fires when > 5 hrs without break
-  const caMeal = RULES.find(r => r.topic === "meal_break" && r.jurisdiction === "CA");
+  const caMeal = RULES.find(r => row(r) === "meal_break" && r.jurisdiction === "CA");
   if (caMeal) {
     const fires = evaluateRule(caMeal, {
       "location.state": "CA",
@@ -203,7 +208,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.4 rest_break — CA fires when > 4 hrs without rest
-  const caRest = RULES.find(r => r.topic === "rest_break" && r.jurisdiction === "CA");
+  const caRest = RULES.find(r => row(r) === "rest_break" && r.jurisdiction === "CA");
   if (caRest) {
     // Check what conditions this rule actually uses
     const conditions = extractAllConditions(caRest.appliesWhen);
@@ -228,7 +233,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.5 sick_leave — CA fires when accrual insufficient
-  const caSick = RULES.find(r => r.topic === "sick_leave" && r.jurisdiction === "CA");
+  const caSick = RULES.find(r => row(r) === "sick_leave" && r.jurisdiction === "CA");
   if (caSick) {
     const fires = evaluateRule(caSick, {
       "location.state": "CA",
@@ -241,7 +246,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.6 predictive_scheduling — OR fires when < 14 days notice
-  const orPredictive = RULES.find(r => r.topic === "predictive_scheduling" && r.jurisdiction === "OR");
+  const orPredictive = RULES.find(r => row(r) === "predictive_scheduling" && r.jurisdiction === "OR");
   if (orPredictive) {
     const fires = evaluateRule(orPredictive, {
       "location.state": "OR",
@@ -255,7 +260,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.7 minor_labor — federal fires for minor
-  const fedMinor = RULES.find(r => r.topic === "minor_labor" && r.jurisdiction === "Federal");
+  const fedMinor = RULES.find(r => row(r) === "minor_labor" && r.jurisdiction === "Federal");
   if (fedMinor) {
     const fires = evaluateRule(fedMinor, {
       "location.state": "CA",
@@ -272,7 +277,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.8 reporting_time_pay — CA fires when sent home early
-  const caReporting = RULES.find(r => r.topic === "reporting_time_pay" && r.jurisdiction === "CA");
+  const caReporting = RULES.find(r => row(r) === "reporting_time_pay" && r.jurisdiction === "CA");
   if (caReporting) {
     const fires = evaluateRule(caReporting, {
       "location.state": "CA",
@@ -347,7 +352,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.12 split_shift_premium — CA fires for split shift
-  const caSplit = RULES.find(r => r.topic === "split_shift_premium" && r.jurisdiction === "CA");
+  const caSplit = RULES.find(r => row(r) === "split_shift_premium" && r.jurisdiction === "CA");
   if (caSplit) {
     const fires = evaluateRule(caSplit, {
       "location.state": "CA",
@@ -361,7 +366,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.13 premium_pay — NY spread of hours fires
-  const nyPremium = RULES.find(r => r.topic === "premium_pay" && r.jurisdiction === "NY");
+  const nyPremium = RULES.find(r => row(r) === "premium_pay" && r.jurisdiction === "NY");
   if (nyPremium) {
     const fires = evaluateRule(nyPremium, {
       "location.state": "NY",
@@ -389,7 +394,7 @@ function level3_crossRuleConsistency() {
     ? (fedMinWage.result.params.rate as number) : 7.25;
 
   const stateMinWageRules = RULES.filter(r =>
-    r.topic === "minimum_wage" &&
+    row(r) === "minimum_wage" &&
     r.jurisdiction !== "Federal" &&
     ALL_STATES.includes(r.jurisdiction as any) &&
     r.result.type === "minimum_required_value"
@@ -412,7 +417,7 @@ function level3_crossRuleConsistency() {
 
   // 3.2 Local min wages should exceed their state's min wage
   const localMinWageRules = RULES.filter(r =>
-    r.topic === "minimum_wage" &&
+    row(r) === "minimum_wage" &&
     !ALL_STATES.includes(r.jurisdiction as any) &&
     r.jurisdiction !== "Federal" &&
     r.result.type === "minimum_required_value"
@@ -460,7 +465,7 @@ function level3_crossRuleConsistency() {
   const nycResult = evaluateRules(RULES, nycScenario);
   const nycMinWageViolations = nycResult.violations.filter(v => {
     const rule = RULES.find(r => r.id === v.ruleId);
-    return rule?.topic === "minimum_wage";
+    return row(rule) === "minimum_wage";
   });
   // Should have exactly 1 surviving violation (the most restrictive)
   assert(nycMinWageViolations.length === 1,
@@ -481,8 +486,8 @@ function level3_crossRuleConsistency() {
   assertEq(activeUnique.size, activeIds.length, `No duplicate IDs among active rules`);
 
   // 3.5 All WARN act rules have higher or equal threshold to federal
-  const fedWarnRule = RULES.find(r => r.id.includes("federal") && r.topic === "warn_act");
-  const stateWarnRules = RULES.filter(r => r.topic === "warn_act" && r.jurisdiction !== "Federal");
+  const fedWarnRule = RULES.find(r => r.id.includes("federal") && row(r) === "warn_act");
+  const stateWarnRules = RULES.filter(r => row(r) === "warn_act" && r.jurisdiction !== "Federal");
   // State WARN acts can have LOWER thresholds (that's the point — they're more protective)
   // Just verify they all have a threshold > 0
   let warnWithZeroThreshold = 0;
@@ -497,7 +502,7 @@ function level3_crossRuleConsistency() {
 
   // 3.6 Every topic has at least one rule
   for (const topic of ALL_TOPICS) {
-    const count = RULES.filter(r => r.topic === topic).length;
+    const count = RULES.filter(r => row(r) === topic).length;
     assert(count > 0, `Topic "${topic}" has at least one rule (got ${count})`);
   }
 
@@ -530,7 +535,7 @@ function level4_dataAccuracyAudit() {
   let mwMismatches = 0;
   for (const [state, expectedMin] of Object.entries(knownMinWages)) {
     const rule = RULES.find(r =>
-      r.topic === "minimum_wage" &&
+      row(r) === "minimum_wage" &&
       r.jurisdiction === state &&
       r.result.type === "minimum_required_value" &&
       r.status === "active"
@@ -627,7 +632,7 @@ function level5_scenarioIntegration() {
     const result = evaluateRules(RULES, scenario);
     const topics = new Set(result.violations.map(v => {
       const rule = RULES.find(r => r.id === v.ruleId);
-      return rule?.topic;
+      return row(rule);
     }));
 
     assert(topics.has("minimum_wage"), "CA scenario: min wage violation ($15 < $16.50)");
@@ -654,7 +659,7 @@ function level5_scenarioIntegration() {
     const result = evaluateRules(RULES, scenario);
     const minorViolations = result.violations.filter(v => {
       const rule = RULES.find(r => r.id === v.ruleId);
-      return rule?.topic === "minor_labor";
+      return row(rule) === "minor_labor";
     });
     assert(minorViolations.length >= 1, `NY minor scenario: at least 1 minor labor violation (got ${minorViolations.length})`);
   }
@@ -675,7 +680,7 @@ function level5_scenarioIntegration() {
     const result = evaluateRules(RULES, scenario);
     const schedViolations = result.violations.filter(v => {
       const rule = RULES.find(r => r.id === v.ruleId);
-      return rule?.topic === "predictive_scheduling";
+      return row(rule) === "predictive_scheduling";
     });
     assert(schedViolations.length >= 1, `OR predictive scheduling: at least 1 violation (got ${schedViolations.length})`);
   }
@@ -695,7 +700,7 @@ function level5_scenarioIntegration() {
     const result = evaluateRules(RULES, scenario);
     const dayOfRestViolations = result.violations.filter(v => {
       const rule = RULES.find(r => r.id === v.ruleId);
-      return rule?.topic === "day_of_rest";
+      return row(rule) === "day_of_rest";
     });
     assert(dayOfRestViolations.length >= 1, `IL 7-day scenario: day_of_rest violation (got ${dayOfRestViolations.length})`);
   }
@@ -717,14 +722,14 @@ function level5_scenarioIntegration() {
     // Should get min wage violation (NYC rate is ~$16.50, worker at $14)
     const mwViolations = result.violations.filter(v => {
       const rule = RULES.find(r => r.id === v.ruleId);
-      return rule?.topic === "minimum_wage";
+      return row(rule) === "minimum_wage";
     });
     assert(mwViolations.length >= 1, `NYC stack: min wage violation (got ${mwViolations.length})`);
 
     // Should get overtime violation (> 40 hrs)
     const otViolations = result.violations.filter(v => {
       const rule = RULES.find(r => r.id === v.ruleId);
-      return rule?.topic === "overtime";
+      return row(rule) === "overtime";
     });
     assert(otViolations.length >= 1, `NYC stack: overtime violation (got ${otViolations.length})`);
 

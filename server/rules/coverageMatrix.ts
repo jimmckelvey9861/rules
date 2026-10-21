@@ -415,12 +415,60 @@ export type CoverageMatrix = Record<string, Record<Topic, CoverageCell>>;
 /**
  * Build the coverage matrix for both states and local jurisdictions.
  */
+/**
+ * Maps a taxonomy code (topic or sub-topic) to the coverage-matrix row it is
+ * tracked under. The matrix keeps the 13 historical rows, which are coarser
+ * than the taxonomy in places (tipped wages sit under minimum wage) and finer
+ * in others (pay.premium splits into reporting time, split shift and premium
+ * pay; the obligation decides). Legacy row names pass through unchanged.
+ */
+export function matrixTopicFor(topic: string, obligation?: string): Topic | undefined {
+  if ((ALL_TOPICS as string[]).includes(topic)) return topic as Topic;
+  const topicCode = topic.split(".").slice(0, 2).join(".");
+  switch (topicCode) {
+    case "pay.minimum_wage":
+    case "pay.tipped": return "minimum_wage";
+    case "pay.overtime": return "overtime";
+    case "pay.premium":
+      if (topic === "pay.premium.reporting_time" || topic === "pay.premium.on_call") return "reporting_time_pay";
+      if (topic === "pay.premium.split_shift") return obligation === "premium.spread_of_hours" ? "premium_pay" : "split_shift_premium";
+      return "premium_pay";
+    case "sched.meal_break": return "meal_break";
+    case "sched.rest_break": return "rest_break";
+    case "sched.predictive": return "predictive_scheduling";
+    case "sched.shift_structure":
+      return topic === "sched.shift_structure.day_of_rest" ? "day_of_rest" : "predictive_scheduling";
+    case "leave.sick": return "sick_leave";
+    case "leave.family_medical": return "family_medical_leave";
+    case "minor.labor": return "minor_labor";
+    case "sep.warn": return "warn_act";
+    default: return undefined;
+  }
+}
+
+/** Taxonomy topic code -> the matrix rows its rules can land on (for the UI's coverage lookup). */
+export const MATRIX_ROWS_BY_TOPIC_CODE: Record<string, readonly Topic[]> = {
+  "pay.minimum_wage": ["minimum_wage"],
+  "pay.tipped": ["minimum_wage"],
+  "pay.overtime": ["overtime"],
+  "pay.premium": ["reporting_time_pay", "split_shift_premium", "premium_pay"],
+  "sched.meal_break": ["meal_break"],
+  "sched.rest_break": ["rest_break"],
+  "sched.predictive": ["predictive_scheduling"],
+  "sched.shift_structure": ["day_of_rest", "predictive_scheduling"],
+  "leave.sick": ["sick_leave"],
+  "leave.family_medical": ["family_medical_leave"],
+  "minor.labor": ["minor_labor"],
+  "sep.warn": ["warn_act"],
+};
+
 export function buildCoverageMatrix(
-  encodedRules: readonly { jurisdiction: string; topic: string }[]
+  encodedRules: readonly { jurisdiction: string; topic: string; result?: { obligation: string } }[]
 ): CoverageMatrix {
   const encoded = new Set<string>();
   for (const r of encodedRules) {
-    encoded.add(`${r.jurisdiction}:${r.topic}`);
+    const row = matrixTopicFor(r.topic, r.result?.obligation);
+    if (row) encoded.add(`${r.jurisdiction}:${row}`);
   }
 
   const matrix = {} as CoverageMatrix;

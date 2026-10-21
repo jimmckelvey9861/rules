@@ -66,7 +66,7 @@ export function evaluateRule(rule: Rule, scenario: Scenario): EvaluationResult {
 /**
  * Evaluate multiple rules against a scenario.
  * After individual evaluation, resolves interactions so that only the
- * most restrictive rule per topic remains as a violation.
+ * most restrictive rule per obligation remains as a violation.
  */
 export function evaluateRules(rules: readonly Rule[], scenario: Scenario): EvaluationSummary {
   const summary: EvaluationSummary = { passed: [], warnings: [], violations: [] };
@@ -94,10 +94,13 @@ export function evaluateRules(rules: readonly Rule[], scenario: Scenario): Evalu
 // ─── Rule Interaction Resolution ───────────────────────────────────
 
 /**
- * Resolves "most restrictive wins" within each topic.
+ * Resolves "most restrictive wins" within each obligation.
  *
- * When multiple rules fire on the same topic (e.g., federal min wage
- * AND state min wage), only the most restrictive remains a violation.
+ * When multiple rules fire on the same obligation (e.g., federal min wage
+ * AND state min wage, both "wage.minimum"), only the most restrictive
+ * remains a violation. Grouping is by obligation rather than topic so that
+ * rules tagged with different sub-topics (a general and an industry minimum
+ * wage) still compete.
  * Less restrictive rules are moved to passed with a supersededBy marker.
  *
  * Logic by result type, comparing the obligation's compareParam
@@ -111,20 +114,20 @@ export function evaluateRules(rules: readonly Rule[], scenario: Scenario): Evalu
 function resolveInteractions(summary: EvaluationSummary, rules: readonly Rule[]): EvaluationSummary {
   const ruleMap = new Map(rules.map(r => [r.id, r]));
 
-  // Group violations by topic
+  // Group violations by obligation
   const byTopic = new Map<string, EvaluationResult[]>();
   for (const v of summary.violations) {
     const rule = ruleMap.get(v.ruleId);
     if (!rule) continue;
-    const topic = rule.topic;
-    if (!byTopic.has(topic)) byTopic.set(topic, []);
-    byTopic.get(topic)!.push(v);
+    const key = rule.result.obligation;
+    if (!byTopic.has(key)) byTopic.set(key, []);
+    byTopic.get(key)!.push(v);
   }
 
   const keptViolations: EvaluationResult[] = [];
   const superseded: EvaluationResult[] = [];
 
-  for (const [topic, violations] of byTopic) {
+  for (const [_obligation, violations] of byTopic) {
     if (violations.length <= 1) {
       keptViolations.push(...violations);
       continue;
@@ -134,7 +137,7 @@ function resolveInteractions(summary: EvaluationSummary, rules: readonly Rule[])
     const withRules = violations.map(v => ({ result: v, rule: ruleMap.get(v.ruleId)! }));
     const resultType = withRules[0].rule.result.type;
 
-    // If mixed result types within a topic, keep all (no safe comparison)
+    // If mixed result types within an obligation, keep all (no safe comparison)
     const allSameType = withRules.every(wr => wr.rule.result.type === resultType);
     if (!allSameType) {
       keptViolations.push(...violations);
