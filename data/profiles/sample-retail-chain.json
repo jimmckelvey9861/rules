@@ -1,0 +1,82 @@
+{
+  "$comment": "Sample business profile for Engine A: a multi-state retail chain. Fact keys are location.* and employer.* paths from the fact registry. Per-location facts override employer facts.",
+  "name": "Northwind Outfitters (sample)",
+  "employer": {
+    "employer.industry_tag": "retail",
+    "employer.total_employees": 1200,
+    "employer.total_employees_global": 1200,
+    "employer.total_employees_us": 1200,
+    "employer.number_of_locations": 42,
+    "employer.is_chain": true,
+    "employer.is_franchisee": false,
+    "employer.has_collective_bargaining_agreement": false,
+    "employer.annual_gross_sales": 180000000
+  },
+  "locations": [
+    {
+      "id": "sea-capitol-hill",
+      "name": "Seattle, Capitol Hill",
+      "facts": {
+        "location.country": "US",
+        "location.state": "WA",
+        "location.city": "Seattle",
+        "location.county": "King",
+        "employer.total_employees_state": 140,
+        "employer.total_employees_city": 90,
+        "employer.total_employees_at_location": 28
+      }
+    },
+    {
+      "id": "nyc-soho",
+      "name": "New York, SoHo",
+      "facts": {
+        "location.country": "US",
+        "location.state": "NY",
+        "location.city": "New York City",
+        "location.county": "New York",
+        "employer.total_employees_state": 260,
+        "employer.total_employees_city": 210,
+        "employer.total_employees_at_location": 45
+      }
+    },
+    {
+      "id": "chi-wicker-park",
+      "name": "Chicago, Wicker Park",
+      "facts": {
+        "location.country": "US",
+        "location.state": "IL",
+        "location.city": "Chicago",
+        "location.county": "Cook",
+        "employer.total_employees_state": 95,
+        "employer.total_employees_city": 80,
+        "employer.total_employees_at_location": 22
+      }
+    },
+    {
+      "id": "la-silver-lake",
+      "name": "Los Angeles, Silver Lake",
+      "facts": {
+        "location.country": "US",
+        "location.state": "CA",
+        "location.city": "Los Angeles",
+        "location.county": "Los Angeles",
+        "employer.total_employees_state": 310,
+        "employer.total_employees_city": 120,
+        "employer.total_employees_at_location": 31
+      }
+    },
+    {
+      "id": "aus-south-congress",
+      "name": "Austin, South Congress",
+      "facts": {
+        "location.country": "US",
+        "location.state": "TX",
+        "location.city": "Austin",
+        "location.county": "Travis",
+        "employer.total_employees_state": 60,
+        "employer.total_employees_city": 60,
+        "employer.total_employees_at_location": 19
+      }
+    }
+  ]
+}

@@ -168,56 +168,43 @@ function ConditionTree({ condition, depth }: { condition: Condition; depth: numb
   );
 }
 
+const RESULT_TYPE_LABELS: Record<string, { label: string; tone: string }> = {
+  minimum_required_value: { label: "Minimum required value", tone: "text-gray-700" },
+  required_break: { label: "Required break", tone: "text-gray-700" },
+  premium_required: { label: "Premium required", tone: "text-gray-700" },
+  prohibition: { label: "Prohibition", tone: "text-red-700" },
+  warning: { label: "Warning", tone: "text-amber-700" },
+};
+
+function formatParam(value: unknown): string {
+  if (typeof value === "boolean") return value ? "yes" : "no";
+  if (typeof value === "number") return String(value);
+  return String(value ?? "—");
+}
+
 function ResultDisplay({ result }: { result: Record<string, unknown> }) {
   const type = result.type as string;
+  const meta = RESULT_TYPE_LABELS[type] ?? { label: type, tone: "text-gray-700" };
+  const params = (result.params ?? {}) as Record<string, unknown>;
+  const entries = Object.entries(params);
 
-  switch (type) {
-    case "minimum_required_value":
-      return (
-        <div>
-          <div className="text-sm font-semibold text-gray-700">Minimum Required Value</div>
-          <div className="mt-2 grid grid-cols-3 gap-3 text-sm">
-            <div><span className="text-xs text-gray-500">Target</span><div className="font-mono">{result.targetFact as string}</div></div>
-            <div><span className="text-xs text-gray-500">Minimum</span><div className="font-bold text-lg">{String(result.minimum)}</div></div>
-            <div><span className="text-xs text-gray-500">Unit</span><div>{result.unit as string}</div></div>
-          </div>
+  return (
+    <div>
+      <div className={`text-sm font-semibold ${meta.tone}`}>{meta.label}</div>
+      <div className="mt-1 text-xs text-gray-500">
+        Obligation <span className="font-mono text-gray-700">{String(result.obligation ?? "—")}</span>
+      </div>
+      {result.summary ? <div className="mt-2 text-sm text-gray-700">{String(result.summary)}</div> : null}
+      {entries.length > 0 ? (
+        <div className="mt-3 grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+          {entries.map(([name, value]) => (
+            <div key={name}>
+              <span className="text-xs text-gray-500 font-mono">{name}</span>
+              <div className="font-bold">{formatParam(value)}</div>
+            </div>
+          ))}
         </div>
-      );
-    case "premium_required":
-      return (
-        <div>
-          <div className="text-sm font-semibold text-gray-700">Premium Required</div>
-          <div className="mt-2 grid grid-cols-2 gap-3 text-sm">
-            <div><span className="text-xs text-gray-500">Type</span><div>{result.premiumType as string}</div></div>
-            <div><span className="text-xs text-gray-500">Amount</span><div className="font-bold text-lg">{result.amount ? `${result.amount}x` : (result.formula as string) || "—"}</div></div>
-          </div>
-        </div>
-      );
-    case "required_break":
-      return (
-        <div>
-          <div className="text-sm font-semibold text-gray-700">Required Break</div>
-          <div className="mt-2 grid grid-cols-2 gap-3 text-sm">
-            <div><span className="text-xs text-gray-500">Type</span><div>{result.breakType as string}</div></div>
-            <div><span className="text-xs text-gray-500">Minimum</span><div className="font-bold text-lg">{String(result.minimumMinutes)} minutes</div></div>
-          </div>
-        </div>
-      );
-    case "prohibition":
-      return (
-        <div>
-          <div className="text-sm font-semibold text-red-700">Prohibition</div>
-          <div className="mt-2 text-sm text-gray-700">{result.prohibitedAction as string}</div>
-        </div>
-      );
-    case "warning":
-      return (
-        <div>
-          <div className="text-sm font-semibold text-amber-700">Warning</div>
-          <div className="mt-2 text-sm text-gray-700">{result.message as string}</div>
-        </div>
-      );
-    default:
-      return <pre className="text-xs">{JSON.stringify(result, null, 2)}</pre>;
-  }
+      ) : null}
+    </div>
+  );
 }

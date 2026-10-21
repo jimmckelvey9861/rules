@@ -1,0 +1,195 @@
+{
+  "$comment": "Rule taxonomy. categories -> topics -> subtopics. Every rule carries a topic code (and later a subtopic code). enforcement says who can act on the rule: kronto (the scheduler can enforce it), payroll, hr, informational. legacyTopic maps the engine's historical topic strings onto this tree.",
+  "version": "2026-10-20",
+  "enforcementTargets": ["kronto", "payroll", "hr", "informational"],
+  "categories": [
+    {
+      "code": "pay",
+      "name": "Compensation & Pay",
+      "topics": [
+        { "code": "pay.minimum_wage", "name": "Minimum Wage", "enforcement": "payroll", "legacyTopic": "minimum_wage",
+          "subtopics": [
+            { "code": "pay.minimum_wage.general", "name": "General minimum wage" },
+            { "code": "pay.minimum_wage.industry", "name": "Industry-specific minimum wage (fast food, healthcare, hotel)" },
+            { "code": "pay.minimum_wage.youth_training", "name": "Youth and training wages" }
+          ] },
+        { "code": "pay.tipped", "name": "Tipped Compensation", "enforcement": "payroll", "legacyTopic": "tipped_compensation",
+          "subtopics": [
+            { "code": "pay.tipped.cash_wage", "name": "Tipped cash wage and tip credit" },
+            { "code": "pay.tipped.pooling", "name": "Tip pooling and service charges" }
+          ] },
+        { "code": "pay.overtime", "name": "Overtime", "enforcement": "kronto", "legacyTopic": "overtime",
+          "subtopics": [
+            { "code": "pay.overtime.weekly", "name": "Weekly overtime threshold" },
+            { "code": "pay.overtime.daily", "name": "Daily overtime and double time" },
+            { "code": "pay.overtime.seventh_day", "name": "Seventh consecutive day overtime" },
+            { "code": "pay.overtime.workweek_definition", "name": "Workweek and workday definition" },
+            { "code": "pay.overtime.exemptions", "name": "Exemptions and salary thresholds" }
+          ] },
+        { "code": "pay.premium", "name": "Premium Pay", "enforcement": "kronto", "legacyTopic": "premium_pay",
+          "subtopics": [
+            { "code": "pay.premium.reporting_time", "name": "Reporting time / show-up pay", "legacyTopic": "reporting_time_pay" },
+            { "code": "pay.premium.split_shift", "name": "Split shift and spread of hours", "legacyTopic": "split_shift_premium" },
+            { "code": "pay.premium.on_call", "name": "On-call and standby pay" },
+            { "code": "pay.premium.holiday_sunday", "name": "Holiday and Sunday premiums" }
+          ] },
+        { "code": "pay.compensable_time", "name": "Compensable Time", "enforcement": "kronto", "legacyTopic": "compensable_time",
+          "subtopics": [
+            { "code": "pay.compensable_time.travel_waiting", "name": "Travel time and waiting time" },
+            { "code": "pay.compensable_time.rounding", "name": "Rounding and timeclock rules" },
+            { "code": "pay.compensable_time.training", "name": "Training and meetings" }
+          ] },
+        { "code": "pay.reimbursement", "name": "Reimbursements & Allowances", "enforcement": "payroll", "legacyTopic": "reimbursement", "subtopics": [] },
+        { "code": "pay.wage_protection", "name": "Equal Pay & Wage Protections", "enforcement": "payroll", "legacyTopic": "equal_pay",
+          "subtopics": [
+            { "code": "pay.wage_protection.equal_pay", "name": "Equal pay" },
+            { "code": "pay.wage_protection.pay_frequency", "name": "Pay frequency and payday timing", "legacyTopic": "pay_frequency" },
+            { "code": "pay.wage_protection.deductions", "name": "Deductions and wage statements" }
+          ] }
+      ]
+    },
+    {
+      "code": "sched",
+      "name": "Scheduling & Hours",
+      "topics": [
+        { "code": "sched.meal_break", "name": "Meal Breaks", "enforcement": "kronto", "legacyTopic": "meal_break",
+          "subtopics": [
+            { "code": "sched.meal_break.first", "name": "First meal period" },
+            { "code": "sched.meal_break.second", "name": "Second meal period" },
+            { "code": "sched.meal_break.waiver", "name": "Waivers and on-duty meal periods" }
+          ] },
+        { "code": "sched.rest_break", "name": "Rest Breaks", "enforcement": "kronto", "legacyTopic": "rest_break",
+          "subtopics": [
+            { "code": "sched.rest_break.paid_rest", "name": "Paid rest periods" },
+            { "code": "sched.rest_break.lactation", "name": "Lactation breaks" }
+          ] },
+        { "code": "sched.predictive", "name": "Predictive Scheduling (Fair Workweek)", "enforcement": "kronto", "legacyTopic": "predictive_scheduling",
+          "subtopics": [
+            { "code": "sched.predictive.advance_notice", "name": "Advance notice of schedule" },
+            { "code": "sched.predictive.change_premium", "name": "Schedule change premium (predictability pay)" },
+            { "code": "sched.predictive.good_faith_estimate", "name": "Good faith estimate of hours at hire" },
+            { "code": "sched.predictive.right_to_decline", "name": "Right to decline unscheduled hours" },
+            { "code": "sched.predictive.access_to_hours", "name": "Access to hours / offer to existing part-timers" },
+            { "code": "sched.predictive.right_to_request", "name": "Right to request schedule changes" }
+          ] },
+        { "code": "sched.shift_structure", "name": "Shift Structure Rules", "enforcement": "kronto", "legacyTopic": "shift_structure",
+          "subtopics": [
+            { "code": "sched.shift_structure.day_of_rest", "name": "Day of rest (one day in seven)", "legacyTopic": "day_of_rest" },
+            { "code": "sched.shift_structure.clopening", "name": "Rest between shifts (clopening)" },
+            { "code": "sched.shift_structure.consecutive_days", "name": "Consecutive days worked" }
+          ] },
+        { "code": "sched.hour_limits", "name": "Hour Limits", "enforcement": "kronto", "legacyTopic": "hour_limits",
+          "subtopics": [
+            { "code": "sched.hour_limits.mandatory_overtime", "name": "Mandatory overtime limits (nurses, etc.)" },
+            { "code": "sched.hour_limits.maximum_hours", "name": "Maximum daily and weekly hours" }
+          ] },
+        { "code": "sched.flex", "name": "Availability & Flex Scheduling", "enforcement": "kronto", "legacyTopic": "flex_scheduling", "subtopics": [] }
+      ]
+    },
+    {
+      "code": "leave",
+      "name": "Leave & Time Off",
+      "topics": [
+        { "code": "leave.sick", "name": "Sick Leave", "enforcement": "kronto", "legacyTopic": "sick_leave",
+          "subtopics": [
+            { "code": "leave.sick.accrual", "name": "Accrual rate and caps" },
+            { "code": "leave.sick.usage", "name": "Usage, waiting period, increments" },
+            { "code": "leave.sick.carryover", "name": "Carryover and payout" }
+          ] },
+        { "code": "leave.family_medical", "name": "Family & Medical Leave", "enforcement": "hr", "legacyTopic": "family_medical_leave",
+          "subtopics": [
+            { "code": "leave.family_medical.eligibility", "name": "Eligibility and employer coverage" },
+            { "code": "leave.family_medical.duration", "name": "Duration and job protection" },
+            { "code": "leave.family_medical.paid_benefit", "name": "Paid benefit programs (PFML)" }
+          ] },
+        { "code": "leave.personal", "name": "Personal Leave", "enforcement": "hr", "legacyTopic": "personal_leave",
+          "subtopics": [
+            { "code": "leave.personal.pto_payout", "name": "Paid time off accrual and payout" },
+            { "code": "leave.personal.bereavement", "name": "Bereavement leave" }
+          ] },
+        { "code": "leave.civic_emergency", "name": "Safety, Civic & Emergency Leave", "enforcement": "kronto", "legacyTopic": "emergency_leave",
+          "subtopics": [
+            { "code": "leave.civic_emergency.voting", "name": "Voting leave" },
+            { "code": "leave.civic_emergency.jury_witness", "name": "Jury duty and witness leave" },
+            { "code": "leave.civic_emergency.military", "name": "Military leave" },
+            { "code": "leave.civic_emergency.domestic_violence", "name": "Domestic violence and safe leave" },
+            { "code": "leave.civic_emergency.emergency_responder", "name": "Volunteer emergency responder leave" }
+          ] },
+        { "code": "leave.admin", "name": "Leave Administration", "enforcement": "hr", "legacyTopic": "leave_admin", "subtopics": [] }
+      ]
+    },
+    {
+      "code": "minor",
+      "name": "Minor Employment",
+      "$comment": "Minor employment is an applicability dimension (employee.is_minor / employee.age) that cuts across pay and scheduling topics. It is kept as a category for display and coverage tracking, but new rules should be tagged with the real topic (hour limits, breaks, prohibited work) plus the minor qualifier.",
+      "topics": [
+        { "code": "minor.labor", "name": "Minor Labor", "enforcement": "kronto", "legacyTopic": "minor_labor",
+          "subtopics": [
+            { "code": "minor.labor.hour_limits", "name": "Daily and weekly hour limits for minors" },
+            { "code": "minor.labor.night_work", "name": "Night work restrictions for minors" },
+            { "code": "minor.labor.breaks", "name": "Meal and rest breaks for minors" },
+            { "code": "minor.labor.permits", "name": "Work permits and age certificates" },
+            { "code": "minor.labor.prohibited_occupations", "name": "Prohibited occupations" }
+          ] }
+      ]
+    },
+    {
+      "code": "hiring",
+      "name": "Hiring & Onboarding",
+      "topics": [
+        { "code": "hiring.general", "name": "Hiring & Onboarding", "enforcement": "hr", "legacyTopic": "hiring",
+          "subtopics": [
+            { "code": "hiring.general.ban_the_box", "name": "Ban the box and background checks" },
+            { "code": "hiring.general.salary_history", "name": "Salary history and pay transparency" },
+            { "code": "hiring.general.notices", "name": "Wage notices and posters at hire" }
+          ] }
+      ]
+    },
+    {
+      "code": "protect",
+      "name": "Workplace Protections",
+      "topics": [
+        { "code": "protect.general", "name": "Workplace Protections", "enforcement": "hr", "legacyTopic": "workplace_protections",
+          "subtopics": [
+            { "code": "protect.general.discrimination", "name": "Anti-discrimination and harassment" },
+            { "code": "protect.general.safety", "name": "Workplace safety (OSHA and state plans)" },
+            { "code": "protect.general.retaliation", "name": "Retaliation and whistleblower protection" }
+          ] }
+      ]
+    },
+    {
+      "code": "sep",
+      "name": "Separation & Final Pay",
+      "topics": [
+        { "code": "sep.final_pay", "name": "Final Compensation", "enforcement": "payroll", "legacyTopic": "final_pay", "subtopics": [] },
+        { "code": "sep.procedures", "name": "Separation Procedures", "enforcement": "hr", "legacyTopic": "separation", "subtopics": [] },
+        { "code": "sep.warn", "name": "Mass Layoffs & Closures (WARN)", "enforcement": "hr", "legacyTopic": "warn_act",
+          "subtopics": [
+            { "code": "sep.warn.notice", "name": "Notice period and triggers" }
+          ] },
+        { "code": "sep.post_employment", "name": "Post-Employment Restrictions", "enforcement": "informational", "legacyTopic": "post_employment", "subtopics": [] },
+        { "code": "sep.records", "name": "Record Retention", "enforcement": "informational", "legacyTopic": "record_retention", "subtopics": [] }
+      ]
+    },
+    {
+      "code": "coverage",
+      "name": "Employer Coverage & Compliance",
+      "$comment": "Employer coverage (size thresholds, union carve-outs, public vs private) is an applicability dimension expressed through employer.* facts, not a subject of law. Kept for display.",
+      "topics": [
+        { "code": "coverage.general", "name": "Employer Coverage & Compliance", "enforcement": "informational", "legacyTopic": "compliance",
+          "subtopics": [
+            { "code": "coverage.general.cba_carveout", "name": "Collective bargaining agreement carve-outs" },
+            { "code": "coverage.general.posting", "name": "Posting and notice requirements" }
+          ] }
+      ]
+    },
+    {
+      "code": "industry",
+      "name": "Industry-Specific Rules",
+      "$comment": "Industry is an applicability dimension expressed through employer.industry_tag. Rules that are industry-specific should be tagged with their real topic (e.g. sched.predictive for fast food fair workweek). Kept for display.",
+      "topics": [
+        { "code": "industry.general", "name": "Industry-Specific Rules", "enforcement": "informational", "legacyTopic": "industry_specific", "subtopics": [] }
+      ]
+    }
+  ]
+}

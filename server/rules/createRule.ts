@@ -6,11 +6,13 @@
  * - Invalid operators
  * - Invalid value types
  * - Missing id, effective date, or citation
+ * - Results whose obligation is not in the vocabulary, or whose params do not match it
  * - Vague values like "varies", "unknown", "depends", null in logic fields
  */
 
-import type { Rule } from "./types.js";
+import { CITATION_KINDS, RESULT_TYPES, type Rule } from "./types.js";
 import { validateCondition, type ValidationError } from "./conditions.js";
+import { getObligation, validateObligationParams } from "../reference/vocabulary.js";
 
 /** Vague values that must not appear in string fields */
 const VAGUE_STRINGS = new Set(["varies", "unknown", "depends", "tbd", "n/a", ""]);
@@ -113,6 +115,12 @@ function validateRuleDefinition(definition: Rule): ValidationError[] {
       if (typeof c.source === "string" && VAGUE_STRINGS.has(c.source.toLowerCase())) {
         errors.push({ path: `citations[${i}].source`, message: `Vague citation source: "${c.source}"` });
       }
+      if (c.kind !== undefined && !CITATION_KINDS.includes(c.kind)) {
+        errors.push({ path: `citations[${i}].kind`, message: `kind must be one of: ${CITATION_KINDS.join(", ")}` });
+      }
+      if (c.url !== undefined && !/^https?:\/\/\S+$/.test(c.url)) {
+        errors.push({ path: `citations[${i}].url`, message: `url must be an absolute http(s) URL, got "${c.url}"` });
+      }
     }
   }
 
@@ -148,45 +156,41 @@ function validateRuleDefinition(definition: Rule): ValidationError[] {
 }
 
 function validateResult(result: Rule["result"], errors: ValidationError[]): void {
-  switch (result.type) {
-    case "minimum_required_value":
-      if (typeof result.minimum !== "number") {
-        errors.push({ path: "result.minimum", message: "minimum must be a number" });
-      }
-      if (!result.unit || typeof result.unit !== "string") {
-        errors.push({ path: "result.unit", message: "unit is required" });
-      }
-      if (!result.targetFact || typeof result.targetFact !== "string") {
-        errors.push({ path: "result.targetFact", message: "targetFact is required" });
-      }
-      break;
-    case "required_break":
-      if (!result.breakType || typeof result.breakType !== "string") {
-        errors.push({ path: "result.breakType", message: "breakType is required" });
-      }
-      if (typeof result.minimumMinutes !== "number" || result.minimumMinutes <= 0) {
-        errors.push({ path: "result.minimumMinutes", message: "minimumMinutes must be a positive number" });
-      }
-      break;
-    case "premium_required":
-      if (!result.premiumType || typeof result.premiumType !== "string") {
-        errors.push({ path: "result.premiumType", message: "premiumType is required" });
-      }
-      if (result.amount === undefined && result.formula === undefined) {
-        errors.push({ path: "result", message: "premium_required must have either amount or formula" });
-      }
-      break;
-    case "prohibition":
-      if (!result.prohibitedAction || typeof result.prohibitedAction !== "string") {
-        errors.push({ path: "result.prohibitedAction", message: "prohibitedAction is required" });
-      }
-      break;
-    case "warning":
-      if (!result.message || typeof result.message !== "string") {
-        errors.push({ path: "result.message", message: "message is required" });
-      }
-      break;
-    default:
-      errors.push({ path: "result.type", message: `Unknown result type: "${(result as any).type}"` });
+  if (!result.type || !RESULT_TYPES.includes(result.type)) {
+    errors.push({ path: "result.type", message: `type must be one of: ${RESULT_TYPES.join(", ")}` });
+  }
+  if (!result.obligation || typeof result.obligation !== "string") {
+    errors.push({ path: "result.obligation", message: "obligation is required (a code from data/result-vocabulary.json)" });
+    return;
+  }
+  const obligation = getObligation(result.obligation);
+  if (!obligation) {
+    errors.push({ path: "result.obligation", message: `Unknown obligation "${result.obligation}"` });
+    return;
+  }
+  if (result.type && !obligation.behaviors.includes(result.type)) {
+    errors.push({ path: "result.type", message: `${result.obligation} may not use behaviour "${result.type}" (allowed: ${obligation.behaviors.join(", ")})` });
+  }
+  if (!result.params || typeof result.params !== "object" || Array.isArray(result.params)) {
+    errors.push({ path: "result.params", message: "params must be an object (use {} when the obligation has no parameters)" });
+  } else {
+    errors.push(...validateObligationParams(result.obligation, result.params));
+  }
+  if (!result.summary || typeof result.summary !== "string" || result.summary.trim() === "") {
+    errors.push({ path: "result.summary", message: "summary is required" });
+  } else if (VAGUE_STRINGS.has(result.summary.trim().toLowerCase())) {
+    errors.push({ path: "result.summary", message: `Vague summary: "${result.summary}"` });
+  }
+  // Behaviour-specific requirements the evaluator relies on.
+  if (result.type === "minimum_required_value") {
+    if (!obligation.targetFact) {
+      errors.push({ path: "result.type", message: `${result.obligation} has no targetFact, so it cannot use minimum_required_value` });
+    }
+    if (!obligation.compareParam || typeof result.params?.[obligation.compareParam] !== "number") {
+      errors.push({ path: `result.params.${obligation.compareParam ?? "?"}`, message: "minimum_required_value needs a numeric compare parameter" });
+    }
+  }
+  if (result.type === "required_break" && typeof result.params?.minimum_minutes !== "number") {
+    errors.push({ path: "result.params.minimum_minutes", message: "required_break needs minimum_minutes" });
   }
 }

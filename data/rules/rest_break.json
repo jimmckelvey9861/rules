@@ -1,0 +1,745 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "rest_break",
+  "rules": [
+    {
+      "id": "ca-rest-break-4hr",
+      "title": "California Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "CA",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 3.5
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 3.5+ hours"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7226.7 / IWC Order 5-2001",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=226.7.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7226.7",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-rest-break-scheduling-warning",
+      "title": "California \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "CA",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "California requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "IWC Orders / Cal. Lab. Code \u00a7226.7",
+          "url": "https://www.dir.ca.gov/dlse/faq_restperiods.htm",
+          "section": "IWC Orders \u00a711-12",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "co-rest-break-4hr",
+      "title": "Colorado Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "CO",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #40, Rule 5.2.2",
+          "url": "https://cdle.colorado.gov/wage-and-hour-law/meal-and-rest-periods",
+          "section": "Rule 5.2.2",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "co-rest-break-scheduling-warning",
+      "title": "Colorado \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "CO",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Colorado requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "Colorado COMPS Order #39",
+          "url": "https://cdle.colorado.gov/comps-order",
+          "section": "7 CCR 1103-1 Rule 5.1",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "il-rest-break",
+      "title": "Illinois Rest Break (hotel room attendants \u2014 2\u00d715 min per 7+ hr shift)",
+      "jurisdiction": "IL",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">=",
+            "value": 7
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "hotel"
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 15
+        },
+        "summary": "Paid rest break (15 min \u00d7 2 per shift of 7+ hours, hotel room attendants in Cook County)"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140/3.1 (Hotel Room Attendant provisions)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
+          "section": "820 ILCS 140/3.1",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-rest-break-4hr",
+      "title": "Kentucky Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "KY",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
+      },
+      "citations": [
+        {
+          "source": "KRS \u00a7337.365",
+          "url": "https://labor.ky.gov/standards/Pages/Breaks-and-Meals.aspx",
+          "section": "KRS \u00a7337.365",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-rest-break-scheduling-warning",
+      "title": "Kentucky \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "KY",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "1974-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Kentucky requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "KRS \u00a7337.365",
+          "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=32209",
+          "section": "KRS \u00a7337.365",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-rest-break-4hr",
+      "title": "Minnesota Rest Break (adequate time per 4 consecutive hours)",
+      "jurisdiction": "MN",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7177.254",
+          "url": "https://www.dli.mn.gov/business/employment-practices/employee-rights-faqs",
+          "section": "\u00a7177.254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-rest-break-scheduling-warning",
+      "title": "Minnesota \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "MN",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "1988-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Minnesota requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7177.254",
+          "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
+          "section": "Minn. Stat. \u00a7177.254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-rest-break-4hr",
+      "title": "Nevada Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "NV",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 3.5
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 3.5+ hours"
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.019",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
+          "section": "NRS \u00a7608.019(2)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-rest-break-scheduling-warning",
+      "title": "Nevada \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "NV",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Nevada requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.019",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec019",
+          "section": "NRS \u00a7608.019",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-rest-break-4hr",
+      "title": "Oregon Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "OR",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7653.261",
+          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
+          "section": "ORS \u00a7653.261",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-rest-break-scheduling-warning",
+      "title": "Oregon \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "OR",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Oregon requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0045",
+          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
+          "section": "OAR 839-020-0045",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "vt-rest-break",
+      "title": "Vermont Rest Break (reasonable opportunities to eat and use restroom)",
+      "jurisdiction": "VT",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "1970-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 1
+        },
+        "summary": "Reasonable opportunities during work periods to eat and use toilet facilities (no specific duration mandated)"
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7304",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
+          "section": "21 V.S.A. \u00a7304",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-rest-break-4hr",
+      "title": "Washington Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "WA",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 4+ hours"
+      },
+      "citations": [
+        {
+          "source": "WAC \u00a7296-126-092",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "WAC \u00a7296-126-092",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-rest-break-scheduling-warning",
+      "title": "Washington \u2014 Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "WA",
+      "topic": "rest_break",
+      "status": "active",
+      "effectiveFrom": "2005-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Washington requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-092",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "WAC 296-126-092",
+          "kind": "regulation"
+        }
+      ]
+    }
+  ]
+}

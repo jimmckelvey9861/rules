@@ -1,0 +1,1181 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sick_leave",
+  "rules": [
+    {
+      "id": "az-sick-leave",
+      "title": "Arizona Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "AZ",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-372 (Prop 206)",
+          "url": "https://www.azleg.gov/ars/23/00372.htm",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-sick-leave-small",
+      "title": "Arizona Paid Sick Leave \u2014 <15 employees (1 hr per 30 hrs, up to 24 hrs/yr)",
+      "jurisdiction": "AZ",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 24,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "24 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-372 (Prop 206)",
+          "url": "https://www.azleg.gov/ars/23/00372.htm",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-sick-leave",
+      "title": "California Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "CA",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "Lab. Code \u00a7246",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "chicago-sick-leave",
+      "title": "Chicago Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
+      "jurisdiction": "Chicago",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paidsickleaveinfo.html",
+          "section": "MCC \u00a71-24-045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "co-sick-leave",
+      "title": "Colorado Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
+      "jurisdiction": "CO",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "CO HFWA \u00a78-13.3-403",
+          "url": "https://cdle.colorado.gov/paid-leave",
+          "section": "\u00a78-13.3-403",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-sick-leave",
+      "title": "CT Paid Sick Leave (1 hr / 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "CT",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "CT Gen. Stat. \u00a731-57s",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-57s",
+          "section": "\u00a731-57s",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-sick-leave",
+      "title": "DC Accrued Sick and Safe Leave (1 hr per 37 hrs, up to 7 days/yr)",
+      "jurisdiction": "DC",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2008-11-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 37,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 37 hours worked (100+ employees = 7 days; 25-99 = 5 days; 1-24 = 3 days)"
+      },
+      "citations": [
+        {
+          "source": "DC Accrued Sick and Safe Leave Act",
+          "url": "https://does.dc.gov/sites/default/files/dc/sites/does/page_content/attachments/ASSLA%20Fact%20Sheet.pdf",
+          "section": "DC Code \u00a732-531.01 et seq.",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "denver-sick-leave",
+      "title": "Denver Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Denver",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2022-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Denver"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Denver Paid Sick & Safe Leave (HFWA local enforcement)",
+          "url": "https://www.denvergov.org/files/assets/public/v/3/auditor/documents/denver-labor/2024/civil-wage-theft-rules-2024.pdf",
+          "section": "Denver DRMC \u00a758-11 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "il-sick-leave",
+      "title": "Illinois Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "IL",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 192 (PSLAA)",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-sick-leave",
+      "title": "Los Angeles Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Los Angeles",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2016-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Paid Sick Leave Ordinance",
+          "url": "https://wagesla.lacity.org/",
+          "section": "LAMC \u00a7187.00 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ma-sick-leave",
+      "title": "Massachusetts Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "MA",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2015-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a7148C",
+          "url": "https://www.mass.gov/info-details/earned-sick-time",
+          "section": "c.149 \u00a7148C",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-sick-leave-paid",
+      "title": "MD Paid Sick & Safe Leave \u2014 15+ employees (1 hr / 30 hrs, up to 64 hrs/yr)",
+      "jurisdiction": "MD",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-02-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 64,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "64 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "MD Healthy Working Families Act, Labor & Empl. \u00a73-1304",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
+          "section": "\u00a73-1304",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-sick-leave-unpaid",
+      "title": "MD Unpaid Sick & Safe Leave \u2014 <15 employees (1 hr / 30 hrs, up to 64 hrs/yr)",
+      "jurisdiction": "MD",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-02-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 64,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": false
+        },
+        "summary": "64 hours of unpaid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "MD Healthy Working Families Act, Labor & Empl. \u00a73-1304",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
+          "section": "\u00a73-1304",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-sick-leave",
+      "title": "Maine Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "ME",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7637",
+          "url": "https://www.maine.gov/labor/labor_laws/earned_paid_leave.html",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-sick-leave",
+      "title": "Michigan Paid Sick Leave (1 hr per 35 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "MI",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2019-03-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 35,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 35 hours worked"
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.963 (IWOWA)",
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/paid-medical-leave",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "minneapolis-sick-leave",
+      "title": "Minneapolis Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Minneapolis",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Minneapolis"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Minneapolis Sick & Safe Time Ordinance",
+          "url": "https://www.minneapolismn.gov/government/government-data/datasource/sick-safe-time/",
+          "section": "MCO \u00a740.220",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "mn-sick-leave",
+      "title": "Minnesota Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
+      "jurisdiction": "MN",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.9447",
+          "url": "https://www.dli.mn.gov/sick-leave",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "montgomery-county-sick-leave",
+      "title": "Montgomery County Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
+      "jurisdiction": "Montgomery County",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2016-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Montgomery County"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Montgomery County Earned Sick & Safe Leave Law",
+          "url": "https://codelibrary.amlegal.com/codes/montgomerycounty/latest/montgomeryco_md/0-0-0-136523",
+          "section": "MCC \u00a727-76 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "new-york-city-sick-leave",
+      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
+      "jurisdiction": "New York City",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
+          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
+          "section": "NYC Admin Code \u00a720-911 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nj-sick-leave",
+      "title": "NJ Earned Sick Leave (1 hr / 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "NJ",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-10-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NJSA \u00a734:11D-1 et seq.",
+          "url": "https://www.nj.gov/labor/worker-protections/earnedsick/law.shtml",
+          "section": "\u00a734:11D-2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-sick-leave",
+      "title": "New Mexico Paid Sick Leave (1 hr per 30 hrs worked, up to 64 hrs/yr)",
+      "jurisdiction": "NM",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2022-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 64,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "64 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-17-1 (HWA)",
+          "url": "https://www.dws.state.nm.us/healthyworkplaces",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-paid-leave",
+      "title": "NV Paid Leave \u2014 50+ employees (0.01923 hrs/hr worked, up to 40 hrs/yr)",
+      "jurisdiction": "NV",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 52,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 52 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.0197 (SB 312)",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0197",
+          "section": "NRS \u00a7608.0197",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-leave-100-plus",
+      "title": "NY Paid Sick Leave \u2014 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
+      "jurisdiction": "NY",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 100
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "\u00a7196-b(1)(c)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-leave-5-99",
+      "title": "NY Paid Sick Leave \u2014 5-99 employees (1 hr / 30 hrs, up to 40 hrs/yr)",
+      "jurisdiction": "NY",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 100
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "\u00a7196-b(1)(b)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-sick-leave",
+      "title": "Oregon Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "OR",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2016-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7653.601",
+          "url": "https://www.oregon.gov/boli/workers/pages/sick-time.aspx",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "philadelphia-sick-leave",
+      "title": "Philadelphia Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
+      "jurisdiction": "Philadelphia",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2015-05-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Promoting Healthy Families & Workplaces Ordinance",
+          "url": "https://www.phila.gov/media/20250731151754/dol-paid-sick-leave-one-pager-en.pdf",
+          "section": "Phila. Code \u00a79-4100 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ri-sick-leave",
+      "title": "Rhode Island Paid Sick Leave (1 hr per 35 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "RI",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 35,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 35 hours worked"
+      },
+      "citations": [
+        {
+          "source": "RI Gen. Laws \u00a728-57-4",
+          "url": "https://dlt.ri.gov/sites/g/files/xkgbur571/files/2024-12/LS%20Wage%20and%20Workplace%20Laws%20Guide_Rev_Dec2024.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "san-francisco-sick-leave",
+      "title": "San Francisco Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
+      "jurisdiction": "San Francisco",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2007-02-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Paid Sick Leave Ordinance",
+          "url": "https://sfgov.org/olse/paid-sick-leave-ordinance-pslo",
+          "section": "SF Admin Code Ch. 12W",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "seattle-sick-leave",
+      "title": "Seattle Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
+      "jurisdiction": "Seattle",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2012-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Seattle Paid Sick & Safe Time Ordinance",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/paid-sick-and-safe-time",
+          "section": "SMC 14.16",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "vt-sick-leave",
+      "title": "Vermont Paid Sick Leave (1 hr per 52 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "VT",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2017-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 52,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 52 hours worked"
+      },
+      "citations": [
+        {
+          "source": "21 VSA \u00a7483",
+          "url": "https://labor.vermont.gov/document/vermonts-earned-sick-time-act",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-sick-leave",
+      "title": "Washington Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "WA",
+      "topic": "sick_leave",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "RCW \u00a749.46.210 (I-1433)",
+          "url": "https://lni.wa.gov/workers-rights/leave/paid-sick-leave",
+          "section": "RCW \u00a749.46.210",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}

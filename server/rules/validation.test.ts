@@ -131,7 +131,7 @@ function level2_behavioralCorrectness() {
   }
 
   // 2.1 minimum_wage — CA rule fires when rate too low
-  const caMinWage = RULES.find(r => r.topic === "minimum_wage" && r.jurisdiction === "CA" && r.id.includes("minimum-wage"));
+  const caMinWage = RULES.find(r => r.topic === "minimum_wage" && r.jurisdiction === "CA" && r.id.includes("minimum-wage") && !JSON.stringify(r.appliesWhen).includes("industry_tag"));
   if (caMinWage) {
     const fires = evaluateRule(caMinWage, {
       "location.state": "CA",
@@ -386,7 +386,7 @@ function level3_crossRuleConsistency() {
   // 3.1 Min wage ordering: federal < state < local
   const fedMinWage = RULES.find(r => r.id === "federal-minimum-wage-7.25");
   const fedMin = fedMinWage && fedMinWage.result.type === "minimum_required_value"
-    ? (fedMinWage.result as any).minimum : 7.25;
+    ? (fedMinWage.result.params.rate as number) : 7.25;
 
   const stateMinWageRules = RULES.filter(r =>
     r.topic === "minimum_wage" &&
@@ -397,7 +397,7 @@ function level3_crossRuleConsistency() {
 
   let statesBelowFederal = 0;
   for (const rule of stateMinWageRules) {
-    const min = (rule.result as any).minimum;
+    const min = (rule.result.params.rate as number);
     if (min < fedMin) {
       // Some states (GA, WY) have min wages below federal — that's correct,
       // federal still applies. But their state rule should still exist.
@@ -421,18 +421,20 @@ function level3_crossRuleConsistency() {
   let localsChecked = 0;
   let localsBelowState = 0;
   for (const localRule of localMinWageRules) {
-    const localMin = (localRule.result as any).minimum;
+    const localMin = (localRule.result.params.rate as number);
     // Find the parent state from the rule's conditions
     const stateCondition = extractStateFromConditions(localRule.appliesWhen);
     if (!stateCondition) continue;
 
+    // General state floor only — industry-specific floors (e.g. CA fast food) are higher by design
     const stateRule = stateMinWageRules.find(r =>
       r.jurisdiction === stateCondition &&
-      r.result.type === "minimum_required_value"
+      r.result.type === "minimum_required_value" &&
+      !JSON.stringify(r.appliesWhen).includes("industry_tag")
     );
     if (!stateRule) continue;
 
-    const stateMin = (stateRule.result as any).minimum;
+    const stateMin = (stateRule.result.params.rate as number);
     localsChecked++;
     if (localMin < stateMin) {
       localsBelowState++;
@@ -537,7 +539,7 @@ function level4_dataAccuracyAudit() {
       console.log(`    ⚠ No min wage rule found for ${state}`);
       continue;
     }
-    const actualMin = (rule.result as any).minimum;
+    const actualMin = (rule.result.params.rate as number);
     mwChecked++;
     if (Math.abs(actualMin - expectedMin) > 0.50) {
       // Allow $0.50 tolerance for timing differences in rate updates
@@ -588,7 +590,7 @@ function level4_dataAccuracyAudit() {
   // 4.5 Federal minimum wage is $7.25
   const fedMW = RULES.find(r => r.id === "federal-minimum-wage-7.25");
   if (fedMW && fedMW.result.type === "minimum_required_value") {
-    assertEq((fedMW.result as any).minimum, 7.25, "Federal minimum wage is $7.25");
+    assertEq((fedMW.result.params.rate as number), 7.25, "Federal minimum wage is $7.25");
   } else {
     assert(false, "Could not find federal minimum wage rule");
   }

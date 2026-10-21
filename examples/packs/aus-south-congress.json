@@ -1,0 +1,1312 @@
+{
+  "format": "kronto-rule-pack/1",
+  "generatedAt": "2026-10-20T21:02:34.654Z",
+  "asOf": "2026-10-20",
+  "rulesVersion": "2b61e4ed33aef827",
+  "vocabularyVersion": "2026-10-20",
+  "business": "Northwind Outfitters (sample)",
+  "location": {
+    "id": "aus-south-congress",
+    "name": "Austin, South Congress",
+    "facts": {
+      "location.country": "US",
+      "location.state": "TX",
+      "location.city": "Austin",
+      "location.county": "Travis",
+      "employer.total_employees_state": 60,
+      "employer.total_employees_city": 60,
+      "employer.total_employees_at_location": 19
+    }
+  },
+  "jurisdictions": [
+    {
+      "id": "us-tx",
+      "name": "Texas",
+      "type": "state",
+      "fips": "48"
+    },
+    {
+      "id": "us",
+      "name": "Federal",
+      "type": "federal"
+    }
+  ],
+  "rules": [
+    {
+      "id": "federal-fmla-eligibility",
+      "title": "Federal FMLA — Employee Eligibility",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "family_medical_leave",
+      "topicCode": "leave.family_medical",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1993-08-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 12
+          },
+          {
+            "fact": "employee.hours_worked_last_12_months",
+            "op": ">=",
+            "value": 1250
+          },
+          {
+            "fact": "leave.type",
+            "op": "in",
+            "value": [
+              "family",
+              "medical",
+              "parental"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.hours_worked_last_12_months",
+        "employee.tenure_months",
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": false
+        },
+        "summary": "Employee is FMLA-eligible: entitled to up to 12 weeks unpaid job-protected leave",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Family and Medical Leave Act, 29 U.S.C. §2612",
+          "url": "https://www.law.cornell.edu/uscode/text/29/2612",
+          "section": "29 U.S.C. §2612",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-minimum-wage-7.25",
+      "title": "Texas Minimum Wage ($7.25/hr)",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §62.051",
+          "url": "https://www.twc.texas.gov/businesses/minimum-wage-law",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew",
+      "title": "Federal: Minors 14-15 — Cannot work past 7pm (9pm Jun 1–Labor Day)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 19
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 19,
+          "school_night": true
+        },
+        "summary": "Scheduling a 14-15 year old to work past 7:00 PM during the school year",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(6)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(6)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew-summer",
+      "title": "Federal: Minors 14-15 — Cannot work past 9pm (Jun 1–Labor Day)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 21
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 21,
+          "school_night": false
+        },
+        "summary": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(7)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(7)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-early-start",
+      "title": "Federal: Minors 14-15 — Cannot work before 7am",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.start_hour",
+            "op": "<",
+            "value": 7
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.start_hour"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "earliest_start_hour": 7
+        },
+        "summary": "Scheduling a 14-15 year old to work before 7:00 AM",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(1)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(1)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-day-hours",
+      "title": "Federal: Minors 14-15 — Max 8 hours on a non-school day",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 8 hours on a non-school day",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(3)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(3)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-week-hours",
+      "title": "Federal: Minors 14-15 — Max 40 hours in a non-school week",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 40,
+          "school_week": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 40 hours in a non-school week",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(5)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(5)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-day-hours",
+      "title": "Federal: Minors 14-15 — Max 3 hours on a school day",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 3,
+          "school_day": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 3 hours on a school day",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(2)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(2)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-week-hours",
+      "title": "Federal: Minors 14-15 — Max 18 hours in a school week",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 18
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 18 hours in a school week",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(4)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(4)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "tx-minor-16-17-curfew",
+      "title": "Texas: Minors 16-17 — Cannot work past 22:00 (school night)",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 22
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.is_school_day"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 22:00 on a school night in TX",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §51.013",
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-minor-16-17-nonschool-day-hours",
+      "title": "Texas: Minors 16-17 — Max 8 hours on a non-school day",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in TX",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §51.013",
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-minor-16-17-school-day-hours",
+      "title": "Texas: Minors 16-17 — Max 4 hours on a school day",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in TX",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §51.013",
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-minor-16-17-school-week-hours",
+      "title": "Texas: Minors 16-17 — Max 18 hours in a school week",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 18
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 18 hours in a school week in TX",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §51.013",
+          "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-overtime-weekly-40",
+      "title": "Federal Weekly Overtime (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1940-10-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_this_week"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §207(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. §207(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    }
+  ],
+  "obligations": [
+    {
+      "code": "leave.family_medical",
+      "name": "Family and medical leave entitlement",
+      "description": "Weeks of job-protected family or medical leave the employee is entitled to in a benefit year.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "leave.family_medical_weeks_available",
+      "compareParam": "weeks",
+      "params": [
+        {
+          "name": "weeks",
+          "type": "number",
+          "unit": "weeks",
+          "required": true,
+          "description": "Weeks of leave available"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave is paid (state insurance programs) or unpaid (federal FMLA)"
+        }
+      ],
+      "synonyms": [
+        "FMLA",
+        "PFML",
+        "PFL",
+        "paid family leave",
+        "family leave insurance",
+        "FAMLI"
+      ]
+    },
+    {
+      "code": "minor.curfew",
+      "name": "Minor work-hour curfew",
+      "description": "Earliest start or latest end time a minor may work, often differing on school nights.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "latest_end_hour",
+          "type": "number",
+          "unit": "hour_of_day",
+          "required": false,
+          "description": "Work must end by this hour (21 = 9 PM; 24 and above means after midnight)"
+        },
+        {
+          "name": "earliest_start_hour",
+          "type": "number",
+          "unit": "hour_of_day",
+          "required": false,
+          "description": "Work may not start before this hour"
+        },
+        {
+          "name": "school_night",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the limit applies only before a school day, false when it applies only outside the school year; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "night work restriction",
+        "child labor hours",
+        "youth employment hours",
+        "nightwork"
+      ]
+    },
+    {
+      "code": "minor.daily_hours_max",
+      "name": "Minor daily hours limit",
+      "description": "Most hours a minor may work in one day.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Maximum hours in the day"
+        },
+        {
+          "name": "school_day",
+          "type": "boolean",
+          "required": false,
+          "description": "True for school days, false for non-school days; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "child labor daily limit",
+        "hours per day for minors"
+      ]
+    },
+    {
+      "code": "minor.weekly_hours_max",
+      "name": "Minor weekly hours limit",
+      "description": "Most hours a minor may work in one week.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Maximum hours in the week"
+        },
+        {
+          "name": "school_week",
+          "type": "boolean",
+          "required": false,
+          "description": "True for weeks when school is in session, false for non-school weeks; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "child labor weekly limit",
+        "hours per week for minors"
+      ]
+    },
+    {
+      "code": "premium.overtime",
+      "name": "Overtime premium",
+      "description": "A multiple of the regular rate owed for hours past a daily or weekly threshold.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "multiplier",
+      "params": [
+        {
+          "name": "multiplier",
+          "type": "number",
+          "unit": "multiplier",
+          "required": true,
+          "description": "Multiple of the regular rate (1.5, 2)"
+        },
+        {
+          "name": "threshold_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours after which the premium applies"
+        },
+        {
+          "name": "period",
+          "type": "enum",
+          "values": [
+            "day",
+            "week"
+          ],
+          "required": false,
+          "description": "Whether the threshold is per workday or per workweek"
+        }
+      ],
+      "synonyms": [
+        "time and a half",
+        "double time",
+        "OT",
+        "daily overtime",
+        "weekly overtime"
+      ]
+    },
+    {
+      "code": "wage.minimum",
+      "name": "Minimum wage",
+      "description": "The lowest hourly rate an employer may pay a covered employee.",
+      "behaviors": [
+        "minimum_required_value"
+      ],
+      "kronto": "block",
+      "targetFact": "employee.regular_hourly_rate",
+      "compareParam": "rate",
+      "params": [
+        {
+          "name": "rate",
+          "type": "number",
+          "unit": "usd_per_hour",
+          "required": true,
+          "description": "Minimum hourly rate"
+        }
+      ],
+      "synonyms": [
+        "minimum hourly rate",
+        "wage floor",
+        "living wage (local ordinances)"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "path": "employee.age",
+      "type": "number",
+      "description": "Employee age in years",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.exempt_status",
+      "type": "enum",
+      "description": "FLSA exemption status",
+      "category": "3. Employee",
+      "enumValues": [
+        "exempt",
+        "non_exempt"
+      ]
+    },
+    {
+      "path": "employee.hours_worked_last_12_months",
+      "type": "number",
+      "description": "Total hours worked in prior 12 months (for FMLA eligibility)",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.is_minor",
+      "type": "boolean",
+      "description": "Whether employee is under 18",
+      "category": "3. Employee",
+      "derived": "employee.age < 18"
+    },
+    {
+      "path": "employee.tenure_months",
+      "type": "number",
+      "description": "Months employed with current employer",
+      "category": "3. Employee"
+    },
+    {
+      "path": "leave.type",
+      "type": "enum",
+      "description": "Type of leave requested",
+      "category": "6. Leave",
+      "enumValues": [
+        "sick",
+        "family",
+        "medical",
+        "parental",
+        "bereavement",
+        "jury_duty",
+        "voting",
+        "domestic_violence",
+        "military",
+        "school_activity"
+      ]
+    },
+    {
+      "path": "shift.end_hour",
+      "type": "number",
+      "description": "Shift end hour (0-23, for curfew comparisons)",
+      "category": "4. Shift",
+      "derived": "hour component of the shift end time (0-23)"
+    },
+    {
+      "path": "shift.hours_worked_this_week",
+      "type": "number",
+      "description": "Hours worked in the current workweek",
+      "category": "4. Shift",
+      "derived": "this shift's length plus the length of every other shift for the employee in the same workweek"
+    },
+    {
+      "path": "shift.is_school_day",
+      "type": "boolean",
+      "description": "Whether it is a school day (for minor labor rules)",
+      "category": "4. Shift",
+      "derived": "weekday during the school year (simplified: Monday to Friday, September to mid-June)"
+    },
+    {
+      "path": "shift.school_in_session",
+      "type": "boolean",
+      "description": "Whether school is in session (school year vs summer)",
+      "category": "4. Shift",
+      "derived": "date falls in the school year (simplified: September to mid-June)"
+    },
+    {
+      "path": "shift.shift_length_hours",
+      "type": "number",
+      "description": "Length of the current shift in hours",
+      "category": "4. Shift",
+      "derived": "(end time - start time) in hours; an end time at or before the start time means the shift crosses midnight"
+    },
+    {
+      "path": "shift.start_hour",
+      "type": "number",
+      "description": "Shift start hour (0-23, for time-of-day comparisons)",
+      "category": "4. Shift",
+      "derived": "hour component of the shift start time (0-23)"
+    }
+  ],
+  "stats": {
+    "rulesConsidered": 476,
+    "rulesIncluded": 15,
+    "excludedByProfile": 461,
+    "excludedExpired": 0,
+    "excludedInactive": 0,
+    "fullyResolved": 0
+  },
+  "checksum": "78c6093d580e48c0b7df81bae6c8cf84bfbf0096a0eb4fec32ade0e6068b2ca0"
+}

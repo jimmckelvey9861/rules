@@ -45,51 +45,52 @@ export type Condition = ComparisonCondition | AllCondition | AnyCondition | NotC
 
 // ─── Result Types ──────────────────────────────────────────────────
 
-export interface MinimumRequiredValueResult {
-  type: "minimum_required_value";
-  targetFact: string;
-  minimum: number;
-  unit: string;
-}
+/**
+ * How the engine treats a rule whose conditions are met. The obligation
+ * vocabulary (data/result-vocabulary.json) says which behaviours each
+ * obligation may use.
+ */
+export type ResultType = "minimum_required_value" | "required_break" | "premium_required" | "prohibition" | "warning";
 
-export interface RequiredBreakResult {
-  type: "required_break";
-  breakType: string;
-  minimumMinutes: number;
-}
+export const RESULT_TYPES: readonly ResultType[] = ["minimum_required_value", "required_break", "premium_required", "prohibition", "warning"];
 
-export interface PremiumRequiredResult {
-  type: "premium_required";
-  premiumType: string;
-  amount?: number;
-  formula?: string;
-}
+export type ResultParamValue = number | boolean | string;
 
-export interface ProhibitionResult {
-  type: "prohibition";
-  prohibitedAction: string;
+/**
+ * What a rule requires when it applies.
+ *
+ * - `type`       engine behaviour (see ResultType)
+ * - `obligation` a code from the result vocabulary, e.g. "break.meal"
+ * - `params`     that obligation's typed parameters, e.g. { minimum_minutes: 30, after_hours: 5 }
+ * - `summary`    one plain-English sentence for people and for Kronto to display
+ */
+export interface RuleResult {
+  type: ResultType;
+  obligation: string;
+  params: Record<string, ResultParamValue>;
+  summary: string;
 }
-
-export interface WarningResult {
-  type: "warning";
-  message: string;
-}
-
-export type RuleResult =
-  | MinimumRequiredValueResult
-  | RequiredBreakResult
-  | PremiumRequiredResult
-  | ProhibitionResult
-  | WarningResult;
 
 // ─── Rule Shape ────────────────────────────────────────────────────
 
 export type RuleStatus = "active" | "draft" | "repealed" | "pending";
 
+/**
+ * What kind of legal source a citation points at. Statutes and ordinances are
+ * the durable authority; regulations carry the specifics (rates, thresholds)
+ * and change more often; guidance pages (agency FAQs, fact sheets) are the
+ * least stable and should never be a rule's only citation.
+ */
+export type CitationKind = "statute" | "regulation" | "ordinance" | "constitution" | "guidance";
+
+export const CITATION_KINDS: readonly CitationKind[] = ["statute", "regulation", "ordinance", "constitution", "guidance"];
+
 export interface Citation {
+  /** Formal cite or document name, e.g. "Cal. Lab. Code §512(a)" */
   source: string;
   url?: string;
   section?: string;
+  kind?: CitationKind;
 }
 
 export interface Rule {

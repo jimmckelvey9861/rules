@@ -1,0 +1,3546 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "minimum_wage",
+  "rules": [
+    {
+      "id": "ak-minimum-wage-2025",
+      "title": "Alaska Minimum Wage",
+      "jurisdiction": "AK",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 13
+        },
+        "summary": "$13.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Alaska Wage and Hour Act, AS 23.10.065",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.065",
+          "section": "AS 23.10.065",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "al-minimum-wage-7.25",
+      "title": "Alabama Minimum Wage ($7.25/hr)",
+      "jurisdiction": "AL",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "No state minimum wage law (federal applies)",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#al",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-minimum-wage-11",
+      "title": "Arkansas Minimum Wage ($11.00/hr)",
+      "jurisdiction": "AR",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 11
+        },
+        "summary": "$11.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a711-4-210",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#ar",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-minimum-wage-14.7",
+      "title": "Arizona Minimum Wage ($14.70/hr)",
+      "jurisdiction": "AZ",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.7
+        },
+        "summary": "$14.70 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-363",
+          "url": "https://www.azleg.gov/ars/23/00363.htm",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "belmont-ca-mw-2026",
+      "title": "Belmont Minimum Wage",
+      "jurisdiction": "Belmont",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Belmont"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.95
+        },
+        "summary": "$18.95 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Belmont Municipal Code Ch. 8.10",
+          "url": "https://www.belmont.gov/city-hall/finance/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "boulder-co-mw-2026",
+      "title": "Boulder Minimum Wage",
+      "jurisdiction": "Boulder",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Boulder"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.57
+        },
+        "summary": "$15.57 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Boulder Revised Code Ch. 12-1",
+          "url": "https://bouldercolorado.gov/local-minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ca-fast-food-minimum-wage-2025",
+      "title": "California Fast Food Minimum Wage (AB 1228)",
+      "jurisdiction": "CA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2024-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20
+        },
+        "summary": "$20.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "California AB 1228 (Fast Food Minimum Wage)",
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB1228",
+          "section": "Cal. Lab. Code \u00a71474",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-minimum-wage-2025",
+      "title": "California Minimum Wage",
+      "jurisdiction": "CA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.5
+        },
+        "summary": "$16.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a71182.12",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1182.12.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a71182.12",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "chicago-il-mw-2025",
+      "title": "Chicago Minimum Wage ($16.20/hr)",
+      "jurisdiction": "Chicago",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.2
+        },
+        "summary": "$16.20 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Chicago Minimum Wage Ordinance",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/minimumwageinformation.html",
+          "section": "MCC \u00a71-24-020",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "co-minimum-wage-14.81",
+      "title": "Colorado Minimum Wage ($14.81/hr)",
+      "jurisdiction": "CO",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.81
+        },
+        "summary": "$14.81 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #40",
+          "url": "https://cdle.colorado.gov/wage-and-hour-law/minimum-wage",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ct-minimum-wage-2025",
+      "title": "Connecticut Minimum Wage",
+      "jurisdiction": "CT",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-06-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.94
+        },
+        "summary": "$16.94 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Connecticut General Statutes \u00a731-58",
+          "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/minimum-wage.htm",
+          "section": "Conn. Gen. Stat. \u00a731-58",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-tipped-hotel-restaurant-mw-2025",
+      "title": "Connecticut Tipped Hotel/Restaurant Worker Cash Wage ($6.38)",
+      "jurisdiction": "CT",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-06-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "food_service",
+              "hotel"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 6.38
+        },
+        "summary": "$6.38 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Connecticut General Statutes \u00a731-62",
+          "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/minimum-wage.htm",
+          "section": "Conn. Gen. Stat. \u00a731-62 (tipped employees)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "daly-city-ca-mw-2026",
+      "title": "Daly City Minimum Wage",
+      "jurisdiction": "Daly City",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Daly City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.5
+        },
+        "summary": "$17.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Daly City Municipal Code Ch. 2.110",
+          "url": "https://www.dalycity.org/minimumwage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "dc-minimum-wage-2025",
+      "title": "District of Columbia Minimum Wage",
+      "jurisdiction": "DC",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.95
+        },
+        "summary": "$17.95 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "DC Code \u00a732-1003",
+          "url": "https://does.dc.gov/service/office-wage-hour-compliance",
+          "section": "DC Code \u00a732-1003",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-tipped-mw-2025",
+      "title": "DC Tipped Employee Cash Wage ($10.00)",
+      "jurisdiction": "DC",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10
+        },
+        "summary": "$10.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "DC Code \u00a732-1003(f)",
+          "url": "https://does.dc.gov/service/office-wage-hour-compliance",
+          "section": "DC Code \u00a732-1003(f)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "de-minimum-wage-13.25",
+      "title": "Delaware Minimum Wage ($13.25/hr)",
+      "jurisdiction": "DE",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 13.25
+        },
+        "summary": "$13.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7902",
+          "url": "https://labor.delaware.gov/divisions/industrial-affairs-old/labor-law/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "denver-co-mw-2025",
+      "title": "Denver Minimum Wage",
+      "jurisdiction": "Denver",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Denver"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.29
+        },
+        "summary": "$19.29 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Denver Revised Municipal Code \u00a758-15",
+          "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Auditors-Office/Denver-Labor/Citywide-Minimum-Wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.country",
+            "op": "=",
+            "value": "US"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "fl-minimum-wage-14",
+      "title": "Florida Minimum Wage ($14.00/hr)",
+      "jurisdiction": "FL",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2024-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14
+        },
+        "summary": "$14.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "FL Const. Art. X \u00a724",
+          "url": "https://floridajobs.org/minimum-wage",
+          "kind": "constitution"
+        }
+      ]
+    },
+    {
+      "id": "fremont-ca-mw-2026",
+      "title": "Fremont Minimum Wage",
+      "jurisdiction": "Fremont",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Fremont"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.05
+        },
+        "summary": "$18.05 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fremont Municipal Code Ch. 4.120",
+          "url": "https://www.fremont.gov/government/departments/human-services/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ga-minimum-wage-7.25",
+      "title": "Georgia Minimum Wage ($7.25/hr)",
+      "jurisdiction": "GA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "O.C.G.A. \u00a734-4-3 (federal rate applies)",
+          "url": "https://dol.georgia.gov/minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "half-moon-bay-ca-mw-2026",
+      "title": "Half Moon Bay Minimum Wage",
+      "jurisdiction": "Half Moon Bay",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Half Moon Bay"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.91
+        },
+        "summary": "$17.91 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Half Moon Bay Municipal Code Ch. 5.30",
+          "url": "https://www.half-moon-bay.ca.us/minimumwage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "hayward-ca-mw-large-2026",
+      "title": "Hayward Minimum Wage (26+ employees)",
+      "jurisdiction": "Hayward",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Hayward"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.79
+        },
+        "summary": "$17.79 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Hayward Municipal Code Ch. 5 Art. 12",
+          "url": "https://www.hayward-ca.gov/local-minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "hi-minimum-wage-2026",
+      "title": "Hawaii Minimum Wage",
+      "jurisdiction": "HI",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Hawaii Revised Statutes \u00a7387-2",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0387/HRS_0387-0002.htm",
+          "section": "HRS \u00a7387-2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ia-minimum-wage-7.25",
+      "title": "Iowa Minimum Wage ($7.25/hr)",
+      "jurisdiction": "IA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a791D.1",
+          "url": "https://www.iowadivisionoflabor.gov/minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "id-minimum-wage-7.25",
+      "title": "Idaho Minimum Wage ($7.25/hr)",
+      "jurisdiction": "ID",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Idaho Code \u00a744-1502",
+          "url": "https://www.labor.idaho.gov/laws-and-guidance/wage-and-hour/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-minimum-wage-15",
+      "title": "Illinois Minimum Wage ($15.00/hr)",
+      "jurisdiction": "IL",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 105/4a",
+          "url": "https://labor.illinois.gov/laws-rules/fls/minimum-wage-law.html",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "in-minimum-wage-7.25",
+      "title": "Indiana Minimum Wage ($7.25/hr)",
+      "jurisdiction": "IN",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "IC \u00a722-2-2-4",
+          "url": "https://www.in.gov/dol/wage-and-hour/wage-and-hour-home",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ks-minimum-wage-7.25",
+      "title": "Kansas Minimum Wage ($7.25/hr)",
+      "jurisdiction": "KS",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "K.S.A. \u00a744-1203",
+          "url": "https://www.dol.ks.gov/laws/minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-minimum-wage-7.25",
+      "title": "Kentucky Minimum Wage ($7.25/hr)",
+      "jurisdiction": "KY",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "KRS \u00a7337.275",
+          "url": "https://labor.ky.gov/standards/Pages/Minimum-Wage.aspx",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-minimum-wage-7.25",
+      "title": "Louisiana Minimum Wage ($7.25/hr)",
+      "jurisdiction": "LA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "No state minimum wage law (federal applies)",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#la",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-ca-mw-2026",
+      "title": "Los Angeles Minimum Wage",
+      "jurisdiction": "Los Angeles",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.42
+        },
+        "summary": "$18.42 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code \u00a7187.00 et seq.",
+          "url": "https://wagesla.lacity.org/",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ma-minimum-wage-15",
+      "title": "Massachusetts Minimum Wage ($15.00/hr)",
+      "jurisdiction": "MA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "MGL c.151 \u00a71",
+          "url": "https://www.mass.gov/info-details/massachusetts-law-about-minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "malibu-ca-mw-2026",
+      "title": "Malibu Minimum Wage",
+      "jurisdiction": "Malibu",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Malibu"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.91
+        },
+        "summary": "$17.91 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Malibu Municipal Code Ch. 5.25",
+          "url": "https://www.malibucity.org/minimumwage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "md-minimum-wage-2025",
+      "title": "Maryland Minimum Wage",
+      "jurisdiction": "MD",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Maryland Wage and Hour Law, Md. Code Lab. & Empl. \u00a73-413",
+          "url": "https://www.labor.maryland.gov/labor/wages/wagehrfacts.shtml",
+          "section": "Md. Code Lab. & Empl. \u00a73-413",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-minimum-wage-14.65",
+      "title": "Maine Minimum Wage ($14.65/hr)",
+      "jurisdiction": "ME",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.65
+        },
+        "summary": "$14.65 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7664",
+          "url": "https://www.maine.gov/labor/labor_laws/minimum_wage.html",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-minimum-wage-10.56",
+      "title": "Michigan Minimum Wage ($10.56/hr)",
+      "jurisdiction": "MI",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.56
+        },
+        "summary": "$10.56 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.934",
+          "url": "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-hour/minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "minneapolis-mn-mw-2026",
+      "title": "Minneapolis Minimum Wage",
+      "jurisdiction": "Minneapolis",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Minneapolis"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.37
+        },
+        "summary": "$16.37 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Minneapolis Code of Ordinances Title 2 Ch. 40",
+          "url": "https://www.minneapolismn.gov/government/government-data/datasource/minimum-wage/",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "mn-minimum-wage-11.13",
+      "title": "Minnesota Minimum Wage ($11.13/hr)",
+      "jurisdiction": "MN",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 11.13
+        },
+        "summary": "$11.13 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7177.24",
+          "url": "https://www.dli.mn.gov/business/employment-practices/minimum-wage-minnesota",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mo-minimum-wage-15",
+      "title": "Missouri Minimum Wage ($15.00/hr)",
+      "jurisdiction": "MO",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "MO Const. Art. III \u00a73(a)",
+          "url": "https://labor.mo.gov/dls/minimum-wage",
+          "kind": "constitution"
+        }
+      ]
+    },
+    {
+      "id": "montgomery-county-md-mw-2025",
+      "title": "Montgomery County, MD Minimum Wage",
+      "jurisdiction": "Montgomery County",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Montgomery County"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.15
+        },
+        "summary": "$17.15 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Montgomery County Code Ch. 27, Art. XI",
+          "url": "https://www.montgomerycountymd.gov/office-human-rights/minimum-wage-increase",
+          "section": "Montgomery County Code \u00a727-68",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ms-minimum-wage-7.25",
+      "title": "Mississippi Minimum Wage ($7.25/hr)",
+      "jurisdiction": "MS",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "No state minimum wage law (federal applies)",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#ms",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-minimum-wage-10.55",
+      "title": "Montana Minimum Wage ($10.55/hr)",
+      "jurisdiction": "MT",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.55
+        },
+        "summary": "$10.55 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "MCA \u00a739-3-409",
+          "url": "https://erd.dli.mt.gov/labor-standards/wage-and-hour-payment-act/minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nc-minimum-wage-7.25",
+      "title": "North Carolina Minimum Wage ($7.25/hr)",
+      "jurisdiction": "NC",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "NCGS \u00a795-25.3",
+          "url": "https://www.labor.nc.gov/workplace-rights/employee-rights-regarding-time-worked-and-wages-earned/minimum-wage-nc",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nd-minimum-wage-7.25",
+      "title": "North Dakota Minimum Wage ($7.25/hr)",
+      "jurisdiction": "ND",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "NDCC \u00a734-06-22",
+          "url": "https://www.nd.gov/labor/wage-and-hour-faq",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-minimum-wage-13.5",
+      "title": "Nebraska Minimum Wage ($13.50/hr)",
+      "jurisdiction": "NE",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 13.5
+        },
+        "summary": "$13.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a748-1203",
+          "url": "https://dol.nebraska.gov/webdocs/getfile/efea62c1-3573-48c7-ac09-db3a3cc38b18",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-fast-food-mw-2025",
+      "title": "NYC Fast Food Minimum Wage ($20.00)",
+      "jurisdiction": "New York City",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20
+        },
+        "summary": "$20.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, NYC Fast Food Worker Wage",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law \u00a7652 (fast food)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ny-mw-2026",
+      "title": "New York City Minimum Wage ($17.00/hr)",
+      "jurisdiction": "New York City",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "NYC Minimum Wage (NY Labor Law \u00a7652)",
+          "url": "https://dol.ny.gov/minimum-wage-0",
+          "section": "NY Labor Law \u00a7652(a)(ii)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-food-service-mw-2025",
+      "title": "NYC Tipped Food Service Worker Cash Wage ($12.50)",
+      "jurisdiction": "New York City",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "food_service"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.5
+        },
+        "summary": "$12.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR \u00a7146-1.3 (food service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-service-mw-2025",
+      "title": "NYC Tipped Service Worker Cash Wage ($14.50)",
+      "jurisdiction": "New York City",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "hotel",
+              "retail",
+              "other"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.5
+        },
+        "summary": "$14.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR \u00a7146-1.3 (service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nh-minimum-wage-7.25",
+      "title": "New Hampshire Minimum Wage ($7.25/hr)",
+      "jurisdiction": "NH",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "NH RSA \u00a7279:21",
+          "url": "https://www.nh.gov/labor/inspection/wage-hour/minimum-wage.htm",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-minimum-wage-2025",
+      "title": "New Jersey Minimum Wage",
+      "jurisdiction": "NJ",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.92
+        },
+        "summary": "$15.92 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
+          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/wageandhourlaws.shtml",
+          "section": "N.J.S.A. 34:11-56a4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-minimum-wage-small-2025",
+      "title": "New Jersey Minimum Wage (Small Employer, <6 employees)",
+      "jurisdiction": "NJ",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.23
+        },
+        "summary": "$15.23 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
+          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/wageandhourlaws.shtml",
+          "section": "N.J.S.A. 34:11-56a4 (small employer)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-tipped-mw-2025",
+      "title": "New Jersey Tipped Employee Cash Wage ($5.62)",
+      "jurisdiction": "NJ",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 5.62
+        },
+        "summary": "$5.62 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
+          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/wageandhourlaws.shtml",
+          "section": "N.J.S.A. 34:11-56a4 (tipped employees)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-minimum-wage-2023",
+      "title": "New Mexico Minimum Wage",
+      "jurisdiction": "NM",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12
+        },
+        "summary": "$12.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New Mexico Minimum Wage Act, NMSA \u00a750-4-22",
+          "url": "https://nmonesource.com/nmos/nmsa/en/item/4383/index.do#!fragment/zoupio-_Toc140503771",
+          "section": "NMSA \u00a750-4-22",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "novato-ca-mw-2026",
+      "title": "Novato Minimum Wage",
+      "jurisdiction": "Novato",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Novato"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.73
+        },
+        "summary": "$17.73 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Novato Municipal Code Ch. V Art. 3",
+          "url": "https://www.novato.org/government/city-manager/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nv-minimum-wage-2024",
+      "title": "Nevada Minimum Wage",
+      "jurisdiction": "NV",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2024-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12
+        },
+        "summary": "$12.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Nevada Revised Statutes \u00a7608.250",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec250",
+          "section": "NRS \u00a7608.250",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-downstate-2025",
+      "title": "New York Minimum Wage (NYC, Nassau, Suffolk, Westchester)",
+      "jurisdiction": "NY",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "in",
+            "value": [
+              "New York City",
+              "Nassau County",
+              "Suffolk County",
+              "Westchester County"
+            ]
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law \u00a7652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-statewide-2025",
+      "title": "New York Minimum Wage (Statewide Floor)",
+      "jurisdiction": "NY",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law \u00a7652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-upstate-2025",
+      "title": "New York Minimum Wage (Remainder of State)",
+      "jurisdiction": "NY",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "not_in",
+            "value": [
+              "New York City",
+              "Nassau County",
+              "Suffolk County",
+              "Westchester County"
+            ]
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law \u00a7652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-state-tipped-food-service-mw-2025",
+      "title": "New York State Tipped Food Service Cash Wage ($10.65)",
+      "jurisdiction": "NY",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "not_in",
+            "value": [
+              "New York City",
+              "Nassau County",
+              "Suffolk County",
+              "Westchester County"
+            ]
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "food_service"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.65
+        },
+        "summary": "$10.65 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR \u00a7146-1.3 (upstate food service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "oh-minimum-wage-10.7",
+      "title": "Ohio Minimum Wage ($10.70/hr)",
+      "jurisdiction": "OH",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.7
+        },
+        "summary": "$10.70 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "OH Const. Art. II \u00a734a",
+          "url": "https://codes.ohio.gov/ohio-constitution/section-2.34a",
+          "kind": "constitution"
+        }
+      ]
+    },
+    {
+      "id": "ok-minimum-wage-7.25",
+      "title": "Oklahoma Minimum Wage ($7.25/hr)",
+      "jurisdiction": "OK",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "40 O.S. \u00a7197.2",
+          "url": "https://oklahoma.gov/labor/workplace-rights/wage-hour/faqs---wage-and-hour.html",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-minimum-wage-14.7",
+      "title": "Oregon Minimum Wage ($14.70/hr)",
+      "jurisdiction": "OR",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.7
+        },
+        "summary": "$14.70 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7653.025",
+          "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "pa-minimum-wage-7.25",
+      "title": "Pennsylvania Minimum Wage ($7.25/hr)",
+      "jurisdiction": "PA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a7333.104",
+          "url": "https://www.dli.pa.gov/Individuals/Labor-Management-Relations/llc/minimum-wage/Pages/default.aspx",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "pasadena-ca-mw-2026",
+      "title": "Pasadena Minimum Wage",
+      "jurisdiction": "Pasadena",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Pasadena"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.57
+        },
+        "summary": "$18.57 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Pasadena Municipal Code Ch. 5.09",
+          "url": "https://www.cityofpasadena.net/planning/code-compliance/minimum-wage-ordinance/",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "portland-metro-or-mw-2024",
+      "title": "Portland Metro Area Minimum Wage",
+      "jurisdiction": "Portland Metro Area",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2024-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Portland Metro Area"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15.95
+        },
+        "summary": "$15.95 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "ORS 653.025 (Portland Metro standard)",
+          "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "redwood-city-ca-mw-2026",
+      "title": "Redwood City Minimum Wage",
+      "jurisdiction": "Redwood City",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Redwood City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.65
+        },
+        "summary": "$18.65 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Redwood City Municipal Code Ch. 30",
+          "url": "https://www.redwoodcity.org/departments/city-manager/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ri-minimum-wage-15",
+      "title": "Rhode Island Minimum Wage ($15.00/hr)",
+      "jurisdiction": "RI",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "RI Gen. Laws \u00a728-12-3",
+          "url": "https://dlt.ri.gov/regulation-and-safety/labor-standards/labor-standards-faq",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "richmond-ca-mw-2026",
+      "title": "Richmond Minimum Wage",
+      "jurisdiction": "Richmond",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Richmond"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.18
+        },
+        "summary": "$19.18 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Richmond Municipal Code Ch. 7.108",
+          "url": "https://www.ci.richmond.ca.us/2615/Minimum-Wage-Ordinance",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "san-carlos-ca-mw-2026",
+      "title": "San Carlos Minimum Wage",
+      "jurisdiction": "San Carlos",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Carlos"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17.75
+        },
+        "summary": "$17.75 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "San Carlos Municipal Code Ch. 8.20",
+          "url": "https://www.cityofsancarlos.org/business/minimum_wage.php",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "san-francisco-ca-mw-2026",
+      "title": "San Francisco Minimum Wage",
+      "jurisdiction": "San Francisco",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.61
+        },
+        "summary": "$19.61 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Administrative Code Ch. 12R",
+          "url": "https://www.sf.gov/sites/default/files/2023-10/Minimum%20Wage%20Ordinance.pdf",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "san-jose-ca-mw-2025",
+      "title": "San Jose Minimum Wage",
+      "jurisdiction": "San Jose",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Jose"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.45
+        },
+        "summary": "$18.45 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "San Jose Municipal Code Ch. 4.100",
+          "url": "https://www.sanjoseca.gov/your-government/departments-offices/office-of-equality-assurance/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "santa-clara-ca-mw-2026",
+      "title": "Santa Clara Minimum Wage",
+      "jurisdiction": "Santa Clara",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Santa Clara"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.7
+        },
+        "summary": "$18.70 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Santa Clara City Code Ch. 3.20",
+          "url": "https://www.santaclaraca.gov/our-city/departments-a-f/city-manager/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sc-minimum-wage-7.25",
+      "title": "South Carolina Minimum Wage ($7.25/hr)",
+      "jurisdiction": "SC",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "No state minimum wage law (federal applies)",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#sc",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-minimum-wage-11.5",
+      "title": "South Dakota Minimum Wage ($11.50/hr)",
+      "jurisdiction": "SD",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 11.5
+        },
+        "summary": "$11.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "SDCL \u00a760-11-3",
+          "url": "https://dlr.sd.gov/employment_laws/minimum_wage.aspx",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "seattle-wa-mw-2026",
+      "title": "Seattle Minimum Wage",
+      "jurisdiction": "Seattle",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20.76
+        },
+        "summary": "$20.76 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.19",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sunnyvale-ca-mw-2026",
+      "title": "Sunnyvale Minimum Wage",
+      "jurisdiction": "Sunnyvale",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Sunnyvale"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.5
+        },
+        "summary": "$19.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Sunnyvale Municipal Code Ch. 4.08",
+          "url": "https://www.sunnyvale.ca.gov/property-and-environment/business/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "tn-minimum-wage-7.25",
+      "title": "Tennessee Minimum Wage ($7.25/hr)",
+      "jurisdiction": "TN",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. \u00a7206(a)(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "No state minimum wage law (federal applies)",
+          "url": "https://www.dol.gov/agencies/whd/minimum-wage/state#tn",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-minimum-wage-7.25",
+      "title": "Texas Minimum Wage ($7.25/hr)",
+      "jurisdiction": "TX",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a762.051",
+          "url": "https://www.twc.texas.gov/businesses/minimum-wage-law",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ut-minimum-wage-7.25",
+      "title": "Utah Minimum Wage ($7.25/hr)",
+      "jurisdiction": "UT",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a734-40-103",
+          "url": "https://laborcommission.utah.gov/laws-regulations/uald-laws-regulations/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "va-minimum-wage-2025",
+      "title": "Virginia Minimum Wage",
+      "jurisdiction": "VA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.77
+        },
+        "summary": "$12.77 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Virginia Minimum Wage Act, Code of Virginia \u00a740.1-28.10",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-28.10/",
+          "section": "Va. Code \u00a740.1-28.10",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-minimum-wage-14.01",
+      "title": "Vermont Minimum Wage ($14.01/hr)",
+      "jurisdiction": "VT",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.01
+        },
+        "summary": "$14.01 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "21 VSA \u00a7384",
+          "url": "https://labor.vermont.gov/rights-and-wages/wage-and-hour",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-minimum-wage-2025",
+      "title": "Washington State Minimum Wage",
+      "jurisdiction": "WA",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.66
+        },
+        "summary": "$16.66 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.020",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.020",
+          "section": "RCW 49.46.020",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "west-hollywood-ca-mw-2026",
+      "title": "West Hollywood Minimum Wage",
+      "jurisdiction": "West Hollywood",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "West Hollywood"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20.25
+        },
+        "summary": "$20.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "West Hollywood Municipal Code Ch. 5.50",
+          "url": "https://www.weho.org/business/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "wi-minimum-wage-7.25",
+      "title": "Wisconsin Minimum Wage ($7.25/hr)",
+      "jurisdiction": "WI",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7104.01",
+          "url": "https://dwd.wisconsin.gov/er/laborstandards/minimumwage.htm",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wv-minimum-wage-8.75",
+      "title": "West Virginia Minimum Wage ($8.75/hr)",
+      "jurisdiction": "WV",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2015-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 8.75
+        },
+        "summary": "$8.75 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a721-5C-2",
+          "url": "https://labor.wv.gov/wage-hour/jobs-act/minimum-wage",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wy-minimum-wage-7.25",
+      "title": "Wyoming Minimum Wage ($7.25/hr)",
+      "jurisdiction": "WY",
+      "topic": "minimum_wage",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Wyo. Stat. \u00a727-4-202",
+          "url": "https://dws.wyo.gov/dws-division/labor-standards/workers-and-job-seekers/your-rights-as-a-worker/",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}

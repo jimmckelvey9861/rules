@@ -1,0 +1,281 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "day_of_rest",
+  "rules": [
+    {
+      "id": "ca-day-of-rest",
+      "title": "California Day of Rest (1 day off per 7-day workweek)",
+      "jurisdiction": "CA",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "1937-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6
+        },
+        "summary": "Scheduling an employee to work more than 6 consecutive days without a day of rest. Employee may voluntarily choose to work the 7th day. Exemptions for emergencies and certain industries."
+      },
+      "citations": [
+        {
+          "source": "Cal. Labor Code \u00a7551-552",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=551",
+          "section": "\u00a7551-552",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-day-of-rest",
+      "title": "Illinois One Day Rest in Seven Act",
+      "jurisdiction": "IL",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Failing to provide at least 24 consecutive hours of rest in every consecutive 7-day period. Amended 2023: employer must also provide a meal period of 20 minutes for every 7.5-hour shift."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140 (One Day Rest in Seven Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
+          "section": "820 ILCS 140/2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-day-of-rest",
+      "title": "Massachusetts Day of Rest (1 day off per 7 days)",
+      "jurisdiction": "MA",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "1994-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "period_days": 7
+        },
+        "summary": "Requiring an employee to work more than 6 days in a calendar week. Manufacturing employees may not work more than 6 days in a calendar week."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a748",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section48",
+          "section": "\u00a748-50",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-day-of-rest",
+      "title": "Minnesota Day of Rest",
+      "jurisdiction": "MN",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "1939-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6
+        },
+        "summary": "Minnesota law provides that no employer may require an employee to work seven days in a row without providing a day of rest. Limited applicability \u2014 primarily enforced through local ordinance and common law."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7624.01 (historical blue law)",
+          "url": "https://www.revisor.mn.gov/statutes/cite/624.01",
+          "section": "\u00a7624.01",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nd-day-of-rest",
+      "title": "North Dakota Day of Rest",
+      "jurisdiction": "ND",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "1975-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {},
+        "summary": "North Dakota Sunday closing law limits certain commercial activities on Sunday. While not a pure day-of-rest employment mandate, it restricts retail/commercial scheduling on Sundays for covered establishments."
+      },
+      "citations": [
+        {
+          "source": "N.D. Cent. Code \u00a712.1-30-01",
+          "url": "https://www.ndlegis.gov/cencode/t12-1c30.pdf",
+          "section": "\u00a712.1-30-01",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-day-of-rest",
+      "title": "New York Day of Rest (24 consecutive hours off per calendar week)",
+      "jurisdiction": "NY",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Scheduling employee to work 7 consecutive days without 24 consecutive hours of rest"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7161",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/161",
+          "section": "\u00a7161(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wi-day-of-rest",
+      "title": "Wisconsin One Day of Rest in Seven",
+      "jurisdiction": "WI",
+      "topic": "day_of_rest",
+      "status": "active",
+      "effectiveFrom": "1939-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Requiring employees in a factory or mercantile establishment to work without at least 24 consecutive hours of rest in every 7 consecutive days. Exemptions for janitors, watchmen, and certain continuous-process industries."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7103.85",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/103/85",
+          "section": "\u00a7103.85",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}

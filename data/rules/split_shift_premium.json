@@ -1,0 +1,143 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "split_shift_premium",
+  "rules": [
+    {
+      "id": "ca-split-shift-premium",
+      "title": "California Split Shift Premium (+1 hr at state minimum wage)",
+      "jurisdiction": "CA",
+      "topic": "split_shift_premium",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage \u00d7 (hours worked + 1))"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, \u00a74(C)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "\u00a74(C) Split Shift Premium",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nv-split-shift-premium",
+      "title": "Nevada Split Shift Premium (spread >10 hrs = +1 hr at min wage)",
+      "jurisdiction": "NV",
+      "topic": "split_shift_premium",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.160",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec160",
+          "section": "NRS \u00a7608.160",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-split-shift-premium",
+      "title": "New York Split Shift / Spread-of-Hours Premium (extra hour at min wage)",
+      "jurisdiction": "NY",
+      "topic": "split_shift_premium",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at basic minimum hourly wage when interval between start and end of workday exceeds 10 hours. Applies to all industries covered by NY wage orders."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.4 (Hospitality), \u00a7146-1.6 (Misc.)",
+          "url": "https://dol.ny.gov/minimum-wage-order-miscellaneous-industries-and-occupations-cr142/",
+          "section": "12 NYCRR \u00a7142-2.4",
+          "kind": "regulation"
+        }
+      ]
+    }
+  ]
+}

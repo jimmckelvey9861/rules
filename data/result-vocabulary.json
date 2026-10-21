@@ -1,0 +1,274 @@
+{
+  "$comment": "Result vocabulary: the registry of obligation types a rule can impose. Every rule's result names one obligation code and supplies its typed params. 'behaviors' lists the engine result types the obligation may use; 'kronto' says what a scheduler should do when the rule fires (block the schedule, compute a premium, or inform). 'compareParam' is the parameter the evaluator uses to pick the most protective rule when several of the same obligation fire; for minimum_required_value obligations 'targetFact' names the scenario fact that is compared against it.",
+  "version": "2026-10-20",
+  "units": {
+    "usd_per_hour": "US dollars per hour",
+    "usd": "US dollars, flat amount",
+    "hours": "Hours",
+    "hours_pay": "Hours of pay at the employee's rate",
+    "minutes": "Minutes",
+    "days": "Calendar days",
+    "weeks": "Weeks",
+    "multiplier": "Multiple of the regular rate (1.5 = time and a half)",
+    "percent": "Percent",
+    "hour_of_day": "Hour of the day, 0-24, local time",
+    "employees": "Count of employees"
+  },
+  "obligations": [
+    {
+      "code": "wage.minimum",
+      "name": "Minimum wage",
+      "description": "The lowest hourly rate an employer may pay a covered employee.",
+      "behaviors": ["minimum_required_value"],
+      "kronto": "block",
+      "targetFact": "employee.regular_hourly_rate",
+      "compareParam": "rate",
+      "params": [
+        { "name": "rate", "type": "number", "unit": "usd_per_hour", "required": true, "description": "Minimum hourly rate" }
+      ],
+      "synonyms": ["minimum hourly rate", "wage floor", "living wage (local ordinances)"]
+    },
+    {
+      "code": "leave.sick.accrual",
+      "name": "Paid sick leave accrual",
+      "description": "Sick (or safe) leave the employee accrues per hour worked, with a yearly cap.",
+      "behaviors": ["minimum_required_value"],
+      "kronto": "inform",
+      "targetFact": "leave.hours_accrued",
+      "compareParam": "annual_cap_hours",
+      "params": [
+        { "name": "annual_cap_hours", "type": "number", "unit": "hours", "required": true, "description": "Hours of leave the employee must be able to accrue (or use) per year" },
+        { "name": "hours_worked_per_hour_accrued", "type": "number", "unit": "hours", "required": false, "description": "Hours worked to accrue one hour of leave (30 means 1 hour per 30 worked)" },
+        { "name": "paid", "type": "boolean", "required": true, "description": "Whether the leave is paid" }
+      ],
+      "synonyms": ["earned sick time", "paid sick and safe time", "PSST", "earned paid leave", "sick and safe leave"]
+    },
+    {
+      "code": "leave.family_medical",
+      "name": "Family and medical leave entitlement",
+      "description": "Weeks of job-protected family or medical leave the employee is entitled to in a benefit year.",
+      "behaviors": ["minimum_required_value", "warning"],
+      "kronto": "inform",
+      "targetFact": "leave.family_medical_weeks_available",
+      "compareParam": "weeks",
+      "params": [
+        { "name": "weeks", "type": "number", "unit": "weeks", "required": true, "description": "Weeks of leave available" },
+        { "name": "paid", "type": "boolean", "required": true, "description": "Whether the leave is paid (state insurance programs) or unpaid (federal FMLA)" }
+      ],
+      "synonyms": ["FMLA", "PFML", "PFL", "paid family leave", "family leave insurance", "FAMLI"]
+    },
+    {
+      "code": "break.meal",
+      "name": "Meal break",
+      "description": "An uninterrupted meal period owed once a shift reaches a given length.",
+      "behaviors": ["required_break", "warning"],
+      "kronto": "block",
+      "compareParam": "minimum_minutes",
+      "params": [
+        { "name": "minimum_minutes", "type": "number", "unit": "minutes", "required": true, "description": "Minimum length of the meal period" },
+        { "name": "after_hours", "type": "number", "unit": "hours", "required": false, "description": "Shift length at which the meal period is owed" },
+        { "name": "paid", "type": "boolean", "required": false, "description": "Whether the meal period must be paid (usually false)" }
+      ],
+      "synonyms": ["meal period", "lunch break", "lunch period", "eating period"]
+    },
+    {
+      "code": "break.rest",
+      "name": "Rest break",
+      "description": "A short paid rest period owed for each block of hours worked.",
+      "behaviors": ["required_break", "warning"],
+      "kronto": "block",
+      "compareParam": "minimum_minutes",
+      "params": [
+        { "name": "minimum_minutes", "type": "number", "unit": "minutes", "required": true, "description": "Minimum length of each rest period" },
+        { "name": "per_hours_worked", "type": "number", "unit": "hours", "required": false, "description": "One rest period is owed per this many hours worked (or major fraction)" },
+        { "name": "paid", "type": "boolean", "required": false, "description": "Whether the rest period is paid (usually true)" }
+      ],
+      "synonyms": ["rest period", "coffee break", "ten-minute break", "paid break"]
+    },
+    {
+      "code": "premium.overtime",
+      "name": "Overtime premium",
+      "description": "A multiple of the regular rate owed for hours past a daily or weekly threshold.",
+      "behaviors": ["premium_required"],
+      "kronto": "premium",
+      "compareParam": "multiplier",
+      "params": [
+        { "name": "multiplier", "type": "number", "unit": "multiplier", "required": true, "description": "Multiple of the regular rate (1.5, 2)" },
+        { "name": "threshold_hours", "type": "number", "unit": "hours", "required": false, "description": "Hours after which the premium applies" },
+        { "name": "period", "type": "enum", "values": ["day", "week"], "required": false, "description": "Whether the threshold is per workday or per workweek" }
+      ],
+      "synonyms": ["time and a half", "double time", "OT", "daily overtime", "weekly overtime"]
+    },
+    {
+      "code": "premium.schedule_change",
+      "name": "Schedule change premium",
+      "description": "Predictability pay owed when the employer changes a posted schedule inside the notice window.",
+      "behaviors": ["premium_required"],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        { "name": "amount", "type": "number", "required": false, "description": "Premium amount, in the unit given" },
+        { "name": "unit", "type": "enum", "values": ["hours_pay", "usd", "percent_of_hours"], "required": false, "description": "How the amount is expressed: hours of pay per affected shift, a flat dollar amount, or a percent of the subtracted hours" },
+        { "name": "notice_window_days", "type": "number", "unit": "days", "required": false, "description": "Changes made with less than this much notice trigger the premium" },
+        { "name": "change_type", "type": "enum", "values": ["hours_added", "hours_reduced", "any"], "required": false, "description": "Which schedule changes trigger the premium" }
+      ],
+      "synonyms": ["predictability pay", "schedule change pay", "fair workweek premium", "advance notice premium"]
+    },
+    {
+      "code": "sched.advance_notice",
+      "name": "Advance schedule notice",
+      "description": "The schedule must be posted at least this far ahead of the first shift on it.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "notice_days", "type": "number", "unit": "days", "required": true, "description": "Minimum days between posting and the first shift (72 hours = 3)" }
+      ],
+      "synonyms": ["schedule posting requirement", "14-day notice", "written work schedule"]
+    },
+    {
+      "code": "sched.clopening",
+      "name": "Rest between shifts (clopening)",
+      "description": "A closing shift followed by an opening shift with less than the required rest is barred, or owes a premium, unless the employee consents.",
+      "behaviors": ["premium_required", "prohibition"],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        { "name": "rest_hours", "type": "number", "unit": "hours", "required": true, "description": "Minimum hours between the end of one shift and the start of the next" },
+        { "name": "amount", "type": "number", "required": false, "description": "Premium amount, in the unit given" },
+        { "name": "unit", "type": "enum", "values": ["hours_pay", "usd", "multiplier"], "required": false, "description": "How the premium is expressed" }
+      ],
+      "synonyms": ["clopening", "right to rest", "rest between shifts", "back-to-back shifts"]
+    },
+    {
+      "code": "sched.on_call_ban",
+      "name": "On-call scheduling ban",
+      "description": "The employer may not require the employee to be available without scheduling and paying them.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [],
+      "synonyms": ["on-call ban", "call-in shift ban", "standby prohibition"]
+    },
+    {
+      "code": "premium.reporting_time",
+      "name": "Reporting time pay",
+      "description": "Minimum pay owed when an employee reports for a scheduled shift and is sent home early or not put to work.",
+      "behaviors": ["premium_required", "minimum_required_value"],
+      "kronto": "premium",
+      "targetFact": "shift.paid_hours",
+      "compareParam": "minimum_hours",
+      "params": [
+        { "name": "minimum_hours", "type": "number", "unit": "hours", "required": false, "description": "Minimum hours that must be paid" },
+        { "name": "maximum_hours", "type": "number", "unit": "hours", "required": false, "description": "Cap on the hours owed under the rule" },
+        { "name": "fraction_of_scheduled", "type": "number", "required": false, "description": "Fraction of the scheduled shift that must be paid (0.5 = half)" },
+        { "name": "rate_basis", "type": "enum", "values": ["regular_rate", "minimum_wage"], "required": false, "description": "Which rate the hours are paid at" }
+      ],
+      "synonyms": ["show-up pay", "call-in pay", "reporting pay", "send-home pay", "minimum daily pay"]
+    },
+    {
+      "code": "premium.split_shift",
+      "name": "Split shift premium",
+      "description": "Extra pay owed when the workday is split by an unpaid, non-meal gap.",
+      "behaviors": ["premium_required"],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        { "name": "amount", "type": "number", "unit": "hours_pay", "required": true, "description": "Hours of pay owed" },
+        { "name": "rate_basis", "type": "enum", "values": ["regular_rate", "minimum_wage"], "required": false, "description": "Which rate the premium is paid at" }
+      ],
+      "synonyms": ["split shift pay", "split shift differential"]
+    },
+    {
+      "code": "premium.spread_of_hours",
+      "name": "Spread of hours premium",
+      "description": "Extra pay owed when the span from the first to the last hour of the workday exceeds a threshold.",
+      "behaviors": ["premium_required"],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        { "name": "amount", "type": "number", "unit": "hours_pay", "required": true, "description": "Hours of pay owed" },
+        { "name": "spread_hours", "type": "number", "unit": "hours", "required": false, "description": "Workday span that triggers the premium" },
+        { "name": "rate_basis", "type": "enum", "values": ["regular_rate", "minimum_wage"], "required": false, "description": "Which rate the premium is paid at" }
+      ],
+      "synonyms": ["spread of hours pay", "long day premium"]
+    },
+    {
+      "code": "rest.weekly_day_of_rest",
+      "name": "Weekly day of rest",
+      "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
+      "behaviors": ["prohibition", "warning"],
+      "kronto": "block",
+      "params": [
+        { "name": "max_consecutive_days", "type": "number", "unit": "days", "required": false, "description": "Most consecutive days the employee may be scheduled" },
+        { "name": "rest_hours", "type": "number", "unit": "hours", "required": false, "description": "Consecutive hours of rest owed in each period" },
+        { "name": "period_days", "type": "number", "unit": "days", "required": false, "description": "Length of the period the rest is owed in (usually 7)" }
+      ],
+      "synonyms": ["one day rest in seven", "seventh day rest", "day off requirement", "Sunday rest"]
+    },
+    {
+      "code": "minor.curfew",
+      "name": "Minor work-hour curfew",
+      "description": "Earliest start or latest end time a minor may work, often differing on school nights.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "age_min", "type": "number", "required": true, "description": "Youngest age covered" },
+        { "name": "age_max", "type": "number", "required": true, "description": "Oldest age covered" },
+        { "name": "latest_end_hour", "type": "number", "unit": "hour_of_day", "required": false, "description": "Work must end by this hour (21 = 9 PM; 24 and above means after midnight)" },
+        { "name": "earliest_start_hour", "type": "number", "unit": "hour_of_day", "required": false, "description": "Work may not start before this hour" },
+        { "name": "school_night", "type": "boolean", "required": false, "description": "True when the limit applies only before a school day, false when it applies only outside the school year; omitted when it applies always" }
+      ],
+      "synonyms": ["night work restriction", "child labor hours", "youth employment hours", "nightwork"]
+    },
+    {
+      "code": "minor.daily_hours_max",
+      "name": "Minor daily hours limit",
+      "description": "Most hours a minor may work in one day.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "age_min", "type": "number", "required": true, "description": "Youngest age covered" },
+        { "name": "age_max", "type": "number", "required": true, "description": "Oldest age covered" },
+        { "name": "max_hours", "type": "number", "unit": "hours", "required": true, "description": "Maximum hours in the day" },
+        { "name": "school_day", "type": "boolean", "required": false, "description": "True for school days, false for non-school days; omitted when it applies always" }
+      ],
+      "synonyms": ["child labor daily limit", "hours per day for minors"]
+    },
+    {
+      "code": "minor.weekly_hours_max",
+      "name": "Minor weekly hours limit",
+      "description": "Most hours a minor may work in one week.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "age_min", "type": "number", "required": true, "description": "Youngest age covered" },
+        { "name": "age_max", "type": "number", "required": true, "description": "Oldest age covered" },
+        { "name": "max_hours", "type": "number", "unit": "hours", "required": true, "description": "Maximum hours in the week" },
+        { "name": "school_week", "type": "boolean", "required": false, "description": "True for weeks when school is in session, false for non-school weeks; omitted when it applies always" }
+      ],
+      "synonyms": ["child labor weekly limit", "hours per week for minors"]
+    },
+    {
+      "code": "minor.general_restrictions",
+      "name": "Minor employment restrictions (general)",
+      "description": "A state's child labor law summarized as one rule: work permits, hazardous occupations and hour limits not yet split into separate rules.",
+      "behaviors": ["prohibition"],
+      "kronto": "inform",
+      "params": [
+        { "name": "age_max", "type": "number", "required": true, "description": "Oldest age covered" }
+      ],
+      "synonyms": ["child labor law", "youth employment law"]
+    },
+    {
+      "code": "sep.warn_notice",
+      "name": "Mass layoff / plant closing notice (WARN)",
+      "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
+      "behaviors": ["prohibition"],
+      "kronto": "inform",
+      "params": [
+        { "name": "notice_days", "type": "number", "unit": "days", "required": true, "description": "Days of advance notice required" },
+        { "name": "employee_threshold", "type": "number", "unit": "employees", "required": false, "description": "Employer size (or affected count) at which the law applies" }
+      ],
+      "synonyms": ["WARN Act", "mini-WARN", "plant closing law", "mass layoff notice", "Worker Adjustment and Retraining Notification"]
+    }
+  ]
+}

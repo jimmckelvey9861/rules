@@ -1,0 +1,2679 @@
+{
+  "format": "kronto-rule-pack/1",
+  "generatedAt": "2026-10-20T21:02:34.653Z",
+  "asOf": "2026-10-20",
+  "rulesVersion": "2b61e4ed33aef827",
+  "vocabularyVersion": "2026-10-20",
+  "business": "Northwind Outfitters (sample)",
+  "location": {
+    "id": "la-silver-lake",
+    "name": "Los Angeles, Silver Lake",
+    "facts": {
+      "location.country": "US",
+      "location.state": "CA",
+      "location.city": "Los Angeles",
+      "location.county": "Los Angeles",
+      "employer.total_employees_state": 310,
+      "employer.total_employees_city": 120,
+      "employer.total_employees_at_location": 31
+    }
+  },
+  "jurisdictions": [
+    {
+      "id": "us-ca-los-angeles",
+      "name": "Los Angeles",
+      "type": "city",
+      "fips": "0644000"
+    },
+    {
+      "id": "us-ca",
+      "name": "California",
+      "type": "state",
+      "fips": "06"
+    },
+    {
+      "id": "us",
+      "name": "Federal",
+      "type": "federal"
+    }
+  ],
+  "rules": [
+    {
+      "id": "ca-day-of-rest",
+      "title": "California Day of Rest (1 day off per 7-day workweek)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "day_of_rest",
+      "topicCode": "sched.shift_structure.day_of_rest",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1937-01-01",
+      "appliesWhen": {
+        "fact": "shift.consecutive_days_worked",
+        "op": ">",
+        "value": 6
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.consecutive_days_worked"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6
+        },
+        "summary": "Scheduling an employee to work more than 6 consecutive days without a day of rest. Employee may voluntarily choose to work the 7th day. Exemptions for emergencies and certain industries.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Cal. Labor Code §551-552",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=551",
+          "section": "§551-552",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-family-medical-leave",
+      "title": "California Family & Medical Leave (12 weeks, paid)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "family_medical_leave",
+      "topicCode": "leave.family_medical",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "fact": "employee.tenure_months",
+        "op": ">=",
+        "value": 12
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.tenure_months"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": true
+        },
+        "summary": "12 weeks of paid family and medical leave",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "California Family Rights Act (CFRA) + CA PFL",
+          "url": "https://www.dfeh.ca.gov/family-medical-pregnancy-leave/",
+          "section": "Gov. Code §12945.2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-fmla-eligibility",
+      "title": "Federal FMLA — Employee Eligibility",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "family_medical_leave",
+      "topicCode": "leave.family_medical",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1993-08-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 12
+          },
+          {
+            "fact": "employee.hours_worked_last_12_months",
+            "op": ">=",
+            "value": 1250
+          },
+          {
+            "fact": "leave.type",
+            "op": "in",
+            "value": [
+              "family",
+              "medical",
+              "parental"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.hours_worked_last_12_months",
+        "employee.tenure_months",
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.family_medical",
+        "params": {
+          "weeks": 12,
+          "paid": false
+        },
+        "summary": "Employee is FMLA-eligible: entitled to up to 12 weeks unpaid job-protected leave",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Family and Medical Leave Act, 29 U.S.C. §2612",
+          "url": "https://www.law.cornell.edu/uscode/text/29/2612",
+          "section": "29 U.S.C. §2612",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-first-5hr",
+      "title": "California First Meal Break (>5 hours)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "meal_break",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.meal_break_waived",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-scheduling-warning",
+      "title": "California — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "meal_break",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "California requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-second-10hr",
+      "title": "California Second Meal Break (>10 hours)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "meal_break",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 10
+        },
+        "summary": "30-minute meal break for shifts of 10+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-minimum-wage-2025",
+      "title": "California Minimum Wage",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.5
+        },
+        "summary": "$16.50 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §1182.12",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1182.12.&lawCode=LAB",
+          "section": "Cal. Lab. Code §1182.12",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-ca-mw-2026",
+      "title": "Los Angeles Minimum Wage",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "minimum_wage",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.42
+        },
+        "summary": "$18.42 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.00 et seq.",
+          "url": "https://wagesla.lacity.org/",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ca-minor-16-17-curfew-school",
+      "title": "CA: Minors 16-17 — Cannot work past 10pm on a school night",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 22
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.is_school_day"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "latest_end_hour": 22,
+          "school_night": true
+        },
+        "summary": "Scheduling a 16-17 year old to work past 10:00 PM on a school night in CA",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "CA Education Code §49116",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=49116.&lawCode=EDC",
+          "section": "Ed. Code §49116",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-minor-16-17-nonschool-day-hours",
+      "title": "CA: Minors 16-17 — Max 8 hours on a non-school day",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 16-17 year old for more than 8 hours on a non-school day in CA",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "CA Labor Code §1391",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1391.&lawCode=LAB",
+          "section": "Lab. Code §1391",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-minor-16-17-school-day-hours",
+      "title": "CA: Minors 16-17 — Max 4 hours on a school day",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 4,
+          "school_day": true
+        },
+        "summary": "Scheduling a 16-17 year old for more than 4 hours on a school day in CA",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "CA Education Code §49116",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=49116.&lawCode=EDC",
+          "section": "Ed. Code §49116",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-minor-16-17-week-hours",
+      "title": "CA: Minors 16-17 — Max 48 hours per week",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 48
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 16,
+          "age_max": 17,
+          "max_hours": 48
+        },
+        "summary": "Scheduling a 16-17 year old for more than 48 hours in a week in CA",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "CA Labor Code §1391",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1391.&lawCode=LAB",
+          "section": "Lab. Code §1391",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew",
+      "title": "Federal: Minors 14-15 — Cannot work past 7pm (9pm Jun 1–Labor Day)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 19
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 19,
+          "school_night": true
+        },
+        "summary": "Scheduling a 14-15 year old to work past 7:00 PM during the school year",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(6)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(6)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew-summer",
+      "title": "Federal: Minors 14-15 — Cannot work past 9pm (Jun 1–Labor Day)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 21
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.end_hour",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 21,
+          "school_night": false
+        },
+        "summary": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(7)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(7)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-early-start",
+      "title": "Federal: Minors 14-15 — Cannot work before 7am",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.start_hour",
+            "op": "<",
+            "value": 7
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.start_hour"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "earliest_start_hour": 7
+        },
+        "summary": "Scheduling a 14-15 year old to work before 7:00 AM",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(1)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(1)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-day-hours",
+      "title": "Federal: Minors 14-15 — Max 8 hours on a non-school day",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 8 hours on a non-school day",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(3)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(3)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-week-hours",
+      "title": "Federal: Minors 14-15 — Max 40 hours in a non-school week",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 40,
+          "school_week": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 40 hours in a non-school week",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(5)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(5)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-day-hours",
+      "title": "Federal: Minors 14-15 — Max 3 hours on a school day",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.is_school_day",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 3,
+          "school_day": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 3 hours on a school day",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(2)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(2)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-week-hours",
+      "title": "Federal: Minors 14-15 — Max 18 hours in a school week",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "minor_labor",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 18
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.hours_worked_this_week",
+        "shift.school_in_session"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 18 hours in a school week",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §570.35(a)(4)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "§570.35(a)(4)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-daily-overtime-8",
+      "title": "California Daily Overtime (Labor Code §510)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_today"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "1.5x regular rate for hours over 8 in a day",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code §510",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-double-time-12",
+      "title": "California Double Time (Labor Code §510)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 12
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_today"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 2,
+          "threshold_hours": 12,
+          "period": "day"
+        },
+        "summary": "2x regular rate for hours over 12 in a day",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code §510",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-overtime-weekly-40",
+      "title": "Federal Weekly Overtime (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "overtime",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1940-10-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_this_week"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §207(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. §207(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-advance-notice-14day",
+      "title": "Los Angeles — 14-Day Advance Notice Required (Retail)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "predictive_scheduling",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "fact": "schedule.advance_notice_days",
+        "op": "<",
+        "value": 14
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14
+        },
+        "summary": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC §187.04",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-clopening-10hr",
+      "title": "Los Angeles — 10-Hour Rest Period (Retail)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "predictive_scheduling",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.employee_consented",
+        "shift.hours_since_last_shift_end"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5x pay rate for hours worked within the 10-hour rest period",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC §187.06",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ca-reporting-time-pay",
+      "title": "California Reporting Time Pay (half scheduled shift, min 2 hrs, max 4 hrs)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "reporting_time_pay",
+      "topicCode": "pay.premium.reporting_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.employee_reported",
+        "shift.hours_worked_at_report",
+        "shift.sent_home_early"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 2,
+          "maximum_hours": 4,
+          "fraction_of_scheduled": 0.5,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Half the scheduled shift hours at regular rate (minimum 2 hours, maximum 4 hours)",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §5(A)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§5(A) Reporting Time Pay",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-reporting-time-pay-second",
+      "title": "California Second Reporting Time Pay (minimum 2 hours)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "reporting_time_pay",
+      "topicCode": "pay.premium.reporting_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.employee_reported",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.sent_home_early",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_at_report",
+            "op": "<",
+            "value": 2
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.employee_reported",
+        "shift.hours_worked_at_report",
+        "shift.is_split_shift",
+        "shift.sent_home_early"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.reporting_time",
+        "params": {
+          "minimum_hours": 2,
+          "rate_basis": "regular_rate"
+        },
+        "summary": "Pay for minimum 2 hours at regular rate for second reporting in one workday",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §5(B)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§5(B) Reporting Time Pay — Second Report",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-rest-break-4hr",
+      "title": "California Rest Break (10 min per 4 hours worked)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "rest_break",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 3.5
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.rest_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "paid": true
+        },
+        "summary": "10-minute rest break for shifts of 3.5+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §226.7 / IWC Order 5-2001",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=226.7.&lawCode=LAB",
+          "section": "Cal. Lab. Code §226.7",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-rest-break-scheduling-warning",
+      "title": "California — Rest Break Required (per 4 hrs worked)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "rest_break",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "shift.rest_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.rest_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "California requires a paid 10-minute rest break for every 4 hours worked. Ensure rest breaks are scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "IWC Orders / Cal. Lab. Code §226.7",
+          "url": "https://www.dir.ca.gov/dlse/faq_restperiods.htm",
+          "section": "IWC Orders §11-12",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-sick-leave",
+      "title": "California Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sick_leave",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "Lab. Code §246",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-sick-leave",
+      "title": "Los Angeles Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sick_leave",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2016-07-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.city"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Paid Sick Leave Ordinance",
+          "url": "https://wagesla.lacity.org/",
+          "section": "LAMC §187.00 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ca-split-shift-premium",
+      "title": "California Split Shift Premium (+1 hr at state minimum wage)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "split_shift_premium",
+      "topicCode": "pay.premium.split_shift",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.is_split_shift"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage × (hours worked + 1))",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §4(C)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§4(C) Split Shift Premium",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-warn-act",
+      "title": "California Mini-WARN Act (60-day notice, 75+ employees)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "warn_act",
+      "topicCode": "sep.warn",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2003-01-01",
+      "appliesWhen": {
+        "fact": "termination.is_mass_layoff",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.is_mass_layoff"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.warn_notice",
+        "params": {
+          "notice_days": 60,
+          "employee_threshold": 75
+        },
+        "summary": "California requires 60 days advance written notice before plant closing or mass layoff affecting 75+ employees.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal-WARN Act",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=LAB&division=2.&title=&part=4.&chapter=4.&article=",
+          "section": "Cal. Labor Code §1400-1408",
+          "kind": "statute"
+        }
+      ]
+    }
+  ],
+  "obligations": [
+    {
+      "code": "break.meal",
+      "name": "Meal break",
+      "description": "An uninterrupted meal period owed once a shift reaches a given length.",
+      "behaviors": [
+        "required_break",
+        "warning"
+      ],
+      "kronto": "block",
+      "compareParam": "minimum_minutes",
+      "params": [
+        {
+          "name": "minimum_minutes",
+          "type": "number",
+          "unit": "minutes",
+          "required": true,
+          "description": "Minimum length of the meal period"
+        },
+        {
+          "name": "after_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Shift length at which the meal period is owed"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the meal period must be paid (usually false)"
+        }
+      ],
+      "synonyms": [
+        "meal period",
+        "lunch break",
+        "lunch period",
+        "eating period"
+      ]
+    },
+    {
+      "code": "break.rest",
+      "name": "Rest break",
+      "description": "A short paid rest period owed for each block of hours worked.",
+      "behaviors": [
+        "required_break",
+        "warning"
+      ],
+      "kronto": "block",
+      "compareParam": "minimum_minutes",
+      "params": [
+        {
+          "name": "minimum_minutes",
+          "type": "number",
+          "unit": "minutes",
+          "required": true,
+          "description": "Minimum length of each rest period"
+        },
+        {
+          "name": "per_hours_worked",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "One rest period is owed per this many hours worked (or major fraction)"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the rest period is paid (usually true)"
+        }
+      ],
+      "synonyms": [
+        "rest period",
+        "coffee break",
+        "ten-minute break",
+        "paid break"
+      ]
+    },
+    {
+      "code": "leave.family_medical",
+      "name": "Family and medical leave entitlement",
+      "description": "Weeks of job-protected family or medical leave the employee is entitled to in a benefit year.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "leave.family_medical_weeks_available",
+      "compareParam": "weeks",
+      "params": [
+        {
+          "name": "weeks",
+          "type": "number",
+          "unit": "weeks",
+          "required": true,
+          "description": "Weeks of leave available"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave is paid (state insurance programs) or unpaid (federal FMLA)"
+        }
+      ],
+      "synonyms": [
+        "FMLA",
+        "PFML",
+        "PFL",
+        "paid family leave",
+        "family leave insurance",
+        "FAMLI"
+      ]
+    },
+    {
+      "code": "leave.sick.accrual",
+      "name": "Paid sick leave accrual",
+      "description": "Sick (or safe) leave the employee accrues per hour worked, with a yearly cap.",
+      "behaviors": [
+        "minimum_required_value"
+      ],
+      "kronto": "inform",
+      "targetFact": "leave.hours_accrued",
+      "compareParam": "annual_cap_hours",
+      "params": [
+        {
+          "name": "annual_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Hours of leave the employee must be able to accrue (or use) per year"
+        },
+        {
+          "name": "hours_worked_per_hour_accrued",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours worked to accrue one hour of leave (30 means 1 hour per 30 worked)"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave is paid"
+        }
+      ],
+      "synonyms": [
+        "earned sick time",
+        "paid sick and safe time",
+        "PSST",
+        "earned paid leave",
+        "sick and safe leave"
+      ]
+    },
+    {
+      "code": "minor.curfew",
+      "name": "Minor work-hour curfew",
+      "description": "Earliest start or latest end time a minor may work, often differing on school nights.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "latest_end_hour",
+          "type": "number",
+          "unit": "hour_of_day",
+          "required": false,
+          "description": "Work must end by this hour (21 = 9 PM; 24 and above means after midnight)"
+        },
+        {
+          "name": "earliest_start_hour",
+          "type": "number",
+          "unit": "hour_of_day",
+          "required": false,
+          "description": "Work may not start before this hour"
+        },
+        {
+          "name": "school_night",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the limit applies only before a school day, false when it applies only outside the school year; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "night work restriction",
+        "child labor hours",
+        "youth employment hours",
+        "nightwork"
+      ]
+    },
+    {
+      "code": "minor.daily_hours_max",
+      "name": "Minor daily hours limit",
+      "description": "Most hours a minor may work in one day.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Maximum hours in the day"
+        },
+        {
+          "name": "school_day",
+          "type": "boolean",
+          "required": false,
+          "description": "True for school days, false for non-school days; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "child labor daily limit",
+        "hours per day for minors"
+      ]
+    },
+    {
+      "code": "minor.weekly_hours_max",
+      "name": "Minor weekly hours limit",
+      "description": "Most hours a minor may work in one week.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "age_min",
+          "type": "number",
+          "required": true,
+          "description": "Youngest age covered"
+        },
+        {
+          "name": "age_max",
+          "type": "number",
+          "required": true,
+          "description": "Oldest age covered"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Maximum hours in the week"
+        },
+        {
+          "name": "school_week",
+          "type": "boolean",
+          "required": false,
+          "description": "True for weeks when school is in session, false for non-school weeks; omitted when it applies always"
+        }
+      ],
+      "synonyms": [
+        "child labor weekly limit",
+        "hours per week for minors"
+      ]
+    },
+    {
+      "code": "premium.overtime",
+      "name": "Overtime premium",
+      "description": "A multiple of the regular rate owed for hours past a daily or weekly threshold.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "multiplier",
+      "params": [
+        {
+          "name": "multiplier",
+          "type": "number",
+          "unit": "multiplier",
+          "required": true,
+          "description": "Multiple of the regular rate (1.5, 2)"
+        },
+        {
+          "name": "threshold_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours after which the premium applies"
+        },
+        {
+          "name": "period",
+          "type": "enum",
+          "values": [
+            "day",
+            "week"
+          ],
+          "required": false,
+          "description": "Whether the threshold is per workday or per workweek"
+        }
+      ],
+      "synonyms": [
+        "time and a half",
+        "double time",
+        "OT",
+        "daily overtime",
+        "weekly overtime"
+      ]
+    },
+    {
+      "code": "premium.reporting_time",
+      "name": "Reporting time pay",
+      "description": "Minimum pay owed when an employee reports for a scheduled shift and is sent home early or not put to work.",
+      "behaviors": [
+        "premium_required",
+        "minimum_required_value"
+      ],
+      "kronto": "premium",
+      "targetFact": "shift.paid_hours",
+      "compareParam": "minimum_hours",
+      "params": [
+        {
+          "name": "minimum_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Minimum hours that must be paid"
+        },
+        {
+          "name": "maximum_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Cap on the hours owed under the rule"
+        },
+        {
+          "name": "fraction_of_scheduled",
+          "type": "number",
+          "required": false,
+          "description": "Fraction of the scheduled shift that must be paid (0.5 = half)"
+        },
+        {
+          "name": "rate_basis",
+          "type": "enum",
+          "values": [
+            "regular_rate",
+            "minimum_wage"
+          ],
+          "required": false,
+          "description": "Which rate the hours are paid at"
+        }
+      ],
+      "synonyms": [
+        "show-up pay",
+        "call-in pay",
+        "reporting pay",
+        "send-home pay",
+        "minimum daily pay"
+      ]
+    },
+    {
+      "code": "premium.schedule_change",
+      "name": "Schedule change premium",
+      "description": "Predictability pay owed when the employer changes a posted schedule inside the notice window.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        {
+          "name": "amount",
+          "type": "number",
+          "required": false,
+          "description": "Premium amount, in the unit given"
+        },
+        {
+          "name": "unit",
+          "type": "enum",
+          "values": [
+            "hours_pay",
+            "usd",
+            "percent_of_hours"
+          ],
+          "required": false,
+          "description": "How the amount is expressed: hours of pay per affected shift, a flat dollar amount, or a percent of the subtracted hours"
+        },
+        {
+          "name": "notice_window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Changes made with less than this much notice trigger the premium"
+        },
+        {
+          "name": "change_type",
+          "type": "enum",
+          "values": [
+            "hours_added",
+            "hours_reduced",
+            "any"
+          ],
+          "required": false,
+          "description": "Which schedule changes trigger the premium"
+        }
+      ],
+      "synonyms": [
+        "predictability pay",
+        "schedule change pay",
+        "fair workweek premium",
+        "advance notice premium"
+      ]
+    },
+    {
+      "code": "premium.split_shift",
+      "name": "Split shift premium",
+      "description": "Extra pay owed when the workday is split by an unpaid, non-meal gap.",
+      "behaviors": [
+        "premium_required"
+      ],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        {
+          "name": "amount",
+          "type": "number",
+          "unit": "hours_pay",
+          "required": true,
+          "description": "Hours of pay owed"
+        },
+        {
+          "name": "rate_basis",
+          "type": "enum",
+          "values": [
+            "regular_rate",
+            "minimum_wage"
+          ],
+          "required": false,
+          "description": "Which rate the premium is paid at"
+        }
+      ],
+      "synonyms": [
+        "split shift pay",
+        "split shift differential"
+      ]
+    },
+    {
+      "code": "rest.weekly_day_of_rest",
+      "name": "Weekly day of rest",
+      "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "max_consecutive_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most consecutive days the employee may be scheduled"
+        },
+        {
+          "name": "rest_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Consecutive hours of rest owed in each period"
+        },
+        {
+          "name": "period_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Length of the period the rest is owed in (usually 7)"
+        }
+      ],
+      "synonyms": [
+        "one day rest in seven",
+        "seventh day rest",
+        "day off requirement",
+        "Sunday rest"
+      ]
+    },
+    {
+      "code": "sched.clopening",
+      "name": "Rest between shifts (clopening)",
+      "description": "A closing shift followed by an opening shift with less than the required rest is barred, or owes a premium, unless the employee consents.",
+      "behaviors": [
+        "premium_required",
+        "prohibition"
+      ],
+      "kronto": "premium",
+      "compareParam": "amount",
+      "params": [
+        {
+          "name": "rest_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Minimum hours between the end of one shift and the start of the next"
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "required": false,
+          "description": "Premium amount, in the unit given"
+        },
+        {
+          "name": "unit",
+          "type": "enum",
+          "values": [
+            "hours_pay",
+            "usd",
+            "multiplier"
+          ],
+          "required": false,
+          "description": "How the premium is expressed"
+        }
+      ],
+      "synonyms": [
+        "clopening",
+        "right to rest",
+        "rest between shifts",
+        "back-to-back shifts"
+      ]
+    },
+    {
+      "code": "sep.warn_notice",
+      "name": "Mass layoff / plant closing notice (WARN)",
+      "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Days of advance notice required"
+        },
+        {
+          "name": "employee_threshold",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size (or affected count) at which the law applies"
+        }
+      ],
+      "synonyms": [
+        "WARN Act",
+        "mini-WARN",
+        "plant closing law",
+        "mass layoff notice",
+        "Worker Adjustment and Retraining Notification"
+      ]
+    },
+    {
+      "code": "wage.minimum",
+      "name": "Minimum wage",
+      "description": "The lowest hourly rate an employer may pay a covered employee.",
+      "behaviors": [
+        "minimum_required_value"
+      ],
+      "kronto": "block",
+      "targetFact": "employee.regular_hourly_rate",
+      "compareParam": "rate",
+      "params": [
+        {
+          "name": "rate",
+          "type": "number",
+          "unit": "usd_per_hour",
+          "required": true,
+          "description": "Minimum hourly rate"
+        }
+      ],
+      "synonyms": [
+        "minimum hourly rate",
+        "wage floor",
+        "living wage (local ordinances)"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "path": "employee.age",
+      "type": "number",
+      "description": "Employee age in years",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.exempt_status",
+      "type": "enum",
+      "description": "FLSA exemption status",
+      "category": "3. Employee",
+      "enumValues": [
+        "exempt",
+        "non_exempt"
+      ]
+    },
+    {
+      "path": "employee.hours_worked_last_12_months",
+      "type": "number",
+      "description": "Total hours worked in prior 12 months (for FMLA eligibility)",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.is_minor",
+      "type": "boolean",
+      "description": "Whether employee is under 18",
+      "category": "3. Employee",
+      "derived": "employee.age < 18"
+    },
+    {
+      "path": "employee.tenure_months",
+      "type": "number",
+      "description": "Months employed with current employer",
+      "category": "3. Employee"
+    },
+    {
+      "path": "leave.type",
+      "type": "enum",
+      "description": "Type of leave requested",
+      "category": "6. Leave",
+      "enumValues": [
+        "sick",
+        "family",
+        "medical",
+        "parental",
+        "bereavement",
+        "jury_duty",
+        "voting",
+        "domestic_violence",
+        "military",
+        "school_activity"
+      ]
+    },
+    {
+      "path": "schedule.advance_notice_days",
+      "type": "number",
+      "description": "Days in advance the schedule was posted",
+      "category": "5. Schedule",
+      "derived": "whole days from the date the shift (or its latest amendment) was communicated to the employee to the shift date"
+    },
+    {
+      "path": "schedule.employee_consented",
+      "type": "boolean",
+      "description": "Whether the employee consented to the change",
+      "category": "5. Schedule",
+      "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "shift.consecutive_days_worked",
+      "type": "number",
+      "description": "Number of consecutive days worked including today",
+      "category": "4. Shift",
+      "derived": "count of consecutive calendar days with a shift, ending on this shift's date, looking back through the prior week"
+    },
+    {
+      "path": "shift.employee_reported",
+      "type": "boolean",
+      "description": "Whether the employee reported to work as scheduled",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.end_hour",
+      "type": "number",
+      "description": "Shift end hour (0-23, for curfew comparisons)",
+      "category": "4. Shift",
+      "derived": "hour component of the shift end time (0-23)"
+    },
+    {
+      "path": "shift.hours_since_last_shift_end",
+      "type": "number",
+      "description": "Hours between end of last shift and start of this one (clopening)",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.hours_worked_at_report",
+      "type": "number",
+      "description": "Hours actually worked when employee reported (for reporting time pay)",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.hours_worked_this_week",
+      "type": "number",
+      "description": "Hours worked in the current workweek",
+      "category": "4. Shift",
+      "derived": "this shift's length plus the length of every other shift for the employee in the same workweek"
+    },
+    {
+      "path": "shift.hours_worked_today",
+      "type": "number",
+      "description": "Hours worked in the current day",
+      "category": "4. Shift",
+      "derived": "this shift's length plus the length of every other shift for the employee on the same date"
+    },
+    {
+      "path": "shift.is_school_day",
+      "type": "boolean",
+      "description": "Whether it is a school day (for minor labor rules)",
+      "category": "4. Shift",
+      "derived": "weekday during the school year (simplified: Monday to Friday, September to mid-June)"
+    },
+    {
+      "path": "shift.is_split_shift",
+      "type": "boolean",
+      "description": "Whether this is a split shift",
+      "category": "4. Shift",
+      "derived": "another shift on the same date with a gap of more than 60 minutes between them"
+    },
+    {
+      "path": "shift.meal_break_provided",
+      "type": "boolean",
+      "description": "Whether a meal break was provided",
+      "category": "4. Shift",
+      "derived": "the shift has at least one break of type meal"
+    },
+    {
+      "path": "shift.meal_break_waived",
+      "type": "boolean",
+      "description": "Whether meal break was waived by mutual consent",
+      "category": "4. Shift",
+      "derived": "shift length is 6 hours or less and no meal break is scheduled"
+    },
+    {
+      "path": "shift.rest_break_provided",
+      "type": "boolean",
+      "description": "Whether a rest break was provided",
+      "category": "4. Shift",
+      "derived": "the shift has at least one break of type rest"
+    },
+    {
+      "path": "shift.school_in_session",
+      "type": "boolean",
+      "description": "Whether school is in session (school year vs summer)",
+      "category": "4. Shift",
+      "derived": "date falls in the school year (simplified: September to mid-June)"
+    },
+    {
+      "path": "shift.sent_home_early",
+      "type": "boolean",
+      "description": "Whether the employee was sent home before shift end",
+      "category": "4. Shift"
+    },
+    {
+      "path": "shift.shift_length_hours",
+      "type": "number",
+      "description": "Length of the current shift in hours",
+      "category": "4. Shift",
+      "derived": "(end time - start time) in hours; an end time at or before the start time means the shift crosses midnight"
+    },
+    {
+      "path": "shift.start_hour",
+      "type": "number",
+      "description": "Shift start hour (0-23, for time-of-day comparisons)",
+      "category": "4. Shift",
+      "derived": "hour component of the shift start time (0-23)"
+    },
+    {
+      "path": "termination.is_mass_layoff",
+      "type": "boolean",
+      "description": "Whether this is part of a mass layoff",
+      "category": "7. Termination"
+    }
+  ],
+  "stats": {
+    "rulesConsidered": 476,
+    "rulesIncluded": 33,
+    "excludedByProfile": 443,
+    "excludedExpired": 0,
+    "excludedInactive": 0,
+    "fullyResolved": 2
+  },
+  "checksum": "92d613024b19984fa9a1d90857937f414b1c60c3eb4d476a6cde63cba7bf77e8"
+}

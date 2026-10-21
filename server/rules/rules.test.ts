@@ -9,13 +9,19 @@
  * Usage: npm run test:new-rules
  */
 
-import { federalOvertime } from "./examples/federalOvertime.js";
-import { californiaDailyOvertime } from "./examples/californiaDailyOvertime.js";
-import { federalMinimumWage } from "./examples/federalMinimumWage.js";
 import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
 import { isKnownFact, getCanonicalFacts, getEnumValues } from "./facts.js";
-import { RULES } from "./index.js";
+import { RULES, getRule } from "./index.js";
+
+function mustGetRule(id: string) {
+  const rule = getRule(id);
+  if (!rule) throw new Error(`Test fixture rule "${id}" is not loaded from data/rules`);
+  return rule;
+}
+const federalOvertime = mustGetRule("federal-overtime-weekly-40");
+const californiaDailyOvertime = mustGetRule("ca-daily-overtime-8");
+const federalMinimumWage = mustGetRule("federal-minimum-wage-7.25");
 import type { Scenario } from "./types.js";
 
 // ─── Test infrastructure ─────────────────────────────────────────────
@@ -258,7 +264,7 @@ function testRejectsUnknownFact() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "employee.zodiac_sign", op: "=", value: "aries" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "Rejects unknown fact 'employee.zodiac_sign'");
@@ -276,7 +282,7 @@ function testRejectsVagueValues() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "employee.exempt_status", op: "=", value: "varies" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "Rejects vague value 'varies'");
@@ -294,7 +300,7 @@ function testRejectsMissingId() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "Rejects empty id");
@@ -312,7 +318,7 @@ function testRejectsMissingCitation() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [],
     });
   }, "RuleValidationError", "Rejects empty citations array");
@@ -330,7 +336,7 @@ function testRejectsInvalidOperatorForType() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "shift.is_split_shift", op: ">", value: true },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "Rejects '>' operator on boolean fact");
@@ -348,7 +354,7 @@ function testRejectsInvalidEnumValue() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "employee.exempt_status", op: "=", value: "maybe" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "Rejects invalid enum value 'maybe'");
@@ -366,7 +372,7 @@ function testRejectsBadEffectiveDate() {
       effectiveFrom: "2024",
       status: "active",
       appliesWhen: { fact: "employee.exempt_status", op: "=", value: "non_exempt" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "Rejects non-ISO effective date '2024'");
@@ -500,7 +506,7 @@ function testEnumFactsRejectInvalidValues() {
       effectiveFrom: "2024-01-01",
       status: "active",
       appliesWhen: { fact: "employer.industry_tag", op: "=", value: "zodiac" },
-      result: { type: "warning", message: "test" },
+      result: { type: "warning", obligation: "rest.weekly_day_of_rest", params: {}, summary: "test" },
       citations: [{ source: "Test Source" }],
     });
   }, "RuleValidationError", "createRule rejects invalid industry_tag enum value");

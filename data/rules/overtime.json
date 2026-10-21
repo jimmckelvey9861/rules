@@ -1,0 +1,826 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "overtime",
+  "rules": [
+    {
+      "id": "ak-daily-overtime-8hr",
+      "title": "Alaska Daily Overtime (>8 hours in a day = 1.5x)",
+      "jurisdiction": "AK",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "Time-and-a-half for all hours worked beyond 8 in a single workday"
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.060",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.060",
+          "section": "AS \u00a723.10.060",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-daily-overtime-8",
+      "title": "California Daily Overtime (Labor Code \u00a7510)",
+      "jurisdiction": "CA",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "1.5x regular rate for hours over 8 in a day"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7510",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-double-time-12",
+      "title": "California Double Time (Labor Code \u00a7510)",
+      "jurisdiction": "CA",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 12
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 2,
+          "threshold_hours": 12,
+          "period": "day"
+        },
+        "summary": "2x regular rate for hours over 12 in a day"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7510",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-daily-overtime-12hr",
+      "title": "Colorado Daily Overtime (>12 hours in a day = 1.5x)",
+      "jurisdiction": "CO",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 12
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 12,
+          "period": "day"
+        },
+        "summary": "Time-and-a-half for all hours worked beyond 12 in a single workday"
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #40, Rule 4.1.1",
+          "url": "https://cdle.colorado.gov/wage-and-hour-law/overtime",
+          "section": "Rule 4.1.1",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ct-weekly-overtime-40",
+      "title": "Connecticut Weekly Overtime",
+      "jurisdiction": "CT",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "Connecticut General Statutes \u00a731-76c",
+          "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/overtime.htm",
+          "section": "Conn. Gen. Stat. \u00a731-76c",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-weekly-overtime-40",
+      "title": "District of Columbia Weekly Overtime",
+      "jurisdiction": "DC",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "DC Code \u00a732-1003(c)",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1003",
+          "section": "DC Code \u00a732-1003(c)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-overtime-weekly-40",
+      "title": "Federal Weekly Overtime (FLSA)",
+      "jurisdiction": "Federal",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "1940-10-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a7207(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. \u00a7207(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "hi-overtime",
+      "title": "Hawaii Overtime (1.5x after 40 hrs/week, state-enforced)",
+      "jurisdiction": "HI",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "1963-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5 \u00d7 regular rate for hours over 40/week. State-enforced with different exemption standards than federal FLSA (domestic workers covered, salary threshold differs)."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7387-3",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0387/HRS_0387-0003.htm",
+          "section": "\u00a7387-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-weekly-overtime-40",
+      "title": "Maryland Weekly Overtime",
+      "jurisdiction": "MD",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "Maryland Wage and Hour Law, Md. Code Lab. & Empl. \u00a73-415",
+          "url": "https://labor.maryland.gov/labor/wagepay/wpotgenl.shtml",
+          "section": "Md. Code Lab. & Empl. \u00a73-415",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-overtime",
+      "title": "Minnesota Overtime (1.5x after 48 hrs/week)",
+      "jurisdiction": "MN",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "1977-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 48
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 48,
+          "period": "week"
+        },
+        "summary": "1.5 \u00d7 regular rate for hours over 48/week. MN state threshold is 48 hours (higher than federal 40). Federal FLSA still applies at 40 hours for covered employers."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7177.25",
+          "url": "https://www.revisor.mn.gov/statutes/cite/177.25",
+          "section": "\u00a7177.25",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-weekly-overtime-40",
+      "title": "New Jersey Weekly Overtime",
+      "jurisdiction": "NJ",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
+          "url": "https://www.nj.gov/labor/wageandhour/support/faqs/wageandhouremployerfaqs.shtml",
+          "section": "N.J.S.A. 34:11-56a4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-daily-overtime-8",
+      "title": "Nevada Daily Overtime (employees earning < 1.5x minimum wage)",
+      "jurisdiction": "NV",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2024-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.regular_hourly_rate",
+            "op": "<",
+            "value": 18
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 8,
+          "period": "day"
+        },
+        "summary": "1.5x regular rate for hours over 8 in a day"
+      },
+      "citations": [
+        {
+          "source": "Nevada Revised Statutes \u00a7608.018",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec018",
+          "section": "NRS \u00a7608.018",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-weekly-overtime-40",
+      "title": "Nevada Weekly Overtime",
+      "jurisdiction": "NV",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2024-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "Nevada Revised Statutes \u00a7608.018",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec018",
+          "section": "NRS \u00a7608.018",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-residential-overtime-44",
+      "title": "New York Residential Worker Overtime (44 hours)",
+      "jurisdiction": "NY",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "domestic"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 44
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 44,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 44 in a week"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7170, 12 NYCRR \u00a7142-2.2",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/overtime-frequently-asked-questions_0.pdf",
+          "section": "12 NYCRR \u00a7142-2.2 (residential employees)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-weekly-overtime-40",
+      "title": "New York Weekly Overtime",
+      "jurisdiction": "NY",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7160, 12 NYCRR \u00a7142-2.2",
+          "url": "https://dol.ny.gov/system/files/documents/2021/03/overtime-frequently-asked-questions_0.pdf",
+          "section": "12 NYCRR \u00a7142-2.2",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-manufacturing-daily-overtime-10hr",
+      "title": "Oregon Manufacturing Daily Overtime (>10 hours = 1.5x)",
+      "jurisdiction": "OR",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "manufacturing"
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 10,
+          "period": "day"
+        },
+        "summary": "Time-and-a-half for all hours worked beyond 10 in a single workday (manufacturing only)"
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7652.020",
+          "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors652.html",
+          "section": "ORS \u00a7652.020",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "va-weekly-overtime-40",
+      "title": "Virginia Weekly Overtime",
+      "jurisdiction": "VA",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "2021-05-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "Virginia Overtime Wage Act, Code of Virginia \u00a740.1-29.2",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-29.2/",
+          "section": "Va. Code \u00a740.1-29.2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-weekly-overtime-40",
+      "title": "Washington State Weekly Overtime (RCW 49.46.130)",
+      "jurisdiction": "WA",
+      "topic": "overtime",
+      "status": "active",
+      "effectiveFrom": "1961-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "threshold_hours": 40,
+          "period": "week"
+        },
+        "summary": "1.5x regular rate for hours over 40 in a week"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.130",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.130",
+          "section": "RCW 49.46.130",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}

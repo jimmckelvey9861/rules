@@ -1,0 +1,905 @@
+{
+  "$comment": "Jurisdiction reference data. id is stable and used as the parent key. ruleKey is the string rules currently carry in their jurisdiction field. fips is the Census code (state 2 digits, county 5, place 7). preemption lists topics where this state forbids local ordinances; a local rule on a preempted topic should be rejected by validation. verified=false means the record was drafted from memory and needs checking against the source named in verificationSource.",
+  "version": "2026-10-20",
+  "precedenceModes": {
+    "floor": "Higher level sets a minimum; lower levels may be more protective (default).",
+    "preempted": "State forbids local rules on this topic; local rules are invalid.",
+    "exclusive": "One level governs the topic entirely."
+  },
+  "verificationSource": "Economic Policy Institute Worker Rights Preemption map; National League of Cities preemption reports; Census Bureau gazetteer for FIPS codes",
+  "jurisdictions": [
+    {
+      "id": "us",
+      "ruleKey": "Federal",
+      "name": "Federal",
+      "type": "federal",
+      "parent": null,
+      "fips": null,
+      "agency": "U.S. Department of Labor, Wage and Hour Division",
+      "verified": true
+    },
+    {
+      "id": "us-al",
+      "ruleKey": "AL",
+      "name": "Alabama",
+      "type": "state",
+      "parent": "us",
+      "fips": "01",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ak",
+      "ruleKey": "AK",
+      "name": "Alaska",
+      "type": "state",
+      "parent": "us",
+      "fips": "02",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-az",
+      "ruleKey": "AZ",
+      "name": "Arizona",
+      "type": "state",
+      "parent": "us",
+      "fips": "04",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-ar",
+      "ruleKey": "AR",
+      "name": "Arkansas",
+      "type": "state",
+      "parent": "us",
+      "fips": "05",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ca",
+      "ruleKey": "CA",
+      "name": "California",
+      "type": "state",
+      "parent": "us",
+      "fips": "06",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-co",
+      "ruleKey": "CO",
+      "name": "Colorado",
+      "type": "state",
+      "parent": "us",
+      "fips": "08",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-ct",
+      "ruleKey": "CT",
+      "name": "Connecticut",
+      "type": "state",
+      "parent": "us",
+      "fips": "09",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-de",
+      "ruleKey": "DE",
+      "name": "Delaware",
+      "type": "state",
+      "parent": "us",
+      "fips": "10",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-dc",
+      "ruleKey": "DC",
+      "name": "District of Columbia",
+      "type": "district",
+      "parent": "us",
+      "fips": "11",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-fl",
+      "ruleKey": "FL",
+      "name": "Florida",
+      "type": "state",
+      "parent": "us",
+      "fips": "12",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ga",
+      "ruleKey": "GA",
+      "name": "Georgia",
+      "type": "state",
+      "parent": "us",
+      "fips": "13",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-hi",
+      "ruleKey": "HI",
+      "name": "Hawaii",
+      "type": "state",
+      "parent": "us",
+      "fips": "15",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-id",
+      "ruleKey": "ID",
+      "name": "Idaho",
+      "type": "state",
+      "parent": "us",
+      "fips": "16",
+      "preemption": {
+        "minimum_wage": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-il",
+      "ruleKey": "IL",
+      "name": "Illinois",
+      "type": "state",
+      "parent": "us",
+      "fips": "17",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-in",
+      "ruleKey": "IN",
+      "name": "Indiana",
+      "type": "state",
+      "parent": "us",
+      "fips": "18",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ia",
+      "ruleKey": "IA",
+      "name": "Iowa",
+      "type": "state",
+      "parent": "us",
+      "fips": "19",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ks",
+      "ruleKey": "KS",
+      "name": "Kansas",
+      "type": "state",
+      "parent": "us",
+      "fips": "20",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ky",
+      "ruleKey": "KY",
+      "name": "Kentucky",
+      "type": "state",
+      "parent": "us",
+      "fips": "21",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-la",
+      "ruleKey": "LA",
+      "name": "Louisiana",
+      "type": "state",
+      "parent": "us",
+      "fips": "22",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-me",
+      "ruleKey": "ME",
+      "name": "Maine",
+      "type": "state",
+      "parent": "us",
+      "fips": "23",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-md",
+      "ruleKey": "MD",
+      "name": "Maryland",
+      "type": "state",
+      "parent": "us",
+      "fips": "24",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-ma",
+      "ruleKey": "MA",
+      "name": "Massachusetts",
+      "type": "state",
+      "parent": "us",
+      "fips": "25",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-mi",
+      "ruleKey": "MI",
+      "name": "Michigan",
+      "type": "state",
+      "parent": "us",
+      "fips": "26",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-mn",
+      "ruleKey": "MN",
+      "name": "Minnesota",
+      "type": "state",
+      "parent": "us",
+      "fips": "27",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-ms",
+      "ruleKey": "MS",
+      "name": "Mississippi",
+      "type": "state",
+      "parent": "us",
+      "fips": "28",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-mo",
+      "ruleKey": "MO",
+      "name": "Missouri",
+      "type": "state",
+      "parent": "us",
+      "fips": "29",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-mt",
+      "ruleKey": "MT",
+      "name": "Montana",
+      "type": "state",
+      "parent": "us",
+      "fips": "30",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-ne",
+      "ruleKey": "NE",
+      "name": "Nebraska",
+      "type": "state",
+      "parent": "us",
+      "fips": "31",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-nv",
+      "ruleKey": "NV",
+      "name": "Nevada",
+      "type": "state",
+      "parent": "us",
+      "fips": "32",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-nh",
+      "ruleKey": "NH",
+      "name": "New Hampshire",
+      "type": "state",
+      "parent": "us",
+      "fips": "33",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-nj",
+      "ruleKey": "NJ",
+      "name": "New Jersey",
+      "type": "state",
+      "parent": "us",
+      "fips": "34",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-nm",
+      "ruleKey": "NM",
+      "name": "New Mexico",
+      "type": "state",
+      "parent": "us",
+      "fips": "35",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-ny",
+      "ruleKey": "NY",
+      "name": "New York",
+      "type": "state",
+      "parent": "us",
+      "fips": "36",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-nc",
+      "ruleKey": "NC",
+      "name": "North Carolina",
+      "type": "state",
+      "parent": "us",
+      "fips": "37",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-nd",
+      "ruleKey": "ND",
+      "name": "North Dakota",
+      "type": "state",
+      "parent": "us",
+      "fips": "38",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-oh",
+      "ruleKey": "OH",
+      "name": "Ohio",
+      "type": "state",
+      "parent": "us",
+      "fips": "39",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ok",
+      "ruleKey": "OK",
+      "name": "Oklahoma",
+      "type": "state",
+      "parent": "us",
+      "fips": "40",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-or",
+      "ruleKey": "OR",
+      "name": "Oregon",
+      "type": "state",
+      "parent": "us",
+      "fips": "41",
+      "preemption": {
+        "minimum_wage": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-pa",
+      "ruleKey": "PA",
+      "name": "Pennsylvania",
+      "type": "state",
+      "parent": "us",
+      "fips": "42",
+      "preemption": {
+        "minimum_wage": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ri",
+      "ruleKey": "RI",
+      "name": "Rhode Island",
+      "type": "state",
+      "parent": "us",
+      "fips": "44",
+      "preemption": {
+        "minimum_wage": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-sc",
+      "ruleKey": "SC",
+      "name": "South Carolina",
+      "type": "state",
+      "parent": "us",
+      "fips": "45",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-sd",
+      "ruleKey": "SD",
+      "name": "South Dakota",
+      "type": "state",
+      "parent": "us",
+      "fips": "46",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-tn",
+      "ruleKey": "TN",
+      "name": "Tennessee",
+      "type": "state",
+      "parent": "us",
+      "fips": "47",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-tx",
+      "ruleKey": "TX",
+      "name": "Texas",
+      "type": "state",
+      "parent": "us",
+      "fips": "48",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-ut",
+      "ruleKey": "UT",
+      "name": "Utah",
+      "type": "state",
+      "parent": "us",
+      "fips": "49",
+      "preemption": {
+        "minimum_wage": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-vt",
+      "ruleKey": "VT",
+      "name": "Vermont",
+      "type": "state",
+      "parent": "us",
+      "fips": "50",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-va",
+      "ruleKey": "VA",
+      "name": "Virginia",
+      "type": "state",
+      "parent": "us",
+      "fips": "51",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-wa",
+      "ruleKey": "WA",
+      "name": "Washington",
+      "type": "state",
+      "parent": "us",
+      "fips": "53",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-wv",
+      "ruleKey": "WV",
+      "name": "West Virginia",
+      "type": "state",
+      "parent": "us",
+      "fips": "54",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-wi",
+      "ruleKey": "WI",
+      "name": "Wisconsin",
+      "type": "state",
+      "parent": "us",
+      "fips": "55",
+      "preemption": {
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
+      },
+      "verified": false
+    },
+    {
+      "id": "us-wy",
+      "ruleKey": "WY",
+      "name": "Wyoming",
+      "type": "state",
+      "parent": "us",
+      "fips": "56",
+      "preemption": {},
+      "verified": true
+    },
+    {
+      "id": "us-pr",
+      "ruleKey": "PR",
+      "name": "Puerto Rico",
+      "type": "territory",
+      "parent": "us",
+      "fips": "72",
+      "preemption": {},
+      "verified": true,
+      "note": "No rules encoded yet"
+    },
+    {
+      "id": "us-gu",
+      "ruleKey": "GU",
+      "name": "Guam",
+      "type": "territory",
+      "parent": "us",
+      "fips": "66",
+      "preemption": {},
+      "verified": true,
+      "note": "No rules encoded yet"
+    },
+    {
+      "id": "us-vi",
+      "ruleKey": "VI",
+      "name": "U.S. Virgin Islands",
+      "type": "territory",
+      "parent": "us",
+      "fips": "78",
+      "preemption": {},
+      "verified": true,
+      "note": "No rules encoded yet"
+    },
+    {
+      "id": "us-as",
+      "ruleKey": "AS",
+      "name": "American Samoa",
+      "type": "territory",
+      "parent": "us",
+      "fips": "60",
+      "preemption": {},
+      "verified": true,
+      "note": "No rules encoded yet"
+    },
+    {
+      "id": "us-mp",
+      "ruleKey": "MP",
+      "name": "Northern Mariana Islands",
+      "type": "territory",
+      "parent": "us",
+      "fips": "69",
+      "preemption": {},
+      "verified": true,
+      "note": "No rules encoded yet"
+    },
+    {
+      "id": "us-ca-belmont",
+      "ruleKey": "Belmont",
+      "name": "Belmont",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0605108",
+      "verified": false
+    },
+    {
+      "id": "us-ca-daly-city",
+      "ruleKey": "Daly City",
+      "name": "Daly City",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0617918",
+      "verified": false
+    },
+    {
+      "id": "us-ca-fremont",
+      "ruleKey": "Fremont",
+      "name": "Fremont",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0626000",
+      "verified": false
+    },
+    {
+      "id": "us-ca-half-moon-bay",
+      "ruleKey": "Half Moon Bay",
+      "name": "Half Moon Bay",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0631708",
+      "verified": false
+    },
+    {
+      "id": "us-ca-hayward",
+      "ruleKey": "Hayward",
+      "name": "Hayward",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0633000",
+      "verified": false
+    },
+    {
+      "id": "us-ca-los-angeles",
+      "ruleKey": "Los Angeles",
+      "name": "Los Angeles",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0644000",
+      "verified": false,
+      "note": "City of Los Angeles; Los Angeles County unincorporated areas have a separate ordinance"
+    },
+    {
+      "id": "us-ca-malibu",
+      "ruleKey": "Malibu",
+      "name": "Malibu",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0645246",
+      "verified": false
+    },
+    {
+      "id": "us-ca-novato",
+      "ruleKey": "Novato",
+      "name": "Novato",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0652582",
+      "verified": false
+    },
+    {
+      "id": "us-ca-pasadena",
+      "ruleKey": "Pasadena",
+      "name": "Pasadena",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0656000",
+      "verified": false
+    },
+    {
+      "id": "us-ca-redwood-city",
+      "ruleKey": "Redwood City",
+      "name": "Redwood City",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0660102",
+      "verified": false
+    },
+    {
+      "id": "us-ca-richmond",
+      "ruleKey": "Richmond",
+      "name": "Richmond",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0660620",
+      "verified": false,
+      "note": "Richmond, California (not Virginia)"
+    },
+    {
+      "id": "us-ca-san-carlos",
+      "ruleKey": "San Carlos",
+      "name": "San Carlos",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0665070",
+      "verified": false
+    },
+    {
+      "id": "us-ca-san-francisco",
+      "ruleKey": "San Francisco",
+      "name": "San Francisco",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0667000",
+      "verified": false,
+      "note": "Consolidated city-county"
+    },
+    {
+      "id": "us-ca-san-jose",
+      "ruleKey": "San Jose",
+      "name": "San Jose",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0668000",
+      "verified": false
+    },
+    {
+      "id": "us-ca-santa-clara",
+      "ruleKey": "Santa Clara",
+      "name": "Santa Clara",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0669084",
+      "verified": false,
+      "note": "City of Santa Clara (not the county)"
+    },
+    {
+      "id": "us-ca-sunnyvale",
+      "ruleKey": "Sunnyvale",
+      "name": "Sunnyvale",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0677000",
+      "verified": false
+    },
+    {
+      "id": "us-ca-west-hollywood",
+      "ruleKey": "West Hollywood",
+      "name": "West Hollywood",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0684410",
+      "verified": false
+    },
+    {
+      "id": "us-co-boulder",
+      "ruleKey": "Boulder",
+      "name": "Boulder",
+      "type": "city",
+      "parent": "us-co",
+      "fips": "0807850",
+      "verified": false
+    },
+    {
+      "id": "us-co-denver",
+      "ruleKey": "Denver",
+      "name": "Denver",
+      "type": "city",
+      "parent": "us-co",
+      "fips": "0820000",
+      "verified": false,
+      "note": "Consolidated city-county"
+    },
+    {
+      "id": "us-il-chicago",
+      "ruleKey": "Chicago",
+      "name": "Chicago",
+      "type": "city",
+      "parent": "us-il",
+      "fips": "1714000",
+      "verified": false
+    },
+    {
+      "id": "us-md-montgomery-county",
+      "ruleKey": "Montgomery County",
+      "name": "Montgomery County",
+      "type": "county",
+      "parent": "us-md",
+      "fips": "24031",
+      "verified": false,
+      "note": "County FIPS"
+    },
+    {
+      "id": "us-mn-minneapolis",
+      "ruleKey": "Minneapolis",
+      "name": "Minneapolis",
+      "type": "city",
+      "parent": "us-mn",
+      "fips": "2743000",
+      "verified": false
+    },
+    {
+      "id": "us-ny-new-york-city",
+      "ruleKey": "New York City",
+      "name": "New York City",
+      "type": "city",
+      "parent": "us-ny",
+      "fips": "3651000",
+      "verified": false,
+      "note": "Five boroughs"
+    },
+    {
+      "id": "us-or-portland-metro-area",
+      "ruleKey": "Portland Metro Area",
+      "name": "Portland Metro Area",
+      "type": "region",
+      "parent": "us-or",
+      "fips": null,
+      "verified": false,
+      "note": "Oregon Metro urban growth boundary; used by the Oregon tiered minimum wage, not a city ordinance"
+    },
+    {
+      "id": "us-pa-philadelphia",
+      "ruleKey": "Philadelphia",
+      "name": "Philadelphia",
+      "type": "city",
+      "parent": "us-pa",
+      "fips": "4260000",
+      "verified": false,
+      "note": "Consolidated city-county"
+    },
+    {
+      "id": "us-wa-seattle",
+      "ruleKey": "Seattle",
+      "name": "Seattle",
+      "type": "city",
+      "parent": "us-wa",
+      "fips": "5363000",
+      "verified": false
+    }
+  ]
+}

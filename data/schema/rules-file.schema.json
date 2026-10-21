@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rules-file.schema.json",
+  "title": "Rules file",
+  "description": "One file per topic under data/rules. Mirrors the Rule type in server/rules/types.ts; createRule() remains the authoritative validator (fact names, operator/type agreement, vague values).",
+  "type": "object",
+  "required": ["topic", "rules"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "topic": { "type": "string", "description": "Legacy topic string or taxonomy code; every rule in the file must carry the same topic" },
+    "rules": { "type": "array", "items": { "$ref": "#/$defs/rule" } }
+  },
+  "$defs": {
+    "isoDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "comparison": {
+      "type": "object",
+      "required": ["fact", "op", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "fact": { "type": "string", "description": "A path registered in server/rules/facts.ts" },
+        "op": { "enum": ["=", "!=", ">", ">=", "<", "<=", "in", "not_in"] },
+        "value": {
+          "oneOf": [
+            { "type": "string" }, { "type": "number" }, { "type": "boolean" },
+            { "type": "array", "items": { "type": "string" } },
+            { "type": "array", "items": { "type": "number" } }
+          ]
+        }
+      }
+    },
+    "condition": {
+      "oneOf": [
+        { "$ref": "#/$defs/comparison" },
+        { "type": "object", "required": ["all"], "additionalProperties": false, "properties": { "all": { "type": "array", "items": { "$ref": "#/$defs/condition" } } } },
+        { "type": "object", "required": ["any"], "additionalProperties": false, "properties": { "any": { "type": "array", "items": { "$ref": "#/$defs/condition" } } } },
+        { "type": "object", "required": ["not"], "additionalProperties": false, "properties": { "not": { "$ref": "#/$defs/condition" } } }
+      ]
+    },
+    "result": {
+      "type": "object",
+      "required": ["type", "obligation", "params", "summary"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "enum": ["minimum_required_value", "required_break", "premium_required", "prohibition", "warning"], "description": "Engine behaviour; must be one the obligation allows" },
+        "obligation": { "type": "string", "pattern": "^[a-z_]+(\\.[a-z_]+)+$", "description": "An obligation code from data/result-vocabulary.json" },
+        "params": { "type": "object", "additionalProperties": { "type": ["number", "boolean", "string"] }, "description": "The obligation's typed parameters" },
+        "summary": { "type": "string", "minLength": 1, "description": "One plain-English sentence describing the requirement" }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {
+        "source": { "type": "string", "description": "Formal cite or document name" },
+        "url": { "type": "string", "format": "uri" },
+        "section": { "type": "string" },
+        "kind": { "enum": ["statute", "regulation", "ordinance", "constitution", "guidance"] }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "required": ["id", "title", "jurisdiction", "topic", "effectiveFrom", "appliesWhen", "result", "citations", "status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string" },
+        "jurisdiction": { "type": "string", "description": "A ruleKey from data/jurisdictions.json" },
+        "topic": { "type": "string", "description": "A legacy topic or taxonomy code from data/taxonomy.json" },
+        "status": { "enum": ["active", "draft", "repealed", "pending"] },
+        "effectiveFrom": { "$ref": "#/$defs/isoDate" },
+        "effectiveTo": { "$ref": "#/$defs/isoDate" },
+        "appliesWhen": { "$ref": "#/$defs/condition" },
+        "result": { "$ref": "#/$defs/result" },
+        "citations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/citation" } }
+      }
+    }
+  }
+}
