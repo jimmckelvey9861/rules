@@ -48,50 +48,50 @@ interface TaxonomyRow {
   id: string;
   label: string;
   level: number; // 0 = top, 1 = section, 2 = leaf
-  topics: string[]; // rule.topic values that map here
+  topics: string[]; // taxonomy code prefixes (rule.topic equals one, or starts with one + ".")
 }
 
 const LAW_TAXONOMY: TaxonomyRow[] = [
   { id: "1", label: "1. Compensation & Pay", level: 0, topics: [] },
-  { id: "1.1", label: "1.1 Minimum Wage", level: 1, topics: ["minimum_wage"] },
-  { id: "1.2", label: "1.2 Tipped Compensation", level: 1, topics: ["tipped_compensation"] },
-  { id: "1.3", label: "1.3 Overtime", level: 1, topics: ["overtime"] },
-  { id: "1.4", label: "1.4 Premium Pay", level: 1, topics: ["premium_pay", "split_shift_premium", "reporting_time_pay"] },
-  { id: "1.5", label: "1.5 Compensable Time", level: 1, topics: ["compensable_time"] },
-  { id: "1.6", label: "1.6 Reimbursements & Allowances", level: 1, topics: ["reimbursement"] },
-  { id: "1.7", label: "1.7 Equal Pay & Wage Protections", level: 1, topics: ["equal_pay", "pay_frequency"] },
+  { id: "1.1", label: "1.1 Minimum Wage", level: 1, topics: ["pay.minimum_wage"] },
+  { id: "1.2", label: "1.2 Tipped Compensation", level: 1, topics: ["pay.tipped"] },
+  { id: "1.3", label: "1.3 Overtime", level: 1, topics: ["pay.overtime"] },
+  { id: "1.4", label: "1.4 Premium Pay", level: 1, topics: ["pay.premium"] },
+  { id: "1.5", label: "1.5 Compensable Time", level: 1, topics: ["pay.compensable_time"] },
+  { id: "1.6", label: "1.6 Reimbursements & Allowances", level: 1, topics: ["pay.reimbursement"] },
+  { id: "1.7", label: "1.7 Equal Pay & Wage Protections", level: 1, topics: ["pay.wage_protection"] },
 
   { id: "2", label: "2. Scheduling & Hours", level: 0, topics: [] },
-  { id: "2.1", label: "2.1 Meal Breaks", level: 1, topics: ["meal_break"] },
-  { id: "2.2", label: "2.2 Rest Breaks", level: 1, topics: ["rest_break"] },
-  { id: "2.3", label: "2.3 Predictive Scheduling", level: 1, topics: ["predictive_scheduling"] },
-  { id: "2.4", label: "2.4 Shift Structure Rules", level: 1, topics: ["shift_structure", "day_of_rest"] },
-  { id: "2.5", label: "2.5 Hour Limits", level: 1, topics: ["hour_limits"] },
-  { id: "2.6", label: "2.6 Availability & Flex Scheduling", level: 1, topics: ["flex_scheduling"] },
+  { id: "2.1", label: "2.1 Meal Breaks", level: 1, topics: ["sched.meal_break"] },
+  { id: "2.2", label: "2.2 Rest Breaks", level: 1, topics: ["sched.rest_break"] },
+  { id: "2.3", label: "2.3 Predictive Scheduling", level: 1, topics: ["sched.predictive"] },
+  { id: "2.4", label: "2.4 Shift Structure Rules", level: 1, topics: ["sched.shift_structure"] },
+  { id: "2.5", label: "2.5 Hour Limits", level: 1, topics: ["sched.hour_limits"] },
+  { id: "2.6", label: "2.6 Availability & Flex Scheduling", level: 1, topics: ["sched.flex"] },
 
   { id: "3", label: "3. Leave & Time Off", level: 0, topics: [] },
-  { id: "3.1", label: "3.1 Sick Leave", level: 1, topics: ["sick_leave"] },
-  { id: "3.2", label: "3.2 Family & Medical Leave", level: 1, topics: ["family_medical_leave"] },
-  { id: "3.3", label: "3.3 Personal Leave", level: 1, topics: ["personal_leave"] },
-  { id: "3.4", label: "3.4 Safety & Emergency Leave", level: 1, topics: ["emergency_leave"] },
-  { id: "3.5", label: "3.5 Leave Administration", level: 1, topics: ["leave_admin"] },
+  { id: "3.1", label: "3.1 Sick Leave", level: 1, topics: ["leave.sick"] },
+  { id: "3.2", label: "3.2 Family & Medical Leave", level: 1, topics: ["leave.family_medical"] },
+  { id: "3.3", label: "3.3 Personal Leave", level: 1, topics: ["leave.personal"] },
+  { id: "3.4", label: "3.4 Safety & Emergency Leave", level: 1, topics: ["leave.safety_emergency"] },
+  { id: "3.5", label: "3.5 Leave Administration", level: 1, topics: ["leave.admin"] },
 
-  { id: "4", label: "4. Minor Employment", level: 0, topics: ["minor_labor"] },
+  { id: "4", label: "4. Minor Employment", level: 0, topics: ["minor"] },
 
   { id: "5", label: "5. Hiring & Onboarding", level: 0, topics: ["hiring"] },
 
-  { id: "6", label: "6. Workplace Protections", level: 0, topics: ["workplace_protections"] },
+  { id: "6", label: "6. Workplace Protections", level: 0, topics: ["protect"] },
 
   { id: "7", label: "7. Separation & Final Pay", level: 0, topics: [] },
-  { id: "7.1", label: "7.1 Final Compensation", level: 1, topics: ["final_pay"] },
-  { id: "7.2", label: "7.2 Separation Procedures", level: 1, topics: ["separation"] },
-  { id: "7.3", label: "7.3 Mass Layoffs & Closures", level: 1, topics: ["warn_act"] },
-  { id: "7.4", label: "7.4 Post-Employment Restrictions", level: 1, topics: ["post_employment"] },
-  { id: "7.5", label: "7.5 Record Retention", level: 1, topics: ["record_retention"] },
+  { id: "7.1", label: "7.1 Final Compensation", level: 1, topics: ["sep.final_pay"] },
+  { id: "7.2", label: "7.2 Separation Procedures", level: 1, topics: ["sep.procedures"] },
+  { id: "7.3", label: "7.3 Mass Layoffs & Closures", level: 1, topics: ["sep.warn"] },
+  { id: "7.4", label: "7.4 Post-Employment Restrictions", level: 1, topics: ["sep.post_employment"] },
+  { id: "7.5", label: "7.5 Record Retention", level: 1, topics: ["sep.records"] },
 
   { id: "8", label: "8. Employer Coverage & Compliance", level: 0, topics: ["compliance"] },
 
-  { id: "9", label: "9. Industry-Specific Rules", level: 0, topics: ["industry_specific"] },
+  { id: "9", label: "9. Industry-Specific Rules", level: 0, topics: ["industry"] },
 ];
 
 // ─── Taxonomy: Columns (Locations) ─────────────────────────────────
@@ -189,21 +189,36 @@ const LOCATION_TAXONOMY: LocationColumn[] = [
 
 // ─── Constants ─────────────────────────────────────────────────────
 
+/** Badge colours keyed by taxonomy topic code (the first two segments of rule.topic). */
 const TOPIC_COLORS: Record<string, string> = {
-  overtime: "bg-orange-100 text-orange-800",
-  minimum_wage: "bg-green-100 text-green-800",
-  predictive_scheduling: "bg-purple-100 text-purple-800",
-  meal_break: "bg-yellow-100 text-yellow-800",
-  rest_break: "bg-amber-100 text-amber-800",
-  family_medical_leave: "bg-pink-100 text-pink-800",
-  warn_act: "bg-red-100 text-red-800",
-  minor_labor: "bg-sky-100 text-sky-800",
-  sick_leave: "bg-teal-100 text-teal-800",
-  reporting_time_pay: "bg-indigo-100 text-indigo-800",
-  split_shift_premium: "bg-violet-100 text-violet-800",
-  premium_pay: "bg-fuchsia-100 text-fuchsia-800",
-  day_of_rest: "bg-rose-100 text-rose-800",
+  "pay.overtime": "bg-orange-100 text-orange-800",
+  "pay.minimum_wage": "bg-green-100 text-green-800",
+  "pay.tipped": "bg-lime-100 text-lime-800",
+  "pay.premium": "bg-indigo-100 text-indigo-800",
+  "sched.predictive": "bg-purple-100 text-purple-800",
+  "sched.meal_break": "bg-yellow-100 text-yellow-800",
+  "sched.rest_break": "bg-amber-100 text-amber-800",
+  "sched.shift_structure": "bg-rose-100 text-rose-800",
+  "leave.family_medical": "bg-pink-100 text-pink-800",
+  "leave.sick": "bg-teal-100 text-teal-800",
+  "minor.labor": "bg-sky-100 text-sky-800",
+  "sep.warn": "bg-red-100 text-red-800",
 };
+
+/** "pay.minimum_wage.general" -> "pay.minimum_wage" */
+function topicCodeOf(topic: string): string {
+  return topic.split(".").slice(0, 2).join(".");
+}
+
+/** Does a rule topic fall under a taxonomy row's code prefix? */
+function topicMatches(ruleTopic: string, prefix: string): boolean {
+  return ruleTopic === prefix || ruleTopic.startsWith(prefix + ".");
+}
+
+/** Human-readable label for a code: "pay.minimum_wage.general" -> "minimum wage · general" */
+function topicLabel(topic: string): string {
+  return topic.split(".").slice(1).map(s => s.replace(/_/g, " ")).join(" · ") || topic;
+}
 
 const RESULT_TYPE_LABELS: Record<string, string> = {
   premium_required: "Premium Required",
@@ -364,6 +379,8 @@ export function RulesExplorerPage() {
 interface CoverageData {
   states: string[];
   topics: string[];
+  /** Taxonomy topic code -> the coverage-matrix rows (legacy topic names) it covers */
+  rowsByTopicCode: Record<string, string[]>;
   summary: { total_cells: number; has_rule: number; no_law: number; not_checked: number; coverage_percent: number };
   matrix: Record<string, Record<string, { status: "has_rule" | "no_law" | "not_checked" }>>;
 }
@@ -381,7 +398,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
     const map = new Map<string, TsRule[]>();
     for (const rule of rules) {
       for (const row of LAW_TAXONOMY) {
-        if (!row.topics.includes(rule.topic)) continue;
+        if (!row.topics.some(t => topicMatches(rule.topic, t))) continue;
         for (const col of LOCATION_TAXONOMY) {
           if (!col.jurisdictions.includes(rule.jurisdiction)) continue;
           const key = `${row.id}::${col.id}`;
@@ -446,8 +463,11 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
     // Map the location column to a state code (only works for state-level columns)
     const jurisdiction = col.jurisdictions[0];
     if (!jurisdiction || !coverage.matrix[jurisdiction]) return null;
-    // Check each topic this row maps to
-    for (const topic of row.topics) {
+    // The coverage matrix is keyed by its own row names; check each one that falls under this taxonomy row
+    const matrixRows = Object.entries(coverage.rowsByTopicCode ?? {})
+      .filter(([code]) => row.topics.some(prefix => topicMatches(code, prefix)))
+      .flatMap(([, rows]) => rows);
+    for (const topic of matrixRows) {
       const cell = coverage.matrix[jurisdiction]?.[topic];
       if (cell) return cell.status === "no_law" ? "no_law" : "not_checked";
     }
@@ -613,7 +633,7 @@ function ListView({ rules, topics, jurisdictions, topicFilter, jurisdictionFilte
         <input type="text" placeholder="Search..." value={search} onChange={e => setSearch(e.target.value)} className="border rounded px-3 py-1.5 text-sm w-48" />
         <select value={topicFilter} onChange={e => setTopicFilter(e.target.value)} className="border rounded px-3 py-1.5 text-sm">
           <option value="">All topics</option>
-          {topics.map(t => <option key={t} value={t}>{t.replace(/_/g, " ")}</option>)}
+          {topics.map(t => <option key={t} value={t}>{t}</option>)}
         </select>
         <select value={jurisdictionFilter} onChange={e => setJurisdictionFilter(e.target.value)} className="border rounded px-3 py-1.5 text-sm">
           <option value="">All jurisdictions</option>
@@ -629,8 +649,8 @@ function ListView({ rules, topics, jurisdictions, topicFilter, jurisdictionFilte
                 <div className="font-medium text-gray-900">{rule.title}</div>
                 <div className="text-xs text-gray-500 mt-0.5 font-mono">{rule.id}</div>
               </div>
-              <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${TOPIC_COLORS[rule.topic] || "bg-gray-100 text-gray-700"}`}>
-                {rule.topic.replace(/_/g, " ")}
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${TOPIC_COLORS[topicCodeOf(rule.topic)] || "bg-gray-100 text-gray-700"}`}>
+                {topicLabel(rule.topic)}
               </span>
             </div>
             <div className="flex gap-4 mt-2 text-xs text-gray-500">

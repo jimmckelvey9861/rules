@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "rest_break",
+  "topic": "sched.rest_break",
   "rules": [
     {
       "id": "ca-rest-break-4hr",
       "title": "California Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "CA",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -55,7 +55,7 @@
       "id": "ca-rest-break-scheduling-warning",
       "title": "California \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "CA",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -100,7 +100,7 @@
       "id": "co-rest-break-4hr",
       "title": "Colorado Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "CO",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2020-03-16",
       "appliesWhen": {
@@ -149,7 +149,7 @@
       "id": "co-rest-break-scheduling-warning",
       "title": "Colorado \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "CO",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2020-01-01",
       "appliesWhen": {
@@ -194,7 +194,7 @@
       "id": "il-rest-break",
       "title": "Illinois Rest Break (hotel room attendants \u2014 2\u00d715 min per 7+ hr shift)",
       "jurisdiction": "IL",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -237,7 +237,7 @@
       "id": "ky-rest-break-4hr",
       "title": "Kentucky Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "KY",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -286,7 +286,7 @@
       "id": "ky-rest-break-scheduling-warning",
       "title": "Kentucky \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "KY",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "1974-01-01",
       "appliesWhen": {
@@ -331,7 +331,7 @@
       "id": "mn-rest-break-4hr",
       "title": "Minnesota Rest Break (adequate time per 4 consecutive hours)",
       "jurisdiction": "MN",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -380,7 +380,7 @@
       "id": "mn-rest-break-scheduling-warning",
       "title": "Minnesota \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "MN",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "1988-01-01",
       "appliesWhen": {
@@ -425,7 +425,7 @@
       "id": "nv-rest-break-4hr",
       "title": "Nevada Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "NV",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2007-07-01",
       "appliesWhen": {
@@ -474,7 +474,7 @@
       "id": "nv-rest-break-scheduling-warning",
       "title": "Nevada \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "NV",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -519,7 +519,7 @@
       "id": "or-rest-break-4hr",
       "title": "Oregon Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "OR",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -568,7 +568,7 @@
       "id": "or-rest-break-scheduling-warning",
       "title": "Oregon \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "OR",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -613,7 +613,7 @@
       "id": "vt-rest-break",
       "title": "Vermont Rest Break (reasonable opportunities to eat and use restroom)",
       "jurisdiction": "VT",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "1970-01-01",
       "appliesWhen": {
@@ -651,7 +651,7 @@
       "id": "wa-rest-break-4hr",
       "title": "Washington Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "WA",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -700,7 +700,7 @@
       "id": "wa-rest-break-scheduling-warning",
       "title": "Washington \u2014 Rest Break Required (per 4 hrs worked)",
       "jurisdiction": "WA",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "status": "active",
       "effectiveFrom": "2005-01-01",
       "appliesWhen": {

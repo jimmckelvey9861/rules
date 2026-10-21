@@ -13,6 +13,7 @@ import { evaluateRule, evaluateRules } from "./evaluator.js";
 import { createRule, RuleValidationError } from "./createRule.js";
 import { isKnownFact, getCanonicalFacts, getEnumValues } from "./facts.js";
 import { RULES, getRule } from "./index.js";
+import { matrixTopicFor } from "./coverageMatrix.js";
 
 function mustGetRule(id: string) {
   const rule = getRule(id);
@@ -400,7 +401,7 @@ function testMostRestrictiveMinWageWins() {
   // Find min wage violations
   const minWageViolations = result.violations.filter(v => {
     const rule = RULES.find(r => r.id === v.ruleId);
-    return rule?.topic === "minimum_wage";
+    return rule !== undefined && matrixTopicFor(rule.topic, rule.result.obligation) === "minimum_wage";
   });
 
   // Should have exactly 1 min wage violation (the most restrictive)

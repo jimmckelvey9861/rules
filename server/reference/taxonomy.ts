@@ -1,9 +1,10 @@
 /**
  * Rule Taxonomy — category > topic > sub-topic tree loaded from data/taxonomy.json.
  *
- * Rules currently carry a legacy topic string (e.g. "minimum_wage"). Each
- * taxonomy topic or sub-topic may declare a `legacyTopic` so those strings
- * resolve to a node in the tree. New rules should use the node code directly.
+ * Every rule carries a sub-topic code (e.g. "pay.minimum_wage.general").
+ * Topics and sub-topics may also declare a `legacyTopic`, the engine's
+ * historical topic string, which the coverage matrix and the jurisdiction
+ * preemption flags still use.
  */
 
 import { readJsonFile } from "./dataFiles.js";
@@ -95,4 +96,21 @@ export function isKnownTopic(topic: string): boolean {
 /** Who can act on a rule with this topic. */
 export function getEnforcementTarget(topic: string): EnforcementTarget | undefined {
   return resolveTopic(topic)?.enforcement;
+}
+
+/** The topic-level code a topic or sub-topic belongs to, e.g. "pay.minimum_wage.general" -> "pay.minimum_wage". */
+export function topicCodeOf(topic: string): string | undefined {
+  return resolveTopic(topic)?.topicCode;
+}
+
+/**
+ * The legacy topic string for a code: the node's own `legacyTopic`, else its
+ * parent topic's. Used where the engine still keys on the historical topic
+ * names (jurisdiction preemption flags, coverage matrix rows).
+ */
+export function legacyTopicFor(topic: string): string | undefined {
+  const node = resolveTopic(topic);
+  if (!node) return undefined;
+  if (node.legacyTopic) return node.legacyTopic;
+  return node.topicCode ? BY_CODE.get(node.topicCode)?.legacyTopic : undefined;
 }

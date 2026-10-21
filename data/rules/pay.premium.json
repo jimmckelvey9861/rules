@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "reporting_time_pay",
+  "topic": "pay.premium",
   "rules": [
     {
       "id": "ca-reporting-time-pay",
       "title": "California Reporting Time Pay (half scheduled shift, min 2 hrs, max 4 hrs)",
       "jurisdiction": "CA",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -62,7 +62,7 @@
       "id": "ca-reporting-time-pay-second",
       "title": "California Second Reporting Time Pay (minimum 2 hours)",
       "jurisdiction": "CA",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -118,10 +118,54 @@
       ]
     },
     {
+      "id": "ca-split-shift-premium",
+      "title": "California Split Shift Premium (+1 hr at state minimum wage)",
+      "jurisdiction": "CA",
+      "topic": "pay.premium.split_shift",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage \u00d7 (hours worked + 1))"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, \u00a74(C)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "\u00a74(C) Split Shift Premium",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
       "id": "ct-reporting-time-pay",
       "title": "Connecticut Reporting Time Pay (minimum 4 hours)",
       "jurisdiction": "CT",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2003-01-01",
       "appliesWhen": {
@@ -175,7 +219,7 @@
       "id": "dc-reporting-time-pay",
       "title": "DC Reporting Time Pay (4 hours minimum)",
       "jurisdiction": "DC",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "1993-01-01",
       "appliesWhen": {
@@ -219,7 +263,7 @@
       "id": "ma-reporting-time-pay",
       "title": "Massachusetts Reporting Time Pay (minimum 3 hours)",
       "jurisdiction": "MA",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -278,7 +322,7 @@
       "id": "nh-reporting-time-pay",
       "title": "New Hampshire Reporting Time Pay (minimum 2 hours)",
       "jurisdiction": "NH",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -332,7 +376,7 @@
       "id": "nj-reporting-time-pay",
       "title": "New Jersey Reporting Time Pay (1 hour minimum)",
       "jurisdiction": "NJ",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "1966-01-01",
       "appliesWhen": {
@@ -373,10 +417,59 @@
       ]
     },
     {
+      "id": "nv-split-shift-premium",
+      "title": "Nevada Split Shift Premium (spread >10 hrs = +1 hr at min wage)",
+      "jurisdiction": "NV",
+      "topic": "pay.premium.split_shift",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.160",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec160",
+          "section": "NRS \u00a7608.160",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "ny-call-in-pay",
       "title": "New York Call-In Pay (minimum 4 hours)",
       "jurisdiction": "NY",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2011-01-01",
       "appliesWhen": {
@@ -430,7 +523,7 @@
       "id": "ny-call-in-pay-oncall",
       "title": "New York Call-In Pay \u2014 On-Call Employee (minimum 4 hours)",
       "jurisdiction": "NY",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.on_call",
       "status": "active",
       "effectiveFrom": "2011-01-01",
       "appliesWhen": {
@@ -481,10 +574,99 @@
       ]
     },
     {
+      "id": "ny-split-shift-premium",
+      "title": "New York Split Shift / Spread-of-Hours Premium (extra hour at min wage)",
+      "jurisdiction": "NY",
+      "topic": "pay.premium.split_shift",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at basic minimum hourly wage when interval between start and end of workday exceeds 10 hours. Applies to all industries covered by NY wage orders."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.4 (Hospitality), \u00a7146-1.6 (Misc.)",
+          "url": "https://dol.ny.gov/minimum-wage-order-miscellaneous-industries-and-occupations-cr142/",
+          "section": "12 NYCRR \u00a7142-2.4",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-spread-of-hours",
+      "title": "New York Spread of Hours Pay (>10 hr span = +1 hr at min wage)",
+      "jurisdiction": "NY",
+      "topic": "pay.premium.split_shift",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.spread_of_hours",
+        "params": {
+          "amount": 1,
+          "spread_hours": 10,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.4",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR \u00a7142-2.4",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
       "id": "or-reporting-time-pay",
       "title": "Oregon Reporting Time Pay (half scheduled shift, min 1 hr)",
       "jurisdiction": "OR",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -539,7 +721,7 @@
       "id": "ri-reporting-time-pay",
       "title": "Rhode Island Reporting Time Pay (3 hrs if scheduled 8+)",
       "jurisdiction": "RI",
-      "topic": "reporting_time_pay",
+      "topic": "pay.premium.reporting_time",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {

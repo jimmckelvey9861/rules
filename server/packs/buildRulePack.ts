@@ -13,7 +13,7 @@ import { RULES } from "../rules/index.js";
 import type { Rule } from "../rules/types.js";
 import { getFact, isKnownFact } from "../rules/facts.js";
 import { ALWAYS, evaluatePartial } from "../rules/partialEvaluate.js";
-import { resolveTopic, getEnforcementTarget } from "../reference/taxonomy.js";
+import { topicCodeOf, getEnforcementTarget } from "../reference/taxonomy.js";
 import { resolveJurisdiction, getJurisdictionChain } from "../reference/jurisdictions.js";
 import { VOCABULARY, getObligation } from "../reference/vocabulary.js";
 import { DERIVED_FACTS } from "../scheduler/derivedFacts.js";
@@ -103,7 +103,6 @@ export function buildRulePack(business: BusinessProfile, location: LocationProfi
     if (partial.state === false) { stats.excludedByProfile++; continue; }
     if (partial.state === true) stats.fullyResolved++;
 
-    const topic = resolveTopic(rule.topic);
     const jurisdiction = resolveJurisdiction(rule.jurisdiction);
     const obligation = getObligation(rule.result.obligation);
     rules.push({
@@ -113,7 +112,7 @@ export function buildRulePack(business: BusinessProfile, location: LocationProfi
       jurisdictionId: jurisdiction?.id ?? rule.jurisdiction,
       jurisdictionType: jurisdiction?.type ?? "state",
       topic: rule.topic,
-      topicCode: topic?.code ?? rule.topic,
+      topicCode: topicCodeOf(rule.topic) ?? rule.topic,
       enforcement: getEnforcementTarget(rule.topic) ?? "informational",
       status: rule.status,
       effectiveFrom: rule.effectiveFrom,

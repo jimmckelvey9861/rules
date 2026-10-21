@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-20T21:02:34.653Z",
+  "generatedAt": "2026-10-21T20:42:37.886Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "2b61e4ed33aef827",
+  "rulesVersion": "78afbd1564a5b020",
   "vocabularyVersion": "2026-10-20",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,52 +39,12 @@
   ],
   "rules": [
     {
-      "id": "ca-day-of-rest",
-      "title": "California Day of Rest (1 day off per 7-day workweek)",
-      "jurisdiction": "CA",
-      "jurisdictionId": "us-ca",
-      "jurisdictionType": "state",
-      "topic": "day_of_rest",
-      "topicCode": "sched.shift_structure.day_of_rest",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "1937-01-01",
-      "appliesWhen": {
-        "fact": "shift.consecutive_days_worked",
-        "op": ">",
-        "value": 6
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.consecutive_days_worked"
-      ],
-      "result": {
-        "type": "prohibition",
-        "obligation": "rest.weekly_day_of_rest",
-        "params": {
-          "max_consecutive_days": 6
-        },
-        "summary": "Scheduling an employee to work more than 6 consecutive days without a day of rest. Employee may voluntarily choose to work the 7th day. Exemptions for emergencies and certain industries.",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "Cal. Labor Code §551-552",
-          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=551",
-          "section": "§551-552",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
       "id": "ca-family-medical-leave",
       "title": "California Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -126,7 +86,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.eligibility",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -183,292 +143,78 @@
       ]
     },
     {
-      "id": "ca-meal-break-first-5hr",
-      "title": "California First Meal Break (>5 hours)",
+      "id": "ca-sick-leave",
+      "title": "California Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
       "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2001-01-01",
+      "effectiveFrom": "2024-01-01",
       "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 5
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          },
-          {
-            "fact": "shift.meal_break_waived",
-            "op": "=",
-            "value": false
-          }
-        ]
+        "all": []
       },
       "satisfiedBy": [
         "location.state"
       ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.meal_break_provided",
-        "shift.meal_break_waived",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "required_break",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 5
-        },
-        "summary": "30-minute meal break for shifts of 5+ hours",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "California Labor Code §512(a)",
-          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "ca-meal-break-scheduling-warning",
-      "title": "California — Meal Break Required (shifts > 5 hrs)",
-      "jurisdiction": "CA",
-      "jurisdictionId": "us-ca",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2001-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 5
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "warning",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 5
-        },
-        "summary": "California requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled.",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "California Labor Code §512(a)",
-          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "ca-meal-break-second-10hr",
-      "title": "California Second Meal Break (>10 hours)",
-      "jurisdiction": "CA",
-      "jurisdictionId": "us-ca",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2001-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 10
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "required_break",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 10
-        },
-        "summary": "30-minute meal break for shifts of 10+ hours",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "California Labor Code §512(a)",
-          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
-          "section": "Cal. Lab. Code §512(a)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "ca-minimum-wage-2025",
-      "title": "California Minimum Wage",
-      "jurisdiction": "CA",
-      "jurisdictionId": "us-ca",
-      "jurisdictionType": "state",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2025-01-01",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 16.5
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
         },
-        "summary": "$16.50 per hour minimum wage",
-        "kronto": "block"
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "California Labor Code §1182.12",
-          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1182.12.&lawCode=LAB",
-          "section": "Cal. Lab. Code §1182.12",
+          "source": "Cal. Lab. Code §246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "Lab. Code §246",
           "kind": "statute"
         }
       ]
     },
     {
-      "id": "federal-minimum-wage-7.25",
-      "title": "Federal Minimum Wage (FLSA)",
-      "jurisdiction": "Federal",
-      "jurisdictionId": "us",
-      "jurisdictionType": "federal",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2009-07-24",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.country"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 7.25
-        },
-        "summary": "$7.25 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "Fair Labor Standards Act §206(a)(1)",
-          "url": "https://www.law.cornell.edu/uscode/text/29/206",
-          "section": "29 U.S.C. §206(a)(1)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "los-angeles-ca-mw-2026",
-      "title": "Los Angeles Minimum Wage",
+      "id": "los-angeles-sick-leave",
+      "title": "Los Angeles Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
       "jurisdiction": "Los Angeles",
       "jurisdictionId": "us-ca-los-angeles",
       "jurisdictionType": "city",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2026-01-01",
+      "effectiveFrom": "2016-07-01",
       "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
+        "all": []
       },
       "satisfiedBy": [
-        "location.city",
-        "location.state"
+        "employer.total_employees",
+        "location.city"
       ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 18.42
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
         },
-        "summary": "$18.42 per hour minimum wage",
-        "kronto": "block"
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code §187.00 et seq.",
+          "source": "Los Angeles Paid Sick Leave Ordinance",
           "url": "https://wagesla.lacity.org/",
+          "section": "LAMC §187.00 et seq.",
           "kind": "ordinance"
         }
       ]
@@ -479,7 +225,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -549,7 +295,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -619,7 +365,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -689,7 +435,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -752,7 +498,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -820,7 +566,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -888,7 +634,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -949,7 +695,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1017,7 +763,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1085,7 +831,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1153,7 +899,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1216,12 +962,132 @@
       ]
     },
     {
+      "id": "ca-minimum-wage-2025",
+      "title": "California Minimum Wage",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.5
+        },
+        "summary": "$16.50 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §1182.12",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1182.12.&lawCode=LAB",
+          "section": "Cal. Lab. Code §1182.12",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-ca-mw-2026",
+      "title": "Los Angeles Minimum Wage",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.42
+        },
+        "summary": "$18.42 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.00 et seq.",
+          "url": "https://wagesla.lacity.org/",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "ca-daily-overtime-8",
       "title": "California Daily Overtime (Labor Code §510)",
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1273,7 +1139,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1325,7 +1191,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1370,111 +1236,13 @@
       ]
     },
     {
-      "id": "la-advance-notice-14day",
-      "title": "Los Angeles — 14-Day Advance Notice Required (Retail)",
-      "jurisdiction": "Los Angeles",
-      "jurisdictionId": "us-ca-los-angeles",
-      "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
-      "topicCode": "sched.predictive",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2023-04-01",
-      "appliesWhen": {
-        "fact": "schedule.advance_notice_days",
-        "op": "<",
-        "value": 14
-      },
-      "satisfiedBy": [
-        "employer.industry_tag",
-        "employer.total_employees_global",
-        "location.city"
-      ],
-      "factsNeeded": [
-        "schedule.advance_notice_days"
-      ],
-      "result": {
-        "type": "premium_required",
-        "obligation": "premium.schedule_change",
-        "params": {
-          "amount": 1,
-          "unit": "hours_pay",
-          "notice_window_days": 14
-        },
-        "summary": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)",
-        "kronto": "premium"
-      },
-      "citations": [
-        {
-          "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
-          "url": "https://wagesla.lacity.gov/fair-work-week-information",
-          "section": "LAMC §187.04",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "la-clopening-10hr",
-      "title": "Los Angeles — 10-Hour Rest Period (Retail)",
-      "jurisdiction": "Los Angeles",
-      "jurisdictionId": "us-ca-los-angeles",
-      "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
-      "topicCode": "sched.predictive",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2023-04-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.hours_since_last_shift_end",
-            "op": "<",
-            "value": 10
-          },
-          {
-            "fact": "schedule.employee_consented",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "employer.industry_tag",
-        "employer.total_employees_global",
-        "location.city"
-      ],
-      "factsNeeded": [
-        "schedule.employee_consented",
-        "shift.hours_since_last_shift_end"
-      ],
-      "result": {
-        "type": "premium_required",
-        "obligation": "sched.clopening",
-        "params": {
-          "rest_hours": 10,
-          "amount": 1.5,
-          "unit": "multiplier"
-        },
-        "summary": "1.5x pay rate for hours worked within the 10-hour rest period",
-        "kronto": "premium"
-      },
-      "citations": [
-        {
-          "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
-          "url": "https://wagesla.lacity.gov/fair-work-week-information",
-          "section": "LAMC §187.06",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
       "id": "ca-reporting-time-pay",
       "title": "California Reporting Time Pay (half scheduled shift, min 2 hrs, max 4 hrs)",
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "reporting_time_pay",
-      "topicCode": "pay.premium.reporting_time",
+      "topic": "pay.premium.reporting_time",
+      "topicCode": "pay.premium",
       "enforcement": "kronto",
       "status": "active",
       "effectiveFrom": "2001-01-01",
@@ -1538,8 +1306,8 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "reporting_time_pay",
-      "topicCode": "pay.premium.reporting_time",
+      "topic": "pay.premium.reporting_time",
+      "topicCode": "pay.premium",
       "enforcement": "kronto",
       "status": "active",
       "effectiveFrom": "2001-01-01",
@@ -1602,12 +1370,278 @@
       ]
     },
     {
+      "id": "ca-split-shift-premium",
+      "title": "California Split Shift Premium (+1 hr at state minimum wage)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.premium.split_shift",
+      "topicCode": "pay.premium",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_split_shift",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.is_split_shift"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.split_shift",
+        "params": {
+          "amount": 1,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage × (hours worked + 1))",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001, §4(C)",
+          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
+          "section": "§4(C) Split Shift Premium",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-first-5hr",
+      "title": "California First Meal Break (>5 hours)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.meal_break_waived",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-scheduling-warning",
+      "title": "California — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "California requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-break-second-10hr",
+      "title": "California Second Meal Break (>10 hours)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.second",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 10
+        },
+        "summary": "30-minute meal break for shifts of 10+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-advance-notice-14day",
+      "title": "Los Angeles — 14-Day Advance Notice Required (Retail)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.change_premium",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "fact": "schedule.advance_notice_days",
+        "op": "<",
+        "value": 14
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14
+        },
+        "summary": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC §187.04",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "ca-rest-break-4hr",
       "title": "California Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "topicCode": "sched.rest_break",
       "enforcement": "kronto",
       "status": "active",
@@ -1664,7 +1698,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "topicCode": "sched.rest_break",
       "enforcement": "kronto",
       "status": "active",
@@ -1711,130 +1745,96 @@
       ]
     },
     {
-      "id": "ca-sick-leave",
-      "title": "California Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
+      "id": "ca-day-of-rest",
+      "title": "California Day of Rest (1 day off per 7-day workweek)",
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
+      "topic": "sched.shift_structure.day_of_rest",
+      "topicCode": "sched.shift_structure",
       "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2024-01-01",
+      "effectiveFrom": "1937-01-01",
       "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 40,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "Cal. Lab. Code §246",
-          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
-          "section": "Lab. Code §246",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "los-angeles-sick-leave",
-      "title": "Los Angeles Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
-      "jurisdiction": "Los Angeles",
-      "jurisdictionId": "us-ca-los-angeles",
-      "jurisdictionType": "city",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2016-07-01",
-      "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "employer.total_employees",
-        "location.city"
-      ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 48,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "Los Angeles Paid Sick Leave Ordinance",
-          "url": "https://wagesla.lacity.org/",
-          "section": "LAMC §187.00 et seq.",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "ca-split-shift-premium",
-      "title": "California Split Shift Premium (+1 hr at state minimum wage)",
-      "jurisdiction": "CA",
-      "jurisdictionId": "us-ca",
-      "jurisdictionType": "state",
-      "topic": "split_shift_premium",
-      "topicCode": "pay.premium.split_shift",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2001-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.is_split_shift",
-            "op": "=",
-            "value": true
-          }
-        ]
+        "fact": "shift.consecutive_days_worked",
+        "op": ">",
+        "value": 6
       },
       "satisfiedBy": [
         "location.state"
       ],
       "factsNeeded": [
-        "employee.exempt_status",
-        "shift.is_split_shift"
+        "shift.consecutive_days_worked"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6
+        },
+        "summary": "Scheduling an employee to work more than 6 consecutive days without a day of rest. Employee may voluntarily choose to work the 7th day. Exemptions for emergencies and certain industries.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Cal. Labor Code §551-552",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=551",
+          "section": "§551-552",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-clopening-10hr",
+      "title": "Los Angeles — 10-Hour Rest Period (Retail)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.shift_structure.clopening",
+      "topicCode": "sched.shift_structure",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.employee_consented",
+        "shift.hours_since_last_shift_end"
       ],
       "result": {
         "type": "premium_required",
-        "obligation": "premium.split_shift",
+        "obligation": "sched.clopening",
         "params": {
-          "amount": 1,
-          "rate_basis": "minimum_wage"
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
         },
-        "summary": "1 additional hour at the state minimum wage rate (unless total daily earnings already exceed min wage × (hours worked + 1))",
+        "summary": "1.5x pay rate for hours worked within the 10-hour rest period",
         "kronto": "premium"
       },
       "citations": [
         {
-          "source": "IWC Wage Order 5-2001, §4(C)",
-          "url": "https://www.dir.ca.gov/iwc/wageorderindustries.htm",
-          "section": "§4(C) Split Shift Premium",
-          "kind": "regulation"
+          "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC §187.06",
+          "kind": "ordinance"
         }
       ]
     },
@@ -1844,7 +1844,7 @@
       "jurisdiction": "CA",
       "jurisdictionId": "us-ca",
       "jurisdictionType": "state",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "topicCode": "sep.warn",
       "enforcement": "hr",
       "status": "active",
@@ -2675,5 +2675,5 @@
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "92d613024b19984fa9a1d90857937f414b1c60c3eb4d476a6cde63cba7bf77e8"
+  "checksum": "eb1b3ca870badd0bc6563fc1e7f310819af0546c2db8c2bfdb5b650964b7ba1c"
 }

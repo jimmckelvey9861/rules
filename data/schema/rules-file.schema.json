@@ -7,7 +7,7 @@
   "required": ["topic", "rules"],
   "properties": {
     "$schema": { "type": "string" },
-    "topic": { "type": "string", "description": "Legacy topic string or taxonomy code; every rule in the file must carry the same topic" },
+    "topic": { "type": "string", "description": "Taxonomy topic-level code (e.g. pay.minimum_wage); the file is named <topic>.json and every rule in it carries a sub-topic under this topic" },
     "rules": { "type": "array", "items": { "$ref": "#/$defs/rule" } }
   },
   "$defs": {
@@ -64,7 +64,7 @@
         "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
         "title": { "type": "string" },
         "jurisdiction": { "type": "string", "description": "A ruleKey from data/jurisdictions.json" },
-        "topic": { "type": "string", "description": "A legacy topic or taxonomy code from data/taxonomy.json" },
+        "topic": { "type": "string", "description": "A taxonomy sub-topic code from data/taxonomy.json (e.g. pay.minimum_wage.general)" },
         "status": { "enum": ["active", "draft", "repealed", "pending"] },
         "effectiveFrom": { "$ref": "#/$defs/isoDate" },
         "effectiveTo": { "$ref": "#/$defs/isoDate" },

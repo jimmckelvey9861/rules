@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "overtime",
+  "topic": "pay.overtime",
   "rules": [
     {
       "id": "ak-daily-overtime-8hr",
       "title": "Alaska Daily Overtime (>8 hours in a day = 1.5x)",
       "jurisdiction": "AK",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -51,7 +51,7 @@
       "id": "ca-daily-overtime-8",
       "title": "California Daily Overtime (Labor Code \u00a7510)",
       "jurisdiction": "CA",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -96,7 +96,7 @@
       "id": "ca-double-time-12",
       "title": "California Double Time (Labor Code \u00a7510)",
       "jurisdiction": "CA",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -141,7 +141,7 @@
       "id": "co-daily-overtime-12hr",
       "title": "Colorado Daily Overtime (>12 hours in a day = 1.5x)",
       "jurisdiction": "CO",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "status": "active",
       "effectiveFrom": "2020-03-16",
       "appliesWhen": {
@@ -186,7 +186,7 @@
       "id": "ct-weekly-overtime-40",
       "title": "Connecticut Weekly Overtime",
       "jurisdiction": "CT",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -231,7 +231,7 @@
       "id": "dc-weekly-overtime-40",
       "title": "District of Columbia Weekly Overtime",
       "jurisdiction": "DC",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -276,7 +276,7 @@
       "id": "federal-overtime-weekly-40",
       "title": "Federal Weekly Overtime (FLSA)",
       "jurisdiction": "Federal",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "1940-10-24",
       "appliesWhen": {
@@ -316,7 +316,7 @@
       "id": "hi-overtime",
       "title": "Hawaii Overtime (1.5x after 40 hrs/week, state-enforced)",
       "jurisdiction": "HI",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "1963-01-01",
       "appliesWhen": {
@@ -361,7 +361,7 @@
       "id": "md-weekly-overtime-40",
       "title": "Maryland Weekly Overtime",
       "jurisdiction": "MD",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -406,7 +406,7 @@
       "id": "mn-overtime",
       "title": "Minnesota Overtime (1.5x after 48 hrs/week)",
       "jurisdiction": "MN",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "1977-01-01",
       "appliesWhen": {
@@ -451,7 +451,7 @@
       "id": "nj-weekly-overtime-40",
       "title": "New Jersey Weekly Overtime",
       "jurisdiction": "NJ",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -496,7 +496,7 @@
       "id": "nv-daily-overtime-8",
       "title": "Nevada Daily Overtime (employees earning < 1.5x minimum wage)",
       "jurisdiction": "NV",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "status": "active",
       "effectiveFrom": "2024-07-01",
       "appliesWhen": {
@@ -546,7 +546,7 @@
       "id": "nv-weekly-overtime-40",
       "title": "Nevada Weekly Overtime",
       "jurisdiction": "NV",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2024-07-01",
       "appliesWhen": {
@@ -591,7 +591,7 @@
       "id": "ny-residential-overtime-44",
       "title": "New York Residential Worker Overtime (44 hours)",
       "jurisdiction": "NY",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -641,7 +641,7 @@
       "id": "ny-weekly-overtime-40",
       "title": "New York Weekly Overtime",
       "jurisdiction": "NY",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -686,7 +686,7 @@
       "id": "or-manufacturing-daily-overtime-10hr",
       "title": "Oregon Manufacturing Daily Overtime (>10 hours = 1.5x)",
       "jurisdiction": "OR",
-      "topic": "overtime",
+      "topic": "pay.overtime.daily",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -736,7 +736,7 @@
       "id": "va-weekly-overtime-40",
       "title": "Virginia Weekly Overtime",
       "jurisdiction": "VA",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "2021-05-01",
       "appliesWhen": {
@@ -781,7 +781,7 @@
       "id": "wa-weekly-overtime-40",
       "title": "Washington State Weekly Overtime (RCW 49.46.130)",
       "jurisdiction": "WA",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "status": "active",
       "effectiveFrom": "1961-01-01",
       "appliesWhen": {

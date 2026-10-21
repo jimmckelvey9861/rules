@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "family_medical_leave",
+  "topic": "leave.family_medical",
   "rules": [
     {
       "id": "ca-family-medical-leave",
       "title": "California Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "CA",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2021-01-01",
       "appliesWhen": {
@@ -50,7 +50,7 @@
       "id": "co-family-medical-leave",
       "title": "Colorado Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "CO",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2024-01-01",
       "appliesWhen": {
@@ -94,7 +94,7 @@
       "id": "ct-family-medical-leave",
       "title": "Connecticut Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "CT",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2022-01-01",
       "appliesWhen": {
@@ -138,7 +138,7 @@
       "id": "dc-family-medical-leave",
       "title": "District of Columbia Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "DC",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2020-07-01",
       "appliesWhen": {
@@ -182,7 +182,7 @@
       "id": "de-family-medical-leave",
       "title": "Delaware Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "DE",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2026-01-01",
       "appliesWhen": {
@@ -226,7 +226,7 @@
       "id": "federal-fmla-eligibility",
       "title": "Federal FMLA \u2014 Employee Eligibility",
       "jurisdiction": "Federal",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.eligibility",
       "status": "active",
       "effectiveFrom": "1993-08-05",
       "appliesWhen": {
@@ -284,7 +284,7 @@
       "id": "ma-family-medical-leave",
       "title": "Massachusetts Family & Medical Leave (26 weeks, paid)",
       "jurisdiction": "MA",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2021-01-01",
       "appliesWhen": {
@@ -328,7 +328,7 @@
       "id": "md-family-medical-leave",
       "title": "Maryland Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "MD",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2026-07-01",
       "appliesWhen": {
@@ -372,7 +372,7 @@
       "id": "mn-family-medical-leave",
       "title": "Minnesota Family & Medical Leave (20 weeks, paid)",
       "jurisdiction": "MN",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2026-01-01",
       "appliesWhen": {
@@ -416,7 +416,7 @@
       "id": "nj-family-medical-leave",
       "title": "New Jersey Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "NJ",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2009-07-01",
       "appliesWhen": {
@@ -460,7 +460,7 @@
       "id": "ny-family-medical-leave",
       "title": "New York Family & Medical Leave (12 weeks, paid)",
       "jurisdiction": "NY",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2018-01-01",
       "appliesWhen": {
@@ -504,7 +504,7 @@
       "id": "or-family-medical-leave",
       "title": "Oregon Family & Medical Leave (16 weeks, paid)",
       "jurisdiction": "OR",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2023-09-03",
       "appliesWhen": {
@@ -548,7 +548,7 @@
       "id": "ri-family-medical-leave",
       "title": "Rhode Island Family & Medical Leave (6 weeks, paid)",
       "jurisdiction": "RI",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2014-01-01",
       "appliesWhen": {
@@ -592,7 +592,7 @@
       "id": "wa-family-medical-leave",
       "title": "Washington Family & Medical Leave (16 weeks, paid)",
       "jurisdiction": "WA",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "status": "active",
       "effectiveFrom": "2020-01-01",
       "appliesWhen": {
