@@ -1,6 +1,6 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T17:59:45.404Z",
+  "generatedAt": "2026-10-30T18:16:02.007Z",
   "asOf": "2026-10-20",
   "rulesVersion": "9ca246342bf81405",
   "vocabularyVersion": "2026-10-30",
@@ -3180,16 +3180,29 @@
       "path": "employee.age",
       "type": "number",
       "description": "Employee age in years",
-      "category": "3. Employee"
+      "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "age",
+        "years old"
+      ]
     },
     {
       "path": "employee.exempt_status",
       "type": "enum",
       "description": "FLSA exemption status",
       "category": "3. Employee",
+      "group": "3.1 Classification",
       "enumValues": [
         "exempt",
         "non_exempt"
+      ],
+      "synonyms": [
+        "exempt",
+        "non-exempt",
+        "FLSA status",
+        "overtime eligible",
+        "hourly vs salaried"
       ]
     },
     {
@@ -3202,13 +3215,27 @@
       "path": "employee.is_lactating",
       "type": "boolean",
       "description": "Whether the employee is nursing a child and has asked for lactation breaks",
-      "category": "3. Employee"
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union",
+      "synonyms": [
+        "nursing mother",
+        "breastfeeding employee",
+        "lactation accommodation requested",
+        "pumping breaks"
+      ]
     },
     {
       "path": "employee.is_minor",
       "type": "boolean",
       "description": "Whether employee is under 18",
       "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "minor",
+        "under 18",
+        "youth worker",
+        "teen employee"
+      ],
       "derived": "employee.age < 18"
     },
     {
@@ -3216,6 +3243,7 @@
       "type": "enum",
       "description": "Occupation category for industry-specific rules",
       "category": "3. Employee",
+      "group": "3.3 Occupation",
       "enumValues": [
         "food_service",
         "healthcare",
@@ -3234,16 +3262,28 @@
       "path": "employee.tenure_months",
       "type": "number",
       "description": "Months employed with current employer",
-      "category": "3. Employee"
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union",
+      "synonyms": [
+        "tenure",
+        "length of service",
+        "months employed",
+        "seniority"
+      ]
     },
     {
       "path": "employee.tipped_status",
       "type": "enum",
       "description": "Whether employee receives tips",
       "category": "3. Employee",
+      "group": "3.6 Compensation",
       "enumValues": [
         "tipped",
         "non_tipped"
+      ],
+      "synonyms": [
+        "tipped employee",
+        "receives tips"
       ]
     },
     {
@@ -3251,6 +3291,7 @@
       "type": "enum",
       "description": "Type of leave requested",
       "category": "6. Leave",
+      "group": "4.4 Breaks",
       "enumValues": [
         "sick",
         "family",
@@ -3262,6 +3303,11 @@
         "domestic_violence",
         "military",
         "school_activity"
+      ],
+      "synonyms": [
+        "leave type",
+        "kind of leave",
+        "time off reason"
       ]
     },
     {
@@ -3269,6 +3315,13 @@
       "type": "number",
       "description": "Days in advance the schedule was posted",
       "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "advance notice",
+        "schedule notice",
+        "days of notice",
+        "posting lead time"
+      ],
       "derived": "whole days from the date the shift (or its latest amendment) was communicated to the employee to the shift date"
     },
     {
@@ -3276,6 +3329,7 @@
       "type": "enum",
       "description": "Type of schedule change",
       "category": "5. Schedule",
+      "group": "4.4 Breaks",
       "enumValues": [
         "hours_added",
         "hours_reduced",
@@ -3285,6 +3339,12 @@
         "on_call_to_work",
         "on_call_not_needed"
       ],
+      "synonyms": [
+        "type of change",
+        "added hours",
+        "reduced hours",
+        "shift cancelled"
+      ],
       "derived": "hours_added when the amended shift is longer, hours_reduced when shorter, time_changed when the same length at different times"
     },
     {
@@ -3292,6 +3352,12 @@
       "type": "boolean",
       "description": "Whether the employee consented to the change",
       "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "employee consent",
+        "written consent",
+        "agreed to change"
+      ],
       "derived": "false for an amended shift unless the scheduler records written consent"
     },
     {
@@ -3299,45 +3365,67 @@
       "type": "boolean",
       "description": "Whether the schedule was changed after posting",
       "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule change",
+        "shift amended",
+        "schedule modified"
+      ],
       "derived": "the shift was amended after it was published"
     },
     {
       "path": "shift.employee_reported",
       "type": "boolean",
       "description": "Whether the employee reported to work as scheduled",
-      "category": "4. Shift"
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
     },
     {
       "path": "shift.end_hour",
       "type": "number",
       "description": "Shift end hour (0-23, for curfew comparisons)",
       "category": "4. Shift",
+      "group": "4.1 Timing",
       "derived": "hour component of the shift end time (0-23)"
     },
     {
       "path": "shift.hours_worked_at_report",
       "type": "number",
       "description": "Hours actually worked when employee reported (for reporting time pay)",
-      "category": "4. Shift"
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
     },
     {
       "path": "shift.hours_worked_this_week",
       "type": "number",
       "description": "Hours worked in the current workweek",
       "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "synonyms": [
+        "weekly hours",
+        "hours this week",
+        "hours in the workweek"
+      ],
       "derived": "this shift's length plus the length of every other shift for the employee in the same workweek"
     },
     {
       "path": "shift.is_on_call",
       "type": "boolean",
       "description": "Whether this is an on-call shift",
-      "category": "4. Shift"
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "on-call shift",
+        "standby shift",
+        "call-in shift"
+      ]
     },
     {
       "path": "shift.is_school_day",
       "type": "boolean",
       "description": "Whether it is a school day (for minor labor rules)",
       "category": "4. Shift",
+      "group": "4.3 Shift Type",
       "derived": "weekday during the school year (simplified: Monday to Friday, September to mid-June)"
     },
     {
@@ -3345,6 +3433,7 @@
       "type": "boolean",
       "description": "Whether this is the 7th consecutive day worked",
       "category": "4. Shift",
+      "group": "4.2 Hours Worked",
       "derived": "shift.consecutive_days_worked >= 7"
     },
     {
@@ -3352,6 +3441,11 @@
       "type": "boolean",
       "description": "Whether a meal break was provided",
       "category": "4. Shift",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "meal break taken",
+        "lunch break given"
+      ],
       "derived": "the shift has at least one break of type meal"
     },
     {
@@ -3359,19 +3453,27 @@
       "type": "boolean",
       "description": "Whether school is in session (school year vs summer)",
       "category": "4. Shift",
+      "group": "4.3 Shift Type",
       "derived": "date falls in the school year (simplified: September to mid-June)"
     },
     {
       "path": "shift.sent_home_early",
       "type": "boolean",
       "description": "Whether the employee was sent home before shift end",
-      "category": "4. Shift"
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
     },
     {
       "path": "shift.shift_length_hours",
       "type": "number",
       "description": "Length of the current shift in hours",
       "category": "4. Shift",
+      "group": "4.1 Timing",
+      "synonyms": [
+        "shift length",
+        "hours scheduled",
+        "shift duration"
+      ],
       "derived": "(end time - start time) in hours; an end time at or before the start time means the shift crosses midnight"
     },
     {
@@ -3379,6 +3481,7 @@
       "type": "number",
       "description": "Total span from first clock-in to last clock-out in a day (includes breaks)",
       "category": "4. Shift",
+      "group": "4.3 Shift Type",
       "derived": "hours from the earliest start to the latest end across all of the employee's shifts on the same date"
     },
     {
@@ -3386,13 +3489,15 @@
       "type": "number",
       "description": "Shift start hour (0-23, for time-of-day comparisons)",
       "category": "4. Shift",
+      "group": "4.1 Timing",
       "derived": "hour component of the shift start time (0-23)"
     },
     {
       "path": "termination.is_mass_layoff",
       "type": "boolean",
       "description": "Whether this is part of a mass layoff",
-      "category": "7. Termination"
+      "category": "7. Termination",
+      "group": "4.4 Breaks"
     }
   ],
   "stats": {

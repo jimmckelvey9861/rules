@@ -1,6 +1,6 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T17:59:45.408Z",
+  "generatedAt": "2026-10-30T18:16:02.010Z",
   "asOf": "2026-10-20",
   "rulesVersion": "9ca246342bf81405",
   "vocabularyVersion": "2026-10-30",
@@ -1478,16 +1478,29 @@
       "path": "employee.age",
       "type": "number",
       "description": "Employee age in years",
-      "category": "3. Employee"
+      "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "age",
+        "years old"
+      ]
     },
     {
       "path": "employee.exempt_status",
       "type": "enum",
       "description": "FLSA exemption status",
       "category": "3. Employee",
+      "group": "3.1 Classification",
       "enumValues": [
         "exempt",
         "non_exempt"
+      ],
+      "synonyms": [
+        "exempt",
+        "non-exempt",
+        "FLSA status",
+        "overtime eligible",
+        "hourly vs salaried"
       ]
     },
     {
@@ -1500,26 +1513,48 @@
       "path": "employee.is_lactating",
       "type": "boolean",
       "description": "Whether the employee is nursing a child and has asked for lactation breaks",
-      "category": "3. Employee"
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union",
+      "synonyms": [
+        "nursing mother",
+        "breastfeeding employee",
+        "lactation accommodation requested",
+        "pumping breaks"
+      ]
     },
     {
       "path": "employee.is_minor",
       "type": "boolean",
       "description": "Whether employee is under 18",
       "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "minor",
+        "under 18",
+        "youth worker",
+        "teen employee"
+      ],
       "derived": "employee.age < 18"
     },
     {
       "path": "employee.tenure_months",
       "type": "number",
       "description": "Months employed with current employer",
-      "category": "3. Employee"
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union",
+      "synonyms": [
+        "tenure",
+        "length of service",
+        "months employed",
+        "seniority"
+      ]
     },
     {
       "path": "leave.type",
       "type": "enum",
       "description": "Type of leave requested",
       "category": "6. Leave",
+      "group": "4.4 Breaks",
       "enumValues": [
         "sick",
         "family",
@@ -1531,6 +1566,11 @@
         "domestic_violence",
         "military",
         "school_activity"
+      ],
+      "synonyms": [
+        "leave type",
+        "kind of leave",
+        "time off reason"
       ]
     },
     {
@@ -1538,6 +1578,7 @@
       "type": "number",
       "description": "Shift end hour (0-23, for curfew comparisons)",
       "category": "4. Shift",
+      "group": "4.1 Timing",
       "derived": "hour component of the shift end time (0-23)"
     },
     {
@@ -1545,6 +1586,12 @@
       "type": "number",
       "description": "Hours worked in the current workweek",
       "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "synonyms": [
+        "weekly hours",
+        "hours this week",
+        "hours in the workweek"
+      ],
       "derived": "this shift's length plus the length of every other shift for the employee in the same workweek"
     },
     {
@@ -1552,6 +1599,7 @@
       "type": "boolean",
       "description": "Whether it is a school day (for minor labor rules)",
       "category": "4. Shift",
+      "group": "4.3 Shift Type",
       "derived": "weekday during the school year (simplified: Monday to Friday, September to mid-June)"
     },
     {
@@ -1559,6 +1607,7 @@
       "type": "boolean",
       "description": "Whether school is in session (school year vs summer)",
       "category": "4. Shift",
+      "group": "4.3 Shift Type",
       "derived": "date falls in the school year (simplified: September to mid-June)"
     },
     {
@@ -1566,6 +1615,12 @@
       "type": "number",
       "description": "Length of the current shift in hours",
       "category": "4. Shift",
+      "group": "4.1 Timing",
+      "synonyms": [
+        "shift length",
+        "hours scheduled",
+        "shift duration"
+      ],
       "derived": "(end time - start time) in hours; an end time at or before the start time means the shift crosses midnight"
     },
     {
@@ -1573,6 +1628,7 @@
       "type": "number",
       "description": "Shift start hour (0-23, for time-of-day comparisons)",
       "category": "4. Shift",
+      "group": "4.1 Timing",
       "derived": "hour component of the shift start time (0-23)"
     }
   ],

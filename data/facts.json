@@ -1,0 +1,1217 @@
+{
+  "$schema": "./schema/facts-file.schema.json",
+  "$comment": "Fact registry: the canonical vocabulary of applicability variables a rule's appliesWhen may test and a scenario or business profile may supply. Facts are observable inputs, not derived values (derived recipes live in server/scheduler/derivedFacts.ts). Enums over free text for bounded domains; one namespace per entity; scoped employee counts are separate facts. 'synonyms' are the terms people use for the same thing; resolveFact() in server/rules/facts.ts accepts a path or a synonym.",
+  "version": "2026-10-30",
+  "categories": [
+    {
+      "id": "1. Location",
+      "name": "Location"
+    },
+    {
+      "id": "2. Employer",
+      "name": "Employer"
+    },
+    {
+      "id": "3. Employee",
+      "name": "Employee"
+    },
+    {
+      "id": "4. Shift",
+      "name": "Shift"
+    },
+    {
+      "id": "5. Schedule",
+      "name": "Schedule"
+    },
+    {
+      "id": "6. Leave",
+      "name": "Leave"
+    },
+    {
+      "id": "7. Termination",
+      "name": "Termination"
+    },
+    {
+      "id": "8. Payroll",
+      "name": "Payroll"
+    }
+  ],
+  "facts": [
+    {
+      "path": "location.country",
+      "type": "string",
+      "description": "ISO country code (e.g. US, PR, GU)",
+      "category": "1. Location",
+      "group": "1.1 Work Location"
+    },
+    {
+      "path": "location.state",
+      "type": "string",
+      "description": "Two-letter state code (e.g. CA, NY)",
+      "category": "1. Location",
+      "group": "1.1 Work Location",
+      "synonyms": [
+        "state",
+        "work state",
+        "state code"
+      ]
+    },
+    {
+      "path": "location.city",
+      "type": "string",
+      "description": "City name",
+      "category": "1. Location",
+      "group": "1.1 Work Location",
+      "synonyms": [
+        "city",
+        "municipality",
+        "work city"
+      ]
+    },
+    {
+      "path": "location.county",
+      "type": "string",
+      "description": "County name",
+      "category": "1. Location",
+      "group": "1.1 Work Location",
+      "synonyms": [
+        "county"
+      ]
+    },
+    {
+      "path": "location.is_unincorporated",
+      "type": "boolean",
+      "description": "Whether work location is in an unincorporated area",
+      "category": "1. Location",
+      "group": "1.1 Work Location",
+      "synonyms": [
+        "unincorporated area",
+        "outside city limits"
+      ]
+    },
+    {
+      "path": "location.tribal_land",
+      "type": "boolean",
+      "description": "Whether work location is on tribal land",
+      "category": "1. Location",
+      "group": "1.1 Work Location"
+    },
+    {
+      "path": "location.primary_work_state",
+      "type": "string",
+      "description": "Primary work state for multi-state employees",
+      "category": "1. Location",
+      "group": "1.2 Primary Work Location (for multi-jurisdiction employees)"
+    },
+    {
+      "path": "location.primary_work_city",
+      "type": "string",
+      "description": "Primary work city",
+      "category": "1. Location",
+      "group": "1.2 Primary Work Location (for multi-jurisdiction employees)"
+    },
+    {
+      "path": "location.primary_work_county",
+      "type": "string",
+      "description": "Primary work county",
+      "category": "1. Location",
+      "group": "1.2 Primary Work Location (for multi-jurisdiction employees)"
+    },
+    {
+      "path": "location.employee_residence_state",
+      "type": "string",
+      "description": "Employee residence state (for leave laws)",
+      "category": "1. Location",
+      "group": "1.2 Primary Work Location (for multi-jurisdiction employees)"
+    },
+    {
+      "path": "location.employee_residence_city",
+      "type": "string",
+      "description": "Employee residence city",
+      "category": "1. Location",
+      "group": "1.2 Primary Work Location (for multi-jurisdiction employees)"
+    },
+    {
+      "path": "location.multi_state_employer",
+      "type": "boolean",
+      "description": "Whether employer operates in multiple states",
+      "category": "1. Location",
+      "group": "1.3 Multi-Jurisdiction"
+    },
+    {
+      "path": "location.multi_jurisdiction_employee",
+      "type": "boolean",
+      "description": "Whether employee works across multiple jurisdictions",
+      "category": "1. Location",
+      "group": "1.3 Multi-Jurisdiction"
+    },
+    {
+      "path": "employer.total_employees",
+      "type": "number",
+      "description": "Total number of employees (unscoped / as specified by rule)",
+      "category": "2. Employer",
+      "group": "2.1 Size",
+      "synonyms": [
+        "headcount",
+        "employee count",
+        "number of employees",
+        "company size"
+      ]
+    },
+    {
+      "path": "employer.total_employees_global",
+      "type": "number",
+      "description": "Total employees worldwide (all locations)",
+      "category": "2. Employer",
+      "group": "2.1 Size",
+      "synonyms": [
+        "employees worldwide",
+        "global headcount",
+        "total employees nationwide"
+      ]
+    },
+    {
+      "path": "employer.total_employees_us",
+      "type": "number",
+      "description": "Total employees in the United States",
+      "category": "2. Employer",
+      "group": "2.1 Size",
+      "synonyms": [
+        "US employees",
+        "domestic headcount"
+      ]
+    },
+    {
+      "path": "employer.total_employees_state",
+      "type": "number",
+      "description": "Total employees in the state",
+      "category": "2. Employer",
+      "group": "2.1 Size",
+      "synonyms": [
+        "employees in the state",
+        "in-state headcount"
+      ]
+    },
+    {
+      "path": "employer.total_employees_city",
+      "type": "number",
+      "description": "Total employees in the city",
+      "category": "2. Employer",
+      "group": "2.1 Size",
+      "synonyms": [
+        "employees in the city",
+        "local headcount"
+      ]
+    },
+    {
+      "path": "employer.total_employees_at_location",
+      "type": "number",
+      "description": "Total employees at the specific work location",
+      "category": "2. Employer",
+      "group": "2.1 Size",
+      "synonyms": [
+        "employees at the site",
+        "store headcount",
+        "location headcount"
+      ]
+    },
+    {
+      "path": "employer.number_of_locations",
+      "type": "number",
+      "description": "Number of business locations",
+      "category": "2. Employer",
+      "group": "2.1 Size"
+    },
+    {
+      "path": "employer.annual_gross_revenue",
+      "type": "money",
+      "description": "Annual gross revenue in dollars",
+      "category": "2. Employer",
+      "group": "2.2 Revenue"
+    },
+    {
+      "path": "employer.annual_gross_sales",
+      "type": "money",
+      "description": "Annual gross sales in dollars (FLSA enterprise coverage)",
+      "category": "2. Employer",
+      "group": "2.2 Revenue"
+    },
+    {
+      "path": "employer.is_franchisee",
+      "type": "boolean",
+      "description": "Whether employer is a franchisee",
+      "category": "2. Employer",
+      "group": "2.3 Structure"
+    },
+    {
+      "path": "employer.is_franchisor",
+      "type": "boolean",
+      "description": "Whether employer is a franchisor",
+      "category": "2. Employer",
+      "group": "2.3 Structure"
+    },
+    {
+      "path": "employer.is_chain",
+      "type": "boolean",
+      "description": "Whether employer is part of a chain (typically 30+ locations)",
+      "category": "2. Employer",
+      "group": "2.3 Structure"
+    },
+    {
+      "path": "employer.is_joint_employer",
+      "type": "boolean",
+      "description": "Whether employer is a joint employer (aggregates employee counts)",
+      "category": "2. Employer",
+      "group": "2.3 Structure"
+    },
+    {
+      "path": "employer.is_staffing_agency",
+      "type": "boolean",
+      "description": "Whether employer is a staffing/temp agency",
+      "category": "2. Employer",
+      "group": "2.3 Structure"
+    },
+    {
+      "path": "employer.is_government_entity",
+      "type": "boolean",
+      "description": "Whether employer is a government entity",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.is_nonprofit",
+      "type": "boolean",
+      "description": "Whether employer is a nonprofit organization",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.is_federal_contractor",
+      "type": "boolean",
+      "description": "Whether employer is a federal contractor",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.is_state_contractor",
+      "type": "boolean",
+      "description": "Whether employer is a state contractor",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.is_prevailing_wage_project",
+      "type": "boolean",
+      "description": "Whether work is on a prevailing wage project (Davis-Bacon)",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.has_collective_bargaining_agreement",
+      "type": "boolean",
+      "description": "Whether a CBA covers the workforce or relevant employees",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.is_unionized_workforce",
+      "type": "boolean",
+      "description": "Whether the workforce is unionized",
+      "category": "2. Employer",
+      "group": "2.4 Government & Union"
+    },
+    {
+      "path": "employer.industry_tag",
+      "type": "enum",
+      "description": "Primary industry classification",
+      "category": "2. Employer",
+      "group": "2.5 Industry (merged from Business namespace)",
+      "enumValues": [
+        "retail",
+        "fast_food",
+        "restaurant",
+        "hospitality",
+        "hotel",
+        "healthcare",
+        "manufacturing",
+        "construction",
+        "agriculture",
+        "transportation",
+        "warehouse",
+        "education",
+        "cannabis",
+        "staffing_agency",
+        "gig_platform",
+        "domestic_service",
+        "other"
+      ],
+      "synonyms": [
+        "industry",
+        "sector",
+        "business type",
+        "NAICS category"
+      ]
+    },
+    {
+      "path": "employer.operates_24_hours",
+      "type": "boolean",
+      "description": "Whether the business operates 24 hours",
+      "category": "2. Employer"
+    },
+    {
+      "path": "employer.hotel_room_count",
+      "type": "number",
+      "description": "Number of hotel rooms (for hotel worker ordinances)",
+      "category": "2. Employer",
+      "group": "2.5 Industry (merged from Business namespace)"
+    },
+    {
+      "path": "employee.exempt_status",
+      "type": "enum",
+      "description": "FLSA exemption status",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "exempt",
+        "non_exempt"
+      ],
+      "synonyms": [
+        "exempt",
+        "non-exempt",
+        "FLSA status",
+        "overtime eligible",
+        "hourly vs salaried"
+      ]
+    },
+    {
+      "path": "employee.worker_type",
+      "type": "enum",
+      "description": "Worker classification type",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "w2_employee",
+        "independent_contractor",
+        "temp_agency",
+        "intern",
+        "volunteer"
+      ],
+      "synonyms": [
+        "worker classification",
+        "employee or contractor"
+      ]
+    },
+    {
+      "path": "employee.employment_status",
+      "type": "enum",
+      "description": "Employment status",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "full_time",
+        "part_time",
+        "temporary",
+        "seasonal",
+        "probationary"
+      ],
+      "synonyms": [
+        "full-time or part-time",
+        "employment type"
+      ]
+    },
+    {
+      "path": "employee.probationary_status",
+      "type": "boolean",
+      "description": "Whether employee is in probationary period",
+      "category": "3. Employee",
+      "group": "3.1 Classification"
+    },
+    {
+      "path": "employee.age",
+      "type": "number",
+      "description": "Employee age in years",
+      "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "age",
+        "years old"
+      ]
+    },
+    {
+      "path": "employee.is_minor",
+      "type": "boolean",
+      "description": "Whether employee is under 18",
+      "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "minor",
+        "under 18",
+        "youth worker",
+        "teen employee"
+      ]
+    },
+    {
+      "path": "employee.is_school_enrolled",
+      "type": "boolean",
+      "description": "Whether employee (minor) is enrolled in school",
+      "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "enrolled in school",
+        "student"
+      ]
+    },
+    {
+      "path": "employee.has_work_permit",
+      "type": "boolean",
+      "description": "Whether minor has a valid work permit",
+      "category": "3. Employee",
+      "group": "3.2 Demographics",
+      "synonyms": [
+        "work permit",
+        "age certificate",
+        "employment certificate"
+      ]
+    },
+    {
+      "path": "employee.job_category",
+      "type": "enum",
+      "description": "Occupation category for industry-specific rules",
+      "category": "3. Employee",
+      "group": "3.3 Occupation",
+      "enumValues": [
+        "food_service",
+        "healthcare",
+        "retail",
+        "hotel",
+        "security",
+        "domestic",
+        "agricultural",
+        "office",
+        "driver",
+        "nurse",
+        "other"
+      ]
+    },
+    {
+      "path": "employee.tenure_months",
+      "type": "number",
+      "description": "Months employed with current employer",
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union",
+      "synonyms": [
+        "tenure",
+        "length of service",
+        "months employed",
+        "seniority"
+      ]
+    },
+    {
+      "path": "employee.hours_worked_last_12_months",
+      "type": "number",
+      "description": "Total hours worked in prior 12 months (for FMLA eligibility)",
+      "category": "3. Employee"
+    },
+    {
+      "path": "employee.hire_date",
+      "type": "date",
+      "description": "Employee hire date (ISO YYYY-MM-DD)",
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union"
+    },
+    {
+      "path": "employee.is_lactating",
+      "type": "boolean",
+      "description": "Whether the employee is nursing a child and has asked for lactation breaks",
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union",
+      "synonyms": [
+        "nursing mother",
+        "breastfeeding employee",
+        "lactation accommodation requested",
+        "pumping breaks"
+      ]
+    },
+    {
+      "path": "employee.union_member",
+      "type": "boolean",
+      "description": "Whether employee is a union member",
+      "category": "3. Employee",
+      "group": "3.4 Tenure & Union"
+    },
+    {
+      "path": "employee.remote_worker",
+      "type": "boolean",
+      "description": "Whether employee works remotely",
+      "category": "3. Employee",
+      "group": "3.5 Work Arrangement"
+    },
+    {
+      "path": "employee.regular_hourly_rate",
+      "type": "money",
+      "description": "Employee regular hourly pay rate in dollars",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "synonyms": [
+        "hourly rate",
+        "regular rate",
+        "base pay rate",
+        "wage rate"
+      ]
+    },
+    {
+      "path": "employee.cash_wage",
+      "type": "money",
+      "description": "Tipped employee cash wage before tip credit (dollars/hour)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation"
+    },
+    {
+      "path": "employee.weekly_salary",
+      "type": "money",
+      "description": "Weekly salary in dollars (for exemption threshold tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation"
+    },
+    {
+      "path": "employee.tipped_status",
+      "type": "enum",
+      "description": "Whether employee receives tips",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "tipped",
+        "non_tipped"
+      ],
+      "synonyms": [
+        "tipped employee",
+        "receives tips"
+      ]
+    },
+    {
+      "path": "employee.receives_service_charges",
+      "type": "boolean",
+      "description": "Whether employee receives service charges (distinct from tips)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation"
+    },
+    {
+      "path": "employee.pay_structure",
+      "type": "enum",
+      "description": "How employee is paid (for exemption tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "hourly",
+        "salary",
+        "piece_rate",
+        "commission",
+        "day_rate"
+      ]
+    },
+    {
+      "path": "employee.pay_frequency",
+      "type": "enum",
+      "description": "How often employee is paid",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+      ]
+    },
+    {
+      "path": "shift.date",
+      "type": "date",
+      "description": "Shift date (ISO YYYY-MM-DD)",
+      "category": "4. Shift",
+      "group": "4.1 Timing",
+      "synonyms": [
+        "shift date",
+        "work date"
+      ]
+    },
+    {
+      "path": "shift.start_time",
+      "type": "string",
+      "description": "Shift start time (HH:MM, 24-hour)",
+      "category": "4. Shift",
+      "group": "4.1 Timing",
+      "synonyms": [
+        "clock in",
+        "shift start",
+        "start time"
+      ]
+    },
+    {
+      "path": "shift.end_time",
+      "type": "string",
+      "description": "Shift end time (HH:MM, 24-hour)",
+      "category": "4. Shift",
+      "group": "4.1 Timing",
+      "synonyms": [
+        "clock out",
+        "shift end",
+        "end time"
+      ]
+    },
+    {
+      "path": "shift.start_hour",
+      "type": "number",
+      "description": "Shift start hour (0-23, for time-of-day comparisons)",
+      "category": "4. Shift",
+      "group": "4.1 Timing"
+    },
+    {
+      "path": "shift.end_hour",
+      "type": "number",
+      "description": "Shift end hour (0-23, for curfew comparisons)",
+      "category": "4. Shift",
+      "group": "4.1 Timing"
+    },
+    {
+      "path": "shift.shift_length_hours",
+      "type": "number",
+      "description": "Length of the current shift in hours",
+      "category": "4. Shift",
+      "group": "4.1 Timing",
+      "synonyms": [
+        "shift length",
+        "hours scheduled",
+        "shift duration"
+      ]
+    },
+    {
+      "path": "shift.hours_worked_today",
+      "type": "number",
+      "description": "Hours worked in the current day",
+      "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "synonyms": [
+        "daily hours",
+        "hours today"
+      ]
+    },
+    {
+      "path": "shift.hours_worked_this_week",
+      "type": "number",
+      "description": "Hours worked in the current workweek",
+      "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "synonyms": [
+        "weekly hours",
+        "hours this week",
+        "hours in the workweek"
+      ]
+    },
+    {
+      "path": "shift.consecutive_days_worked",
+      "type": "number",
+      "description": "Number of consecutive days worked including today",
+      "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "synonyms": [
+        "consecutive days",
+        "days in a row"
+      ]
+    },
+    {
+      "path": "shift.is_seventh_consecutive_day",
+      "type": "boolean",
+      "description": "Whether this is the 7th consecutive day worked",
+      "category": "4. Shift",
+      "group": "4.2 Hours Worked"
+    },
+    {
+      "path": "shift.is_split_shift",
+      "type": "boolean",
+      "description": "Whether this is a split shift",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "split shift"
+      ]
+    },
+    {
+      "path": "shift.split_shift_gap_minutes",
+      "type": "number",
+      "description": "Minutes between split shift segments",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.is_on_call",
+      "type": "boolean",
+      "description": "Whether this is an on-call shift",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "on-call shift",
+        "standby shift",
+        "call-in shift"
+      ]
+    },
+    {
+      "path": "shift.is_holiday",
+      "type": "boolean",
+      "description": "Whether the shift falls on a recognized holiday",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.is_school_day",
+      "type": "boolean",
+      "description": "Whether it is a school day (for minor labor rules)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.school_in_session",
+      "type": "boolean",
+      "description": "Whether school is in session (school year vs summer)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.hours_since_last_shift_end",
+      "type": "number",
+      "description": "Hours between end of last shift and start of this one (clopening)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "rest between shifts",
+        "turnaround time",
+        "clopening gap",
+        "hours since last shift"
+      ]
+    },
+    {
+      "path": "shift.hours_worked_at_report",
+      "type": "number",
+      "description": "Hours actually worked when employee reported (for reporting time pay)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.scheduled_hours",
+      "type": "number",
+      "description": "Originally scheduled shift length in hours",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.paid_hours",
+      "type": "number",
+      "description": "Actual hours paid for the shift (may differ from worked hours due to reporting time pay)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.employee_reported",
+      "type": "boolean",
+      "description": "Whether the employee reported to work as scheduled",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.sent_home_early",
+      "type": "boolean",
+      "description": "Whether the employee was sent home before shift end",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.spread_of_hours",
+      "type": "number",
+      "description": "Total span from first clock-in to last clock-out in a day (includes breaks)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type"
+    },
+    {
+      "path": "shift.meal_break_provided",
+      "type": "boolean",
+      "description": "Whether a meal break was provided",
+      "category": "4. Shift",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "meal break taken",
+        "lunch break given"
+      ]
+    },
+    {
+      "path": "shift.meal_break_minutes",
+      "type": "number",
+      "description": "Duration of meal break in minutes",
+      "category": "4. Shift",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "shift.meal_break_waived",
+      "type": "boolean",
+      "description": "Whether meal break was waived by mutual consent",
+      "category": "4. Shift",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "shift.rest_break_provided",
+      "type": "boolean",
+      "description": "Whether a rest break was provided",
+      "category": "4. Shift",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "rest break taken",
+        "paid break given"
+      ]
+    },
+    {
+      "path": "shift.rest_break_minutes",
+      "type": "number",
+      "description": "Duration of rest break in minutes",
+      "category": "4. Shift",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "schedule.advance_notice_days",
+      "type": "number",
+      "description": "Days in advance the schedule was posted",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "advance notice",
+        "schedule notice",
+        "days of notice",
+        "posting lead time"
+      ]
+    },
+    {
+      "path": "schedule.was_changed",
+      "type": "boolean",
+      "description": "Whether the schedule was changed after posting",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule change",
+        "shift amended",
+        "schedule modified"
+      ]
+    },
+    {
+      "path": "schedule.change_type",
+      "type": "enum",
+      "description": "Type of schedule change",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "hours_added",
+        "hours_reduced",
+        "time_changed",
+        "location_changed",
+        "shift_cancelled",
+        "on_call_to_work",
+        "on_call_not_needed"
+      ],
+      "synonyms": [
+        "type of change",
+        "added hours",
+        "reduced hours",
+        "shift cancelled"
+      ]
+    },
+    {
+      "path": "schedule.hours_added",
+      "type": "number",
+      "description": "Number of hours added to schedule",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "schedule.hours_reduced",
+      "type": "number",
+      "description": "Number of hours reduced from schedule",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "schedule.employee_consented",
+      "type": "boolean",
+      "description": "Whether the employee consented to the change",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "employee consent",
+        "written consent",
+        "agreed to change"
+      ]
+    },
+    {
+      "path": "schedule.employer_initiated",
+      "type": "boolean",
+      "description": "Whether the change was employer-initiated",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "employer-initiated change",
+        "management change"
+      ]
+    },
+    {
+      "path": "schedule.called_in",
+      "type": "boolean",
+      "description": "Whether employee was called in to work",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "called in to work",
+        "on-call activated"
+      ]
+    },
+    {
+      "path": "schedule.good_faith_estimate_provided",
+      "type": "boolean",
+      "description": "Whether a good faith schedule estimate was provided at hire",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "good faith estimate",
+        "GFE given",
+        "estimate of hours"
+      ]
+    },
+    {
+      "path": "schedule.new_hire_pending",
+      "type": "boolean",
+      "description": "Whether the employer is about to hire a new employee, or bring in agency or temporary staff, to cover hours",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "hiring new staff",
+        "about to hire",
+        "open requisition"
+      ]
+    },
+    {
+      "path": "schedule.hours_offered_to_existing_staff",
+      "type": "boolean",
+      "description": "Whether those hours were first offered to existing (part-time) employees for the required window",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "offered hours internally",
+        "access to hours offer",
+        "posted open shifts"
+      ]
+    },
+    {
+      "path": "leave.type",
+      "type": "enum",
+      "description": "Type of leave requested",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "sick",
+        "family",
+        "medical",
+        "parental",
+        "bereavement",
+        "jury_duty",
+        "voting",
+        "domestic_violence",
+        "military",
+        "school_activity"
+      ],
+      "synonyms": [
+        "leave type",
+        "kind of leave",
+        "time off reason"
+      ]
+    },
+    {
+      "path": "leave.reason",
+      "type": "enum",
+      "description": "Specific qualifying reason for leave",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "own_illness",
+        "family_illness",
+        "childbirth",
+        "adoption",
+        "foster_care",
+        "military_deployment",
+        "domestic_violence",
+        "sexual_assault",
+        "stalking",
+        "other"
+      ]
+    },
+    {
+      "path": "leave.family_relationship",
+      "type": "enum",
+      "description": "Relationship to family member (for FMLA qualifying)",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "spouse",
+        "child",
+        "parent",
+        "sibling",
+        "grandparent",
+        "grandchild",
+        "domestic_partner",
+        "in_law"
+      ]
+    },
+    {
+      "path": "leave.is_intermittent",
+      "type": "boolean",
+      "description": "Whether leave is taken intermittently",
+      "category": "6. Leave",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "leave.hours_requested",
+      "type": "number",
+      "description": "Hours of leave requested",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "leave hours",
+        "time off requested"
+      ]
+    },
+    {
+      "path": "leave.hours_accrued",
+      "type": "number",
+      "description": "Hours of leave accrued/available",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "accrued leave",
+        "leave balance"
+      ]
+    },
+    {
+      "path": "leave.days_notice_given",
+      "type": "number",
+      "description": "Days of advance notice given for leave request",
+      "category": "6. Leave",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "leave.medical_certification_provided",
+      "type": "boolean",
+      "description": "Whether medical certification was provided",
+      "category": "6. Leave",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "leave.start_date",
+      "type": "date",
+      "description": "Leave start date (ISO YYYY-MM-DD)",
+      "category": "6. Leave",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "leave.end_date",
+      "type": "date",
+      "description": "Leave end date (ISO YYYY-MM-DD)",
+      "category": "6. Leave",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "leave.family_medical_weeks_available",
+      "type": "number",
+      "description": "Weeks of family/medical leave available per year",
+      "category": "6. Leave",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "leave.sick_hours_accrued",
+      "type": "number",
+      "description": "Sick leave hours accrued/available",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "sick leave balance",
+        "sick time accrued",
+        "PSL balance"
+      ]
+    },
+    {
+      "path": "termination.type",
+      "type": "enum",
+      "description": "Type of employment separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "voluntary_resignation",
+        "involuntary_discharge",
+        "layoff",
+        "constructive_discharge",
+        "end_of_contract",
+        "retirement"
+      ]
+    },
+    {
+      "path": "termination.reason",
+      "type": "string",
+      "description": "Reason for termination (for final pay timing rules)",
+      "category": "7. Termination",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.days_since_separation",
+      "type": "number",
+      "description": "Calendar days since employment ended",
+      "category": "7. Termination",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.is_mass_layoff",
+      "type": "boolean",
+      "description": "Whether this is part of a mass layoff",
+      "category": "7. Termination",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.employees_affected",
+      "type": "number",
+      "description": "Number of employees affected in mass layoff",
+      "category": "7. Termination",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.notice_days_given",
+      "type": "number",
+      "description": "Days of advance notice given before separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks"
+    },
+    {
+      "path": "payroll.pay_frequency",
+      "type": "enum",
+      "description": "Employer pay frequency",
+      "category": "8. Payroll",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+      ]
+    },
+    {
+      "path": "payroll.days_since_pay_period_end",
+      "type": "number",
+      "description": "Days elapsed since end of pay period (for timely payment rules)",
+      "category": "8. Payroll",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "days since pay period ended",
+        "payday lag"
+      ]
+    }
+  ]
+}

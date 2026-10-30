@@ -8,7 +8,7 @@ Rules are plain JSON data files under `data/rules/`, one file per topic, loaded
 at startup through the same validator that used to guard hand-written TypeScript
 rules. Reference data (the rule taxonomy and the jurisdiction tree) also lives
 under `data/`. The validator enforces:
-- All referenced facts exist in the fact registry
+- All referenced facts exist in the fact registry (`data/facts.json`)
 - Operators match fact types (no `>` on booleans)
 - No vague values ("varies", "unknown")
 - Required citation, effective date, and ID
@@ -51,9 +51,11 @@ data/
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 30 local jurisdictions (FIPS, parent,
                           preemption flags with statute citations; 28 states preempt some local labor rule)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
+  facts.json            — Fact registry: every fact a rule may test (118 facts in 8 categories, typed,
+                          with enum values and plain-language synonyms)
   profiles/             — Business profiles (sample multi-state retail chain)
   rules/<topic>.json    — All rules, one file per taxonomy topic code (624 rules across 13 topics)
-  schema/               — JSON Schema for rule files (editor validation)
+  schema/               — JSON Schema for rule files and facts.json (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
   buildPacks.ts         — Writes one rule pack per location for a business profile
@@ -76,7 +78,7 @@ server/
     partialEvaluate.ts  — Three-valued condition evaluation against partial facts
   rules/
     types.ts            — Core type definitions
-    facts.ts            — Fact registry (118 facts)
+    facts.ts            — Loads data/facts.json; lookups by path, type, enum values, synonym
     conditions.ts       — Condition DSL validation
     createRule.ts       — Rule validator
     loadRules.ts        — Loads and cross-checks data/rules/*.json
