@@ -70,7 +70,8 @@
             { "code": "sched.predictive.good_faith_estimate", "name": "Good faith estimate of hours at hire" },
             { "code": "sched.predictive.right_to_decline", "name": "Right to decline unscheduled hours" },
             { "code": "sched.predictive.access_to_hours", "name": "Access to hours / offer to existing part-timers" },
-            { "code": "sched.predictive.right_to_request", "name": "Right to request schedule changes" }
+            { "code": "sched.predictive.right_to_request", "name": "Right to request schedule changes" },
+            { "code": "sched.predictive.on_call", "name": "On-call shift restrictions" }
           ] },
         { "code": "sched.shift_structure", "name": "Shift Structure Rules", "enforcement": "kronto", "legacyTopic": "shift_structure",
           "subtopics": [
@@ -129,7 +130,8 @@
             { "code": "minor.labor.night_work", "name": "Night work restrictions for minors" },
             { "code": "minor.labor.breaks", "name": "Meal and rest breaks for minors" },
             { "code": "minor.labor.permits", "name": "Work permits and age certificates" },
-            { "code": "minor.labor.prohibited_occupations", "name": "Prohibited occupations" }
+            { "code": "minor.labor.prohibited_occupations", "name": "Prohibited occupations" },
+            { "code": "minor.labor.general", "name": "General child labor law (summary rules covering permits, hours and prohibited occupations)" }
           ] }
       ]
     },

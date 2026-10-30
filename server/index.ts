@@ -3,7 +3,7 @@ import cors from "cors";
 import { RULES, SKIPPED, evaluateRules, getAllFacts } from "./rules/index.js";
 import { schedulerRouter } from "./scheduler/index.js";
 import { packsRouter } from "./packs/index.js";
-import { buildCoverageMatrix, summarizeCoverage, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./rules/coverageMatrix.js";
+import { buildCoverageMatrix, summarizeCoverage, MATRIX_ROWS_BY_TOPIC_CODE, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./rules/coverageMatrix.js";
 import { TAXONOMY, getAllTaxonomyNodes } from "./reference/taxonomy.js";
 import { JURISDICTIONS_FILE, getJurisdictionChain } from "./reference/jurisdictions.js";
 import { VOCABULARY } from "./reference/vocabulary.js";
@@ -94,7 +94,7 @@ app.post("/api/ts-rules/evaluate", (req, res) => {
 app.get("/api/coverage", (_req, res) => {
   const matrix = buildCoverageMatrix(RULES);
   const summary = summarizeCoverage(matrix);
-  res.json({ states: ALL_STATES, locals: ALL_LOCALS, topics: ALL_TOPICS, summary, matrix });
+  res.json({ states: ALL_STATES, locals: ALL_LOCALS, topics: ALL_TOPICS, rowsByTopicCode: MATRIX_ROWS_BY_TOPIC_CODE, summary, matrix });
 });
 
 // ─── Reference Data API ────────────────────────────────────────────

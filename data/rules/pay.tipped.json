@@ -1,0 +1,301 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "pay.tipped",
+  "rules": [
+    {
+      "id": "ct-tipped-hotel-restaurant-mw-2025",
+      "title": "Connecticut Tipped Hotel/Restaurant Worker Cash Wage ($6.38)",
+      "jurisdiction": "CT",
+      "topic": "pay.tipped.cash_wage",
+      "status": "active",
+      "effectiveFrom": "2025-06-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "food_service",
+              "hotel"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 6.38
+        },
+        "summary": "$6.38 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Connecticut General Statutes \u00a731-62",
+          "url": "https://www.ctdol.state.ct.us/wgwkstnd/wage-hour/minimum-wage.htm",
+          "section": "Conn. Gen. Stat. \u00a731-62 (tipped employees)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-tipped-mw-2025",
+      "title": "DC Tipped Employee Cash Wage ($10.00)",
+      "jurisdiction": "DC",
+      "topic": "pay.tipped.cash_wage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10
+        },
+        "summary": "$10.00 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "DC Code \u00a732-1003(f)",
+          "url": "https://does.dc.gov/service/office-wage-hour-compliance",
+          "section": "DC Code \u00a732-1003(f)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-tipped-mw-2025",
+      "title": "New Jersey Tipped Employee Cash Wage ($5.62)",
+      "jurisdiction": "NJ",
+      "topic": "pay.tipped.cash_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 5.62
+        },
+        "summary": "$5.62 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New Jersey Wage and Hour Law, N.J.S.A. 34:11-56a4",
+          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/wageandhourlaws.shtml",
+          "section": "N.J.S.A. 34:11-56a4 (tipped employees)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-state-tipped-food-service-mw-2025",
+      "title": "New York State Tipped Food Service Cash Wage ($10.65)",
+      "jurisdiction": "NY",
+      "topic": "pay.tipped.cash_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "not_in",
+            "value": [
+              "New York City",
+              "Nassau County",
+              "Suffolk County",
+              "Westchester County"
+            ]
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "food_service"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 10.65
+        },
+        "summary": "$10.65 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR \u00a7146-1.3 (upstate food service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-food-service-mw-2025",
+      "title": "NYC Tipped Food Service Worker Cash Wage ($12.50)",
+      "jurisdiction": "New York City",
+      "topic": "pay.tipped.cash_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "food_service"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.5
+        },
+        "summary": "$12.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR \u00a7146-1.3 (food service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-service-mw-2025",
+      "title": "NYC Tipped Service Worker Cash Wage ($14.50)",
+      "jurisdiction": "New York City",
+      "topic": "pay.tipped.cash_wage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "hotel",
+              "retail",
+              "other"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.5
+        },
+        "summary": "$14.50 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law \u00a7652, 12 NYCRR \u00a7146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR \u00a7146-1.3 (service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    }
+  ]
+}

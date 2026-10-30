@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-20T21:02:34.649Z",
+  "generatedAt": "2026-10-21T20:42:37.883Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "2b61e4ed33aef827",
+  "rulesVersion": "78afbd1564a5b020",
   "vocabularyVersion": "2026-10-20",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,64 +39,12 @@
   ],
   "rules": [
     {
-      "id": "ny-day-of-rest",
-      "title": "New York Day of Rest (24 consecutive hours off per calendar week)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "day_of_rest",
-      "topicCode": "sched.shift_structure.day_of_rest",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2010-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.is_seventh_consecutive_day",
-            "op": "=",
-            "value": true
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.is_seventh_consecutive_day"
-      ],
-      "result": {
-        "type": "prohibition",
-        "obligation": "rest.weekly_day_of_rest",
-        "params": {
-          "max_consecutive_days": 6,
-          "rest_hours": 24,
-          "period_days": 7
-        },
-        "summary": "Scheduling employee to work 7 consecutive days without 24 consecutive hours of rest",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NY Labor Law §161",
-          "url": "https://www.nysenate.gov/legislation/laws/LAB/161",
-          "section": "§161(1)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
       "id": "federal-fmla-eligibility",
       "title": "Federal FMLA — Employee Eligibility",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.eligibility",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -158,7 +106,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -195,440 +143,80 @@
       ]
     },
     {
-      "id": "ny-meal-break-evening",
-      "title": "New York Additional Evening Meal Break (shift past 7pm)",
+      "id": "ny-sick-leave-100-plus",
+      "title": "NY Paid Sick Leave — 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
       "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2010-01-01",
+      "effectiveFrom": "2020-09-30",
       "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 10
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
+        "all": []
       },
       "satisfiedBy": [
+        "employer.total_employees",
         "location.state"
       ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "required_break",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 20,
-          "after_hours": 10
-        },
-        "summary": "20-minute meal break for shifts of 10+ hours",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NY Labor Law §162(3)",
-          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(3)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "ny-meal-break-nonfactory",
-      "title": "New York Meal Break — Non-Factory (>6 hr shift spanning noon)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2010-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 6
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "employer.industry_tag",
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "required_break",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 6
-        },
-        "summary": "30-minute meal break for shifts of 6+ hours",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NY Labor Law §162(2)",
-          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "§162(2)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "ny-meal-break-scheduling-warning",
-      "title": "New York — Meal Break Required (shifts > 6 hrs)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2010-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 6
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "warning",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 6
-        },
-        "summary": "New York requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled.",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NY Labor Law §162",
-          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
-          "section": "NY Lab. Law §162",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "federal-minimum-wage-7.25",
-      "title": "Federal Minimum Wage (FLSA)",
-      "jurisdiction": "Federal",
-      "jurisdictionId": "us",
-      "jurisdictionType": "federal",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2009-07-24",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.country"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 7.25
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
         },
-        "summary": "$7.25 per hour minimum wage",
-        "kronto": "block"
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "Fair Labor Standards Act §206(a)(1)",
-          "url": "https://www.law.cornell.edu/uscode/text/29/206",
-          "section": "29 U.S.C. §206(a)(1)",
+          "source": "NY Labor Law §196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "§196-b(1)(c)",
           "kind": "statute"
         }
       ]
     },
     {
-      "id": "nyc-ny-mw-2026",
-      "title": "New York City Minimum Wage ($17.00/hr)",
+      "id": "new-york-city-sick-leave",
+      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
       "jurisdiction": "New York City",
       "jurisdictionId": "us-ny-new-york-city",
       "jurisdictionType": "city",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2026-01-01",
+      "effectiveFrom": "2020-09-30",
       "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
+        "all": []
       },
       "satisfiedBy": [
-        "location.city",
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 17
-        },
-        "summary": "$17.00 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NYC Minimum Wage (NY Labor Law §652)",
-          "url": "https://dol.ny.gov/minimum-wage-0",
-          "section": "NY Labor Law §652(a)(ii)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "nyc-tipped-food-service-mw-2025",
-      "title": "NYC Tipped Food Service Worker Cash Wage ($12.50)",
-      "jurisdiction": "New York City",
-      "jurisdictionId": "us-ny-new-york-city",
-      "jurisdictionType": "city",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2025-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "employee.tipped_status",
-            "op": "=",
-            "value": "tipped"
-          },
-          {
-            "fact": "employee.job_category",
-            "op": "=",
-            "value": "food_service"
-          }
-        ]
-      },
-      "satisfiedBy": [
+        "employer.total_employees",
         "location.city"
       ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "employee.job_category",
-        "employee.tipped_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 12.5
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
         },
-        "summary": "$12.50 per hour minimum wage",
-        "kronto": "block"
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
-          "url": "https://dol.ny.gov/minimum-wage",
-          "section": "12 NYCRR §146-1.3 (food service tip credit)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "nyc-tipped-service-mw-2025",
-      "title": "NYC Tipped Service Worker Cash Wage ($14.50)",
-      "jurisdiction": "New York City",
-      "jurisdictionId": "us-ny-new-york-city",
-      "jurisdictionType": "city",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2025-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "employee.tipped_status",
-            "op": "=",
-            "value": "tipped"
-          },
-          {
-            "fact": "employee.job_category",
-            "op": "in",
-            "value": [
-              "hotel",
-              "retail",
-              "other"
-            ]
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.city"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "employee.job_category",
-        "employee.tipped_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 14.5
-        },
-        "summary": "$14.50 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
-          "url": "https://dol.ny.gov/minimum-wage",
-          "section": "12 NYCRR §146-1.3 (service tip credit)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "ny-minimum-wage-downstate-2025",
-      "title": "New York Minimum Wage (NYC, Nassau, Suffolk, Westchester)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2025-01-01",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.city",
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 17
-        },
-        "summary": "$17.00 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "New York Labor Law §652",
-          "url": "https://dol.ny.gov/minimum-wage",
-          "section": "NY Lab. Law §652",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "ny-minimum-wage-statewide-2025",
-      "title": "New York Minimum Wage (Statewide Floor)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2025-01-01",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 16
-        },
-        "summary": "$16.00 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "New York Labor Law §652",
-          "url": "https://dol.ny.gov/minimum-wage",
-          "section": "NY Lab. Law §652",
-          "kind": "statute"
+          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
+          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
+          "section": "NYC Admin Code §20-911 et seq.",
+          "kind": "ordinance"
         }
       ]
     },
@@ -638,7 +226,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -706,7 +294,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -774,7 +362,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -835,7 +423,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -903,7 +491,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -971,7 +559,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1039,7 +627,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1107,7 +695,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1177,7 +765,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1247,7 +835,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1317,7 +905,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1387,7 +975,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1452,12 +1040,174 @@
       ]
     },
     {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-downstate-2025",
+      "title": "New York Minimum Wage (NYC, Nassau, Suffolk, Westchester)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law §652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-minimum-wage-statewide-2025",
+      "title": "New York Minimum Wage (Statewide Floor)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16
+        },
+        "summary": "$16.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "NY Lab. Law §652",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ny-mw-2026",
+      "title": "New York City Minimum Wage ($17.00/hr)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 17
+        },
+        "summary": "$17.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Minimum Wage (NY Labor Law §652)",
+          "url": "https://dol.ny.gov/minimum-wage-0",
+          "section": "NY Labor Law §652(a)(ii)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "federal-overtime-weekly-40",
       "title": "Federal Weekly Overtime (FLSA)",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1507,7 +1257,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1565,7 +1315,7 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1612,147 +1362,13 @@
       ]
     },
     {
-      "id": "nyc-retail-advance-notice-72hr",
-      "title": "NYC Retail — 72-Hour Advance Notice Required",
-      "jurisdiction": "New York City",
-      "jurisdictionId": "us-ny-new-york-city",
-      "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
-      "topicCode": "sched.predictive",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2017-11-26",
-      "appliesWhen": {
-        "fact": "schedule.advance_notice_days",
-        "op": "<",
-        "value": 3
-      },
-      "satisfiedBy": [
-        "employer.industry_tag",
-        "employer.total_employees_global",
-        "location.city"
-      ],
-      "factsNeeded": [
-        "schedule.advance_notice_days"
-      ],
-      "result": {
-        "type": "prohibition",
-        "obligation": "sched.advance_notice",
-        "params": {
-          "notice_days": 3
-        },
-        "summary": "Posting retail employee schedules with less than 72 hours advance notice",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
-          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1241",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "nyc-retail-on-call-ban",
-      "title": "NYC Retail — On-Call Scheduling Prohibited",
-      "jurisdiction": "New York City",
-      "jurisdictionId": "us-ny-new-york-city",
-      "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
-      "topicCode": "sched.predictive",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2017-11-26",
-      "appliesWhen": {
-        "fact": "shift.is_on_call",
-        "op": "=",
-        "value": true
-      },
-      "satisfiedBy": [
-        "employer.industry_tag",
-        "employer.total_employees_global",
-        "location.city"
-      ],
-      "factsNeeded": [
-        "shift.is_on_call"
-      ],
-      "result": {
-        "type": "prohibition",
-        "obligation": "sched.on_call_ban",
-        "params": {},
-        "summary": "Requiring retail employees to be on-call (must schedule or not schedule; cannot require availability without pay)",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
-          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1243",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "ny-spread-of-hours",
-      "title": "New York Spread of Hours Pay (>10 hr span = +1 hr at min wage)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "premium_pay",
-      "topicCode": "pay.premium",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2011-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.spread_of_hours",
-            "op": ">",
-            "value": 10
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.spread_of_hours"
-      ],
-      "result": {
-        "type": "premium_required",
-        "obligation": "premium.spread_of_hours",
-        "params": {
-          "amount": 1,
-          "spread_hours": 10,
-          "rate_basis": "minimum_wage"
-        },
-        "summary": "1 additional hour at the applicable minimum wage rate",
-        "kronto": "premium"
-      },
-      "citations": [
-        {
-          "source": "12 NYCRR §142-2.4",
-          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
-          "section": "12 NYCRR §142-2.4",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
       "id": "ny-call-in-pay",
       "title": "New York Call-In Pay (minimum 4 hours)",
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "reporting_time_pay",
-      "topicCode": "pay.premium.reporting_time",
+      "topic": "pay.premium.reporting_time",
+      "topicCode": "pay.premium",
       "enforcement": "kronto",
       "status": "active",
       "effectiveFrom": "2011-01-01",
@@ -1814,8 +1430,8 @@
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "reporting_time_pay",
-      "topicCode": "pay.premium.reporting_time",
+      "topic": "pay.premium.on_call",
+      "topicCode": "pay.premium",
       "enforcement": "kronto",
       "status": "active",
       "effectiveFrom": "2011-01-01",
@@ -1872,91 +1488,13 @@
       ]
     },
     {
-      "id": "new-york-city-sick-leave",
-      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
-      "jurisdiction": "New York City",
-      "jurisdictionId": "us-ny-new-york-city",
-      "jurisdictionType": "city",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2020-09-30",
-      "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "employer.total_employees",
-        "location.city"
-      ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 56,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
-          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
-          "section": "NYC Admin Code §20-911 et seq.",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "ny-sick-leave-100-plus",
-      "title": "NY Paid Sick Leave — 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
-      "jurisdiction": "NY",
-      "jurisdictionId": "us-ny",
-      "jurisdictionType": "state",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2020-09-30",
-      "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "employer.total_employees",
-        "location.state"
-      ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 56,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "NY Labor Law §196-b",
-          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
-          "section": "§196-b(1)(c)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
       "id": "ny-split-shift-premium",
       "title": "New York Split Shift / Spread-of-Hours Premium (extra hour at min wage)",
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "split_shift_premium",
-      "topicCode": "pay.premium.split_shift",
+      "topic": "pay.premium.split_shift",
+      "topicCode": "pay.premium",
       "enforcement": "kronto",
       "status": "active",
       "effectiveFrom": "2011-01-01",
@@ -2001,12 +1539,474 @@
       ]
     },
     {
+      "id": "ny-spread-of-hours",
+      "title": "New York Spread of Hours Pay (>10 hr span = +1 hr at min wage)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "pay.premium.split_shift",
+      "topicCode": "pay.premium",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.spread_of_hours",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.spread_of_hours"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.spread_of_hours",
+        "params": {
+          "amount": 1,
+          "spread_hours": 10,
+          "rate_basis": "minimum_wage"
+        },
+        "summary": "1 additional hour at the applicable minimum wage rate",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.4",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/A6",
+          "section": "12 NYCRR §142-2.4",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-food-service-mw-2025",
+      "title": "NYC Tipped Food Service Worker Cash Wage ($12.50)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "pay.tipped.cash_wage",
+      "topicCode": "pay.tipped",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "food_service"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.city"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.job_category",
+        "employee.tipped_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 12.5
+        },
+        "summary": "$12.50 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR §146-1.3 (food service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nyc-tipped-service-mw-2025",
+      "title": "NYC Tipped Service Worker Cash Wage ($14.50)",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "pay.tipped.cash_wage",
+      "topicCode": "pay.tipped",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "hotel",
+              "retail",
+              "other"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.city"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.job_category",
+        "employee.tipped_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 14.5
+        },
+        "summary": "$14.50 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "New York Labor Law §652, 12 NYCRR §146-1.3",
+          "url": "https://dol.ny.gov/minimum-wage",
+          "section": "12 NYCRR §146-1.3 (service tip credit)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-evening",
+      "title": "New York Additional Evening Meal Break (shift past 7pm)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 10
+        },
+        "summary": "20-minute meal break for shifts of 10+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(3)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(3)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-nonfactory",
+      "title": "New York Meal Break — Non-Factory (>6 hr shift spanning noon)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "30-minute meal break for shifts of 6+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162(2)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "§162(2)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-break-scheduling-warning",
+      "title": "New York — Meal Break Required (shifts > 6 hrs)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6
+        },
+        "summary": "New York requires a 30-minute meal break for shifts over 6 hours. Ensure a break is scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §162",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "NY Lab. Law §162",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-advance-notice-72hr",
+      "title": "NYC Retail — 72-Hour Advance Notice Required",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.advance_notice",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "fact": "schedule.advance_notice_days",
+        "op": "<",
+        "value": 3
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 3
+        },
+        "summary": "Posting retail employee schedules with less than 72 hours advance notice",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1241",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-on-call-ban",
+      "title": "NYC Retail — On-Call Scheduling Prohibited",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.on_call",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "fact": "shift.is_on_call",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "shift.is_on_call"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.on_call_ban",
+        "params": {},
+        "summary": "Requiring retail employees to be on-call (must schedule or not schedule; cannot require availability without pay)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1243",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "ny-day-of-rest",
+      "title": "New York Day of Rest (24 consecutive hours off per calendar week)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sched.shift_structure.day_of_rest",
+      "topicCode": "sched.shift_structure",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.is_seventh_consecutive_day"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "Scheduling employee to work 7 consecutive days without 24 consecutive hours of rest",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §161",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/161",
+          "section": "§161(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "ny-warn-act",
       "title": "New York Mini-WARN Act (90-day notice, 50+ employees)",
       "jurisdiction": "NY",
       "jurisdictionId": "us-ny",
       "jurisdictionType": "state",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "topicCode": "sep.warn",
       "enforcement": "hr",
       "status": "active",
@@ -2781,5 +2781,5 @@
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "85c438db23a6b68d4544bab9c5198c5373cfdf5b95693ae50202f2a7affefa23"
+  "checksum": "b89c60ee074d5dc6e70a006ae98a1220dd1179060855001e4c95eaabf7ff6a87"
 }

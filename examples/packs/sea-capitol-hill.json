@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-20T21:02:34.648Z",
+  "generatedAt": "2026-10-21T20:42:37.882Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "2b61e4ed33aef827",
+  "rulesVersion": "78afbd1564a5b020",
   "vocabularyVersion": "2026-10-20",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -44,7 +44,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.eligibility",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -106,7 +106,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.paid_benefit",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -143,229 +143,78 @@
       ]
     },
     {
-      "id": "wa-meal-break-5hr",
-      "title": "Washington Meal Break (30 min for 5+ hr shift)",
-      "jurisdiction": "WA",
-      "jurisdictionId": "us-wa",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2010-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">=",
-            "value": 5
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "required_break",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 5
-        },
-        "summary": "30-minute meal break for shifts of 5+ hours",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "WAC §296-126-092",
-          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
-          "section": "WAC §296-126-092",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "wa-meal-break-scheduling-warning",
-      "title": "Washington — Meal Break Required (shifts > 5 hrs)",
-      "jurisdiction": "WA",
-      "jurisdictionId": "us-wa",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2005-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 5
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "warning",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 30,
-          "after_hours": 5
-        },
-        "summary": "Washington requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled.",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "WAC 296-126-092",
-          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
-          "section": "WAC 296-126-092",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minimum-wage-7.25",
-      "title": "Federal Minimum Wage (FLSA)",
-      "jurisdiction": "Federal",
-      "jurisdictionId": "us",
-      "jurisdictionType": "federal",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2009-07-24",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.country"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 7.25
-        },
-        "summary": "$7.25 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "Fair Labor Standards Act §206(a)(1)",
-          "url": "https://www.law.cornell.edu/uscode/text/29/206",
-          "section": "29 U.S.C. §206(a)(1)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "seattle-wa-mw-2026",
-      "title": "Seattle Minimum Wage",
+      "id": "seattle-sick-leave",
+      "title": "Seattle Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
       "jurisdiction": "Seattle",
       "jurisdictionId": "us-wa-seattle",
       "jurisdictionType": "city",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2026-01-01",
+      "effectiveFrom": "2012-09-01",
       "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
+        "all": []
       },
       "satisfiedBy": [
-        "location.city",
-        "location.state"
+        "employer.total_employees",
+        "location.city"
       ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 20.76
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
         },
-        "summary": "$20.76 per hour minimum wage",
-        "kronto": "block"
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "Seattle Municipal Code Ch. 14.19",
-          "url": "https://www.seattle.gov/laborstandards/ordinances/minimum-wage",
+          "source": "Seattle Paid Sick & Safe Time Ordinance",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/paid-sick-and-safe-time",
+          "section": "SMC 14.16",
           "kind": "ordinance"
         }
       ]
     },
     {
-      "id": "wa-minimum-wage-2025",
-      "title": "Washington State Minimum Wage",
+      "id": "wa-sick-leave",
+      "title": "Washington Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2025-01-01",
+      "effectiveFrom": "2018-01-01",
       "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
+        "all": []
       },
       "satisfiedBy": [
         "location.state"
       ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 16.66
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
         },
-        "summary": "$16.66 per hour minimum wage",
-        "kronto": "block"
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "RCW 49.46.020",
-          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.020",
-          "section": "RCW 49.46.020",
+          "source": "RCW §49.46.210 (I-1433)",
+          "url": "https://lni.wa.gov/workers-rights/leave/paid-sick-leave",
+          "section": "RCW §49.46.210",
           "kind": "statute"
         }
       ]
@@ -376,7 +225,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -444,7 +293,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -512,7 +361,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -573,7 +422,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -641,7 +490,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -709,7 +558,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -777,7 +626,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -845,7 +694,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -914,7 +763,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -983,7 +832,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1052,7 +901,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1116,12 +965,132 @@
       ]
     },
     {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "seattle-wa-mw-2026",
+      "title": "Seattle Minimum Wage",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20.76
+        },
+        "summary": "$20.76 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.19",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/minimum-wage",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "wa-minimum-wage-2025",
+      "title": "Washington State Minimum Wage",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.66
+        },
+        "summary": "$16.66 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.020",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.020",
+          "section": "RCW 49.46.020",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "federal-overtime-weekly-40",
       "title": "Federal Weekly Overtime (FLSA)",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1171,7 +1140,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1218,12 +1187,120 @@
       ]
     },
     {
+      "id": "wa-meal-break-5hr",
+      "title": "Washington Meal Break (30 min for 5+ hr shift)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "30-minute meal break for shifts of 5+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC §296-126-092",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "WAC §296-126-092",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-meal-break-scheduling-warning",
+      "title": "Washington — Meal Break Required (shifts > 5 hrs)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2005-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5
+        },
+        "summary": "Washington requires a 30-minute meal break for shifts over 5 hours. Ensure a break is scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-092",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "WAC 296-126-092",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
       "id": "sea-advance-notice-14day",
       "title": "Seattle — 14-Day Advance Notice Required",
       "jurisdiction": "Seattle",
       "jurisdictionId": "us-wa-seattle",
       "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
+      "topic": "sched.predictive.change_premium",
       "topicCode": "sched.predictive",
       "enforcement": "kronto",
       "status": "active",
@@ -1267,7 +1344,7 @@
       "jurisdiction": "Seattle",
       "jurisdictionId": "us-wa-seattle",
       "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
+      "topic": "sched.predictive.change_premium",
       "topicCode": "sched.predictive",
       "enforcement": "kronto",
       "status": "active",
@@ -1332,66 +1409,12 @@
       ]
     },
     {
-      "id": "sea-clopening-10hr",
-      "title": "Seattle — 10-Hour Rest Period",
-      "jurisdiction": "Seattle",
-      "jurisdictionId": "us-wa-seattle",
-      "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
-      "topicCode": "sched.predictive",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2017-07-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.hours_since_last_shift_end",
-            "op": "<",
-            "value": 10
-          },
-          {
-            "fact": "schedule.employee_consented",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "employer.industry_tag",
-        "employer.total_employees_global",
-        "location.city"
-      ],
-      "factsNeeded": [
-        "schedule.employee_consented",
-        "shift.hours_since_last_shift_end"
-      ],
-      "result": {
-        "type": "premium_required",
-        "obligation": "sched.clopening",
-        "params": {
-          "rest_hours": 10,
-          "amount": 1.5,
-          "unit": "multiplier"
-        },
-        "summary": "1.5x pay rate for hours worked within the 10-hour rest period",
-        "kronto": "premium"
-      },
-      "citations": [
-        {
-          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
-          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
-          "section": "SMC 14.22.050",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
       "id": "wa-rest-break-4hr",
       "title": "Washington Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "topicCode": "sched.rest_break",
       "enforcement": "kronto",
       "status": "active",
@@ -1448,7 +1471,7 @@
       "jurisdiction": "WA",
       "jurisdictionId": "us-wa",
       "jurisdictionType": "state",
-      "topic": "rest_break",
+      "topic": "sched.rest_break.paid_rest",
       "topicCode": "sched.rest_break",
       "enforcement": "kronto",
       "status": "active",
@@ -1495,79 +1518,56 @@
       ]
     },
     {
-      "id": "seattle-sick-leave",
-      "title": "Seattle Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
+      "id": "sea-clopening-10hr",
+      "title": "Seattle — 10-Hour Rest Period",
       "jurisdiction": "Seattle",
       "jurisdictionId": "us-wa-seattle",
       "jurisdictionType": "city",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
+      "topic": "sched.shift_structure.clopening",
+      "topicCode": "sched.shift_structure",
       "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2012-09-01",
+      "effectiveFrom": "2017-07-01",
       "appliesWhen": {
-        "all": []
+        "all": [
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
       },
       "satisfiedBy": [
-        "employer.total_employees",
+        "employer.industry_tag",
+        "employer.total_employees_global",
         "location.city"
       ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 72,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "Seattle Paid Sick & Safe Time Ordinance",
-          "url": "https://www.seattle.gov/laborstandards/ordinances/paid-sick-and-safe-time",
-          "section": "SMC 14.16",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "wa-sick-leave",
-      "title": "Washington Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
-      "jurisdiction": "WA",
-      "jurisdictionId": "us-wa",
-      "jurisdictionType": "state",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2018-01-01",
-      "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "location.state"
+      "factsNeeded": [
+        "schedule.employee_consented",
+        "shift.hours_since_last_shift_end"
       ],
-      "factsNeeded": [],
       "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
+        "type": "premium_required",
+        "obligation": "sched.clopening",
         "params": {
-          "annual_cap_hours": 40,
-          "hours_worked_per_hour_accrued": 40,
-          "paid": true
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
         },
-        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked",
-        "kronto": "inform"
+        "summary": "1.5x pay rate for hours worked within the 10-hour rest period",
+        "kronto": "premium"
       },
       "citations": [
         {
-          "source": "RCW §49.46.210 (I-1433)",
-          "url": "https://lni.wa.gov/workers-rights/leave/paid-sick-leave",
-          "section": "RCW §49.46.210",
-          "kind": "statute"
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.050",
+          "kind": "ordinance"
         }
       ]
     }
@@ -2182,5 +2182,5 @@
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "3d4b6047268d66976ab1a7d6fdc727c3132cc5059284b12b8784745a8ab52b72"
+  "checksum": "26d5f9f21b2922aeaa966ad36ae7186ef45b99ca6750f303765786f1861f9247"
 }

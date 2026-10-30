@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-20T21:02:34.650Z",
+  "generatedAt": "2026-10-21T20:42:37.883Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "2b61e4ed33aef827",
+  "rulesVersion": "78afbd1564a5b020",
   "vocabularyVersion": "2026-10-20",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,53 +39,12 @@
   ],
   "rules": [
     {
-      "id": "il-day-of-rest",
-      "title": "Illinois One Day Rest in Seven Act",
-      "jurisdiction": "IL",
-      "jurisdictionId": "us-il",
-      "jurisdictionType": "state",
-      "topic": "day_of_rest",
-      "topicCode": "sched.shift_structure.day_of_rest",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2023-01-01",
-      "appliesWhen": {
-        "fact": "shift.consecutive_days_worked",
-        "op": ">",
-        "value": 6
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.consecutive_days_worked"
-      ],
-      "result": {
-        "type": "prohibition",
-        "obligation": "rest.weekly_day_of_rest",
-        "params": {
-          "rest_hours": 24,
-          "period_days": 7
-        },
-        "summary": "Failing to provide at least 24 consecutive hours of rest in every consecutive 7-day period. Amended 2023: employer must also provide a meal period of 20 minutes for every 7.5-hour shift.",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "820 ILCS 140 (One Day Rest in Seven Act)",
-          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
-          "section": "820 ILCS 140/2",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
       "id": "federal-fmla-eligibility",
       "title": "Federal FMLA — Employee Eligibility",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.eligibility",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -142,229 +101,77 @@
       ]
     },
     {
-      "id": "il-meal-break-7.5hr",
-      "title": "Illinois Meal Break (20 min for 7.5+ hr shift)",
-      "jurisdiction": "IL",
-      "jurisdictionId": "us-il",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2010-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.exempt_status",
-            "op": "=",
-            "value": "non_exempt"
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">=",
-            "value": 7.5
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status",
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "required_break",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 20,
-          "after_hours": 7.5
-        },
-        "summary": "20-minute meal break for shifts of 7.5+ hours",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "820 ILCS 140/3",
-          "url": "https://labor.illinois.gov/laws-rules/fls/odrisa.html",
-          "section": "820 ILCS 140/3",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "il-meal-break-scheduling-warning",
-      "title": "Illinois — Meal Break Required (shifts > 7.5 hrs)",
-      "jurisdiction": "IL",
-      "jurisdictionId": "us-il",
-      "jurisdictionType": "state",
-      "topic": "meal_break",
-      "topicCode": "sched.meal_break",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2010-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 7.5
-          },
-          {
-            "fact": "shift.meal_break_provided",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "shift.meal_break_provided",
-        "shift.shift_length_hours"
-      ],
-      "result": {
-        "type": "warning",
-        "obligation": "break.meal",
-        "params": {
-          "minimum_minutes": 20,
-          "after_hours": 7.5
-        },
-        "summary": "Illinois requires a 20-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled.",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "820 ILCS 140/3",
-          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
-          "section": "820 ILCS 140/3",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "chicago-il-mw-2025",
-      "title": "Chicago Minimum Wage ($16.20/hr)",
+      "id": "chicago-sick-leave",
+      "title": "Chicago Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
       "jurisdiction": "Chicago",
       "jurisdictionId": "us-il-chicago",
       "jurisdictionType": "city",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2025-07-01",
+      "effectiveFrom": "2024-01-01",
       "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
+        "all": []
       },
       "satisfiedBy": [
-        "location.city",
-        "location.state"
+        "employer.total_employees",
+        "location.city"
       ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 16.2
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
         },
-        "summary": "$16.20 per hour minimum wage",
-        "kronto": "block"
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "Chicago Minimum Wage Ordinance",
-          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/minimumwageinformation.html",
-          "section": "MCC §1-24-020",
+          "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paidsickleaveinfo.html",
+          "section": "MCC §1-24-045",
           "kind": "ordinance"
         }
       ]
     },
     {
-      "id": "federal-minimum-wage-7.25",
-      "title": "Federal Minimum Wage (FLSA)",
-      "jurisdiction": "Federal",
-      "jurisdictionId": "us",
-      "jurisdictionType": "federal",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2009-07-24",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.country"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 7.25
-        },
-        "summary": "$7.25 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "Fair Labor Standards Act §206(a)(1)",
-          "url": "https://www.law.cornell.edu/uscode/text/29/206",
-          "section": "29 U.S.C. §206(a)(1)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "il-minimum-wage-15",
-      "title": "Illinois Minimum Wage ($15.00/hr)",
+      "id": "il-sick-leave",
+      "title": "Illinois Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
+      "topic": "leave.sick.accrual",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2025-01-01",
+      "effectiveFrom": "2024-01-01",
       "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
+        "all": []
       },
       "satisfiedBy": [
         "location.state"
       ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
+      "factsNeeded": [],
       "result": {
         "type": "minimum_required_value",
-        "obligation": "wage.minimum",
+        "obligation": "leave.sick.accrual",
         "params": {
-          "rate": 15
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
         },
-        "summary": "$15.00 per hour minimum wage",
-        "kronto": "block"
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked",
+        "kronto": "inform"
       },
       "citations": [
         {
-          "source": "820 ILCS 105/4a",
-          "url": "https://labor.illinois.gov/laws-rules/fls/minimum-wage-law.html",
+          "source": "820 ILCS 192 (PSLAA)",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
           "kind": "statute"
         }
       ]
@@ -375,7 +182,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -443,7 +250,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -511,7 +318,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -572,7 +379,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -640,7 +447,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -708,7 +515,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -776,7 +583,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -844,7 +651,7 @@
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -913,7 +720,7 @@
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -982,7 +789,7 @@
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1051,7 +858,7 @@
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -1115,12 +922,132 @@
       ]
     },
     {
+      "id": "chicago-il-mw-2025",
+      "title": "Chicago Minimum Wage ($16.20/hr)",
+      "jurisdiction": "Chicago",
+      "jurisdictionId": "us-il-chicago",
+      "jurisdictionType": "city",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 16.2
+        },
+        "summary": "$16.20 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Chicago Minimum Wage Ordinance",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/minimumwageinformation.html",
+          "section": "MCC §1-24-020",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-minimum-wage-15",
+      "title": "Illinois Minimum Wage ($15.00/hr)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 15
+        },
+        "summary": "$15.00 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 105/4a",
+          "url": "https://labor.illinois.gov/laws-rules/fls/minimum-wage-law.html",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "federal-overtime-weekly-40",
       "title": "Federal Weekly Overtime (FLSA)",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1165,12 +1092,120 @@
       ]
     },
     {
+      "id": "il-meal-break-7.5hr",
+      "title": "Illinois Meal Break (20 min for 7.5+ hr shift)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 7.5
+        },
+        "summary": "20-minute meal break for shifts of 7.5+ hours",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140/3",
+          "url": "https://labor.illinois.gov/laws-rules/fls/odrisa.html",
+          "section": "820 ILCS 140/3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-meal-break-scheduling-warning",
+      "title": "Illinois — Meal Break Required (shifts > 7.5 hrs)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.first",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 7.5
+          },
+          {
+            "fact": "shift.meal_break_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.meal_break_provided",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 20,
+          "after_hours": 7.5
+        },
+        "summary": "Illinois requires a 20-minute meal break for shifts over 7.5 hours. Ensure a break is scheduled.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140/3",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
+          "section": "820 ILCS 140/3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "chi-advance-notice-14day",
       "title": "Chicago — 14-Day Advance Notice Required",
       "jurisdiction": "Chicago",
       "jurisdictionId": "us-il-chicago",
       "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
+      "topic": "sched.predictive.change_premium",
       "topicCode": "sched.predictive",
       "enforcement": "kronto",
       "status": "active",
@@ -1214,7 +1249,7 @@
       "jurisdiction": "Chicago",
       "jurisdictionId": "us-il-chicago",
       "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
+      "topic": "sched.predictive.change_premium",
       "topicCode": "sched.predictive",
       "enforcement": "kronto",
       "status": "active",
@@ -1279,13 +1314,63 @@
       ]
     },
     {
+      "id": "il-rest-break",
+      "title": "Illinois Rest Break (hotel room attendants — 2×15 min per 7+ hr shift)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sched.rest_break.paid_rest",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">=",
+            "value": 7
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "=",
+            "value": "hotel"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.job_category",
+        "shift.hours_worked_today"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 15
+        },
+        "summary": "Paid rest break (15 min × 2 per shift of 7+ hours, hotel room attendants in Cook County)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 140/3.1 (Hotel Room Attendant provisions)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
+          "section": "820 ILCS 140/3.1",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "chi-clopening-10hr",
       "title": "Chicago — 10-Hour Rest Period",
       "jurisdiction": "Chicago",
       "jurisdictionId": "us-il-chicago",
       "jurisdictionType": "city",
-      "topic": "predictive_scheduling",
-      "topicCode": "sched.predictive",
+      "topic": "sched.shift_structure.clopening",
+      "topicCode": "sched.shift_structure",
       "enforcement": "kronto",
       "status": "active",
       "effectiveFrom": "2020-07-01",
@@ -1333,127 +1418,42 @@
       ]
     },
     {
-      "id": "il-rest-break",
-      "title": "Illinois Rest Break (hotel room attendants — 2×15 min per 7+ hr shift)",
+      "id": "il-day-of-rest",
+      "title": "Illinois One Day Rest in Seven Act",
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "rest_break",
-      "topicCode": "sched.rest_break",
+      "topic": "sched.shift_structure.day_of_rest",
+      "topicCode": "sched.shift_structure",
       "enforcement": "kronto",
       "status": "active",
-      "effectiveFrom": "2010-01-01",
+      "effectiveFrom": "2023-01-01",
       "appliesWhen": {
-        "all": [
-          {
-            "fact": "shift.hours_worked_today",
-            "op": ">=",
-            "value": 7
-          },
-          {
-            "fact": "employee.job_category",
-            "op": "=",
-            "value": "hotel"
-          }
-        ]
+        "fact": "shift.consecutive_days_worked",
+        "op": ">",
+        "value": 6
       },
       "satisfiedBy": [
         "location.state"
       ],
       "factsNeeded": [
-        "employee.job_category",
-        "shift.hours_worked_today"
+        "shift.consecutive_days_worked"
       ],
       "result": {
-        "type": "required_break",
-        "obligation": "break.rest",
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
         "params": {
-          "minimum_minutes": 15
+          "rest_hours": 24,
+          "period_days": 7
         },
-        "summary": "Paid rest break (15 min × 2 per shift of 7+ hours, hotel room attendants in Cook County)",
+        "summary": "Failing to provide at least 24 consecutive hours of rest in every consecutive 7-day period. Amended 2023: employer must also provide a meal period of 20 minutes for every 7.5-hour shift.",
         "kronto": "block"
       },
       "citations": [
         {
-          "source": "820 ILCS 140/3.1 (Hotel Room Attendant provisions)",
+          "source": "820 ILCS 140 (One Day Rest in Seven Act)",
           "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
-          "section": "820 ILCS 140/3.1",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "chicago-sick-leave",
-      "title": "Chicago Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
-      "jurisdiction": "Chicago",
-      "jurisdictionId": "us-il-chicago",
-      "jurisdictionType": "city",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2024-01-01",
-      "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "employer.total_employees",
-        "location.city"
-      ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 40,
-          "hours_worked_per_hour_accrued": 40,
-          "paid": true
-        },
-        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
-          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paidsickleaveinfo.html",
-          "section": "MCC §1-24-045",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
-      "id": "il-sick-leave",
-      "title": "Illinois Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
-      "jurisdiction": "IL",
-      "jurisdictionId": "us-il",
-      "jurisdictionType": "state",
-      "topic": "sick_leave",
-      "topicCode": "leave.sick",
-      "enforcement": "kronto",
-      "status": "active",
-      "effectiveFrom": "2024-01-01",
-      "appliesWhen": {
-        "all": []
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 40,
-          "hours_worked_per_hour_accrued": 40,
-          "paid": true
-        },
-        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked",
-        "kronto": "inform"
-      },
-      "citations": [
-        {
-          "source": "820 ILCS 192 (PSLAA)",
-          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
+          "section": "820 ILCS 140/2",
           "kind": "statute"
         }
       ]
@@ -1464,7 +1464,7 @@
       "jurisdiction": "IL",
       "jurisdictionId": "us-il",
       "jurisdictionType": "state",
-      "topic": "warn_act",
+      "topic": "sep.warn.notice",
       "topicCode": "sep.warn",
       "enforcement": "hr",
       "status": "active",
@@ -2214,5 +2214,5 @@
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "81cc096cc2596c5d556322ba71190deb1a1910a5ea46e623871d78ba79f5460e"
+  "checksum": "182192f6b890b885158028376958e5cd94e73f5d89d8a984a3dc1215be2ac445"
 }

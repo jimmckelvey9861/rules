@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-20T21:02:34.654Z",
+  "generatedAt": "2026-10-21T20:42:37.887Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "2b61e4ed33aef827",
+  "rulesVersion": "78afbd1564a5b020",
   "vocabularyVersion": "2026-10-20",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -38,7 +38,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "family_medical_leave",
+      "topic": "leave.family_medical.eligibility",
       "topicCode": "leave.family_medical",
       "enforcement": "hr",
       "status": "active",
@@ -95,91 +95,12 @@
       ]
     },
     {
-      "id": "federal-minimum-wage-7.25",
-      "title": "Federal Minimum Wage (FLSA)",
-      "jurisdiction": "Federal",
-      "jurisdictionId": "us",
-      "jurisdictionType": "federal",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2009-07-24",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.country"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 7.25
-        },
-        "summary": "$7.25 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "Fair Labor Standards Act §206(a)(1)",
-          "url": "https://www.law.cornell.edu/uscode/text/29/206",
-          "section": "29 U.S.C. §206(a)(1)",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
-      "id": "tx-minimum-wage-7.25",
-      "title": "Texas Minimum Wage ($7.25/hr)",
-      "jurisdiction": "TX",
-      "jurisdictionId": "us-tx",
-      "jurisdictionType": "state",
-      "topic": "minimum_wage",
-      "topicCode": "pay.minimum_wage",
-      "enforcement": "payroll",
-      "status": "active",
-      "effectiveFrom": "2009-07-24",
-      "appliesWhen": {
-        "fact": "employee.exempt_status",
-        "op": "=",
-        "value": "non_exempt"
-      },
-      "satisfiedBy": [
-        "location.state"
-      ],
-      "factsNeeded": [
-        "employee.exempt_status"
-      ],
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "wage.minimum",
-        "params": {
-          "rate": 7.25
-        },
-        "summary": "$7.25 per hour minimum wage",
-        "kronto": "block"
-      },
-      "citations": [
-        {
-          "source": "Tex. Lab. Code §62.051",
-          "url": "https://www.twc.texas.gov/businesses/minimum-wage-law",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
       "id": "federal-minor-14-15-curfew",
       "title": "Federal: Minors 14-15 — Cannot work past 7pm (9pm Jun 1–Labor Day)",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -247,7 +168,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -315,7 +236,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -376,7 +297,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -444,7 +365,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -512,7 +433,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -580,7 +501,7 @@
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -648,7 +569,7 @@
       "jurisdiction": "TX",
       "jurisdictionId": "us-tx",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -717,7 +638,7 @@
       "jurisdiction": "TX",
       "jurisdictionId": "us-tx",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -786,7 +707,7 @@
       "jurisdiction": "TX",
       "jurisdictionId": "us-tx",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -855,7 +776,7 @@
       "jurisdiction": "TX",
       "jurisdictionId": "us-tx",
       "jurisdictionType": "state",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "topicCode": "minor.labor",
       "enforcement": "kronto",
       "status": "active",
@@ -919,12 +840,91 @@
       ]
     },
     {
+      "id": "federal-minimum-wage-7.25",
+      "title": "Federal Minimum Wage (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.country"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §206(a)(1)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "29 U.S.C. §206(a)(1)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-minimum-wage-7.25",
+      "title": "Texas Minimum Wage ($7.25/hr)",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "pay.minimum_wage.general",
+      "topicCode": "pay.minimum_wage",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2009-07-24",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 7.25
+        },
+        "summary": "$7.25 per hour minimum wage",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §62.051",
+          "url": "https://www.twc.texas.gov/businesses/minimum-wage-law",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "federal-overtime-weekly-40",
       "title": "Federal Weekly Overtime (FLSA)",
       "jurisdiction": "Federal",
       "jurisdictionId": "us",
       "jurisdictionType": "federal",
-      "topic": "overtime",
+      "topic": "pay.overtime.weekly",
       "topicCode": "pay.overtime",
       "enforcement": "kronto",
       "status": "active",
@@ -1308,5 +1308,5 @@
     "excludedInactive": 0,
     "fullyResolved": 0
   },
-  "checksum": "78c6093d580e48c0b7df81bae6c8cf84bfbf0096a0eb4fec32ade0e6068b2ca0"
+  "checksum": "0eef6e9432a03c7e16bd2824873ad08200ce73dcce2c5549404a3f829b2827b7"
 }

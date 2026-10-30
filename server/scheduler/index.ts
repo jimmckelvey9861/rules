@@ -11,6 +11,7 @@ import { Router } from "express";
 import { STORES, EMPLOYER, EMPLOYEES } from "./dummyData.js";
 import { buildScenario } from "./buildScenario.js";
 import { evaluateRules, RULES } from "../rules/index.js";
+import { topicCodeOf } from "../reference/taxonomy.js";
 
 /**
  * Topics relevant to shift scheduling. Entitlement topics (sick leave, FMLA,
@@ -18,19 +19,18 @@ import { evaluateRules, RULES } from "../rules/index.js";
  * shift compliance.
  */
 const SCHEDULING_TOPICS = new Set([
-  "minimum_wage",
-  "overtime",
-  "meal_break",
-  "rest_break",
-  "predictive_scheduling",
-  "minor_labor",
-  "day_of_rest",
-  "split_shift_premium",
-  "premium_pay",
-  "reporting_time_pay",
+  "pay.minimum_wage",
+  "pay.tipped",
+  "pay.overtime",
+  "pay.premium",
+  "sched.meal_break",
+  "sched.rest_break",
+  "sched.predictive",
+  "sched.shift_structure",
+  "minor.labor",
 ]);
 
-const SCHEDULING_RULES = RULES.filter(r => SCHEDULING_TOPICS.has(r.topic));
+const SCHEDULING_RULES = RULES.filter(r => SCHEDULING_TOPICS.has(topicCodeOf(r.topic) ?? ""));
 import type { ShiftAssignment, WeekContext } from "./types.js";
 
 export const schedulerRouter = Router();

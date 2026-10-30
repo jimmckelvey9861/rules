@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "sick_leave",
+  "topic": "leave.sick",
   "rules": [
     {
       "id": "az-sick-leave",
       "title": "Arizona Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "AZ",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2017-07-01",
       "appliesWhen": {
@@ -45,7 +45,7 @@
       "id": "az-sick-leave-small",
       "title": "Arizona Paid Sick Leave \u2014 <15 employees (1 hr per 30 hrs, up to 24 hrs/yr)",
       "jurisdiction": "AZ",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2017-07-01",
       "appliesWhen": {
@@ -84,7 +84,7 @@
       "id": "ca-sick-leave",
       "title": "California Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "CA",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2024-01-01",
       "appliesWhen": {
@@ -116,50 +116,10 @@
       ]
     },
     {
-      "id": "chicago-sick-leave",
-      "title": "Chicago Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
-      "jurisdiction": "Chicago",
-      "topic": "sick_leave",
-      "status": "active",
-      "effectiveFrom": "2024-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "location.city",
-            "op": "=",
-            "value": "Chicago"
-          },
-          {
-            "fact": "employer.total_employees",
-            "op": ">=",
-            "value": 1
-          }
-        ]
-      },
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 40,
-          "hours_worked_per_hour_accrued": 40,
-          "paid": true
-        },
-        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
-      },
-      "citations": [
-        {
-          "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
-          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paidsickleaveinfo.html",
-          "section": "MCC \u00a71-24-045",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
       "id": "co-sick-leave",
       "title": "Colorado Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
       "jurisdiction": "CO",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2021-01-01",
       "appliesWhen": {
@@ -194,7 +154,7 @@
       "id": "ct-sick-leave",
       "title": "CT Paid Sick Leave (1 hr / 40 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "CT",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2012-01-01",
       "appliesWhen": {
@@ -231,10 +191,50 @@
       ]
     },
     {
+      "id": "chicago-sick-leave",
+      "title": "Chicago Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
+      "jurisdiction": "Chicago",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 40,
+          "paid": true
+        },
+        "summary": "40 hours of paid sick leave per year, accrued at 1 hour per 40 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Chicago Paid Leave & Paid Sick Leave Ordinance",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/paidsickleaveinfo.html",
+          "section": "MCC \u00a71-24-045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "dc-sick-leave",
       "title": "DC Accrued Sick and Safe Leave (1 hr per 37 hrs, up to 7 days/yr)",
       "jurisdiction": "DC",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2008-11-13",
       "appliesWhen": {
@@ -274,7 +274,7 @@
       "id": "denver-sick-leave",
       "title": "Denver Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
       "jurisdiction": "Denver",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2022-01-01",
       "appliesWhen": {
@@ -314,7 +314,7 @@
       "id": "il-sick-leave",
       "title": "Illinois Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "IL",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2024-01-01",
       "appliesWhen": {
@@ -348,7 +348,7 @@
       "id": "los-angeles-sick-leave",
       "title": "Los Angeles Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
       "jurisdiction": "Los Angeles",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2016-07-01",
       "appliesWhen": {
@@ -388,7 +388,7 @@
       "id": "ma-sick-leave",
       "title": "Massachusetts Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "MA",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2015-07-01",
       "appliesWhen": {
@@ -423,7 +423,7 @@
       "id": "md-sick-leave-paid",
       "title": "MD Paid Sick & Safe Leave \u2014 15+ employees (1 hr / 30 hrs, up to 64 hrs/yr)",
       "jurisdiction": "MD",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2018-02-11",
       "appliesWhen": {
@@ -463,7 +463,7 @@
       "id": "md-sick-leave-unpaid",
       "title": "MD Unpaid Sick & Safe Leave \u2014 <15 employees (1 hr / 30 hrs, up to 64 hrs/yr)",
       "jurisdiction": "MD",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2018-02-11",
       "appliesWhen": {
@@ -503,7 +503,7 @@
       "id": "me-sick-leave",
       "title": "Maine Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "ME",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2021-01-01",
       "appliesWhen": {
@@ -542,7 +542,7 @@
       "id": "mi-sick-leave",
       "title": "Michigan Paid Sick Leave (1 hr per 35 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "MI",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2019-03-29",
       "appliesWhen": {
@@ -573,10 +573,44 @@
       ]
     },
     {
+      "id": "mn-sick-leave",
+      "title": "Minnesota Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
+      "jurisdiction": "MN",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.9447",
+          "url": "https://www.dli.mn.gov/sick-leave",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "minneapolis-sick-leave",
       "title": "Minneapolis Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs)",
       "jurisdiction": "Minneapolis",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2017-07-01",
       "appliesWhen": {
@@ -613,44 +647,10 @@
       ]
     },
     {
-      "id": "mn-sick-leave",
-      "title": "Minnesota Paid Sick Leave (1 hr per 30 hrs worked, up to 48 hrs/yr)",
-      "jurisdiction": "MN",
-      "topic": "sick_leave",
-      "status": "active",
-      "effectiveFrom": "2024-01-01",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "location.state",
-            "op": "=",
-            "value": "MN"
-          }
-        ]
-      },
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 48,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
-      },
-      "citations": [
-        {
-          "source": "Minn. Stat. \u00a7181.9447",
-          "url": "https://www.dli.mn.gov/sick-leave",
-          "kind": "statute"
-        }
-      ]
-    },
-    {
       "id": "montgomery-county-sick-leave",
       "title": "Montgomery County Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
       "jurisdiction": "Montgomery County",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2016-10-01",
       "appliesWhen": {
@@ -687,50 +687,10 @@
       ]
     },
     {
-      "id": "new-york-city-sick-leave",
-      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
-      "jurisdiction": "New York City",
-      "topic": "sick_leave",
-      "status": "active",
-      "effectiveFrom": "2020-09-30",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "location.city",
-            "op": "=",
-            "value": "New York City"
-          },
-          {
-            "fact": "employer.total_employees",
-            "op": ">=",
-            "value": 1
-          }
-        ]
-      },
-      "result": {
-        "type": "minimum_required_value",
-        "obligation": "leave.sick.accrual",
-        "params": {
-          "annual_cap_hours": 56,
-          "hours_worked_per_hour_accrued": 30,
-          "paid": true
-        },
-        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
-      },
-      "citations": [
-        {
-          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
-          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
-          "section": "NYC Admin Code \u00a720-911 et seq.",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
       "id": "nj-sick-leave",
       "title": "NJ Earned Sick Leave (1 hr / 30 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "NJ",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2018-10-29",
       "appliesWhen": {
@@ -765,7 +725,7 @@
       "id": "nm-sick-leave",
       "title": "New Mexico Paid Sick Leave (1 hr per 30 hrs worked, up to 64 hrs/yr)",
       "jurisdiction": "NM",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2022-07-01",
       "appliesWhen": {
@@ -799,7 +759,7 @@
       "id": "nv-paid-leave",
       "title": "NV Paid Leave \u2014 50+ employees (0.01923 hrs/hr worked, up to 40 hrs/yr)",
       "jurisdiction": "NV",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2020-01-01",
       "appliesWhen": {
@@ -839,7 +799,7 @@
       "id": "ny-sick-leave-100-plus",
       "title": "NY Paid Sick Leave \u2014 100+ employees (1 hr / 30 hrs, up to 56 hrs/yr)",
       "jurisdiction": "NY",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2020-09-30",
       "appliesWhen": {
@@ -879,7 +839,7 @@
       "id": "ny-sick-leave-5-99",
       "title": "NY Paid Sick Leave \u2014 5-99 employees (1 hr / 30 hrs, up to 40 hrs/yr)",
       "jurisdiction": "NY",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2020-09-30",
       "appliesWhen": {
@@ -921,10 +881,50 @@
       ]
     },
     {
+      "id": "new-york-city-sick-leave",
+      "title": "New York City Paid Sick Leave (1 hr per 30 hrs worked, up to 56 hrs)",
+      "jurisdiction": "New York City",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "56 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "NYC Earned Safe & Sick Time Act (expanded 2020)",
+          "url": "https://www.nyc.gov/site/dca/about/paid-sick-leave-law.page",
+          "section": "NYC Admin Code \u00a720-911 et seq.",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "or-sick-leave",
       "title": "Oregon Paid Sick Leave (1 hr per 30 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "OR",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2016-01-01",
       "appliesWhen": {
@@ -958,7 +958,7 @@
       "id": "philadelphia-sick-leave",
       "title": "Philadelphia Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs)",
       "jurisdiction": "Philadelphia",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2015-05-13",
       "appliesWhen": {
@@ -998,7 +998,7 @@
       "id": "ri-sick-leave",
       "title": "Rhode Island Paid Sick Leave (1 hr per 35 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "RI",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2018-07-01",
       "appliesWhen": {
@@ -1032,7 +1032,7 @@
       "id": "san-francisco-sick-leave",
       "title": "San Francisco Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
       "jurisdiction": "San Francisco",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2007-02-05",
       "appliesWhen": {
@@ -1072,7 +1072,7 @@
       "id": "seattle-sick-leave",
       "title": "Seattle Paid Sick Leave (1 hr per 30 hrs worked, up to 72 hrs)",
       "jurisdiction": "Seattle",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2012-09-01",
       "appliesWhen": {
@@ -1112,7 +1112,7 @@
       "id": "vt-sick-leave",
       "title": "Vermont Paid Sick Leave (1 hr per 52 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "VT",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2017-01-01",
       "appliesWhen": {
@@ -1146,7 +1146,7 @@
       "id": "wa-sick-leave",
       "title": "Washington Paid Sick Leave (1 hr per 40 hrs worked, up to 40 hrs/yr)",
       "jurisdiction": "WA",
-      "topic": "sick_leave",
+      "topic": "leave.sick.accrual",
       "status": "active",
       "effectiveFrom": "2018-01-01",
       "appliesWhen": {

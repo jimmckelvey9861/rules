@@ -12,7 +12,7 @@ under `data/`. The validator enforces:
 - Operators match fact types (no `>` on booleans)
 - No vague values ("varies", "unknown")
 - Required citation, effective date, and ID
-- Topic resolves to a node in `data/taxonomy.json`
+- Topic is a sub-topic code in `data/taxonomy.json` and sits in the file named after its topic
 - Result names an obligation from `data/result-vocabulary.json` and its params match
 - Jurisdiction resolves to a record in `data/jurisdictions.json`, and no local
   rule sits on a topic its state preempts
@@ -21,7 +21,7 @@ under `data/`. The validator enforces:
 ## Quick Start
 
 ```bash
-npm install
+npm install          # Also installs client/ dependencies (postinstall)
 npm run dev          # Starts server (port 3001) + client (port 5173)
 npm test                 # Run all four test suites
 npm run typecheck        # TypeScript type checking
@@ -47,11 +47,11 @@ No database required. No Docker. No environment variables.
 
 ```
 data/
-  taxonomy.json         — 9 categories > 28 topics > 63 sub-topics, enforcement target per topic
+  taxonomy.json         — 9 categories > 28 topics > 65 sub-topics, enforcement target per topic
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent, preemption)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
   profiles/             — Business profiles (sample multi-state retail chain)
-  rules/<topic>.json    — All rules, one file per topic (476 rules across 13 topics)
+  rules/<topic>.json    — All rules, one file per taxonomy topic code (476 rules across 12 topics)
   schema/               — JSON Schema for rule files (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
@@ -160,12 +160,16 @@ report is attached as an artifact. Only broken links fail the nightly run.
 
 ## Adding or changing a rule
 
-1. Edit the topic's file under `data/rules/` (or add a new topic file whose `topic`
-   is a code or legacy topic from `data/taxonomy.json`).
+1. Edit the topic's file under `data/rules/<topic code>.json` (for example
+   `pay.minimum_wage.json`). Every rule's `topic` is a sub-topic code from
+   `data/taxonomy.json` (`pay.minimum_wage.general`) under the file's topic. To
+   start a new topic, add a file named after its taxonomy topic code.
 2. Run `npm test`. A rule that fails validation is reported with its file, id and
    the failing path, and is skipped at runtime rather than crashing the server.
 
 ## Rules
 
-476 rules across 13 topics and 78 jurisdictions. `GET /api/coverage` reports which
-jurisdiction × topic cells have a rule, are confirmed to have no law, or are unchecked.
+476 rules across 12 taxonomy topics (23 sub-topics) and 78 jurisdictions.
+`GET /api/coverage` reports which jurisdiction × topic cells have a rule, are
+confirmed to have no law, or are unchecked; its 13 rows are the historical topic
+names, which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.

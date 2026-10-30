@@ -1,12 +1,12 @@
 {
   "$schema": "../schema/rules-file.schema.json",
-  "topic": "minor_labor",
+  "topic": "minor.labor",
   "rules": [
     {
       "id": "ak-minor-16-17-curfew",
       "title": "Alaska: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "AK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -66,7 +66,7 @@
       "id": "ak-minor-16-17-nonschool-day-hours",
       "title": "Alaska: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "AK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -126,7 +126,7 @@
       "id": "ak-minor-16-17-school-day-hours",
       "title": "Alaska: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "AK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -186,7 +186,7 @@
       "id": "ak-minor-16-17-school-week-hours",
       "title": "Alaska: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "AK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -246,7 +246,7 @@
       "id": "al-minor-labor",
       "title": "Alabama Child Labor Law (14-17 year olds)",
       "jurisdiction": "AL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.general",
       "status": "active",
       "effectiveFrom": "2024-01-01",
       "appliesWhen": {
@@ -284,7 +284,7 @@
       "id": "ar-minor-16-17-curfew",
       "title": "Arkansas: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "AR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -344,7 +344,7 @@
       "id": "ar-minor-16-17-nonschool-day-hours",
       "title": "Arkansas: Minors 16-17 \u2014 Max 10 hours on a non-school day",
       "jurisdiction": "AR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -404,7 +404,7 @@
       "id": "ar-minor-16-17-school-day-hours",
       "title": "Arkansas: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "AR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -464,7 +464,7 @@
       "id": "ar-minor-16-17-school-week-hours",
       "title": "Arkansas: Minors 16-17 \u2014 Max 48 hours in a school week",
       "jurisdiction": "AR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -524,7 +524,7 @@
       "id": "az-minor-16-17-curfew",
       "title": "Arizona: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "AZ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -584,7 +584,7 @@
       "id": "az-minor-16-17-nonschool-day-hours",
       "title": "Arizona: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "AZ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -644,7 +644,7 @@
       "id": "az-minor-16-17-school-day-hours",
       "title": "Arizona: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "AZ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -704,7 +704,7 @@
       "id": "az-minor-16-17-school-week-hours",
       "title": "Arizona: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "AZ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -764,7 +764,7 @@
       "id": "ca-minor-16-17-curfew-school",
       "title": "CA: Minors 16-17 \u2014 Cannot work past 10pm on a school night",
       "jurisdiction": "CA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -825,7 +825,7 @@
       "id": "ca-minor-16-17-nonschool-day-hours",
       "title": "CA: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "CA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -886,7 +886,7 @@
       "id": "ca-minor-16-17-school-day-hours",
       "title": "CA: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "CA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -947,7 +947,7 @@
       "id": "ca-minor-16-17-week-hours",
       "title": "CA: Minors 16-17 \u2014 Max 48 hours per week",
       "jurisdiction": "CA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2001-01-01",
       "appliesWhen": {
@@ -1002,7 +1002,7 @@
       "id": "co-minor-16-17-curfew",
       "title": "Colorado: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "CO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1062,7 +1062,7 @@
       "id": "co-minor-16-17-nonschool-day-hours",
       "title": "Colorado: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "CO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1122,7 +1122,7 @@
       "id": "co-minor-16-17-school-day-hours",
       "title": "Colorado: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "CO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1182,7 +1182,7 @@
       "id": "co-minor-16-17-school-week-hours",
       "title": "Colorado: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "CO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1242,7 +1242,7 @@
       "id": "ct-minor-16-17-curfew",
       "title": "CT: Minors 16-17 \u2014 Cannot work past 10pm (school night)",
       "jurisdiction": "CT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2003-01-01",
       "appliesWhen": {
@@ -1303,7 +1303,7 @@
       "id": "ct-minor-16-17-school-day-hours",
       "title": "CT: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "CT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2003-01-01",
       "appliesWhen": {
@@ -1364,7 +1364,7 @@
       "id": "ct-minor-16-17-school-week-hours",
       "title": "CT: Minors 16-17 \u2014 Max 32 hours in a school week",
       "jurisdiction": "CT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2003-01-01",
       "appliesWhen": {
@@ -1425,7 +1425,7 @@
       "id": "dc-minor-16-17-curfew",
       "title": "DC: Minors 16-17 \u2014 Cannot work past 10pm (school night)",
       "jurisdiction": "DC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1486,7 +1486,7 @@
       "id": "dc-minor-16-17-nonschool-day-hours",
       "title": "DC: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "DC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1547,7 +1547,7 @@
       "id": "dc-minor-16-17-school-day-hours",
       "title": "DC: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "DC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1608,7 +1608,7 @@
       "id": "de-minor-16-17-curfew",
       "title": "Delaware: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "DE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1668,7 +1668,7 @@
       "id": "de-minor-16-17-nonschool-day-hours",
       "title": "Delaware: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "DE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1728,7 +1728,7 @@
       "id": "de-minor-16-17-school-day-hours",
       "title": "Delaware: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "DE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1788,7 +1788,7 @@
       "id": "de-minor-16-17-school-week-hours",
       "title": "Delaware: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "DE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -1845,396 +1845,10 @@
       ]
     },
     {
-      "id": "federal-minor-14-15-curfew",
-      "title": "Federal: Minors 14-15 \u2014 Cannot work past 7pm (9pm Jun 1\u2013Labor Day)",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.school_in_session",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "shift.end_hour",
-            "op": ">=",
-            "value": 19
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.curfew",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "latest_end_hour": 19,
-          "school_night": true
-        },
-        "summary": "Scheduling a 14-15 year old to work past 7:00 PM during the school year"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(6)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(6)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minor-14-15-curfew-summer",
-      "title": "Federal: Minors 14-15 \u2014 Cannot work past 9pm (Jun 1\u2013Labor Day)",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.school_in_session",
-            "op": "=",
-            "value": false
-          },
-          {
-            "fact": "shift.end_hour",
-            "op": ">=",
-            "value": 21
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.curfew",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "latest_end_hour": 21,
-          "school_night": false
-        },
-        "summary": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(7)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(7)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minor-14-15-early-start",
-      "title": "Federal: Minors 14-15 \u2014 Cannot work before 7am",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.start_hour",
-            "op": "<",
-            "value": 7
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.curfew",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "earliest_start_hour": 7
-        },
-        "summary": "Scheduling a 14-15 year old to work before 7:00 AM"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(1)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(1)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minor-14-15-nonschool-day-hours",
-      "title": "Federal: Minors 14-15 \u2014 Max 8 hours on a non-school day",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.is_school_day",
-            "op": "=",
-            "value": false
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 8
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.daily_hours_max",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "max_hours": 8,
-          "school_day": false
-        },
-        "summary": "Scheduling a 14-15 year old for more than 8 hours on a non-school day"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(3)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(3)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minor-14-15-nonschool-week-hours",
-      "title": "Federal: Minors 14-15 \u2014 Max 40 hours in a non-school week",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.school_in_session",
-            "op": "=",
-            "value": false
-          },
-          {
-            "fact": "shift.hours_worked_this_week",
-            "op": ">",
-            "value": 40
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.weekly_hours_max",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "max_hours": 40,
-          "school_week": false
-        },
-        "summary": "Scheduling a 14-15 year old for more than 40 hours in a non-school week"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(5)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(5)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minor-14-15-school-day-hours",
-      "title": "Federal: Minors 14-15 \u2014 Max 3 hours on a school day",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.is_school_day",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "shift.shift_length_hours",
-            "op": ">",
-            "value": 3
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.daily_hours_max",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "max_hours": 3,
-          "school_day": true
-        },
-        "summary": "Scheduling a 14-15 year old for more than 3 hours on a school day"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(2)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(2)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
-      "id": "federal-minor-14-15-school-week-hours",
-      "title": "Federal: Minors 14-15 \u2014 Max 18 hours in a school week",
-      "jurisdiction": "Federal",
-      "topic": "minor_labor",
-      "status": "active",
-      "effectiveFrom": "2008-02-12",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "employee.is_minor",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "employee.age",
-            "op": ">=",
-            "value": 14
-          },
-          {
-            "fact": "employee.age",
-            "op": "<=",
-            "value": 15
-          },
-          {
-            "fact": "shift.school_in_session",
-            "op": "=",
-            "value": true
-          },
-          {
-            "fact": "shift.hours_worked_this_week",
-            "op": ">",
-            "value": 18
-          }
-        ]
-      },
-      "result": {
-        "type": "prohibition",
-        "obligation": "minor.weekly_hours_max",
-        "params": {
-          "age_min": 14,
-          "age_max": 15,
-          "max_hours": 18,
-          "school_week": true
-        },
-        "summary": "Scheduling a 14-15 year old for more than 18 hours in a school week"
-      },
-      "citations": [
-        {
-          "source": "29 CFR \u00a7570.35(a)(4)",
-          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
-          "section": "\u00a7570.35(a)(4)",
-          "kind": "regulation"
-        }
-      ]
-    },
-    {
       "id": "fl-minor-16-17-curfew",
       "title": "Florida: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "FL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2294,7 +1908,7 @@
       "id": "fl-minor-16-17-nonschool-day-hours",
       "title": "Florida: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "FL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2354,7 +1968,7 @@
       "id": "fl-minor-16-17-school-day-hours",
       "title": "Florida: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "FL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2414,7 +2028,7 @@
       "id": "fl-minor-16-17-school-week-hours",
       "title": "Florida: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "FL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2471,10 +2085,396 @@
       ]
     },
     {
+      "id": "federal-minor-14-15-curfew",
+      "title": "Federal: Minors 14-15 \u2014 Cannot work past 7pm (9pm Jun 1\u2013Labor Day)",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.night_work",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 19
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 19,
+          "school_night": true
+        },
+        "summary": "Scheduling a 14-15 year old to work past 7:00 PM during the school year"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(6)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(6)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-curfew-summer",
+      "title": "Federal: Minors 14-15 \u2014 Cannot work past 9pm (Jun 1\u2013Labor Day)",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.night_work",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.end_hour",
+            "op": ">=",
+            "value": 21
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "latest_end_hour": 21,
+          "school_night": false
+        },
+        "summary": "Scheduling a 14-15 year old to work past 9:00 PM (summer/non-school period)"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(7)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(7)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-early-start",
+      "title": "Federal: Minors 14-15 \u2014 Cannot work before 7am",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.night_work",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.start_hour",
+            "op": "<",
+            "value": 7
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.curfew",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "earliest_start_hour": 7
+        },
+        "summary": "Scheduling a 14-15 year old to work before 7:00 AM"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(1)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(1)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-day-hours",
+      "title": "Federal: Minors 14-15 \u2014 Max 8 hours on a non-school day",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.hour_limits",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 8,
+          "school_day": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 8 hours on a non-school day"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(3)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(3)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-nonschool-week-hours",
+      "title": "Federal: Minors 14-15 \u2014 Max 40 hours in a non-school week",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.hour_limits",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 40,
+          "school_week": false
+        },
+        "summary": "Scheduling a 14-15 year old for more than 40 hours in a non-school week"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(5)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(5)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-day-hours",
+      "title": "Federal: Minors 14-15 \u2014 Max 3 hours on a school day",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.hour_limits",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.is_school_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.daily_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 3,
+          "school_day": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 3 hours on a school day"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(2)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(2)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-minor-14-15-school-week-hours",
+      "title": "Federal: Minors 14-15 \u2014 Max 18 hours in a school week",
+      "jurisdiction": "Federal",
+      "topic": "minor.labor.hour_limits",
+      "status": "active",
+      "effectiveFrom": "2008-02-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.school_in_session",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 18
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "minor.weekly_hours_max",
+        "params": {
+          "age_min": 14,
+          "age_max": 15,
+          "max_hours": 18,
+          "school_week": true
+        },
+        "summary": "Scheduling a 14-15 year old for more than 18 hours in a school week"
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7570.35(a)(4)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-570/subpart-C/section-570.35",
+          "section": "\u00a7570.35(a)(4)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
       "id": "ga-minor-16-17-curfew",
       "title": "Georgia: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "GA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2534,7 +2534,7 @@
       "id": "ga-minor-16-17-nonschool-day-hours",
       "title": "Georgia: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "GA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2594,7 +2594,7 @@
       "id": "ga-minor-16-17-school-day-hours",
       "title": "Georgia: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "GA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2654,7 +2654,7 @@
       "id": "ga-minor-16-17-school-week-hours",
       "title": "Georgia: Minors 16-17 \u2014 Max 40 hours in a school week",
       "jurisdiction": "GA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2714,7 +2714,7 @@
       "id": "hi-minor-16-17-curfew",
       "title": "Hawaii: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "HI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2774,7 +2774,7 @@
       "id": "hi-minor-16-17-nonschool-day-hours",
       "title": "Hawaii: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "HI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2834,7 +2834,7 @@
       "id": "hi-minor-16-17-school-day-hours",
       "title": "Hawaii: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "HI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2894,7 +2894,7 @@
       "id": "hi-minor-16-17-school-week-hours",
       "title": "Hawaii: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "HI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -2954,7 +2954,7 @@
       "id": "ia-minor-16-17-curfew",
       "title": "Iowa: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "IA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3014,7 +3014,7 @@
       "id": "ia-minor-16-17-nonschool-day-hours",
       "title": "Iowa: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "IA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3074,7 +3074,7 @@
       "id": "ia-minor-16-17-school-day-hours",
       "title": "Iowa: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "IA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3134,7 +3134,7 @@
       "id": "ia-minor-16-17-school-week-hours",
       "title": "Iowa: Minors 16-17 \u2014 Max 28 hours in a school week",
       "jurisdiction": "IA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3194,7 +3194,7 @@
       "id": "id-minor-16-17-curfew",
       "title": "Idaho: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "ID",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3254,7 +3254,7 @@
       "id": "id-minor-16-17-nonschool-day-hours",
       "title": "Idaho: Minors 16-17 \u2014 Max 9 hours on a non-school day",
       "jurisdiction": "ID",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3314,7 +3314,7 @@
       "id": "id-minor-16-17-school-day-hours",
       "title": "Idaho: Minors 16-17 \u2014 Max 6 hours on a school day",
       "jurisdiction": "ID",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3374,7 +3374,7 @@
       "id": "id-minor-16-17-school-week-hours",
       "title": "Idaho: Minors 16-17 \u2014 Max 54 hours in a school week",
       "jurisdiction": "ID",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3434,7 +3434,7 @@
       "id": "il-minor-16-17-curfew",
       "title": "Illinois: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "IL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3494,7 +3494,7 @@
       "id": "il-minor-16-17-nonschool-day-hours",
       "title": "Illinois: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "IL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3554,7 +3554,7 @@
       "id": "il-minor-16-17-school-day-hours",
       "title": "Illinois: Minors 16-17 \u2014 Max 3 hours on a school day",
       "jurisdiction": "IL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3614,7 +3614,7 @@
       "id": "il-minor-16-17-school-week-hours",
       "title": "Illinois: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "IL",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3674,7 +3674,7 @@
       "id": "in-minor-16-17-curfew",
       "title": "Indiana: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "IN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3734,7 +3734,7 @@
       "id": "in-minor-16-17-nonschool-day-hours",
       "title": "Indiana: Minors 16-17 \u2014 Max 9 hours on a non-school day",
       "jurisdiction": "IN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3794,7 +3794,7 @@
       "id": "in-minor-16-17-school-day-hours",
       "title": "Indiana: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "IN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3854,7 +3854,7 @@
       "id": "in-minor-16-17-school-week-hours",
       "title": "Indiana: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "IN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3914,7 +3914,7 @@
       "id": "ks-minor-16-17-curfew",
       "title": "Kansas: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "KS",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -3974,7 +3974,7 @@
       "id": "ks-minor-16-17-nonschool-day-hours",
       "title": "Kansas: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "KS",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4034,7 +4034,7 @@
       "id": "ks-minor-16-17-school-day-hours",
       "title": "Kansas: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "KS",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4094,7 +4094,7 @@
       "id": "ks-minor-16-17-school-week-hours",
       "title": "Kansas: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "KS",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4154,7 +4154,7 @@
       "id": "ky-minor-16-17-curfew",
       "title": "Kentucky: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "KY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4214,7 +4214,7 @@
       "id": "ky-minor-16-17-nonschool-day-hours",
       "title": "Kentucky: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "KY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4274,7 +4274,7 @@
       "id": "ky-minor-16-17-school-day-hours",
       "title": "Kentucky: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "KY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4334,7 +4334,7 @@
       "id": "ky-minor-16-17-school-week-hours",
       "title": "Kentucky: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "KY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4394,7 +4394,7 @@
       "id": "la-minor-16-17-curfew",
       "title": "Louisiana: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "LA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4454,7 +4454,7 @@
       "id": "la-minor-16-17-nonschool-day-hours",
       "title": "Louisiana: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "LA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4514,7 +4514,7 @@
       "id": "la-minor-16-17-school-day-hours",
       "title": "Louisiana: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "LA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4574,7 +4574,7 @@
       "id": "la-minor-16-17-school-week-hours",
       "title": "Louisiana: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "LA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4634,7 +4634,7 @@
       "id": "ma-minor-16-17-curfew",
       "title": "Massachusetts: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4694,7 +4694,7 @@
       "id": "ma-minor-16-17-nonschool-day-hours",
       "title": "Massachusetts: Minors 16-17 \u2014 Max 9 hours on a non-school day",
       "jurisdiction": "MA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4754,7 +4754,7 @@
       "id": "ma-minor-16-17-school-day-hours",
       "title": "Massachusetts: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4814,7 +4814,7 @@
       "id": "ma-minor-16-17-school-week-hours",
       "title": "Massachusetts: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4874,7 +4874,7 @@
       "id": "md-minor-16-17-curfew",
       "title": "MD: Minors 16-17 \u2014 Cannot work past 11pm (school night)",
       "jurisdiction": "MD",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4935,7 +4935,7 @@
       "id": "md-minor-16-17-school-day-hours",
       "title": "MD: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MD",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -4996,7 +4996,7 @@
       "id": "me-minor-16-17-curfew",
       "title": "Maine: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "ME",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5056,7 +5056,7 @@
       "id": "me-minor-16-17-nonschool-day-hours",
       "title": "Maine: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "ME",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5116,7 +5116,7 @@
       "id": "me-minor-16-17-school-day-hours",
       "title": "Maine: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "ME",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5176,7 +5176,7 @@
       "id": "me-minor-16-17-school-week-hours",
       "title": "Maine: Minors 16-17 \u2014 Max 20 hours in a school week",
       "jurisdiction": "ME",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5236,7 +5236,7 @@
       "id": "mi-minor-16-17-curfew",
       "title": "Michigan: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5296,7 +5296,7 @@
       "id": "mi-minor-16-17-nonschool-day-hours",
       "title": "Michigan: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5356,7 +5356,7 @@
       "id": "mi-minor-16-17-school-day-hours",
       "title": "Michigan: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5416,7 +5416,7 @@
       "id": "mi-minor-16-17-school-week-hours",
       "title": "Michigan: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "MI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5476,7 +5476,7 @@
       "id": "mn-minor-16-17-curfew",
       "title": "Minnesota: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "MN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5536,7 +5536,7 @@
       "id": "mn-minor-16-17-nonschool-day-hours",
       "title": "Minnesota: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5596,7 +5596,7 @@
       "id": "mn-minor-16-17-school-day-hours",
       "title": "Minnesota: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5656,7 +5656,7 @@
       "id": "mn-minor-16-17-school-week-hours",
       "title": "Minnesota: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5716,7 +5716,7 @@
       "id": "mo-minor-16-17-curfew",
       "title": "Missouri: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5776,7 +5776,7 @@
       "id": "mo-minor-16-17-nonschool-day-hours",
       "title": "Missouri: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5836,7 +5836,7 @@
       "id": "mo-minor-16-17-school-day-hours",
       "title": "Missouri: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5896,7 +5896,7 @@
       "id": "mo-minor-16-17-school-week-hours",
       "title": "Missouri: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MO",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -5956,7 +5956,7 @@
       "id": "ms-minor-labor",
       "title": "Mississippi Child Labor Law (under 18)",
       "jurisdiction": "MS",
-      "topic": "minor_labor",
+      "topic": "minor.labor.general",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -5994,7 +5994,7 @@
       "id": "mt-minor-16-17-curfew",
       "title": "Montana: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "MT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6054,7 +6054,7 @@
       "id": "mt-minor-16-17-nonschool-day-hours",
       "title": "Montana: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "MT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6114,7 +6114,7 @@
       "id": "mt-minor-16-17-school-day-hours",
       "title": "Montana: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "MT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6174,7 +6174,7 @@
       "id": "mt-minor-16-17-school-week-hours",
       "title": "Montana: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "MT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6234,7 +6234,7 @@
       "id": "nc-minor-16-17-curfew",
       "title": "North Carolina: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "NC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6294,7 +6294,7 @@
       "id": "nc-minor-16-17-nonschool-day-hours",
       "title": "North Carolina: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6354,7 +6354,7 @@
       "id": "nc-minor-16-17-school-day-hours",
       "title": "North Carolina: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6414,7 +6414,7 @@
       "id": "nc-minor-16-17-school-week-hours",
       "title": "North Carolina: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "NC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6474,7 +6474,7 @@
       "id": "nd-minor-16-17-curfew",
       "title": "North Dakota: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "ND",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6534,7 +6534,7 @@
       "id": "nd-minor-16-17-nonschool-day-hours",
       "title": "North Dakota: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "ND",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6594,7 +6594,7 @@
       "id": "nd-minor-16-17-school-day-hours",
       "title": "North Dakota: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "ND",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6654,7 +6654,7 @@
       "id": "nd-minor-16-17-school-week-hours",
       "title": "North Dakota: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "ND",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6714,7 +6714,7 @@
       "id": "ne-minor-16-17-curfew",
       "title": "Nebraska: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "NE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6774,7 +6774,7 @@
       "id": "ne-minor-16-17-nonschool-day-hours",
       "title": "Nebraska: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6834,7 +6834,7 @@
       "id": "ne-minor-16-17-school-day-hours",
       "title": "Nebraska: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6894,7 +6894,7 @@
       "id": "ne-minor-16-17-school-week-hours",
       "title": "Nebraska: Minors 16-17 \u2014 Max 48 hours in a school week",
       "jurisdiction": "NE",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -6954,7 +6954,7 @@
       "id": "nh-minor-16-17-curfew",
       "title": "New Hampshire: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "NH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7014,7 +7014,7 @@
       "id": "nh-minor-16-17-nonschool-day-hours",
       "title": "New Hampshire: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7074,7 +7074,7 @@
       "id": "nh-minor-16-17-school-day-hours",
       "title": "New Hampshire: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7134,7 +7134,7 @@
       "id": "nh-minor-16-17-school-week-hours",
       "title": "New Hampshire: Minors 16-17 \u2014 Max 30 hours in a school week",
       "jurisdiction": "NH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7194,7 +7194,7 @@
       "id": "nj-minor-16-17-curfew",
       "title": "NJ: Minors 16-17 \u2014 Cannot work past 11pm (school night)",
       "jurisdiction": "NJ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7255,7 +7255,7 @@
       "id": "nj-minor-16-17-nonschool-day-hours",
       "title": "NJ: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NJ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7316,7 +7316,7 @@
       "id": "nj-minor-16-17-school-day-hours",
       "title": "NJ: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NJ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7377,7 +7377,7 @@
       "id": "nj-minor-16-17-school-week-hours",
       "title": "NJ: Minors 16-17 \u2014 Max 40 hours in a school week",
       "jurisdiction": "NJ",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7438,7 +7438,7 @@
       "id": "nm-minor-16-17-curfew",
       "title": "New Mexico: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "NM",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7498,7 +7498,7 @@
       "id": "nm-minor-16-17-nonschool-day-hours",
       "title": "New Mexico: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NM",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7558,7 +7558,7 @@
       "id": "nm-minor-16-17-school-day-hours",
       "title": "New Mexico: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NM",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7618,7 +7618,7 @@
       "id": "nm-minor-16-17-school-week-hours",
       "title": "New Mexico: Minors 16-17 \u2014 Max 40 hours in a school week",
       "jurisdiction": "NM",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7678,7 +7678,7 @@
       "id": "nv-minor-16-17-curfew",
       "title": "NV: Minors 16-17 \u2014 Cannot work past 10pm when school next day",
       "jurisdiction": "NV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -7739,7 +7739,7 @@
       "id": "nv-minor-16-17-nonschool-day-hours",
       "title": "NV: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -7800,7 +7800,7 @@
       "id": "nv-minor-16-17-school-day-hours",
       "title": "NV: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2007-01-01",
       "appliesWhen": {
@@ -7861,7 +7861,7 @@
       "id": "ny-minor-16-17-curfew",
       "title": "NY: Minors 16-17 \u2014 Cannot work past 10pm (school night)",
       "jurisdiction": "NY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7922,7 +7922,7 @@
       "id": "ny-minor-16-17-nonschool-day-hours",
       "title": "NY: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "NY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -7983,7 +7983,7 @@
       "id": "ny-minor-16-17-nonschool-week-hours",
       "title": "NY: Minors 16-17 \u2014 Max 48 hours in a non-school week",
       "jurisdiction": "NY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8044,7 +8044,7 @@
       "id": "ny-minor-16-17-school-day-hours",
       "title": "NY: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "NY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8105,7 +8105,7 @@
       "id": "ny-minor-16-17-school-week-hours",
       "title": "NY: Minors 16-17 \u2014 Max 28 hours in a school week",
       "jurisdiction": "NY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8166,7 +8166,7 @@
       "id": "oh-minor-16-17-curfew",
       "title": "Ohio: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "OH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8226,7 +8226,7 @@
       "id": "oh-minor-16-17-nonschool-day-hours",
       "title": "Ohio: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "OH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8286,7 +8286,7 @@
       "id": "oh-minor-16-17-school-day-hours",
       "title": "Ohio: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "OH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8346,7 +8346,7 @@
       "id": "oh-minor-16-17-school-week-hours",
       "title": "Ohio: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "OH",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8406,7 +8406,7 @@
       "id": "ok-minor-16-17-curfew",
       "title": "Oklahoma: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "OK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8466,7 +8466,7 @@
       "id": "ok-minor-16-17-nonschool-day-hours",
       "title": "Oklahoma: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "OK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8526,7 +8526,7 @@
       "id": "ok-minor-16-17-school-day-hours",
       "title": "Oklahoma: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "OK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8586,7 +8586,7 @@
       "id": "ok-minor-16-17-school-week-hours",
       "title": "Oklahoma: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "OK",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8646,7 +8646,7 @@
       "id": "or-minor-16-17-curfew",
       "title": "Oregon: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "OR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8706,7 +8706,7 @@
       "id": "or-minor-16-17-nonschool-day-hours",
       "title": "Oregon: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "OR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8766,7 +8766,7 @@
       "id": "or-minor-16-17-school-day-hours",
       "title": "Oregon: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "OR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8826,7 +8826,7 @@
       "id": "or-minor-16-17-school-week-hours",
       "title": "Oregon: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "OR",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8886,7 +8886,7 @@
       "id": "pa-minor-16-17-curfew",
       "title": "Pennsylvania: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "PA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -8946,7 +8946,7 @@
       "id": "pa-minor-16-17-nonschool-day-hours",
       "title": "Pennsylvania: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "PA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9006,7 +9006,7 @@
       "id": "pa-minor-16-17-school-day-hours",
       "title": "Pennsylvania: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "PA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9066,7 +9066,7 @@
       "id": "pa-minor-16-17-school-week-hours",
       "title": "Pennsylvania: Minors 16-17 \u2014 Max 28 hours in a school week",
       "jurisdiction": "PA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9126,7 +9126,7 @@
       "id": "ri-minor-16-17-curfew",
       "title": "Rhode Island: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "RI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9186,7 +9186,7 @@
       "id": "ri-minor-16-17-nonschool-day-hours",
       "title": "Rhode Island: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "RI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9246,7 +9246,7 @@
       "id": "ri-minor-16-17-school-day-hours",
       "title": "Rhode Island: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "RI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9306,7 +9306,7 @@
       "id": "ri-minor-16-17-school-week-hours",
       "title": "Rhode Island: Minors 16-17 \u2014 Max 24 hours in a school week",
       "jurisdiction": "RI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9366,7 +9366,7 @@
       "id": "sc-minor-labor",
       "title": "South Carolina Child Labor Law (under 18)",
       "jurisdiction": "SC",
-      "topic": "minor_labor",
+      "topic": "minor.labor.general",
       "status": "active",
       "effectiveFrom": "2000-01-01",
       "appliesWhen": {
@@ -9404,7 +9404,7 @@
       "id": "sd-minor-16-17-curfew",
       "title": "South Dakota: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "SD",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9464,7 +9464,7 @@
       "id": "sd-minor-16-17-nonschool-day-hours",
       "title": "South Dakota: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "SD",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9524,7 +9524,7 @@
       "id": "sd-minor-16-17-school-day-hours",
       "title": "South Dakota: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "SD",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9584,7 +9584,7 @@
       "id": "sd-minor-16-17-school-week-hours",
       "title": "South Dakota: Minors 16-17 \u2014 Max 20 hours in a school week",
       "jurisdiction": "SD",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9644,7 +9644,7 @@
       "id": "tn-minor-16-17-curfew",
       "title": "Tennessee: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "TN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9704,7 +9704,7 @@
       "id": "tn-minor-16-17-nonschool-day-hours",
       "title": "Tennessee: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "TN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9764,7 +9764,7 @@
       "id": "tn-minor-16-17-school-day-hours",
       "title": "Tennessee: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "TN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9824,7 +9824,7 @@
       "id": "tn-minor-16-17-school-week-hours",
       "title": "Tennessee: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "TN",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9884,7 +9884,7 @@
       "id": "tx-minor-16-17-curfew",
       "title": "Texas: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "TX",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -9944,7 +9944,7 @@
       "id": "tx-minor-16-17-nonschool-day-hours",
       "title": "Texas: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "TX",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10004,7 +10004,7 @@
       "id": "tx-minor-16-17-school-day-hours",
       "title": "Texas: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "TX",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10064,7 +10064,7 @@
       "id": "tx-minor-16-17-school-week-hours",
       "title": "Texas: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "TX",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10124,7 +10124,7 @@
       "id": "ut-minor-16-17-curfew",
       "title": "Utah: Minors 16-17 \u2014 Cannot work past 21:00 (school night)",
       "jurisdiction": "UT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10184,7 +10184,7 @@
       "id": "ut-minor-16-17-nonschool-day-hours",
       "title": "Utah: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "UT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10244,7 +10244,7 @@
       "id": "ut-minor-16-17-school-day-hours",
       "title": "Utah: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "UT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10304,7 +10304,7 @@
       "id": "ut-minor-16-17-school-week-hours",
       "title": "Utah: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "UT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10364,7 +10364,7 @@
       "id": "va-minor-16-17-curfew",
       "title": "VA: Minors 16-17 \u2014 Cannot work past 11pm (school night)",
       "jurisdiction": "VA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10425,7 +10425,7 @@
       "id": "va-minor-16-17-school-day-hours",
       "title": "VA: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "VA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10486,7 +10486,7 @@
       "id": "vt-minor-16-17-curfew",
       "title": "Vermont: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "VT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10546,7 +10546,7 @@
       "id": "vt-minor-16-17-nonschool-day-hours",
       "title": "Vermont: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "VT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10606,7 +10606,7 @@
       "id": "vt-minor-16-17-school-day-hours",
       "title": "Vermont: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "VT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10666,7 +10666,7 @@
       "id": "vt-minor-16-17-school-week-hours",
       "title": "Vermont: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "VT",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10726,7 +10726,7 @@
       "id": "wa-minor-16-17-curfew",
       "title": "Washington: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "WA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10786,7 +10786,7 @@
       "id": "wa-minor-16-17-nonschool-day-hours",
       "title": "Washington: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10846,7 +10846,7 @@
       "id": "wa-minor-16-17-school-day-hours",
       "title": "Washington: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10906,7 +10906,7 @@
       "id": "wa-minor-16-17-school-week-hours",
       "title": "Washington: Minors 16-17 \u2014 Max 20 hours in a school week",
       "jurisdiction": "WA",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -10966,7 +10966,7 @@
       "id": "wi-minor-16-17-curfew",
       "title": "Wisconsin: Minors 16-17 \u2014 Cannot work past 23:00 (school night)",
       "jurisdiction": "WI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11026,7 +11026,7 @@
       "id": "wi-minor-16-17-nonschool-day-hours",
       "title": "Wisconsin: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11086,7 +11086,7 @@
       "id": "wi-minor-16-17-school-day-hours",
       "title": "Wisconsin: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11146,7 +11146,7 @@
       "id": "wi-minor-16-17-school-week-hours",
       "title": "Wisconsin: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "WI",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11206,7 +11206,7 @@
       "id": "wv-minor-16-17-curfew",
       "title": "West Virginia: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "WV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11266,7 +11266,7 @@
       "id": "wv-minor-16-17-nonschool-day-hours",
       "title": "West Virginia: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11326,7 +11326,7 @@
       "id": "wv-minor-16-17-school-day-hours",
       "title": "West Virginia: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11386,7 +11386,7 @@
       "id": "wv-minor-16-17-school-week-hours",
       "title": "West Virginia: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "WV",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11446,7 +11446,7 @@
       "id": "wy-minor-16-17-curfew",
       "title": "Wyoming: Minors 16-17 \u2014 Cannot work past 22:00 (school night)",
       "jurisdiction": "WY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.night_work",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11506,7 +11506,7 @@
       "id": "wy-minor-16-17-nonschool-day-hours",
       "title": "Wyoming: Minors 16-17 \u2014 Max 8 hours on a non-school day",
       "jurisdiction": "WY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11566,7 +11566,7 @@
       "id": "wy-minor-16-17-school-day-hours",
       "title": "Wyoming: Minors 16-17 \u2014 Max 4 hours on a school day",
       "jurisdiction": "WY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
@@ -11626,7 +11626,7 @@
       "id": "wy-minor-16-17-school-week-hours",
       "title": "Wyoming: Minors 16-17 \u2014 Max 18 hours in a school week",
       "jurisdiction": "WY",
-      "topic": "minor_labor",
+      "topic": "minor.labor.hour_limits",
       "status": "active",
       "effectiveFrom": "2010-01-01",
       "appliesWhen": {
