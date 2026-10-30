@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:26:07.163Z",
+  "generatedAt": "2026-10-30T18:53:15.267Z",
   "asOf": "2026-10-20",
   "horizonDays": 365,
-  "rulesVersion": "c68047ea12aa5a94",
+  "rulesVersion": "1e560f4c922d0d79",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -77,11 +77,16 @@
       "citations": [
         {
           "source": "10 ILCS 5/17-15",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.ilga.gov/legislation/ilcs/documents/001000050K17-15.htm",
           "kind": "statute"
+        },
+        {
+          "source": "10 ILCS 5/17-15 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ],
-      "hash": "14c7d9d7d46f3dd6"
+      "hash": "dc00b3a65fde4526"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -1674,11 +1679,16 @@
       "citations": [
         {
           "source": "820 ILCS 260 (Nursing Mothers in the Workplace Act), as amended by P.A. 104-0076",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2429&ChapterID=68",
           "kind": "statute"
+        },
+        {
+          "source": "820 ILCS 260 (Nursing Mothers in the Workplace Act), as amended by P.A. 104-0076 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ],
-      "hash": "592cf4b03022f4ee"
+      "hash": "ce33ab035ca6d970"
     },
     {
       "id": "il-rest-break",
@@ -2973,5 +2983,5 @@
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "df78ea04e4b47b81a7c55c64f8483345312c0c52c9442957cbeef9f2c030b73d"
+  "checksum": "462ceae2cf8be8952e67a9028647aeb94f211882f6cdda0c60547ecd5b0fcc05"
 }

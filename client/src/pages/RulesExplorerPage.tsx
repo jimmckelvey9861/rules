@@ -407,7 +407,8 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
     });
   }
   const subtopicCount = useMemo(() => lawTaxonomy.filter(r => r.level === 2).length, [lawTaxonomy]);
-  const topicCount = useMemo(() => lawTaxonomy.filter(r => r.level === 1).length, [lawTaxonomy]);
+  // Topics include the ones shown as their single-topic category row (level 0 with a topic code).
+  const topicCount = useMemo(() => lawTaxonomy.filter(r => r.level !== 2 && r.topics.length > 0).length, [lawTaxonomy]);
   const hasSubtopics = (row: TaxonomyRow) => lawTaxonomy.some(r => r.parentId === row.id);
 
   // Build lookup: for each (taxonomyRow, locationCol) → matching rules

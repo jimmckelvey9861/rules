@@ -8,7 +8,7 @@
       "jurisdiction": "AR",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2009-07-31",
       "appliesWhen": {
         "all": [
           {
@@ -34,8 +34,18 @@
       "citations": [
         {
           "source": "Ark. Code Ann. \u00a711-5-116",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/arkansas/title-11/chapter-5/subchapter-1/section-11-5-116/",
           "kind": "statute"
+        },
+        {
+          "source": "Ark. Act 621 of 2009",
+          "url": "https://ssl-adh.ark.org/images/uploads/pdf/Act621.pdf",
+          "kind": "statute"
+        },
+        {
+          "source": "Ark. Code Ann. \u00a711-5-116 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -73,8 +83,13 @@
       "citations": [
         {
           "source": "Cal. Labor Code \u00a7\u00a71030-1034",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=1030",
           "kind": "statute"
+        },
+        {
+          "source": "Cal. Labor Code \u00a7\u00a71030-1034 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -205,8 +220,13 @@
       "citations": [
         {
           "source": "Colo. Rev. Stat. \u00a78-13.5-104",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://colorado.public.law/statutes/crs_8-13.5-104",
           "kind": "statute"
+        },
+        {
+          "source": "Colo. Rev. Stat. \u00a78-13.5-104 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -310,7 +330,7 @@
       "jurisdiction": "CT",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2001-10-01",
       "appliesWhen": {
         "all": [
           {
@@ -337,8 +357,13 @@
       "citations": [
         {
           "source": "Conn. Gen. Stat. \u00a731-40w",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-40w",
           "kind": "statute"
+        },
+        {
+          "source": "Conn. Gen. Stat. \u00a731-40w (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -348,7 +373,7 @@
       "jurisdiction": "DC",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2007-12-18",
       "appliesWhen": {
         "all": [
           {
@@ -374,8 +399,13 @@
       "citations": [
         {
           "source": "D.C. Code \u00a72-1402.82",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/2-1402.82",
           "kind": "statute"
+        },
+        {
+          "source": "D.C. Code \u00a72-1402.82 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -385,7 +415,7 @@
       "jurisdiction": "DE",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2014-09-09",
       "appliesWhen": {
         "all": [
           {
@@ -417,8 +447,13 @@
       "citations": [
         {
           "source": "19 Del. Code \u00a7710(19)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://delcode.delaware.gov/title19/c007/sc02/index.html#710",
           "kind": "statute"
+        },
+        {
+          "source": "19 Del. Code \u00a7710(19) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -490,8 +525,13 @@
       "citations": [
         {
           "source": "Ga. Code Ann. \u00a734-1-6",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/georgia/title-34/chapter-1/section-34-1-6/",
           "kind": "statute"
+        },
+        {
+          "source": "Ga. Code Ann. \u00a734-1-6 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -529,8 +569,13 @@
       "citations": [
         {
           "source": "Haw. Rev. Stat. \u00a7378-92",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0378/HRS_0378-0092.htm",
           "kind": "statute"
+        },
+        {
+          "source": "Haw. Rev. Stat. \u00a7378-92 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -573,8 +618,13 @@
       "citations": [
         {
           "source": "820 ILCS 260 (Nursing Mothers in the Workplace Act), as amended by P.A. 104-0076",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2429&ChapterID=68",
           "kind": "statute"
+        },
+        {
+          "source": "820 ILCS 260 (Nursing Mothers in the Workplace Act), as amended by P.A. 104-0076 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -659,8 +709,13 @@
       "citations": [
         {
           "source": "Ky. Rev. Stat. \u00a7\u00a7344.030, 344.040 (Pregnant Workers Act)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/kentucky/chapter-344/section-344-040/",
           "kind": "statute"
+        },
+        {
+          "source": "Ky. Rev. Stat. \u00a7\u00a7344.030, 344.040 (Pregnant Workers Act) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -796,8 +851,13 @@
       "citations": [
         {
           "source": "Mass. Gen. Laws ch. 151B, \u00a74 (Pregnant Workers Fairness Act)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4",
           "kind": "statute"
+        },
+        {
+          "source": "Mass. Gen. Laws ch. 151B, \u00a74 (Pregnant Workers Fairness Act) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -807,7 +867,7 @@
       "jurisdiction": "ME",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2009-09-12",
       "appliesWhen": {
         "all": [
           {
@@ -834,8 +894,13 @@
       "citations": [
         {
           "source": "Me. Rev. Stat. tit. 26, \u00a7604",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec604.html",
           "kind": "statute"
+        },
+        {
+          "source": "Me. Rev. Stat. tit. 26, \u00a7604 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -871,8 +936,13 @@
       "citations": [
         {
           "source": "Minn. Stat. \u00a7181.939",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.939",
           "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7181.939 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -976,7 +1046,7 @@
       "jurisdiction": "MS",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2006-07-01",
       "appliesWhen": {
         "all": [
           {
@@ -1003,8 +1073,13 @@
       "citations": [
         {
           "source": "Miss. Code Ann. \u00a771-1-55",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/mississippi/title-71/chapter-1/section-71-1-55/",
           "kind": "statute"
+        },
+        {
+          "source": "Miss. Code Ann. \u00a771-1-55 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1014,7 +1089,7 @@
       "jurisdiction": "NE",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2015-08-30",
       "appliesWhen": {
         "all": [
           {
@@ -1046,8 +1121,13 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. \u00a748-1102(11)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-1102",
           "kind": "statute"
+        },
+        {
+          "source": "Neb. Rev. Stat. \u00a748-1102(11) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1089,8 +1169,13 @@
       "citations": [
         {
           "source": "N.H. Rev. Stat. Ann. \u00a7\u00a7275:78-275:83",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275/275-81.htm",
           "kind": "statute"
+        },
+        {
+          "source": "N.H. Rev. Stat. Ann. \u00a7\u00a7275:78-275:83 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1126,8 +1211,13 @@
       "citations": [
         {
           "source": "N.J. Stat. Ann. \u00a710:5-12(s)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/new-jersey/title-10/section-10-5-12/",
           "kind": "statute"
+        },
+        {
+          "source": "N.J. Stat. Ann. \u00a710:5-12(s) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1137,7 +1227,7 @@
       "jurisdiction": "NM",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2007-06-15",
       "appliesWhen": {
         "all": [
           {
@@ -1169,8 +1259,13 @@
       "citations": [
         {
           "source": "N.M. Stat. Ann. \u00a728-20-2",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-28/article-20/section-28-20-2/",
           "kind": "statute"
+        },
+        {
+          "source": "N.M. Stat. Ann. \u00a728-20-2 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1208,8 +1303,13 @@
       "citations": [
         {
           "source": "Nev. Rev. Stat. \u00a7608.0193",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0193",
           "kind": "statute"
+        },
+        {
+          "source": "Nev. Rev. Stat. \u00a7608.0193 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1341,8 +1441,13 @@
       "citations": [
         {
           "source": "N.Y. Labor Law \u00a7206-c",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/206-C",
           "kind": "statute"
+        },
+        {
+          "source": "N.Y. Labor Law \u00a7206-c (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1352,7 +1457,7 @@
       "jurisdiction": "OK",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2006-11-01",
       "appliesWhen": {
         "all": [
           {
@@ -1378,8 +1483,13 @@
       "citations": [
         {
           "source": "40 Okla. Stat. \u00a7435",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/oklahoma/title-40/section-40-435/",
           "kind": "statute"
+        },
+        {
+          "source": "40 Okla. Stat. \u00a7435 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1417,8 +1527,13 @@
       "citations": [
         {
           "source": "Or. Rev. Stat. \u00a7653.077",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://oregon.public.law/statutes/ors_653.077",
           "kind": "statute"
+        },
+        {
+          "source": "Or. Rev. Stat. \u00a7653.077 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1548,8 +1663,13 @@
       "citations": [
         {
           "source": "R.I. Gen. Laws \u00a7\u00a723-13.2-1, 28-5-7.4",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE23/23-13.2/23-13.2-1.htm",
           "kind": "statute"
+        },
+        {
+          "source": "R.I. Gen. Laws \u00a7\u00a723-13.2-1, 28-5-7.4 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1585,8 +1705,13 @@
       "citations": [
         {
           "source": "S.C. Code Ann. \u00a741-1-130",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.scstatehouse.gov/code/t41c001.php",
           "kind": "statute"
+        },
+        {
+          "source": "S.C. Code Ann. \u00a741-1-130 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1596,7 +1721,7 @@
       "jurisdiction": "TN",
       "topic": "sched.rest_break.lactation",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "1999-07-01",
       "appliesWhen": {
         "all": [
           {
@@ -1622,8 +1747,13 @@
       "citations": [
         {
           "source": "Tenn. Code Ann. \u00a750-1-305",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.justia.com/codes/tennessee/title-50/chapter-1/part-3/section-50-1-305/",
           "kind": "statute"
+        },
+        {
+          "source": "Tenn. Code Ann. \u00a750-1-305 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1665,8 +1795,13 @@
       "citations": [
         {
           "source": "Utah Code Ann. \u00a734A-5-106(1)(g)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://le.utah.gov/xcode/Title34A/Chapter5/34A-5-S106.html",
           "kind": "statute"
+        },
+        {
+          "source": "Utah Code Ann. \u00a734A-5-106(1)(g) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1708,8 +1843,13 @@
       "citations": [
         {
           "source": "Va. Code Ann. \u00a72.2-3909 (Virginia Human Rights Act)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://law.lis.virginia.gov/vacode/title2.2/chapter39/section2.2-3909/",
           "kind": "statute"
+        },
+        {
+          "source": "Va. Code Ann. \u00a72.2-3909 (Virginia Human Rights Act) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1746,8 +1886,13 @@
       "citations": [
         {
           "source": "21 V.S.A. \u00a7305",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00305",
           "kind": "statute"
+        },
+        {
+          "source": "21 V.S.A. \u00a7305 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },
@@ -1828,8 +1973,13 @@
       "citations": [
         {
           "source": "Wash. Rev. Code \u00a743.10.005 (Healthy Starts Act)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=43.10.005",
           "kind": "statute"
+        },
+        {
+          "source": "Wash. Rev. Code \u00a743.10.005 (Healthy Starts Act) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ]
     },

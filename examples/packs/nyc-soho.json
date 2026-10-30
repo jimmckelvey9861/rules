@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:26:07.160Z",
+  "generatedAt": "2026-10-30T18:53:15.262Z",
   "asOf": "2026-10-20",
   "horizonDays": 365,
-  "rulesVersion": "c68047ea12aa5a94",
+  "rulesVersion": "1e560f4c922d0d79",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -120,11 +120,16 @@
       "citations": [
         {
           "source": "N.Y. Elec. Law §3-110",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.nysenate.gov/legislation/laws/ELN/3-110",
           "kind": "statute"
+        },
+        {
+          "source": "N.Y. Elec. Law §3-110 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ],
-      "hash": "0b1376dec6189813"
+      "hash": "84283b75a1b9a4bc"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -2326,11 +2331,16 @@
       "citations": [
         {
           "source": "N.Y. Labor Law §206-c",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/206-C",
           "kind": "statute"
+        },
+        {
+          "source": "N.Y. Labor Law §206-c (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ],
-      "hash": "ea14201f6327a295"
+      "hash": "7a26b3348be3d92a"
     },
     {
       "id": "ny-day-of-rest",
@@ -3554,5 +3564,5 @@
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "ca160c3994e0d2c1ebc8a664ca3fd9d908fba4955b5ba25c1a21c60c012fba9b"
+  "checksum": "302e4a0659cd2508ee1d91d0d0eedc393e329bb3dbf680b6d6bb42859d11d77c"
 }
