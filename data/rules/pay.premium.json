@@ -775,6 +775,454 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "ri-sunday-holiday-premium",
+      "title": "Rhode Island \u2014 Sunday and Holiday Premium Pay (1.5x)",
+      "jurisdiction": "RI",
+      "topic": "pay.premium.holiday_sunday",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "any": [
+              {
+                "fact": "shift.is_sunday",
+                "op": "=",
+                "value": true
+              },
+              {
+                "fact": "shift.is_holiday",
+                "op": "=",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.holiday_sunday",
+        "params": {
+          "multiplier": 1.5,
+          "applies_sunday": true,
+          "applies_holidays": true,
+          "holidays": "New Year's Day, Memorial Day, Juneteenth, July 4, Victory Day, Labor Day, Columbus Day, Veterans' Day, Thanksgiving, Christmas",
+          "right_to_refuse": true,
+          "excluded_from_weekly_overtime": true
+        },
+        "summary": "Work on a Sunday or an enumerated holiday is paid at least 1.5x the normal rate (RIGL 25-3-3; enacted 1976). Employees may refuse Sunday/holiday work except at manufacturers running seven continuous days. Exempt: 24/7 taxi and chauffeured limousine companies, T.F. Green airport car rental under lease terms; a three-shift manufacturer may start at 11 p.m. Sunday without premium for that hour. Premium hours are excluded from the weekly overtime computation (RIGL 28-12-4.1)."
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a725-3-3",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE25/25-3/25-3-3.htm",
+          "section": "\u00a725-3-3 Work on Sundays and holidays",
+          "kind": "statute"
+        },
+        {
+          "source": "RIGL \u00a725-3-1(5) (enumerated holidays)",
+          "url": "https://law.justia.com/codes/rhode-island/title-25/chapter-25-3/section-25-3-1",
+          "section": "\u00a725-3-1 Definitions",
+          "kind": "statute"
+        },
+        {
+          "source": "RIGL \u00a728-12-4.1",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-12/28-12-4.1.htm",
+          "section": "\u00a728-12-4.1 Overtime computation; Sunday and holiday work",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-retail-sunday-premium-2018",
+      "title": "Massachusetts \u2014 Retail Sunday and Holiday Premium (1.5x, 2000)",
+      "jurisdiction": "MA",
+      "topic": "pay.premium.holiday_sunday",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "effectiveTo": "2018-12-31",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail"
+            ]
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">",
+            "value": 7
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "any": [
+              {
+                "fact": "shift.is_sunday",
+                "op": "=",
+                "value": true
+              },
+              {
+                "fact": "shift.is_holiday",
+                "op": "=",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.holiday_sunday",
+        "params": {
+          "multiplier": 1.5,
+          "applies_sunday": true,
+          "applies_holidays": true,
+          "holidays": "New Year's Day, Memorial Day, Juneteenth, July 4, Labor Day, Columbus Day, Veterans' Day",
+          "right_to_refuse": true
+        },
+        "summary": "Retail establishments with more than seven employees paid 1.5x the regular rate for Sunday and listed-holiday work (rate in force on or before 2000; phase-down began 2019). St. 2018, c.121 (the Grand Bargain) stepped the premium down 1.4/1.3/1.2/1.1 and eliminated it on 2023-01-01; the right to refuse Sunday work remains."
+      },
+      "citations": [
+        {
+          "source": "MGL c.136 \u00a76(50)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXX/Chapter136/Section6",
+          "section": "\u00a76(50) Retail Sunday openings; premium pay",
+          "kind": "statute"
+        },
+        {
+          "source": "St. 2018, c.121 \u00a7\u00a75-14 (phase-out schedule)",
+          "url": "https://malegislature.gov/Laws/SessionLaws/Acts/2018/Chapter121",
+          "section": "\u00a7\u00a75-14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-retail-sunday-premium-2019",
+      "title": "Massachusetts \u2014 Retail Sunday and Holiday Premium (1.4x, 2019)",
+      "jurisdiction": "MA",
+      "topic": "pay.premium.holiday_sunday",
+      "status": "active",
+      "effectiveFrom": "2019-01-01",
+      "effectiveTo": "2019-12-31",
+      "supersedes": "ma-retail-sunday-premium-2018",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail"
+            ]
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">",
+            "value": 7
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "any": [
+              {
+                "fact": "shift.is_sunday",
+                "op": "=",
+                "value": true
+              },
+              {
+                "fact": "shift.is_holiday",
+                "op": "=",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.holiday_sunday",
+        "params": {
+          "multiplier": 1.4,
+          "applies_sunday": true,
+          "applies_holidays": true,
+          "holidays": "New Year's Day, Memorial Day, Juneteenth, July 4, Labor Day, Columbus Day, Veterans' Day",
+          "right_to_refuse": true
+        },
+        "summary": "Retail establishments with more than seven employees paid 1.4x the regular rate for Sunday and listed-holiday work during 2019. St. 2018, c.121 (the Grand Bargain) stepped the premium down 1.4/1.3/1.2/1.1 and eliminated it on 2023-01-01; the right to refuse Sunday work remains."
+      },
+      "citations": [
+        {
+          "source": "MGL c.136 \u00a76(50)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXX/Chapter136/Section6",
+          "section": "\u00a76(50) Retail Sunday openings; premium pay",
+          "kind": "statute"
+        },
+        {
+          "source": "St. 2018, c.121 \u00a7\u00a75-14 (phase-out schedule)",
+          "url": "https://malegislature.gov/Laws/SessionLaws/Acts/2018/Chapter121",
+          "section": "\u00a7\u00a75-14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-retail-sunday-premium-2020",
+      "title": "Massachusetts \u2014 Retail Sunday and Holiday Premium (1.3x, 2020)",
+      "jurisdiction": "MA",
+      "topic": "pay.premium.holiday_sunday",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "effectiveTo": "2020-12-31",
+      "supersedes": "ma-retail-sunday-premium-2019",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail"
+            ]
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">",
+            "value": 7
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "any": [
+              {
+                "fact": "shift.is_sunday",
+                "op": "=",
+                "value": true
+              },
+              {
+                "fact": "shift.is_holiday",
+                "op": "=",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.holiday_sunday",
+        "params": {
+          "multiplier": 1.3,
+          "applies_sunday": true,
+          "applies_holidays": true,
+          "holidays": "New Year's Day, Memorial Day, Juneteenth, July 4, Labor Day, Columbus Day, Veterans' Day",
+          "right_to_refuse": true
+        },
+        "summary": "Retail establishments with more than seven employees paid 1.3x the regular rate for Sunday and listed-holiday work during 2020. St. 2018, c.121 (the Grand Bargain) stepped the premium down 1.4/1.3/1.2/1.1 and eliminated it on 2023-01-01; the right to refuse Sunday work remains."
+      },
+      "citations": [
+        {
+          "source": "MGL c.136 \u00a76(50)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXX/Chapter136/Section6",
+          "section": "\u00a76(50) Retail Sunday openings; premium pay",
+          "kind": "statute"
+        },
+        {
+          "source": "St. 2018, c.121 \u00a7\u00a75-14 (phase-out schedule)",
+          "url": "https://malegislature.gov/Laws/SessionLaws/Acts/2018/Chapter121",
+          "section": "\u00a7\u00a75-14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-retail-sunday-premium-2021",
+      "title": "Massachusetts \u2014 Retail Sunday and Holiday Premium (1.2x, 2021)",
+      "jurisdiction": "MA",
+      "topic": "pay.premium.holiday_sunday",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "effectiveTo": "2021-12-31",
+      "supersedes": "ma-retail-sunday-premium-2020",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail"
+            ]
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">",
+            "value": 7
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "any": [
+              {
+                "fact": "shift.is_sunday",
+                "op": "=",
+                "value": true
+              },
+              {
+                "fact": "shift.is_holiday",
+                "op": "=",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.holiday_sunday",
+        "params": {
+          "multiplier": 1.2,
+          "applies_sunday": true,
+          "applies_holidays": true,
+          "holidays": "New Year's Day, Memorial Day, Juneteenth, July 4, Labor Day, Columbus Day, Veterans' Day",
+          "right_to_refuse": true
+        },
+        "summary": "Retail establishments with more than seven employees paid 1.2x the regular rate for Sunday and listed-holiday work during 2021. St. 2018, c.121 (the Grand Bargain) stepped the premium down 1.4/1.3/1.2/1.1 and eliminated it on 2023-01-01; the right to refuse Sunday work remains."
+      },
+      "citations": [
+        {
+          "source": "MGL c.136 \u00a76(50)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXX/Chapter136/Section6",
+          "section": "\u00a76(50) Retail Sunday openings; premium pay",
+          "kind": "statute"
+        },
+        {
+          "source": "St. 2018, c.121 \u00a7\u00a75-14 (phase-out schedule)",
+          "url": "https://malegislature.gov/Laws/SessionLaws/Acts/2018/Chapter121",
+          "section": "\u00a7\u00a75-14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-retail-sunday-premium-2022",
+      "title": "Massachusetts \u2014 Retail Sunday and Holiday Premium (1.1x, 2022)",
+      "jurisdiction": "MA",
+      "topic": "pay.premium.holiday_sunday",
+      "status": "active",
+      "effectiveFrom": "2022-01-01",
+      "effectiveTo": "2022-12-31",
+      "supersedes": "ma-retail-sunday-premium-2021",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail"
+            ]
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">",
+            "value": 7
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "any": [
+              {
+                "fact": "shift.is_sunday",
+                "op": "=",
+                "value": true
+              },
+              {
+                "fact": "shift.is_holiday",
+                "op": "=",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.holiday_sunday",
+        "params": {
+          "multiplier": 1.1,
+          "applies_sunday": true,
+          "applies_holidays": true,
+          "holidays": "New Year's Day, Memorial Day, Juneteenth, July 4, Labor Day, Columbus Day, Veterans' Day",
+          "right_to_refuse": true
+        },
+        "summary": "Retail establishments with more than seven employees paid 1.1x the regular rate for Sunday and listed-holiday work during 2022. St. 2018, c.121 (the Grand Bargain) stepped the premium down 1.4/1.3/1.2/1.1 and eliminated it on 2023-01-01; the right to refuse Sunday work remains."
+      },
+      "citations": [
+        {
+          "source": "MGL c.136 \u00a76(50)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXX/Chapter136/Section6",
+          "section": "\u00a76(50) Retail Sunday openings; premium pay",
+          "kind": "statute"
+        },
+        {
+          "source": "St. 2018, c.121 \u00a7\u00a75-14 (phase-out schedule)",
+          "url": "https://malegislature.gov/Laws/SessionLaws/Acts/2018/Chapter121",
+          "section": "\u00a7\u00a75-14",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

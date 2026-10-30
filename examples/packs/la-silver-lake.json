@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:42:59.937Z",
+  "generatedAt": "2026-10-30T20:05:10.226Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "10a973ffc25ab173",
+  "rulesVersion": "373a0ebda26f7307",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -271,6 +271,86 @@
         }
       ],
       "hash": "0398b724651adc18"
+    },
+    {
+      "id": "ca-sick-usage",
+      "title": "California — Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.usage",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 2,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Use may begin on the 90th day of employment; the employer may set a minimum increment of up to 2 hours and may cap use at 40 hours or 5 days a year (SB 616, 2024).",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "§246",
+          "kind": "statute"
+        }
+      ],
+      "hash": "6120b0c62231171b"
+    },
+    {
+      "id": "ca-sick-carryover",
+      "title": "California — Sick Leave Carryover and Payout",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.carryover",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "balance_cap_hours": 80,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Accrued leave carries over; the total balance may be capped at 80 hours or 10 days. Frontloading 40 hours/5 days at the start of each year removes the carryover duty. No payout at separation; balance reinstated on rehire within one year.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "§246",
+          "kind": "statute"
+        }
+      ],
+      "hash": "3fa6b7c41a5b5437"
     },
     {
       "id": "ca-minor-16-17-curfew-school",
@@ -3165,6 +3245,121 @@
       ]
     },
     {
+      "code": "leave.sick.carryover",
+      "name": "Paid sick leave carryover and payout",
+      "description": "Whether unused sick leave carries into the next year, any cap on carryover or total balance, whether frontloading removes the duty, and payout at separation or rehire reinstatement.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "carryover_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused accrued leave must carry over to the next year"
+        },
+        {
+          "name": "carryover_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit carryover to"
+        },
+        {
+          "name": "balance_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may cap the total accrued balance at"
+        },
+        {
+          "name": "frontload_avoids_carryover",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether granting the full annual amount at the start of the year removes the carryover duty"
+        },
+        {
+          "name": "payout_in_lieu_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may pay out unused leave at year end instead of carrying it over"
+        },
+        {
+          "name": "payout_at_separation_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused sick leave must be paid out when employment ends"
+        },
+        {
+          "name": "rehire_reinstatement_months",
+          "type": "number",
+          "required": false,
+          "description": "Months after separation within which a rehired employee gets the unused balance back"
+        }
+      ],
+      "synonyms": [
+        "sick leave carryover",
+        "rollover",
+        "carry forward",
+        "sick leave payout",
+        "frontloading",
+        "reinstatement on rehire"
+      ]
+    },
+    {
+      "code": "leave.sick.usage",
+      "name": "Paid sick leave usage rules",
+      "description": "When accrued sick leave may first be used, the smallest increment the employee may take, and any cap on hours used per year.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "waiting_period_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Calendar days of employment before accrued leave may be used (0 = usable as accrued)"
+        },
+        {
+          "name": "waiting_period_hours_worked",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours of employment before accrual (and use) begins, where the law counts hours rather than days"
+        },
+        {
+          "name": "max_increment_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Largest minimum-use increment the employer may impose"
+        },
+        {
+          "name": "increment_follows_payroll",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the increment must be the smallest one the payroll system tracks (subject to max_increment_hours)"
+        },
+        {
+          "name": "annual_use_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit use to per year"
+        }
+      ],
+      "synonyms": [
+        "sick leave waiting period",
+        "usage increment",
+        "sick time use cap",
+        "90-day waiting period",
+        "120-day waiting period"
+      ]
+    },
+    {
       "code": "leave.voting",
       "name": "Voting leave",
       "description": "Time off to vote on election day when the employee's schedule leaves too little non-working time while polls are open.",
@@ -4306,14 +4501,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 681,
-    "rulesIncluded": 51,
-    "excludedByProfile": 629,
-    "excludedExpired": 1,
+    "rulesConsidered": 765,
+    "rulesIncluded": 53,
+    "excludedByProfile": 706,
+    "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 2
+    "fullyResolved": 4
   },
-  "checksum": "4853c65ee44d1b77ca6c812aa8fbea13e81a694d1731e590db173c9825df3148"
+  "checksum": "39ea4d2cc7b76ca473c5da7e130d0224caae9f92ba8dd3f8ef5ee8d344d773a5"
 }

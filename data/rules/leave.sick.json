@@ -1336,6 +1336,1998 @@
           "kind": "ordinance"
         }
       ]
+    },
+    {
+      "id": "az-sick-usage",
+      "title": "Arizona \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "AZ",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Employer may require 90 days of employment before use (hires after 2017-07-01). Leave is used in the smaller of hourly increments or the smallest payroll increment; use may be capped at 40 hours a year (24 hours for employers under 15)."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-372",
+          "url": "https://www.azleg.gov/ars/23/00372.htm",
+          "section": "\u00a723-372",
+          "kind": "statute"
+        },
+        {
+          "source": "ARS \u00a723-373",
+          "url": "https://www.azleg.gov/ars/23/00373.htm",
+          "section": "\u00a723-373",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-sick-carryover",
+      "title": "Arizona (15+ employees) \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "AZ",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": false,
+          "payout_in_lieu_allowed": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 9
+        },
+        "summary": "Unused leave carries over (carryover may be capped at 40 hours for employers with 15+); instead of carryover the employer may pay out unused leave at year end and frontload the next year. No payout at separation; balances reinstated on rehire within 9 months."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-372",
+          "url": "https://www.azleg.gov/ars/23/00372.htm",
+          "section": "\u00a723-372",
+          "kind": "statute"
+        },
+        {
+          "source": "ARS \u00a723-373",
+          "url": "https://www.azleg.gov/ars/23/00373.htm",
+          "section": "\u00a723-373",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-sick-carryover-small",
+      "title": "Arizona (<15 employees) \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "AZ",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 24,
+          "frontload_avoids_carryover": false,
+          "payout_in_lieu_allowed": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 9
+        },
+        "summary": "Unused leave carries over (carryover may be capped at 24 hours for employers under 15); instead of carryover the employer may pay out unused leave at year end and frontload the next year. No payout at separation; balances reinstated on rehire within 9 months."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-372",
+          "url": "https://www.azleg.gov/ars/23/00372.htm",
+          "section": "\u00a723-372",
+          "kind": "statute"
+        },
+        {
+          "source": "ARS \u00a723-373",
+          "url": "https://www.azleg.gov/ars/23/00373.htm",
+          "section": "\u00a723-373",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-sick-usage",
+      "title": "California \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "CA",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 2,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Use may begin on the 90th day of employment; the employer may set a minimum increment of up to 2 hours and may cap use at 40 hours or 5 days a year (SB 616, 2024)."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "\u00a7246",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-sick-carryover",
+      "title": "California \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "CA",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "balance_cap_hours": 80,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Accrued leave carries over; the total balance may be capped at 80 hours or 10 days. Frontloading 40 hours/5 days at the start of each year removes the carryover duty. No payout at separation; balance reinstated on rehire within one year."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7246",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=246.&lawCode=LAB",
+          "section": "\u00a7246",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-sick-usage",
+      "title": "Colorado \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "CO",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "max_increment_hours": 1,
+          "annual_use_cap_hours": 48
+        },
+        "summary": "Leave may be used as it accrues (no waiting period); taken in hourly increments or smaller as the employer permits; use may be capped at 48 hours a year."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-13.3-403",
+          "url": "https://leg.colorado.gov/sites/default/files/images/olls/crs2023-title-08.pdf",
+          "section": "\u00a78-13.3-403",
+          "kind": "statute"
+        },
+        {
+          "source": "CDLE Paid Leave",
+          "url": "https://cdle.colorado.gov/paid-leave",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-sick-carryover",
+      "title": "Colorado \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "CO",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 48,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 6
+        },
+        "summary": "Up to 48 hours of unused leave carries forward; frontloading 48 hours satisfies the duty. No payout at separation; balance reinstated on rehire within 6 months."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-13.3-403",
+          "url": "https://leg.colorado.gov/sites/default/files/images/olls/crs2023-title-08.pdf",
+          "section": "\u00a78-13.3-403",
+          "kind": "statute"
+        },
+        {
+          "source": "CDLE Paid Leave",
+          "url": "https://cdle.colorado.gov/paid-leave",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-sick-usage",
+      "title": "Connecticut \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "CT",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 120,
+          "max_increment_hours": 1,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Use may begin on the 120th calendar day of employment (was 680 hours before 2025); employer may require one-hour increments; use may be capped at 40 hours a year. Covers employers with 25+ employees in 2025, 11+ from 2026-01-01 and 1+ from 2027-01-01."
+      },
+      "citations": [
+        {
+          "source": "CT Gen. Stat. \u00a731-57s",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-57s",
+          "section": "\u00a731-57s",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-sick-carryover",
+      "title": "Connecticut \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "CT",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Up to 40 hours of unused leave carries over; alternatively the employer may make 40 hours available at the start of the year. No payout at separation unless policy provides."
+      },
+      "citations": [
+        {
+          "source": "CT Gen. Stat. \u00a731-57s",
+          "url": "https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-57s",
+          "section": "\u00a731-57s",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-sick-usage",
+      "title": "District of Columbia \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "DC",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2008-11-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true
+        },
+        "summary": "Use may begin after 90 days of service; leave is taken in the smallest payroll increment, no larger than one hour; annual use is limited to the accrual cap (3, 5 or 7 days by employer size)."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-531.02",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-531.02",
+          "section": "\u00a732-531.02",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-sick-carryover",
+      "title": "District of Columbia \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "DC",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2008-11-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Unused leave carries over with no cap on the balance, though use stays capped at the annual accrual amount. No payout at separation; balance reinstated on rehire within one year."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-531.02",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-531.02",
+          "section": "\u00a732-531.02",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-sick-usage",
+      "title": "Illinois \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "IL",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 2,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Paid Leave for All Workers: use may begin 90 days after employment starts (or 2024-03-31 for existing staff); minimum increment up to 2 hours (or the scheduled workday if shorter); use may be capped at 40 hours a year."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 192/15",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=4316&ChapterID=68",
+          "section": "\u00a715",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL Paid Leave for All Workers",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-sick-carryover",
+      "title": "Illinois \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "IL",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Accrued unused leave carries over (carryover may be capped at 40 hours); frontloading 40 hours removes the carryover duty. No payout at separation unless the leave sits in a PTO bank."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 192/15",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=4316&ChapterID=68",
+          "section": "\u00a715",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL Paid Leave for All Workers",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-sick-usage",
+      "title": "Massachusetts \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "MA",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2015-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Use may begin on the 90th day of employment; leave is taken in the smaller of hourly increments or the smallest payroll increment; use may be capped at 40 hours a year."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a7148C",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148C",
+          "section": "\u00a7148C",
+          "kind": "statute"
+        },
+        {
+          "source": "940 CMR 33.00",
+          "url": "https://www.mass.gov/regulations/940-CMR-3300-earned-sick-time",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ma-sick-carryover",
+      "title": "Massachusetts \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "MA",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2015-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Up to 40 hours of unused earned sick time carries over; lump-sum frontloading of 40 hours removes the carryover duty. No payout at separation."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a7148C",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148C",
+          "section": "\u00a7148C",
+          "kind": "statute"
+        },
+        {
+          "source": "940 CMR 33.00",
+          "url": "https://www.mass.gov/regulations/940-CMR-3300-earned-sick-time",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "md-sick-usage",
+      "title": "Maryland \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "MD",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2018-02-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 106,
+          "max_increment_hours": 4,
+          "annual_use_cap_hours": 64
+        },
+        "summary": "Employer may deny use during the first 106 calendar days of employment; minimum increment may be set up to 4 hours; use may be capped at 64 hours a year."
+      },
+      "citations": [
+        {
+          "source": "Md. Lab. & Empl. \u00a73-1304",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
+          "section": "\u00a73-1304",
+          "kind": "statute"
+        },
+        {
+          "source": "Md. Lab. & Empl. \u00a73-1305",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1305",
+          "section": "\u00a73-1305",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-sick-carryover",
+      "title": "Maryland \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "MD",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2018-02-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "balance_cap_hours": 64,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 9
+        },
+        "summary": "Up to 40 hours carries over and the balance may be capped at 64 hours; frontloading the full annual amount removes the carryover duty. No payout at separation; balance reinstated on rehire within 37 weeks."
+      },
+      "citations": [
+        {
+          "source": "Md. Lab. & Empl. \u00a73-1304",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1304",
+          "section": "\u00a73-1304",
+          "kind": "statute"
+        },
+        {
+          "source": "Md. Lab. & Empl. \u00a73-1305",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1305",
+          "section": "\u00a73-1305",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-sick-usage",
+      "title": "Maine \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "ME",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 120,
+          "max_increment_hours": 1,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Earned Paid Leave: employer may restrict use for the first 120 days of employment; increments of up to one hour; use may be capped at 40 hours a year."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7637",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec637.html",
+          "section": "\u00a7637",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-sick-carryover",
+      "title": "Maine \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "ME",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Up to 40 hours of unused leave carries over (frontloading 40 hours satisfies the duty, per DOL rules). No payout at separation unless policy provides; balance reinstated on rehire within one year."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7637",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec637.html",
+          "section": "\u00a7637",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-sick-usage",
+      "title": "Michigan \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "MI",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2025-02-21",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 120,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true,
+          "annual_use_cap_hours": 72
+        },
+        "summary": "Earned Sick Time Act (as amended 2025-02-21): employer may require 120 days of employment before use for new hires; leave used in one-hour increments or the smaller payroll increment; use may be capped at 72 hours a year (40 for small businesses with 10 or fewer employees)."
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.963",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-963",
+          "section": "\u00a7408.963",
+          "kind": "statute"
+        },
+        {
+          "source": "MCL \u00a7408.964",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-964",
+          "section": "\u00a7408.964",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-sick-carryover",
+      "title": "Michigan (11+ employees) \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "MI",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2025-02-21",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 72,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 2
+        },
+        "summary": "Up to 72 hours of unused leave carries over; a frontloading employer need not allow carryover. No payout at separation; balance reinstated on rehire within 2 months."
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.963",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-963",
+          "section": "\u00a7408.963",
+          "kind": "statute"
+        },
+        {
+          "source": "MCL \u00a7408.964",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-964",
+          "section": "\u00a7408.964",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-sick-carryover-small",
+      "title": "Michigan (small business, 10 or fewer) \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "MI",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2025-02-21",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<=",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 2
+        },
+        "summary": "Small businesses (10 or fewer employees): up to 40 hours of unused leave carries over; frontloading removes the duty. No payout at separation; balance reinstated on rehire within 2 months."
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.963",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-963",
+          "section": "\u00a7408.963",
+          "kind": "statute"
+        },
+        {
+          "source": "MCL \u00a7408.964",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-964",
+          "section": "\u00a7408.964",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-sick-usage",
+      "title": "Minnesota \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "MN",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "max_increment_hours": 4,
+          "increment_follows_payroll": true,
+          "annual_use_cap_hours": 48
+        },
+        "summary": "Earned Sick and Safe Time is usable as it accrues; increments follow the payroll system (at least 15 minutes, never forced in blocks over 4 hours); accrual may be capped at 48 hours a year."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.9446",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.9446",
+          "section": "\u00a7181.9446",
+          "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7181.9447",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.9447",
+          "section": "\u00a7181.9447",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-sick-carryover",
+      "title": "Minnesota \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "MN",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "balance_cap_hours": 80,
+          "frontload_avoids_carryover": true,
+          "payout_in_lieu_allowed": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 6
+        },
+        "summary": "Unused ESST carries over up to an 80-hour balance. Alternatives: frontload 48 hours and pay out the unused balance at year end, or frontload 80 hours with no payout. No payout at separation; balance reinstated on rehire within 180 days."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.9446",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.9446",
+          "section": "\u00a7181.9446",
+          "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7181.9447",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.9447",
+          "section": "\u00a7181.9447",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-sick-usage",
+      "title": "New Jersey \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "NJ",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2018-10-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 120,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Use may begin on the 120th calendar day of employment; the employer sets the increment, up to the length of the scheduled shift; use may be capped at 40 hours a benefit year."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:11D-2",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11d-2/",
+          "section": "\u00a734:11D-2",
+          "kind": "statute"
+        },
+        {
+          "source": "N.J.S.A. 34:11D-3",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11d-3/",
+          "section": "\u00a734:11D-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-sick-carryover",
+      "title": "New Jersey \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "NJ",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2018-10-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": false,
+          "payout_in_lieu_allowed": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 6
+        },
+        "summary": "Up to 40 hours carries over. An employer that frontloads must still either pay out unused time in the final month of the benefit year or carry it forward; an accruing employer may offer a payout the employee can accept. No payout at separation; balance reinstated on rehire within 6 months."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:11D-2",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11d-2/",
+          "section": "\u00a734:11D-2",
+          "kind": "statute"
+        },
+        {
+          "source": "N.J.S.A. 34:11D-3",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11d-3/",
+          "section": "\u00a734:11D-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-sick-usage",
+      "title": "New Mexico \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "NM",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2022-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true,
+          "annual_use_cap_hours": 64
+        },
+        "summary": "Healthy Workplaces Act leave is usable as it accrues; taken in the smaller of hourly increments or the smallest payroll increment; use may be capped at 64 hours a year."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-17-3",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-17/section-50-17-3/",
+          "section": "\u00a750-17-3",
+          "kind": "statute"
+        },
+        {
+          "source": "NMSA \u00a750-17-4",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-17/section-50-17-4/",
+          "section": "\u00a750-17-4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-sick-carryover",
+      "title": "New Mexico \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "NM",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2022-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false
+        },
+        "summary": "Accrued unused leave carries over with no cap on the balance; annual use stays capped at 64 hours; frontloading 64 hours is allowed but does not remove carryover. No payout at separation."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-17-3",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-17/section-50-17-3/",
+          "section": "\u00a750-17-3",
+          "kind": "statute"
+        },
+        {
+          "source": "NMSA \u00a750-17-4",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-17/section-50-17-4/",
+          "section": "\u00a750-17-4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-sick-usage",
+      "title": "Nevada \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "NV",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 4,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Paid leave (SB 312) may be used from the 90th calendar day of employment; employer may set a minimum increment of up to 4 hours; use may be capped at 40 hours a year."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.0197",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0197",
+          "section": "\u00a7608.0197",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-sick-carryover",
+      "title": "Nevada \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "NV",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Up to 40 hours of unused paid leave carries over; frontloading the full amount on day one avoids carryover. No payout at separation required."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.0197",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0197",
+          "section": "\u00a7608.0197",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-usage",
+      "title": "New York \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "NY",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "max_increment_hours": 4,
+          "annual_use_cap_hours": 56
+        },
+        "summary": "Sick leave is usable as it accrues (from 2021-01-01); employer may set a minimum increment of up to 4 hours; use may be capped at 40 hours (fewer than 100 employees) or 56 hours (100+)."
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "\u00a7196-b",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-sick-carryover",
+      "title": "New York \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "NY",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false
+        },
+        "summary": "Unused sick leave carries over with no cap on the balance, though annual use may be capped at 40 or 56 hours; frontloading does not remove carryover. No payout at separation."
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law \u00a7196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "\u00a7196-b",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-sick-usage",
+      "title": "Oregon \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "OR",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2016-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 91,
+          "max_increment_hours": 1,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Sick time may be used starting the 91st calendar day of employment; taken in hourly increments (or smaller); use may be capped at 40 hours a year."
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7653.606",
+          "url": "https://oregon.public.law/statutes/ors_653.606",
+          "section": "\u00a7653.606",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-sick-carryover",
+      "title": "Oregon \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "OR",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2016-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "balance_cap_hours": 80,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Up to 40 hours carries over and the balance may be capped at 80 hours; frontloading 40 hours at the start of the year removes the carryover duty. No payout at separation."
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7653.606",
+          "url": "https://oregon.public.law/statutes/ors_653.606",
+          "section": "\u00a7653.606",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ri-sick-usage",
+      "title": "Rhode Island \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "RI",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 4,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Use may begin on the 90th calendar day of employment (150 days for seasonal, 180 for temporary employees); employer may set an increment of up to 4 hours; use may be capped at 40 hours a year (from 2020)."
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a728-57-5",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-57/28-57-5.htm",
+          "section": "\u00a728-57-5",
+          "kind": "statute"
+        },
+        {
+          "source": "RIGL \u00a728-57-6",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-57/28-57-6.htm",
+          "section": "\u00a728-57-6",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ri-sick-carryover",
+      "title": "Rhode Island \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "RI",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_in_lieu_allowed": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 4
+        },
+        "summary": "Up to 40 hours carries over; the employer may instead pay out unused time at year end and frontload the next year. No payout at separation; balance reinstated on rehire within 135 days."
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a728-57-5",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-57/28-57-5.htm",
+          "section": "\u00a728-57-5",
+          "kind": "statute"
+        },
+        {
+          "source": "RIGL \u00a728-57-6",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-57/28-57-6.htm",
+          "section": "\u00a728-57-6",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-sick-usage",
+      "title": "Vermont \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "VT",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2017-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 365,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Employer may impose a waiting period of up to one year before accrued time is used (accrual starts on day one); increments follow the payroll system; use may be capped at 40 hours a year."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7482",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00482",
+          "section": "\u00a7482",
+          "kind": "statute"
+        },
+        {
+          "source": "21 V.S.A. \u00a7483",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00483",
+          "section": "\u00a7483",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-sick-carryover",
+      "title": "Vermont \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "VT",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2017-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Up to 40 hours of unused earned sick time carries over; frontloading the full annual amount removes the duty. No payout at separation unless policy provides."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7482",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00482",
+          "section": "\u00a7482",
+          "kind": "statute"
+        },
+        {
+          "source": "21 V.S.A. \u00a7483",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00483",
+          "section": "\u00a7483",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-sick-usage",
+      "title": "Washington \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "WA",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true
+        },
+        "summary": "Use may begin on the 90th calendar day of employment; leave is taken in the increments the payroll system uses, no larger than one hour; there is no cap on annual use."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.210",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.210",
+          "section": "\u00a749.46.210",
+          "kind": "statute"
+        },
+        {
+          "source": "WAC 296-128-630",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-128-630",
+          "section": "296-128-630",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-sick-carryover",
+      "title": "Washington \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "WA",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Up to 40 hours of unused paid sick leave carries over each year; frontloading does not remove the duty for hours left unused. No payout at separation; balance reinstated on rehire within 12 months."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.210",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.210",
+          "section": "\u00a749.46.210",
+          "kind": "statute"
+        },
+        {
+          "source": "WAC 296-128-630",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-128-630",
+          "section": "296-128-630",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ak-sick-leave",
+      "title": "Alaska Paid Sick Leave \u2014 15+ employees (1 hr per 30 hrs, up to 56 hrs/yr)",
+      "jurisdiction": "AK",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "Ballot Measure 1 (2024), effective 2025-07-01: 1 hour of paid sick leave per 30 hours worked; accrual and use may be capped at 56 hours a year for employers with 15 or more employees."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.066 (Ballot Measure 1, 2024)",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.066",
+          "section": "\u00a723.10.066",
+          "kind": "statute"
+        },
+        {
+          "source": "Alaska DOL Ballot Measure 1 FAQ",
+          "url": "https://dol.alaska.gov/lss/ballot-1-faq-2025.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-sick-leave-small",
+      "title": "Alaska Paid Sick Leave \u2014 <15 employees (1 hr per 30 hrs, up to 40 hrs/yr)",
+      "jurisdiction": "AK",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "Ballot Measure 1 (2024), effective 2025-07-01: 1 hour of paid sick leave per 30 hours worked; accrual and use may be capped at 40 hours a year for employers with fewer than 15 employees."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.066 (Ballot Measure 1, 2024)",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.066",
+          "section": "\u00a723.10.066",
+          "kind": "statute"
+        },
+        {
+          "source": "Alaska DOL Ballot Measure 1 FAQ",
+          "url": "https://dol.alaska.gov/lss/ballot-1-faq-2025.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-sick-usage",
+      "title": "Alaska \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "AK",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true
+        },
+        "summary": "Leave is usable as it accrues (no waiting period in the measure); DOL guidance allows hourly increments or the smallest increment the employer tracks; annual use is limited to the 40/56-hour accrual cap."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.066 (Ballot Measure 1, 2024)",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.066",
+          "section": "\u00a723.10.066",
+          "kind": "statute"
+        },
+        {
+          "source": "Alaska DOL Ballot Measure 1 FAQ",
+          "url": "https://dol.alaska.gov/lss/ballot-1-faq-2025.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-sick-carryover",
+      "title": "Alaska \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "AK",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 6
+        },
+        "summary": "Unused balances carry over with no cap on the balance (use stays capped at 40/56 hours a year). No payout at separation; a voluntary cash-out may be offered. Balance reinstated on rehire within 6 months."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.066 (Ballot Measure 1, 2024)",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.066",
+          "section": "\u00a723.10.066",
+          "kind": "statute"
+        },
+        {
+          "source": "Alaska DOL Ballot Measure 1 FAQ",
+          "url": "https://dol.alaska.gov/lss/ballot-1-faq-2025.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-sick-leave",
+      "title": "Nebraska Paid Sick Time \u2014 20+ employees (1 hr per 30 hrs, up to 56 hrs/yr)",
+      "jurisdiction": "NE",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2025-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 56,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "Healthy Families and Workplaces Act (Initiative 436, as amended by LB 415), effective 2025-10-01: 1 hour per 30 hours worked, up to 56 hours a year for employers with 20 or more employees. Employees under 16 and those working under 80 hours a year in Nebraska are excluded."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a7\u00a748-3601 to 48-3611 (Healthy Families and Workplaces Act, Initiative 436; LB 415 2025)",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-3601",
+          "section": "\u00a7\u00a748-3601 to 48-3611",
+          "kind": "statute"
+        },
+        {
+          "source": "Nebraska DOL Paid Sick Time FAQ",
+          "url": "https://dol.nebraska.gov/LaborStandards/PaidSickTime/PSTFAQs",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-sick-leave-small",
+      "title": "Nebraska Paid Sick Time \u2014 11-19 employees (1 hr per 30 hrs, up to 40 hrs/yr)",
+      "jurisdiction": "NE",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2025-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 40,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "Healthy Families and Workplaces Act, effective 2025-10-01: 1 hour per 30 hours worked, up to 40 hours a year for employers with 11 to 19 employees; employers with 10 or fewer are exempt (LB 415)."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a7\u00a748-3601 to 48-3611 (Healthy Families and Workplaces Act, Initiative 436; LB 415 2025)",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-3601",
+          "section": "\u00a7\u00a748-3601 to 48-3611",
+          "kind": "statute"
+        },
+        {
+          "source": "Nebraska DOL Paid Sick Time FAQ",
+          "url": "https://dol.nebraska.gov/LaborStandards/PaidSickTime/PSTFAQs",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-sick-usage",
+      "title": "Nebraska \u2014 Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "NE",
+      "topic": "leave.sick.usage",
+      "status": "active",
+      "effectiveFrom": "2025-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "waiting_period_hours_worked": 80,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true
+        },
+        "summary": "Accrual and use begin after 80 hours of consecutive employment in Nebraska (LB 415); leave is taken in the smaller of hourly increments or the payroll system's smallest increment; annual use is limited to the 40/56-hour cap."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a7\u00a748-3601 to 48-3611 (Healthy Families and Workplaces Act, Initiative 436; LB 415 2025)",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-3601",
+          "section": "\u00a7\u00a748-3601 to 48-3611",
+          "kind": "statute"
+        },
+        {
+          "source": "Nebraska DOL Paid Sick Time FAQ",
+          "url": "https://dol.nebraska.gov/LaborStandards/PaidSickTime/PSTFAQs",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-sick-carryover",
+      "title": "Nebraska \u2014 Sick Leave Carryover and Payout",
+      "jurisdiction": "NE",
+      "topic": "leave.sick.carryover",
+      "status": "active",
+      "effectiveFrom": "2025-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "frontload_avoids_carryover": true,
+          "payout_in_lieu_allowed": true,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Unused sick time carries over with no cap on the balance; the employer may instead pay out unused time if the employee starts the new year with the full annual amount. No payout at separation; unpaid balances reinstated on rehire within 12 months."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a7\u00a748-3601 to 48-3611 (Healthy Families and Workplaces Act, Initiative 436; LB 415 2025)",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-3601",
+          "section": "\u00a7\u00a748-3601 to 48-3611",
+          "kind": "statute"
+        },
+        {
+          "source": "Nebraska DOL Paid Sick Time FAQ",
+          "url": "https://dol.nebraska.gov/LaborStandards/PaidSickTime/PSTFAQs",
+          "kind": "guidance"
+        }
+      ]
     }
   ]
 }

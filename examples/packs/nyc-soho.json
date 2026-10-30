@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:42:59.930Z",
+  "generatedAt": "2026-10-30T20:05:10.218Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "10a973ffc25ab173",
+  "rulesVersion": "373a0ebda26f7307",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -316,6 +316,86 @@
         }
       ],
       "hash": "0d7994afd8d51664"
+    },
+    {
+      "id": "ny-sick-usage",
+      "title": "New York — Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.usage",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 0,
+          "max_increment_hours": 4,
+          "annual_use_cap_hours": 56
+        },
+        "summary": "Sick leave is usable as it accrues (from 2021-01-01); employer may set a minimum increment of up to 4 hours; use may be capped at 40 hours (fewer than 100 employees) or 56 hours (100+).",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "§196-b",
+          "kind": "statute"
+        }
+      ],
+      "hash": "565cb90227f609a7"
+    },
+    {
+      "id": "ny-sick-carryover",
+      "title": "New York — Sick Leave Carryover and Payout",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.carryover",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-09-30",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false
+        },
+        "summary": "Unused sick leave carries over with no cap on the balance, though annual use may be capped at 40 or 56 hours; frontloading does not remove carryover. No payout at separation.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NY Labor Law §196-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+          "section": "§196-b",
+          "kind": "statute"
+        }
+      ],
+      "hash": "d68554c9b27f5ea7"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -2955,6 +3035,121 @@
       ]
     },
     {
+      "code": "leave.sick.carryover",
+      "name": "Paid sick leave carryover and payout",
+      "description": "Whether unused sick leave carries into the next year, any cap on carryover or total balance, whether frontloading removes the duty, and payout at separation or rehire reinstatement.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "carryover_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused accrued leave must carry over to the next year"
+        },
+        {
+          "name": "carryover_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit carryover to"
+        },
+        {
+          "name": "balance_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may cap the total accrued balance at"
+        },
+        {
+          "name": "frontload_avoids_carryover",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether granting the full annual amount at the start of the year removes the carryover duty"
+        },
+        {
+          "name": "payout_in_lieu_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may pay out unused leave at year end instead of carrying it over"
+        },
+        {
+          "name": "payout_at_separation_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused sick leave must be paid out when employment ends"
+        },
+        {
+          "name": "rehire_reinstatement_months",
+          "type": "number",
+          "required": false,
+          "description": "Months after separation within which a rehired employee gets the unused balance back"
+        }
+      ],
+      "synonyms": [
+        "sick leave carryover",
+        "rollover",
+        "carry forward",
+        "sick leave payout",
+        "frontloading",
+        "reinstatement on rehire"
+      ]
+    },
+    {
+      "code": "leave.sick.usage",
+      "name": "Paid sick leave usage rules",
+      "description": "When accrued sick leave may first be used, the smallest increment the employee may take, and any cap on hours used per year.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "waiting_period_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Calendar days of employment before accrued leave may be used (0 = usable as accrued)"
+        },
+        {
+          "name": "waiting_period_hours_worked",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours of employment before accrual (and use) begins, where the law counts hours rather than days"
+        },
+        {
+          "name": "max_increment_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Largest minimum-use increment the employer may impose"
+        },
+        {
+          "name": "increment_follows_payroll",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the increment must be the smallest one the payroll system tracks (subject to max_increment_hours)"
+        },
+        {
+          "name": "annual_use_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit use to per year"
+        }
+      ],
+      "synonyms": [
+        "sick leave waiting period",
+        "usage increment",
+        "sick time use cap",
+        "90-day waiting period",
+        "120-day waiting period"
+      ]
+    },
+    {
       "code": "leave.voting",
       "name": "Voting leave",
       "description": "Time off to vote on election day when the employee's schedule leaves too little non-working time while polls are open.",
@@ -3956,14 +4151,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 681,
-    "rulesIncluded": 47,
-    "excludedByProfile": 633,
-    "excludedExpired": 1,
+    "rulesConsidered": 765,
+    "rulesIncluded": 49,
+    "excludedByProfile": 710,
+    "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 2
+    "fullyResolved": 4
   },
-  "checksum": "6fffdaedd7f290e5dc3fa660dbb8cd27902232379fea43f2735a53c97a42e17c"
+  "checksum": "3d1edf4bcec5ba7721d4c1aaeaaa7da2c243e2b3c9966b4ff60c7a635a2e178d"
 }

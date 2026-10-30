@@ -11681,6 +11681,1552 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "al-minor-14-15-meal",
+      "title": "Alabama \u2014 Minors 14-15: 30-min break after 5 continuous hours",
+      "jurisdiction": "AL",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors 14 and 15 may not work more than 5 continuous hours without a 30-minute break (Child Labor Law; rate in force by 2000)."
+      },
+      "citations": [
+        {
+          "source": "Ala. Code \u00a725-8-38",
+          "url": "https://law.justia.com/codes/alabama/title-25/chapter-8/section-25-8-38/",
+          "section": "\u00a725-8-38",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ak-minor-meal",
+      "title": "Alaska \u2014 Minors under 18: 30-min break on shifts of 6+ hours",
+      "jurisdiction": "AK",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6,
+          "paid": false
+        },
+        "summary": "A minor scheduled for 6 or more consecutive hours gets a 30-minute break after the first 1.5 hours and before the last hour; a minor who has worked 5 consecutive hours without a break gets one before continuing. Modifiable by CBA or occasional mutual agreement."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.350(c)",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.350",
+          "section": "\u00a723.10.350(c)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "de-minor-meal",
+      "title": "Delaware \u2014 Minors under 18: 30-min break after 5 consecutive hours",
+      "jurisdiction": "DE",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors under 18 may not work more than 5 consecutive hours without a non-work period of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7508",
+          "url": "https://delcode.delaware.gov/title19/c005/index.html",
+          "section": "\u00a7508",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "fl-minor-under-16-meal",
+      "title": "Florida \u2014 Minors 15 and under: 30-min break per 4 continuous hours",
+      "jurisdiction": "FL",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 4,
+          "paid": false
+        },
+        "summary": "Minors 15 and younger may not work more than 4 continuous hours without a 30-minute uninterrupted break."
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7450.081(4)",
+          "url": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0400-0499/0450/Sections/0450.081.html",
+          "section": "\u00a7450.081(4)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "fl-minor-16-17-meal",
+      "title": "Florida \u2014 Minors 16-17 working 8+ hours: 30-min break per 4 continuous hours",
+      "jurisdiction": "FL",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2024-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 4,
+          "paid": false
+        },
+        "summary": "From 2024-07-01 (HB 49, ch. 2024-25) 16- and 17-year-olds who work 8 or more hours in a day may not work more than 4 continuous hours without a 30-minute break; shorter days have no state break requirement. Home-education and virtual-school students are exempt."
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7450.081(4) as amended by ch. 2024-25",
+          "url": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0400-0499/0450/Sections/0450.081.html",
+          "section": "\u00a7450.081(4)",
+          "kind": "statute"
+        },
+        {
+          "source": "Florida Senate bill summary HB 49 (2024)",
+          "url": "https://flsenate.gov/Committees/BillSummaries/2024/html/49",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-minor-14-15-meal",
+      "title": "Hawaii \u2014 Minors 14-15: 30-min break after 5 continuous hours",
+      "jurisdiction": "HI",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors 14 and 15 may not work more than 5 hours continuously without a rest or lunch interval of at least 30 consecutive minutes."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7390-2(c)(3)",
+          "url": "https://law.justia.com/codes/hawaii/title-21/chapter-390/section-390-2",
+          "section": "\u00a7390-2(c)(3)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-minor-under-16-meal",
+      "title": "Illinois \u2014 Minors under 16: 30-min meal period by the 5th consecutive hour",
+      "jurisdiction": "IL",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors under 16 who work more than 5 continuous hours get a meal period of at least 30 minutes starting no later than the fifth hour (Child Labor Law of 2024, effective 2025-01-01, carrying forward 820 ILCS 205/4)."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 206 (Child Labor Law of 2024)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "Ch. 820 Employment",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "in-minor-meal",
+      "title": "Indiana \u2014 Minors under 18: breaks totaling 30 min on shifts of 6+ hours",
+      "jurisdiction": "IN",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6,
+          "paid": false
+        },
+        "summary": "A minor scheduled to work 6 or more consecutive hours gets one or two breaks totaling at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "IC 22-2-18.1-14",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/22#22-2-18.1-14",
+          "section": "\u00a722-2-18.1-14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ia-minor-under-16-meal",
+      "title": "Iowa \u2014 Minors under 16: 30-min break on shifts of 5+ hours",
+      "jurisdiction": "IA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "A person under 16 employed 5 hours or more gets an intermission of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a792.7",
+          "url": "https://www.legis.iowa.gov/docs/code/92.7.pdf",
+          "section": "\u00a792.7",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-minor-meal",
+      "title": "Kentucky \u2014 Minors under 18: 30-min lunch by the 5th hour",
+      "jurisdiction": "KY",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors under 18 get a lunch period of at least 30 minutes no later than the fifth hour of work (not within the first 3 hours)."
+      },
+      "citations": [
+        {
+          "source": "KRS 339.240",
+          "url": "https://law.justia.com/codes/kentucky/chapter-339/section-339-240/",
+          "section": "\u00a7339.240",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-minor-under-16-meal",
+      "title": "Louisiana \u2014 Minors under 16: 30-min meal after 5 hours",
+      "jurisdiction": "LA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors under 16 who work 5 hours get a meal period of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "La. R.S. 23:213",
+          "url": "https://law.justia.com/codes/louisiana/revised-statutes/title-23/rs-23-213/",
+          "section": "\u00a723:213",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-minor-meal",
+      "title": "Maryland \u2014 Minors under 18: 30-min break per 5 consecutive hours",
+      "jurisdiction": "MD",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "A minor may not work more than 5 consecutive hours without a non-working period of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "Md. Lab. & Empl. \u00a73-210",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-210",
+          "section": "\u00a73-210",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-minor-meal",
+      "title": "Michigan \u2014 Minors under 18: 30-min break per 5 continuous hours",
+      "jurisdiction": "MI",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "A minor may not work more than 5 continuous hours without a documented 30-minute meal and rest period."
+      },
+      "citations": [
+        {
+          "source": "MCL 409.112",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-409-112",
+          "section": "\u00a7409.112",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-minor-meal",
+      "title": "New Jersey \u2014 Minors under 18: 30-min break after 5 continuous hours",
+      "jurisdiction": "NJ",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "A minor under 18 may not work more than 5 hours continuously without an interval of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:2-21.4",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-2-21-4/",
+          "section": "\u00a734:2-21.4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nc-minor-under-16-meal",
+      "title": "North Carolina \u2014 Minors under 16: 30-min break after 5 consecutive hours",
+      "jurisdiction": "NC",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Youths under 16 get a 30-minute break after any period of 5 consecutive hours of work."
+      },
+      "citations": [
+        {
+          "source": "N.C.G.S. \u00a795-25.5(e)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_95/GS_95-25.5.html",
+          "section": "\u00a795-25.5(e)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "oh-minor-meal",
+      "title": "Ohio \u2014 Minors under 18: 30-min rest period per 5 consecutive hours",
+      "jurisdiction": "OH",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "No minor may work more than 5 consecutive hours without a rest period of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "ORC \u00a74109.07(C)",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4109.07",
+          "section": "\u00a74109.07(C)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ok-minor-under-16-meal",
+      "title": "Oklahoma \u2014 Minors under 16: 30-min rest after 5 consecutive hours",
+      "jurisdiction": "OK",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors under 16 may not work more than 5 consecutive hours without a 30-minute rest period."
+      },
+      "citations": [
+        {
+          "source": "40 O.S. \u00a775",
+          "url": "https://law.justia.com/codes/oklahoma/title-40/section-40-75/",
+          "section": "\u00a775",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ok-minor-under-16-rest-8hr",
+      "title": "Oklahoma \u2014 Minors under 16: one cumulative hour of rest on 8-hour days",
+      "jurisdiction": "OK",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 60,
+          "per_hours_worked": 8,
+          "paid": true
+        },
+        "summary": "Minors under 16 working 8 consecutive hours get one cumulative hour of rest periods (in addition to the 30-minute break rule)."
+      },
+      "citations": [
+        {
+          "source": "40 O.S. \u00a775",
+          "url": "https://law.justia.com/codes/oklahoma/title-40/section-40-75/",
+          "section": "\u00a775",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-minor-meal",
+      "title": "Oregon \u2014 Minors under 18: 30-min meal on shifts of 6+ hours",
+      "jurisdiction": "OR",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6,
+          "paid": false
+        },
+        "summary": "Minors get a 30-minute duty-free meal period for each work period of 6 or more hours (no waiver, no on-duty meal)."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-021-0072",
+          "url": "https://oregon.public.law/rules/oar_839-021-0072",
+          "section": "839-021-0072",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-minor-rest",
+      "title": "Oregon \u2014 Minors under 18: paid 15-min rest per 4 hours",
+      "jurisdiction": "OR",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 2
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 15,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Minors get a paid 15-minute rest period for every 4-hour segment (or major part) worked, separate from the meal period."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-021-0072",
+          "url": "https://oregon.public.law/rules/oar_839-021-0072",
+          "section": "839-021-0072",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "pa-minor-meal",
+      "title": "Pennsylvania \u2014 Minors under 18: 30-min meal per 5 consecutive hours",
+      "jurisdiction": "PA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2013-01-22",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "A minor may not work more than 5 consecutive hours without a 30-minute meal period (Child Labor Act, Act 151 of 2012, effective 2013-01-22)."
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a740.3(d) (Child Labor Act)",
+          "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/uconsCheck.cfm?txtType=HTM&yr=2012&sessInd=0&act=151",
+          "section": "\u00a73(d)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tn-minor-meal",
+      "title": "Tennessee \u2014 Minors under 18: 30-min break on shifts of 6+ hours",
+      "jurisdiction": "TN",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">=",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6,
+          "paid": false
+        },
+        "summary": "A minor scheduled to work 6 consecutive hours gets a 30-minute unpaid break or meal period, not during or before the first hour; the adult waiver and ample-opportunity exceptions do not apply."
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code \u00a750-5-115",
+          "url": "https://law.justia.com/codes/tennessee/title-50/chapter-5/part-1/section-50-5-115/",
+          "section": "\u00a750-5-115",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ut-minor-meal",
+      "title": "Utah \u2014 Minors under 18: 30-min meal by the 5th hour",
+      "jurisdiction": "UT",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors get a meal period of at least 30 minutes not later than 5 hours after the workday begins; paid if the minor cannot be fully relieved of duty."
+      },
+      "citations": [
+        {
+          "source": "Utah Admin. Code R610-2-3(A)",
+          "url": "https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R610-2-3",
+          "section": "R610-2-3(A)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ut-minor-rest",
+      "title": "Utah \u2014 Minors under 18: paid 10-min rest per 4 hours",
+      "jurisdiction": "UT",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "Minors get a paid rest period of at least 10 minutes for every 4 hours (or fraction) worked and may not work more than 3 consecutive hours without one."
+      },
+      "citations": [
+        {
+          "source": "Utah Admin. Code R610-2-3(B)",
+          "url": "https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R610-2-3",
+          "section": "R610-2-3(B)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "va-minor-under-16-meal",
+      "title": "Virginia \u2014 Minors under 16: 30-min break after 5 hours",
+      "jurisdiction": "VA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Children under 16 may not work more than 5 hours continuously without a lunch period of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a740.1-80.1",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter5/section40.1-80.1/",
+          "section": "\u00a740.1-80.1",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-minor-14-15-meal",
+      "title": "Washington \u2014 Minors 14-15: 30-min meal within 4 hours",
+      "jurisdiction": "WA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 4,
+          "paid": false
+        },
+        "summary": "Minors under 16 get an uninterrupted 30-minute meal period beginning before the fourth consecutive hour of work; may not be waived."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-minor-14-15-rest",
+      "title": "Washington \u2014 Minors 14-15: paid 10-min rest per 2 hours",
+      "jurisdiction": "WA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 2
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 2,
+          "paid": true
+        },
+        "summary": "Minors under 16 get a paid 10-minute rest break within every 2 consecutive hours of work, in addition to meal periods."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-minor-16-17-meal",
+      "title": "Washington \u2014 Minors 16-17: 30-min meal within 5 hours",
+      "jurisdiction": "WA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "16- and 17-year-olds get an uninterrupted 30-minute meal period beginning before the fifth consecutive hour of work; may not be waived."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-minor-16-17-rest",
+      "title": "Washington \u2014 Minors 16-17: paid 10-min rest per 4 hours",
+      "jurisdiction": "WA",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "16- and 17-year-olds get a paid 10-minute rest break for every 4 hours worked and may not work more than 3 hours without one."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wi-minor-meal",
+      "title": "Wisconsin \u2014 Minors under 18: 30-min meal on shifts over 6 hours",
+      "jurisdiction": "WI",
+      "topic": "minor.labor.breaks",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 6,
+          "paid": false
+        },
+        "summary": "Minors may not work more than 6 consecutive hours without a duty-free meal period of at least 30 minutes."
+      },
+      "citations": [
+        {
+          "source": "Wis. Admin. Code DWD 270.11",
+          "url": "https://docs.legis.wisconsin.gov/code/admin_code/dwd/270/11",
+          "section": "DWD 270.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "Wis. Stat. \u00a7103.68",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/103/68",
+          "section": "\u00a7103.68",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

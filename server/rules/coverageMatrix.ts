@@ -212,6 +212,8 @@ const STATES_WITH_PREDICTIVE_SCHEDULING: StateCode[] = [
  */
 const STATES_WITH_PREMIUM_PAY: StateCode[] = [
   "NY", // Spread-of-hours premium (>10 hour span = extra hour at min wage)
+  "RI", // RIGL 25-3-3 Sunday/holiday 1.5x premium
+  "MA", // MGL c.136 §6(50) retail Sunday/holiday premium (phased out 2019-2022, historical rules)
 ];
 
 /**
@@ -271,6 +273,8 @@ const STATES_WITH_SICK_LEAVE: StateCode[] = [
   "RI", // Healthy and Safe Families and Workplaces Act (2018)
   "VT", // Earned Sick Time (2017)
   "WA", // Paid Sick Leave (2018)
+  "AK", // Ballot Measure 1 paid sick leave (2025-07-01)
+  "NE", // Healthy Families and Workplaces Act (2025-10-01)
 ];
 
 /**
