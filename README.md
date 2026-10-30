@@ -21,7 +21,7 @@ under `data/`. The validator enforces:
 ## Quick Start
 
 ```bash
-npm install
+npm install          # Also installs client/ dependencies (postinstall)
 npm run dev          # Starts server (port 3001) + client (port 5173)
 npm test                 # Run all four test suites
 npm run typecheck        # TypeScript type checking
