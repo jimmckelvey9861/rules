@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:35:25.382Z",
+  "generatedAt": "2026-10-30T20:44:49.503Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "a6bb834ed1cbf6f8",
+  "rulesVersion": "eaaf0fae6a0089ff",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -2960,6 +2960,54 @@
       "hash": "d177c83a3fd3c0bc"
     },
     {
+      "id": "ny-final-pay-discharge",
+      "title": "New York — Final Wages on Discharge Or Resignation",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sep.final_pay.timing",
+      "topicCode": "sep.final_pay",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "voluntary_resignation",
+          "retirement",
+          "end_of_contract"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday, by mail on request.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law §191(3)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/191",
+          "section": "§191(3)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "65632d2b78830abc"
+    },
+    {
       "id": "ny-warn-act",
       "title": "New York Mini-WARN Act (90-day notice, 50+ employees)",
       "jurisdiction": "NY",
@@ -4296,6 +4344,80 @@
       ]
     },
     {
+      "code": "sep.final_pay_timing",
+      "name": "Final paycheck deadline",
+      "description": "When all wages earned through separation must be paid, which usually differs for a discharge and a resignation.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "deadline",
+          "type": "enum",
+          "values": [
+            "immediately",
+            "within_hours",
+            "within_days",
+            "next_business_day",
+            "next_payday",
+            "earlier_of_next_payday_or_days",
+            "later_of_next_payday_or_days",
+            "scheduled_semimonthly",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "Shape of the deadline; no_state_law means only the FLSA next-regular-payday practice applies"
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours after separation (or after demand) when deadline is within_hours"
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after separation when the deadline counts days"
+        },
+        {
+          "name": "business_days",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the day count excludes weekends and holidays"
+        },
+        {
+          "name": "runs_from_demand",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the clock starts at the employee's demand for payment rather than at separation"
+        },
+        {
+          "name": "notice_shortens_deadline",
+          "type": "string",
+          "required": false,
+          "description": "How advance notice from the employee changes the deadline"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Statutory penalty for late payment"
+        }
+      ],
+      "synonyms": [
+        "final paycheck",
+        "final wages",
+        "last paycheck",
+        "termination pay timing",
+        "wages due on discharge",
+        "wages due on quitting"
+      ]
+    },
+    {
       "code": "sep.warn_notice",
       "name": "Mass layoff / plant closing notice (WARN)",
       "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
@@ -4749,14 +4871,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 922,
-    "rulesIncluded": 54,
-    "excludedByProfile": 861,
+    "rulesConsidered": 992,
+    "rulesIncluded": 55,
+    "excludedByProfile": 930,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "b5faffbd99162a473be62dbfa3d48402e3ef2f252f623cf4c75a22d21fdce9ab"
+  "checksum": "1160af087754658f55a77744d8e02a6e88f5f218457031e3a39ede6efb8f0c4c"
 }

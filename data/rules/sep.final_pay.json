@@ -1,0 +1,3268 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sep.final_pay",
+  "rules": [
+    {
+      "id": "al-final-pay-discharge",
+      "title": "Alabama \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "AL",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "no_state_law"
+        },
+        "summary": "Alabama has no final paycheck statute; under the FLSA wages are due on the next regular payday for the last pay period."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-final-pay-discharge",
+      "title": "Florida \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "FL",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "no_state_law"
+        },
+        "summary": "Florida has no final paycheck statute; under the FLSA wages are due on the next regular payday for the last pay period."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-final-pay-discharge",
+      "title": "Georgia \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "GA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "no_state_law"
+        },
+        "summary": "Georgia has no final paycheck statute; under the FLSA wages are due on the next regular payday for the last pay period."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-final-pay-discharge",
+      "title": "Mississippi \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "MS",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "no_state_law"
+        },
+        "summary": "Mississippi has no final paycheck statute; under the FLSA wages are due on the next regular payday for the last pay period."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-final-pay-discharge",
+      "title": "Alaska \u2014 Final Wages on Discharge",
+      "jurisdiction": "AK",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_days",
+          "days": 3,
+          "business_days": true
+        },
+        "summary": "Wages due within 3 working days after termination by the employer."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.05.140",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.05.140",
+          "section": "\u00a723.05.140(b)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ak-final-pay-resignation",
+      "title": "Alaska \u2014 Final Wages on Resignation",
+      "jurisdiction": "AK",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "next regular payday that is at least 3 days after the employee gives notice of quitting"
+        },
+        "summary": "Wages due on the next regular payday at least 3 days after the employee's notice of quitting."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.05.140",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.05.140",
+          "section": "\u00a723.05.140(b)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-final-pay-discharge",
+      "title": "Arizona \u2014 Final Wages on Discharge",
+      "jurisdiction": "AZ",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 7,
+          "business_days": true
+        },
+        "summary": "Discharged employees must be paid within 7 working days or by the next regular payday, whichever is sooner."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-353",
+          "url": "https://www.azleg.gov/ars/23/00353.htm",
+          "section": "\u00a723-353",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-final-pay-resignation",
+      "title": "Arizona \u2014 Final Wages on Resignation",
+      "jurisdiction": "AZ",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Employees who quit are paid no later than the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-353",
+          "url": "https://www.azleg.gov/ars/23/00353.htm",
+          "section": "\u00a723-353",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ar-final-pay-discharge",
+      "title": "Arkansas \u2014 Final Wages on Discharge",
+      "jurisdiction": "AR",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "penalty": "double wages if unpaid within 7 days after the next regular payday following written demand"
+        },
+        "summary": "Discharged employees (of corporations) are paid by the next regular payday; failure within 7 days of demand doubles the wages owed."
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a711-4-405",
+          "url": "https://law.justia.com/codes/arkansas/title-11/chapter-4/subchapter-4/section-11-4-405/",
+          "section": "\u00a711-4-405",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-final-pay-resignation",
+      "title": "Arkansas \u2014 Final Wages on Resignation",
+      "jurisdiction": "AR",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "no_state_law"
+        },
+        "summary": "Arkansas has no deadline for employees who quit; FLSA next-regular-payday practice applies."
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a711-4-405",
+          "url": "https://law.justia.com/codes/arkansas/title-11/chapter-4/subchapter-4/section-11-4-405/",
+          "section": "\u00a711-4-405",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-final-pay-discharge",
+      "title": "California \u2014 Final Wages on Discharge",
+      "jurisdiction": "CA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "penalty": "waiting time penalty of one day's wages per day late, up to 30 days (\u00a7203)"
+        },
+        "summary": "All wages are due immediately on discharge or layoff; late payment accrues a waiting time penalty of a day's pay per day up to 30 days."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7201",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=201.&lawCode=LAB",
+          "section": "\u00a7201",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code \u00a7202",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=202.&lawCode=LAB",
+          "section": "\u00a7202",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code \u00a7203 (waiting time penalty)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=203.&lawCode=LAB",
+          "section": "\u00a7203",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-final-pay-resignation",
+      "title": "California \u2014 Final Wages on Resignation",
+      "jurisdiction": "CA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 72,
+          "notice_shortens_deadline": "due on the last day if the employee gave at least 72 hours' notice",
+          "penalty": "waiting time penalty of one day's wages per day late, up to 30 days (\u00a7203)"
+        },
+        "summary": "Employees who quit without 72 hours' notice are paid within 72 hours; with 72 hours' notice, on the last day."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7201",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=201.&lawCode=LAB",
+          "section": "\u00a7201",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code \u00a7202",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=202.&lawCode=LAB",
+          "section": "\u00a7202",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code \u00a7203 (waiting time penalty)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=203.&lawCode=LAB",
+          "section": "\u00a7203",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-final-pay-discharge",
+      "title": "Colorado \u2014 Final Wages on Discharge",
+      "jurisdiction": "CO",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "notice_shortens_deadline": "if the payroll unit is not regularly scheduled to operate, within 6 hours after its next workday starts (24 hours if off-site)",
+          "penalty": "up to 2x wages or 10 days' wages after written demand"
+        },
+        "summary": "Wages due immediately on discharge; if the payroll unit is closed, within 6 hours after the start of its next workday (24 hours if payroll is off-site)."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-4-109",
+          "url": "https://law.justia.com/codes/colorado/title-8/labor-i-department-of-labor-and-employment/article-4/part-1/section-8-4-109/",
+          "section": "\u00a78-4-109",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-final-pay-resignation",
+      "title": "Colorado \u2014 Final Wages on Resignation",
+      "jurisdiction": "CO",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Employees who quit are paid on the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-4-109",
+          "url": "https://law.justia.com/codes/colorado/title-8/labor-i-department-of-labor-and-employment/article-4/part-1/section-8-4-109/",
+          "section": "\u00a78-4-109",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-final-pay-discharge",
+      "title": "Connecticut \u2014 Final Wages on Discharge",
+      "jurisdiction": "CT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_business_day",
+          "notice_shortens_deadline": "laid-off employees are paid by the next regular payday"
+        },
+        "summary": "Discharged employees are paid no later than the next business day; laid-off employees by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-71c",
+          "url": "https://law.justia.com/codes/connecticut/title-31/chapter-558/section-31-71c/",
+          "section": "\u00a731-71c",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-final-pay-resignation",
+      "title": "Connecticut \u2014 Final Wages on Resignation",
+      "jurisdiction": "CT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Employees who quit are paid by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-71c",
+          "url": "https://law.justia.com/codes/connecticut/title-31/chapter-558/section-31-71c/",
+          "section": "\u00a731-71c",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "de-final-pay-discharge",
+      "title": "Delaware \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "DE",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "if later, 3 days after the last day of the pay period in which separation occurred"
+        },
+        "summary": "All wages are due by the next regular payday (or within 3 days after the end of the pay period of separation, if later), payable by mail on request."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a71103",
+          "url": "https://delcode.delaware.gov/title19/c011/sc01/index.html",
+          "section": "\u00a71103",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-final-pay-discharge",
+      "title": "District of Columbia \u2014 Final Wages on Discharge",
+      "jurisdiction": "DC",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_business_day",
+          "notice_shortens_deadline": "4 days when the employee was responsible for the employer's money",
+          "penalty": "10% of unpaid wages per working day, up to the amount owed"
+        },
+        "summary": "Discharged employees are paid no later than the next working day (4 days if they handled the employer's money)."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1303",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1303",
+          "section": "\u00a732-1303",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-final-pay-resignation",
+      "title": "District of Columbia \u2014 Final Wages on Resignation",
+      "jurisdiction": "DC",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 7
+        },
+        "summary": "Employees who quit are paid by the next regular payday or within 7 days, whichever is earlier."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1303",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1303",
+          "section": "\u00a732-1303",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "hi-final-pay-discharge",
+      "title": "Hawaii \u2014 Final Wages on Discharge",
+      "jurisdiction": "HI",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "notice_shortens_deadline": "by the next working day if immediate payment is not possible"
+        },
+        "summary": "Discharged employees are paid in full at the time of discharge, or by the next working day when immediate payment is impossible."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7388-3",
+          "url": "https://law.justia.com/codes/hawaii/title-21/chapter-388/section-388-3/",
+          "section": "\u00a7388-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "hi-final-pay-resignation",
+      "title": "Hawaii \u2014 Final Wages on Resignation",
+      "jurisdiction": "HI",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "on the last day if the employee gave at least one pay period's notice"
+        },
+        "summary": "Employees who quit are paid by the next regular payday, or on the last day if they gave one pay period's notice."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7388-3",
+          "url": "https://law.justia.com/codes/hawaii/title-21/chapter-388/section-388-3/",
+          "section": "\u00a7388-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "id-final-pay-discharge",
+      "title": "Idaho \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "ID",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 10,
+          "business_days": true,
+          "runs_from_demand": false,
+          "notice_shortens_deadline": "within 48 hours (excluding weekends and holidays) of a written request for earlier payment"
+        },
+        "summary": "Final wages are due by the next regular payday or within 10 business days, whichever is earlier; within 48 hours after a written request."
+      },
+      "citations": [
+        {
+          "source": "Idaho Code \u00a745-606",
+          "url": "https://law.justia.com/codes/idaho/title-45/chapter-6/section-45-606/",
+          "section": "\u00a745-606",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-final-pay-discharge",
+      "title": "Illinois \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "IL",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "at the time of separation if possible"
+        },
+        "summary": "Final compensation, including earned vacation, is paid at separation if possible and in no case later than the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 115/5",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2402&ChapterID=68",
+          "section": "\u00a7115/5",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "in-final-pay-discharge",
+      "title": "Indiana \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "IN",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "if the employee's address is unknown, within 10 days after demand"
+        },
+        "summary": "Final wages are due on the next regular payday (within 10 days of demand when the employee's whereabouts are unknown)."
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a722-2-5-1",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/22#22-2-5-1",
+          "section": "\u00a722-2-5-1",
+          "kind": "statute"
+        },
+        {
+          "source": "Ind. Code \u00a722-2-9-2",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/22#22-2-9-2",
+          "section": "\u00a722-2-9-2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ia-final-pay-discharge",
+      "title": "Iowa \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "IA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a791A.4",
+          "url": "https://www.legis.iowa.gov/docs/code/91A.4.pdf",
+          "section": "\u00a791A.4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ks-final-pay-discharge",
+      "title": "Kansas \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "KS",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "K.S.A. \u00a744-315",
+          "url": "https://law.justia.com/codes/kansas/chapter-44/article-3/section-44-315/",
+          "section": "\u00a744-315",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-final-pay-discharge",
+      "title": "Kentucky \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "KY",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "later_of_next_payday_or_days",
+          "days": 14
+        },
+        "summary": "Final wages are due by the next regular payday or within 14 days of separation, whichever is later."
+      },
+      "citations": [
+        {
+          "source": "KRS \u00a7337.055",
+          "url": "https://law.justia.com/codes/kentucky/chapter-337/section-337-055/",
+          "section": "\u00a7337.055",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-final-pay-discharge",
+      "title": "Louisiana \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "LA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 15,
+          "penalty": "up to 90 days' wages for failure after demand (R.S. 23:632)"
+        },
+        "summary": "Final wages are due by the next regular payday or within 15 days of separation, whichever is earlier."
+      },
+      "citations": [
+        {
+          "source": "La. R.S. 23:631",
+          "url": "https://legis.la.gov/Legis/Law.aspx?d=83945",
+          "section": "\u00a723:631",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-final-pay-discharge",
+      "title": "Maine \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "ME",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 14,
+          "runs_from_demand": true
+        },
+        "summary": "Final wages, including vacation for employers with 11+ employees, are due by the next regular payday or within 2 weeks of demand, whichever is earlier."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7626",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec626.html",
+          "section": "\u00a7626",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-final-pay-discharge",
+      "title": "Maryland \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "MD",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "All wages due for work before separation are paid by the day the employee would have been paid had they not left."
+      },
+      "citations": [
+        {
+          "source": "Md. Lab. & Empl. \u00a73-505",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-505",
+          "section": "\u00a73-505",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-final-pay-discharge",
+      "title": "Massachusetts \u2014 Final Wages on Discharge",
+      "jurisdiction": "MA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "penalty": "mandatory treble damages for late payment (c.149 \u00a7150)"
+        },
+        "summary": "Discharged employees must be paid in full, including earned vacation, on the day of discharge; late payment carries mandatory treble damages."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a7148",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148",
+          "section": "\u00a7148",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-final-pay-resignation",
+      "title": "Massachusetts \u2014 Final Wages on Resignation",
+      "jurisdiction": "MA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "if there is no regular payday, by the Saturday after quitting"
+        },
+        "summary": "Employees who quit are paid in full on the next regular payday (or the following Saturday if there is none)."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a7148",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148",
+          "section": "\u00a7148",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mi-final-pay-discharge",
+      "title": "Michigan \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "MI",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "as soon as the amount can be determined with due diligence; hand harvesters within 3 days"
+        },
+        "summary": "Final wages are due as soon as the amount can be determined with due diligence, and no later than the regularly scheduled payday."
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.475",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-475",
+          "section": "\u00a7408.475",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-final-pay-discharge",
+      "title": "Minnesota \u2014 Final Wages on Discharge",
+      "jurisdiction": "MN",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 24,
+          "runs_from_demand": true,
+          "penalty": "average daily wage for each day late, up to 15 days"
+        },
+        "summary": "Discharged employees must be paid within 24 hours of demand; the penalty is a day's wages per day late up to 15 days."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.13",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.13",
+          "section": "\u00a7181.13",
+          "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7181.14",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.14",
+          "section": "\u00a7181.14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-final-pay-resignation",
+      "title": "Minnesota \u2014 Final Wages on Resignation",
+      "jurisdiction": "MN",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "if the next payday is within 5 days of the last day, the following payday, but no more than 20 days after the last day"
+        },
+        "summary": "Employees who quit are paid by the next regular payday at least 5 days after the last day, and in no case more than 20 days after."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.13",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.13",
+          "section": "\u00a7181.13",
+          "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7181.14",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.14",
+          "section": "\u00a7181.14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mo-final-pay-discharge",
+      "title": "Missouri \u2014 Final Wages on Discharge",
+      "jurisdiction": "MO",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "penalty": "wages continue up to 60 days after written request"
+        },
+        "summary": "Discharged employees (of corporations) are paid all wages due on the day of discharge; on written request, unpaid wages continue as a penalty for up to 60 days."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7290.110",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=290.110",
+          "section": "\u00a7290.110",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-final-pay-resignation",
+      "title": "Missouri \u2014 Final Wages on Resignation",
+      "jurisdiction": "MO",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "no_state_law"
+        },
+        "summary": "Missouri sets no deadline for employees who quit; FLSA next-regular-payday practice applies."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7290.110",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=290.110",
+          "section": "\u00a7290.110",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7778.106 (FLSA: wages due on the regular payday)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-778/subpart-B/section-778.106",
+          "section": "\u00a7778.106",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL, Last Paycheck",
+          "url": "https://www.dol.gov/general/topic/wages/lastpaycheck",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-final-pay-discharge",
+      "title": "Montana \u2014 Final Wages on Discharge",
+      "jurisdiction": "MT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "notice_shortens_deadline": "a written personnel policy may extend the deadline to the next regular payday or 15 days, whichever is earlier"
+        },
+        "summary": "Discharged employees are paid immediately unless a written policy extends the deadline to the earlier of the next regular payday or 15 days."
+      },
+      "citations": [
+        {
+          "source": "Mont. Code \u00a739-3-205",
+          "url": "https://law.justia.com/codes/montana/title-39/chapter-3/part-2/section-39-3-205/",
+          "section": "\u00a739-3-205",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mt-final-pay-resignation",
+      "title": "Montana \u2014 Final Wages on Resignation",
+      "jurisdiction": "MT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 15
+        },
+        "summary": "Employees who quit are paid by the next regular payday or within 15 days, whichever is earlier."
+      },
+      "citations": [
+        {
+          "source": "Mont. Code \u00a739-3-205",
+          "url": "https://law.justia.com/codes/montana/title-39/chapter-3/part-2/section-39-3-205/",
+          "section": "\u00a739-3-205",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-final-pay-discharge",
+      "title": "Nebraska \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "NE",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 14
+        },
+        "summary": "Final wages are due by the next regular payday or within 2 weeks of separation, whichever is sooner."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a748-1230",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-1230",
+          "section": "\u00a748-1230",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-final-pay-discharge",
+      "title": "Nevada \u2014 Final Wages on Discharge",
+      "jurisdiction": "NV",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "penalty": "wages continue up to 30 days if not paid within 3 days (\u00a7608.040)"
+        },
+        "summary": "Discharged employees are paid immediately; wages continue as a penalty for up to 30 days if not paid within 3 days."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.020",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec020",
+          "section": "\u00a7608.020",
+          "kind": "statute"
+        },
+        {
+          "source": "NRS \u00a7608.030",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec030",
+          "section": "\u00a7608.030",
+          "kind": "statute"
+        },
+        {
+          "source": "NRS \u00a7608.040",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec040",
+          "section": "\u00a7608.040",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-final-pay-resignation",
+      "title": "Nevada \u2014 Final Wages on Resignation",
+      "jurisdiction": "NV",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 7
+        },
+        "summary": "Employees who quit are paid by the next regular payday or within 7 days, whichever is earlier."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.020",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec020",
+          "section": "\u00a7608.020",
+          "kind": "statute"
+        },
+        {
+          "source": "NRS \u00a7608.030",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec030",
+          "section": "\u00a7608.030",
+          "kind": "statute"
+        },
+        {
+          "source": "NRS \u00a7608.040",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec040",
+          "section": "\u00a7608.040",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-final-pay-discharge",
+      "title": "New Hampshire \u2014 Final Wages on Discharge",
+      "jurisdiction": "NH",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 72
+        },
+        "summary": "Discharged employees are paid within 72 hours of discharge."
+      },
+      "citations": [
+        {
+          "source": "RSA 275:44",
+          "url": "https://gc.nh.gov/rsa/html/XXIII/275/275-44.htm",
+          "section": "\u00a7275:44",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-final-pay-resignation",
+      "title": "New Hampshire \u2014 Final Wages on Resignation",
+      "jurisdiction": "NH",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "within 72 hours of the last day if the employee gave at least one pay period's notice"
+        },
+        "summary": "Employees who quit are paid by the next regular payday, or within 72 hours if they gave one pay period's notice."
+      },
+      "citations": [
+        {
+          "source": "RSA 275:44",
+          "url": "https://gc.nh.gov/rsa/html/XXIII/275/275-44.htm",
+          "section": "\u00a7275:44",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-final-pay-discharge",
+      "title": "New Jersey \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "NJ",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:11-4.3",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11-4-3/",
+          "section": "\u00a734:11-4.3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-final-pay-discharge",
+      "title": "New Mexico \u2014 Final Wages on Discharge",
+      "jurisdiction": "NM",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_days",
+          "days": 5,
+          "notice_shortens_deadline": "10 days when wages are task, piece or commission based"
+        },
+        "summary": "Discharged employees are paid fixed wages within 5 days (10 days for commission, piece or task pay)."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-4-4",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4/section-50-4-4/",
+          "section": "\u00a750-4-4",
+          "kind": "statute"
+        },
+        {
+          "source": "NMSA \u00a750-4-5",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4/section-50-4-5/",
+          "section": "\u00a750-4-5",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-final-pay-resignation",
+      "title": "New Mexico \u2014 Final Wages on Resignation",
+      "jurisdiction": "NM",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Employees who quit are paid by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-4-4",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4/section-50-4-4/",
+          "section": "\u00a750-4-4",
+          "kind": "statute"
+        },
+        {
+          "source": "NMSA \u00a750-4-5",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4/section-50-4-5/",
+          "section": "\u00a750-4-5",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-final-pay-discharge",
+      "title": "New York \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "NY",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday, by mail on request."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7191(3)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/191",
+          "section": "\u00a7191(3)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nc-final-pay-discharge",
+      "title": "North Carolina \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "NC",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "commissions and bonuses on the first payday after the amount can be calculated"
+        },
+        "summary": "Final wages are due on or before the next regular payday; bonuses and commissions once calculable."
+      },
+      "citations": [
+        {
+          "source": "N.C.G.S. \u00a795-25.7",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_95/GS_95-25.7.html",
+          "section": "\u00a795-25.7",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nd-final-pay-discharge",
+      "title": "North Dakota \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "ND",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday, by certified mail on request."
+      },
+      "citations": [
+        {
+          "source": "N.D.C.C. \u00a734-14-03",
+          "url": "https://ndlegis.gov/cencode/t34c14.pdf",
+          "section": "\u00a734-14-03",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "oh-final-pay-discharge",
+      "title": "Ohio \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "OH",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 15
+        },
+        "summary": "Final wages follow the semimonthly schedule of \u00a74113.15: by the 1st for wages earned in the first half of the prior month and the 15th for the second half, which is no later than the next regular payday or 15 days."
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a74113.15",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4113.15",
+          "section": "\u00a74113.15",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ok-final-pay-discharge",
+      "title": "Oklahoma \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "OK",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday, by mail on request."
+      },
+      "citations": [
+        {
+          "source": "40 O.S. \u00a7165.3",
+          "url": "https://law.justia.com/codes/oklahoma/title-40/section-40-165-3/",
+          "section": "\u00a7165.3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-final-pay-discharge",
+      "title": "Oregon \u2014 Final Wages on Discharge",
+      "jurisdiction": "OR",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_business_day",
+          "penalty": "up to 30 days' wages at 8 hours a day for willful late payment (\u00a7652.150)"
+        },
+        "summary": "Discharged employees are paid by the end of the next business day; willful late payment accrues up to 30 days of penalty wages."
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7652.140",
+          "url": "https://oregon.public.law/statutes/ors_652.140",
+          "section": "\u00a7652.140",
+          "kind": "statute"
+        },
+        {
+          "source": "ORS \u00a7652.150 (penalty)",
+          "url": "https://oregon.public.law/statutes/ors_652.150",
+          "section": "\u00a7652.150",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-final-pay-resignation",
+      "title": "Oregon \u2014 Final Wages on Resignation",
+      "jurisdiction": "OR",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "earlier_of_next_payday_or_days",
+          "days": 5,
+          "business_days": true,
+          "notice_shortens_deadline": "on the last day if the employee gave at least 48 hours' notice (excluding weekends and holidays)"
+        },
+        "summary": "Employees who quit without 48 hours' notice are paid within 5 business days or by the next regular payday, whichever is first; with 48 hours' notice, on the last day."
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7652.140",
+          "url": "https://oregon.public.law/statutes/ors_652.140",
+          "section": "\u00a7652.140",
+          "kind": "statute"
+        },
+        {
+          "source": "ORS \u00a7652.150 (penalty)",
+          "url": "https://oregon.public.law/statutes/ors_652.150",
+          "section": "\u00a7652.150",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "pa-final-pay-discharge",
+      "title": "Pennsylvania \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "PA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday, by certified mail on request."
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a7260.5",
+          "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/uconsCheck.cfm?txtType=HTM&yr=1961&sessInd=0&act=329",
+          "section": "\u00a7260.5",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ri-final-pay-discharge",
+      "title": "Rhode Island \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "RI",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "within 24 hours when the business is liquidated, merged, sold or moved out of state"
+        },
+        "summary": "Final wages (including vacation after one year of service) are due on the next regular payday; within 24 hours if the business closes, is sold or relocates out of state."
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a728-14-4",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-14/28-14-4.htm",
+          "section": "\u00a728-14-4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "sc-final-pay-discharge",
+      "title": "South Carolina \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "SC",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 48,
+          "notice_shortens_deadline": "or by the next regular payday, not to exceed 30 days"
+        },
+        "summary": "Final wages are due within 48 hours of separation or by the next regular payday, not to exceed 30 days."
+      },
+      "citations": [
+        {
+          "source": "S.C. Code \u00a741-10-50",
+          "url": "https://law.justia.com/codes/south-carolina/title-41/chapter-10/section-41-10-50/",
+          "section": "\u00a741-10-50",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "sd-final-pay-discharge",
+      "title": "South Dakota \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "SD",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "payment may be withheld until the employee returns employer property"
+        },
+        "summary": "Final wages are due by the next regular payday, or as soon after as the employee returns the employer's property."
+      },
+      "citations": [
+        {
+          "source": "SDCL \u00a760-11-10",
+          "url": "https://sdlegislature.gov/Statutes/60-11-10",
+          "section": "\u00a760-11-10",
+          "kind": "statute"
+        },
+        {
+          "source": "SDCL \u00a760-11-14",
+          "url": "https://sdlegislature.gov/Statutes/60-11-14",
+          "section": "\u00a760-11-14",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tn-final-pay-discharge",
+      "title": "Tennessee \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "TN",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "later_of_next_payday_or_days",
+          "days": 21
+        },
+        "summary": "Final wages are due by the next regular payday or within 21 days, whichever is later (employers with 5+ employees)."
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code \u00a750-2-103(g)",
+          "url": "https://law.justia.com/codes/tennessee/title-50/chapter-2/part-1/section-50-2-103/",
+          "section": "\u00a750-2-103(g)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-final-pay-discharge",
+      "title": "Texas \u2014 Final Wages on Discharge",
+      "jurisdiction": "TX",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_days",
+          "days": 6
+        },
+        "summary": "Discharged employees are paid in full within 6 calendar days."
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a761.014",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm",
+          "section": "\u00a761.014",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-final-pay-resignation",
+      "title": "Texas \u2014 Final Wages on Resignation",
+      "jurisdiction": "TX",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Employees who quit are paid by the next regularly scheduled payday."
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a761.014",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm",
+          "section": "\u00a761.014",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ut-final-pay-discharge",
+      "title": "Utah \u2014 Final Wages on Discharge",
+      "jurisdiction": "UT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 24,
+          "penalty": "wages continue up to 60 days after written demand"
+        },
+        "summary": "Discharged employees are paid within 24 hours; unpaid wages continue as a penalty for up to 60 days after written demand."
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a734-28-5",
+          "url": "https://le.utah.gov/xcode/Title34/Chapter28/34-28-S5.html",
+          "section": "\u00a734-28-5",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ut-final-pay-resignation",
+      "title": "Utah \u2014 Final Wages on Resignation",
+      "jurisdiction": "UT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Employees who quit are paid by the next regular payday."
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a734-28-5",
+          "url": "https://le.utah.gov/xcode/Title34/Chapter28/34-28-S5.html",
+          "section": "\u00a734-28-5",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-final-pay-discharge",
+      "title": "Vermont \u2014 Final Wages on Discharge",
+      "jurisdiction": "VT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 72
+        },
+        "summary": "Discharged employees are paid within 72 hours of discharge."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7342(c)",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00342",
+          "section": "\u00a7342(c)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-final-pay-resignation",
+      "title": "Vermont \u2014 Final Wages on Resignation",
+      "jurisdiction": "VT",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "if there is no regular payday, the following Friday"
+        },
+        "summary": "Employees who quit are paid on the last regular payday, or the following Friday if there is none."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7342(c)",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00342",
+          "section": "\u00a7342(c)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "va-final-pay-discharge",
+      "title": "Virginia \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "VA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due on or before the date the employee would have been paid had they not separated."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a740.1-29(A)",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-29/",
+          "section": "\u00a740.1-29(A)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-final-pay-discharge",
+      "title": "Washington \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "WA",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the end of the established pay period (the next regular payday)."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.48.010",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.48.010",
+          "section": "\u00a749.48.010",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wv-final-pay-discharge",
+      "title": "West Virginia \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "WV",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2015-06-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "replacement cost of unreturned employer property may be withheld in limited circumstances",
+          "penalty": "2x unpaid wages as liquidated damages"
+        },
+        "summary": "Final wages are due on or before the next regular payday (changed from 72 hours in 2015); liquidated damages of twice the unpaid wages apply."
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a721-5-4",
+          "url": "https://code.wvlegislature.gov/21-5-4/",
+          "section": "\u00a721-5-4",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wi-final-pay-discharge",
+      "title": "Wisconsin \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "WI",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday",
+          "notice_shortens_deadline": "within 24 hours when the business merges, liquidates, relocates or ceases operations"
+        },
+        "summary": "Final wages are due by the next regular payday (no later than 31 days after the pay period ends); within 24 hours on a business closing, sale or relocation."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7109.03(2)",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/109/03",
+          "section": "\u00a7109.03(2)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wy-final-pay-discharge",
+      "title": "Wyoming \u2014 Final Wages on Discharge Or Resignation",
+      "jurisdiction": "WY",
+      "topic": "sep.final_pay.timing",
+      "status": "active",
+      "effectiveFrom": "2013-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          },
+          {
+            "fact": "termination.type",
+            "op": "in",
+            "value": [
+              "involuntary_discharge",
+              "layoff",
+              "constructive_discharge",
+              "voluntary_resignation",
+              "retirement",
+              "end_of_contract"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the next regular payday (since 2013, previously 5 working days)."
+      },
+      "citations": [
+        {
+          "source": "Wyo. Stat. \u00a727-4-104",
+          "url": "https://law.justia.com/codes/wyoming/title-27/chapter-4/article-1/section-27-4-104/",
+          "section": "\u00a727-4-104",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}
