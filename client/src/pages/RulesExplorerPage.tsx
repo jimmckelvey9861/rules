@@ -43,56 +43,36 @@ interface EvalResponse {
 }
 
 // ─── Taxonomy: Rows (Law Categories) ───────────────────────────────
+// Rows come from data/taxonomy.json via /api/taxonomy: category > topic > sub-topic.
 
 interface TaxonomyRow {
-  id: string;
+  id: string;        // taxonomy code
   label: string;
-  level: number; // 0 = top, 1 = section, 2 = leaf
-  topics: string[]; // taxonomy code prefixes (rule.topic equals one, or starts with one + ".")
+  level: number;     // 0 = category, 1 = topic, 2 = sub-topic
+  parentId?: string;
+  topics: string[];  // taxonomy code prefixes (rule.topic equals one, or starts with one + ".")
 }
 
-const LAW_TAXONOMY: TaxonomyRow[] = [
-  { id: "1", label: "1. Compensation & Pay", level: 0, topics: [] },
-  { id: "1.1", label: "1.1 Minimum Wage", level: 1, topics: ["pay.minimum_wage"] },
-  { id: "1.2", label: "1.2 Tipped Compensation", level: 1, topics: ["pay.tipped"] },
-  { id: "1.3", label: "1.3 Overtime", level: 1, topics: ["pay.overtime"] },
-  { id: "1.4", label: "1.4 Premium Pay", level: 1, topics: ["pay.premium"] },
-  { id: "1.5", label: "1.5 Compensable Time", level: 1, topics: ["pay.compensable_time"] },
-  { id: "1.6", label: "1.6 Reimbursements & Allowances", level: 1, topics: ["pay.reimbursement"] },
-  { id: "1.7", label: "1.7 Equal Pay & Wage Protections", level: 1, topics: ["pay.wage_protection"] },
+interface TaxonomyApi {
+  version: string;
+  categories: { code: string; name: string; topics: { code: string; name: string; subtopics: { code: string; name: string }[] }[] }[];
+}
 
-  { id: "2", label: "2. Scheduling & Hours", level: 0, topics: [] },
-  { id: "2.1", label: "2.1 Meal Breaks", level: 1, topics: ["sched.meal_break"] },
-  { id: "2.2", label: "2.2 Rest Breaks", level: 1, topics: ["sched.rest_break"] },
-  { id: "2.3", label: "2.3 Predictive Scheduling", level: 1, topics: ["sched.predictive"] },
-  { id: "2.4", label: "2.4 Shift Structure Rules", level: 1, topics: ["sched.shift_structure"] },
-  { id: "2.5", label: "2.5 Hour Limits", level: 1, topics: ["sched.hour_limits"] },
-  { id: "2.6", label: "2.6 Availability & Flex Scheduling", level: 1, topics: ["sched.flex"] },
-
-  { id: "3", label: "3. Leave & Time Off", level: 0, topics: [] },
-  { id: "3.1", label: "3.1 Sick Leave", level: 1, topics: ["leave.sick"] },
-  { id: "3.2", label: "3.2 Family & Medical Leave", level: 1, topics: ["leave.family_medical"] },
-  { id: "3.3", label: "3.3 Personal Leave", level: 1, topics: ["leave.personal"] },
-  { id: "3.4", label: "3.4 Safety & Emergency Leave", level: 1, topics: ["leave.safety_emergency"] },
-  { id: "3.5", label: "3.5 Leave Administration", level: 1, topics: ["leave.admin"] },
-
-  { id: "4", label: "4. Minor Employment", level: 0, topics: ["minor"] },
-
-  { id: "5", label: "5. Hiring & Onboarding", level: 0, topics: ["hiring"] },
-
-  { id: "6", label: "6. Workplace Protections", level: 0, topics: ["protect"] },
-
-  { id: "7", label: "7. Separation & Final Pay", level: 0, topics: [] },
-  { id: "7.1", label: "7.1 Final Compensation", level: 1, topics: ["sep.final_pay"] },
-  { id: "7.2", label: "7.2 Separation Procedures", level: 1, topics: ["sep.procedures"] },
-  { id: "7.3", label: "7.3 Mass Layoffs & Closures", level: 1, topics: ["sep.warn"] },
-  { id: "7.4", label: "7.4 Post-Employment Restrictions", level: 1, topics: ["sep.post_employment"] },
-  { id: "7.5", label: "7.5 Record Retention", level: 1, topics: ["sep.records"] },
-
-  { id: "8", label: "8. Employer Coverage & Compliance", level: 0, topics: ["compliance"] },
-
-  { id: "9", label: "9. Industry-Specific Rules", level: 0, topics: ["industry"] },
-];
+function buildTaxonomyRows(taxonomy: TaxonomyApi): TaxonomyRow[] {
+  const rows: TaxonomyRow[] = [];
+  taxonomy.categories.forEach((cat, ci) => {
+    const c = ci + 1;
+    rows.push({ id: cat.code, label: `${c}. ${cat.name}`, level: 0, topics: [] });
+    cat.topics.forEach((topic, ti) => {
+      const t = `${c}.${ti + 1}`;
+      rows.push({ id: topic.code, label: `${t} ${topic.name}`, level: 1, parentId: cat.code, topics: [topic.code] });
+      topic.subtopics.forEach((sub, si) => {
+        rows.push({ id: sub.code, label: `${t}.${si + 1} ${sub.name}`, level: 2, parentId: topic.code, topics: [sub.code] });
+      });
+    });
+  });
+  return rows;
+}
 
 // ─── Taxonomy: Columns (Locations) ─────────────────────────────────
 
@@ -392,16 +372,30 @@ interface CoverageData {
 function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: string) => void }) {
   const [populatedOnly, setPopulatedOnly] = useState(true);
   const [coverage, setCoverage] = useState<CoverageData | null>(null);
+  const [lawTaxonomy, setLawTaxonomy] = useState<TaxonomyRow[]>([]);
+  const [expandedTopics, setExpandedTopics] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     fetch("/api/coverage").then(r => r.json()).then(setCoverage).catch(() => {});
+    fetch("/api/taxonomy").then(r => r.json()).then((t: TaxonomyApi) => setLawTaxonomy(buildTaxonomyRows(t))).catch(() => {});
   }, []);
+
+  function toggleTopic(id: string) {
+    setExpandedTopics(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }
+  const subtopicCount = useMemo(() => lawTaxonomy.filter(r => r.level === 2).length, [lawTaxonomy]);
+  const topicCount = useMemo(() => lawTaxonomy.filter(r => r.level === 1).length, [lawTaxonomy]);
+  const hasSubtopics = (row: TaxonomyRow) => lawTaxonomy.some(r => r.parentId === row.id);
 
   // Build lookup: for each (taxonomyRow, locationCol) → matching rules
   const cellMap = useMemo(() => {
     const map = new Map<string, TsRule[]>();
     for (const rule of rules) {
-      for (const row of LAW_TAXONOMY) {
+      for (const row of lawTaxonomy) {
         if (!row.topics.some(t => topicMatches(rule.topic, t))) continue;
         for (const col of LOCATION_TAXONOMY) {
           if (!col.jurisdictions.includes(rule.jurisdiction)) continue;
@@ -412,7 +406,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
       }
     }
     return map;
-  }, [rules]);
+  }, [rules, lawTaxonomy]);
 
   // Determine which rows and columns have data
   const populatedRows = useMemo(() => {
@@ -431,20 +425,17 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
     return ids;
   }, [cellMap]);
 
-  // Filter rows: show populated rows + their parent headers
+  // Filter rows: sub-topics show only under an expanded topic; with "populated only",
+  // a row shows when it or a descendant has rules.
   const visibleRows = useMemo(() => {
-    if (!populatedOnly) return LAW_TAXONOMY;
-    return LAW_TAXONOMY.filter(row => {
-      if (populatedRows.has(row.id)) return true;
-      // Show parent (level 0) if any child is populated
-      if (row.level === 0) {
-        return LAW_TAXONOMY.some(child =>
-          child.id.startsWith(row.id + ".") && populatedRows.has(child.id)
-        );
-      }
-      return false;
+    const populated = (row: TaxonomyRow): boolean =>
+      populatedRows.has(row.id) || lawTaxonomy.some(child => child.parentId === row.id && populated(child));
+    return lawTaxonomy.filter(row => {
+      if (row.level === 2 && !expandedTopics.has(row.parentId ?? "")) return false;
+      if (!populatedOnly) return true;
+      return populated(row);
     });
-  }, [populatedOnly, populatedRows]);
+  }, [populatedOnly, populatedRows, lawTaxonomy, expandedTopics]);
 
   const visibleCols = useMemo(() => {
     if (!populatedOnly) return LOCATION_TAXONOMY;
@@ -463,7 +454,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
 
   // Helper: look up coverage status for an empty cell
   function getCoverageStatus(row: TaxonomyRow, col: LocationColumn): "no_law" | "not_checked" | null {
-    if (!coverage || row.level === 0) return null;
+    if (!coverage || row.level !== 1) return null;
     // Map the location column to a state code (only works for state-level columns)
     const jurisdiction = col.jurisdictions[0];
     if (!jurisdiction || !coverage.matrix[jurisdiction]) return null;
@@ -492,8 +483,15 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
           Show only populated cells
         </label>
         <span className="text-xs text-gray-400">
-          {visibleRows.length} rows × {visibleCols.length} columns · {cellMap.size} populated cells
+          {visibleRows.length} rows × {visibleCols.length} columns · {cellMap.size} populated cells · taxonomy: {topicCount} topics, {subtopicCount} sub-topics
         </span>
+        <button
+          type="button"
+          onClick={() => setExpandedTopics(expandedTopics.size ? new Set() : new Set(lawTaxonomy.filter(r => r.level === 1).map(r => r.id)))}
+          className="text-xs text-blue-600 hover:underline"
+        >
+          {expandedTopics.size ? "Collapse sub-topics" : "Expand all sub-topics"}
+        </button>
         {coverage && (
           <span className="text-xs text-gray-400 ml-auto flex items-center gap-3">
             <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-gray-100 border border-gray-200 inline-block"></span> No law</span>
@@ -533,14 +531,21 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
           </thead>
           <tbody>
             {visibleRows.map(row => (
-              <tr key={row.id} className={row.level === 0 ? "bg-gray-50" : ""}>
+              <tr key={row.id} className={row.level === 0 ? "bg-gray-50" : row.level === 2 ? "text-[11px]" : ""}>
                 <td
                   className={`sticky left-0 z-10 border px-3 py-2 bg-white ${
                     row.level === 0 ? "font-bold text-sm" : "font-normal"
                   }`}
                   style={{ paddingLeft: `${12 + row.level * 16}px` }}
                 >
-                  {row.label}
+                  {row.level === 1 && hasSubtopics(row) ? (
+                    <button type="button" onClick={() => toggleTopic(row.id)} className="inline-flex items-center gap-1 hover:text-blue-700" title={expandedTopics.has(row.id) ? "Hide sub-topics" : "Show sub-topics"}>
+                      <span className="text-gray-400 w-3 inline-block">{expandedTopics.has(row.id) ? "▾" : "▸"}</span>
+                      {row.label}
+                    </button>
+                  ) : (
+                    <span className={row.level === 2 ? "text-gray-600" : ""}>{row.label}</span>
+                  )}
                 </td>
                 {visibleCols.map(col => {
                   const key = `${row.id}::${col.id}`;
