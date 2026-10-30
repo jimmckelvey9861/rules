@@ -60,6 +60,7 @@
         "location.state": "CA",
         "location.city": "Los Angeles",
         "location.county": "Los Angeles",
+        "location.is_unincorporated": false,
         "employer.total_employees_state": 310,
         "employer.total_employees_city": 120,
         "employer.total_employees_at_location": 31

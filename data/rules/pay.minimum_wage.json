@@ -3246,6 +3246,137 @@
           "kind": "ordinance"
         }
       ]
+    },
+    {
+      "id": "berkeley-ca-mw-2026",
+      "title": "Berkeley Minimum Wage",
+      "jurisdiction": "Berkeley",
+      "topic": "pay.minimum_wage.general",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 19.61
+        },
+        "summary": "$19.61 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Ch. 13.99 (Minimum Wage Ordinance)",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emeryville-ca-mw-2026",
+      "title": "Emeryville Minimum Wage",
+      "jurisdiction": "Emeryville",
+      "topic": "pay.minimum_wage.general",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 20.34
+        },
+        "summary": "$20.34 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Ch. 37 (Minimum Wage Ordinance)",
+          "url": "https://www.emeryville.org/Services/Business/Labor-Standards",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-county-ca-mw-2026",
+      "title": "Los Angeles County (unincorporated) Minimum Wage",
+      "jurisdiction": "Los Angeles County",
+      "topic": "pay.minimum_wage.general",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "wage.minimum",
+        "params": {
+          "rate": 18.47
+        },
+        "summary": "$18.47 per hour minimum wage"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code Title 8 (Minimum Wage Ordinance, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/minimum-wage-for-businesses/",
+          "kind": "ordinance"
+        }
+      ]
     }
   ]
 }

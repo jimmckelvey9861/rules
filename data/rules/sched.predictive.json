@@ -3,6 +3,698 @@
   "topic": "sched.predictive",
   "rules": [
     {
+      "id": "brk-access-to-hours",
+      "title": "Berkeley \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 24
+        },
+        "summary": "Before hiring new employees, contractors or temporary workers, the employer must offer additional hours in writing to qualified existing employees who have worked more than two weeks; employees have 24 hours to accept; no duty once an employee reaches 8 hours a day or 40 a week"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (offer of additional hours)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-advance-notice-14day",
+      "title": "Berkeley \u2014 14-Day Advance Notice of Work Schedule",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.advance_notice",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "Work schedules must be posted at least 14 days before the first shift on them"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (advance notice of work schedule)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-change-under14-1hr",
+      "title": "Berkeley \u2014 Schedule Change Premium (1 hour: <14 days but at least 24 hours notice)",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "any"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift changed with less than 14 days but at least 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-change-under24h-other",
+      "title": "Berkeley \u2014 Schedule Change Premium (<24 hours notice: hours added, moved or shift added)",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "hours_added"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift added, extended or moved with less than 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-change-under24h-subtracted",
+      "title": "Berkeley \u2014 Schedule Change Premium (<24 hours notice: hours cut or shift cancelled)",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 4,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "hours_reduced"
+        },
+        "summary": "When hours are cut or a shift cancelled with less than 24 hours notice: 4 hours of pay at the regular rate or the hours cut (scheduled shift length), whichever is less"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-good-faith-estimate",
+      "title": "Berkeley \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "Before or on the first day the employer must give a written good faith estimate of the employee's minimum hours; a significant deviation needs a documented, legitimate reason unknown when the estimate was given"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (good faith estimate)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-right-to-decline",
+      "title": "Berkeley \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline previously unscheduled hours offered with less than 14 days notice, and any shift starting less than 11 hours after the previous shift ended"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (right to decline)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "chi-access-to-hours",
       "title": "Chicago \u2014 Offer Hours to Existing Employees Before Hiring",
       "jurisdiction": "Chicago",
@@ -398,6 +1090,1025 @@
       ]
     },
     {
+      "id": "emv-access-to-hours",
+      "title": "Emeryville \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72,
+          "max_part_time_hours": 35
+        },
+        "summary": "Before hiring new employees or contractors, the employer must offer additional hours in writing to qualified existing part-time employees, up to 35 hours a week, in blocks of at least 4 hours; employees have 72 hours to accept (24 hours for work lasting two weeks or less)"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (offer of hours to part-time employees)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emv-advance-notice-14day",
+      "title": "Emeryville \u2014 14-Day Advance Notice of Work Schedule",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.advance_notice",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "Work schedules must be posted at least 14 days before the first shift on them"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (advance notice)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emv-change-under14-1hr",
+      "title": "Emeryville \u2014 Schedule Change Premium (1 hour: <14 days but at least 24 hours notice)",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "any"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift changed with less than 14 days but at least 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emv-change-under24h-other",
+      "title": "Emeryville \u2014 Schedule Change Premium (<24 hours notice: hours added, moved or shift added)",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "hours_added"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift added, extended or moved with less than 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emv-change-under24h-subtracted",
+      "title": "Emeryville \u2014 Schedule Change Premium (<24 hours notice: hours cut or shift cancelled)",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 4,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "hours_reduced"
+        },
+        "summary": "When hours are cut or a shift cancelled with less than 24 hours notice: 4 hours of pay at the regular rate or the hours cut (scheduled shift length), whichever is less"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emv-good-faith-estimate",
+      "title": "Emeryville \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "Before or at the start of employment the employer must give a written good faith estimate of the work schedule; the employee may ask for changes and the employer must answer in writing before the start date"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (good faith estimate)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emv-right-to-decline",
+      "title": "Emeryville \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline previously unscheduled hours offered with less than 14 days notice, and any shift starting less than 11 hours after the previous shift ended"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (right to decline)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-access-to-hours",
+      "title": "Evanston \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72,
+          "max_part_time_hours": 35
+        },
+        "summary": "Before hiring new employees, temporary workers or contractors, the employer must offer additional hours to qualified existing part-time employees, up to 35 hours a week; employees have 72 hours to accept (24 hours for work lasting two weeks or less)"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (offer of hours to existing employees)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-advance-notice-14day",
+      "title": "Evanston \u2014 14-Day Advance Notice of Work Schedule",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.advance_notice",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "Work schedules must be posted at least 14 days before the first shift on them"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (advance notice of work schedule)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-change-under14-1hr",
+      "title": "Evanston \u2014 Schedule Change Premium (1 hour: <14 days but at least 24 hours notice)",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "any"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift changed with less than 14 days but at least 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-change-under24h-other",
+      "title": "Evanston \u2014 Schedule Change Premium (<24 hours notice: hours added, moved or shift added)",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "hours_added"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift added, extended or moved with less than 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-change-under24h-subtracted",
+      "title": "Evanston \u2014 Schedule Change Premium (<24 hours notice: hours cut or shift cancelled)",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 4,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "hours_reduced"
+        },
+        "summary": "When hours are cut or a shift cancelled with less than 24 hours notice: 4 hours of pay at the regular rate or the hours cut (scheduled shift length), whichever is less"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-good-faith-estimate",
+      "title": "Evanston \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {
+          "lookback_days": 90
+        },
+        "summary": "Before or at the start of employment the employer must give a written good faith estimate for the first 90 days: average weekly hours, whether on-call shifts are expected, and the days and times the employee can and cannot expect to work; requests for changes get a written answer within 3 days"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (good faith estimate)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "la-access-to-hours",
       "title": "Los Angeles \u2014 Offer Hours to Existing Employees Before Hiring",
       "jurisdiction": "Los Angeles",
@@ -745,6 +2456,467 @@
           "source": "Los Angeles Municipal Code Art. 5 (right to decline) (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.gov/fair-work-week-information",
           "section": "LAMC Art. 5 (right to decline)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-access-to-hours",
+      "title": "Los Angeles County \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees or bringing in temporary or contract workers, the employer must post the open shifts to qualified current employees at least 72 hours ahead; employees have 48 hours to accept"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (offer of work to current employees)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-advance-notice-14day",
+      "title": "Los Angeles County \u2014 14-Day Advance Notice of Work Schedule",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.advance_notice",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "Work schedules must be provided at least 14 calendar days before the first shift on them"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (advance notice)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-change-under14-added",
+      "title": "Los Angeles County \u2014 Schedule Change Premium (hours added or time/location changed)",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "hours_added"
+        },
+        "summary": "1 additional hour of pay at the regular rate for each employer-initiated change to a posted schedule that adds more than 15 minutes or moves the date, time or location with no loss of time"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-change-under14-subtracted",
+      "title": "Los Angeles County \u2014 Schedule Change Premium (hours cut or shift cancelled)",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "Half the regular rate for each hour of work lost when the employer cuts more than 15 minutes from a posted shift or cancels it"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-good-faith-estimate",
+      "title": "Los Angeles County \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "Before hire, and within 10 days of a current employee's request, the employer must give a written good faith estimate of expected hours, shifts and locations; a substantial deviation in 6 of 12 workweeks needs a documented, legitimate reason"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (good faith estimate)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-on-call-not-called",
+      "title": "Los Angeles County \u2014 On-Call Shift Premium (not called in)",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not called in to work"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-right-to-decline",
+      "title": "Los Angeles County \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any employer-initiated change made after the schedule was posted that adds hours or shifts; acceptance must be documented in writing"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (right to decline)",
           "kind": "ordinance"
         }
       ]
@@ -3344,6 +5516,52 @@
           "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
           "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
           "section": "Art. 33G (on-call pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sj-access-to-hours",
+      "title": "San Jose \u2014 Offer Hours to Existing Part-Time Employees Before Hiring",
+      "jurisdiction": "San Jose",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2017-03-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Jose"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 36
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {},
+        "summary": "Before hiring additional employees or subcontractors (including through staffing agencies), the employer must offer the hours to existing part-time employees it reasonably judges qualified, through a transparent and nondiscriminatory process"
+      },
+      "citations": [
+        {
+          "source": "San Jose Municipal Code Chapter 4.101 (Opportunity to Work Ordinance)",
+          "url": "https://sanjoseca.gov/home/showdocument?id=20073",
+          "section": "SJMC 4.101.040",
           "kind": "ordinance"
         }
       ]

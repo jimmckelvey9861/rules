@@ -305,15 +305,15 @@ const LOCAL_RELEVANT_TOPICS: Topic[] = [
  * These match the jurisdiction strings used in rules.
  */
 export const ALL_LOCALS = [
-  // California cities
-  "Belmont", "Daly City", "Fremont", "Half Moon Bay", "Hayward",
-  "Los Angeles", "Malibu", "Novato", "Pasadena", "Redwood City",
+  // California cities and counties
+  "Belmont", "Berkeley", "Daly City", "Emeryville", "Fremont", "Half Moon Bay", "Hayward",
+  "Los Angeles", "Los Angeles County", "Malibu", "Novato", "Pasadena", "Redwood City",
   "Richmond", "San Carlos", "San Francisco", "San Jose", "Santa Clara",
   "Sunnyvale", "West Hollywood",
   // Colorado cities
   "Boulder", "Denver",
   // Illinois cities
-  "Chicago",
+  "Chicago", "Evanston",
   // Maryland counties
   "Montgomery County",
   // Minnesota cities
@@ -338,9 +338,9 @@ export type LocalCode = typeof ALL_LOCALS[number];
  * Sources: City ordinance databases, NELP local policy tracker, A Better Balance.
  */
 const LOCALS_WITH_MINIMUM_WAGE: LocalCode[] = [
-  // California cities (all have local min wage ordinances)
-  "Belmont", "Daly City", "Fremont", "Half Moon Bay", "Hayward",
-  "Los Angeles", "Malibu", "Novato", "Pasadena", "Redwood City",
+  // California cities and counties (all have local min wage ordinances)
+  "Belmont", "Berkeley", "Daly City", "Emeryville", "Fremont", "Half Moon Bay", "Hayward",
+  "Los Angeles", "Los Angeles County", "Malibu", "Novato", "Pasadena", "Redwood City",
   "Richmond", "San Carlos", "San Francisco", "San Jose", "Santa Clara",
   "Sunnyvale", "West Hollywood",
   // Colorado
@@ -372,6 +372,8 @@ const LOCALS_WITH_SICK_LEAVE: LocalCode[] = [
   "Minneapolis",      // Minneapolis Sick & Safe Time (2017)
   "Montgomery County", // Earned Sick & Safe Leave (2016)
   "Denver",           // Denver HFWA (follows CO state, local enforcement)
+  "Berkeley",         // Berkeley Paid Sick Leave Ordinance (2017)
+  "Emeryville",       // Emeryville Paid Sick Leave Ordinance (2015)
   // Note: Portland covered by OR state law (no separate local ordinance needed)
   // Note: San Jose, Santa Clara, etc. covered by CA state law (no separate local)
 ];
@@ -383,6 +385,11 @@ const LOCALS_WITH_PREDICTIVE_SCHEDULING: LocalCode[] = [
   "Chicago",          // Fair Workweek Ordinance (2020)
   "Philadelphia",     // Fair Workweek Employment Standards (2020)
   "Los Angeles",      // Fair Work Week Ordinance (2023)
+  "Emeryville",       // Fair Workweek Ordinance (2017)
+  "San Jose",         // Opportunity to Work Ordinance (2017, offer of hours only)
+  "Berkeley",         // Fair Workweek Ordinance (2024)
+  "Evanston",         // Fair Workweek Ordinance (2024)
+  "Los Angeles County", // Fair Workweek Ordinance, unincorporated areas (2025)
 ];
 
 // No cities currently have local meal break, rest break, reporting time,
