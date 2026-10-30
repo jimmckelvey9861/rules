@@ -26,6 +26,7 @@ app.get("/api/ts-rules", (_req, res) => {
     topic: r.topic,
     effectiveFrom: r.effectiveFrom,
     effectiveTo: r.effectiveTo || null,
+    supersedes: r.supersedes || null,
     status: r.status,
     citations: r.citations,
     resultType: r.result.type,

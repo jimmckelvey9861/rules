@@ -5,6 +5,8 @@
  */
 
 import { RULES, SKIPPED, evaluateRule, evaluateRules, getAllFacts, isKnownFact } from "./index.js";
+import { tryCreateRule } from "./createRule.js";
+import { checkSupersedes } from "./loadRules.js";
 import { buildCoverageMatrix, summarizeCoverage, matrixTopicFor, ALL_STATES, ALL_TOPICS, ALL_LOCALS } from "./coverageMatrix.js";
 import { resolveTopic } from "../reference/taxonomy.js";
 
@@ -774,12 +776,59 @@ function extractStateFromConditions(condition: any): string | null {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+// LEVEL 6: CHANGE MANAGEMENT — effective windows and supersession
+// ═══════════════════════════════════════════════════════════════════════
+
+function level6_changeManagement() {
+  section("Level 6: Change Management — effective windows and supersession");
+
+  const byId = new Map(RULES.map(r => [r.id, r]));
+  assert(RULES.every(r => !r.effectiveTo || r.effectiveTo >= r.effectiveFrom), "No loaded rule closes before it opens");
+  assert(RULES.filter(r => r.supersedes).every(r => checkSupersedes(r, byId).length === 0), "Every supersedes link in the data passes the loader's checks");
+
+  const chi14 = byId.get("chi-advance-notice-14day");
+  const chi10 = byId.get("chi-advance-notice-10day");
+  assert(chi14?.supersedes === "chi-advance-notice-10day" && chi10?.effectiveTo === "2022-06-30" && chi14?.effectiveFrom === "2022-07-01", "Chicago 14-day notice supersedes the 10-day rule with adjoining windows");
+
+  // Shared evaluator picks the rule by shift date, so both versions can ship together.
+  if (chi10 && chi14) {
+    const base: Scenario = {
+      "location.country": "US", "location.state": "IL", "location.city": "Chicago",
+      "employer.total_employees_global": 500, "employer.total_employees": 500, "employer.industry_tag": "retail",
+      "employee.exempt_status": "non_exempt", "employee.regular_hourly_rate": 20, "employee.job_category": "retail",
+      "schedule.change_type": "time_changed", "schedule.notice_hours": 24 * 12, "schedule.employer_initiated_change": true, "schedule.change_notice_days": 12,
+    };
+    const before = evaluateRules([chi10, chi14], { ...base, "shift.date": "2022-06-15" });
+    const after = evaluateRules([chi10, chi14], { ...base, "shift.date": "2022-07-15" });
+    const fired = (r: ReturnType<typeof evaluateRules>) => [...r.violations, ...r.warnings].map(x => x.ruleId);
+    assert(!fired(before).includes("chi-advance-notice-14day"), "Chicago 14-day rule does not fire on a shift before it took effect");
+    assert(!fired(after).includes("chi-advance-notice-10day"), "Chicago 10-day rule does not fire on a shift after it expired");
+  }
+
+  const sample = RULES.find(r => r.id === "federal-workweek-definition") ?? RULES[0];
+  const bad = tryCreateRule({ ...sample, id: "test-bad-window", effectiveFrom: "2026-01-01", effectiveTo: "2025-12-31" });
+  assert(bad.rule === null && bad.errors.some(e => e.path === "effectiveTo"), "Validator rejects effectiveTo before effectiveFrom");
+  const selfRef = tryCreateRule({ ...sample, id: "test-self", supersedes: "test-self" });
+  assert(selfRef.rule === null && selfRef.errors.some(e => e.path === "supersedes"), "Validator rejects a rule that supersedes itself");
+
+  const prev: Rule = { ...sample, id: "test-prev", effectiveFrom: "2020-01-01", effectiveTo: "2024-12-31" };
+  const next: Rule = { ...sample, id: "test-next", effectiveFrom: "2025-01-01", supersedes: "test-prev" };
+  const pool = new Map<string, Rule>([["test-prev", prev], ["test-next", next]]);
+  assert(checkSupersedes(next, pool).length === 0, "A replacement with adjoining windows passes");
+  assert(checkSupersedes({ ...next, supersedes: "nope" }, pool).some(e => e.message.includes("unknown rule")), "Supersedes must name a loaded rule");
+  assert(checkSupersedes({ ...next, jurisdiction: "CA" }, pool).some(e => e.message.includes("must stay in")), "A replacement must stay in the same jurisdiction");
+  assert(checkSupersedes({ ...next, topic: "pay.minimum_wage.general" }, pool).some(e => e.message.includes("must stay on")), "A replacement must stay on the same topic");
+  assert(checkSupersedes(next, new Map([["test-prev", { ...prev, effectiveTo: undefined }], ["test-next", next]])).some(e => e.message.includes("needs an effectiveTo")), "The superseded rule must have an effectiveTo");
+  assert(checkSupersedes(next, new Map([["test-prev", { ...prev, effectiveTo: "2025-03-31" }], ["test-next", next]])).some(e => e.message.includes("overlapping")), "Overlapping windows are rejected");
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 // RUN ALL
 // ═══════════════════════════════════════════════════════════════════════
 
 function main() {
   console.log("═══════════════════════════════════════════════════════════════");
-  console.log("  VALIDATION SUITE — All 5 Levels");
+  console.log("  VALIDATION SUITE — All 6 Levels");
   console.log("  Rules Engine: Employment Law Compliance");
   console.log("═══════════════════════════════════════════════════════════════");
 
@@ -788,6 +837,7 @@ function main() {
   level3_crossRuleConsistency();
   level4_dataAccuracyAudit();
   level5_scenarioIntegration();
+  level6_changeManagement();
 
   // Final summary
   console.log("\n═══════════════════════════════════════════════════════════════");

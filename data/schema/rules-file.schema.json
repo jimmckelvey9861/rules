@@ -68,6 +68,7 @@
         "status": { "enum": ["active", "draft", "repealed", "pending"] },
         "effectiveFrom": { "$ref": "#/$defs/isoDate" },
         "effectiveTo": { "$ref": "#/$defs/isoDate" },
+        "supersedes": { "type": "string", "description": "Id of the rule this one replaces; that rule keeps its record with an effectiveTo before this effectiveFrom" },
         "appliesWhen": { "$ref": "#/$defs/condition" },
         "result": { "$ref": "#/$defs/result" },
         "citations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/citation" } }

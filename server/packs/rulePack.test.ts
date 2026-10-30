@@ -7,7 +7,8 @@
 import { RULES, evaluateRules } from "../rules/index.js";
 import { isKnownFact } from "../rules/facts.js";
 import { evaluatePartial, compare, factsIn } from "../rules/partialEvaluate.js";
-import { buildRulePack, buildRulePacks, validateBusinessProfile, isBusinessFact } from "./buildRulePack.js";
+import { buildRulePack, buildRulePacks, validateBusinessProfile, isBusinessFact, addDays, hashPackRule } from "./buildRulePack.js";
+import { diffRulePacks, formatPackDiff } from "./diffRulePack.js";
 import { SAMPLE_PROFILE } from "./index.js";
 import { buildScenario } from "../scheduler/buildScenario.js";
 import type { BusinessProfile } from "./types.js";
@@ -76,7 +77,7 @@ assert(seattle.facts.every(f => isKnownFact(f.path)) && seattle.facts.some(f => 
 assert(seattle.rules.every(r => r.result.kronto === "block" || r.result.kronto === "premium" || r.result.kronto === "inform"), "Every pack rule has a Kronto action");
 assert(seattle.rules.every(r => r.topicCode.includes(".") && r.jurisdictionId.startsWith("us")), "Pack rules carry taxonomy codes and jurisdiction ids");
 assert(seattle.obligations.length > 0 && seattle.obligations.every(o => seattle.rules.some(r => r.result.obligation === o.code)), "Pack ships exactly the obligations its rules use");
-assert(seattle.stats.rulesIncluded === seattle.rules.length && seattle.stats.rulesIncluded + seattle.stats.excludedByProfile + seattle.stats.excludedExpired + seattle.stats.excludedInactive === seattle.stats.rulesConsidered, "Pack stats add up");
+assert(seattle.stats.rulesIncluded === seattle.rules.length && seattle.stats.rulesIncluded + seattle.stats.excludedByProfile + seattle.stats.excludedExpired + seattle.stats.excludedNotYetEffective + seattle.stats.excludedInactive === seattle.stats.rulesConsidered, "Pack stats add up");
 assert(nyc.rules.some(r => r.id.startsWith("nyc-retail-")) && !nyc.rules.some(r => r.id.startsWith("nyc-ff-")), "NYC retail pack includes the retail fair workweek rules and excludes fast food");
 const nycFastFood = buildRulePack({ ...SAMPLE_PROFILE, employer: { ...SAMPLE_PROFILE.employer, "employer.industry_tag": "fast_food" } }, SAMPLE_PROFILE.locations[1], { asOf: "2026-10-20" });
 assert(nycFastFood.rules.some(r => r.id.startsWith("nyc-ff-")) && !nycFastFood.rules.some(r => r.id.startsWith("nyc-retail-")), "Switching the industry to fast food swaps the NYC fair workweek rules");
@@ -98,6 +99,39 @@ const ids = (xs: { ruleId: string }[]) => xs.map(x => x.ruleId).sort().join(",")
 assert(full.violations.length > 0, `Scenario produces violations (${full.violations.length})`);
 assert(ids(full.violations) === ids(viaPack.violations), "Pack rules produce the same violations as the full rule set");
 assert(ids(full.warnings) === ids(viaPack.warnings), "Pack rules produce the same warnings as the full rule set");
+
+console.log("\n═══ Change management: as-of, horizon, supersession, diff ═══");
+const chicago = SAMPLE_PROFILE.locations.find(l => l.id === "chi-wicker-park")!;
+assert(addDays("2024-02-28", 2) === "2024-03-01" && addDays("2026-12-31", 1) === "2027-01-01", "addDays crosses month and year ends");
+const june2022 = buildRulePack(SAMPLE_PROFILE, chicago, { asOf: "2022-06-01" });
+const aug2022 = buildRulePack(SAMPLE_PROFILE, chicago, { asOf: "2022-08-01" });
+const old10 = june2022.rules.find(r => r.id === "chi-advance-notice-10day");
+const new14 = june2022.rules.find(r => r.id === "chi-advance-notice-14day");
+assert(!!old10 && !old10.upcoming && old10.supersededBy === "chi-advance-notice-14day", "June 2022 Chicago pack ships the 10-day rule in force, pointing at its successor");
+assert(!!new14 && new14.upcoming === true && new14.supersedes === "chi-advance-notice-10day", "June 2022 Chicago pack ships the 14-day rule flagged upcoming");
+assert(june2022.stats.upcoming >= 1 && june2022.horizonDays === 365, "Stats count upcoming rules and the pack records its horizon");
+assert(!aug2022.rules.some(r => r.id === "chi-advance-notice-10day") && aug2022.rules.find(r => r.id === "chi-advance-notice-14day")?.upcoming === undefined, "August 2022 pack drops the expired 10-day rule and ships the 14-day rule in force");
+const shortHorizon = buildRulePack(SAMPLE_PROFILE, chicago, { asOf: "2022-06-01", horizonDays: 7 });
+assert(!shortHorizon.rules.some(r => r.id === "chi-advance-notice-14day") && shortHorizon.stats.excludedNotYetEffective > june2022.stats.excludedNotYetEffective, "A 7-day horizon leaves the July rule out and counts it as not yet effective");
+assert(june2022.rules.every(r => /^[0-9a-f]{16}$/.test(r.hash)), "Every pack rule carries a 16-hex content hash");
+assert(new14!.hash === aug2022.rules.find(r => r.id === "chi-advance-notice-14day")!.hash, "A rule's hash is the same whether it ships upcoming or in force");
+
+const diff = diffRulePacks(june2022, aug2022);
+assert(diff.location === "chi-wicker-park" && diff.from.asOf === "2022-06-01" && diff.to.asOf === "2022-08-01", "Diff records both snapshots");
+assert(diff.removed.some(r => r.id === "chi-advance-notice-10day") && !diff.added.some(r => r.id === "chi-advance-notice-14day"), "The expired rule is removed; the successor was already in the earlier pack");
+assert(diff.expired.some(r => r.id === "chi-advance-notice-10day" && r.supersededBy === "chi-advance-notice-14day"), "Diff lists the 10-day rule as expired, replaced by the 14-day rule");
+assert(diff.tookEffect.some(r => r.id === "chi-advance-notice-14day" && r.supersedes === "chi-advance-notice-10day"), "Diff lists the 14-day rule as having taken effect");
+assert(!diff.changed.some(r => r.id === "chi-advance-notice-14day"), "Going from upcoming to in force is not a content change");
+assert(diff.summary.unchanged + diff.summary.changed + diff.summary.added === aug2022.rules.length, "Diff summary accounts for every rule in the new pack");
+const same = diffRulePacks(aug2022, buildRulePack(SAMPLE_PROFILE, chicago, { asOf: "2022-08-01" }));
+assert(same.summary.added === 0 && same.summary.removed === 0 && same.summary.changed === 0, "Rebuilding for the same date diffs clean");
+const edited = { ...aug2022, rules: aug2022.rules.map(r => r.id === "chi-advance-notice-14day" ? { ...r, title: r.title + " (amended)", hash: hashPackRule({ ...r, title: r.title + " (amended)" }) } : r) };
+const editDiff = diffRulePacks(aug2022, edited);
+assert(editDiff.changed.length === 1 && editDiff.changed[0].id === "chi-advance-notice-14day" && editDiff.changed[0].fields.join() === "title", "A changed title shows as one changed rule naming the field");
+assert(formatPackDiff(editDiff).includes("~ chi-advance-notice-14day") && formatPackDiff(diff).includes("expired chi-advance-notice-10day"), "formatPackDiff prints one line per change");
+let threw = false;
+try { diffRulePacks(june2022, buildRulePack(SAMPLE_PROFILE, SAMPLE_PROFILE.locations[0], { asOf: "2022-08-01" })); } catch { threw = true; }
+assert(threw, "Diffing packs for different locations throws");
 
 console.log(`\n  Results: ${passed} passed, ${failed} failed`);
 if (failed > 0) {
