@@ -2157,6 +2157,589 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "ca-meal-waiver-first-6hr",
+      "title": "California \u2014 First Meal Period May Be Waived on Shifts of 6 Hours or Less",
+      "jurisdiction": "CA",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "max_shift_hours_for_waiver": 6,
+          "written_agreement_required": false,
+          "revocable": true
+        },
+        "summary": "When the total work period is no more than 6 hours the first meal period may be waived by mutual consent of employer and employee (Labor Code \u00a7512(a)). The consent need not be written but should be documented; the employee may withdraw it."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7512",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-no-waiver-over-6hr",
+      "title": "California \u2014 First Meal Period Cannot Be Waived on Shifts Over 6 Hours (On-Duty Meal Only by Written Agreement)",
+      "jurisdiction": "CA",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true,
+          "written_agreement_required": true,
+          "revocable": true
+        },
+        "summary": "A first meal period on a shift longer than 6 hours cannot be waived. A paid on-duty meal period is permitted only when the nature of the work prevents relief from all duty and the parties have a written agreement that the employee may revoke at any time (Wage Orders \u00a711). Otherwise a missed or late meal period owes one hour of premium pay (\u00a7226.7)."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7512",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7512(a)",
+          "kind": "statute"
+        },
+        {
+          "source": "IWC Wage Order 5-2001 \u00a711 (Meal Periods)",
+          "url": "https://www.dir.ca.gov/IWC/IWCArticle5.pdf",
+          "section": "8 CCR \u00a711050(11)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-meal-waiver-second-12hr",
+      "title": "California \u2014 Second Meal Period May Be Waived on Shifts of 10 to 12 Hours",
+      "jurisdiction": "CA",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 12
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "max_shift_hours_for_waiver": 12,
+          "second_meal": true,
+          "revocable": true
+        },
+        "summary": "When the total work period is more than 10 but no more than 12 hours the second meal period may be waived by mutual consent, but only if the first meal period was not waived (Labor Code \u00a7512(a)). On shifts over 12 hours the second meal period cannot be waived outside the health care exception."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7512",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7512(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-healthcare-second-meal-waiver",
+      "title": "California \u2014 Health Care Employees May Waive One of Two Meal Periods on Shifts Over 8 Hours (\u00a7516(b))",
+      "jurisdiction": "CA",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2015-10-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "healthcare"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 8
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "second_meal": true,
+          "written_agreement_required": true,
+          "revocable": true
+        },
+        "summary": "Employees in the health care industry who provide patient care or work in a clinical department and work more than 8 hours may voluntarily waive one of their two meal periods by a written agreement revocable with at least one day's notice, even on shifts over 12 hours (Wage Orders 4 and 5 \u00a711(D), confirmed by Labor Code \u00a7516(b), SB 327 of 2015, declared valid since October 2000)."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7516(b)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=516.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7516(b)",
+          "kind": "statute"
+        },
+        {
+          "source": "IWC Wage Order 5-2001 \u00a711(D)",
+          "url": "https://www.dir.ca.gov/IWC/IWCArticle5.pdf",
+          "section": "8 CCR \u00a711050(11)(D)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-meal-waiver",
+      "title": "Washington \u2014 Employees May Waive Meal Periods; On-Duty Meals Are Paid (WAC 296-126-092)",
+      "jurisdiction": "WA",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "written_agreement_required": false,
+          "revocable": true,
+          "on_duty_meal_allowed": true
+        },
+        "summary": "An employee may waive the 30-minute meal period (L&I Administrative Policy ES.C.6.1); the employer bears the burden of showing a knowing and voluntary waiver, so a written, revocable waiver is recommended. A meal period during which the employee must remain on duty or on the premises in the employer's interest is paid. In force before 2000."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-092 (Meal periods \u2014 Rest periods)",
+          "url": "https://www.law.cornell.edu/regulations/washington/WAC-296-126-092",
+          "section": "WAC 296-126-092",
+          "kind": "regulation"
+        },
+        {
+          "source": "Washington L&I, Rest breaks, meal periods and schedules",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "Agency guidance",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-meal-waiver-tipped-servers",
+      "title": "Oregon \u2014 Only Tipped Food and Beverage Servers (18+) May Waive Meal Periods, on BOLI's Form",
+      "jurisdiction": "OR",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2009-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "restaurant",
+              "fast_food",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "tipped"
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 18
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "written_agreement_required": true,
+          "revocable": true,
+          "on_duty_meal_allowed": false
+        },
+        "summary": "A server who serves food or beverages, receives and reports tips, and is at least 18 may voluntarily waive meal periods if the employer agrees: the request is made no earlier than 7 days after starting work, on the Commissioner's form, signed by both; either side may revoke on 7 days' written notice; the employee still gets a reasonable chance to eat on work periods of 6 hours or more, any meal without full relief is paid, and no more than 8 hours may be worked without a 30-minute duty-free meal. Waivers may not be a condition of employment (ORS 653.261(5); OAR 839-020-0050(8)). Effective date approximate."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0050 (Meal and rest periods)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0050",
+          "section": "OAR 839-020-0050(8)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-meal-no-waiver",
+      "title": "Oregon \u2014 Meal Periods Cannot Be Waived Except by Tipped Servers; Undue Hardship Needs Notice",
+      "jurisdiction": "OR",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.tipped_status",
+            "op": "=",
+            "value": "non_tipped"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true,
+          "written_agreement_required": true
+        },
+        "summary": "Oregon has no general meal-period waiver. A paid meal period without full relief from duty is allowed only where the employer can show undue hardship (and has first given each employee BOLI's rest-and-meal notice, kept on file), an industry custom of a paid duty-free meal of 20 to 30 minutes, or an unforeseeable, temporary circumstance (OAR 839-020-0050(3)\u2013(5)). Collective bargaining agreements that specifically address meal periods may modify the rule."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0050 (Meal and rest periods)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0050",
+          "section": "OAR 839-020-0050(3)\u2013(5)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Oregon BOLI, Meals and breaks",
+          "url": "https://www.oregon.gov/boli/workers/pages/meals-and-breaks.aspx",
+          "section": "Agency guidance",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-on-duty-meal",
+      "title": "Colorado \u2014 No Meal Waiver; Paid On-Duty Meal Only When the Work Makes a Duty-Free Period Impractical (COMPS Rule 5.1)",
+      "jurisdiction": "CO",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true
+        },
+        "summary": "The 30-minute duty-free meal period on shifts over 5 hours cannot be waived. When the nature of the business activity or other circumstances make an uninterrupted meal period impractical, the employee must be permitted to consume an on-duty meal while performing duties and be fully paid for that time (COMPS Order Rule 5.1)."
+      },
+      "citations": [
+        {
+          "source": "Colorado Overtime and Minimum Pay Standards (COMPS) Order, Rule 5.1",
+          "url": "https://cdle.colorado.gov/comps-order",
+          "section": "7 CCR 1103-1, Rule 5.1",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-meal-one-employee-on-duty",
+      "title": "New York \u2014 No Waiver; One Employee on Duty May Eat on the Job With Voluntary Consent (Labor Law \u00a7162)",
+      "jurisdiction": "NY",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true,
+          "written_agreement_required": false
+        },
+        "summary": "Meal periods under Labor Law \u00a7162 cannot be waived. Where only one person is on duty or is the only one in a specific occupation, the employee may eat on the job without being relieved, but only with the employee's voluntary consent, and an employee who asks for an uninterrupted meal must get one. Shorter periods (not less than 20 minutes) require a written, posted permit from the Commissioner (LS 443 guidelines). In force before 2000."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7162 (Time allowed for meals)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "Labor Law \u00a7162",
+          "kind": "statute"
+        },
+        {
+          "source": "NYS DOL, LS 443 Guidelines for Meal Periods",
+          "url": "https://dol.ny.gov/ls443-guidelines-meal-periods",
+          "section": "LS 443",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-meal-waiver-written-agreement",
+      "title": "Connecticut \u2014 Written Agreement May Set a Different Meal Schedule (CGS \u00a731-51ii)",
+      "jurisdiction": "CT",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "written_agreement_required": true,
+          "on_duty_meal_allowed": true
+        },
+        "summary": "The 30-minute meal period on shifts of 7.5 hours or more does not apply where a written agreement between employer and employee (or a collective bargaining agreement) provides a different schedule, where fewer than 5 employees are on a shift, where the position can be performed by only one employee, where compliance would endanger public safety, or where operations require staff to be available at all times and meal and break time is paid. In force before 2000."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-51ii (Meal periods)",
+          "url": "https://www.cga.ct.gov/current/pub/chap_558.htm#sec_31-51ii",
+          "section": "CGS \u00a731-51ii(c)\u2013(d)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-meal-eat-while-working",
+      "title": "New Hampshire \u2014 No Meal Period Required Where the Employee Can Eat While Working and the Employer Permits It (RSA 275:30-a)",
+      "jurisdiction": "NH",
+      "topic": "sched.meal_break.waiver",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true
+        },
+        "summary": "An employee may not be required to work more than 5 consecutive hours without a 30-minute eating period, except where it is feasible for the employee to eat during the performance of work and the employer permits it; time spent eating while working is paid. There is no formal waiver. In force before 2000 (threshold wording amended 2012)."
+      },
+      "citations": [
+        {
+          "source": "N.H. RSA 275:30-a (Lunch or eating period)",
+          "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275/275-30-a.htm",
+          "section": "RSA 275:30-a",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

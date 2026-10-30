@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:20:01.821Z",
+  "generatedAt": "2026-10-30T19:42:59.926Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "ecada2fd612c99b5",
+  "rulesVersion": "10a973ffc25ab173",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1254,6 +1254,110 @@
       "hash": "6292e3a79977b8d4"
     },
     {
+      "id": "federal-exempt-salary-threshold",
+      "title": "Federal — EAP Exemption Salary Level $684/week (29 CFR 541.600)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 684,
+          "annual_salary": 35568,
+          "basis": "fixed; 2019 rule"
+        },
+        "summary": "An executive, administrative or professional employee is exempt from FLSA overtime only if paid on a salary basis at least $684 a week ($35,568 a year), plus $107,432 total annual compensation for the highly compensated employee test. The 2024 rule raising these levels was vacated (E.D. Tex. 2024-11-15) and formally rescinded by DOL on 2026-05-15, so the 2019 levels remain in force. States may set higher thresholds.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §541.600 (Amount of salary required)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/541.600",
+          "section": "29 CFR §541.600",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "0ef267f2a5d5466b"
+    },
+    {
+      "id": "wa-exempt-salary-threshold-2026",
+      "title": "Washington — Exempt Salary Threshold $1,541.70/week (2.25x Minimum Wage), 2026",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1541.7,
+          "annual_salary": 80168.4,
+          "basis": "2.25 x state minimum wage ($17.13) x 40 hours, all employer sizes"
+        },
+        "summary": "Executive, administrative and professional employees are exempt from the Minimum Wage Act only if paid at least 2.25 times the state minimum wage for a 40-hour week in 2026: $1,541.70 a week ($80,168.40 a year), the same for all employer sizes. Exempt computer professionals paid hourly need at least $59.96 an hour. The multiplier reaches 2.5 in 2028.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-128-545 (Salary thresholds for exempt employees)",
+          "url": "https://app.leg.wa.gov/WAC/default.aspx?cite=296-128-545",
+          "section": "WAC 296-128-545",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "ce935fb86c6a573b"
+    },
+    {
       "id": "wa-meal-break-5hr",
       "title": "Washington Meal Break (30 min for 5+ hr shift)",
       "jurisdiction": "WA",
@@ -1362,6 +1466,66 @@
         }
       ],
       "hash": "896197110b59f1d3"
+    },
+    {
+      "id": "wa-meal-waiver",
+      "title": "Washington — Employees May Waive Meal Periods; On-Duty Meals Are Paid (WAC 296-126-092)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.waiver",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_waived"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "written_agreement_required": false,
+          "revocable": true,
+          "on_duty_meal_allowed": true
+        },
+        "summary": "An employee may waive the 30-minute meal period (L&I Administrative Policy ES.C.6.1); the employer bears the burden of showing a knowing and voluntary waiver, so a written, revocable waiver is recommended. A meal period during which the employee must remain on duty or on the premises in the employer's interest is paid. In force before 2000.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-092 (Meal periods — Rest periods)",
+          "url": "https://www.law.cornell.edu/regulations/washington/WAC-296-126-092",
+          "section": "WAC 296-126-092",
+          "kind": "regulation"
+        },
+        {
+          "source": "Washington L&I, Rest breaks, meal periods and schedules",
+          "url": "https://www.lni.wa.gov/workers-rights/workplace-policies/rest-breaks-meal-periods-and-schedules",
+          "section": "Agency guidance",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "09ac1c265cf87ca2"
     },
     {
       "id": "sea-access-to-hours",
@@ -1784,6 +1948,49 @@
       "hash": "35b35cb2787c49d9"
     },
     {
+      "id": "sea-right-to-request",
+      "title": "Seattle — Secure Scheduling: Right to Request Input Into the Schedule",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_request",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "fact": "schedule.employee_requested_change",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.employee_requested_change"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": true
+        },
+        "summary": "Covered employees may request preferences for hours, times and locations at hire and during employment, and the employer must engage in a timely interactive process. A request tied to a major life event (serious health condition, caregiving, education, a second job, or a change in transportation or housing) must be granted unless the employer has a bona fide business reason, stated in writing; other requests may be granted or denied. Employee-requested changes do not trigger predictability pay.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.030",
+          "kind": "ordinance"
+        }
+      ],
+      "hash": "c0bfd24c50e16b9c"
+    },
+    {
       "id": "federal-lactation-break-pump-act",
       "title": "Federal Lactation Break Time (PUMP Act)",
       "jurisdiction": "Federal",
@@ -2137,6 +2344,62 @@
       ]
     },
     {
+      "code": "break.meal_waiver",
+      "name": "Meal period waiver or on-duty meal",
+      "description": "Whether and how a required meal period may be waived, shortened or taken on duty.",
+      "behaviors": [
+        "warning",
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "waiver_allowed",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employee may waive the meal period at all"
+        },
+        {
+          "name": "max_shift_hours_for_waiver",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Longest shift on which the waiver is valid"
+        },
+        {
+          "name": "written_agreement_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the waiver must be in writing"
+        },
+        {
+          "name": "revocable",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee may revoke the waiver"
+        },
+        {
+          "name": "on_duty_meal_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a paid on-duty meal may replace the duty-free period when the nature of the work requires it"
+        },
+        {
+          "name": "second_meal",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the rule is about the second meal period"
+        }
+      ],
+      "synonyms": [
+        "meal waiver",
+        "on-duty meal period",
+        "lunch waiver",
+        "meal period agreement",
+        "working lunch"
+      ]
+    },
+    {
       "code": "break.rest",
       "name": "Rest break",
       "description": "A short paid rest period owed for each block of hours worked.",
@@ -2377,6 +2640,47 @@
       "synonyms": [
         "child labor weekly limit",
         "hours per week for minors"
+      ]
+    },
+    {
+      "code": "pay.exempt_salary_threshold",
+      "name": "Exempt salary threshold",
+      "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "employee.weekly_salary",
+      "compareParam": "weekly_salary",
+      "params": [
+        {
+          "name": "weekly_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": true,
+          "description": "Minimum weekly salary for the exemption"
+        },
+        {
+          "name": "annual_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": false,
+          "description": "The same threshold expressed per year"
+        },
+        {
+          "name": "basis",
+          "type": "string",
+          "required": false,
+          "description": "How the figure is set (fixed, multiple of the minimum wage, indexed)"
+        }
+      ],
+      "synonyms": [
+        "salary threshold",
+        "white collar exemption",
+        "EAP exemption",
+        "salary level test",
+        "exempt minimum salary"
       ]
     },
     {
@@ -2640,6 +2944,49 @@
       ]
     },
     {
+      "code": "sched.right_to_request",
+      "name": "Right to request schedule changes",
+      "description": "The employee may ask for changes to hours, days, times, location or a flexible or predictable arrangement without retaliation; some laws also oblige the employer to consider, answer in writing, or grant the request absent a business reason.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "must_grant_unless_business_reason",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must grant the request unless it has a bona fide business reason or undue hardship (false = consider or respond only)"
+        },
+        {
+          "name": "written_response_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employer has to answer in writing"
+        },
+        {
+          "name": "requests_per_year",
+          "type": "number",
+          "required": false,
+          "description": "Requests the employer must entertain per year"
+        },
+        {
+          "name": "retaliation_only",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only bars retaliation for asking"
+        }
+      ],
+      "synonyms": [
+        "right to request",
+        "flexible working arrangement",
+        "schedule input",
+        "temporary schedule change",
+        "family friendly workplace"
+      ]
+    },
+    {
       "code": "wage.minimum",
       "name": "Minimum wage",
       "description": "The lowest hourly rate an employer may pay a covered employee.",
@@ -2727,6 +3074,20 @@
         "teen employee"
       ],
       "derived": "employee.age < 18"
+    },
+    {
+      "path": "employee.pay_structure",
+      "type": "enum",
+      "description": "How employee is paid (for exemption tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "hourly",
+        "salary",
+        "piece_rate",
+        "commission",
+        "day_rate"
+      ]
     },
     {
       "path": "employee.tenure_months",
@@ -2825,6 +3186,20 @@
         "agreed to change"
       ],
       "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "schedule.employee_requested_change",
+      "type": "boolean",
+      "description": "Whether the employee has asked for a change to their schedule or working arrangement (hours, days, times, location, flexible or predictable arrangement)",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule request",
+        "right to request",
+        "flexible schedule request",
+        "employee-initiated change",
+        "schedule preference"
+      ]
     },
     {
       "path": "schedule.employer_initiated",
@@ -2954,6 +3329,14 @@
       "derived": "the shift has at least one break of type meal"
     },
     {
+      "path": "shift.meal_break_waived",
+      "type": "boolean",
+      "description": "Whether meal break was waived by mutual consent",
+      "category": "4. Shift",
+      "group": "4.4 Breaks",
+      "derived": "shift length is 6 hours or less and no meal break is scheduled"
+    },
+    {
       "path": "shift.rest_break_provided",
       "type": "boolean",
       "description": "Whether a rest break was provided",
@@ -2996,14 +3379,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 649,
-    "rulesIncluded": 35,
-    "excludedByProfile": 613,
+    "rulesConsidered": 681,
+    "rulesIncluded": 39,
+    "excludedByProfile": 641,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "7ef04ec4e8f84e9aed26f2bdec5a6c0bc490eb9d226c82edbe6249a8ef18accd"
+  "checksum": "9408d054842bd0b64963ee84263a1ca88fa0ad27b91e078612b25a39973b5e7e"
 }

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:20:01.825Z",
+  "generatedAt": "2026-10-30T19:42:59.930Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "ecada2fd612c99b5",
+  "rulesVersion": "10a973ffc25ab173",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1524,6 +1524,111 @@
       "hash": "6292e3a79977b8d4"
     },
     {
+      "id": "federal-exempt-salary-threshold",
+      "title": "Federal — EAP Exemption Salary Level $684/week (29 CFR 541.600)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 684,
+          "annual_salary": 35568,
+          "basis": "fixed; 2019 rule"
+        },
+        "summary": "An executive, administrative or professional employee is exempt from FLSA overtime only if paid on a salary basis at least $684 a week ($35,568 a year), plus $107,432 total annual compensation for the highly compensated employee test. The 2024 rule raising these levels was vacated (E.D. Tex. 2024-11-15) and formally rescinded by DOL on 2026-05-15, so the 2019 levels remain in force. States may set higher thresholds.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §541.600 (Amount of salary required)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/541.600",
+          "section": "29 CFR §541.600",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "0ef267f2a5d5466b"
+    },
+    {
+      "id": "ny-exempt-salary-threshold-downstate-2026",
+      "title": "New York — Exempt Salary Threshold $1,275/week in NYC, Long Island and Westchester, 2026",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1275,
+          "annual_salary": 66300,
+          "basis": "12 NYCRR 142-2.14 schedule; about 75 x minimum wage"
+        },
+        "summary": "Executive and administrative employees in New York City, Nassau, Suffolk and Westchester counties are exempt from state overtime only if paid at least $1,275.00 a week ($66,300 a year) in 2026. New York sets no salary minimum for the professional exemption, so the federal $684 applies there.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR §142-2.14 (Exemptions) and Minimum Wage Order schedules",
+          "url": "https://dol.ny.gov/minimum-wage-0",
+          "section": "12 NYCRR 142-2.14(c)(4)",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "0ddffc1696b217a2"
+    },
+    {
       "id": "ny-call-in-pay",
       "title": "New York Call-In Pay (minimum 4 hours)",
       "jurisdiction": "NY",
@@ -2038,6 +2143,65 @@
       "hash": "66ee9337c3220c35"
     },
     {
+      "id": "ny-meal-one-employee-on-duty",
+      "title": "New York — No Waiver; One Employee on Duty May Eat on the Job With Voluntary Consent (Labor Law §162)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.waiver",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_waived"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true,
+          "written_agreement_required": false
+        },
+        "summary": "Meal periods under Labor Law §162 cannot be waived. Where only one person is on duty or is the only one in a specific occupation, the employee may eat on the job without being relieved, but only with the employee's voluntary consent, and an employee who asks for an uninterrupted meal must get one. Shorter periods (not less than 20 minutes) require a written, posted permit from the Commissioner (LS 443 guidelines). In force before 2000.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law §162 (Time allowed for meals)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/162",
+          "section": "Labor Law §162",
+          "kind": "statute"
+        },
+        {
+          "source": "NYS DOL, LS 443 Guidelines for Meal Periods",
+          "url": "https://dol.ny.gov/ls443-guidelines-meal-periods",
+          "section": "LS 443",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "98ee83277ebc5094"
+    },
+    {
       "id": "nyc-retail-advance-notice-72hr",
       "title": "NYC Retail — 72-Hour Advance Notice Required",
       "jurisdiction": "New York City",
@@ -2253,6 +2417,65 @@
         }
       ],
       "hash": "5f8a5f67e232b9ab"
+    },
+    {
+      "id": "nyc-temporary-schedule-change",
+      "title": "New York City — Temporary Schedule Change Law: Two Changes a Year for Personal Events",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_request",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2018-07-18",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.city"
+      ],
+      "factsNeeded": [
+        "employee.tenure_months",
+        "schedule.employee_requested_change"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": true,
+          "requests_per_year": 2,
+          "written_response_days": 14
+        },
+        "summary": "Any employee who has worked 120 days and 80 or more hours a year in the city may make two temporary schedule changes per calendar year (each up to one business day, or one of two days) for a personal event: caring for a minor child or a care recipient, a legal proceeding for public benefits, or any reason covered by Paid Safe and Sick Leave. The employer must respond immediately, may propose unpaid leave instead of the requested change, and must answer a written request in writing within 14 days stating the decision and remaining changes. Employees may also request other changes, which the employer may deny but not retaliate against. Excludes government, certain CBA-covered and entertainment employees.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NYC Administrative Code §§20-1261–20-1263 (Temporary Changes to Work Schedules)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/temporary-schedule-change-law.page",
+          "section": "Admin. Code §20-1262",
+          "kind": "ordinance"
+        },
+        {
+          "source": "NYC DCWP, Temporary Schedule Change Law overview",
+          "url": "https://www.nyc.gov/assets/dca/downloads/pdf/workers/TemporaryScheduleChange-Overview.pdf",
+          "section": "Agency overview",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "32c9290d97fbd816"
     },
     {
       "id": "federal-lactation-break-pump-act",
@@ -2534,6 +2757,62 @@
         "lunch break",
         "lunch period",
         "eating period"
+      ]
+    },
+    {
+      "code": "break.meal_waiver",
+      "name": "Meal period waiver or on-duty meal",
+      "description": "Whether and how a required meal period may be waived, shortened or taken on duty.",
+      "behaviors": [
+        "warning",
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "waiver_allowed",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employee may waive the meal period at all"
+        },
+        {
+          "name": "max_shift_hours_for_waiver",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Longest shift on which the waiver is valid"
+        },
+        {
+          "name": "written_agreement_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the waiver must be in writing"
+        },
+        {
+          "name": "revocable",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee may revoke the waiver"
+        },
+        {
+          "name": "on_duty_meal_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a paid on-duty meal may replace the duty-free period when the nature of the work requires it"
+        },
+        {
+          "name": "second_meal",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the rule is about the second meal period"
+        }
+      ],
+      "synonyms": [
+        "meal waiver",
+        "on-duty meal period",
+        "lunch waiver",
+        "meal period agreement",
+        "working lunch"
       ]
     },
     {
@@ -2852,6 +3131,47 @@
       "synonyms": [
         "child labor weekly limit",
         "hours per week for minors"
+      ]
+    },
+    {
+      "code": "pay.exempt_salary_threshold",
+      "name": "Exempt salary threshold",
+      "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "employee.weekly_salary",
+      "compareParam": "weekly_salary",
+      "params": [
+        {
+          "name": "weekly_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": true,
+          "description": "Minimum weekly salary for the exemption"
+        },
+        {
+          "name": "annual_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": false,
+          "description": "The same threshold expressed per year"
+        },
+        {
+          "name": "basis",
+          "type": "string",
+          "required": false,
+          "description": "How the figure is set (fixed, multiple of the minimum wage, indexed)"
+        }
+      ],
+      "synonyms": [
+        "salary threshold",
+        "white collar exemption",
+        "EAP exemption",
+        "salary level test",
+        "exempt minimum salary"
       ]
     },
     {
@@ -3174,6 +3494,49 @@
       ]
     },
     {
+      "code": "sched.right_to_request",
+      "name": "Right to request schedule changes",
+      "description": "The employee may ask for changes to hours, days, times, location or a flexible or predictable arrangement without retaliation; some laws also oblige the employer to consider, answer in writing, or grant the request absent a business reason.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "must_grant_unless_business_reason",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must grant the request unless it has a bona fide business reason or undue hardship (false = consider or respond only)"
+        },
+        {
+          "name": "written_response_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employer has to answer in writing"
+        },
+        {
+          "name": "requests_per_year",
+          "type": "number",
+          "required": false,
+          "description": "Requests the employer must entertain per year"
+        },
+        {
+          "name": "retaliation_only",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only bars retaliation for asking"
+        }
+      ],
+      "synonyms": [
+        "right to request",
+        "flexible working arrangement",
+        "schedule input",
+        "temporary schedule change",
+        "family friendly workplace"
+      ]
+    },
+    {
       "code": "sep.warn_notice",
       "name": "Mass layoff / plant closing notice (WARN)",
       "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
@@ -3315,6 +3678,20 @@
       ]
     },
     {
+      "path": "employee.pay_structure",
+      "type": "enum",
+      "description": "How employee is paid (for exemption tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "hourly",
+        "salary",
+        "piece_rate",
+        "commission",
+        "day_rate"
+      ]
+    },
+    {
       "path": "employee.tenure_months",
       "type": "number",
       "description": "Months employed with current employer",
@@ -3417,6 +3794,20 @@
       "derived": "false for an amended shift unless the scheduler records written consent"
     },
     {
+      "path": "schedule.employee_requested_change",
+      "type": "boolean",
+      "description": "Whether the employee has asked for a change to their schedule or working arrangement (hours, days, times, location, flexible or predictable arrangement)",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule request",
+        "right to request",
+        "flexible schedule request",
+        "employee-initiated change",
+        "schedule preference"
+      ]
+    },
+    {
       "path": "schedule.was_changed",
       "type": "boolean",
       "description": "Whether the schedule was changed after posting",
@@ -3505,6 +3896,14 @@
       "derived": "the shift has at least one break of type meal"
     },
     {
+      "path": "shift.meal_break_waived",
+      "type": "boolean",
+      "description": "Whether meal break was waived by mutual consent",
+      "category": "4. Shift",
+      "group": "4.4 Breaks",
+      "derived": "shift length is 6 hours or less and no meal break is scheduled"
+    },
+    {
       "path": "shift.school_in_session",
       "type": "boolean",
       "description": "Whether school is in session (school year vs summer)",
@@ -3557,14 +3956,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 649,
-    "rulesIncluded": 43,
-    "excludedByProfile": 605,
+    "rulesConsidered": 681,
+    "rulesIncluded": 47,
+    "excludedByProfile": 633,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "302e4a0659cd2508ee1d91d0d0eedc393e329bb3dbf680b6d6bb42859d11d77c"
+  "checksum": "6fffdaedd7f290e5dc3fa660dbb8cd27902232379fea43f2735a53c97a42e17c"
 }

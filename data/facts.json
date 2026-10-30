@@ -1004,6 +1004,20 @@
       ]
     },
     {
+      "path": "schedule.employee_requested_change",
+      "type": "boolean",
+      "description": "Whether the employee has asked for a change to their schedule or working arrangement (hours, days, times, location, flexible or predictable arrangement)",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule request",
+        "right to request",
+        "flexible schedule request",
+        "employee-initiated change",
+        "schedule preference"
+      ]
+    },
+    {
       "path": "leave.type",
       "type": "enum",
       "description": "Type of leave requested",

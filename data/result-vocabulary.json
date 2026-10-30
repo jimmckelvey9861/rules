@@ -411,6 +411,51 @@
         { "name": "emergency_exception", "type": "boolean", "required": true, "description": "Whether an emergency lets the employer exceed the cap" }
       ],
       "synonyms": ["maximum hours", "hour cap", "hours of work limit", "80-hour rule", "55-hour week"]
+    },
+    {
+      "code": "sched.right_to_request",
+      "name": "Right to request schedule changes",
+      "description": "The employee may ask for changes to hours, days, times, location or a flexible or predictable arrangement without retaliation; some laws also oblige the employer to consider, answer in writing, or grant the request absent a business reason.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "must_grant_unless_business_reason", "type": "boolean", "required": true, "description": "Whether the employer must grant the request unless it has a bona fide business reason or undue hardship (false = consider or respond only)" },
+        { "name": "written_response_days", "type": "number", "unit": "days", "required": false, "description": "Days the employer has to answer in writing" },
+        { "name": "requests_per_year", "type": "number", "required": false, "description": "Requests the employer must entertain per year" },
+        { "name": "retaliation_only", "type": "boolean", "required": false, "description": "True when the law only bars retaliation for asking" }
+      ],
+      "synonyms": ["right to request", "flexible working arrangement", "schedule input", "temporary schedule change", "family friendly workplace"]
+    },
+    {
+      "code": "break.meal_waiver",
+      "name": "Meal period waiver or on-duty meal",
+      "description": "Whether and how a required meal period may be waived, shortened or taken on duty.",
+      "behaviors": ["warning", "prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "waiver_allowed", "type": "boolean", "required": true, "description": "Whether the employee may waive the meal period at all" },
+        { "name": "max_shift_hours_for_waiver", "type": "number", "unit": "hours", "required": false, "description": "Longest shift on which the waiver is valid" },
+        { "name": "written_agreement_required", "type": "boolean", "required": false, "description": "Whether the waiver must be in writing" },
+        { "name": "revocable", "type": "boolean", "required": false, "description": "Whether the employee may revoke the waiver" },
+        { "name": "on_duty_meal_allowed", "type": "boolean", "required": false, "description": "Whether a paid on-duty meal may replace the duty-free period when the nature of the work requires it" },
+        { "name": "second_meal", "type": "boolean", "required": false, "description": "True when the rule is about the second meal period" }
+      ],
+      "synonyms": ["meal waiver", "on-duty meal period", "lunch waiver", "meal period agreement", "working lunch"]
+    },
+    {
+      "code": "pay.exempt_salary_threshold",
+      "name": "Exempt salary threshold",
+      "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
+      "behaviors": ["minimum_required_value", "warning"],
+      "kronto": "inform",
+      "targetFact": "employee.weekly_salary",
+      "compareParam": "weekly_salary",
+      "params": [
+        { "name": "weekly_salary", "type": "number", "unit": "usd", "required": true, "description": "Minimum weekly salary for the exemption" },
+        { "name": "annual_salary", "type": "number", "unit": "usd", "required": false, "description": "The same threshold expressed per year" },
+        { "name": "basis", "type": "string", "required": false, "description": "How the figure is set (fixed, multiple of the minimum wage, indexed)" }
+      ],
+      "synonyms": ["salary threshold", "white collar exemption", "EAP exemption", "salary level test", "exempt minimum salary"]
     }
   ]
 }
