@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:20:01.827Z",
+  "generatedAt": "2026-10-30T19:42:59.933Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "ecada2fd612c99b5",
+  "rulesVersion": "10a973ffc25ab173",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1206,6 +1206,57 @@
       "hash": "6292e3a79977b8d4"
     },
     {
+      "id": "federal-exempt-salary-threshold",
+      "title": "Federal — EAP Exemption Salary Level $684/week (29 CFR 541.600)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 684,
+          "annual_salary": 35568,
+          "basis": "fixed; 2019 rule"
+        },
+        "summary": "An executive, administrative or professional employee is exempt from FLSA overtime only if paid on a salary basis at least $684 a week ($35,568 a year), plus $107,432 total annual compensation for the highly compensated employee test. The 2024 rule raising these levels was vacated (E.D. Tex. 2024-11-15) and formally rescinded by DOL on 2026-05-15, so the 2019 levels remain in force. States may set higher thresholds.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §541.600 (Amount of salary required)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/541.600",
+          "section": "29 CFR §541.600",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "0ef267f2a5d5466b"
+    },
+    {
       "id": "il-meal-break-7.5hr",
       "title": "Illinois Meal Break (20 min for 7.5+ hr shift)",
       "jurisdiction": "IL",
@@ -1600,6 +1651,50 @@
         }
       ],
       "hash": "9719f00bc8ec86c6"
+    },
+    {
+      "id": "chi-right-to-request",
+      "title": "Chicago — Fair Workweek: Right to Request a Modified Schedule, Written Response",
+      "jurisdiction": "Chicago",
+      "jurisdictionId": "us-il-chicago",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_request",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "fact": "schedule.employee_requested_change",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.employee_requested_change"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "written_response_days": 3
+        },
+        "summary": "A covered employee may request a modified work schedule, including more or fewer shifts, changed days or times, or shift trades, and the employer must respond in writing; a new employee's request to change the projected 90-day schedule must be accepted or rejected in writing within 3 days. Employee-requested changes do not trigger predictability pay.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code Chapter 6-110 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "MCC 6-110",
+          "kind": "ordinance"
+        }
+      ],
+      "hash": "9f95380187b725f5"
     },
     {
       "id": "federal-lactation-break-pump-act",
@@ -2273,6 +2368,47 @@
       ]
     },
     {
+      "code": "pay.exempt_salary_threshold",
+      "name": "Exempt salary threshold",
+      "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "employee.weekly_salary",
+      "compareParam": "weekly_salary",
+      "params": [
+        {
+          "name": "weekly_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": true,
+          "description": "Minimum weekly salary for the exemption"
+        },
+        {
+          "name": "annual_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": false,
+          "description": "The same threshold expressed per year"
+        },
+        {
+          "name": "basis",
+          "type": "string",
+          "required": false,
+          "description": "How the figure is set (fixed, multiple of the minimum wage, indexed)"
+        }
+      ],
+      "synonyms": [
+        "salary threshold",
+        "white collar exemption",
+        "EAP exemption",
+        "salary level test",
+        "exempt minimum salary"
+      ]
+    },
+    {
       "code": "pay.workweek_definition",
       "name": "Workweek and workday definition",
       "description": "The fixed, regularly recurring period over which overtime hours are counted; it may start on any day and hour but cannot be moved to avoid overtime.",
@@ -2572,6 +2708,49 @@
       ]
     },
     {
+      "code": "sched.right_to_request",
+      "name": "Right to request schedule changes",
+      "description": "The employee may ask for changes to hours, days, times, location or a flexible or predictable arrangement without retaliation; some laws also oblige the employer to consider, answer in writing, or grant the request absent a business reason.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "must_grant_unless_business_reason",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must grant the request unless it has a bona fide business reason or undue hardship (false = consider or respond only)"
+        },
+        {
+          "name": "written_response_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employer has to answer in writing"
+        },
+        {
+          "name": "requests_per_year",
+          "type": "number",
+          "required": false,
+          "description": "Requests the employer must entertain per year"
+        },
+        {
+          "name": "retaliation_only",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only bars retaliation for asking"
+        }
+      ],
+      "synonyms": [
+        "right to request",
+        "flexible working arrangement",
+        "schedule input",
+        "temporary schedule change",
+        "family friendly workplace"
+      ]
+    },
+    {
       "code": "sep.warn_notice",
       "name": "Mass layoff / plant closing notice (WARN)",
       "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
@@ -2713,6 +2892,20 @@
       ]
     },
     {
+      "path": "employee.pay_structure",
+      "type": "enum",
+      "description": "How employee is paid (for exemption tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "hourly",
+        "salary",
+        "piece_rate",
+        "commission",
+        "day_rate"
+      ]
+    },
+    {
       "path": "employee.tenure_months",
       "type": "number",
       "description": "Months employed with current employer",
@@ -2798,6 +2991,20 @@
         "agreed to change"
       ],
       "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "schedule.employee_requested_change",
+      "type": "boolean",
+      "description": "Whether the employee has asked for a change to their schedule or working arrangement (hours, days, times, location, flexible or predictable arrangement)",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule request",
+        "right to request",
+        "flexible schedule request",
+        "employee-initiated change",
+        "schedule preference"
+      ]
     },
     {
       "path": "schedule.employer_initiated",
@@ -2976,14 +3183,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 649,
-    "rulesIncluded": 33,
-    "excludedByProfile": 615,
+    "rulesConsidered": 681,
+    "rulesIncluded": 35,
+    "excludedByProfile": 645,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "462ceae2cf8be8952e67a9028647aeb94f211882f6cdda0c60547ecd5b0fcc05"
+  "checksum": "055cfa0930fb2afbc00c93524f2aa893325f8277262029cc45b2e7e3b772b3c5"
 }

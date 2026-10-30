@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:20:01.831Z",
+  "generatedAt": "2026-10-30T19:42:59.937Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "ecada2fd612c99b5",
+  "rulesVersion": "10a973ffc25ab173",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1506,6 +1506,110 @@
       "hash": "7f77d06c098ac419"
     },
     {
+      "id": "federal-exempt-salary-threshold",
+      "title": "Federal — EAP Exemption Salary Level $684/week (29 CFR 541.600)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 684,
+          "annual_salary": 35568,
+          "basis": "fixed; 2019 rule"
+        },
+        "summary": "An executive, administrative or professional employee is exempt from FLSA overtime only if paid on a salary basis at least $684 a week ($35,568 a year), plus $107,432 total annual compensation for the highly compensated employee test. The 2024 rule raising these levels was vacated (E.D. Tex. 2024-11-15) and formally rescinded by DOL on 2026-05-15, so the 2019 levels remain in force. States may set higher thresholds.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §541.600 (Amount of salary required)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/541.600",
+          "section": "29 CFR §541.600",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "0ef267f2a5d5466b"
+    },
+    {
+      "id": "ca-exempt-salary-threshold-2026",
+      "title": "California — Exempt Salary Threshold $1,352/week (2x Minimum Wage), 2026",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1352,
+          "annual_salary": 70304,
+          "basis": "2 x state minimum wage ($16.90) x 40 hours; indexed annually"
+        },
+        "summary": "Executive, administrative and professional employees are exempt only if paid a monthly salary of at least twice the state minimum wage for full-time employment (Labor Code §515(a)): $1,352 a week / $5,858.67 a month / $70,304 a year at the 2026 minimum wage of $16.90. Health care and large fast-food employers covered by industry minimum wages use twice that wage ($1,600 a week at $20). Rises each January with the minimum wage.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §515(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=515.&lawCode=LAB",
+          "section": "Cal. Lab. Code §515(a)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b41de8f268ddf67d"
+    },
+    {
       "id": "ca-reporting-time-pay",
       "title": "California Reporting Time Pay (half scheduled shift, min 2 hrs, max 4 hrs)",
       "jurisdiction": "CA",
@@ -1868,6 +1972,202 @@
       "hash": "9116048e01d94561"
     },
     {
+      "id": "ca-meal-waiver-first-6hr",
+      "title": "California — First Meal Period May Be Waived on Shifts of 6 Hours or Less",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.waiver",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 6
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_waived",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "max_shift_hours_for_waiver": 6,
+          "written_agreement_required": false,
+          "revocable": true
+        },
+        "summary": "When the total work period is no more than 6 hours the first meal period may be waived by mutual consent of employer and employee (Labor Code §512(a)). The consent need not be written but should be documented; the employee may withdraw it.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "d55be472600d768b"
+    },
+    {
+      "id": "ca-meal-no-waiver-over-6hr",
+      "title": "California — First Meal Period Cannot Be Waived on Shifts Over 6 Hours (On-Duty Meal Only by Written Agreement)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.waiver",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 6
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 10
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_waived",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": false,
+          "on_duty_meal_allowed": true,
+          "written_agreement_required": true,
+          "revocable": true
+        },
+        "summary": "A first meal period on a shift longer than 6 hours cannot be waived. A paid on-duty meal period is permitted only when the nature of the work prevents relief from all duty and the parties have a written agreement that the employee may revoke at any time (Wage Orders §11). Otherwise a missed or late meal period owes one hour of premium pay (§226.7).",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        },
+        {
+          "source": "IWC Wage Order 5-2001 §11 (Meal Periods)",
+          "url": "https://www.dir.ca.gov/IWC/IWCArticle5.pdf",
+          "section": "8 CCR §11050(11)",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "a5a5754e960f0755"
+    },
+    {
+      "id": "ca-meal-waiver-second-12hr",
+      "title": "California — Second Meal Period May Be Waived on Shifts of 10 to 12 Hours",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sched.meal_break.waiver",
+      "topicCode": "sched.meal_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 10
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 12
+          },
+          {
+            "fact": "shift.meal_break_waived",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.meal_break_waived",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.meal_waiver",
+        "params": {
+          "waiver_allowed": true,
+          "max_shift_hours_for_waiver": 12,
+          "second_meal": true,
+          "revocable": true
+        },
+        "summary": "When the total work period is more than 10 but no more than 12 hours the second meal period may be waived by mutual consent, but only if the first meal period was not waived (Labor Code §512(a)). On shifts over 12 hours the second meal period cannot be waived outside the health care exception.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §512",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+          "section": "Cal. Lab. Code §512(a)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "cb0cadec85a58b54"
+    },
+    {
       "id": "la-access-to-hours",
       "title": "Los Angeles — Offer Hours to Existing Employees Before Hiring",
       "jurisdiction": "Los Angeles",
@@ -2214,6 +2514,49 @@
         }
       ],
       "hash": "ba15c43aac722d4d"
+    },
+    {
+      "id": "la-right-to-request",
+      "title": "Los Angeles — Fair Work Week: Right to Request Hours, Times and Locations; Written Reason for Denial",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_request",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "fact": "schedule.employee_requested_change",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.employee_requested_change"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false
+        },
+        "summary": "A covered retail employee may request a preference for certain hours, times or locations of work. The employer may accept or decline, but a denial must state the reason in writing. Employee-requested changes do not trigger predictability pay.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5, §185.03 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC §185.03",
+          "kind": "ordinance"
+        }
+      ],
+      "hash": "dff15b691fbbaf20"
     },
     {
       "id": "ca-lactation-break",
@@ -2652,6 +2995,62 @@
       ]
     },
     {
+      "code": "break.meal_waiver",
+      "name": "Meal period waiver or on-duty meal",
+      "description": "Whether and how a required meal period may be waived, shortened or taken on duty.",
+      "behaviors": [
+        "warning",
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "waiver_allowed",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employee may waive the meal period at all"
+        },
+        {
+          "name": "max_shift_hours_for_waiver",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Longest shift on which the waiver is valid"
+        },
+        {
+          "name": "written_agreement_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the waiver must be in writing"
+        },
+        {
+          "name": "revocable",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee may revoke the waiver"
+        },
+        {
+          "name": "on_duty_meal_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a paid on-duty meal may replace the duty-free period when the nature of the work requires it"
+        },
+        {
+          "name": "second_meal",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the rule is about the second meal period"
+        }
+      ],
+      "synonyms": [
+        "meal waiver",
+        "on-duty meal period",
+        "lunch waiver",
+        "meal period agreement",
+        "working lunch"
+      ]
+    },
+    {
       "code": "break.rest",
       "name": "Rest break",
       "description": "A short paid rest period owed for each block of hours worked.",
@@ -2942,6 +3341,47 @@
       "synonyms": [
         "child labor weekly limit",
         "hours per week for minors"
+      ]
+    },
+    {
+      "code": "pay.exempt_salary_threshold",
+      "name": "Exempt salary threshold",
+      "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "employee.weekly_salary",
+      "compareParam": "weekly_salary",
+      "params": [
+        {
+          "name": "weekly_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": true,
+          "description": "Minimum weekly salary for the exemption"
+        },
+        {
+          "name": "annual_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": false,
+          "description": "The same threshold expressed per year"
+        },
+        {
+          "name": "basis",
+          "type": "string",
+          "required": false,
+          "description": "How the figure is set (fixed, multiple of the minimum wage, indexed)"
+        }
+      ],
+      "synonyms": [
+        "salary threshold",
+        "white collar exemption",
+        "EAP exemption",
+        "salary level test",
+        "exempt minimum salary"
       ]
     },
     {
@@ -3328,6 +3768,49 @@
       ]
     },
     {
+      "code": "sched.right_to_request",
+      "name": "Right to request schedule changes",
+      "description": "The employee may ask for changes to hours, days, times, location or a flexible or predictable arrangement without retaliation; some laws also oblige the employer to consider, answer in writing, or grant the request absent a business reason.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "must_grant_unless_business_reason",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must grant the request unless it has a bona fide business reason or undue hardship (false = consider or respond only)"
+        },
+        {
+          "name": "written_response_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employer has to answer in writing"
+        },
+        {
+          "name": "requests_per_year",
+          "type": "number",
+          "required": false,
+          "description": "Requests the employer must entertain per year"
+        },
+        {
+          "name": "retaliation_only",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only bars retaliation for asking"
+        }
+      ],
+      "synonyms": [
+        "right to request",
+        "flexible working arrangement",
+        "schedule input",
+        "temporary schedule change",
+        "family friendly workplace"
+      ]
+    },
+    {
       "code": "sep.warn_notice",
       "name": "Mass layoff / plant closing notice (WARN)",
       "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
@@ -3449,6 +3932,20 @@
       "derived": "employee.age < 18"
     },
     {
+      "path": "employee.pay_structure",
+      "type": "enum",
+      "description": "How employee is paid (for exemption tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "hourly",
+        "salary",
+        "piece_rate",
+        "commission",
+        "day_rate"
+      ]
+    },
+    {
       "path": "employee.tenure_months",
       "type": "number",
       "description": "Months employed with current employer",
@@ -3545,6 +4042,20 @@
         "agreed to change"
       ],
       "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "schedule.employee_requested_change",
+      "type": "boolean",
+      "description": "Whether the employee has asked for a change to their schedule or working arrangement (hours, days, times, location, flexible or predictable arrangement)",
+      "category": "5. Schedule",
+      "group": "4.4 Breaks",
+      "synonyms": [
+        "schedule request",
+        "right to request",
+        "flexible schedule request",
+        "employee-initiated change",
+        "schedule preference"
+      ]
     },
     {
       "path": "schedule.employer_initiated",
@@ -3795,14 +4306,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 649,
-    "rulesIncluded": 45,
-    "excludedByProfile": 603,
+    "rulesConsidered": 681,
+    "rulesIncluded": 51,
+    "excludedByProfile": 629,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "3a9c34ea1b04a18cab2a27d07732e1288bcca9f6cea921c3b28f433ceeee729f"
+  "checksum": "4853c65ee44d1b77ca6c812aa8fbea13e81a694d1731e590db173c9825df3148"
 }

@@ -54,7 +54,7 @@ data/
   facts.json            — Fact registry: every fact a rule may test (118 facts in 8 categories, typed,
                           with enum values and plain-language synonyms)
   profiles/             — Business profiles (sample multi-state retail chain)
-  rules/<topic>.json    — All rules, one file per taxonomy topic code (649 rules across 14 topics)
+  rules/<topic>.json    — All rules, one file per taxonomy topic code (681 rules across 14 topics)
   schema/               — JSON Schema for rule files and facts.json (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
@@ -208,7 +208,7 @@ report is attached as an artifact. Only broken links fail the nightly run.
 
 ## Rules
 
-649 rules across 14 taxonomy topics (33 sub-topics) and 87 jurisdictions.
+681 rules across 14 taxonomy topics (36 sub-topics) and 87 jurisdictions.
 `GET /api/coverage` reports which jurisdiction × topic cells have a rule, are
 confirmed to have no law, or are unchecked; its 16 rows are the historical topic
 names (plus lactation breaks, civic leave and hour limits), which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.

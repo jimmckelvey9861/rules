@@ -5566,6 +5566,719 @@
           "kind": "ordinance"
         }
       ]
+    },
+    {
+      "id": "sf-family-friendly-right-to-request",
+      "title": "San Francisco \u2014 Family Friendly Workplace Ordinance: Caregivers' Right to a Flexible or Predictable Arrangement",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2022-07-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 20
+          },
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": true,
+          "written_response_days": 21
+        },
+        "summary": "An employee who has worked at least 6 months and 8 hours a week in San Francisco for an employer with 20 or more employees anywhere may request a flexible or predictable working arrangement to care for a child, a family member with a serious health condition, or a family member 65 or older. Since the 2022 amendment (effective 2022-07-12) the employer must grant the request unless it would cause undue hardship, may meet within 14 days, must answer in writing within 21 days of the meeting, and on denial must explain in writing and offer an interactive process. Original ordinance effective 2014-01-01 required only good-faith consideration."
+      },
+      "citations": [
+        {
+          "source": "S.F. Administrative Code Chapter 12Z (Family Friendly Workplace Ordinance), as amended by Ord. 39-22",
+          "url": "https://sf.gov/sites/default/files/2022-12/Amended_Family_Friendly_Workplace_Ordinance_2022.pdf",
+          "section": "Admin. Code \u00a7\u00a712Z.1\u201312Z.12",
+          "kind": "ordinance"
+        },
+        {
+          "source": "S.F. Board of Supervisors Ordinance 39-22",
+          "url": "https://sfbos.org/sites/default/files/o0039-22.pdf",
+          "section": "Ord. 39-22",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-family-friendly-right-to-request",
+      "title": "Berkeley \u2014 Family Friendly and Environment Friendly Workplace Ordinance: Right to Request",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2017-04-27",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 3
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "written_response_days": 21,
+          "requests_per_year": 2
+        },
+        "summary": "An employee of an employer with 10 or more employees who has worked 3 months and at least 8 hours a week may request, in writing, a flexible or predictable working arrangement twice in any 12 months (plus one more after a major life event such as a new child or increased caregiving). The employer must meet within 21 calendar days, answer in writing within 21 days of the meeting, and state a business reason for any denial; later revocation also needs a written business reason. Ord. 7,528-N.S. (2017); effective date approximate."
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.101 (Family Friendly and Environment Friendly Workplace Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.101.040",
+          "section": "BMC 13.101.040\u2013.050",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "vt-flexible-working-arrangement",
+      "title": "Vermont \u2014 Flexible Working Arrangements: Employer Must Consider in Good Faith (21 V.S.A. \u00a7309)",
+      "jurisdiction": "VT",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2014-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "requests_per_year": 2
+        },
+        "summary": "Any employee may request a flexible working arrangement; the employer must discuss it in good faith and consider whether it can be granted without being inconsistent with business operations or legal obligations, at least twice per calendar year, notify the employee of the decision, and put any denial of a written request in writing. Inconsistency with business operations includes added cost, effect on morale, customer demand, inability to reorganize work, insufficient work during the proposed hours and planned structural changes. Act 31 of 2013; amended 2026."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7309 (Flexible working arrangements)",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00309",
+          "section": "21 V.S.A. \u00a7309",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-flexible-schedule-request",
+      "title": "New Hampshire \u2014 No Retaliation for Requesting a Flexible Work Schedule (RSA 275:37-b)",
+      "jurisdiction": "NH",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2016-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "retaliation_only": true
+        },
+        "summary": "An employer may not retaliate against an employee solely because the employee requests a flexible work schedule. The statute does not require the employer to accommodate or answer the request and creates no cause of action for failing to provide one. 2016, 182:1."
+      },
+      "citations": [
+        {
+          "source": "N.H. RSA 275:37-b (Flexible working arrangement)",
+          "url": "https://gc.nh.gov/rsa/html/XXIII/275/275-37-b.htm",
+          "section": "RSA 275:37-b",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nyc-temporary-schedule-change",
+      "title": "New York City \u2014 Temporary Schedule Change Law: Two Changes a Year for Personal Events",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2018-07-18",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": true,
+          "requests_per_year": 2,
+          "written_response_days": 14
+        },
+        "summary": "Any employee who has worked 120 days and 80 or more hours a year in the city may make two temporary schedule changes per calendar year (each up to one business day, or one of two days) for a personal event: caring for a minor child or a care recipient, a legal proceeding for public benefits, or any reason covered by Paid Safe and Sick Leave. The employer must respond immediately, may propose unpaid leave instead of the requested change, and must answer a written request in writing within 14 days stating the decision and remaining changes. Employees may also request other changes, which the employer may deny but not retaliate against. Excludes government, certain CBA-covered and entertainment employees."
+      },
+      "citations": [
+        {
+          "source": "NYC Administrative Code \u00a7\u00a720-1261\u201320-1263 (Temporary Changes to Work Schedules)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/temporary-schedule-change-law.page",
+          "section": "Admin. Code \u00a720-1262",
+          "kind": "ordinance"
+        },
+        {
+          "source": "NYC DCWP, Temporary Schedule Change Law overview",
+          "url": "https://www.nyc.gov/assets/dca/downloads/pdf/workers/TemporaryScheduleChange-Overview.pdf",
+          "section": "Agency overview",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sea-right-to-request",
+      "title": "Seattle \u2014 Secure Scheduling: Right to Request Input Into the Schedule",
+      "jurisdiction": "Seattle",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": true
+        },
+        "summary": "Covered employees may request preferences for hours, times and locations at hire and during employment, and the employer must engage in a timely interactive process. A request tied to a major life event (serious health condition, caregiving, education, a second job, or a change in transportation or housing) must be granted unless the employer has a bona fide business reason, stated in writing; other requests may be granted or denied. Employee-requested changes do not trigger predictability pay."
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.030",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "or-right-to-request",
+      "title": "Oregon \u2014 Employee May Identify Schedule Limitations; No Duty to Grant (ORS 653.450)",
+      "jurisdiction": "OR",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "retaliation_only": true
+        },
+        "summary": "A covered employee may identify limitations or changes in schedule availability, including child care needs, and may ask not to be scheduled for certain shifts, times or locations. The employer may require reasonable verification (paying for medical verification) but is under no obligation to grant the request and may not retaliate for it. 2017 c.691 \u00a76a; 2021 c.176 \u00a71."
+      },
+      "citations": [
+        {
+          "source": "ORS 653.450 (Employee input into work schedule)",
+          "url": "https://oregon.public.law/statutes/ors_653.450",
+          "section": "ORS 653.450",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "chi-right-to-request",
+      "title": "Chicago \u2014 Fair Workweek: Right to Request a Modified Schedule, Written Response",
+      "jurisdiction": "Chicago",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "written_response_days": 3
+        },
+        "summary": "A covered employee may request a modified work schedule, including more or fewer shifts, changed days or times, or shift trades, and the employer must respond in writing; a new employee's request to change the projected 90-day schedule must be accepted or rejected in writing within 3 days. Employee-requested changes do not trigger predictability pay."
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code Chapter 6-110 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "MCC 6-110",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "phl-right-to-request",
+      "title": "Philadelphia \u2014 Fair Workweek: Right to Request Without Retaliation (\u00a79-4602(2))",
+      "jurisdiction": "Philadelphia",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false
+        },
+        "summary": "At hire and during employment a covered employee may request not to be scheduled on certain days, times or locations, not to work on-call shifts, or to work certain or more or fewer hours. The employer is encouraged to discuss the request interactively and may grant or deny it for any lawful reason; adverse action within 90 days of a request is presumed retaliatory. Employee-requested changes in writing do not trigger predictability pay (\u00a79-4603(2)(a))."
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code Chapter 9-4600 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/media/20191218103134/Fair-Workweek-Law.pdf",
+          "section": "Phila. Code \u00a79-4602(2)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-right-to-request",
+      "title": "Los Angeles \u2014 Fair Work Week: Right to Request Hours, Times and Locations; Written Reason for Denial",
+      "jurisdiction": "Los Angeles",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false
+        },
+        "summary": "A covered retail employee may request a preference for certain hours, times or locations of work. The employer may accept or decline, but a denial must state the reason in writing. Employee-requested changes do not trigger predictability pay."
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5, \u00a7185.03 (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC \u00a7185.03",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "eme-right-to-request",
+      "title": "Emeryville \u2014 Fair Workweek: Right to Request Schedule Changes",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false
+        },
+        "summary": "A covered employee may request additional shifts or hours, changes in days or times, a predictable schedule, shift trading, limits on availability, part-time work, job sharing, changes in duties or part-year employment, without retaliation. The ordinance does not require the employer to grant the request; employee-requested changes do not trigger predictability pay."
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC \u00a7\u00a75-39.01\u20135-39.12",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "brk-fww-right-to-request",
+      "title": "Berkeley \u2014 Fair Workweek: Right to Request a Modified Schedule (BMC 13.102.090)",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false
+        },
+        "summary": "A covered employee may request a modified work schedule, including additional shifts, shift exchanges, limited availability or part-time work, without retaliation. The employer may grant or deny the request; employee-requested changes do not trigger predictability pay."
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.090",
+          "section": "BMC 13.102.090",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-right-to-request",
+      "title": "Evanston \u2014 Fair Workweek: Right to Request, Written Answer Within 3 Days",
+      "jurisdiction": "Evanston",
+      "topic": "sched.predictive.right_to_request",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "schedule.employee_requested_change",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.right_to_request",
+        "params": {
+          "must_grant_unless_business_reason": false,
+          "written_response_days": 3
+        },
+        "summary": "A covered employee may request certain work hours, times or locations, more shifts, shift swaps or part-time work. The employer may accept or decline but must notify the employee in writing within 3 days of the request."
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "Evanston Code 3-34",
+          "kind": "ordinance"
+        }
+      ]
     }
   ]
 }

@@ -1044,6 +1044,393 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "federal-exempt-salary-threshold",
+      "title": "Federal \u2014 EAP Exemption Salary Level $684/week (29 CFR 541.600)",
+      "jurisdiction": "Federal",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 684,
+          "annual_salary": 35568,
+          "basis": "fixed; 2019 rule"
+        },
+        "summary": "An executive, administrative or professional employee is exempt from FLSA overtime only if paid on a salary basis at least $684 a week ($35,568 a year), plus $107,432 total annual compensation for the highly compensated employee test. The 2024 rule raising these levels was vacated (E.D. Tex. 2024-11-15) and formally rescinded by DOL on 2026-05-15, so the 2019 levels remain in force. States may set higher thresholds."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7541.600 (Amount of salary required)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/541.600",
+          "section": "29 CFR \u00a7541.600",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-exempt-salary-threshold-2026",
+      "title": "California \u2014 Exempt Salary Threshold $1,352/week (2x Minimum Wage), 2026",
+      "jurisdiction": "CA",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1352,
+          "annual_salary": 70304,
+          "basis": "2 x state minimum wage ($16.90) x 40 hours; indexed annually"
+        },
+        "summary": "Executive, administrative and professional employees are exempt only if paid a monthly salary of at least twice the state minimum wage for full-time employment (Labor Code \u00a7515(a)): $1,352 a week / $5,858.67 a month / $70,304 a year at the 2026 minimum wage of $16.90. Health care and large fast-food employers covered by industry minimum wages use twice that wage ($1,600 a week at $20). Rises each January with the minimum wage."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7515(a)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=515.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7515(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-exempt-salary-threshold-downstate-2026",
+      "title": "New York \u2014 Exempt Salary Threshold $1,275/week in NYC, Long Island and Westchester, 2026",
+      "jurisdiction": "NY",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "any": [
+              {
+                "fact": "location.city",
+                "op": "=",
+                "value": "New York City"
+              },
+              {
+                "fact": "location.county",
+                "op": "in",
+                "value": [
+                  "Nassau County",
+                  "Suffolk County",
+                  "Westchester County"
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1275,
+          "annual_salary": 66300,
+          "basis": "12 NYCRR 142-2.14 schedule; about 75 x minimum wage"
+        },
+        "summary": "Executive and administrative employees in New York City, Nassau, Suffolk and Westchester counties are exempt from state overtime only if paid at least $1,275.00 a week ($66,300 a year) in 2026. New York sets no salary minimum for the professional exemption, so the federal $684 applies there."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.14 (Exemptions) and Minimum Wage Order schedules",
+          "url": "https://dol.ny.gov/minimum-wage-0",
+          "section": "12 NYCRR 142-2.14(c)(4)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-exempt-salary-threshold-upstate-2026",
+      "title": "New York \u2014 Exempt Salary Threshold $1,199.10/week Outside NYC, Long Island and Westchester, 2026",
+      "jurisdiction": "NY",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "!=",
+            "value": "New York City"
+          },
+          {
+            "fact": "location.county",
+            "op": "not_in",
+            "value": [
+              "Nassau County",
+              "Suffolk County",
+              "Westchester County"
+            ]
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1199.1,
+          "annual_salary": 62353.2,
+          "basis": "12 NYCRR 142-2.14 schedule; about 75 x minimum wage"
+        },
+        "summary": "Executive and administrative employees in the rest of New York State are exempt from state overtime only if paid at least $1,199.10 a week ($62,353.20 a year) in 2026."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.14 (Exemptions) and Minimum Wage Order schedules",
+          "url": "https://dol.ny.gov/minimum-wage-0",
+          "section": "12 NYCRR 142-2.14(c)(4)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wa-exempt-salary-threshold-2026",
+      "title": "Washington \u2014 Exempt Salary Threshold $1,541.70/week (2.25x Minimum Wage), 2026",
+      "jurisdiction": "WA",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1541.7,
+          "annual_salary": 80168.4,
+          "basis": "2.25 x state minimum wage ($17.13) x 40 hours, all employer sizes"
+        },
+        "summary": "Executive, administrative and professional employees are exempt from the Minimum Wage Act only if paid at least 2.25 times the state minimum wage for a 40-hour week in 2026: $1,541.70 a week ($80,168.40 a year), the same for all employer sizes. Exempt computer professionals paid hourly need at least $59.96 an hour. The multiplier reaches 2.5 in 2028."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-128-545 (Salary thresholds for exempt employees)",
+          "url": "https://app.leg.wa.gov/WAC/default.aspx?cite=296-128-545",
+          "section": "WAC 296-128-545",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "co-exempt-salary-threshold-2026",
+      "title": "Colorado \u2014 Exempt Salary Threshold $1,111.23/week (COMPS Order), 2026",
+      "jurisdiction": "CO",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1111.23,
+          "annual_salary": 57783.96,
+          "basis": "COMPS Order Rule 2.5.1, indexed to CPI"
+        },
+        "summary": "Executive, administrative and professional employees are exempt from COMPS overtime only if paid at least $1,111.23 a week ($57,783.96 a year) in 2026; highly technical computer employees may instead be paid at least $34.85 an hour. Adjusted each January by CPI."
+      },
+      "citations": [
+        {
+          "source": "Colorado Overtime and Minimum Pay Standards (COMPS) Order, Rule 2.5.1",
+          "url": "https://cdle.colorado.gov/comps-order",
+          "section": "7 CCR 1103-1, Rule 2.5.1",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "me-exempt-salary-threshold-2026",
+      "title": "Maine \u2014 Exempt Salary Threshold $871.16/week (3,000x Minimum Wage), 2026",
+      "jurisdiction": "ME",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 871.16,
+          "annual_salary": 45300.32,
+          "basis": "3,000 x state minimum wage ($15.10) per year"
+        },
+        "summary": "A salaried executive, administrative or professional employee is exempt from Maine overtime only if paid more than 3,000 times the state minimum hourly wage per year: $45,300 a year / $871.16 a week at the 2026 minimum wage of $15.10 (26 M.R.S. \u00a7663(3)(K))."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7663(3)(K)",
+          "url": "https://www.mainelegislature.org/legis/statutes/26/title26sec663.html",
+          "section": "26 MRS \u00a7663(3)(K)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ak-exempt-salary-threshold-2026",
+      "title": "Alaska \u2014 Exempt Salary Threshold $1,120/week (2x Minimum Wage), from July 2026",
+      "jurisdiction": "AK",
+      "topic": "pay.overtime.exemptions",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 1120,
+          "annual_salary": 58240,
+          "basis": "2 x state minimum wage ($14.00) x 40 hours"
+        },
+        "summary": "Executive, administrative and professional employees are exempt from the Alaska Wage and Hour Act only if paid on a salary basis at least twice the state minimum wage for the first 40 hours of the week (AS 23.10.055(b)): $1,120 a week from 2026-07-01 ($1,040 at the $13.00 wage before that; $1,200 when the wage reaches $15.00 on 2027-07-01)."
+      },
+      "citations": [
+        {
+          "source": "Alaska Statutes \u00a723.10.055(b)",
+          "url": "https://law.justia.com/codes/alaska/title-23/chapter-10/article-6/section-23-10-055/",
+          "section": "AS 23.10.055(b)",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:20:01.833Z",
+  "generatedAt": "2026-10-30T19:42:59.939Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "ecada2fd612c99b5",
+  "rulesVersion": "10a973ffc25ab173",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1077,6 +1077,57 @@
       "hash": "6292e3a79977b8d4"
     },
     {
+      "id": "federal-exempt-salary-threshold",
+      "title": "Federal — EAP Exemption Salary Level $684/week (29 CFR 541.600)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.exemptions",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "exempt"
+          },
+          {
+            "fact": "employee.pay_structure",
+            "op": "=",
+            "value": "salary"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_structure"
+      ],
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "pay.exempt_salary_threshold",
+        "params": {
+          "weekly_salary": 684,
+          "annual_salary": 35568,
+          "basis": "fixed; 2019 rule"
+        },
+        "summary": "An executive, administrative or professional employee is exempt from FLSA overtime only if paid on a salary basis at least $684 a week ($35,568 a year), plus $107,432 total annual compensation for the highly compensated employee test. The 2024 rule raising these levels was vacated (E.D. Tex. 2024-11-15) and formally rescinded by DOL on 2026-05-15, so the 2019 levels remain in force. States may set higher thresholds.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §541.600 (Amount of salary required)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/541.600",
+          "section": "29 CFR §541.600",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "0ef267f2a5d5466b"
+    },
+    {
       "id": "federal-lactation-break-pump-act",
       "title": "Federal Lactation Break Time (PUMP Act)",
       "jurisdiction": "Federal",
@@ -1445,6 +1496,47 @@
       ]
     },
     {
+      "code": "pay.exempt_salary_threshold",
+      "name": "Exempt salary threshold",
+      "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
+      "behaviors": [
+        "minimum_required_value",
+        "warning"
+      ],
+      "kronto": "inform",
+      "targetFact": "employee.weekly_salary",
+      "compareParam": "weekly_salary",
+      "params": [
+        {
+          "name": "weekly_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": true,
+          "description": "Minimum weekly salary for the exemption"
+        },
+        {
+          "name": "annual_salary",
+          "type": "number",
+          "unit": "usd",
+          "required": false,
+          "description": "The same threshold expressed per year"
+        },
+        {
+          "name": "basis",
+          "type": "string",
+          "required": false,
+          "description": "How the figure is set (fixed, multiple of the minimum wage, indexed)"
+        }
+      ],
+      "synonyms": [
+        "salary threshold",
+        "white collar exemption",
+        "EAP exemption",
+        "salary level test",
+        "exempt minimum salary"
+      ]
+    },
+    {
       "code": "pay.workweek_definition",
       "name": "Workweek and workday definition",
       "description": "The fixed, regularly recurring period over which overtime hours are counted; it may start on any day and hour but cannot be moved to avoid overtime.",
@@ -1674,6 +1766,20 @@
       "derived": "employee.age < 18"
     },
     {
+      "path": "employee.pay_structure",
+      "type": "enum",
+      "description": "How employee is paid (for exemption tests)",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "hourly",
+        "salary",
+        "piece_rate",
+        "commission",
+        "day_rate"
+      ]
+    },
+    {
       "path": "employee.tenure_months",
       "type": "number",
       "description": "Months employed with current employer",
@@ -1782,14 +1888,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 649,
-    "rulesIncluded": 19,
-    "excludedByProfile": 629,
+    "rulesConsidered": 681,
+    "rulesIncluded": 20,
+    "excludedByProfile": 660,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 0
   },
-  "checksum": "f21a53769fac481990925688772d3e4a3dcf0012162844e83d4d6a919e97b69f"
+  "checksum": "6aa990a7ad61ca733fdebcc710c67f37130ed3f774dff7262b254f0bf99496e3"
 }

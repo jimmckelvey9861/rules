@@ -190,6 +190,8 @@ const STATES_WITH_OVERTIME: StateCode[] = [
   "OR", // OT after 40 + manufacturing daily OT
   "VA", // OT after 40 (state-enforced, 2021 VOWA)
   "WA", // OT after 40 (state-enforced)
+  "KY", // Seventh-day overtime (KRS 337.050)
+  "ME", // Exempt salary threshold 3,000x minimum wage (26 MRS §663)
 ];
 
 /**
@@ -200,6 +202,8 @@ const STATES_WITH_OVERTIME: StateCode[] = [
  */
 const STATES_WITH_PREDICTIVE_SCHEDULING: StateCode[] = [
   "OR", // Oregon Fair Work Practices Act (2018)
+  "VT", // 21 V.S.A. §309 right to request flexible working arrangements (2014)
+  "NH", // RSA 275:37-b no retaliation for requesting a flexible schedule (2016)
 ];
 
 /**
