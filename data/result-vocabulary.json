@@ -156,9 +156,9 @@
       "params": [
         { "name": "multiplier", "type": "number", "unit": "multiplier", "required": true, "description": "Multiple of the regular rate (1.5, 2)" },
         { "name": "threshold_hours", "type": "number", "unit": "hours", "required": false, "description": "Hours after which the premium applies" },
-        { "name": "period", "type": "enum", "values": ["day", "week"], "required": false, "description": "Whether the threshold is per workday or per workweek" }
+        { "name": "period", "type": "enum", "values": ["day", "week", "seventh_day"], "required": false, "description": "Whether the threshold is per workday, per workweek, or applies to hours worked on the seventh consecutive day of the workweek" }
       ],
-      "synonyms": ["time and a half", "double time", "OT", "daily overtime", "weekly overtime"]
+      "synonyms": ["time and a half", "double time", "OT", "daily overtime", "weekly overtime", "seventh day overtime"]
     },
     {
       "code": "premium.schedule_change",
@@ -376,6 +376,41 @@
         { "name": "employee_threshold", "type": "number", "unit": "employees", "required": false, "description": "Employer size (or affected count) at which the law applies" }
       ],
       "synonyms": ["WARN Act", "mini-WARN", "plant closing law", "mass layoff notice", "Worker Adjustment and Retraining Notification"]
+    },
+    {
+      "code": "sched.mandatory_overtime_ban",
+      "name": "Mandatory overtime ban",
+      "description": "The employer may not require the employee to work beyond the agreed, predetermined shift (or past a stated hour cap) without the employee's consent, outside a genuine emergency. Mostly nurse and health care facility laws.",
+      "behaviors": ["prohibition", "warning"],
+      "kronto": "block",
+      "compareParam": "max_shift_hours",
+      "params": [
+        { "name": "max_shift_hours", "type": "number", "unit": "hours", "required": false, "description": "Most consecutive hours the employee may be required to work in a shift or 24-hour period" },
+        { "name": "max_hours_per_period", "type": "number", "unit": "hours", "required": false, "description": "Most hours the employee may be required to work in the period" },
+        { "name": "period_days", "type": "number", "unit": "days", "required": false, "description": "Length of the period max_hours_per_period applies to (7 = workweek, 14 = two weeks)" },
+        { "name": "rest_hours_after", "type": "number", "unit": "hours", "required": false, "description": "Consecutive off-duty hours owed after a long shift" },
+        { "name": "rest_after_hours", "type": "number", "unit": "hours", "required": false, "description": "Shift length that triggers rest_hours_after" },
+        { "name": "emergency_exception", "type": "boolean", "required": true, "description": "Whether an unforeseeable emergency lets the employer require the hours anyway" },
+        { "name": "cba_exception", "type": "boolean", "required": false, "description": "Whether a collective bargaining agreement that addresses mandatory overtime displaces the ban" }
+      ],
+      "synonyms": ["mandatory overtime", "forced overtime", "nurse overtime limit", "right to refuse overtime", "excessive overtime"]
+    },
+    {
+      "code": "sched.max_hours",
+      "name": "Maximum hours of work",
+      "description": "A statutory ceiling on hours an employer may require (or allow) an adult employee to work in a day, week or longer period.",
+      "behaviors": ["prohibition", "warning"],
+      "kronto": "block",
+      "compareParam": "max_weekly_hours",
+      "params": [
+        { "name": "max_daily_hours", "type": "number", "unit": "hours", "required": false, "description": "Most hours that may be worked in a day" },
+        { "name": "max_weekly_hours", "type": "number", "unit": "hours", "required": false, "description": "Most hours that may be required in a workweek" },
+        { "name": "consent_max_weekly_hours", "type": "number", "unit": "hours", "required": false, "description": "Weekly ceiling that applies even with the employee's written consent" },
+        { "name": "max_overtime_hours", "type": "number", "unit": "hours", "required": false, "description": "Most overtime hours (over 40 a week) that may be required in the period" },
+        { "name": "period_days", "type": "number", "unit": "days", "required": false, "description": "Length of the period the cap applies to" },
+        { "name": "emergency_exception", "type": "boolean", "required": true, "description": "Whether an emergency lets the employer exceed the cap" }
+      ],
+      "synonyms": ["maximum hours", "hour cap", "hours of work limit", "80-hour rule", "55-hour week"]
     }
   ]
 }

@@ -975,6 +975,100 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "tx-retail-day-of-rest",
+      "title": "Texas Retail Employees: One 24-Hour Rest Period in Seven (Labor Code \u00a752.001)",
+      "jurisdiction": "TX",
+      "topic": "sched.shift_structure.day_of_rest",
+      "status": "active",
+      "effectiveFrom": "1993-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employee.employment_status",
+            "op": "!=",
+            "value": "part_time"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "An employer whose business is selling merchandise at retail may not require an employee to work seven consecutive days, and may not deny at least one 24-hour period off for rest or worship in each seven-day period; it must also accommodate the employee's weekly worship service absent undue hardship. Part-time employees working 30 or fewer hours a week are excluded. Acts 1993, 73rd Leg., ch. 269."
+      },
+      "citations": [
+        {
+          "source": "Tex. Labor Code \u00a752.001 (Retail employers \u2014 one day of rest in seven)",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.52.htm",
+          "section": "Labor Code \u00a752.001",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-sunday-day-of-rest",
+      "title": "New Hampshire Sunday Businesses: Designated Day of Rest (RSA 275:33)",
+      "jurisdiction": "NH",
+      "topic": "sched.shift_structure.day_of_rest",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "period_days": 7
+        },
+        "summary": "An employer that operates a business on Sunday must post a schedule listing the employees required or allowed to work Sunday and designating a day of rest for each, and no employee may be required to work on the designated day of rest (RSA 275:32\u2013:33; 1933 law, last amended 2018). The Department of Labor publishes a day-of-rest waiver form."
+      },
+      "citations": [
+        {
+          "source": "N.H. RSA 275:33 (Posting of schedule; day of rest)",
+          "url": "https://gc.nh.gov/rsa/html/XXIII/275/275-33.htm",
+          "section": "RSA 275:33",
+          "kind": "statute"
+        },
+        {
+          "source": "NH Department of Labor, Day of Rest Waiver",
+          "url": "https://www.nh.gov/labor/documents/day-of-rest-waiver.pdf",
+          "section": "Waiver form",
+          "kind": "guidance"
+        }
+      ]
     }
   ]
 }

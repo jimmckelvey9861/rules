@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:53:15.260Z",
-  "asOf": "2026-10-20",
+  "generatedAt": "2026-10-30T19:20:01.821Z",
+  "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "1e560f4c922d0d79",
+  "rulesVersion": "ecada2fd612c99b5",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -2446,10 +2446,11 @@
           "type": "enum",
           "values": [
             "day",
-            "week"
+            "week",
+            "seventh_day"
           ],
           "required": false,
-          "description": "Whether the threshold is per workday or per workweek"
+          "description": "Whether the threshold is per workday, per workweek, or applies to hours worked on the seventh consecutive day of the workweek"
         }
       ],
       "synonyms": [
@@ -2457,7 +2458,8 @@
         "double time",
         "OT",
         "daily overtime",
-        "weekly overtime"
+        "weekly overtime",
+        "seventh day overtime"
       ]
     },
     {
@@ -2994,9 +2996,9 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 624,
+    "rulesConsidered": 649,
     "rulesIncluded": 35,
-    "excludedByProfile": 588,
+    "excludedByProfile": 613,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,

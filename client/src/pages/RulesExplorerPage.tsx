@@ -198,6 +198,7 @@ const TOPIC_COLORS: Record<string, string> = {
   "sched.meal_break": "bg-yellow-100 text-yellow-800",
   "sched.rest_break": "bg-amber-100 text-amber-800",
   "sched.shift_structure": "bg-rose-100 text-rose-800",
+  "sched.hour_limits": "bg-fuchsia-100 text-fuchsia-800",
   "leave.family_medical": "bg-pink-100 text-pink-800",
   "leave.sick": "bg-teal-100 text-teal-800",
   "minor.labor": "bg-sky-100 text-sky-800",

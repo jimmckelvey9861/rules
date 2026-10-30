@@ -14,7 +14,10 @@
  * - Reporting time pay: Only 7 states have laws: CA, CT, DC, MA, NH, NJ, NY, OR, RI
  *   (some sources list DC/NJ as "show-up pay" variants)
  * - Predictive scheduling: State-level only OR; city-level: Chicago, LA, NYC, Philadelphia, San Francisco, Seattle
- * - Day of rest: ~10 states: CA, IL, MA, MN, ND, NY, WI + limited others
+ * - Day of rest: CA, IL, MA, MN, ND, NY, WI, plus TX (retail) and NH (Sunday businesses)
+ * - Hour limits: nurse / health care mandatory-overtime laws in 17 states (ANA list
+ *   minus Missouri, which never enacted one), Maine's general 80-hour cap, Oregon
+ *   manufacturing 55-hour week
  * - Split shift premium: Only CA, NY, NV have explicit split-shift/spread-of-hours laws
  * - Sick leave: ~18 states + DC mandate paid sick leave
  * - Overtime: Most states follow federal (40hr/week); ~12 states have additional rules
@@ -48,7 +51,8 @@ export type Topic =
   | "split_shift_premium"
   | "warn_act"
   | "lactation_break"
-  | "civic_leave";
+  | "civic_leave"
+  | "hour_limits";
 
 export const ALL_TOPICS: Topic[] = [
   "day_of_rest",
@@ -66,6 +70,7 @@ export const ALL_TOPICS: Topic[] = [
   "warn_act",
   "lactation_break",
   "civic_leave",
+  "hour_limits",
 ];
 
 export const ALL_STATES = [
@@ -94,6 +99,35 @@ const STATES_WITH_DAY_OF_REST: StateCode[] = [
   "ND", // N.D. Cent. Code §12.1-30-01 (blue law, limited)
   "NY", // NY Labor Law §161
   "WI", // Wis. Stat. §103.85
+  "TX", // Tex. Labor Code §52.001 (retail employees only)
+  "NH", // RSA 275:33 (designated day of rest for Sunday businesses)
+];
+
+/**
+ * Hour limits — statutory caps on mandatory overtime or total hours for adults.
+ * Mostly nurse / health care facility laws (ANA count: 18 states incl. ME's
+ * general cap); Missouri is often listed but has only introduced bills.
+ * Plus Maine's general 80-hours-of-overtime-in-two-weeks cap and Oregon's
+ * 55-hour manufacturing week (ORS 652.020).
+ */
+const STATES_WITH_HOUR_LIMITS: StateCode[] = [
+  "AK", // AS 18.20.400 (nurses, 2010)
+  "CA", // Wage Order 5 §3(B)(8) (health care, 12 hours in 24)
+  "CT", // CGS §19a-490l (hospital nurses, 2005)
+  "IL", // 210 ILCS 85/10.9 (hospital nurses, 2006)
+  "MA", // MGL c.111 §226 (hospital nurses, 16-hour cap, 2012)
+  "MD", // Lab. & Empl. §3-421 (nurses, 2002)
+  "ME", // 26 MRS §603 (all employees 80 OT hours / 2 weeks; nurses 12 hours)
+  "MN", // Minn. Stat. §181.275 (nurses, 2002)
+  "NH", // RSA 275:67 (nurses, 2008)
+  "NJ", // N.J.S.A. 34:11-56a31 (health care facility hourly staff, 2002)
+  "NY", // Labor Law §167 (nurses, 2009)
+  "OR", // ORS 441.166 (hospital nurses); ORS 652.020 (manufacturing 55 hours)
+  "PA", // Act 102 of 2008 (health care facility direct-care staff)
+  "RI", // RIGL §23-17.20 (hospital nurses and CNAs, 2008)
+  "TX", // Health & Safety Code ch. 258 (hospital nurses, 2009)
+  "WA", // RCW 49.28.140 (health care facility employees, 2002)
+  "WV", // W. Va. Code §21-5F (hospital nurses, 16-hour cap, 2004)
 ];
 
 /**
@@ -312,6 +346,7 @@ const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   warn_act: STATES_WITH_WARN_ACT,
   lactation_break: STATES_WITH_LACTATION_BREAK,
   civic_leave: STATES_WITH_CIVIC_LEAVE,
+  hour_limits: STATES_WITH_HOUR_LIMITS,
 };
 
 // ─── Local (City/County) Coverage ──────────────────────────────────
@@ -478,6 +513,7 @@ export function matrixTopicFor(topic: string, obligation?: string): Topic | unde
     case "sched.predictive": return "predictive_scheduling";
     case "sched.shift_structure":
       return topic === "sched.shift_structure.day_of_rest" ? "day_of_rest" : "predictive_scheduling";
+    case "sched.hour_limits": return "hour_limits";
     case "leave.sick": return "sick_leave";
     case "leave.family_medical": return "family_medical_leave";
     case "leave.civic_emergency": return "civic_leave";
@@ -497,6 +533,7 @@ export const MATRIX_ROWS_BY_TOPIC_CODE: Record<string, readonly Topic[]> = {
   "sched.rest_break": ["rest_break", "lactation_break"],
   "sched.predictive": ["predictive_scheduling"],
   "sched.shift_structure": ["day_of_rest", "predictive_scheduling"],
+  "sched.hour_limits": ["hour_limits"],
   "leave.sick": ["sick_leave"],
   "leave.family_medical": ["family_medical_leave"],
   "leave.civic_emergency": ["civic_leave"],
