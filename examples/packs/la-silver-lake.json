@@ -1,8 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:16:02.009Z",
+  "generatedAt": "2026-10-30T18:26:07.165Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "9ca246342bf81405",
+  "horizonDays": 365,
+  "rulesVersion": "c68047ea12aa5a94",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -78,7 +79,8 @@
           "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "a8002470bff48543"
     },
     {
       "id": "ca-family-medical-leave",
@@ -120,7 +122,8 @@
           "section": "Gov. Code §12945.2",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d32ae4f84d2db59d"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -182,7 +185,8 @@
           "section": "29 U.S.C. §2612",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ebb5977223f2af61"
     },
     {
       "id": "ca-sick-leave",
@@ -220,7 +224,8 @@
           "section": "Lab. Code §246",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "29b106bcd6cd7911"
     },
     {
       "id": "los-angeles-sick-leave",
@@ -259,7 +264,8 @@
           "section": "LAMC §187.00 et seq.",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "0398b724651adc18"
     },
     {
       "id": "ca-minor-16-17-curfew-school",
@@ -329,7 +335,8 @@
           "section": "Ed. Code §49116",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "fbb8ef4b937e1eb0"
     },
     {
       "id": "ca-minor-16-17-nonschool-day-hours",
@@ -399,7 +406,8 @@
           "section": "Lab. Code §1391",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "538029b7673d4440"
     },
     {
       "id": "ca-minor-16-17-school-day-hours",
@@ -469,7 +477,8 @@
           "section": "Ed. Code §49116",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "74dae08a649e190b"
     },
     {
       "id": "ca-minor-16-17-week-hours",
@@ -532,7 +541,8 @@
           "section": "Lab. Code §1391",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "348c29c7230a8745"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -600,7 +610,8 @@
           "section": "§570.35(a)(6)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4b137d4ca864ad20"
     },
     {
       "id": "federal-minor-14-15-curfew-summer",
@@ -668,7 +679,8 @@
           "section": "§570.35(a)(7)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "2e8559f63c167900"
     },
     {
       "id": "federal-minor-14-15-early-start",
@@ -729,7 +741,8 @@
           "section": "§570.35(a)(1)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "5cbcc7a8af1b303f"
     },
     {
       "id": "federal-minor-14-15-nonschool-day-hours",
@@ -797,7 +810,8 @@
           "section": "§570.35(a)(3)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "280a3c49538d769b"
     },
     {
       "id": "federal-minor-14-15-nonschool-week-hours",
@@ -865,7 +879,8 @@
           "section": "§570.35(a)(5)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "092cb4ededc8c0be"
     },
     {
       "id": "federal-minor-14-15-school-day-hours",
@@ -933,7 +948,8 @@
           "section": "§570.35(a)(2)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "97e2ca3c91f31148"
     },
     {
       "id": "federal-minor-14-15-school-week-hours",
@@ -1001,7 +1017,8 @@
           "section": "§570.35(a)(4)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "158f9318c2b237f1"
     },
     {
       "id": "ca-minimum-wage-2025",
@@ -1041,7 +1058,8 @@
           "section": "Cal. Lab. Code §1182.12",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "8d5bc94be5e76df3"
     },
     {
       "id": "federal-minimum-wage-7.25",
@@ -1081,7 +1099,8 @@
           "section": "29 U.S.C. §206(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d57adbfd608c46a9"
     },
     {
       "id": "los-angeles-ca-mw-2026",
@@ -1121,7 +1140,8 @@
           "url": "https://wagesla.lacity.org/",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "33eadb21b11c5282"
     },
     {
       "id": "ca-daily-overtime-8",
@@ -1173,7 +1193,8 @@
           "section": "Cal. Lab. Code §510",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "eb8f33a9edade546"
     },
     {
       "id": "ca-double-time-12",
@@ -1225,7 +1246,8 @@
           "section": "Cal. Lab. Code §510",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "f982a87d323d08a6"
     },
     {
       "id": "federal-overtime-weekly-40",
@@ -1275,7 +1297,8 @@
           "section": "29 U.S.C. §207(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "91d9d9291655f9b4"
     },
     {
       "id": "federal-workweek-definition",
@@ -1320,7 +1343,8 @@
           "section": "29 U.S.C. §207(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6292e3a79977b8d4"
     },
     {
       "id": "ca-workday-workweek-definition",
@@ -1362,7 +1386,8 @@
           "section": "Lab. Code §500",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "766465eedda5dc78"
     },
     {
       "id": "ca-reporting-time-pay",
@@ -1427,7 +1452,8 @@
           "section": "§5(A) Reporting Time Pay",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "b0a85ac99ee74d7f"
     },
     {
       "id": "ca-reporting-time-pay-second",
@@ -1496,7 +1522,8 @@
           "section": "§5(B) Reporting Time Pay — Second Report",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "c1f036a77fd68d42"
     },
     {
       "id": "ca-split-shift-premium",
@@ -1547,7 +1574,8 @@
           "section": "§4(C) Split Shift Premium",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "833df9d7f7a3521d"
     },
     {
       "id": "ca-meal-break-first-5hr",
@@ -1610,7 +1638,8 @@
           "section": "Cal. Lab. Code §512(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "296c52df01321c9e"
     },
     {
       "id": "ca-meal-break-scheduling-warning",
@@ -1661,7 +1690,8 @@
           "section": "Cal. Lab. Code §512(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "df4de1a3479c1b57"
     },
     {
       "id": "ca-meal-break-second-10hr",
@@ -1718,7 +1748,8 @@
           "section": "Cal. Lab. Code §512(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "9116048e01d94561"
     },
     {
       "id": "la-access-to-hours",
@@ -1770,7 +1801,8 @@
           "section": "LAMC Art. 5 (offer of additional work)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "d0b140fd409e0ad7"
     },
     {
       "id": "la-advance-notice-14day",
@@ -1814,7 +1846,8 @@
           "section": "LAMC Art. 5 (advance notice and predictability pay)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "dff0bc79f45b060d"
     },
     {
       "id": "la-change-under14-subtracted",
@@ -1890,7 +1923,8 @@
           "section": "LAMC Art. 5 (predictability pay)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "fc7d165e301957e5"
     },
     {
       "id": "la-good-faith-estimate",
@@ -1930,7 +1964,8 @@
           "section": "LAMC Art. 5 (good faith estimate)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "0131d7792254eed9"
     },
     {
       "id": "la-on-call-not-called",
@@ -1985,7 +2020,8 @@
           "section": "LAMC Art. 5 (predictability pay)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "0c269493c68257f3"
     },
     {
       "id": "la-right-to-decline",
@@ -2060,7 +2096,8 @@
           "section": "LAMC Art. 5 (right to decline)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "ba15c43aac722d4d"
     },
     {
       "id": "ca-lactation-break",
@@ -2101,7 +2138,8 @@
           "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "19b22bec1b2d50df"
     },
     {
       "id": "ca-rest-break-4hr",
@@ -2158,7 +2196,8 @@
           "section": "Cal. Lab. Code §226.7",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4811a4218de47142"
     },
     {
       "id": "ca-rest-break-scheduling-warning",
@@ -2210,7 +2249,8 @@
           "section": "IWC Orders §11-12",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "342a4fca0908e63f"
     },
     {
       "id": "federal-lactation-break-pump-act",
@@ -2250,7 +2290,8 @@
           "section": "29 U.S.C. §218d",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6dfee613ec056465"
     },
     {
       "id": "ca-day-of-rest",
@@ -2290,7 +2331,8 @@
           "section": "§551-552",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "5bfb4afa6b13eb36"
     },
     {
       "id": "la-clopening-10hr",
@@ -2344,7 +2386,8 @@
           "section": "LAMC Art. 5 (rest between shifts)",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "e357513f1ce63fa8"
     },
     {
       "id": "ca-warn-act",
@@ -2386,7 +2429,8 @@
           "section": "Cal. Labor Code §1400-1408",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "bbbfcf2b7fa41e34"
     }
   ],
   "obligations": [
@@ -3624,8 +3668,10 @@
     "rulesIncluded": 43,
     "excludedByProfile": 580,
     "excludedExpired": 1,
+    "excludedNotYetEffective": 0,
     "excludedInactive": 0,
+    "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "d4bef2d8d1106e3ceab9af31cd992d30525970d960f07e838fc233908777ea61"
+  "checksum": "3e1e96a46fd30035f320e25db0dc43b5e042de86b1140cabd31f6538e9332fa3"
 }

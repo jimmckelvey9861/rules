@@ -1,8 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:16:02.007Z",
+  "generatedAt": "2026-10-30T18:26:07.160Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "9ca246342bf81405",
+  "horizonDays": 365,
+  "rulesVersion": "c68047ea12aa5a94",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -79,7 +80,8 @@
           "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d8dc67d94fc6bbd9"
     },
     {
       "id": "ny-voting-leave",
@@ -121,7 +123,8 @@
           "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "0b1376dec6189813"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -183,7 +186,8 @@
           "section": "29 U.S.C. §2612",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ebb5977223f2af61"
     },
     {
       "id": "ny-family-medical-leave",
@@ -225,7 +229,8 @@
           "section": "Workers' Comp. Law Art. 9 §200 et seq.",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "006a828c6cbdd20b"
     },
     {
       "id": "ny-sick-leave-100-plus",
@@ -264,7 +269,8 @@
           "section": "§196-b(1)(c)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "b67beeb7b2bec346"
     },
     {
       "id": "new-york-city-sick-leave",
@@ -303,7 +309,8 @@
           "section": "NYC Admin Code §20-911 et seq.",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "0d7994afd8d51664"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -371,7 +378,8 @@
           "section": "§570.35(a)(6)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4b137d4ca864ad20"
     },
     {
       "id": "federal-minor-14-15-curfew-summer",
@@ -439,7 +447,8 @@
           "section": "§570.35(a)(7)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "2e8559f63c167900"
     },
     {
       "id": "federal-minor-14-15-early-start",
@@ -500,7 +509,8 @@
           "section": "§570.35(a)(1)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "5cbcc7a8af1b303f"
     },
     {
       "id": "federal-minor-14-15-nonschool-day-hours",
@@ -568,7 +578,8 @@
           "section": "§570.35(a)(3)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "280a3c49538d769b"
     },
     {
       "id": "federal-minor-14-15-nonschool-week-hours",
@@ -636,7 +647,8 @@
           "section": "§570.35(a)(5)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "092cb4ededc8c0be"
     },
     {
       "id": "federal-minor-14-15-school-day-hours",
@@ -704,7 +716,8 @@
           "section": "§570.35(a)(2)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "97e2ca3c91f31148"
     },
     {
       "id": "federal-minor-14-15-school-week-hours",
@@ -772,7 +785,8 @@
           "section": "§570.35(a)(4)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "158f9318c2b237f1"
     },
     {
       "id": "ny-minor-16-17-curfew",
@@ -842,7 +856,8 @@
           "section": "§133",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "dd2e77be2d09916f"
     },
     {
       "id": "ny-minor-16-17-nonschool-day-hours",
@@ -912,7 +927,8 @@
           "section": "§133",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "56c57422ab5fb6ce"
     },
     {
       "id": "ny-minor-16-17-nonschool-week-hours",
@@ -982,7 +998,8 @@
           "section": "§133",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "7f6f05d0bf05ee2a"
     },
     {
       "id": "ny-minor-16-17-school-day-hours",
@@ -1052,7 +1069,8 @@
           "section": "§133",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "23ecfa9e8a2fe8a4"
     },
     {
       "id": "ny-minor-16-17-school-week-hours",
@@ -1122,7 +1140,8 @@
           "section": "§133",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "b0dc8143646a1863"
     },
     {
       "id": "federal-minimum-wage-7.25",
@@ -1162,7 +1181,8 @@
           "section": "29 U.S.C. §206(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d57adbfd608c46a9"
     },
     {
       "id": "ny-minimum-wage-downstate-2025",
@@ -1203,7 +1223,8 @@
           "section": "NY Lab. Law §652",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ce8a8f6d60911aa4"
     },
     {
       "id": "ny-minimum-wage-statewide-2025",
@@ -1243,7 +1264,8 @@
           "section": "NY Lab. Law §652",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "2df8a8ae88f037e7"
     },
     {
       "id": "nyc-ny-mw-2026",
@@ -1284,7 +1306,8 @@
           "section": "NY Labor Law §652(a)(ii)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "b366ed693595a29c"
     },
     {
       "id": "federal-overtime-weekly-40",
@@ -1334,7 +1357,8 @@
           "section": "29 U.S.C. §207(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "91d9d9291655f9b4"
     },
     {
       "id": "ny-residential-overtime-44",
@@ -1392,7 +1416,8 @@
           "section": "12 NYCRR §142-2.2 (residential employees)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "ce774c291d7cfa11"
     },
     {
       "id": "ny-weekly-overtime-40",
@@ -1444,7 +1469,8 @@
           "section": "12 NYCRR §142-2.2",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "56726bcc325d4253"
     },
     {
       "id": "federal-workweek-definition",
@@ -1489,7 +1515,8 @@
           "section": "29 U.S.C. §207(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6292e3a79977b8d4"
     },
     {
       "id": "ny-call-in-pay",
@@ -1552,7 +1579,8 @@
           "section": "12 NYCRR §142-2.3",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "54b195b708071d02"
     },
     {
       "id": "ny-call-in-pay-oncall",
@@ -1615,7 +1643,8 @@
           "section": "12 NYCRR §142-2.3",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "56d432860a56cde0"
     },
     {
       "id": "ny-split-shift-premium",
@@ -1666,7 +1695,8 @@
           "section": "12 NYCRR §142-2.4",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4bb07f2e83e75015"
     },
     {
       "id": "ny-spread-of-hours",
@@ -1718,7 +1748,8 @@
           "section": "12 NYCRR §142-2.4",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "6c01769003f49969"
     },
     {
       "id": "nyc-tipped-food-service-mw-2025",
@@ -1774,7 +1805,8 @@
           "section": "12 NYCRR §146-1.3 (food service tip credit)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "fba4a2af8d89509e"
     },
     {
       "id": "nyc-tipped-service-mw-2025",
@@ -1834,7 +1866,8 @@
           "section": "12 NYCRR §146-1.3 (service tip credit)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "03f911c96228be14"
     },
     {
       "id": "ny-meal-break-evening",
@@ -1891,7 +1924,8 @@
           "section": "§162(3)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "f7488699b9296833"
     },
     {
       "id": "ny-meal-break-nonfactory",
@@ -1943,7 +1977,8 @@
           "section": "§162(2)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "56e5d4db2846f64d"
     },
     {
       "id": "ny-meal-break-scheduling-warning",
@@ -1994,7 +2029,8 @@
           "section": "NY Lab. Law §162",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "66ee9337c3220c35"
     },
     {
       "id": "nyc-retail-advance-notice-72hr",
@@ -2036,7 +2072,8 @@
           "section": "NYC Admin Code §20-1251",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "f0270cc4662e1a68"
     },
     {
       "id": "nyc-retail-no-add-under72h",
@@ -2104,7 +2141,8 @@
           "section": "NYC Admin Code §20-1252",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "204b2757465d33b4"
     },
     {
       "id": "nyc-retail-no-cancel-under72h",
@@ -2167,7 +2205,8 @@
           "section": "NYC Admin Code §20-1252",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "576c4e45add93356"
     },
     {
       "id": "nyc-retail-on-call-ban",
@@ -2207,7 +2246,8 @@
           "section": "NYC Admin Code §20-1252",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "5f8a5f67e232b9ab"
     },
     {
       "id": "federal-lactation-break-pump-act",
@@ -2247,7 +2287,8 @@
           "section": "29 U.S.C. §218d",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6dfee613ec056465"
     },
     {
       "id": "ny-lactation-break",
@@ -2288,7 +2329,8 @@
           "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ea14201f6327a295"
     },
     {
       "id": "ny-day-of-rest",
@@ -2340,7 +2382,8 @@
           "section": "§161(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d177c83a3fd3c0bc"
     },
     {
       "id": "ny-warn-act",
@@ -2382,7 +2425,8 @@
           "section": "NY Labor Law §860-860-i",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "a1d70148d3fd82b4"
     }
   ],
   "obligations": [
@@ -3505,8 +3549,10 @@
     "rulesIncluded": 43,
     "excludedByProfile": 580,
     "excludedExpired": 1,
+    "excludedNotYetEffective": 0,
     "excludedInactive": 0,
+    "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "4fb6754e544b8cf3029d4b9c396328552b7a9e5cff0ea83ed80331b07ce9ebf9"
+  "checksum": "ca160c3994e0d2c1ebc8a664ca3fd9d908fba4955b5ba25c1a21c60c012fba9b"
 }

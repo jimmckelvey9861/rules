@@ -75,7 +75,37 @@ const RULES_VERSION = createHash("sha256").update(JSON.stringify(RULES)).digest(
 export interface BuildOptions {
   /** ISO date the pack is built for; rules that expired before it are left out. Defaults to today. */
   asOf?: string;
+  /** Rules taking effect within this many days after asOf ship flagged `upcoming`; later ones are left out. Default 365. */
+  horizonDays?: number;
   rules?: readonly Rule[];
+}
+
+export const DEFAULT_HORIZON_DAYS = 365;
+
+/** ISO date `days` days after `date` (UTC arithmetic on calendar dates). */
+export function addDays(date: string, days: number): string {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Stable hash of a pack rule's content: everything but the per-build bookkeeping (satisfiedBy, upcoming). */
+export function hashPackRule(rule: Omit<PackRule, "hash">): string {
+  const { satisfiedBy: _s, upcoming: _u, ...content } = rule;
+  return createHash("sha256").update(stableJson(content)).digest("hex").slice(0, 16);
+}
+
+/** JSON with object keys sorted at every level, so equal content hashes equal. */
+export function stableJson(value: unknown): string {
+  return JSON.stringify(sortKeys(value));
+}
+
+function sortKeys(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(sortKeys);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.keys(value as object).sort().map(k => [k, sortKeys((value as Record<string, unknown>)[k])]));
+  }
+  return value;
 }
 
 /** Resolve the most specific jurisdiction the location's facts name: city, then county, then state. */
@@ -90,22 +120,30 @@ function locationJurisdictionKey(facts: BusinessFacts): string | undefined {
 
 export function buildRulePack(business: BusinessProfile, location: LocationProfile, options: BuildOptions = {}): RulePack {
   const asOf = options.asOf ?? new Date().toISOString().slice(0, 10);
+  const horizonDays = options.horizonDays ?? DEFAULT_HORIZON_DAYS;
+  const horizon = addDays(asOf, horizonDays);
   const source = options.rules ?? RULES;
   const facts: BusinessFacts = { ...business.employer, ...location.facts };
+  const supersededBy = new Map<string, string>();
+  for (const r of source) if (r.supersedes) supersededBy.set(r.supersedes, r.id);
 
   const rules: PackRule[] = [];
-  const stats = { rulesConsidered: source.length, rulesIncluded: 0, excludedByProfile: 0, excludedExpired: 0, excludedInactive: 0, fullyResolved: 0 };
+  const stats = { rulesConsidered: source.length, rulesIncluded: 0, excludedByProfile: 0, excludedExpired: 0, excludedNotYetEffective: 0, excludedInactive: 0, upcoming: 0, fullyResolved: 0 };
 
   for (const rule of source) {
     if (rule.status !== "active") { stats.excludedInactive++; continue; }
     if (rule.effectiveTo && rule.effectiveTo < asOf) { stats.excludedExpired++; continue; }
+    if (rule.effectiveFrom > horizon) { stats.excludedNotYetEffective++; continue; }
     const partial = evaluatePartial(rule.appliesWhen, facts);
     if (partial.state === false) { stats.excludedByProfile++; continue; }
     if (partial.state === true) stats.fullyResolved++;
+    const upcoming = rule.effectiveFrom > asOf;
+    if (upcoming) stats.upcoming++;
 
     const jurisdiction = resolveJurisdiction(rule.jurisdiction);
     const obligation = getObligation(rule.result.obligation);
-    rules.push({
+    const successor = supersededBy.get(rule.id);
+    const shipped: Omit<PackRule, "hash"> = {
       id: rule.id,
       title: rule.title,
       jurisdiction: rule.jurisdiction,
@@ -117,12 +155,16 @@ export function buildRulePack(business: BusinessProfile, location: LocationProfi
       status: rule.status,
       effectiveFrom: rule.effectiveFrom,
       ...(rule.effectiveTo ? { effectiveTo: rule.effectiveTo } : {}),
+      ...(upcoming ? { upcoming: true as const } : {}),
+      ...(rule.supersedes ? { supersedes: rule.supersedes } : {}),
+      ...(successor ? { supersededBy: successor } : {}),
       appliesWhen: partial.residual ?? ALWAYS,
       satisfiedBy: partial.satisfiedBy,
       factsNeeded: partial.openFacts,
       result: { ...rule.result, kronto: obligation?.kronto ?? "inform" },
       citations: rule.citations,
-    });
+    };
+    rules.push({ ...shipped, hash: hashPackRule(shipped) });
   }
   stats.rulesIncluded = rules.length;
 
@@ -143,6 +185,7 @@ export function buildRulePack(business: BusinessProfile, location: LocationProfi
     format: "kronto-rule-pack/1",
     generatedAt: new Date().toISOString(),
     asOf,
+    horizonDays,
     rulesVersion: RULES_VERSION,
     vocabularyVersion: VOCABULARY.version,
     business: business.name,

@@ -54,6 +54,14 @@ export interface PackRule extends Omit<Rule, "result"> {
   satisfiedBy: string[];
   /** Facts the scheduler must supply to evaluate appliesWhen */
   factsNeeded: string[];
+  /** True when the rule takes effect after the pack's asOf date (within the horizon); the evaluator still gates it by shift date */
+  upcoming?: true;
+  /** Id of the rule in this pack (or an earlier one) that this rule replaces when it takes effect */
+  supersedes?: string;
+  /** Id of the rule that replaces this one when it expires */
+  supersededBy?: string;
+  /** sha256 (first 16 hex) of the rule's content (all fields but satisfiedBy and upcoming), so a consumer can spot a changed rule without a field-by-field compare */
+  hash: string;
 }
 
 export interface PackFact extends FactDefinition {
@@ -73,7 +81,11 @@ export interface PackStats {
   rulesIncluded: number;
   excludedByProfile: number;
   excludedExpired: number;
+  /** Rules that take effect after asOf + horizonDays */
+  excludedNotYetEffective: number;
   excludedInactive: number;
+  /** Rules shipped with upcoming: true (effective after asOf, within the horizon) */
+  upcoming: number;
   /** Rules whose business-level conditions are fully resolved (nothing left to test but employee/shift facts) */
   fullyResolved: number;
 }
@@ -83,6 +95,8 @@ export interface RulePack {
   generatedAt: string;
   /** Date the pack was built for: rules that expired before it are left out */
   asOf: string;
+  /** Rules taking effect within this many days after asOf are shipped flagged upcoming; later ones are left out */
+  horizonDays: number;
   /** Hash of the complete rule set the pack was cut from */
   rulesVersion: string;
   vocabularyVersion: string;

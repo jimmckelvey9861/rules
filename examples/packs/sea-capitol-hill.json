@@ -1,8 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:16:02.006Z",
+  "generatedAt": "2026-10-30T18:26:07.157Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "9ca246342bf81405",
+  "horizonDays": 365,
+  "rulesVersion": "c68047ea12aa5a94",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -98,7 +99,8 @@
           "section": "29 U.S.C. §2612",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ebb5977223f2af61"
     },
     {
       "id": "wa-family-medical-leave",
@@ -140,7 +142,8 @@
           "section": "RCW §50A",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "94f093aed79dfdcc"
     },
     {
       "id": "seattle-sick-leave",
@@ -179,7 +182,8 @@
           "section": "SMC 14.16",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "12254def8c7e5eaf"
     },
     {
       "id": "wa-sick-leave",
@@ -217,7 +221,8 @@
           "section": "RCW §49.46.210",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "a6bbed76bcd8ff0e"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -285,7 +290,8 @@
           "section": "§570.35(a)(6)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4b137d4ca864ad20"
     },
     {
       "id": "federal-minor-14-15-curfew-summer",
@@ -353,7 +359,8 @@
           "section": "§570.35(a)(7)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "2e8559f63c167900"
     },
     {
       "id": "federal-minor-14-15-early-start",
@@ -414,7 +421,8 @@
           "section": "§570.35(a)(1)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "5cbcc7a8af1b303f"
     },
     {
       "id": "federal-minor-14-15-nonschool-day-hours",
@@ -482,7 +490,8 @@
           "section": "§570.35(a)(3)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "280a3c49538d769b"
     },
     {
       "id": "federal-minor-14-15-nonschool-week-hours",
@@ -550,7 +559,8 @@
           "section": "§570.35(a)(5)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "092cb4ededc8c0be"
     },
     {
       "id": "federal-minor-14-15-school-day-hours",
@@ -618,7 +628,8 @@
           "section": "§570.35(a)(2)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "97e2ca3c91f31148"
     },
     {
       "id": "federal-minor-14-15-school-week-hours",
@@ -686,7 +697,8 @@
           "section": "§570.35(a)(4)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "158f9318c2b237f1"
     },
     {
       "id": "wa-minor-16-17-curfew",
@@ -755,7 +767,8 @@
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "47c5680927bbf078"
     },
     {
       "id": "wa-minor-16-17-nonschool-day-hours",
@@ -824,7 +837,8 @@
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "b99b335f0fefcf1e"
     },
     {
       "id": "wa-minor-16-17-school-day-hours",
@@ -893,7 +907,8 @@
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "2c744c03d3776f97"
     },
     {
       "id": "wa-minor-16-17-school-week-hours",
@@ -962,7 +977,8 @@
           "url": "https://lni.wa.gov/workers-rights/youth-employment/hours-of-work",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "572661d837640e2d"
     },
     {
       "id": "federal-minimum-wage-7.25",
@@ -1002,7 +1018,8 @@
           "section": "29 U.S.C. §206(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d57adbfd608c46a9"
     },
     {
       "id": "seattle-wa-mw-2026",
@@ -1042,7 +1059,8 @@
           "url": "https://www.seattle.gov/laborstandards/ordinances/minimum-wage",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "185b5ecd94033dff"
     },
     {
       "id": "wa-minimum-wage-2025",
@@ -1082,7 +1100,8 @@
           "section": "RCW 49.46.020",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "a4368d624cb14ab3"
     },
     {
       "id": "federal-overtime-weekly-40",
@@ -1132,7 +1151,8 @@
           "section": "29 U.S.C. §207(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "91d9d9291655f9b4"
     },
     {
       "id": "wa-weekly-overtime-40",
@@ -1184,7 +1204,8 @@
           "section": "RCW 49.46.130",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "472c9c1441f27c7f"
     },
     {
       "id": "federal-workweek-definition",
@@ -1229,7 +1250,8 @@
           "section": "29 U.S.C. §207(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6292e3a79977b8d4"
     },
     {
       "id": "wa-meal-break-5hr",
@@ -1286,7 +1308,8 @@
           "section": "WAC §296-126-092",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4321d1b01f09d9d7"
     },
     {
       "id": "wa-meal-break-scheduling-warning",
@@ -1337,7 +1360,8 @@
           "section": "WAC 296-126-092",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "896197110b59f1d3"
     },
     {
       "id": "sea-access-to-hours",
@@ -1389,7 +1413,8 @@
           "section": "SMC 14.22.055",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "967cb2383c6ff630"
     },
     {
       "id": "sea-advance-notice-14day",
@@ -1433,7 +1458,8 @@
           "section": "SMC 14.22.045",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "52b829d076599a09"
     },
     {
       "id": "sea-change-under14-added",
@@ -1511,7 +1537,8 @@
           "section": "SMC 14.22.050",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "d5c3ce0d1ff4e9ac"
     },
     {
       "id": "sea-change-under14-subtracted",
@@ -1581,7 +1608,8 @@
           "section": "SMC 14.22.045",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "710b53f0ee6c8b9a"
     },
     {
       "id": "sea-good-faith-estimate",
@@ -1621,7 +1649,8 @@
           "section": "SMC 14.22.025",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "45c838420f2e2d07"
     },
     {
       "id": "sea-on-call-not-called",
@@ -1676,7 +1705,8 @@
           "section": "SMC 14.22.050",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "5c5c74e9f1e60ebb"
     },
     {
       "id": "sea-right-to-decline",
@@ -1750,7 +1780,8 @@
           "section": "SMC 14.22.045",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "35b35cb2787c49d9"
     },
     {
       "id": "federal-lactation-break-pump-act",
@@ -1790,7 +1821,8 @@
           "section": "29 U.S.C. §218d",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6dfee613ec056465"
     },
     {
       "id": "wa-lactation-break",
@@ -1832,7 +1864,8 @@
           "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "5fba16b4a132f637"
     },
     {
       "id": "wa-rest-break-4hr",
@@ -1889,7 +1922,8 @@
           "section": "WAC §296-126-092",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "6dd96fb58cf2da9b"
     },
     {
       "id": "wa-rest-break-scheduling-warning",
@@ -1941,7 +1975,8 @@
           "section": "WAC 296-126-092",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "cf6d18a983e1948b"
     },
     {
       "id": "sea-clopening-10hr",
@@ -1995,7 +2030,8 @@
           "section": "SMC 14.22.050",
           "kind": "ordinance"
         }
-      ]
+      ],
+      "hash": "a12f1d1a0c10d0a3"
     }
   ],
   "obligations": [
@@ -2957,8 +2993,10 @@
     "rulesIncluded": 35,
     "excludedByProfile": 588,
     "excludedExpired": 1,
+    "excludedNotYetEffective": 0,
     "excludedInactive": 0,
+    "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "419fa449c475ef141ccafc201aebbb62762f34b540f2df6310482382338a9022"
+  "checksum": "54663fb970ecb05dd100b11dee6355d5730b8c5d40b7a2fcdd2de57040bcc703"
 }

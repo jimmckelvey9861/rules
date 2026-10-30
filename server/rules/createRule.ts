@@ -100,6 +100,16 @@ function validateRuleDefinition(definition: Rule): ValidationError[] {
   if (definition.effectiveTo !== undefined) {
     if (!ISO_DATE_RE.test(definition.effectiveTo)) {
       errors.push({ path: "effectiveTo", message: `effectiveTo must be ISO date (YYYY-MM-DD), got "${definition.effectiveTo}"` });
+    } else if (ISO_DATE_RE.test(definition.effectiveFrom ?? "") && definition.effectiveTo < definition.effectiveFrom) {
+      errors.push({ path: "effectiveTo", message: `effectiveTo (${definition.effectiveTo}) is before effectiveFrom (${definition.effectiveFrom})` });
+    }
+  }
+
+  if (definition.supersedes !== undefined) {
+    if (typeof definition.supersedes !== "string" || definition.supersedes.trim() === "") {
+      errors.push({ path: "supersedes", message: "supersedes must be the id of the rule this one replaces" });
+    } else if (definition.supersedes === definition.id) {
+      errors.push({ path: "supersedes", message: "a rule cannot supersede itself" });
     }
   }
 

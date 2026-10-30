@@ -1,8 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:16:02.010Z",
+  "generatedAt": "2026-10-30T18:26:07.166Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "9ca246342bf81405",
+  "horizonDays": 365,
+  "rulesVersion": "c68047ea12aa5a94",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -70,7 +71,8 @@
           "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "2d8a25adf5c56319"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -132,7 +134,8 @@
           "section": "29 U.S.C. §2612",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ebb5977223f2af61"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -200,7 +203,8 @@
           "section": "§570.35(a)(6)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "4b137d4ca864ad20"
     },
     {
       "id": "federal-minor-14-15-curfew-summer",
@@ -268,7 +272,8 @@
           "section": "§570.35(a)(7)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "2e8559f63c167900"
     },
     {
       "id": "federal-minor-14-15-early-start",
@@ -329,7 +334,8 @@
           "section": "§570.35(a)(1)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "5cbcc7a8af1b303f"
     },
     {
       "id": "federal-minor-14-15-nonschool-day-hours",
@@ -397,7 +403,8 @@
           "section": "§570.35(a)(3)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "280a3c49538d769b"
     },
     {
       "id": "federal-minor-14-15-nonschool-week-hours",
@@ -465,7 +472,8 @@
           "section": "§570.35(a)(5)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "092cb4ededc8c0be"
     },
     {
       "id": "federal-minor-14-15-school-day-hours",
@@ -533,7 +541,8 @@
           "section": "§570.35(a)(2)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "97e2ca3c91f31148"
     },
     {
       "id": "federal-minor-14-15-school-week-hours",
@@ -601,7 +610,8 @@
           "section": "§570.35(a)(4)",
           "kind": "regulation"
         }
-      ]
+      ],
+      "hash": "158f9318c2b237f1"
     },
     {
       "id": "tx-minor-16-17-curfew",
@@ -670,7 +680,8 @@
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "10f009b6be477515"
     },
     {
       "id": "tx-minor-16-17-nonschool-day-hours",
@@ -739,7 +750,8 @@
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "ae1ec0a171551a1d"
     },
     {
       "id": "tx-minor-16-17-school-day-hours",
@@ -808,7 +820,8 @@
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "69a76f3ec7feee0a"
     },
     {
       "id": "tx-minor-16-17-school-week-hours",
@@ -877,7 +890,8 @@
           "url": "https://www.twc.texas.gov/businesses/child-labor-law-texas",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6b04523ad495fa75"
     },
     {
       "id": "federal-minimum-wage-7.25",
@@ -917,7 +931,8 @@
           "section": "29 U.S.C. §206(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "d57adbfd608c46a9"
     },
     {
       "id": "tx-minimum-wage-7.25",
@@ -956,7 +971,8 @@
           "url": "https://www.twc.texas.gov/businesses/minimum-wage-law",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "64e6cd1ff289fc53"
     },
     {
       "id": "federal-overtime-weekly-40",
@@ -1006,7 +1022,8 @@
           "section": "29 U.S.C. §207(a)(1)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "91d9d9291655f9b4"
     },
     {
       "id": "federal-workweek-definition",
@@ -1051,7 +1068,8 @@
           "section": "29 U.S.C. §207(a)",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6292e3a79977b8d4"
     },
     {
       "id": "federal-lactation-break-pump-act",
@@ -1091,7 +1109,8 @@
           "section": "29 U.S.C. §218d",
           "kind": "statute"
         }
-      ]
+      ],
+      "hash": "6dfee613ec056465"
     }
   ],
   "obligations": [
@@ -1637,8 +1656,10 @@
     "rulesIncluded": 18,
     "excludedByProfile": 605,
     "excludedExpired": 1,
+    "excludedNotYetEffective": 0,
     "excludedInactive": 0,
+    "upcoming": 0,
     "fullyResolved": 0
   },
-  "checksum": "1802073d389e35cf341bb7ea044eb0c88ac984b21da9fe575b9584968ce07c13"
+  "checksum": "29e719f7733e71c88de4572203a2e5700519c93211b02a09fc31ec49107221d3"
 }

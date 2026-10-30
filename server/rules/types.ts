@@ -104,6 +104,8 @@ export interface Rule {
   topic: string;
   effectiveFrom: string;       // ISO date string YYYY-MM-DD
   effectiveTo?: string;        // ISO date string YYYY-MM-DD, optional
+  /** Id of the rule this one replaces. The older rule keeps its own record with an effectiveTo the day before this one starts. */
+  supersedes?: string;
   appliesWhen: Condition;
   result: RuleResult;
   citations: Citation[];

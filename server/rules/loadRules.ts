@@ -91,5 +91,34 @@ export function loadRulesFromData(): LoadResult {
     }
   }
 
-  return { rules, skipped };
+  // Second pass: supersession links need the whole set loaded.
+  const byId = new Map(rules.map(r => [r.id, r]));
+  const accepted: Rule[] = [];
+  for (const rule of rules) {
+    const errors = checkSupersedes(rule, byId);
+    if (errors.length > 0) skipped.push({ id: rule.id, file: seenIds.get(rule.id) ?? "(unknown)", errors });
+    else accepted.push(rule);
+  }
+
+  return { rules: accepted, skipped };
+}
+
+/**
+ * A rule that supersedes another must replace it in place: same jurisdiction
+ * and topic, and the older rule's window must close before the new one opens.
+ * Exported for the validation tests.
+ */
+export function checkSupersedes(rule: Rule, byId: Map<string, Rule>): ValidationError[] {
+  if (!rule.supersedes) return [];
+  const errors: ValidationError[] = [];
+  const prev = byId.get(rule.supersedes);
+  if (!prev) {
+    errors.push({ path: "supersedes", message: `Supersedes unknown rule "${rule.supersedes}"` });
+    return errors;
+  }
+  if (prev.jurisdiction !== rule.jurisdiction) errors.push({ path: "supersedes", message: `Supersedes "${prev.id}" from ${prev.jurisdiction}; a replacement must stay in ${rule.jurisdiction}` });
+  if (prev.topic !== rule.topic) errors.push({ path: "supersedes", message: `Supersedes "${prev.id}" on ${prev.topic}; a replacement must stay on ${rule.topic}` });
+  if (!prev.effectiveTo) errors.push({ path: "supersedes", message: `Superseded rule "${prev.id}" needs an effectiveTo before ${rule.effectiveFrom}` });
+  else if (prev.effectiveTo >= rule.effectiveFrom) errors.push({ path: "supersedes", message: `Superseded rule "${prev.id}" runs to ${prev.effectiveTo}, overlapping this rule's start ${rule.effectiveFrom}` });
+  return errors;
 }

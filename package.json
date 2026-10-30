@@ -16,6 +16,7 @@
     "test:reference": "tsx server/reference/reference.test.ts",
     "test:packs": "tsx server/packs/rulePack.test.ts",
     "build-packs": "tsx scripts/buildPacks.ts",
+    "diff-packs": "tsx scripts/diffPacks.ts",
     "check-links": "tsx scripts/checkLinks.ts",
     "classify-citations": "tsx scripts/classifyCitations.ts"
   },

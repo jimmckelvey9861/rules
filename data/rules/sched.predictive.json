@@ -821,6 +821,7 @@
       "topic": "sched.predictive.change_premium",
       "status": "active",
       "effectiveFrom": "2022-07-01",
+      "supersedes": "chi-advance-notice-10day",
       "appliesWhen": {
         "all": [
           {

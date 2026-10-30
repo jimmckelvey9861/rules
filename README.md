@@ -140,8 +140,38 @@ location's jurisdiction chain, a rules-version hash and a checksum.
 
 ```
 npm run build-packs                      # sample chain -> examples/packs/<location>.json
-npm run build-packs -- profile.json out/ --as-of 2027-01-01
+npm run build-packs -- profile.json out/ --as-of 2027-01-01 --horizon-days 180
+npm run diff-packs -- old-pack.json new-pack.json [--json]
 ```
+
+## Change management: effective dates, as-of, what changed
+
+Law changes are modelled as rule history, never as edits that lose the past:
+
+- Every rule has an `effectiveFrom`, and a rule that stopped applying keeps its
+  record with an `effectiveTo`. The replacement is a new rule (new id) with
+  `supersedes` naming the old one. The loader rejects a link whose two rules sit
+  in different jurisdictions or topics, or whose windows overlap or leave the old
+  rule open-ended. Chicago's schedule-change premium is the first example:
+  `chi-advance-notice-14day` (2022-07-01) supersedes `chi-advance-notice-10day`
+  (to 2022-06-30).
+- `status` is about the record, not the calendar: `active` rules are evaluated
+  (the dates decide whether they apply to a shift), `draft`, `pending` and
+  `repealed` rules are never shipped. A repealed law is an `active` rule with an
+  `effectiveTo`, so an as-of evaluation for an earlier date still finds it.
+- The per-shift evaluator gates every rule by `shift.date` against its window,
+  so two versions of a rule can ship together and the right one fires.
+- A pack is built **as of** a date (`--as-of`, default today). Rules that expired
+  before it are left out; rules in force are shipped; rules taking effect within
+  the **horizon** (`--horizon-days`, default 365) are shipped flagged
+  `upcoming: true` so the scheduler can warn about shifts past the change date;
+  later ones are left out (`stats.excludedNotYetEffective`). Each pack rule names
+  its `supersedes` / `supersededBy` neighbour and carries a content `hash`.
+- **What changed since the last pack**: `diffRulePacks(previous, next)` (also
+  `npm run diff-packs` and `POST /api/packs/diff`) reports rules added, removed
+  and changed (by hash, naming the fields), plus the calendar events between the
+  two as-of dates: rules that took effect, rules that expired, and rules still
+  upcoming. `build-packs` prints this against the pack it is about to overwrite.
 
 ## Sources and links
 
