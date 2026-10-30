@@ -214,6 +214,8 @@ const FACTS: FactDefinition[] = [
   { path: "schedule.employer_initiated", type: "boolean", description: "Whether the change was employer-initiated", category: "5. Schedule" },
   { path: "schedule.called_in", type: "boolean", description: "Whether employee was called in to work", category: "5. Schedule" },
   { path: "schedule.good_faith_estimate_provided", type: "boolean", description: "Whether a good faith schedule estimate was provided at hire", category: "5. Schedule" },
+  { path: "schedule.new_hire_pending", type: "boolean", description: "Whether the employer is about to hire a new employee, or bring in agency or temporary staff, to cover hours", category: "5. Schedule" },
+  { path: "schedule.hours_offered_to_existing_staff", type: "boolean", description: "Whether those hours were first offered to existing (part-time) employees for the required window", category: "5. Schedule" },
 
   // ═══════════════════════════════════════════════════════════════════
   // 6. LEAVE — Leave Law Applicability

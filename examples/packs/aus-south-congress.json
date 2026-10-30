@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-21T20:42:37.887Z",
+  "generatedAt": "2026-10-30T17:24:53.923Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "78afbd1564a5b020",
-  "vocabularyVersion": "2026-10-20",
+  "rulesVersion": "52bd0ed749eedac5",
+  "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
     "id": "aus-south-congress",
@@ -1301,10 +1301,10 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 476,
+    "rulesConsidered": 513,
     "rulesIncluded": 15,
-    "excludedByProfile": 461,
-    "excludedExpired": 0,
+    "excludedByProfile": 497,
+    "excludedExpired": 1,
     "excludedInactive": 0,
     "fullyResolved": 0
   },

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-21T20:42:37.883Z",
+  "generatedAt": "2026-10-30T17:24:53.920Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "78afbd1564a5b020",
-  "vocabularyVersion": "2026-10-20",
+  "rulesVersion": "52bd0ed749eedac5",
+  "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
     "id": "nyc-soho",
@@ -1901,9 +1901,140 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1241 (Fair Workweek Law)",
+          "source": "NYC Admin Code §20-1251 (Fair Workweek Law, retail)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1241",
+          "section": "NYC Admin Code §20-1251",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-no-add-under72h",
+      "title": "NYC retail — No Added Shifts With <72 Hours Notice Without Written Consent",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_decline",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 3
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "on_call_to_work"
+            ]
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days",
+        "schedule.change_type",
+        "schedule.employee_consented",
+        "schedule.was_changed"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.late_change_ban",
+        "params": {
+          "notice_hours": 72,
+          "change_type": "hours_added"
+        },
+        "summary": "A retail employer may not add a shift or hours with less than 72 hours notice unless the employee consents in writing",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1252 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1252",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-no-cancel-under72h",
+      "title": "NYC retail — No Cancelling Shifts With <72 Hours Notice",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.advance_notice",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 3
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled",
+              "time_changed"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days",
+        "schedule.change_type",
+        "schedule.was_changed"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.late_change_ban",
+        "params": {
+          "notice_hours": 72,
+          "change_type": "any"
+        },
+        "summary": "A retail employer may not cancel, shorten or move a shift with less than 72 hours notice (except for emergencies, or when the employee asks)",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code §20-1252 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code §20-1252",
           "kind": "ordinance"
         }
       ]
@@ -1941,9 +2072,9 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code §20-1243 (Fair Workweek Law)",
+          "source": "NYC Admin Code §20-1252 (Fair Workweek Law, retail)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code §20-1243",
+          "section": "NYC Admin Code §20-1252",
           "kind": "ordinance"
         }
       ]
@@ -2517,6 +2648,41 @@
       ]
     },
     {
+      "code": "sched.late_change_ban",
+      "name": "Late schedule change ban",
+      "description": "The employer may not make the named kind of schedule change inside the notice window at all (not merely owe a premium), unless the employee consents in writing where the law allows it.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "notice_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Changes with less than this many hours of notice are barred"
+        },
+        {
+          "name": "change_type",
+          "type": "enum",
+          "values": [
+            "hours_added",
+            "shift_cancelled",
+            "time_changed",
+            "any"
+          ],
+          "required": false,
+          "description": "Which change is barred"
+        }
+      ],
+      "synonyms": [
+        "no last-minute cancellations",
+        "no added shifts without consent",
+        "schedule change prohibition"
+      ]
+    },
+    {
       "code": "sched.on_call_ban",
       "name": "On-call scheduling ban",
       "description": "The employer may not require the employee to be available without scheduling and paying them.",
@@ -2680,6 +2846,36 @@
       "derived": "whole days from the date the shift (or its latest amendment) was communicated to the employee to the shift date"
     },
     {
+      "path": "schedule.change_type",
+      "type": "enum",
+      "description": "Type of schedule change",
+      "category": "5. Schedule",
+      "enumValues": [
+        "hours_added",
+        "hours_reduced",
+        "time_changed",
+        "location_changed",
+        "shift_cancelled",
+        "on_call_to_work",
+        "on_call_not_needed"
+      ],
+      "derived": "hours_added when the amended shift is longer, hours_reduced when shorter, time_changed when the same length at different times"
+    },
+    {
+      "path": "schedule.employee_consented",
+      "type": "boolean",
+      "description": "Whether the employee consented to the change",
+      "category": "5. Schedule",
+      "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "schedule.was_changed",
+      "type": "boolean",
+      "description": "Whether the schedule was changed after posting",
+      "category": "5. Schedule",
+      "derived": "the shift was amended after it was published"
+    },
+    {
       "path": "shift.employee_reported",
       "type": "boolean",
       "description": "Whether the employee reported to work as scheduled",
@@ -2774,12 +2970,12 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 476,
-    "rulesIncluded": 36,
-    "excludedByProfile": 440,
-    "excludedExpired": 0,
+    "rulesConsidered": 513,
+    "rulesIncluded": 38,
+    "excludedByProfile": 474,
+    "excludedExpired": 1,
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "b89c60ee074d5dc6e70a006ae98a1220dd1179060855001e4c95eaabf7ff6a87"
+  "checksum": "bb9411d228f49129b84f1867612b02213d55def4cd43ef985c3cdd15dcf1eaf7"
 }
