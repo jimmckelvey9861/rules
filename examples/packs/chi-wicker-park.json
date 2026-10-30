@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:25:20.261Z",
+  "generatedAt": "2026-10-30T20:35:25.385Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "44f735ac294ddb22",
+  "rulesVersion": "a6bb834ed1cbf6f8",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -414,6 +414,159 @@
         }
       ],
       "hash": "ebb5977223f2af61"
+    },
+    {
+      "id": "il-pto-payout",
+      "title": "Illinois — Accrued Vacation at Separation (payout required)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.pto_payout",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "voluntary_resignation",
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "end_of_contract",
+          "retirement"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.pto_payout",
+        "params": {
+          "payout_required": "always",
+          "forfeiture_prohibited": false,
+          "notice_required_for_forfeiture": true
+        },
+        "summary": "Earned vacation must be paid as final compensation at separation and no policy may forfeit it; use-it-or-lose-it is allowed only when employees are told of it and have a reasonable chance to use the time (56 Ill. Adm. Code 300.520). (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 115/5",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2402&ChapterID=68",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Patriot Software, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.patriotsoftware.com/blog/payroll/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "92c1ca1970df17d9"
+    },
+    {
+      "id": "il-family-bereavement-leave",
+      "title": "Illinois Family Bereavement Leave Act — 2 weeks (50+ employees)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.bereavement",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2016-07-29",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "bereavement"
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.bereavement",
+        "params": {
+          "max_days": 10,
+          "paid": false,
+          "min_employees": 50,
+          "tenure_hours": 1250,
+          "window_days": 60,
+          "annual_cap_days": 30,
+          "covered_relationships": "child, stepchild, spouse, domestic partner, sibling, parent, parent-in-law, grandchild, grandparent, stepparent; pregnancy loss and failed adoption, surrogacy or fertility events"
+        },
+        "summary": "FMLA-covered employers (50+) must give eligible employees up to 2 weeks (10 workdays) of unpaid leave per death of a covered family member, taken within 60 days, up to 6 weeks a year for multiple deaths; expanded from child-only bereavement in 2023 and to pregnancy loss events.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 154",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "§154/10",
+          "kind": "statute"
+        }
+      ],
+      "hash": "89ec68b70bb988f1"
+    },
+    {
+      "id": "il-child-extended-bereavement-250-plus",
+      "title": "Illinois Child Extended Bereavement Leave — 12 weeks (250+ employees)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.bereavement",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "bereavement"
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.bereavement",
+        "params": {
+          "max_days": 60,
+          "paid": false,
+          "min_employees": 250,
+          "tenure_hours": 1250,
+          "covered_relationships": "child lost to suicide or homicide"
+        },
+        "summary": "Employers with 250 or more full-time employees must give up to 12 weeks of unpaid leave to a parent whose child died by suicide or homicide, taken within one year; may not run concurrently with other leave.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 156 (Child Extended Bereavement Leave Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "§156/10",
+          "kind": "statute"
+        }
+      ],
+      "hash": "d16eed2e63b33b00"
     },
     {
       "id": "chicago-sick-leave",
@@ -2526,6 +2679,84 @@
       ]
     },
     {
+      "code": "leave.bereavement",
+      "name": "Bereavement leave",
+      "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "max_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Days of leave per death or per year"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave itself must be paid (false = unpaid, though accrued paid leave may be used)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of employment required"
+        },
+        {
+          "name": "tenure_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours worked in the prior 12 months required"
+        },
+        {
+          "name": "window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after the death within which the leave must be taken"
+        },
+        {
+          "name": "annual_cap_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most days per year across all deaths"
+        },
+        {
+          "name": "uses_accrued_leave",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only lets the employee apply accrued paid leave rather than granting new leave"
+        },
+        {
+          "name": "covered_relationships",
+          "type": "string",
+          "required": false,
+          "description": "Family members whose death triggers the leave"
+        }
+      ],
+      "synonyms": [
+        "bereavement leave",
+        "funeral leave",
+        "family bereavement",
+        "grief leave",
+        "reproductive loss leave"
+      ]
+    },
+    {
       "code": "leave.domestic_violence",
       "name": "Domestic violence, safe and crime victim leave",
       "description": "Job-protected time off for an employee (or family member) who is a victim of domestic violence, sexual assault, stalking or another crime, for court, medical, counseling, relocation or safety needs; some laws instead require reasonable accommodation.",
@@ -2805,6 +3036,62 @@
         "deployment leave",
         "OMFLA",
         "Family Military Leave Act"
+      ]
+    },
+    {
+      "code": "leave.pto_payout",
+      "name": "Vacation and PTO payout at separation",
+      "description": "Whether accrued, unused vacation or paid time off must be paid as final wages when employment ends, and whether use-it-or-lose-it forfeiture is allowed.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "payout_required",
+          "type": "enum",
+          "values": [
+            "always",
+            "unless_written_policy",
+            "policy_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "always = statute requires payout; unless_written_policy = owed unless a written policy or agreement says otherwise; policy_only = owed only when the employer's policy or contract promises it; not_required = no state duty"
+        },
+        {
+          "name": "forfeiture_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether use-it-or-lose-it forfeiture of accrued vacation is barred (accrual caps may still be allowed)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_years",
+          "type": "number",
+          "required": false,
+          "description": "Years of service before payout is owed"
+        },
+        {
+          "name": "notice_required_for_forfeiture",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a forfeiture or no-payout policy must be in writing and disclosed in advance to be enforceable"
+        }
+      ],
+      "synonyms": [
+        "vacation payout",
+        "PTO payout",
+        "accrued vacation",
+        "use-it-or-lose-it",
+        "vacation as wages",
+        "unused vacation at termination"
       ]
     },
     {
@@ -3973,17 +4260,32 @@
       "description": "Whether this is part of a mass layoff",
       "category": "7. Termination",
       "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.type",
+      "type": "enum",
+      "description": "Type of employment separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "voluntary_resignation",
+        "involuntary_discharge",
+        "layoff",
+        "constructive_discharge",
+        "end_of_contract",
+        "retirement"
+      ]
     }
   ],
   "stats": {
-    "rulesConsidered": 863,
-    "rulesIncluded": 43,
-    "excludedByProfile": 814,
-    "excludedExpired": 6,
+    "rulesConsidered": 922,
+    "rulesIncluded": 46,
+    "excludedByProfile": 869,
+    "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "f00732530bde4eda14cc80500ca31852a08bad940cb3759390dcedffb6fe21d3"
+  "checksum": "2c0ebbb2d625ebe1ae8734d4611df38f68fec74c7e884b71423d030159c77055"
 }

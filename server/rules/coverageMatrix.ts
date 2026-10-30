@@ -52,7 +52,8 @@ export type Topic =
   | "warn_act"
   | "lactation_break"
   | "civic_leave"
-  | "hour_limits";
+  | "hour_limits"
+  | "personal_leave";
 
 export const ALL_TOPICS: Topic[] = [
   "day_of_rest",
@@ -71,6 +72,7 @@ export const ALL_TOPICS: Topic[] = [
   "lactation_break",
   "civic_leave",
   "hour_limits",
+  "personal_leave",
 ];
 
 export const ALL_STATES = [
@@ -332,6 +334,8 @@ const STATES_WITH_LACTATION_BREAK: StateCode[] = [
  */
 const STATES_WITH_CIVIC_LEAVE: StateCode[] = [...ALL_STATES]; // voting, jury, military (every state has a Guard leave law), DV/crime victim leave
 
+const STATES_WITH_PERSONAL_LEAVE: StateCode[] = [...ALL_STATES]; // every state has a vacation payout rule (even if "no duty"); bereavement in CA, IL, MD, OR, WA
+
 const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   day_of_rest: STATES_WITH_DAY_OF_REST,
   family_medical_leave: STATES_WITH_FAMILY_MEDICAL_LEAVE,
@@ -349,6 +353,7 @@ const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   lactation_break: STATES_WITH_LACTATION_BREAK,
   civic_leave: STATES_WITH_CIVIC_LEAVE,
   hour_limits: STATES_WITH_HOUR_LIMITS,
+  personal_leave: STATES_WITH_PERSONAL_LEAVE,
 };
 
 // ─── Local (City/County) Coverage ──────────────────────────────────
@@ -516,6 +521,7 @@ export function matrixTopicFor(topic: string, obligation?: string): Topic | unde
     case "sched.shift_structure":
       return topic === "sched.shift_structure.day_of_rest" ? "day_of_rest" : "predictive_scheduling";
     case "sched.hour_limits": return "hour_limits";
+    case "leave.personal": return "personal_leave";
     case "leave.sick": return "sick_leave";
     case "leave.family_medical": return "family_medical_leave";
     case "leave.civic_emergency": return "civic_leave";
@@ -536,6 +542,7 @@ export const MATRIX_ROWS_BY_TOPIC_CODE: Record<string, readonly Topic[]> = {
   "sched.predictive": ["predictive_scheduling"],
   "sched.shift_structure": ["day_of_rest", "predictive_scheduling"],
   "sched.hour_limits": ["hour_limits"],
+  "leave.personal": ["personal_leave"],
   "leave.sick": ["sick_leave"],
   "leave.family_medical": ["family_medical_leave"],
   "leave.civic_emergency": ["civic_leave"],

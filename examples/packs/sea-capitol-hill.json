@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:25:20.253Z",
+  "generatedAt": "2026-10-30T20:35:25.375Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "44f735ac294ddb22",
+  "rulesVersion": "a6bb834ed1cbf6f8",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -351,6 +351,114 @@
         }
       ],
       "hash": "94f093aed79dfdcc"
+    },
+    {
+      "id": "wa-pto-payout",
+      "title": "Washington — Accrued Vacation at Separation (payout per employer policy)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.pto_payout",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "voluntary_resignation",
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "end_of_contract",
+          "retirement"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.pto_payout",
+        "params": {
+          "payout_required": "policy_only",
+          "forfeiture_prohibited": false
+        },
+        "summary": "Vacation payout follows the employer's policy or agreement; no statutory duty. (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.48.010",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.48.010",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Patriot Software, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.patriotsoftware.com/blog/payroll/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f2b532d98bdcb0e3"
+    },
+    {
+      "id": "wa-pfml-bereavement-family",
+      "title": "Washington — PFML Bereavement Leave (7 days, any family member)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.bereavement",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "supersedes": "wa-pfml-bereavement-child",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "bereavement"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.bereavement",
+        "params": {
+          "max_days": 7,
+          "paid": true,
+          "window_days": 365,
+          "covered_relationships": "child, spouse, domestic partner, parent, parent-in-law, sibling, grandparent, grandchild"
+        },
+        "summary": "From 2026-07-01 (SB 5217, 2025) PFML bereavement leave covers up to 7 days within 12 months of the death of any qualifying family member, paid through the state PFML program.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 50A.05.010 as amended by SB 5217 (2025)",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=50A.05.010",
+          "section": "§50A.05.010",
+          "kind": "statute"
+        },
+        {
+          "source": "WA SB 5217 (2025)",
+          "url": "https://app.leg.wa.gov/billsummary?BillNumber=5217&Year=2025",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "6679163573cd550d"
     },
     {
       "id": "seattle-sick-leave",
@@ -2994,6 +3102,84 @@
       ]
     },
     {
+      "code": "leave.bereavement",
+      "name": "Bereavement leave",
+      "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "max_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Days of leave per death or per year"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave itself must be paid (false = unpaid, though accrued paid leave may be used)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of employment required"
+        },
+        {
+          "name": "tenure_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours worked in the prior 12 months required"
+        },
+        {
+          "name": "window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after the death within which the leave must be taken"
+        },
+        {
+          "name": "annual_cap_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most days per year across all deaths"
+        },
+        {
+          "name": "uses_accrued_leave",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only lets the employee apply accrued paid leave rather than granting new leave"
+        },
+        {
+          "name": "covered_relationships",
+          "type": "string",
+          "required": false,
+          "description": "Family members whose death triggers the leave"
+        }
+      ],
+      "synonyms": [
+        "bereavement leave",
+        "funeral leave",
+        "family bereavement",
+        "grief leave",
+        "reproductive loss leave"
+      ]
+    },
+    {
       "code": "leave.domestic_violence",
       "name": "Domestic violence, safe and crime victim leave",
       "description": "Job-protected time off for an employee (or family member) who is a victim of domestic violence, sexual assault, stalking or another crime, for court, medical, counseling, relocation or safety needs; some laws instead require reasonable accommodation.",
@@ -3273,6 +3459,62 @@
         "deployment leave",
         "OMFLA",
         "Family Military Leave Act"
+      ]
+    },
+    {
+      "code": "leave.pto_payout",
+      "name": "Vacation and PTO payout at separation",
+      "description": "Whether accrued, unused vacation or paid time off must be paid as final wages when employment ends, and whether use-it-or-lose-it forfeiture is allowed.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "payout_required",
+          "type": "enum",
+          "values": [
+            "always",
+            "unless_written_policy",
+            "policy_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "always = statute requires payout; unless_written_policy = owed unless a written policy or agreement says otherwise; policy_only = owed only when the employer's policy or contract promises it; not_required = no state duty"
+        },
+        {
+          "name": "forfeiture_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether use-it-or-lose-it forfeiture of accrued vacation is barred (accrual caps may still be allowed)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_years",
+          "type": "number",
+          "required": false,
+          "description": "Years of service before payout is owed"
+        },
+        {
+          "name": "notice_required_for_forfeiture",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a forfeiture or no-payout policy must be in writing and disclosed in advance to be enforceable"
+        }
+      ],
+      "synonyms": [
+        "vacation payout",
+        "PTO payout",
+        "accrued vacation",
+        "use-it-or-lose-it",
+        "vacation as wages",
+        "unused vacation at termination"
       ]
     },
     {
@@ -4312,17 +4554,32 @@
       "category": "4. Shift",
       "group": "4.1 Timing",
       "derived": "hour component of the shift start time (0-23)"
+    },
+    {
+      "path": "termination.type",
+      "type": "enum",
+      "description": "Type of employment separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "voluntary_resignation",
+        "involuntary_discharge",
+        "layoff",
+        "constructive_discharge",
+        "end_of_contract",
+        "retirement"
+      ]
     }
   ],
   "stats": {
-    "rulesConsidered": 863,
-    "rulesIncluded": 49,
-    "excludedByProfile": 808,
-    "excludedExpired": 6,
+    "rulesConsidered": 922,
+    "rulesIncluded": 51,
+    "excludedByProfile": 864,
+    "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "1f938705d88c1501d0b1662af46618c8dea102235084e01d88326a18c9aa2ff1"
+  "checksum": "7950f4ef2904183449a5a0beba80c18ac274d6701b4967ce60889a9aa503249c"
 }

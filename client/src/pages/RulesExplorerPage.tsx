@@ -201,6 +201,7 @@ const TOPIC_COLORS: Record<string, string> = {
   "sched.hour_limits": "bg-fuchsia-100 text-fuchsia-800",
   "leave.family_medical": "bg-pink-100 text-pink-800",
   "leave.sick": "bg-teal-100 text-teal-800",
+  "leave.personal": "bg-cyan-100 text-cyan-800",
   "minor.labor": "bg-sky-100 text-sky-800",
   "sep.warn": "bg-red-100 text-red-800",
 };
