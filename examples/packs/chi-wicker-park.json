@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:44:49.508Z",
+  "generatedAt": "2026-10-30T21:06:28.827Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "eaaf0fae6a0089ff",
+  "rulesVersion": "50b5ba62c6cae8bb",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1822,6 +1822,248 @@
       "hash": "0ef267f2a5d5466b"
     },
     {
+      "id": "il-pay-frequency",
+      "title": "Illinois — Pay Frequency",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.pay_frequency",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.pay_frequency",
+            "op": "in",
+            "value": [
+              "monthly"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_frequency"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "pay.pay_frequency",
+        "params": {
+          "minimum_frequency": "semimonthly",
+          "max_lag_days": 13,
+          "exempt_may_be_monthly": true
+        },
+        "summary": "Wages must be paid at least semimonthly, within 13 days after the pay period ends; executive, administrative and professional employees may be paid monthly.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 115/3",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001150K3",
+          "section": "115/3",
+          "kind": "statute"
+        },
+        {
+          "source": "US DOL, State Payday Requirements",
+          "url": "https://www.dol.gov/agencies/whd/state/payday",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "6bf7d4c424416724"
+    },
+    {
+      "id": "federal-flsa-wage-deductions",
+      "title": "FLSA — Wage Deductions",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.wage_protection.deductions",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.wage_deductions",
+        "params": {
+          "written_authorization_required": "not_required",
+          "shortage_damage_deductions": "allowed_above_minimum_wage",
+          "below_minimum_wage_prohibited": true
+        },
+        "summary": "Under the FLSA, deductions for items that primarily benefit the employer (uniforms, tools, cash shortages, damage) may not reduce pay below the minimum wage or cut into overtime.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §531.35 (wages must be paid free and clear)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-531/subpart-B/section-531.35",
+          "section": "§531.35",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL Fact Sheet #16: Deductions from Wages for Uniforms and Other Facilities",
+          "url": "https://www.dol.gov/agencies/whd/fact-sheets/16-flsa-wage-deductions",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "ef6d478bc01f46d3"
+    },
+    {
+      "id": "il-wage-deductions",
+      "title": "Illinois — Wage Deductions",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.deductions",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.wage_deductions",
+        "params": {
+          "written_authorization_required": "required",
+          "shortage_damage_deductions": "written_consent_after_loss",
+          "notes": "Advance and loan recoveries capped at 15% of gross; 5% monthly damages"
+        },
+        "summary": "Deductions need the employee's express written consent given freely at the time the deduction is made (recurring consent lasts up to 6 months); shortages or damage may be deducted only with consent given when the loss occurs.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 115/9",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001150K9",
+          "section": "115/9",
+          "kind": "statute"
+        },
+        {
+          "source": "56 Ill. Adm. Code 300",
+          "url": "https://www.ilga.gov/commission/jcar/admincode/056/05600300sections.html",
+          "section": "Part 300",
+          "kind": "regulation"
+        },
+        {
+          "source": "Ezel, Employee Wage Deduction Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/employee-wage-deduction-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "c484880d581ebbe9"
+    },
+    {
+      "id": "federal-equal-pay-act",
+      "title": "Equal Pay Act of 1963 — Equal Pay",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.wage_protection.equal_pay",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.equal_pay",
+        "params": {
+          "comparison_standard": "equal_work",
+          "protected_classes": "sex",
+          "notes": "Covers all FLSA-covered employers; NLRA §7 separately protects most non-supervisory employees who discuss wages"
+        },
+        "summary": "Employees of the opposite sex doing equal work (equal skill, effort and responsibility under similar conditions) in the same establishment must be paid equally unless a seniority, merit, production or other factor-other-than-sex system explains the gap.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §206(d) (Equal Pay Act of 1963)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "§206(d)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "a30c952bdb8e8f93"
+    },
+    {
+      "id": "il-equal-pay",
+      "title": "Illinois — Equal Pay",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.equal_pay",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2004-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.equal_pay",
+        "params": {
+          "comparison_standard": "substantially_similar",
+          "protected_classes": "sex, African-American race",
+          "pay_secrecy_prohibited": true,
+          "notes": "Covered all employers from 2020; 100+ employee employers need an equal pay registration certificate"
+        },
+        "summary": "Employers may not pay employees of the opposite sex, or African-American employees, less for the same or substantially similar work requiring substantially similar skill, effort and responsibility; wage discussion may not be prohibited and prior salary may not be sought.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 112/10",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001120K10",
+          "section": "112/10",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Pay Equity and State-by-State Laws (survey)",
+          "url": "https://www.paycor.com/resource-center/articles/pay-equity-and-state-by-state-laws/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f15605773aaf8651"
+    },
+    {
       "id": "il-meal-break-7.5hr",
       "title": "Illinois Meal Break (20 min for 7.5+ hr shift)",
       "jurisdiction": "IL",
@@ -3478,6 +3720,64 @@
       ]
     },
     {
+      "code": "pay.equal_pay",
+      "name": "Equal pay",
+      "description": "Employees doing the same or comparable work may not be paid differently because of a protected characteristic; some states also protect employees who discuss wages.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "comparison_standard",
+          "type": "enum",
+          "values": [
+            "equal_work",
+            "substantially_similar",
+            "comparable_work",
+            "discrimination_statute_only",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "How alike two jobs must be for a pay difference to need a lawful justification; discrimination_statute_only means pay bias is reached only through the general anti-discrimination law"
+        },
+        {
+          "name": "protected_classes",
+          "type": "string",
+          "required": true,
+          "description": "Characteristics the pay comparison protects"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "pay_secrecy_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the state bars employers from forbidding or punishing wage discussions"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Lawful justifications, remedies and recent amendments"
+        }
+      ],
+      "synonyms": [
+        "equal pay act",
+        "pay equity",
+        "wage discrimination",
+        "gender pay gap",
+        "pay transparency",
+        "wage discussion protection",
+        "pay secrecy"
+      ]
+    },
+    {
       "code": "pay.exempt_salary_threshold",
       "name": "Exempt salary threshold",
       "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
@@ -3516,6 +3816,143 @@
         "EAP exemption",
         "salary level test",
         "exempt minimum salary"
+      ]
+    },
+    {
+      "code": "pay.pay_frequency",
+      "name": "Pay frequency",
+      "description": "How often wages must be paid and how soon after the pay period ends; many states let exempt or salaried staff be paid less often.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "minimum_frequency",
+          "type": "enum",
+          "values": [
+            "weekly",
+            "biweekly",
+            "semimonthly",
+            "monthly",
+            "none"
+          ],
+          "required": true,
+          "description": "Least frequent lawful pay schedule for the employees the rule covers; none means the state sets no frequency"
+        },
+        {
+          "name": "max_days_between_paydays",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Longest lawful gap between paydays where the statute counts days"
+        },
+        {
+          "name": "max_lag_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after the end of a pay period by which wages for that period must be paid"
+        },
+        {
+          "name": "lag_business_days",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether max_lag_days counts business days only"
+        },
+        {
+          "name": "exempt_may_be_monthly",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether exempt, executive, administrative or professional employees may be paid monthly"
+        },
+        {
+          "name": "applies_to",
+          "type": "string",
+          "required": false,
+          "description": "Who the frequency rule covers when narrower than all employees"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Waivers, agency approvals and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "payday requirements",
+        "pay period",
+        "how often paid",
+        "semimonthly pay",
+        "weekly pay law",
+        "payday frequency"
+      ]
+    },
+    {
+      "code": "pay.wage_deductions",
+      "name": "Wage deductions",
+      "description": "What an employer may take out of a paycheck beyond taxes and court orders, whether the employee must authorize it in writing, and whether cash shortages, breakage or damage may ever be charged back.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "written_authorization_required",
+          "type": "enum",
+          "values": [
+            "required",
+            "approved_form_required",
+            "notice_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "What the employee must sign (or be told) before a voluntary deduction; not_required means the state has no general consent statute and only the FLSA floor applies"
+        },
+        {
+          "name": "shortage_damage_deductions",
+          "type": "enum",
+          "values": [
+            "prohibited",
+            "written_consent_after_loss",
+            "fault_finding_required",
+            "with_written_authorization",
+            "with_written_notice",
+            "final_pay_only",
+            "allowed_above_minimum_wage",
+            "not_addressed"
+          ],
+          "required": true,
+          "description": "Whether cash shortages, breakage, lost or damaged property may be deducted and on what condition"
+        },
+        {
+          "name": "below_minimum_wage_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether employer-benefit deductions may never reduce pay below the minimum wage"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Statutory remedy for an unlawful deduction"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Caps, timing, revocation and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "paycheck deductions",
+        "wage withholding",
+        "chargebacks",
+        "cash shortage deduction",
+        "breakage deduction",
+        "uniform deduction",
+        "payroll deductions"
       ]
     },
     {
@@ -4076,6 +4513,19 @@
       ]
     },
     {
+      "path": "employee.pay_frequency",
+      "type": "enum",
+      "description": "How often employee is paid",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+      ]
+    },
+    {
       "path": "employee.pay_structure",
       "type": "enum",
       "description": "How employee is paid (for exemption tests)",
@@ -4100,6 +4550,24 @@
         "length of service",
         "months employed",
         "seniority"
+      ]
+    },
+    {
+      "path": "employee.worker_type",
+      "type": "enum",
+      "description": "Worker classification type",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "w2_employee",
+        "independent_contractor",
+        "temp_agency",
+        "intern",
+        "volunteer"
+      ],
+      "synonyms": [
+        "worker classification",
+        "employee or contractor"
       ]
     },
     {
@@ -4401,14 +4869,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 992,
-    "rulesIncluded": 47,
-    "excludedByProfile": 938,
+    "rulesConsidered": 1149,
+    "rulesIncluded": 52,
+    "excludedByProfile": 1090,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 4
+    "fullyResolved": 6
   },
-  "checksum": "60903b20aa2eb31120647ebb18328b2aae84be7159448c0cdcfd43aa48b88cee"
+  "checksum": "faa1e21089f581335cf39c4b1ffa927145323d6d2d147ceb789484d8ebd2b912"
 }

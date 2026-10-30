@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:44:49.518Z",
+  "generatedAt": "2026-10-30T21:06:28.836Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "eaaf0fae6a0089ff",
+  "rulesVersion": "50b5ba62c6cae8bb",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1288,6 +1288,246 @@
       "hash": "0ef267f2a5d5466b"
     },
     {
+      "id": "tx-pay-frequency",
+      "title": "Texas — Pay Frequency",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.pay_frequency",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.pay_frequency",
+            "op": "in",
+            "value": [
+              "monthly"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_frequency"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "pay.pay_frequency",
+        "params": {
+          "minimum_frequency": "semimonthly",
+          "exempt_may_be_monthly": true
+        },
+        "summary": "Non-exempt employees must be paid at least twice a month on paydays with roughly equal periods; FLSA-exempt employees at least monthly.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §61.011",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm#61.011",
+          "section": "§61.011",
+          "kind": "statute"
+        },
+        {
+          "source": "US DOL, State Payday Requirements",
+          "url": "https://www.dol.gov/agencies/whd/state/payday",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "4f1d5759be6555f4"
+    },
+    {
+      "id": "federal-flsa-wage-deductions",
+      "title": "FLSA — Wage Deductions",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.wage_protection.deductions",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.wage_deductions",
+        "params": {
+          "written_authorization_required": "not_required",
+          "shortage_damage_deductions": "allowed_above_minimum_wage",
+          "below_minimum_wage_prohibited": true
+        },
+        "summary": "Under the FLSA, deductions for items that primarily benefit the employer (uniforms, tools, cash shortages, damage) may not reduce pay below the minimum wage or cut into overtime.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §531.35 (wages must be paid free and clear)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-531/subpart-B/section-531.35",
+          "section": "§531.35",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL Fact Sheet #16: Deductions from Wages for Uniforms and Other Facilities",
+          "url": "https://www.dol.gov/agencies/whd/fact-sheets/16-flsa-wage-deductions",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "ef6d478bc01f46d3"
+    },
+    {
+      "id": "tx-wage-deductions",
+      "title": "Texas — Wage Deductions",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.deductions",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.wage_deductions",
+        "params": {
+          "written_authorization_required": "required",
+          "shortage_damage_deductions": "with_written_authorization",
+          "notes": "Wage claims to the Texas Workforce Commission within 180 days; bad-faith penalty up to $1,000"
+        },
+        "summary": "Deductions not ordered by a court or authorized by law need the employee's written authorization for a lawful purpose that names the purpose and gives a reasonable expectation of the amount; shortages and damage need the same specific authorization.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §61.018",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm#61.018",
+          "section": "§61.018",
+          "kind": "statute"
+        },
+        {
+          "source": "40 TAC §821.28",
+          "url": "https://texreg.sos.state.tx.us/public/readtac$ext.TacPage?sl=R&app=9&p_dir=&p_rloc=&p_tloc=&p_ploc=&pg=1&p_tac=&ti=40&pt=20&ch=821&rl=28",
+          "section": "§821.28",
+          "kind": "regulation"
+        },
+        {
+          "source": "Ezel, Employee Wage Deduction Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/employee-wage-deduction-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "562652e0c23a6096"
+    },
+    {
+      "id": "federal-equal-pay-act",
+      "title": "Equal Pay Act of 1963 — Equal Pay",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.wage_protection.equal_pay",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.equal_pay",
+        "params": {
+          "comparison_standard": "equal_work",
+          "protected_classes": "sex",
+          "notes": "Covers all FLSA-covered employers; NLRA §7 separately protects most non-supervisory employees who discuss wages"
+        },
+        "summary": "Employees of the opposite sex doing equal work (equal skill, effort and responsibility under similar conditions) in the same establishment must be paid equally unless a seniority, merit, production or other factor-other-than-sex system explains the gap.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §206(d) (Equal Pay Act of 1963)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "§206(d)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "a30c952bdb8e8f93"
+    },
+    {
+      "id": "tx-equal-pay",
+      "title": "Texas — Equal Pay",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.equal_pay",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.equal_pay",
+        "params": {
+          "comparison_standard": "discrimination_statute_only",
+          "protected_classes": "race, color, disability, religion, sex, national origin, age",
+          "min_employees": 15
+        },
+        "summary": "The Texas Equal Pay Act covers only public employees; private-sector pay discrimination is reached through the Texas Commission on Human Rights Act for employers of 15 or more.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §21.051",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.21.htm#21.051",
+          "section": "§21.051",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Pay Equity and State-by-State Laws (survey)",
+          "url": "https://www.paycor.com/resource-center/articles/pay-equity-and-state-by-state-laws/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "fefda2de30f68810"
+    },
+    {
       "id": "federal-lactation-break-pump-act",
       "title": "Federal Lactation Break Time (PUMP Act)",
       "jurisdiction": "Federal",
@@ -1881,6 +2121,64 @@
       ]
     },
     {
+      "code": "pay.equal_pay",
+      "name": "Equal pay",
+      "description": "Employees doing the same or comparable work may not be paid differently because of a protected characteristic; some states also protect employees who discuss wages.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "comparison_standard",
+          "type": "enum",
+          "values": [
+            "equal_work",
+            "substantially_similar",
+            "comparable_work",
+            "discrimination_statute_only",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "How alike two jobs must be for a pay difference to need a lawful justification; discrimination_statute_only means pay bias is reached only through the general anti-discrimination law"
+        },
+        {
+          "name": "protected_classes",
+          "type": "string",
+          "required": true,
+          "description": "Characteristics the pay comparison protects"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "pay_secrecy_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the state bars employers from forbidding or punishing wage discussions"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Lawful justifications, remedies and recent amendments"
+        }
+      ],
+      "synonyms": [
+        "equal pay act",
+        "pay equity",
+        "wage discrimination",
+        "gender pay gap",
+        "pay transparency",
+        "wage discussion protection",
+        "pay secrecy"
+      ]
+    },
+    {
       "code": "pay.exempt_salary_threshold",
       "name": "Exempt salary threshold",
       "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
@@ -1919,6 +2217,143 @@
         "EAP exemption",
         "salary level test",
         "exempt minimum salary"
+      ]
+    },
+    {
+      "code": "pay.pay_frequency",
+      "name": "Pay frequency",
+      "description": "How often wages must be paid and how soon after the pay period ends; many states let exempt or salaried staff be paid less often.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "minimum_frequency",
+          "type": "enum",
+          "values": [
+            "weekly",
+            "biweekly",
+            "semimonthly",
+            "monthly",
+            "none"
+          ],
+          "required": true,
+          "description": "Least frequent lawful pay schedule for the employees the rule covers; none means the state sets no frequency"
+        },
+        {
+          "name": "max_days_between_paydays",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Longest lawful gap between paydays where the statute counts days"
+        },
+        {
+          "name": "max_lag_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after the end of a pay period by which wages for that period must be paid"
+        },
+        {
+          "name": "lag_business_days",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether max_lag_days counts business days only"
+        },
+        {
+          "name": "exempt_may_be_monthly",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether exempt, executive, administrative or professional employees may be paid monthly"
+        },
+        {
+          "name": "applies_to",
+          "type": "string",
+          "required": false,
+          "description": "Who the frequency rule covers when narrower than all employees"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Waivers, agency approvals and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "payday requirements",
+        "pay period",
+        "how often paid",
+        "semimonthly pay",
+        "weekly pay law",
+        "payday frequency"
+      ]
+    },
+    {
+      "code": "pay.wage_deductions",
+      "name": "Wage deductions",
+      "description": "What an employer may take out of a paycheck beyond taxes and court orders, whether the employee must authorize it in writing, and whether cash shortages, breakage or damage may ever be charged back.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "written_authorization_required",
+          "type": "enum",
+          "values": [
+            "required",
+            "approved_form_required",
+            "notice_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "What the employee must sign (or be told) before a voluntary deduction; not_required means the state has no general consent statute and only the FLSA floor applies"
+        },
+        {
+          "name": "shortage_damage_deductions",
+          "type": "enum",
+          "values": [
+            "prohibited",
+            "written_consent_after_loss",
+            "fault_finding_required",
+            "with_written_authorization",
+            "with_written_notice",
+            "final_pay_only",
+            "allowed_above_minimum_wage",
+            "not_addressed"
+          ],
+          "required": true,
+          "description": "Whether cash shortages, breakage, lost or damaged property may be deducted and on what condition"
+        },
+        {
+          "name": "below_minimum_wage_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether employer-benefit deductions may never reduce pay below the minimum wage"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Statutory remedy for an unlawful deduction"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Caps, timing, revocation and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "paycheck deductions",
+        "wage withholding",
+        "chargebacks",
+        "cash shortage deduction",
+        "breakage deduction",
+        "uniform deduction",
+        "payroll deductions"
       ]
     },
     {
@@ -2225,6 +2660,19 @@
       "derived": "employee.age < 18"
     },
     {
+      "path": "employee.pay_frequency",
+      "type": "enum",
+      "description": "How often employee is paid",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+      ]
+    },
+    {
       "path": "employee.pay_structure",
       "type": "enum",
       "description": "How employee is paid (for exemption tests)",
@@ -2249,6 +2697,24 @@
         "length of service",
         "months employed",
         "seniority"
+      ]
+    },
+    {
+      "path": "employee.worker_type",
+      "type": "enum",
+      "description": "Worker classification type",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "w2_employee",
+        "independent_contractor",
+        "temp_agency",
+        "intern",
+        "volunteer"
+      ],
+      "synonyms": [
+        "worker classification",
+        "employee or contractor"
       ]
     },
     {
@@ -2362,14 +2828,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 992,
-    "rulesIncluded": 25,
-    "excludedByProfile": 960,
+    "rulesConsidered": 1149,
+    "rulesIncluded": 30,
+    "excludedByProfile": 1112,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 0
+    "fullyResolved": 2
   },
-  "checksum": "d2f816eaac4040cdd04a0c62541c2d1f40bb68201bda471989c93bc8471b3a6a"
+  "checksum": "70bbad2cd204502d6e94dff3fe54ea2cfa515a3cd0a21d0edf30f59577345014"
 }
