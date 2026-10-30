@@ -51,6 +51,8 @@ app.get("/api/ts-facts", (_req, res) => {
     description: f.description,
     category: f.category || null,
     enumValues: f.enumValues || null,
+    group: f.group || null,
+    synonyms: f.synonyms || [],
     deprecated: f.deprecated || false,
     replacedBy: f.replacedBy || null,
   }));

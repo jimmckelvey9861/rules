@@ -15,6 +15,10 @@ export interface FactDefinition {
   description: string;
   category?: string;
   enumValues?: string[];
+  /** Sub-heading within the category, e.g. "2.1 Size" */
+  group?: string;
+  /** Terms people use for this fact; see resolveFact() */
+  synonyms?: string[];
   deprecated?: boolean;
   replacedBy?: string;
 }

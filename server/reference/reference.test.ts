@@ -10,6 +10,7 @@ import { ALL_LOCALS, ALL_STATES, ALL_TOPICS } from "../rules/coverageMatrix.js";
 import { TAXONOMY, getAllTaxonomyNodes, resolveTopic, getEnforcementTarget, topicCodeOf, legacyTopicFor } from "./taxonomy.js";
 import { matrixTopicFor, MATRIX_ROWS_BY_TOPIC_CODE } from "../rules/coverageMatrix.js";
 import { listJsonFiles, readJsonFile } from "./dataFiles.js";
+import { FACTS_FILE, getAllFacts, getCanonicalFacts, getFactCategories, resolveFact } from "../rules/facts.js";
 import {
   JURISDICTIONS, resolveJurisdiction, getJurisdiction, getJurisdictionChain, findPreemptingAncestor, getPreemptionDetail, getJurisdictionsByType,
 } from "./jurisdictions.js";
@@ -107,6 +108,28 @@ assert(RULES.filter(r => r.result.obligation.startsWith("minor.") && r.result.ob
 const caMinWage = evaluateRules(RULES, { "location.state": "CA", "employee.exempt_status": "non_exempt", "employee.regular_hourly_rate": 7.0, "shift.hours_worked_today": 4, "shift.hours_worked_this_week": 20 });
 const caWinner = caMinWage.violations.filter(v => RULES.find(r => r.id === v.ruleId)?.result.obligation === "wage.minimum");
 assert(caWinner.length === 1 && caWinner[0].ruleId === "ca-minimum-wage-2025", `Most protective minimum wage wins through the vocabulary compare param (got ${caWinner.map(v => v.ruleId).join(", ")})`);
+
+console.log("\n═══ Facts ═══");
+const facts = getAllFacts();
+const factPaths = facts.map(f => f.path);
+assert(facts.length >= 118, `At least 118 facts loaded from data/facts.json (got ${facts.length})`);
+assert(new Set(factPaths).size === factPaths.length, "Fact paths are unique");
+assert(facts.every(f => /^[a-z_]+\.[a-z_0-9]+$/.test(f.path)), "Every fact path is namespace.name in lowercase");
+const categoryIds = new Set(getFactCategories().map(c => c.id));
+assert(facts.every(f => f.category !== undefined && categoryIds.has(f.category)), "Every fact sits in a declared category");
+assert(facts.filter(f => f.type === "enum").every(f => (f.enumValues?.length ?? 0) > 0), "Every enum fact lists its values");
+assert(facts.filter(f => f.type !== "enum").every(f => !f.enumValues), "Only enum facts list enum values");
+const allSynonyms = facts.flatMap(f => (f.synonyms ?? []).map(s => s.toLowerCase()));
+assert(new Set(allSynonyms).size === allSynonyms.length && allSynonyms.every(s => !new Set(factPaths).has(s)), "Synonyms are unique and never collide with a fact path");
+assert(facts.filter(f => f.deprecated).every(f => f.replacedBy && new Set(factPaths).has(f.replacedBy)), "Every deprecated fact names a live replacement");
+assert(getCanonicalFacts().every(f => !f.deprecated), "Canonical facts exclude deprecated ones");
+assert(resolveFact("Headcount")?.path === "employer.total_employees" && resolveFact("EMPLOYER.TOTAL_EMPLOYEES")?.path === "employer.total_employees", "resolveFact matches a synonym or a path, ignoring case");
+assert(resolveFact("no such term") === undefined, "resolveFact returns undefined for an unknown term");
+const usedFacts = new Set<string>();
+const walk = (c: any) => { if (!c) return; if (c.fact) usedFacts.add(c.fact); for (const k of ["all", "any"]) (c[k] ?? []).forEach(walk); if (c.not) walk(c.not); };
+RULES.forEach(r => walk(r.appliesWhen));
+assert([...usedFacts].every(p => new Set(factPaths).has(p)), `All ${usedFacts.size} facts referenced by rules are registered`);
+assert(FACTS_FILE.version >= "2026-10-30", `Facts file carries a version (${FACTS_FILE.version})`);
 
 console.log("\n═══ Citations ═══");
 const allCitations = RULES.flatMap(r => r.citations);
