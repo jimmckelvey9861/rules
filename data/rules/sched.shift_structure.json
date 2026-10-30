@@ -90,10 +90,10 @@
         "obligation": "sched.clopening",
         "params": {
           "rest_hours": 10,
-          "amount": 100,
-          "unit": "usd"
+          "amount": 1.25,
+          "unit": "multiplier"
         },
-        "summary": "$100 per occurrence or 1.25x rate for hours within the rest period (whichever is greater)"
+        "summary": "1.25 times the regular rate for a shift that begins less than 10 hours after the previous shift ended, unless the employee consents in writing"
       },
       "citations": [
         {
@@ -191,9 +191,9 @@
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code \u00a7187.06 (Fair Work Week Ordinance)",
+          "source": "Los Angeles Municipal Code Art. 5, \u00a7185.00 et seq. (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.gov/fair-work-week-information",
-          "section": "LAMC \u00a7187.06",
+          "section": "LAMC Art. 5 (rest between shifts)",
           "kind": "ordinance"
         }
       ]

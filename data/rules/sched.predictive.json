@@ -3,12 +3,132 @@
   "topic": "sched.predictive",
   "rules": [
     {
-      "id": "chi-advance-notice-14day",
-      "title": "Chicago \u2014 14-Day Advance Notice Required",
+      "id": "chi-access-to-hours",
+      "title": "Chicago \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Chicago",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {},
+        "summary": "Before hiring new employees or using agency or temporary staff, the employer must offer additional hours to qualified existing employees"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code \u00a71-25-060 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code \u00a71-25-060",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "chi-advance-notice-10day",
+      "title": "Chicago \u2014 Schedule Change Premium (any change with <10 days notice, 2020-2022)",
       "jurisdiction": "Chicago",
       "topic": "sched.predictive.change_premium",
       "status": "active",
       "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 10
+        },
+        "summary": "1 hour of pay at the regular rate for each shift the employer adds, moves, shortens or cancels with less than 10 days notice (notice window before 2022-07-01)"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code \u00a71-25-050 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code \u00a71-25-050",
+          "kind": "ordinance"
+        }
+      ],
+      "effectiveTo": "2022-06-30"
+    },
+    {
+      "id": "chi-advance-notice-14day",
+      "title": "Chicago \u2014 Schedule Change Premium (any change with <14 days notice)",
+      "jurisdiction": "Chicago",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2022-07-01",
       "appliesWhen": {
         "all": [
           {
@@ -50,7 +170,7 @@
           "unit": "hours_pay",
           "notice_window_days": 14
         },
-        "summary": "1 hour of pay per affected shift (schedule posted with less than 14 days notice)"
+        "summary": "1 hour of pay at the regular rate for each shift the employer adds, moves, shortens or cancels with less than 14 days notice (10 days from 2020-07-01 to 2022-06-30)"
       },
       "citations": [
         {
@@ -62,8 +182,8 @@
       ]
     },
     {
-      "id": "chi-change-under14-subtracted",
-      "title": "Chicago \u2014 Schedule Change Premium (hours subtracted with <14 days notice)",
+      "id": "chi-change-under24h-subtracted",
+      "title": "Chicago \u2014 Schedule Change Premium (hours subtracted or shift cancelled with <24 hours notice)",
       "jurisdiction": "Chicago",
       "topic": "sched.predictive.change_premium",
       "status": "active",
@@ -102,7 +222,7 @@
           {
             "fact": "schedule.advance_notice_days",
             "op": "<",
-            "value": 14
+            "value": 1
           },
           {
             "fact": "schedule.change_type",
@@ -125,16 +245,207 @@
         "params": {
           "amount": 50,
           "unit": "percent_of_hours",
-          "notice_window_days": 14,
+          "notice_window_days": 1,
           "change_type": "hours_reduced"
         },
-        "summary": "50% of pay for subtracted/cancelled hours (predictability pay)"
+        "summary": "Half the regular rate for each scheduled hour not worked when, with less than 24 hours notice, the employer subtracts hours or cancels a shift"
       },
       "citations": [
         {
           "source": "Chicago Municipal Code \u00a71-25-050 (Fair Workweek Ordinance)",
           "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
           "section": "Chi. Mun. Code \u00a71-25-050",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "chi-good-faith-estimate",
+      "title": "Chicago \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Chicago",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {
+          "lookback_days": 90
+        },
+        "summary": "Before or at hire the employer must give a written good faith estimate of the projected days and hours of work for the first 90 days, including on-call shifts"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code \u00a71-25-040 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code \u00a71-25-040",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "chi-right-to-decline",
+      "title": "Chicago \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Chicago",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food",
+              "healthcare",
+              "hotel",
+              "manufacturing",
+              "warehouse"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 100
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any previously unscheduled hours added with less than 14 days notice"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code \u00a71-25-050 (Fair Workweek Ordinance)",
+          "url": "https://www.chicago.gov/city/en/depts/bacp/supp_info/fairworkweek.html",
+          "section": "Chi. Mun. Code \u00a71-25-050",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-access-to-hours",
+      "title": "Los Angeles \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Los Angeles",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees or contractors, the employer must offer the work in writing to current employees for 72 hours (or until accepted) when they are qualified"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (offer of additional work) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (offer of additional work)",
           "kind": "ordinance"
         }
       ]
@@ -178,13 +489,310 @@
           "unit": "hours_pay",
           "notice_window_days": 14
         },
-        "summary": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)"
+        "summary": "1 hour of pay at the regular rate for each change the employer makes to a posted schedule with less than 14 days notice that adds time or changes the date, time or location with no loss of hours"
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code \u00a7187.04 (Fair Work Week Ordinance)",
+          "source": "Los Angeles Municipal Code Art. 5, \u00a7185.00 et seq. (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.gov/fair-work-week-information",
-          "section": "LAMC \u00a7187.04",
+          "section": "LAMC Art. 5 (advance notice and predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-change-under14-subtracted",
+      "title": "Los Angeles \u2014 Schedule Change Premium (hours subtracted or shift cancelled with <14 days notice)",
+      "jurisdiction": "Los Angeles",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "Half the regular rate for each hour not worked when, with less than 14 days notice, the employer reduces a shift by at least 15 minutes or cancels it"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (predictability pay) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-good-faith-estimate",
+      "title": "Los Angeles \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Los Angeles",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "Before hire, and within 10 days of a request, the employer must give a written good faith estimate of the employee's work schedule"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (good faith estimate) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (good faith estimate)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-on-call-not-called",
+      "title": "Los Angeles \u2014 On-Call Shift Premium (not called in)",
+      "jurisdiction": "Los Angeles",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not called in to work"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (predictability pay) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-right-to-decline",
+      "title": "Los Angeles \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Los Angeles",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any hours, shifts or changes not on the posted schedule or added with less than 14 days notice; the employee's consent to a change must be in writing"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (right to decline) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (right to decline)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-access-to-hours",
+      "title": "NYC fast food \u2014 Offer Shifts to Existing Employees Before Hiring",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees to work additional shifts, the employer must post a notice of the shifts for 3 days and offer them to current employees"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1241 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1241",
           "kind": "ordinance"
         }
       ]
@@ -233,8 +841,8 @@
       ]
     },
     {
-      "id": "nyc-ff-change-7-13day-premium",
-      "title": "NYC Fast Food \u2014 Schedule Change Premium (7-13 days notice)",
+      "id": "nyc-ff-change-7-13day-added",
+      "title": "NYC fast food \u2014 Schedule Change Premium ($10: hours added or time changed, 7 to 13 days notice)",
       "jurisdiction": "New York City",
       "topic": "sched.predictive.change_premium",
       "status": "active",
@@ -275,6 +883,15 @@
             "fact": "schedule.advance_notice_days",
             "op": "<",
             "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed"
+            ]
           }
         ]
       },
@@ -287,7 +904,7 @@
           "notice_window_days": 14,
           "change_type": "hours_added"
         },
-        "summary": "$10 per schedule change (added hours or changed time with 7-13 days notice)"
+        "summary": "$10 per change when, with at least 7 but less than 14 days notice, the employer adds hours or changes the date or time of a shift with no loss of hours"
       },
       "citations": [
         {
@@ -299,8 +916,82 @@
       ]
     },
     {
-      "id": "nyc-ff-change-under7-added-premium",
-      "title": "NYC Fast Food \u2014 Schedule Change Premium (<7 days, hours added)",
+      "id": "nyc-ff-change-7-13day-subtracted",
+      "title": "NYC fast food \u2014 Schedule Change Premium ($20: hours subtracted, 7 to 13 days notice)",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 7
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 20,
+          "unit": "usd",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "$20 per change when, with at least 7 but less than 14 days notice, the employer subtracts hours or cancels a shift"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1222(a) (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1222(a)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-change-under24h-subtracted",
+      "title": "NYC fast food \u2014 Schedule Change Premium ($75: hours subtracted or shift cancelled, <24 hours notice)",
       "jurisdiction": "New York City",
       "topic": "sched.predictive.change_premium",
       "status": "active",
@@ -335,12 +1026,15 @@
           {
             "fact": "schedule.advance_notice_days",
             "op": "<",
-            "value": 7
+            "value": 1
           },
           {
             "fact": "schedule.change_type",
-            "op": "=",
-            "value": "hours_added"
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
           }
         ]
       },
@@ -348,12 +1042,12 @@
         "type": "premium_required",
         "obligation": "premium.schedule_change",
         "params": {
-          "amount": 15,
+          "amount": 75,
           "unit": "usd",
-          "notice_window_days": 7,
-          "change_type": "hours_added"
+          "notice_window_days": 1,
+          "change_type": "hours_reduced"
         },
-        "summary": "$15 per schedule change (hours added with less than 7 days notice)"
+        "summary": "$75 per change when, with less than 24 hours notice, the employer subtracts hours or cancels a shift"
       },
       "citations": [
         {
@@ -365,8 +1059,8 @@
       ]
     },
     {
-      "id": "nyc-ff-change-under7-subtracted-premium",
-      "title": "NYC Fast Food \u2014 Schedule Change Premium (<7 days, hours subtracted/cancelled)",
+      "id": "nyc-ff-change-under7-added-premium",
+      "title": "NYC fast food \u2014 Schedule Change Premium ($15: hours added or time changed, <7 days notice)",
       "jurisdiction": "New York City",
       "topic": "sched.predictive.change_premium",
       "status": "active",
@@ -407,6 +1101,81 @@
             "fact": "schedule.change_type",
             "op": "in",
             "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 15,
+          "unit": "usd",
+          "notice_window_days": 7,
+          "change_type": "hours_added"
+        },
+        "summary": "$15 per change when, with less than 7 days notice, the employer adds hours or changes the date or time of a shift with no loss of hours"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1222(b) (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1222(b)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-change-under7-subtracted",
+      "title": "NYC fast food \u2014 Schedule Change Premium ($45: hours subtracted, <7 days but at least 24 hours notice)",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 7
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
               "hours_reduced",
               "shift_cancelled"
             ]
@@ -417,18 +1186,126 @@
         "type": "premium_required",
         "obligation": "premium.schedule_change",
         "params": {
-          "amount": 75,
+          "amount": 45,
           "unit": "usd",
           "notice_window_days": 7,
           "change_type": "hours_reduced"
         },
-        "summary": "$75 per schedule change (hours subtracted or shift cancelled with less than 7 days notice)"
+        "summary": "$45 per change when, with less than 7 days but at least 24 hours notice, the employer subtracts hours or cancels a shift"
       },
       "citations": [
         {
-          "source": "NYC Admin Code \u00a720-1222(b) (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1222(a) (Fair Workweek Law)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code \u00a720-1222(b)",
+          "section": "NYC Admin Code \u00a720-1222(a)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-good-faith-estimate",
+      "title": "NYC fast food \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "At hire the employer must give a written good faith estimate of the number of hours the employee can expect each week and the expected days, times and locations; an updated estimate is owed when the schedule changes significantly"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1221 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1221",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-ff-right-to-decline",
+      "title": "NYC fast food \u2014 Consent Required for Added Hours",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "fast_food"
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employer may not add hours or shifts to a posted schedule without the employee's written consent; the employee may decline"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1222(c) (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1222(c)",
           "kind": "ordinance"
         }
       ]
@@ -474,9 +1351,139 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code \u00a720-1241 (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1251 (Fair Workweek Law, retail)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code \u00a720-1241",
+          "section": "NYC Admin Code \u00a720-1251",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-no-add-under72h",
+      "title": "NYC retail \u2014 No Added Shifts With <72 Hours Notice Without Written Consent",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 20
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 3
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "on_call_to_work"
+            ]
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.late_change_ban",
+        "params": {
+          "notice_hours": 72,
+          "change_type": "hours_added"
+        },
+        "summary": "A retail employer may not add a shift or hours with less than 72 hours notice unless the employee consents in writing"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1252 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1252",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "nyc-retail-no-cancel-under72h",
+      "title": "NYC retail \u2014 No Cancelling Shifts With <72 Hours Notice",
+      "jurisdiction": "New York City",
+      "topic": "sched.predictive.advance_notice",
+      "status": "active",
+      "effectiveFrom": "2017-11-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 20
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 3
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled",
+              "time_changed"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.late_change_ban",
+        "params": {
+          "notice_hours": 72,
+          "change_type": "any"
+        },
+        "summary": "A retail employer may not cancel, shorten or move a shift with less than 72 hours notice (except for emergencies, or when the employee asks)"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin Code \u00a720-1252 (Fair Workweek Law)",
+          "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
+          "section": "NYC Admin Code \u00a720-1252",
           "kind": "ordinance"
         }
       ]
@@ -520,9 +1527,9 @@
       },
       "citations": [
         {
-          "source": "NYC Admin Code \u00a720-1243 (Fair Workweek Law)",
+          "source": "NYC Admin Code \u00a720-1252 (Fair Workweek Law, retail)",
           "url": "https://www.nyc.gov/site/dca/workers/workersrights/fair-work-week-702.page",
-          "section": "NYC Admin Code \u00a720-1243",
+          "section": "NYC Admin Code \u00a720-1252",
           "kind": "ordinance"
         }
       ]
@@ -582,8 +1589,8 @@
       ]
     },
     {
-      "id": "or-change-under7-added",
-      "title": "Oregon \u2014 Schedule Change Premium (<7 days, hours added)",
+      "id": "or-change-under14-added",
+      "title": "Oregon \u2014 Schedule Change Premium (hours or shift added, or time changed, with <14 days notice)",
       "jurisdiction": "OR",
       "topic": "sched.predictive.change_premium",
       "status": "active",
@@ -615,19 +1622,24 @@
             "value": true
           },
           {
-            "fact": "schedule.advance_notice_days",
-            "op": "<",
-            "value": 7
-          },
-          {
-            "fact": "schedule.change_type",
-            "op": "=",
-            "value": "hours_added"
-          },
-          {
             "fact": "schedule.employee_consented",
             "op": "=",
             "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
           }
         ]
       },
@@ -637,10 +1649,10 @@
         "params": {
           "amount": 1,
           "unit": "hours_pay",
-          "notice_window_days": 7,
+          "notice_window_days": 14,
           "change_type": "hours_added"
         },
-        "summary": "1 hour of pay at regular rate (hours added with less than 7 days notice)"
+        "summary": "1 additional hour of pay when, with less than 14 days notice, the employer adds more than 30 minutes to a shift, changes the date or start/end time with no loss of hours, or schedules an additional shift"
       },
       "citations": [
         {
@@ -652,8 +1664,8 @@
       ]
     },
     {
-      "id": "or-change-under7-subtracted",
-      "title": "Oregon \u2014 Schedule Change Premium (<7 days, hours subtracted/cancelled)",
+      "id": "or-change-under14-subtracted",
+      "title": "Oregon \u2014 Schedule Change Premium (hours subtracted or shift cancelled with <14 days notice)",
       "jurisdiction": "OR",
       "topic": "sched.predictive.change_premium",
       "status": "active",
@@ -687,7 +1699,7 @@
           {
             "fact": "schedule.advance_notice_days",
             "op": "<",
-            "value": 7
+            "value": 14
           },
           {
             "fact": "schedule.change_type",
@@ -710,10 +1722,10 @@
         "params": {
           "amount": 50,
           "unit": "percent_of_hours",
-          "notice_window_days": 7,
+          "notice_window_days": 14,
           "change_type": "hours_reduced"
         },
-        "summary": "One-half of scheduled hours at regular rate (hours subtracted or shift cancelled with less than 7 days notice)"
+        "summary": "Half the regular rate for each scheduled hour not worked when, with less than 14 days notice, the employer subtracts hours, cancels a shift, or changes the date or time with a loss of hours"
       },
       "citations": [
         {
@@ -721,6 +1733,250 @@
           "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
           "section": "ORS 653.455(4)(b)",
           "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-good-faith-estimate",
+      "title": "Oregon \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "OR",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "At hire the employer must give a written good faith estimate of the median hours the employee can expect per month and whether the employee is on the voluntary standby list"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.436",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.436",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-on-call-not-called",
+      "title": "Oregon \u2014 On-Call Shift Premium (not called in)",
+      "jurisdiction": "OR",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not asked to work (does not apply to employees on the voluntary standby list)"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.455",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.455",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-right-to-decline",
+      "title": "Oregon \u2014 Right to Decline Unscheduled Shifts",
+      "jurisdiction": "OR",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any work shift not included in the written schedule and any hours added with less than 14 days notice; the employer may not retaliate for declining"
+      },
+      "citations": [
+        {
+          "source": "Oregon Predictive Scheduling Law, ORS 653.442",
+          "url": "https://www.oregon.gov/boli/workers/pages/predictive-scheduling.aspx",
+          "section": "ORS 653.442",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "phl-access-to-hours",
+      "title": "Philadelphia \u2014 Offer Shifts to Existing Employees Before Hiring",
+      "jurisdiction": "Philadelphia",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees or using agency or temporary staff, the employer must post available shifts and offer them to existing employees for 72 hours"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code \u00a79-4606 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4606",
+          "kind": "ordinance"
         }
       ]
     },
@@ -764,34 +2020,34 @@
         "type": "premium_required",
         "obligation": "premium.schedule_change",
         "params": {
-          "amount": 40,
-          "unit": "usd",
+          "amount": 1,
+          "unit": "hours_pay",
           "notice_window_days": 14
         },
-        "summary": "$40 per schedule change (less than 14 days notice); $56 if less than 24 hours notice"
+        "summary": "1 hour of pay per affected shift when the schedule is posted or changed with less than 14 days notice (10 days before 2021-01-01)"
       },
       "citations": [
         {
-          "source": "Philadelphia Code \u00a79-4601 et seq. (Fair Workweek Employment Standards)",
+          "source": "Philadelphia Code \u00a79-4604 (Fair Workweek Employment Standards)",
           "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
-          "section": "Phila. Code \u00a79-4603",
+          "section": "Phila. Code \u00a79-4604",
           "kind": "ordinance"
         }
       ]
     },
     {
-      "id": "sf-advance-notice-14day",
-      "title": "San Francisco \u2014 14-Day Advance Notice Required",
-      "jurisdiction": "San Francisco",
+      "id": "phl-change-under14-added",
+      "title": "Philadelphia \u2014 Schedule Change Premium (hours or shift added, or time changed, with <14 days notice)",
+      "jurisdiction": "Philadelphia",
       "topic": "sched.predictive.change_premium",
       "status": "active",
-      "effectiveFrom": "2015-07-03",
+      "effectiveFrom": "2020-04-01",
       "appliesWhen": {
         "all": [
           {
             "fact": "location.city",
             "op": "=",
-            "value": "San Francisco"
+            "value": "Philadelphia"
           },
           {
             "fact": "employer.industry_tag",
@@ -799,18 +2055,44 @@
             "value": [
               "retail",
               "restaurant",
-              "hospitality"
+              "hospitality",
+              "fast_food"
             ]
           },
           {
             "fact": "employer.total_employees_global",
             "op": ">=",
-            "value": 40
+            "value": 250
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
           },
           {
             "fact": "schedule.advance_notice_days",
             "op": "<",
             "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
           }
         ]
       },
@@ -818,15 +2100,345 @@
         "type": "premium_required",
         "obligation": "premium.schedule_change",
         "params": {
-          "notice_window_days": 14
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "hours_added"
         },
-        "summary": "1-4 hours of pay depending on change type (predictability pay)"
+        "summary": "1 hour of pay at the regular rate when, with less than 14 days notice, the employer adds time to a shift, adds a shift, or changes the date, time or location with no loss of hours (changes of 20 minutes or less are exempt)"
       },
       "citations": [
         {
-          "source": "San Francisco Administrative Code Ch. 12Z (Formula Retail Employee Rights)",
-          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
-          "section": "SF Admin Code \u00a712Z",
+          "source": "Philadelphia Code \u00a79-4604 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4604",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "phl-change-under14-subtracted",
+      "title": "Philadelphia \u2014 Schedule Change Premium (hours subtracted or shift cancelled with <14 days notice)",
+      "jurisdiction": "Philadelphia",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "Half the regular rate for each hour not worked when, with less than 14 days notice, the employer subtracts hours or cancels a shift"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code \u00a79-4604 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4604",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "phl-good-faith-estimate",
+      "title": "Philadelphia \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Philadelphia",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {
+          "lookback_days": 90
+        },
+        "summary": "At hire the employer must give a written good faith estimate of the average weekly hours over a typical 90-day period, whether on-call shifts are expected, and the expected days and times"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code \u00a79-4603 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4603",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "phl-on-call-not-called",
+      "title": "Philadelphia \u2014 On-Call Shift Premium (not called in)",
+      "jurisdiction": "Philadelphia",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not called in to work"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code \u00a79-4604 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4604",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "phl-right-to-decline",
+      "title": "Philadelphia \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Philadelphia",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2020-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 250
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any hours or shifts not on the posted schedule or added with less than 14 days notice; added hours require written consent"
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code \u00a79-4604 (Fair Workweek Employment Standards)",
+          "url": "https://www.phila.gov/services/working-jobs/worker-protections/wage-protections/report-a-fair-workweek-violation/",
+          "section": "Phila. Code \u00a79-4604",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-access-to-hours",
+      "title": "Seattle \u2014 Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Seattle",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees or using staffing agencies, the employer must post a notice of available hours for 3 days and offer them to qualified existing employees"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.055",
           "kind": "ordinance"
         }
       ]
@@ -881,6 +2493,86 @@
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
           "section": "SMC 14.22.045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-change-under14-added",
+      "title": "Seattle \u2014 Schedule Change Premium (hours or shift added, or time changed, with <14 days notice)",
+      "jurisdiction": "Seattle",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "hours_added"
+        },
+        "summary": "1 additional hour of pay when, with less than 14 days notice, the employer adds hours, adds a shift, or changes the date, time or location of a shift without reducing hours"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.050",
           "kind": "ordinance"
         }
       ]
@@ -954,6 +2646,704 @@
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
           "section": "SMC 14.22.045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-good-faith-estimate",
+      "title": "Seattle \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "Seattle",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "At hire the employer must give a written good faith estimate of the employee's expected median hours and whether on-call shifts are expected; it must be revisited yearly and when a significant change occurs"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.025",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-on-call-not-called",
+      "title": "Seattle \u2014 On-Call Shift Premium (not called in)",
+      "jurisdiction": "Seattle",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not called in to work"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.050",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-right-to-decline",
+      "title": "Seattle \u2014 Right to Decline Late-Added Hours",
+      "jurisdiction": "Seattle",
+      "topic": "sched.predictive.right_to_decline",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 500
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any hours or shifts not on the posted schedule or added with less than 14 days notice"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-access-to-hours",
+      "title": "San Francisco \u2014 Offer Hours to Part-Time Employees Before Hiring",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.access_to_hours",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "max_part_time_hours": 35
+        },
+        "summary": "Before hiring new employees or using staffing agencies, the employer must offer additional hours in writing to qualified current part-time employees (fewer than 35 hours a week)"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33F (offer of additional hours)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-advance-notice-14day",
+      "title": "San Francisco \u2014 14-Day Advance Notice of Work Schedule",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.advance_notice",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.advance_notice",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "Work schedules must be posted at least 14 days (2 weeks) before the first shift on them"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (advance notice of work schedule)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-change-under24h-long",
+      "title": "San Francisco \u2014 Schedule Change Premium (4 hours: <24 hours notice, shift over 4 hours)",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 4,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "any"
+        },
+        "summary": "4 hours of pay at the regular rate when a shift longer than 4 hours is changed with less than 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-change-under24h-short",
+      "title": "San Francisco \u2014 Schedule Change Premium (2 hours: <24 hours notice, shift of 4 hours or less)",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 2,
+          "unit": "hours_pay",
+          "notice_window_days": 1,
+          "change_type": "any"
+        },
+        "summary": "2 hours of pay at the regular rate when a shift of 4 hours or less is changed with less than 24 hours notice"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-change-under7-1hr",
+      "title": "San Francisco \u2014 Schedule Change Premium (1 hour: <7 days but at least 24 hours notice)",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.change_premium",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 7
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 7,
+          "change_type": "any"
+        },
+        "summary": "1 hour of pay at the regular rate for each shift changed with less than 7 days but at least 24 hours notice (added, moved, cut or cancelled)"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-good-faith-estimate",
+      "title": "San Francisco \u2014 Good Faith Estimate at Hire",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.good_faith_estimate",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "schedule.good_faith_estimate_provided",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "Before hire the employer must give a written good faith estimate of the expected minimum number of scheduled shifts per month and their days and hours"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (initial estimate of work schedule)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-on-call-not-called-long",
+      "title": "San Francisco \u2014 On-Call Shift Premium (4 hours: not called in, shift over 4 hours)",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 4,
+          "unit": "hours_pay",
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "4 hours of pay at the regular rate for an on-call shift longer than 4 hours the employee is not called in to work"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (on-call pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-on-call-not-called-short",
+      "title": "San Francisco \u2014 On-Call Shift Premium (2 hours: not called in, shift of 4 hours or less)",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.predictive.on_call",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": "<=",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 2,
+          "unit": "hours_pay",
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "2 hours of pay at the regular rate for an on-call shift of 4 hours or less the employee is not called in to work"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Formula Retail Employee Rights Ordinances (Police Code Art. 33F-33G, recodified in the Labor and Employment Code)",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "Art. 33G (on-call pay)",
           "kind": "ordinance"
         }
       ]

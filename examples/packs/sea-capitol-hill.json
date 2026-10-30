@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-21T20:42:37.882Z",
+  "generatedAt": "2026-10-30T17:24:53.919Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "78afbd1564a5b020",
-  "vocabularyVersion": "2026-10-20",
+  "rulesVersion": "52bd0ed749eedac5",
+  "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
     "id": "sea-capitol-hill",
@@ -1295,6 +1295,58 @@
       ]
     },
     {
+      "id": "sea-access-to-hours",
+      "title": "Seattle — Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.access_to_hours",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.hours_offered_to_existing_staff",
+        "schedule.new_hire_pending"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees or using staffing agencies, the employer must post a notice of available hours for 3 days and offer them to qualified existing employees",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.055",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "sea-advance-notice-14day",
       "title": "Seattle — 14-Day Advance Notice Required",
       "jurisdiction": "Seattle",
@@ -1334,6 +1386,84 @@
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
           "section": "SMC 14.22.045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-change-under14-added",
+      "title": "Seattle — Schedule Change Premium (hours or shift added, or time changed, with <14 days notice)",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.change_premium",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days",
+        "schedule.change_type",
+        "schedule.employee_consented",
+        "schedule.employer_initiated",
+        "schedule.was_changed"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 1,
+          "unit": "hours_pay",
+          "notice_window_days": 14,
+          "change_type": "hours_added"
+        },
+        "summary": "1 additional hour of pay when, with less than 14 days notice, the employer adds hours, adds a shift, or changes the date, time or location of a shift without reducing hours",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.050",
           "kind": "ordinance"
         }
       ]
@@ -1398,6 +1528,175 @@
         },
         "summary": "50% of pay for subtracted/cancelled hours (predictability pay)",
         "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.045",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-good-faith-estimate",
+      "title": "Seattle — Good Faith Estimate at Hire",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.good_faith_estimate",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "fact": "schedule.good_faith_estimate_provided",
+        "op": "=",
+        "value": false
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.good_faith_estimate_provided"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "At hire the employer must give a written good faith estimate of the employee's expected median hours and whether on-call shifts are expected; it must be revisited yearly and when a significant change occurs",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.025",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-on-call-not-called",
+      "title": "Seattle — On-Call Shift Premium (not called in)",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.on_call",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.called_in",
+        "shift.is_on_call"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not called in to work",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
+          "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
+          "section": "SMC 14.22.050",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sea-right-to-decline",
+      "title": "Seattle — Right to Decline Late-Added Hours",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_decline",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days",
+        "schedule.change_type",
+        "schedule.employee_consented",
+        "schedule.employer_initiated",
+        "schedule.was_changed"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any hours or shifts not on the posted schedule or added with less than 14 days notice",
+        "kronto": "block"
       },
       "citations": [
         {
@@ -1938,10 +2237,12 @@
           "values": [
             "hours_added",
             "hours_reduced",
+            "time_changed",
+            "on_call_not_needed",
             "any"
           ],
           "required": false,
-          "description": "Which schedule changes trigger the premium"
+          "description": "Which schedule changes trigger the premium: hours added (incl. added shifts), hours reduced (incl. cancellations and early send-home), a time or location change with no change in hours, an on-call shift the employee was not called in for, or any change"
         }
       ],
       "synonyms": [
@@ -1949,6 +2250,37 @@
         "schedule change pay",
         "fair workweek premium",
         "advance notice premium"
+      ]
+    },
+    {
+      "code": "sched.access_to_hours",
+      "name": "Offer of hours to existing employees",
+      "description": "Before hiring new staff or using a staffing agency to cover hours, the employer must offer those hours to existing (part-time) employees.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "offer_window_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "How long the offer must stay open to existing employees before the employer may hire (72 hours = 3 days)"
+        },
+        {
+          "name": "max_part_time_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Weekly hours below which an employee counts as part-time for the offer, where the law sets one"
+        }
+      ],
+      "synonyms": [
+        "access to hours",
+        "offer of additional hours",
+        "right to additional hours",
+        "offer of work to existing employees"
       ]
     },
     {
@@ -1992,6 +2324,54 @@
         "right to rest",
         "rest between shifts",
         "back-to-back shifts"
+      ]
+    },
+    {
+      "code": "sched.good_faith_estimate",
+      "name": "Good faith estimate of hours",
+      "description": "At hire (and on request or when circumstances change) the employer must give a written good faith estimate of the employee's expected hours, days and shifts.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "lookback_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Period the estimate is based on or must be revisited over, where the law sets one (Philadelphia and Chicago: 90 days)"
+        }
+      ],
+      "synonyms": [
+        "good faith estimate",
+        "GFE",
+        "estimate of hours",
+        "initial estimate of work schedule"
+      ]
+    },
+    {
+      "code": "sched.right_to_decline",
+      "name": "Right to decline late-added hours",
+      "description": "The employee may refuse hours or shifts the employer adds or moves inside the notice window; working them needs the employee's consent.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Hours added with less than this much notice may be declined"
+        }
+      ],
+      "synonyms": [
+        "right to decline",
+        "right to refuse added shifts",
+        "consent to schedule change",
+        "voluntary additional hours"
       ]
     },
     {
@@ -2082,6 +2462,12 @@
       "derived": "whole days from the date the shift (or its latest amendment) was communicated to the employee to the shift date"
     },
     {
+      "path": "schedule.called_in",
+      "type": "boolean",
+      "description": "Whether employee was called in to work",
+      "category": "5. Schedule"
+    },
+    {
       "path": "schedule.change_type",
       "type": "enum",
       "description": "Type of schedule change",
@@ -2103,6 +2489,31 @@
       "description": "Whether the employee consented to the change",
       "category": "5. Schedule",
       "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "schedule.employer_initiated",
+      "type": "boolean",
+      "description": "Whether the change was employer-initiated",
+      "category": "5. Schedule",
+      "derived": "true for an amended shift unless the scheduler records the employee asked for it"
+    },
+    {
+      "path": "schedule.good_faith_estimate_provided",
+      "type": "boolean",
+      "description": "Whether a good faith schedule estimate was provided at hire",
+      "category": "5. Schedule"
+    },
+    {
+      "path": "schedule.hours_offered_to_existing_staff",
+      "type": "boolean",
+      "description": "Whether those hours were first offered to existing (part-time) employees for the required window",
+      "category": "5. Schedule"
+    },
+    {
+      "path": "schedule.new_hire_pending",
+      "type": "boolean",
+      "description": "Whether the employer is about to hire a new employee, or bring in agency or temporary staff, to cover hours",
+      "category": "5. Schedule"
     },
     {
       "path": "schedule.was_changed",
@@ -2130,6 +2541,12 @@
       "description": "Hours worked in the current workweek",
       "category": "4. Shift",
       "derived": "this shift's length plus the length of every other shift for the employee in the same workweek"
+    },
+    {
+      "path": "shift.is_on_call",
+      "type": "boolean",
+      "description": "Whether this is an on-call shift",
+      "category": "4. Shift"
     },
     {
       "path": "shift.is_school_day",
@@ -2175,12 +2592,12 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 476,
-    "rulesIncluded": 27,
-    "excludedByProfile": 449,
-    "excludedExpired": 0,
+    "rulesConsidered": 513,
+    "rulesIncluded": 32,
+    "excludedByProfile": 480,
+    "excludedExpired": 1,
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "26d5f9f21b2922aeaa966ad36ae7186ef45b99ca6750f303765786f1861f9247"
+  "checksum": "42dada5e528e228a3ff6acf3338f0ec93942c5b4e43f420d9a91d102be07e930"
 }

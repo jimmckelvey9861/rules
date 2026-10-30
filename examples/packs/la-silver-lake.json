@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-21T20:42:37.886Z",
+  "generatedAt": "2026-10-30T17:24:53.922Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "78afbd1564a5b020",
-  "vocabularyVersion": "2026-10-20",
+  "rulesVersion": "52bd0ed749eedac5",
+  "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
     "id": "la-silver-lake",
@@ -1592,6 +1592,58 @@
       ]
     },
     {
+      "id": "la-access-to-hours",
+      "title": "Los Angeles — Offer Hours to Existing Employees Before Hiring",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.access_to_hours",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.new_hire_pending",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.hours_offered_to_existing_staff",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.hours_offered_to_existing_staff",
+        "schedule.new_hire_pending"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.access_to_hours",
+        "params": {
+          "offer_window_hours": 72
+        },
+        "summary": "Before hiring new employees or contractors, the employer must offer the work in writing to current employees for 72 hours (or until accepted) when they are qualified",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (offer of additional work) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (offer of additional work)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "la-advance-notice-14day",
       "title": "Los Angeles — 14-Day Advance Notice Required (Retail)",
       "jurisdiction": "Los Angeles",
@@ -1623,14 +1675,260 @@
           "unit": "hours_pay",
           "notice_window_days": 14
         },
-        "summary": "1 hour of pay per affected shift (predictability pay for schedule posted with less than 14 days notice)",
+        "summary": "1 hour of pay at the regular rate for each change the employer makes to a posted schedule with less than 14 days notice that adds time or changes the date, time or location with no loss of hours",
         "kronto": "premium"
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code §187.04 (Fair Work Week Ordinance)",
+          "source": "Los Angeles Municipal Code Art. 5, §185.00 et seq. (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.gov/fair-work-week-information",
-          "section": "LAMC §187.04",
+          "section": "LAMC Art. 5 (advance notice and predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-change-under14-subtracted",
+      "title": "Los Angeles — Schedule Change Premium (hours subtracted or shift cancelled with <14 days notice)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.change_premium",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_reduced",
+              "shift_cancelled"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days",
+        "schedule.change_type",
+        "schedule.employee_consented",
+        "schedule.employer_initiated",
+        "schedule.was_changed"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "hours_reduced"
+        },
+        "summary": "Half the regular rate for each hour not worked when, with less than 14 days notice, the employer reduces a shift by at least 15 minutes or cancels it",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (predictability pay) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-good-faith-estimate",
+      "title": "Los Angeles — Good Faith Estimate at Hire",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.good_faith_estimate",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "fact": "schedule.good_faith_estimate_provided",
+        "op": "=",
+        "value": false
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.good_faith_estimate_provided"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sched.good_faith_estimate",
+        "params": {},
+        "summary": "Before hire, and within 10 days of a request, the employer must give a written good faith estimate of the employee's work schedule",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (good faith estimate) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (good faith estimate)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-on-call-not-called",
+      "title": "Los Angeles — On-Call Shift Premium (not called in)",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.on_call",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.called_in",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.called_in",
+        "shift.is_on_call"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.schedule_change",
+        "params": {
+          "amount": 50,
+          "unit": "percent_of_hours",
+          "notice_window_days": 14,
+          "change_type": "on_call_not_needed"
+        },
+        "summary": "Half the regular rate for each scheduled hour of an on-call shift the employee is not called in to work",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (predictability pay) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (predictability pay)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "la-right-to-decline",
+      "title": "Los Angeles — Right to Decline Late-Added Hours",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "sched.predictive.right_to_decline",
+      "topicCode": "sched.predictive",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2023-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "schedule.was_changed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "schedule.advance_notice_days",
+            "op": "<",
+            "value": 14
+          },
+          {
+            "fact": "schedule.change_type",
+            "op": "in",
+            "value": [
+              "hours_added",
+              "time_changed",
+              "location_changed",
+              "on_call_to_work"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "employer.total_employees_global",
+        "location.city"
+      ],
+      "factsNeeded": [
+        "schedule.advance_notice_days",
+        "schedule.change_type",
+        "schedule.employee_consented",
+        "schedule.employer_initiated",
+        "schedule.was_changed"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.right_to_decline",
+        "params": {
+          "notice_days": 14
+        },
+        "summary": "The employee may decline any hours, shifts or changes not on the posted schedule or added with less than 14 days notice; the employee's consent to a change must be in writing",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code Art. 5 (right to decline) (Fair Work Week Ordinance)",
+          "url": "https://wagesla.lacity.gov/fair-work-week-information",
+          "section": "LAMC Art. 5 (right to decline)",
           "kind": "ordinance"
         }
       ]
@@ -1831,9 +2129,9 @@
       },
       "citations": [
         {
-          "source": "Los Angeles Municipal Code §187.06 (Fair Work Week Ordinance)",
+          "source": "Los Angeles Municipal Code Art. 5, §185.00 et seq. (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.gov/fair-work-week-information",
-          "section": "LAMC §187.06",
+          "section": "LAMC Art. 5 (rest between shifts)",
           "kind": "ordinance"
         }
       ]
@@ -2298,10 +2596,12 @@
           "values": [
             "hours_added",
             "hours_reduced",
+            "time_changed",
+            "on_call_not_needed",
             "any"
           ],
           "required": false,
-          "description": "Which schedule changes trigger the premium"
+          "description": "Which schedule changes trigger the premium: hours added (incl. added shifts), hours reduced (incl. cancellations and early send-home), a time or location change with no change in hours, an on-call shift the employee was not called in for, or any change"
         }
       ],
       "synonyms": [
@@ -2384,6 +2684,37 @@
       ]
     },
     {
+      "code": "sched.access_to_hours",
+      "name": "Offer of hours to existing employees",
+      "description": "Before hiring new staff or using a staffing agency to cover hours, the employer must offer those hours to existing (part-time) employees.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "offer_window_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "How long the offer must stay open to existing employees before the employer may hire (72 hours = 3 days)"
+        },
+        {
+          "name": "max_part_time_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Weekly hours below which an employee counts as part-time for the offer, where the law sets one"
+        }
+      ],
+      "synonyms": [
+        "access to hours",
+        "offer of additional hours",
+        "right to additional hours",
+        "offer of work to existing employees"
+      ]
+    },
+    {
       "code": "sched.clopening",
       "name": "Rest between shifts (clopening)",
       "description": "A closing shift followed by an opening shift with less than the required rest is barred, or owes a premium, unless the employee consents.",
@@ -2424,6 +2755,54 @@
         "right to rest",
         "rest between shifts",
         "back-to-back shifts"
+      ]
+    },
+    {
+      "code": "sched.good_faith_estimate",
+      "name": "Good faith estimate of hours",
+      "description": "At hire (and on request or when circumstances change) the employer must give a written good faith estimate of the employee's expected hours, days and shifts.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "lookback_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Period the estimate is based on or must be revisited over, where the law sets one (Philadelphia and Chicago: 90 days)"
+        }
+      ],
+      "synonyms": [
+        "good faith estimate",
+        "GFE",
+        "estimate of hours",
+        "initial estimate of work schedule"
+      ]
+    },
+    {
+      "code": "sched.right_to_decline",
+      "name": "Right to decline late-added hours",
+      "description": "The employee may refuse hours or shifts the employer adds or moves inside the notice window; working them needs the employee's consent.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Hours added with less than this much notice may be declined"
+        }
+      ],
+      "synonyms": [
+        "right to decline",
+        "right to refuse added shifts",
+        "consent to schedule change",
+        "voluntary additional hours"
       ]
     },
     {
@@ -2546,11 +2925,65 @@
       "derived": "whole days from the date the shift (or its latest amendment) was communicated to the employee to the shift date"
     },
     {
+      "path": "schedule.called_in",
+      "type": "boolean",
+      "description": "Whether employee was called in to work",
+      "category": "5. Schedule"
+    },
+    {
+      "path": "schedule.change_type",
+      "type": "enum",
+      "description": "Type of schedule change",
+      "category": "5. Schedule",
+      "enumValues": [
+        "hours_added",
+        "hours_reduced",
+        "time_changed",
+        "location_changed",
+        "shift_cancelled",
+        "on_call_to_work",
+        "on_call_not_needed"
+      ],
+      "derived": "hours_added when the amended shift is longer, hours_reduced when shorter, time_changed when the same length at different times"
+    },
+    {
       "path": "schedule.employee_consented",
       "type": "boolean",
       "description": "Whether the employee consented to the change",
       "category": "5. Schedule",
       "derived": "false for an amended shift unless the scheduler records written consent"
+    },
+    {
+      "path": "schedule.employer_initiated",
+      "type": "boolean",
+      "description": "Whether the change was employer-initiated",
+      "category": "5. Schedule",
+      "derived": "true for an amended shift unless the scheduler records the employee asked for it"
+    },
+    {
+      "path": "schedule.good_faith_estimate_provided",
+      "type": "boolean",
+      "description": "Whether a good faith schedule estimate was provided at hire",
+      "category": "5. Schedule"
+    },
+    {
+      "path": "schedule.hours_offered_to_existing_staff",
+      "type": "boolean",
+      "description": "Whether those hours were first offered to existing (part-time) employees for the required window",
+      "category": "5. Schedule"
+    },
+    {
+      "path": "schedule.new_hire_pending",
+      "type": "boolean",
+      "description": "Whether the employer is about to hire a new employee, or bring in agency or temporary staff, to cover hours",
+      "category": "5. Schedule"
+    },
+    {
+      "path": "schedule.was_changed",
+      "type": "boolean",
+      "description": "Whether the schedule was changed after posting",
+      "category": "5. Schedule",
+      "derived": "the shift was amended after it was published"
     },
     {
       "path": "shift.consecutive_days_worked",
@@ -2597,6 +3030,12 @@
       "description": "Hours worked in the current day",
       "category": "4. Shift",
       "derived": "this shift's length plus the length of every other shift for the employee on the same date"
+    },
+    {
+      "path": "shift.is_on_call",
+      "type": "boolean",
+      "description": "Whether this is an on-call shift",
+      "category": "4. Shift"
     },
     {
       "path": "shift.is_school_day",
@@ -2668,12 +3107,12 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 476,
-    "rulesIncluded": 33,
-    "excludedByProfile": 443,
-    "excludedExpired": 0,
+    "rulesConsidered": 513,
+    "rulesIncluded": 38,
+    "excludedByProfile": 474,
+    "excludedExpired": 1,
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "eb1b3ca870badd0bc6563fc1e7f310819af0546c2db8c2bfdb5b650964b7ba1c"
+  "checksum": "2b515320d296fefe7477b9adc913f7cb0f0fbd03c95db5d87b61e834f9ea07fc"
 }

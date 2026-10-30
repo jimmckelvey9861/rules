@@ -1,6 +1,6 @@
 {
   "$comment": "Result vocabulary: the registry of obligation types a rule can impose. Every rule's result names one obligation code and supplies its typed params. 'behaviors' lists the engine result types the obligation may use; 'kronto' says what a scheduler should do when the rule fires (block the schedule, compute a premium, or inform). 'compareParam' is the parameter the evaluator uses to pick the most protective rule when several of the same obligation fire; for minimum_required_value obligations 'targetFact' names the scenario fact that is compared against it.",
-  "version": "2026-10-20",
+  "version": "2026-10-30",
   "units": {
     "usd_per_hour": "US dollars per hour",
     "usd": "US dollars, flat amount",
@@ -110,7 +110,7 @@
         { "name": "amount", "type": "number", "required": false, "description": "Premium amount, in the unit given" },
         { "name": "unit", "type": "enum", "values": ["hours_pay", "usd", "percent_of_hours"], "required": false, "description": "How the amount is expressed: hours of pay per affected shift, a flat dollar amount, or a percent of the subtracted hours" },
         { "name": "notice_window_days", "type": "number", "unit": "days", "required": false, "description": "Changes made with less than this much notice trigger the premium" },
-        { "name": "change_type", "type": "enum", "values": ["hours_added", "hours_reduced", "any"], "required": false, "description": "Which schedule changes trigger the premium" }
+        { "name": "change_type", "type": "enum", "values": ["hours_added", "hours_reduced", "time_changed", "on_call_not_needed", "any"], "required": false, "description": "Which schedule changes trigger the premium: hours added (incl. added shifts), hours reduced (incl. cancellations and early send-home), a time or location change with no change in hours, an on-call shift the employee was not called in for, or any change" }
       ],
       "synonyms": ["predictability pay", "schedule change pay", "fair workweek premium", "advance notice premium"]
     },
@@ -138,6 +138,52 @@
         { "name": "unit", "type": "enum", "values": ["hours_pay", "usd", "multiplier"], "required": false, "description": "How the premium is expressed" }
       ],
       "synonyms": ["clopening", "right to rest", "rest between shifts", "back-to-back shifts"]
+    },
+    {
+      "code": "sched.good_faith_estimate",
+      "name": "Good faith estimate of hours",
+      "description": "At hire (and on request or when circumstances change) the employer must give a written good faith estimate of the employee's expected hours, days and shifts.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "lookback_days", "type": "number", "unit": "days", "required": false, "description": "Period the estimate is based on or must be revisited over, where the law sets one (Philadelphia and Chicago: 90 days)" }
+      ],
+      "synonyms": ["good faith estimate", "GFE", "estimate of hours", "initial estimate of work schedule"]
+    },
+    {
+      "code": "sched.right_to_decline",
+      "name": "Right to decline late-added hours",
+      "description": "The employee may refuse hours or shifts the employer adds or moves inside the notice window; working them needs the employee's consent.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "notice_days", "type": "number", "unit": "days", "required": false, "description": "Hours added with less than this much notice may be declined" }
+      ],
+      "synonyms": ["right to decline", "right to refuse added shifts", "consent to schedule change", "voluntary additional hours"]
+    },
+    {
+      "code": "sched.access_to_hours",
+      "name": "Offer of hours to existing employees",
+      "description": "Before hiring new staff or using a staffing agency to cover hours, the employer must offer those hours to existing (part-time) employees.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "offer_window_hours", "type": "number", "unit": "hours", "required": false, "description": "How long the offer must stay open to existing employees before the employer may hire (72 hours = 3 days)" },
+        { "name": "max_part_time_hours", "type": "number", "unit": "hours", "required": false, "description": "Weekly hours below which an employee counts as part-time for the offer, where the law sets one" }
+      ],
+      "synonyms": ["access to hours", "offer of additional hours", "right to additional hours", "offer of work to existing employees"]
+    },
+    {
+      "code": "sched.late_change_ban",
+      "name": "Late schedule change ban",
+      "description": "The employer may not make the named kind of schedule change inside the notice window at all (not merely owe a premium), unless the employee consents in writing where the law allows it.",
+      "behaviors": ["prohibition"],
+      "kronto": "block",
+      "params": [
+        { "name": "notice_hours", "type": "number", "unit": "hours", "required": true, "description": "Changes with less than this many hours of notice are barred" },
+        { "name": "change_type", "type": "enum", "values": ["hours_added", "shift_cancelled", "time_changed", "any"], "required": false, "description": "Which change is barred" }
+      ],
+      "synonyms": ["no last-minute cancellations", "no added shifts without consent", "schedule change prohibition"]
     },
     {
       "code": "sched.on_call_ban",
