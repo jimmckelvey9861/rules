@@ -1,12 +1,12 @@
 {
-  "$comment": "Jurisdiction reference data. id is stable and used as the parent key. ruleKey is the string rules currently carry in their jurisdiction field. fips is the Census code (state 2 digits, county 5, place 7). preemption lists topics where this state forbids local ordinances; a local rule on a preempted topic should be rejected by validation. verified=false means the record was drafted from memory and needs checking against the source named in verificationSource.",
-  "version": "2026-10-20",
+  "$comment": "Jurisdiction reference data. id is stable and used as the parent key. ruleKey is the string rules currently carry in their jurisdiction field. fips is the Census code (state 2 digits, county 5, place 7). preemption lists topics (legacy topic names: minimum_wage, sick_leave, predictive_scheduling) where this state forbids local ordinances; a local rule on a preempted topic is rejected by validation unless the local's id is listed in preemptionDetails[topic].exempt (grandfathered ordinances). preemptionDetails carries the statute citation, year, url and notes. verified=false means the record was drafted from memory and needs checking against the source named in verificationSource.",
+  "version": "2026-10-30",
   "precedenceModes": {
     "floor": "Higher level sets a minimum; lower levels may be more protective (default).",
     "preempted": "State forbids local rules on this topic; local rules are invalid.",
     "exclusive": "One level governs the topic entirely."
   },
-  "verificationSource": "Economic Policy Institute Worker Rights Preemption map; National League of Cities preemption reports; Census Bureau gazetteer for FIPS codes",
+  "verificationSource": "Preemption: EPI Workers' Rights Preemption map (epi.org/preemption-map) cross-checked against statute text, reviewed 2026-10-30; see each state's preemptionDetails. FIPS: state codes checked against the Census list; local place/county codes still unverified.",
   "jurisdictions": [
     {
       "id": "us",
@@ -27,9 +27,28 @@
       "fips": "01",
       "preemption": {
         "minimum_wage": "preempted",
-        "sick_leave": "preempted"
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Ala. Code \u00a7 25-7-41 (Act 2016-18)",
+          "year": 2016,
+          "url": "https://law.justia.com/codes/alabama/title-25/chapter-7/article-2a/section-25-7-41",
+          "note": "Voided Birmingham's ordinance; upheld by the en banc Eleventh Circuit in 2019"
+        },
+        "sick_leave": {
+          "citation": "Ala. Code \u00a7 11-80-16 (2014); \u00a7 25-7-41 (2016)",
+          "year": 2014,
+          "url": "https://law.justia.com/codes/alabama/title-25/chapter-7/article-2a/section-25-7-41"
+        },
+        "predictive_scheduling": {
+          "citation": "Ala. Code \u00a7 25-7-41(b) (work schedules)",
+          "year": 2016,
+          "url": "https://law.justia.com/codes/alabama/title-25/chapter-7/article-2a/section-25-7-41"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ak",
@@ -49,7 +68,8 @@
       "parent": "us",
       "fips": "04",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "No preemption in force: A.R.S. \u00a7 23-204 (HB 2579, 2016) barred local benefit mandates but was struck down for violating the Voter Protection Act (Meyer v. State, Ariz. Ct. App. 2019); Flagstaff's minimum wage and local sick leave authority stand"
     },
     {
       "id": "us-ar",
@@ -63,7 +83,24 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Ark. Code Ann. \u00a7 11-4-222 (Act 1062 of 2017)",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "Ark. Code Ann. \u00a7 11-4-222",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "predictive_scheduling": {
+          "citation": "Ark. Code Ann. \u00a7 11-4-222",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ca",
@@ -83,7 +120,8 @@
       "parent": "us",
       "fips": "08",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "Minimum wage preemption (C.R.S. 8-6-101, 1999) repealed by HB19-1210; Denver and Boulder set local rates"
     },
     {
       "id": "us-ct",
@@ -124,9 +162,29 @@
       "fips": "12",
       "preemption": {
         "minimum_wage": "preempted",
-        "sick_leave": "preempted"
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Fla. Stat. \u00a7 218.077 (2003)",
+          "year": 2003,
+          "url": "https://www.flsenate.gov/laws/statutes/2022/218.077",
+          "note": "Miami Beach ordinance struck down; Florida Supreme Court declined review in 2019"
+        },
+        "sick_leave": {
+          "citation": "Fla. Stat. \u00a7 218.077 (2013 amendment covering employment benefits)",
+          "year": 2013,
+          "url": "https://www.flsenate.gov/laws/statutes/2022/218.077"
+        },
+        "predictive_scheduling": {
+          "citation": "Fla. Stat. \u00a7 448.077 (ch. 2024-80, HB 433)",
+          "year": 2024,
+          "url": "https://www.flsenate.gov/Laws/Statutes/2025/448.077",
+          "note": "Bars local regulation of scheduling, including predictive scheduling, by private employers"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ga",
@@ -140,7 +198,24 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "O.C.G.A. \u00a7 34-4-3.1",
+          "year": 2004,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "O.C.G.A. \u00a7 34-4-3.1 (employment benefits)",
+          "year": 2004,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "predictive_scheduling": {
+          "citation": "O.C.G.A. \u00a7 34-4-3.1 as amended by HB 243 (2017)",
+          "year": 2017,
+          "url": "https://legiscan.com/GA/text/HB243/2017"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-hi",
@@ -162,7 +237,14 @@
       "preemption": {
         "minimum_wage": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Idaho Code \u00a7 44-1502(4)",
+          "year": 2016,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-il",
@@ -172,7 +254,8 @@
       "parent": "us",
       "fips": "17",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "No preemption: the Paid Leave for All Workers Act (2024) lets Chicago and Cook County ordinances stand"
     },
     {
       "id": "us-in",
@@ -183,9 +266,27 @@
       "fips": "18",
       "preemption": {
         "minimum_wage": "preempted",
-        "sick_leave": "preempted"
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Ind. Code \u00a7 22-2-2-10.5",
+          "year": 2011,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "Ind. Code \u00a7 22-2-16-3",
+          "year": 2013,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "predictive_scheduling": {
+          "citation": "Ind. Code \u00a7 22-2-16-3 (2016 amendment adding scheduling)",
+          "year": 2016,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ia",
@@ -199,7 +300,25 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Iowa Code \u00a7\u00a7 331.304(12), 364.3(12) (HF 295)",
+          "year": 2017,
+          "url": "https://legiscan.com/IA/text/HF295/2017",
+          "note": "Retroactively voided county minimum wages in Johnson, Linn, Polk and Wapello counties"
+        },
+        "sick_leave": {
+          "citation": "Iowa Code \u00a7\u00a7 331.304(12), 364.3(12) (any form of employment leave)",
+          "year": 2017,
+          "url": "https://legiscan.com/IA/text/HF295/2017"
+        },
+        "predictive_scheduling": {
+          "citation": "Iowa Code \u00a7\u00a7 331.304(12), 364.3(12) (scheduling practices)",
+          "year": 2017,
+          "url": "https://legiscan.com/IA/text/HF295/2017"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ks",
@@ -210,9 +329,27 @@
       "fips": "20",
       "preemption": {
         "minimum_wage": "preempted",
-        "sick_leave": "preempted"
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "K.S.A. 12-16,130(a)(3)",
+          "year": 2013,
+          "url": "https://ksrevisor.gov/statutes/chapters/ch12/012_016_0130.html"
+        },
+        "sick_leave": {
+          "citation": "K.S.A. 12-16,130(a)(1)-(2)",
+          "year": 2013,
+          "url": "https://ksrevisor.gov/statutes/chapters/ch12/012_016_0130.html"
+        },
+        "predictive_scheduling": {
+          "citation": "K.S.A. 12-16,130(a)(5) (L. 2016, ch. 104)",
+          "year": 2016,
+          "url": "https://ksrevisor.gov/statutes/chapters/ch12/012_016_0130.html"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ky",
@@ -225,7 +362,20 @@
         "minimum_wage": "preempted",
         "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "KRS 65.016(1) (HB 3, 2017)",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/",
+          "note": "Kentucky Supreme Court had already voided the Louisville and Lexington ordinances in 2016"
+        },
+        "sick_leave": {
+          "citation": "KRS 65.016(1) (fringe benefits)",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-la",
@@ -238,7 +388,19 @@
         "minimum_wage": "preempted",
         "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "La. R.S. 23:642",
+          "year": 1997,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "La. R.S. 23:642(B) (2012 amendment covering leave)",
+          "year": 2012,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-me",
@@ -247,7 +409,17 @@
       "type": "state",
       "parent": "us",
       "fips": "23",
-      "preemption": {},
+      "preemption": {
+        "sick_leave": "preempted"
+      },
+      "preemptionDetails": {
+        "sick_leave": {
+          "citation": "26 M.R.S. \u00a7 637(9) (P.L. 2019, ch. 156)",
+          "year": 2019,
+          "url": "https://www.legislature.maine.gov/legis/statutes/26/title26sec637-2.html",
+          "note": "Statewide earned paid leave law; municipalities may not regulate earned paid leave"
+        }
+      },
       "verified": true
     },
     {
@@ -257,7 +429,20 @@
       "type": "state",
       "parent": "us",
       "fips": "24",
-      "preemption": {},
+      "preemption": {
+        "sick_leave": "preempted"
+      },
+      "preemptionDetails": {
+        "sick_leave": {
+          "citation": "Md. Code, Lab. & Empl. \u00a7 3-1302 (Healthy Working Families Act, HB 1 of 2018)",
+          "year": 2018,
+          "url": "https://labor.maryland.gov/paidleave/paidleavefaqs.shtml",
+          "note": "Preempts local sick and safe leave laws enacted on or after 2017-01-01; Montgomery County's 2015 law (Bill 60-14) is grandfathered",
+          "exempt": [
+            "us-md-montgomery-county"
+          ]
+        }
+      },
       "verified": true
     },
     {
@@ -282,7 +467,24 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "MCL 123.1385 (Local Government Labor Regulatory Limitation Act, PA 105 of 2015)",
+          "year": 2015,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "MCL 123.1388, 123.1391",
+          "year": 2015,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "predictive_scheduling": {
+          "citation": "MCL 123.1389",
+          "year": 2015,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-mn",
@@ -292,7 +494,8 @@
       "parent": "us",
       "fips": "27",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "No preemption: 2017 bill vetoed; Minnesota Supreme Court upheld Minneapolis sick time in 2020"
     },
     {
       "id": "us-ms",
@@ -305,7 +508,19 @@
         "minimum_wage": "preempted",
         "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Miss. Code Ann. \u00a7 17-1-51",
+          "year": 2013,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "Miss. Code Ann. \u00a7 17-1-51 (paid or unpaid leave)",
+          "year": 2013,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-mo",
@@ -318,7 +533,20 @@
         "minimum_wage": "preempted",
         "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Mo. Rev. Stat. \u00a7 290.528 (HB 722 of 2015; HB 1194 of 2017)",
+          "year": 2015,
+          "url": "https://www.epi.org/preemption-map/",
+          "note": "2017 amendment voided the St. Louis and Kansas City ordinances"
+        },
+        "sick_leave": {
+          "citation": "Mo. Rev. Stat. \u00a7 285.055",
+          "year": 2015,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-mt",
@@ -338,7 +566,8 @@
       "parent": "us",
       "fips": "31",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "No express statute. Nebraska AG Opinion 26-003 (2026-05-07) argues the Wage and Hour Act impliedly preempts local minimum wages and the state sued Lincoln in June 2026; unresolved, so recorded as floor"
     },
     {
       "id": "us-nv",
@@ -358,7 +587,8 @@
       "parent": "us",
       "fips": "33",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "Dillon's rule state; RSA 279:21 sets the state rate but contains no express local preemption"
     },
     {
       "id": "us-nj",
@@ -367,7 +597,17 @@
       "type": "state",
       "parent": "us",
       "fips": "34",
-      "preemption": {},
+      "preemption": {
+        "sick_leave": "preempted"
+      },
+      "preemptionDetails": {
+        "sick_leave": {
+          "citation": "N.J.S.A. 34:11D-8 (Earned Sick Leave Law, A1827 of 2018)",
+          "year": 2018,
+          "url": "https://www.epi.org/preemption-map/",
+          "note": "Superseded the 13 municipal sick leave ordinances when it took effect 2018-10-29"
+        }
+      },
       "verified": true
     },
     {
@@ -401,7 +641,19 @@
         "minimum_wage": "preempted",
         "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "N.C. Gen. Stat. \u00a7 95-25.1(c) (HB 2, 2016)",
+          "year": 2016,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "N.C. Gen. Stat. \u00a7 95-25.1(c)",
+          "year": 2016,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-nd",
@@ -410,8 +662,18 @@
       "type": "state",
       "parent": "us",
       "fips": "38",
-      "preemption": {},
-      "verified": true
+      "preemption": {
+        "minimum_wage": "preempted"
+      },
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "N.D.C.C. ch. 34-06, living wage mandate prohibition (HB 1193)",
+          "year": 2019,
+          "url": "https://ndlegis.gov/assembly/66-2019/regular/bill-overview/bo1193.html"
+        }
+      },
+      "verified": true,
+      "note": "2021 HB 1398 (N.D.C.C. ch. 34-01) bars local paid family leave mandates exceeding state law; it does not name sick leave, so sick_leave stays floor"
     },
     {
       "id": "us-oh",
@@ -425,7 +687,24 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Ohio Rev. Code \u00a7 4111.02 (SB 331, 2016)",
+          "year": 2016,
+          "url": "https://codes.ohio.gov/orc/section-4111.02"
+        },
+        "sick_leave": {
+          "citation": "Ohio Rev. Code \u00a7 4113.85(B) (fringe benefits)",
+          "year": 2016,
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4113.85"
+        },
+        "predictive_scheduling": {
+          "citation": "Ohio Rev. Code \u00a7 4113.85(B) (hours, notice of schedules, predictive scheduling)",
+          "year": 2016,
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4113.85"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ok",
@@ -436,10 +715,22 @@
       "fips": "40",
       "preemption": {
         "minimum_wage": "preempted",
-        "sick_leave": "preempted",
-        "predictive_scheduling": "preempted"
+        "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "40 O.S. \u00a7 160 (SB 1023, 2014)",
+          "year": 2014,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "40 O.S. \u00a7 160 (mandatory vacation or sick leave days)",
+          "year": 2014,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true,
+      "note": "40 O.S. \u00a7 160 covers minimum wage and vacation/sick leave days only; the earlier predictive_scheduling flag had no statutory basis and was removed"
     },
     {
       "id": "us-or",
@@ -449,9 +740,31 @@
       "parent": "us",
       "fips": "41",
       "preemption": {
-        "minimum_wage": "preempted"
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "ORS 653.017",
+          "year": 2001,
+          "url": "https://oregon.public.law/statutes/ors_653.017",
+          "note": "Exceptions for public employers, public contracts and tax-abatement conditions; the Portland metro tier is set by state law, not a local ordinance"
+        },
+        "sick_leave": {
+          "citation": "ORS 653.661 (SB 454, 2015)",
+          "year": 2015,
+          "url": "https://www.epi.org/preemption-map/",
+          "note": "Statewide sick time law; Portland's and Eugene's ordinances were superseded"
+        },
+        "predictive_scheduling": {
+          "citation": "ORS 653.490 (2015 c.591; 2017 c.691)",
+          "year": 2015,
+          "url": "https://oregon.public.law/statutes/ors_653.490",
+          "note": "State preempts local work schedule requirements except for public employers and public contracts"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-pa",
@@ -463,7 +776,15 @@
       "preemption": {
         "minimum_wage": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "43 P.S. \u00a7 333.114a (Act 112 of 2006)",
+          "year": 2006,
+          "url": "https://www.epi.org/preemption-map/",
+          "note": "Local sick leave is not preempted: Pittsburgh's ordinance was upheld by the Pennsylvania Supreme Court in 2019"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ri",
@@ -473,9 +794,22 @@
       "parent": "us",
       "fips": "44",
       "preemption": {
-        "minimum_wage": "preempted"
+        "minimum_wage": "preempted",
+        "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "R.I. Gen. Laws \u00a7 28-12-25",
+          "year": 2014,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "R.I. Gen. Laws \u00a7 28-57-8 (P.L. 2017, ch. 347)",
+          "year": 2017,
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-57/28-57-8.htm"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-sc",
@@ -488,7 +822,19 @@
         "minimum_wage": "preempted",
         "sick_leave": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "S.C. Code Ann. \u00a7 6-1-130",
+          "year": 2002,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "S.C. Code Ann. \u00a7 41-1-25 (S. 218, 2017)",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-sd",
@@ -512,7 +858,24 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Tenn. Code Ann. \u00a7 50-2-112",
+          "year": 2013,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "Tenn. Code Ann. \u00a7 7-51-1802",
+          "year": 2013,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "predictive_scheduling": {
+          "citation": "Tenn. Code Ann. \u00a7 7-51-1802 as amended by Pub. Ch. 107 (SB 262, 2017)",
+          "year": 2017,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-tx",
@@ -523,9 +886,28 @@
       "fips": "48",
       "preemption": {
         "minimum_wage": "preempted",
-        "sick_leave": "preempted"
+        "sick_leave": "preempted",
+        "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Tex. Lab. Code \u00a7 62.0515",
+          "year": 2003,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "Tex. Lab. Code \u00a7 1.005 (HB 2127, 2023); City of Austin v. Tex. Ass'n of Business (Tex. App. 2018)",
+          "year": 2018,
+          "url": "https://texas.public.law/statutes/tex._labor_code_section_1.005",
+          "note": "Austin, San Antonio and Dallas ordinances were enjoined as conflicting with the Minimum Wage Act before HB 2127 codified field preemption; HB 2127 is under constitutional challenge by Houston but in effect since 2023-09-01"
+        },
+        "predictive_scheduling": {
+          "citation": "Tex. Lab. Code \u00a7 1.005(b) (scheduling practices; HB 2127)",
+          "year": 2023,
+          "url": "https://texas.public.law/statutes/tex._labor_code_section_1.005"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-ut",
@@ -537,7 +919,14 @@
       "preemption": {
         "minimum_wage": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Utah Code \u00a7 34-40-106",
+          "year": 2001,
+          "url": "https://www.epi.org/preemption-map/"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-vt",
@@ -557,7 +946,8 @@
       "parent": "us",
       "fips": "51",
       "preemption": {},
-      "verified": true
+      "verified": true,
+      "note": "Dillon's rule state; 2016 preemption bills were vetoed, no express statute"
     },
     {
       "id": "us-wa",
@@ -591,7 +981,25 @@
         "sick_leave": "preempted",
         "predictive_scheduling": "preempted"
       },
-      "verified": false
+      "preemptionDetails": {
+        "minimum_wage": {
+          "citation": "Wis. Stat. \u00a7 104.001",
+          "year": 2005,
+          "url": "https://www.epi.org/preemption-map/"
+        },
+        "sick_leave": {
+          "citation": "Wis. Stat. \u00a7 103.10(1m) (2011 Act 16)",
+          "year": 2011,
+          "url": "https://www.epi.org/preemption-map/",
+          "note": "Repealed Milwaukee's ordinance"
+        },
+        "predictive_scheduling": {
+          "citation": "Wis. Stat. \u00a7 103.007 (2017 Act 327)",
+          "year": 2018,
+          "url": "https://docs.legis.wisconsin.gov/2017/related/acts/327"
+        }
+      },
+      "verified": true
     },
     {
       "id": "us-wy",

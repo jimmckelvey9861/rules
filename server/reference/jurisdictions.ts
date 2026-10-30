@@ -20,10 +20,23 @@ export interface Jurisdiction {
   parent: string | null;
   fips: string | null;
   agency?: string;
-  /** topic (legacy string or taxonomy code) -> how this level treats lower levels */
+  /** legacy topic name (minimum_wage, sick_leave, predictive_scheduling) -> how this level treats lower levels */
   preemption?: Record<string, PrecedenceMode>;
+  /** Source and scope of each preemption flag, keyed by the same topic names. */
+  preemptionDetails?: Record<string, PreemptionDetail>;
   verified: boolean;
   note?: string;
+}
+
+export interface PreemptionDetail {
+  /** Statute, session law or court decision establishing the preemption. */
+  citation: string;
+  /** Year the preemption took effect (or the decisive amendment). */
+  year: number;
+  url?: string;
+  note?: string;
+  /** Jurisdiction ids whose existing ordinances are grandfathered and still apply. */
+  exempt?: string[];
 }
 
 export interface JurisdictionsFile {
@@ -75,12 +88,19 @@ export function getJurisdictionChain(idOrRuleKey: string): Jurisdiction[] {
 
 /**
  * If any ancestor of this jurisdiction preempts the topic, return that ancestor.
- * A local rule on a preempted topic is invalid and should be rejected.
+ * A local rule on a preempted topic is invalid and should be rejected, unless
+ * the local jurisdiction is grandfathered in that ancestor's preemptionDetails
+ * (e.g. Montgomery County's 2015 sick leave law under Maryland's 2018 act).
  */
 export function findPreemptingAncestor(ruleKey: string, topic: string): Jurisdiction | undefined {
   const [self, ...ancestors] = getJurisdictionChain(ruleKey);
   if (!self || !LOCAL_ORDINANCE_TYPES.has(self.type)) return undefined;
-  return ancestors.find(a => a.preemption?.[topic] === "preempted");
+  return ancestors.find(a => a.preemption?.[topic] === "preempted" && !a.preemptionDetails?.[topic]?.exempt?.includes(self.id));
+}
+
+/** The preemption record behind a flag, for display and audit. */
+export function getPreemptionDetail(ruleKey: string, topic: string): PreemptionDetail | undefined {
+  return resolveJurisdiction(ruleKey)?.preemptionDetails?.[topic];
 }
 
 /**
