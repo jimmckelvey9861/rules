@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:35:25.375Z",
+  "generatedAt": "2026-10-30T20:44:49.496Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "a6bb834ed1cbf6f8",
+  "rulesVersion": "eaaf0fae6a0089ff",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -2907,6 +2907,54 @@
         }
       ],
       "hash": "a12f1d1a0c10d0a3"
+    },
+    {
+      "id": "wa-final-pay-discharge",
+      "title": "Washington — Final Wages on Discharge Or Resignation",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sep.final_pay.timing",
+      "topicCode": "sep.final_pay",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "voluntary_resignation",
+          "retirement",
+          "end_of_contract"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "next_payday"
+        },
+        "summary": "Final wages are due by the end of the established pay period (the next regular payday).",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.48.010",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.48.010",
+          "section": "§49.48.010",
+          "kind": "statute"
+        }
+      ],
+      "hash": "ea09180272629712"
     }
   ],
   "obligations": [
@@ -4146,6 +4194,80 @@
       ]
     },
     {
+      "code": "sep.final_pay_timing",
+      "name": "Final paycheck deadline",
+      "description": "When all wages earned through separation must be paid, which usually differs for a discharge and a resignation.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "deadline",
+          "type": "enum",
+          "values": [
+            "immediately",
+            "within_hours",
+            "within_days",
+            "next_business_day",
+            "next_payday",
+            "earlier_of_next_payday_or_days",
+            "later_of_next_payday_or_days",
+            "scheduled_semimonthly",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "Shape of the deadline; no_state_law means only the FLSA next-regular-payday practice applies"
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours after separation (or after demand) when deadline is within_hours"
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after separation when the deadline counts days"
+        },
+        {
+          "name": "business_days",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the day count excludes weekends and holidays"
+        },
+        {
+          "name": "runs_from_demand",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the clock starts at the employee's demand for payment rather than at separation"
+        },
+        {
+          "name": "notice_shortens_deadline",
+          "type": "string",
+          "required": false,
+          "description": "How advance notice from the employee changes the deadline"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Statutory penalty for late payment"
+        }
+      ],
+      "synonyms": [
+        "final paycheck",
+        "final wages",
+        "last paycheck",
+        "termination pay timing",
+        "wages due on discharge",
+        "wages due on quitting"
+      ]
+    },
+    {
       "code": "wage.minimum",
       "name": "Minimum wage",
       "description": "The lowest hourly rate an employer may pay a covered employee.",
@@ -4572,14 +4694,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 922,
-    "rulesIncluded": 51,
-    "excludedByProfile": 864,
+    "rulesConsidered": 992,
+    "rulesIncluded": 52,
+    "excludedByProfile": 933,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "7950f4ef2904183449a5a0beba80c18ac274d6701b4967ce60889a9aa503249c"
+  "checksum": "5869745ecfd848ad285d26d53d2e68cf925f75f3790527dd9187eca30da59c6b"
 }

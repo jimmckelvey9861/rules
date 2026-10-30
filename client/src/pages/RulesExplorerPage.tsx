@@ -204,6 +204,7 @@ const TOPIC_COLORS: Record<string, string> = {
   "leave.personal": "bg-cyan-100 text-cyan-800",
   "minor.labor": "bg-sky-100 text-sky-800",
   "sep.warn": "bg-red-100 text-red-800",
+  "sep.final_pay": "bg-stone-200 text-stone-800",
 };
 
 /** "pay.minimum_wage.general" -> "pay.minimum_wage" */

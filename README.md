@@ -47,14 +47,14 @@ No database required. No Docker. No environment variables.
 
 ```
 data/
-  taxonomy.json         — 9 categories > 28 topics > 65 sub-topics, enforcement target per topic
+  taxonomy.json         — 9 categories > 28 topics > 66 sub-topics, enforcement target per topic
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 30 local jurisdictions (FIPS, parent,
                           preemption flags with statute citations; 28 states preempt some local labor rule)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
   facts.json            — Fact registry: every fact a rule may test (118 facts in 8 categories, typed,
                           with enum values and plain-language synonyms)
   profiles/             — Business profiles (sample multi-state retail chain)
-  rules/<topic>.json    — All rules, one file per taxonomy topic code (922 rules across 15 topics)
+  rules/<topic>.json    — All rules, one file per taxonomy topic code (992 rules across 16 topics)
   schema/               — JSON Schema for rule files and facts.json (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
@@ -208,7 +208,7 @@ report is attached as an artifact. Only broken links fail the nightly run.
 
 ## Rules
 
-922 rules across 15 taxonomy topics (44 sub-topics) and 87 jurisdictions.
+992 rules across 16 taxonomy topics (45 sub-topics) and 87 jurisdictions.
 `GET /api/coverage` reports which jurisdiction × topic cells have a rule, are
-confirmed to have no law, or are unchecked; its 17 rows are the historical topic
-names (plus lactation breaks, civic leave, hour limits and personal leave), which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.
+confirmed to have no law, or are unchecked; its 18 rows are the historical topic
+names (plus lactation breaks, civic leave, hour limits, personal leave and final pay), which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.

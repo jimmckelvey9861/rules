@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:35:25.389Z",
+  "generatedAt": "2026-10-30T20:44:49.515Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "a6bb834ed1cbf6f8",
+  "rulesVersion": "eaaf0fae6a0089ff",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -3358,6 +3358,124 @@
       "hash": "e357513f1ce63fa8"
     },
     {
+      "id": "ca-final-pay-discharge",
+      "title": "California — Final Wages on Discharge",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sep.final_pay.timing",
+      "topicCode": "sep.final_pay",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "immediately",
+          "penalty": "waiting time penalty of one day's wages per day late, up to 30 days (§203)"
+        },
+        "summary": "All wages are due immediately on discharge or layoff; late payment accrues a waiting time penalty of a day's pay per day up to 30 days.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §201",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=201.&lawCode=LAB",
+          "section": "§201",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code §202",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=202.&lawCode=LAB",
+          "section": "§202",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code §203 (waiting time penalty)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=203.&lawCode=LAB",
+          "section": "§203",
+          "kind": "statute"
+        }
+      ],
+      "hash": "1f85d5e2f829ce45"
+    },
+    {
+      "id": "ca-final-pay-resignation",
+      "title": "California — Final Wages on Resignation",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "sep.final_pay.timing",
+      "topicCode": "sep.final_pay",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "voluntary_resignation",
+          "retirement",
+          "end_of_contract"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.final_pay_timing",
+        "params": {
+          "deadline": "within_hours",
+          "hours": 72,
+          "notice_shortens_deadline": "due on the last day if the employee gave at least 72 hours' notice",
+          "penalty": "waiting time penalty of one day's wages per day late, up to 30 days (§203)"
+        },
+        "summary": "Employees who quit without 72 hours' notice are paid within 72 hours; with 72 hours' notice, on the last day.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §201",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=201.&lawCode=LAB",
+          "section": "§201",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code §202",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=202.&lawCode=LAB",
+          "section": "§202",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code §203 (waiting time penalty)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=203.&lawCode=LAB",
+          "section": "§203",
+          "kind": "statute"
+        }
+      ],
+      "hash": "91f4f38378972914"
+    },
+    {
       "id": "ca-warn-act",
       "title": "California Mini-WARN Act (60-day notice, 75+ employees)",
       "jurisdiction": "CA",
@@ -4811,6 +4929,80 @@
       ]
     },
     {
+      "code": "sep.final_pay_timing",
+      "name": "Final paycheck deadline",
+      "description": "When all wages earned through separation must be paid, which usually differs for a discharge and a resignation.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "deadline",
+          "type": "enum",
+          "values": [
+            "immediately",
+            "within_hours",
+            "within_days",
+            "next_business_day",
+            "next_payday",
+            "earlier_of_next_payday_or_days",
+            "later_of_next_payday_or_days",
+            "scheduled_semimonthly",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "Shape of the deadline; no_state_law means only the FLSA next-regular-payday practice applies"
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours after separation (or after demand) when deadline is within_hours"
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after separation when the deadline counts days"
+        },
+        {
+          "name": "business_days",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the day count excludes weekends and holidays"
+        },
+        {
+          "name": "runs_from_demand",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the clock starts at the employee's demand for payment rather than at separation"
+        },
+        {
+          "name": "notice_shortens_deadline",
+          "type": "string",
+          "required": false,
+          "description": "How advance notice from the employee changes the deadline"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Statutory penalty for late payment"
+        }
+      ],
+      "synonyms": [
+        "final paycheck",
+        "final wages",
+        "last paycheck",
+        "termination pay timing",
+        "wages due on discharge",
+        "wages due on quitting"
+      ]
+    },
+    {
       "code": "sep.warn_notice",
       "name": "Mass layoff / plant closing notice (WARN)",
       "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
@@ -5340,14 +5532,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 922,
-    "rulesIncluded": 61,
-    "excludedByProfile": 854,
+    "rulesConsidered": 992,
+    "rulesIncluded": 63,
+    "excludedByProfile": 922,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "08d33c808dd0820044ccc1ddcce11c9d0482d482b51a0c122c08155e29937dc4"
+  "checksum": "d41d55bf4175630fdbcfe8062f821708d32a272a77fd171b795e6ce2271fc96b"
 }
