@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:53:15.268Z",
-  "asOf": "2026-10-20",
+  "generatedAt": "2026-10-30T19:20:01.831Z",
+  "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "1e560f4c922d0d79",
+  "rulesVersion": "ecada2fd612c99b5",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1393,6 +1393,117 @@
         }
       ],
       "hash": "766465eedda5dc78"
+    },
+    {
+      "id": "ca-seventh-day-overtime-first-8",
+      "title": "California Seventh Consecutive Day: 1.5x for the First 8 Hours (Labor Code §510)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.overtime.seventh_day",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.is_seventh_consecutive_day"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "period": "seventh_day"
+        },
+        "summary": "The first 8 hours worked on the seventh consecutive day of work in a workweek are paid at 1.5x the regular rate (AB 60, effective 2000-01-01). Does not apply to employees on a valid alternative workweek schedule.",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code §510(a)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "2cf8c44c1ace3188"
+    },
+    {
+      "id": "ca-seventh-day-double-time",
+      "title": "California Seventh Consecutive Day: 2x After 8 Hours (Labor Code §510)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.overtime.seventh_day",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "shift.hours_worked_today",
+        "shift.is_seventh_consecutive_day"
+      ],
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 2,
+          "threshold_hours": 8,
+          "period": "seventh_day"
+        },
+        "summary": "Hours over 8 on the seventh consecutive day of work in a workweek are paid at 2x the regular rate.",
+        "kronto": "premium"
+      },
+      "citations": [
+        {
+          "source": "California Labor Code §510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code §510(a)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "7f77d06c098ac419"
     },
     {
       "id": "ca-reporting-time-pay",
@@ -2900,10 +3011,11 @@
           "type": "enum",
           "values": [
             "day",
-            "week"
+            "week",
+            "seventh_day"
           ],
           "required": false,
-          "description": "Whether the threshold is per workday or per workweek"
+          "description": "Whether the threshold is per workday, per workweek, or applies to hours worked on the seventh consecutive day of the workweek"
         }
       ],
       "synonyms": [
@@ -2911,7 +3023,8 @@
         "double time",
         "OT",
         "daily overtime",
-        "weekly overtime"
+        "weekly overtime",
+        "seventh day overtime"
       ]
     },
     {
@@ -3587,6 +3700,14 @@
       "derived": "weekday during the school year (simplified: Monday to Friday, September to mid-June)"
     },
     {
+      "path": "shift.is_seventh_consecutive_day",
+      "type": "boolean",
+      "description": "Whether this is the 7th consecutive day worked",
+      "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "derived": "shift.consecutive_days_worked >= 7"
+    },
+    {
       "path": "shift.is_split_shift",
       "type": "boolean",
       "description": "Whether this is a split shift",
@@ -3674,14 +3795,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 624,
-    "rulesIncluded": 43,
-    "excludedByProfile": 580,
+    "rulesConsidered": 649,
+    "rulesIncluded": 45,
+    "excludedByProfile": 603,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "b829d038feff6bd9cbe2ba0d0082fa229621eda76b21e4196574c6337ad55438"
+  "checksum": "3a9c34ea1b04a18cab2a27d07732e1288bcca9f6cea921c3b28f433ceeee729f"
 }

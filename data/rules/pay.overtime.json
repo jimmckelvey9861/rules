@@ -901,6 +901,149 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "ca-seventh-day-overtime-first-8",
+      "title": "California Seventh Consecutive Day: 1.5x for the First 8 Hours (Labor Code \u00a7510)",
+      "jurisdiction": "CA",
+      "topic": "pay.overtime.seventh_day",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "period": "seventh_day"
+        },
+        "summary": "The first 8 hours worked on the seventh consecutive day of work in a workweek are paid at 1.5x the regular rate (AB 60, effective 2000-01-01). Does not apply to employees on a valid alternative workweek schedule."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7510(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-seventh-day-double-time",
+      "title": "California Seventh Consecutive Day: 2x After 8 Hours (Labor Code \u00a7510)",
+      "jurisdiction": "CA",
+      "topic": "pay.overtime.seventh_day",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_today",
+            "op": ">",
+            "value": 8
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 2,
+          "threshold_hours": 8,
+          "period": "seventh_day"
+        },
+        "summary": "Hours over 8 on the seventh consecutive day of work in a workweek are paid at 2x the regular rate."
+      },
+      "citations": [
+        {
+          "source": "California Labor Code \u00a7510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a7510(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-seventh-day-overtime",
+      "title": "Kentucky Seventh Day Overtime (KRS 337.050)",
+      "jurisdiction": "KY",
+      "topic": "pay.overtime.seventh_day",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.is_seventh_consecutive_day",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "premium.overtime",
+        "params": {
+          "multiplier": 1.5,
+          "period": "seventh_day"
+        },
+        "summary": "An employer that permits an employee to work seven days in one workweek must pay 1.5x the regular rate for all hours worked on the seventh day. Does not apply where the employee is not permitted to work more than 40 hours in the workweek (hours already paid as overtime are credited), nor to supervisors, small telephone exchanges, Railway Labor Act employees and certain carriers. Recodified 1942; in force before 2000."
+      },
+      "citations": [
+        {
+          "source": "KRS 337.050 (Time and a half for seventh day of work)",
+          "url": "https://law.justia.com/codes/kentucky/chapter-337/section-337-050",
+          "section": "KRS 337.050",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

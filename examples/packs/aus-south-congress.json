@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:53:15.269Z",
-  "asOf": "2026-10-20",
+  "generatedAt": "2026-10-30T19:20:01.833Z",
+  "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "1e560f4c922d0d79",
+  "rulesVersion": "ecada2fd612c99b5",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1116,6 +1116,60 @@
         }
       ],
       "hash": "6dfee613ec056465"
+    },
+    {
+      "id": "tx-retail-day-of-rest",
+      "title": "Texas Retail Employees: One 24-Hour Rest Period in Seven (Labor Code §52.001)",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "sched.shift_structure.day_of_rest",
+      "topicCode": "sched.shift_structure",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1993-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.employment_status",
+            "op": "!=",
+            "value": "part_time"
+          },
+          {
+            "fact": "shift.consecutive_days_worked",
+            "op": ">",
+            "value": 6
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "employer.industry_tag",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.employment_status",
+        "shift.consecutive_days_worked"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "rest.weekly_day_of_rest",
+        "params": {
+          "max_consecutive_days": 6,
+          "rest_hours": 24,
+          "period_days": 7
+        },
+        "summary": "An employer whose business is selling merchandise at retail may not require an employee to work seven consecutive days, and may not deny at least one 24-hour period off for rest or worship in each seven-day period; it must also accommodate the employee's weekly worship service absent undue hardship. Part-time employees working 30 or fewer hours a week are excluded. Acts 1993, 73rd Leg., ch. 269.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "Tex. Labor Code §52.001 (Retail employers — one day of rest in seven)",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.52.htm",
+          "section": "Labor Code §52.001",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b13cd6d0aa301ec5"
     }
   ],
   "obligations": [
@@ -1457,10 +1511,11 @@
           "type": "enum",
           "values": [
             "day",
-            "week"
+            "week",
+            "seventh_day"
           ],
           "required": false,
-          "description": "Whether the threshold is per workday or per workweek"
+          "description": "Whether the threshold is per workday, per workweek, or applies to hours worked on the seventh consecutive day of the workweek"
         }
       ],
       "synonyms": [
@@ -1468,7 +1523,47 @@
         "double time",
         "OT",
         "daily overtime",
-        "weekly overtime"
+        "weekly overtime",
+        "seventh day overtime"
+      ]
+    },
+    {
+      "code": "rest.weekly_day_of_rest",
+      "name": "Weekly day of rest",
+      "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "block",
+      "params": [
+        {
+          "name": "max_consecutive_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most consecutive days the employee may be scheduled"
+        },
+        {
+          "name": "rest_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Consecutive hours of rest owed in each period"
+        },
+        {
+          "name": "period_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Length of the period the rest is owed in (usually 7)"
+        }
+      ],
+      "synonyms": [
+        "one day rest in seven",
+        "seventh day rest",
+        "day off requirement",
+        "Sunday rest"
       ]
     },
     {
@@ -1507,6 +1602,24 @@
       "synonyms": [
         "age",
         "years old"
+      ]
+    },
+    {
+      "path": "employee.employment_status",
+      "type": "enum",
+      "description": "Employment status",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "full_time",
+        "part_time",
+        "temporary",
+        "seasonal",
+        "probationary"
+      ],
+      "synonyms": [
+        "full-time or part-time",
+        "employment type"
       ]
     },
     {
@@ -1598,6 +1711,18 @@
       ]
     },
     {
+      "path": "shift.consecutive_days_worked",
+      "type": "number",
+      "description": "Number of consecutive days worked including today",
+      "category": "4. Shift",
+      "group": "4.2 Hours Worked",
+      "synonyms": [
+        "consecutive days",
+        "days in a row"
+      ],
+      "derived": "count of consecutive calendar days with a shift, ending on this shift's date, looking back through the prior week"
+    },
+    {
       "path": "shift.end_hour",
       "type": "number",
       "description": "Shift end hour (0-23, for curfew comparisons)",
@@ -1657,14 +1782,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 624,
-    "rulesIncluded": 18,
-    "excludedByProfile": 605,
+    "rulesConsidered": 649,
+    "rulesIncluded": 19,
+    "excludedByProfile": 629,
     "excludedExpired": 1,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 0
   },
-  "checksum": "1af52785f16749915165fb703c8f7dbe3dc7c57f26de0f3b0d95bdbf48f03176"
+  "checksum": "f21a53769fac481990925688772d3e4a3dcf0012162844e83d4d6a919e97b69f"
 }

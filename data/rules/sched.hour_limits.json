@@ -1,0 +1,1233 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sched.hour_limits",
+  "rules": [
+    {
+      "id": "ak-nurse-mandatory-overtime",
+      "title": "Alaska \u2014 Nurse Overtime Limitations (AS 18.20.400)",
+      "jurisdiction": "AK",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2010-10-07",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 14,
+          "rest_hours_after": 10,
+          "rest_after_hours": 14,
+          "emergency_exception": true
+        },
+        "summary": "A nurse in a health care facility may not be required or coerced to work beyond the agreed, predetermined shift, or to accept overtime the nurse judges unsafe. Voluntary overtime may not exceed 14 consecutive hours; after 14 hours the nurse gets at least 10 hours off. Exceptions: procedures in progress, unforeseen emergencies, declared rural staffing emergencies, agreed on-call time. Effective date is 90 days after the July 2010 signing of HB 50 and is approximate."
+      },
+      "citations": [
+        {
+          "source": "Alaska Statutes \u00a718.20.400\u201318.20.499 (Overtime Limitations for Nurses)",
+          "url": "https://law.justia.com/codes/alaska/title-18/chapter-20/article-4/section-18-20-400",
+          "section": "AS 18.20.400",
+          "kind": "statute"
+        },
+        {
+          "source": "Alaska DOL&WD, Nurse Overtime Law summary",
+          "url": "https://dol.alaska.gov/lss/forms/nurse_ot_summ.pdf",
+          "section": "Summary of AS 18.20.400\u2013.499",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-healthcare-12-hour-shift-cap",
+      "title": "California \u2014 Health Care Employees: No Required Work Beyond 12 Hours in 24 (Wage Order 5)",
+      "jurisdiction": "CA",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2001-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 12
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 12,
+          "rest_hours_after": 8,
+          "rest_after_hours": 24,
+          "emergency_exception": true
+        },
+        "summary": "Health care employees on 12-hour shifts under an alternative workweek may not be required to work more than 12 hours in a 24-hour period unless the chief nursing officer or an authorized executive declares a health care emergency; up to 16 hours is allowed only with the employee's consent, and no employee may work more than 24 consecutive hours without 8 hours off. Labor Code \u00a71198.3 protects an employee who refuses hours beyond the wage order's limits. If a relief employee gives less than 2 hours' notice of absence the employee may be kept to 13 hours."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 5-2001 (Public Housekeeping Industry), \u00a73(B)(8)",
+          "url": "https://www.dir.ca.gov/IWC/IWCArticle5.pdf",
+          "section": "8 CCR \u00a711050(3)(B)(8)",
+          "kind": "regulation"
+        },
+        {
+          "source": "California Labor Code \u00a71198.3",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1198.3.&lawCode=LAB",
+          "section": "Cal. Lab. Code \u00a71198.3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-nurse-mandatory-overtime",
+      "title": "Connecticut \u2014 Hospital Nurses: No Mandatory Overtime Beyond Scheduled Shift (CGS \u00a719a-490l)",
+      "jurisdiction": "CT",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2005-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "emergency_exception": true,
+          "cba_exception": false
+        },
+        "summary": "No hospital may require a nurse (RN, LPN or nurse's aide) to work beyond a predetermined scheduled shift published at least 48 hours in advance. Exceptions: a surgical procedure until complete, a critical care nurse until relieved, a public health emergency, or an institutional emergency after a good-faith effort to mitigate. P.A. 23-204 (effective 2023-10-01) removed the collective-bargaining-agreement exception for private hospitals and bars mandatory overtime as a routine staffing tool; CBAs in effect before that date run to expiry."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a719a-490l (P.A. 04-242)",
+          "url": "https://www.cga.ct.gov/current/pub/chap_368v.htm#sec_19a-490l",
+          "section": "CGS \u00a719a-490l",
+          "kind": "statute"
+        },
+        {
+          "source": "Littler, Connecticut Legislation Changes Overtime Rules for Nurses (P.A. 23-204)",
+          "url": "https://www.littler.com/news-analysis/asap/connecticut-legislation-changes-overtime-rules-nurses-and-abrogates-collective",
+          "section": "P.A. 23-204",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-nurse-mandatory-overtime",
+      "title": "Illinois \u2014 Hospital Nurses: Mandated Overtime Prohibited (210 ILCS 85/10.9)",
+      "jurisdiction": "IL",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2006-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "rest_hours_after": 8,
+          "rest_after_hours": 12,
+          "emergency_exception": true
+        },
+        "summary": "No hospital nurse (APRN, RN or LPN paid hourly and providing direct care) may be required to work mandated overtime beyond the agreed, predetermined shift except in an unforeseen emergent circumstance, as a last resort, and then for no more than 4 hours beyond the shift. A nurse mandated to work up to 12 consecutive hours must get at least 8 consecutive hours off. Insufficient staffing for predictable needs is not an emergency. Enacted by P.A. 94-349 (effective 2006-01-01); current text P.A. 100-513 (2018-01-01)."
+      },
+      "citations": [
+        {
+          "source": "210 ILCS 85/10.9 (Hospital Licensing Act \u2014 Nurse mandated overtime)",
+          "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/021000850K10.9.htm",
+          "section": "210 ILCS 85/10.9",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-nurse-mandatory-overtime",
+      "title": "Maryland \u2014 Nurses: No Required Work Beyond Scheduled Hours (Lab. & Empl. \u00a73-421)",
+      "jurisdiction": "MD",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2002-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "emergency_exception": true
+        },
+        "summary": "An employer may not require an RN or LPN to work more than the regularly scheduled hours of a predetermined schedule. Overtime may be required only for a non-recurring, unforeseeable emergency the employer did not cause, after good-faith efforts to find volunteers, where the nurse's skills are needed and continuity of care requires it, and the nurse is told the basis; or where on-call rotation is a condition of employment or the nurse works in community-based care. Enacted by Ch. 322 of 2002 (SB 537); effective date is Maryland's default 2002-10-01."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Labor & Employment \u00a73-421",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-421",
+          "section": "Lab. & Empl. \u00a73-421",
+          "kind": "statute"
+        },
+        {
+          "source": "Maryland Department of Labor, Nurses \u2014 Overtime",
+          "url": "https://labor.maryland.gov/LABOR/wagepay/wpnootnurses.shtml",
+          "section": "Agency summary",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-nurse-mandatory-overtime",
+      "title": "Massachusetts \u2014 Hospital Nurses: Mandatory Overtime Prohibited, 16-Hour Cap (MGL c.111 \u00a7226)",
+      "jurisdiction": "MA",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2012-11-04",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 16,
+          "rest_hours_after": 8,
+          "rest_after_hours": 16,
+          "emergency_exception": true
+        },
+        "summary": "A hospital may not require a nurse to work beyond regularly scheduled hours (which may not exceed 12 in 24) except in an emergency where patient safety requires it and there is no reasonable alternative, after a good-faith effort to fill the shift voluntarily. No nurse may work more than 16 consecutive hours in 24; after 16 hours the nurse gets at least 8 consecutive hours off. Hospitals report every instance to DPH. Added by St. 2012, c. 224, \u00a7103; effective 90 days after the 2012-08-06 signing."
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws c.111, \u00a7226",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter111/Section226",
+          "section": "MGL c.111 \u00a7226",
+          "kind": "statute"
+        },
+        {
+          "source": "Health Policy Commission, Guidelines on Mandatory Overtime for Nurses (2013)",
+          "url": "https://masshpc.gov/sites/default/files/2023-04/mandatory-overtime-for-nurses_20130619.pdf",
+          "section": "Emergency guidelines",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-nurse-12-hour-refusal",
+      "title": "Maine \u2014 Nurses May Refuse More Than 12 Consecutive Hours (26 M.R.S. \u00a7603(5))",
+      "jurisdiction": "ME",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2001-09-21",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 12,
+          "rest_hours_after": 10,
+          "rest_after_hours": 12,
+          "emergency_exception": true
+        },
+        "summary": "A nurse may not be disciplined for refusing to work more than 12 consecutive hours, except in an unforeseen emergency where mandatory overtime is a last resort for patient safety. A nurse required to work more than 12 consecutive hours must get at least 10 consecutive off-duty hours immediately afterward. Added by P.L. 2001, c. 401 (effective date approximate: Maine's 2001 non-emergency laws took effect 2001-09-21)."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7603(5)",
+          "url": "https://www.mainelegislature.org/legis/statutes/26/title26sec603.html",
+          "section": "26 MRS \u00a7603, sub-\u00a75",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-nurse-mandatory-overtime",
+      "title": "Minnesota \u2014 Nurses May Decline Hours Beyond a 12-Hour Work Period (Minn. Stat. \u00a7181.275)",
+      "jurisdiction": "MN",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2002-08-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 12,
+          "emergency_exception": true
+        },
+        "summary": "A hospital or other facility licensed by the commissioner of health (not nursing homes, ICF/DDs, boarding care or housing-with-services) may not take action against a nurse solely for declining a shift that extends beyond a normal work period of 12 or fewer consecutive hours, where the nurse believes the extra hours could jeopardize patient safety. A nurse may be required to stay during an emergency (unforeseen inability of replacement staff to report, or an unusual rise in patient need). Enacted 2002 c. 272 s. 3."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.275 (Regulating nurses' overtime)",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.275",
+          "section": "Minn. Stat. \u00a7181.275",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-nurse-mandatory-overtime",
+      "title": "New Hampshire \u2014 Nurses May Refuse More Than 12 Consecutive Hours (RSA 275:67)",
+      "jurisdiction": "NH",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2008-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 12,
+          "rest_hours_after": 8,
+          "rest_after_hours": 12,
+          "emergency_exception": true,
+          "cba_exception": true
+        },
+        "summary": "An RN, LPN or licensed nursing assistant may not be disciplined or lose rights for refusing to work more than 12 consecutive hours; a nurse required to work overtime must then get at least 8 consecutive hours off. Exceptions: a nurse in surgery until it is complete, a critical care nurse until relieved, a home health nurse until another caregiver takes over, a public health emergency, or a collective bargaining agreement that addresses mandatory overtime. Added by 2007, 353:1."
+      },
+      "citations": [
+        {
+          "source": "N.H. RSA 275:67 (Prohibited Overtime)",
+          "url": "https://gc.nh.gov/rsa/html/XXIII/275/275-67.htm",
+          "section": "RSA 275:67",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-healthcare-mandatory-overtime",
+      "title": "New Jersey \u2014 Health Care Facilities: No Mandatory Overtime for Hourly Direct-Care Staff (N.J.S.A. 34:11-56a31 et seq.)",
+      "jurisdiction": "NJ",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2002-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse",
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_hours_per_period": 40,
+          "period_days": 7,
+          "emergency_exception": true
+        },
+        "summary": "A licensed health care facility, state or county psychiatric hospital, developmental center or registered health care service firm may not require an hourly employee involved in direct patient care or clinical services to work beyond the agreed, predetermined, regularly scheduled daily shift or beyond 40 hours a week. Exceptions: an unforeseeable emergent circumstance as a last resort (not chronic short staffing) after reasonable staffing efforts, on-call duty, and a surgical or therapeutic procedure in progress; the employee gets up to one hour to arrange dependent care. Physicians excluded. P.L. 2001, c. 300; effective date approximate."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:11-56a31 to 56a35 (Mandatory overtime restrictions for health care facilities)",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11-56a32/",
+          "section": "N.J.S.A. 34:11-56a32",
+          "kind": "statute"
+        },
+        {
+          "source": "NJ Department of Labor, Overtime for Health Care Facilities",
+          "url": "https://www.nj.gov/labor/wageandhour/tools-resources/laws/overtimeforhealthcarefacilities.shtml",
+          "section": "Agency summary",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-nurse-mandatory-overtime",
+      "title": "New York \u2014 Nurses: No Required Work Beyond Regularly Scheduled Hours (Labor Law \u00a7167)",
+      "jurisdiction": "NY",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2009-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "emergency_exception": true
+        },
+        "summary": "A health care employer (facilities licensed under Public Health Law art. 28 and certain state, mental hygiene, education and correction law facilities) may not require an RN or LPN providing direct patient care to work beyond regularly scheduled hours; on-call time may not substitute for mandatory overtime. Exceptions: a health care disaster, a declared federal, state or county emergency, an employer-determined unforeseen staffing emergency after good-faith efforts to cover the shift voluntarily, or an ongoing procedure the nurse must stay for. Civil penalties up to $1,000/$2,000/$3,000."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7167 (Restrictions on consecutive hours of work for nurses)",
+          "url": "https://newyork.public.law/laws/n.y._labor_law_section_167",
+          "section": "Labor Law \u00a7167",
+          "kind": "statute"
+        },
+        {
+          "source": "NYS Department of Labor, Mandatory Overtime for Nurses",
+          "url": "https://dol.ny.gov/mandatory-overtime-nurses",
+          "section": "Agency summary",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-nurse-mandatory-overtime",
+      "title": "Oregon \u2014 Hospital Nursing Staff: 12 Hours in 24, 48 Hours a Week (ORS 441.166)",
+      "jurisdiction": "OR",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2002-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 12,
+          "max_hours_per_period": 48,
+          "period_days": 7,
+          "rest_hours_after": 10,
+          "rest_after_hours": 12,
+          "emergency_exception": true
+        },
+        "summary": "A hospital may not require nursing staff to work beyond the agreed, prearranged shift, more than 48 hours in any hospital-defined workweek, or more than 12 hours in any 24-hour period, and may not require work during the 10 hours after the 12th hour worked in 24. Exceptions for unanticipated staff vacancies after reasonable replacement efforts and for emergencies. Extended to Department of Corrections nursing staff by HB 2230 (2019). Enacted 2001 (HB 2800); effective date approximate."
+      },
+      "citations": [
+        {
+          "source": "ORS 441.166 (Limits on mandatory overtime for hospital nursing staff)",
+          "url": "https://oregon.public.law/statutes/ors_441.166",
+          "section": "ORS 441.166",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "pa-healthcare-mandatory-overtime",
+      "title": "Pennsylvania \u2014 Prohibition of Excessive Overtime in Health Care Act (Act 102 of 2008)",
+      "jurisdiction": "PA",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2009-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse",
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "rest_hours_after": 10,
+          "rest_after_hours": 12,
+          "emergency_exception": true
+        },
+        "summary": "A health care facility may not require an hourly or nonsupervisory employee involved in direct patient care or clinical care (including agency staff; physicians, PAs and dentists excluded) to work beyond an agreed, predetermined and regularly scheduled shift. Exceptions, as a last resort after reasonable staffing efforts: unforeseeable emergent circumstances, on-call time not used as a substitute, and completing a procedure in progress; the employee gets up to 1 hour to arrange dependent care. An employee who works more than 12 consecutive hours may take 10 consecutive hours off (waivable). Chronic short staffing never qualifies."
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a7\u00a7932.1\u2013932.6 (Act 102 of 2008, Prohibition of Excessive Overtime in Health Care Act)",
+          "url": "https://www.legis.state.pa.us/cfdocs/legis/li/uconsCheck.cfm?yr=2008&sessInd=0&act=102",
+          "section": "Act 102 of 2008",
+          "kind": "statute"
+        },
+        {
+          "source": "PA Department of Labor & Industry, Act 102 FAQs",
+          "url": "https://www.pa.gov/agencies/dli/resources/compliance-laws-and-regulations/labor-management-relations/labor-law/act-102/act-102-faqs.html",
+          "section": "Agency FAQ",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-nurse-mandatory-overtime",
+      "title": "Rhode Island \u2014 Hospital Nurses and CNAs: Never More Than 12 Consecutive Hours (R.I. Gen. Laws \u00a723-17.20-3)",
+      "jurisdiction": "RI",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2008-03-04",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse",
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 12,
+          "emergency_exception": true
+        },
+        "summary": "A hospital may not require an hourly nurse or certified nursing assistant to accept work beyond the agreed, predetermined shift of 8, 10 or 12 hours, except in an unforeseeable emergent circumstance as a last resort (not chronic short staffing) after reasonable efforts to obtain staff; in no case may the facility require more than 12 consecutive hours. Refusal may not be penalized; voluntary overtime is not restricted. P.L. 2007, ch. 496 and 515 (veto overridden 2007-10-30)."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a723-17.20-3 (Health Care Facility Overtime)",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE23/23-17.20/23-17.20-3.htm",
+          "section": "RIGL \u00a723-17.20-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-nurse-mandatory-overtime",
+      "title": "Texas \u2014 Hospital Nurses May Refuse Mandatory Overtime (Health & Safety Code ch. 258)",
+      "jurisdiction": "TX",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2009-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "emergency_exception": true
+        },
+        "summary": "A hospital may not require a nurse to work mandatory overtime beyond the predetermined scheduled shift, and a nurse may refuse it; on-call time may not substitute for mandatory overtime. Exceptions: a health care disaster or declared emergency in the nurse's or a contiguous county, an unforeseen event that does not regularly occur and could not prudently be anticipated (after good-faith efforts to use voluntary overtime), or an ongoing medical or surgical procedure. Added by Acts 2009, 81st Leg., ch. 742 (S.B. 476)."
+      },
+      "citations": [
+        {
+          "source": "Tex. Health & Safety Code ch. 258 (Mandatory Overtime for Nurses Prohibited)",
+          "url": "https://statutes.capitol.texas.gov/Docs/HS/htm/HS.258.htm",
+          "section": "Health & Safety Code \u00a7\u00a7258.001\u2013258.005",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-healthcare-mandatory-overtime",
+      "title": "Washington \u2014 Health Care Facility Employees: Mandatory Overtime Prohibited (RCW 49.28.140)",
+      "jurisdiction": "WA",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2002-06-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse",
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "emergency_exception": true
+        },
+        "summary": "No employee of a health care facility may be required to work overtime; acceptance of overtime is voluntary and refusal may not be penalized, and any agreement requiring overtime is void. Exceptions: an unforeseeable emergent circumstance, prescheduled on-call time (with limits), overtime after documented reasonable staffing efforts (chronic shortages do not qualify), and completing a patient care procedure in progress. Coverage was extended beyond nurses to other direct-care employees in 2019 (c. 296) and amended in 2023 (c. 114). Original enactment 2002 c. 112; effective date approximate."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.28.140 (Hours of health care facility employees \u2014 Mandatory overtime prohibited)",
+          "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=49.28.140",
+          "section": "RCW 49.28.140",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wv-nurse-mandatory-overtime",
+      "title": "West Virginia \u2014 Nurses Overtime and Patient Safety Act, 16-Hour Cap (W. Va. Code \u00a721-5F-3)",
+      "jurisdiction": "WV",
+      "topic": "sched.hour_limits.mandatory_overtime",
+      "status": "active",
+      "effectiveFrom": "2004-06-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "healthcare"
+            ]
+          },
+          {
+            "fact": "employee.job_category",
+            "op": "in",
+            "value": [
+              "nurse"
+            ]
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.mandatory_overtime_ban",
+        "params": {
+          "max_shift_hours": 16,
+          "rest_hours_after": 8,
+          "rest_after_hours": 12,
+          "emergency_exception": true,
+          "cba_exception": true
+        },
+        "summary": "A hospital may not mandate a nurse, directly or through coercion, to accept an overtime assignment, or penalize a nurse for declining overtime the nurse judges unsafe. No nurse may work more than 16 hours in a 24-hour period, and a nurse who works 12 or more consecutive hours gets at least 8 consecutive hours off. Exceptions: unforeseen emergencies, prescheduled on-call time, completing a procedure in progress, a CBA with its own overtime procedure, and voluntary overtime. Enacted 2004 (SB 251), amended 2007 (HB 2436); effective date approximate."
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a721-5F-3 (Nurses Overtime and Patient Safety Act)",
+          "url": "https://code.wvlegislature.gov/21-5F-3/",
+          "section": "W. Va. Code \u00a721-5F-3",
+          "kind": "statute"
+        },
+        {
+          "source": "WV Division of Labor, Nurses Overtime & Patient Safety Act",
+          "url": "https://labor.wv.gov/WAGE-HOUR/MORE/NURSES-OVERTIME-SAFETY/Pages/default.aspx",
+          "section": "Agency summary",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-mandatory-overtime-80-hours",
+      "title": "Maine \u2014 No More Than 80 Hours of Mandatory Overtime in Two Weeks (26 M.R.S. \u00a7603)",
+      "jurisdiction": "ME",
+      "topic": "sched.hour_limits.maximum_hours",
+      "status": "active",
+      "effectiveFrom": "2000-08-11",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "schedule.employer_initiated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 40
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sched.max_hours",
+        "params": {
+          "max_overtime_hours": 80,
+          "period_days": 14,
+          "emergency_exception": true
+        },
+        "summary": "An employer may not require an employee to work more than 80 hours of overtime (hours over 40 in a calendar week) in any consecutive 2-week period. Exceptions: Governor-declared emergencies, essential public services, work needed to protect public health or safety, exempt employees under \u00a7663(3), salaried executives paid over 3,000 times the minimum wage, seasonal employers, medical interns and residents, and annual shutdown or maintenance work (capped at 4 consecutive weeks). Employers and employees may agree to a lower limit. P.L. 1999, c. 750."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7603 (Limits on mandatory overtime)",
+          "url": "https://www.mainelegislature.org/legis/statutes/26/title26sec603.html",
+          "section": "26 MRS \u00a7603",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-manufacturing-max-55-hours",
+      "title": "Oregon \u2014 Manufacturing: No Required Work Over 55 Hours a Week (ORS 652.020)",
+      "jurisdiction": "OR",
+      "topic": "sched.hour_limits.maximum_hours",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "manufacturing"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 55
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.max_hours",
+        "params": {
+          "max_daily_hours": 13,
+          "max_weekly_hours": 55,
+          "consent_max_weekly_hours": 60,
+          "emergency_exception": true
+        },
+        "summary": "An employee in a mill, factory or other manufacturing establishment may not be required to work more than 10 hours a day (up to 3 more hours at 1.5x) or more than 55 hours in a workweek; with the employee's written request or consent the week may reach 60 hours. Perishable-product processors may apply for undue-hardship periods (up to 84 hours a week), and employees covered by a collective bargaining agreement that sets hours limits are exempt, as are repairs, emergencies and administrative staff. Weekly cap added by HB 3458 (2017), operative 2018-01-01."
+      },
+      "citations": [
+        {
+          "source": "ORS 652.020 (Maximum working hours in certain industries)",
+          "url": "https://oregon.public.law/statutes/ors_652.020",
+          "section": "ORS 652.020",
+          "kind": "statute"
+        },
+        {
+          "source": "Oregon Laws 2017, ch. 685 (HB 3458)",
+          "url": "https://www.oregonlegislature.gov/bills_laws/lawsstatutes/2017orlaw0685.pdf",
+          "section": "2017 Or. Laws ch. 685",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-manufacturing-max-60-hours",
+      "title": "Oregon \u2014 Manufacturing: 60-Hour Weekly Ceiling Even With Consent (ORS 652.020)",
+      "jurisdiction": "OR",
+      "topic": "sched.hour_limits.maximum_hours",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "manufacturing"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "shift.hours_worked_this_week",
+            "op": ">",
+            "value": 60
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sched.max_hours",
+        "params": {
+          "max_weekly_hours": 55,
+          "consent_max_weekly_hours": 60,
+          "emergency_exception": true
+        },
+        "summary": "Even with written consent, a manufacturing employee may not work more than 60 hours in a workweek outside an approved undue-hardship period for perishable products or a collective bargaining agreement that sets its own limits."
+      },
+      "citations": [
+        {
+          "source": "ORS 652.020 (Maximum working hours in certain industries)",
+          "url": "https://oregon.public.law/statutes/ors_652.020",
+          "section": "ORS 652.020",
+          "kind": "statute"
+        },
+        {
+          "source": "Oregon Laws 2017, ch. 685 (HB 3458)",
+          "url": "https://www.oregonlegislature.gov/bills_laws/lawsstatutes/2017orlaw0685.pdf",
+          "section": "2017 Or. Laws ch. 685",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}
