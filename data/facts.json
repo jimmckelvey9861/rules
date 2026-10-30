@@ -761,6 +761,18 @@
       "group": "4.3 Shift Type"
     },
     {
+      "path": "shift.is_sunday",
+      "type": "boolean",
+      "description": "Whether the shift falls on a Sunday",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "Sunday work",
+        "Sunday shift",
+        "blue law day"
+      ]
+    },
+    {
       "path": "shift.is_school_day",
       "type": "boolean",
       "description": "Whether it is a school day (for minor labor rules)",

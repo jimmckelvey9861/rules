@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:42:59.933Z",
+  "generatedAt": "2026-10-30T20:05:10.221Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "10a973ffc25ab173",
+  "rulesVersion": "373a0ebda26f7307",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -228,6 +228,95 @@
         }
       ],
       "hash": "166204f57c84a5cb"
+    },
+    {
+      "id": "il-sick-usage",
+      "title": "Illinois — Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.usage",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 2,
+          "annual_use_cap_hours": 40
+        },
+        "summary": "Paid Leave for All Workers: use may begin 90 days after employment starts (or 2024-03-31 for existing staff); minimum increment up to 2 hours (or the scheduled workday if shorter); use may be capped at 40 hours a year.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 192/15",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=4316&ChapterID=68",
+          "section": "§15",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL Paid Leave for All Workers",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "0f9bc1b0ed8fd753"
+    },
+    {
+      "id": "il-sick-carryover",
+      "title": "Illinois — Sick Leave Carryover and Payout",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.carryover",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": true,
+          "payout_at_separation_required": false
+        },
+        "summary": "Accrued unused leave carries over (carryover may be capped at 40 hours); frontloading 40 hours removes the carryover duty. No payout at separation unless the leave sits in a PTO bank.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 192/15",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=4316&ChapterID=68",
+          "section": "§15",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL Paid Leave for All Workers",
+          "url": "https://labor.illinois.gov/laws-rules/paidleave.html",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "dc070c1448d44021"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -984,6 +1073,65 @@
         }
       ],
       "hash": "27864d005ad7acd5"
+    },
+    {
+      "id": "il-minor-under-16-meal",
+      "title": "Illinois — Minors under 16: 30-min meal period by the 5th consecutive hour",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "minor.labor.breaks",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "Minors under 16 who work more than 5 continuous hours get a meal period of at least 30 minutes starting no later than the fifth hour (Child Labor Law of 2024, effective 2025-01-01, carrying forward 820 ILCS 205/4).",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 206 (Child Labor Law of 2024)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "Ch. 820 Employment",
+          "kind": "statute"
+        }
+      ],
+      "hash": "8243fb0c82a3a020"
     },
     {
       "id": "chicago-il-mw-2025",
@@ -2189,6 +2337,121 @@
       ]
     },
     {
+      "code": "leave.sick.carryover",
+      "name": "Paid sick leave carryover and payout",
+      "description": "Whether unused sick leave carries into the next year, any cap on carryover or total balance, whether frontloading removes the duty, and payout at separation or rehire reinstatement.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "carryover_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused accrued leave must carry over to the next year"
+        },
+        {
+          "name": "carryover_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit carryover to"
+        },
+        {
+          "name": "balance_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may cap the total accrued balance at"
+        },
+        {
+          "name": "frontload_avoids_carryover",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether granting the full annual amount at the start of the year removes the carryover duty"
+        },
+        {
+          "name": "payout_in_lieu_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may pay out unused leave at year end instead of carrying it over"
+        },
+        {
+          "name": "payout_at_separation_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused sick leave must be paid out when employment ends"
+        },
+        {
+          "name": "rehire_reinstatement_months",
+          "type": "number",
+          "required": false,
+          "description": "Months after separation within which a rehired employee gets the unused balance back"
+        }
+      ],
+      "synonyms": [
+        "sick leave carryover",
+        "rollover",
+        "carry forward",
+        "sick leave payout",
+        "frontloading",
+        "reinstatement on rehire"
+      ]
+    },
+    {
+      "code": "leave.sick.usage",
+      "name": "Paid sick leave usage rules",
+      "description": "When accrued sick leave may first be used, the smallest increment the employee may take, and any cap on hours used per year.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "waiting_period_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Calendar days of employment before accrued leave may be used (0 = usable as accrued)"
+        },
+        {
+          "name": "waiting_period_hours_worked",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours of employment before accrual (and use) begins, where the law counts hours rather than days"
+        },
+        {
+          "name": "max_increment_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Largest minimum-use increment the employer may impose"
+        },
+        {
+          "name": "increment_follows_payroll",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the increment must be the smallest one the payroll system tracks (subject to max_increment_hours)"
+        },
+        {
+          "name": "annual_use_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit use to per year"
+        }
+      ],
+      "synonyms": [
+        "sick leave waiting period",
+        "usage increment",
+        "sick time use cap",
+        "90-day waiting period",
+        "120-day waiting period"
+      ]
+    },
+    {
       "code": "leave.voting",
       "name": "Voting leave",
       "description": "Time off to vote on election day when the employee's schedule leaves too little non-working time while polls are open.",
@@ -3183,14 +3446,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 681,
-    "rulesIncluded": 35,
-    "excludedByProfile": 645,
-    "excludedExpired": 1,
+    "rulesConsidered": 765,
+    "rulesIncluded": 38,
+    "excludedByProfile": 721,
+    "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 2
+    "fullyResolved": 4
   },
-  "checksum": "055cfa0930fb2afbc00c93524f2aa893325f8277262029cc45b2e7e3b772b3c5"
+  "checksum": "a6a775e4a1dfa2175b51f0a3da09cfe59fd9cedd6c384d812686c38df5bab5c6"
 }

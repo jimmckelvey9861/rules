@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:42:59.926Z",
+  "generatedAt": "2026-10-30T20:05:10.215Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "10a973ffc25ab173",
+  "rulesVersion": "373a0ebda26f7307",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -223,6 +223,98 @@
         }
       ],
       "hash": "a6bbed76bcd8ff0e"
+    },
+    {
+      "id": "wa-sick-usage",
+      "title": "Washington — Sick Leave Usage (waiting period, increments)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.usage",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.usage",
+        "params": {
+          "waiting_period_days": 90,
+          "max_increment_hours": 1,
+          "increment_follows_payroll": true
+        },
+        "summary": "Use may begin on the 90th calendar day of employment; leave is taken in the increments the payroll system uses, no larger than one hour; there is no cap on annual use.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.210",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.210",
+          "section": "§49.46.210",
+          "kind": "statute"
+        },
+        {
+          "source": "WAC 296-128-630",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-128-630",
+          "section": "296-128-630",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "27d594734b7a941d"
+    },
+    {
+      "id": "wa-sick-carryover",
+      "title": "Washington — Sick Leave Carryover and Payout",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.sick.carryover",
+      "topicCode": "leave.sick",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.sick.carryover",
+        "params": {
+          "carryover_required": true,
+          "carryover_cap_hours": 40,
+          "frontload_avoids_carryover": false,
+          "payout_at_separation_required": false,
+          "rehire_reinstatement_months": 12
+        },
+        "summary": "Up to 40 hours of unused paid sick leave carries over each year; frontloading does not remove the duty for hours left unused. No payout at separation; balance reinstated on rehire within 12 months.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.46.210",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.46.210",
+          "section": "§49.46.210",
+          "kind": "statute"
+        },
+        {
+          "source": "WAC 296-128-630",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-128-630",
+          "section": "296-128-630",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "05b4f29e0b5ce3a9"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -979,6 +1071,262 @@
         }
       ],
       "hash": "572661d837640e2d"
+    },
+    {
+      "id": "wa-minor-14-15-meal",
+      "title": "Washington — Minors 14-15: 30-min meal within 4 hours",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "minor.labor.breaks",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 4
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 4,
+          "paid": false
+        },
+        "summary": "Minors under 16 get an uninterrupted 30-minute meal period beginning before the fourth consecutive hour of work; may not be waived.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "da353229eee17653"
+    },
+    {
+      "id": "wa-minor-14-15-rest",
+      "title": "Washington — Minors 14-15: paid 10-min rest per 2 hours",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "minor.labor.breaks",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 14
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 15
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 2
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 2,
+          "paid": true
+        },
+        "summary": "Minors under 16 get a paid 10-minute rest break within every 2 consecutive hours of work, in addition to meal periods.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "b2c048eac9a6561b"
+    },
+    {
+      "id": "wa-minor-16-17-meal",
+      "title": "Washington — Minors 16-17: 30-min meal within 5 hours",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "minor.labor.breaks",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 5
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.meal",
+        "params": {
+          "minimum_minutes": 30,
+          "after_hours": 5,
+          "paid": false
+        },
+        "summary": "16- and 17-year-olds get an uninterrupted 30-minute meal period beginning before the fifth consecutive hour of work; may not be waived.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "126f303cc13ba37a"
+    },
+    {
+      "id": "wa-minor-16-17-rest",
+      "title": "Washington — Minors 16-17: paid 10-min rest per 4 hours",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "minor.labor.breaks",
+      "topicCode": "minor.labor",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_minor",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employee.age",
+            "op": ">=",
+            "value": 16
+          },
+          {
+            "fact": "employee.age",
+            "op": "<=",
+            "value": 17
+          },
+          {
+            "fact": "shift.shift_length_hours",
+            "op": ">",
+            "value": 3
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.age",
+        "employee.is_minor",
+        "shift.shift_length_hours"
+      ],
+      "result": {
+        "type": "required_break",
+        "obligation": "break.rest",
+        "params": {
+          "minimum_minutes": 10,
+          "per_hours_worked": 4,
+          "paid": true
+        },
+        "summary": "16- and 17-year-olds get a paid 10-minute rest break for every 4 hours worked and may not work more than 3 hours without one.",
+        "kronto": "block"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-125-0287",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-125-0287",
+          "section": "296-125-0287",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "8b329f93b7c5a312"
     },
     {
       "id": "federal-minimum-wage-7.25",
@@ -2514,6 +2862,121 @@
       ]
     },
     {
+      "code": "leave.sick.carryover",
+      "name": "Paid sick leave carryover and payout",
+      "description": "Whether unused sick leave carries into the next year, any cap on carryover or total balance, whether frontloading removes the duty, and payout at separation or rehire reinstatement.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "carryover_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused accrued leave must carry over to the next year"
+        },
+        {
+          "name": "carryover_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit carryover to"
+        },
+        {
+          "name": "balance_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may cap the total accrued balance at"
+        },
+        {
+          "name": "frontload_avoids_carryover",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether granting the full annual amount at the start of the year removes the carryover duty"
+        },
+        {
+          "name": "payout_in_lieu_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may pay out unused leave at year end instead of carrying it over"
+        },
+        {
+          "name": "payout_at_separation_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether unused sick leave must be paid out when employment ends"
+        },
+        {
+          "name": "rehire_reinstatement_months",
+          "type": "number",
+          "required": false,
+          "description": "Months after separation within which a rehired employee gets the unused balance back"
+        }
+      ],
+      "synonyms": [
+        "sick leave carryover",
+        "rollover",
+        "carry forward",
+        "sick leave payout",
+        "frontloading",
+        "reinstatement on rehire"
+      ]
+    },
+    {
+      "code": "leave.sick.usage",
+      "name": "Paid sick leave usage rules",
+      "description": "When accrued sick leave may first be used, the smallest increment the employee may take, and any cap on hours used per year.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "waiting_period_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Calendar days of employment before accrued leave may be used (0 = usable as accrued)"
+        },
+        {
+          "name": "waiting_period_hours_worked",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours of employment before accrual (and use) begins, where the law counts hours rather than days"
+        },
+        {
+          "name": "max_increment_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Largest minimum-use increment the employer may impose"
+        },
+        {
+          "name": "increment_follows_payroll",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the increment must be the smallest one the payroll system tracks (subject to max_increment_hours)"
+        },
+        {
+          "name": "annual_use_cap_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours the employer may limit use to per year"
+        }
+      ],
+      "synonyms": [
+        "sick leave waiting period",
+        "usage increment",
+        "sick time use cap",
+        "90-day waiting period",
+        "120-day waiting period"
+      ]
+    },
+    {
       "code": "minor.curfew",
       "name": "Minor work-hour curfew",
       "description": "Earliest start or latest end time a minor may work, often differing on school nights.",
@@ -3379,14 +3842,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 681,
-    "rulesIncluded": 39,
-    "excludedByProfile": 641,
-    "excludedExpired": 1,
+    "rulesConsidered": 765,
+    "rulesIncluded": 45,
+    "excludedByProfile": 714,
+    "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 2
+    "fullyResolved": 4
   },
-  "checksum": "9408d054842bd0b64963ee84263a1ca88fa0ad27b91e078612b25a39973b5e7e"
+  "checksum": "ba3baa781e993cd07b1ad2f3801806d2e963972fbd90692d78153a683f042109"
 }

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T19:42:59.939Z",
+  "generatedAt": "2026-10-30T20:05:10.227Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "10a973ffc25ab173",
+  "rulesVersion": "373a0ebda26f7307",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1888,10 +1888,10 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 681,
+    "rulesConsidered": 765,
     "rulesIncluded": 20,
-    "excludedByProfile": 660,
-    "excludedExpired": 1,
+    "excludedByProfile": 739,
+    "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
