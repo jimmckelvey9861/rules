@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:25:20.264Z",
+  "generatedAt": "2026-10-30T20:35:25.389Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "44f735ac294ddb22",
+  "rulesVersion": "a6bb834ed1cbf6f8",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -505,6 +505,117 @@
         }
       ],
       "hash": "ebb5977223f2af61"
+    },
+    {
+      "id": "ca-pto-payout",
+      "title": "California — Accrued Vacation at Separation (payout required)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.pto_payout",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1976-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "voluntary_resignation",
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "end_of_contract",
+          "retirement"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.pto_payout",
+        "params": {
+          "payout_required": "always",
+          "forfeiture_prohibited": true
+        },
+        "summary": "Vested vacation and PTO are wages: all accrued, unused time must be paid at the final rate on separation and use-it-or-lose-it policies are void (reasonable accrual caps allowed); a CBA may provide otherwise. (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §227.3",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=227.3.&lawCode=LAB",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Patriot Software, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.patriotsoftware.com/blog/payroll/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "2381e61b25f402b5"
+    },
+    {
+      "id": "ca-bereavement-leave",
+      "title": "California — Bereavement Leave (5 days, 5+ employees)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.bereavement",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "bereavement"
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.bereavement",
+        "params": {
+          "max_days": 5,
+          "paid": false,
+          "min_employees": 5,
+          "tenure_days": 30,
+          "window_days": 90,
+          "covered_relationships": "spouse, domestic partner, child, parent, parent-in-law, sibling, grandparent, grandchild"
+        },
+        "summary": "Employers with 5 or more employees must give an employee with 30 days of service up to 5 days of bereavement leave per death of a covered family member, taken within 3 months; unpaid unless the employer's policy pays, and the employee may use accrued paid leave. Reproductive loss leave (5 days) added 2024 (Gov. Code 12945.6).",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Gov. Code §12945.7",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=12945.7.&lawCode=GOV",
+          "section": "§12945.7",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Gov. Code §12945.6 (reproductive loss)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=12945.6.&lawCode=GOV",
+          "section": "§12945.6",
+          "kind": "statute"
+        }
+      ],
+      "hash": "6d649aee47c3c0a0"
     },
     {
       "id": "ca-sick-leave",
@@ -3483,6 +3594,84 @@
       ]
     },
     {
+      "code": "leave.bereavement",
+      "name": "Bereavement leave",
+      "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "max_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Days of leave per death or per year"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave itself must be paid (false = unpaid, though accrued paid leave may be used)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of employment required"
+        },
+        {
+          "name": "tenure_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours worked in the prior 12 months required"
+        },
+        {
+          "name": "window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after the death within which the leave must be taken"
+        },
+        {
+          "name": "annual_cap_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most days per year across all deaths"
+        },
+        {
+          "name": "uses_accrued_leave",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only lets the employee apply accrued paid leave rather than granting new leave"
+        },
+        {
+          "name": "covered_relationships",
+          "type": "string",
+          "required": false,
+          "description": "Family members whose death triggers the leave"
+        }
+      ],
+      "synonyms": [
+        "bereavement leave",
+        "funeral leave",
+        "family bereavement",
+        "grief leave",
+        "reproductive loss leave"
+      ]
+    },
+    {
       "code": "leave.domestic_violence",
       "name": "Domestic violence, safe and crime victim leave",
       "description": "Job-protected time off for an employee (or family member) who is a victim of domestic violence, sexual assault, stalking or another crime, for court, medical, counseling, relocation or safety needs; some laws instead require reasonable accommodation.",
@@ -3762,6 +3951,62 @@
         "deployment leave",
         "OMFLA",
         "Family Military Leave Act"
+      ]
+    },
+    {
+      "code": "leave.pto_payout",
+      "name": "Vacation and PTO payout at separation",
+      "description": "Whether accrued, unused vacation or paid time off must be paid as final wages when employment ends, and whether use-it-or-lose-it forfeiture is allowed.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "payout_required",
+          "type": "enum",
+          "values": [
+            "always",
+            "unless_written_policy",
+            "policy_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "always = statute requires payout; unless_written_policy = owed unless a written policy or agreement says otherwise; policy_only = owed only when the employer's policy or contract promises it; not_required = no state duty"
+        },
+        {
+          "name": "forfeiture_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether use-it-or-lose-it forfeiture of accrued vacation is barred (accrual caps may still be allowed)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_years",
+          "type": "number",
+          "required": false,
+          "description": "Years of service before payout is owed"
+        },
+        {
+          "name": "notice_required_for_forfeiture",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a forfeiture or no-payout policy must be in writing and disclosed in advance to be enforceable"
+        }
+      ],
+      "synonyms": [
+        "vacation payout",
+        "PTO payout",
+        "accrued vacation",
+        "use-it-or-lose-it",
+        "vacation as wages",
+        "unused vacation at termination"
       ]
     },
     {
@@ -5077,17 +5322,32 @@
       "description": "Whether this is part of a mass layoff",
       "category": "7. Termination",
       "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.type",
+      "type": "enum",
+      "description": "Type of employment separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "voluntary_resignation",
+        "involuntary_discharge",
+        "layoff",
+        "constructive_discharge",
+        "end_of_contract",
+        "retirement"
+      ]
     }
   ],
   "stats": {
-    "rulesConsidered": 863,
-    "rulesIncluded": 59,
-    "excludedByProfile": 798,
-    "excludedExpired": 6,
+    "rulesConsidered": 922,
+    "rulesIncluded": 61,
+    "excludedByProfile": 854,
+    "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "707047bc7d3c989f2555ae3e616f282877fbd9701e532d267ec62ffcb46df852"
+  "checksum": "08d33c808dd0820044ccc1ddcce11c9d0482d482b51a0c122c08155e29937dc4"
 }

@@ -564,6 +564,40 @@
         { "name": "trigger", "type": "string", "required": false, "description": "Event the leave attaches to (deployment, leave from deployment, injury, death, ceremony)" }
       ],
       "synonyms": ["military spouse leave", "family military leave", "deployment leave", "OMFLA", "Family Military Leave Act"]
+    },
+    {
+      "code": "leave.pto_payout",
+      "name": "Vacation and PTO payout at separation",
+      "description": "Whether accrued, unused vacation or paid time off must be paid as final wages when employment ends, and whether use-it-or-lose-it forfeiture is allowed.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "payout_required", "type": "enum", "values": ["always", "unless_written_policy", "policy_only", "not_required"], "required": true, "description": "always = statute requires payout; unless_written_policy = owed unless a written policy or agreement says otherwise; policy_only = owed only when the employer's policy or contract promises it; not_required = no state duty" },
+        { "name": "forfeiture_prohibited", "type": "boolean", "required": true, "description": "Whether use-it-or-lose-it forfeiture of accrued vacation is barred (accrual caps may still be allowed)" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the duty attaches" },
+        { "name": "tenure_years", "type": "number", "required": false, "description": "Years of service before payout is owed" },
+        { "name": "notice_required_for_forfeiture", "type": "boolean", "required": false, "description": "Whether a forfeiture or no-payout policy must be in writing and disclosed in advance to be enforceable" }
+      ],
+      "synonyms": ["vacation payout", "PTO payout", "accrued vacation", "use-it-or-lose-it", "vacation as wages", "unused vacation at termination"]
+    },
+    {
+      "code": "leave.bereavement",
+      "name": "Bereavement leave",
+      "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "max_days", "type": "number", "unit": "days", "required": true, "description": "Days of leave per death or per year" },
+        { "name": "paid", "type": "boolean", "required": true, "description": "Whether the leave itself must be paid (false = unpaid, though accrued paid leave may be used)" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the duty attaches" },
+        { "name": "tenure_days", "type": "number", "unit": "days", "required": false, "description": "Days of employment required" },
+        { "name": "tenure_hours", "type": "number", "unit": "hours", "required": false, "description": "Hours worked in the prior 12 months required" },
+        { "name": "window_days", "type": "number", "unit": "days", "required": false, "description": "Days after the death within which the leave must be taken" },
+        { "name": "annual_cap_days", "type": "number", "unit": "days", "required": false, "description": "Most days per year across all deaths" },
+        { "name": "uses_accrued_leave", "type": "boolean", "required": false, "description": "True when the law only lets the employee apply accrued paid leave rather than granting new leave" },
+        { "name": "covered_relationships", "type": "string", "required": false, "description": "Family members whose death triggers the leave" }
+      ],
+      "synonyms": ["bereavement leave", "funeral leave", "family bereavement", "grief leave", "reproductive loss leave"]
     }
   ]
 }

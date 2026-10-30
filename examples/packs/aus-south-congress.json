@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:25:20.267Z",
+  "generatedAt": "2026-10-30T20:35:25.391Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "44f735ac294ddb22",
+  "rulesVersion": "a6bb834ed1cbf6f8",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -243,6 +243,64 @@
         }
       ],
       "hash": "ebb5977223f2af61"
+    },
+    {
+      "id": "tx-pto-payout",
+      "title": "Texas — Accrued Vacation at Separation (payout per employer policy)",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.pto_payout",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "voluntary_resignation",
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "end_of_contract",
+          "retirement"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.pto_payout",
+        "params": {
+          "payout_required": "policy_only",
+          "forfeiture_prohibited": false
+        },
+        "summary": "Vacation pay is wages only when owed under a written agreement or policy. (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §61.001(7)(B), §61.014",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Patriot Software, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.patriotsoftware.com/blog/payroll/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "b5b9bf144fde1ea1"
     },
     {
       "id": "federal-minor-14-15-curfew",
@@ -1497,6 +1555,62 @@
       ]
     },
     {
+      "code": "leave.pto_payout",
+      "name": "Vacation and PTO payout at separation",
+      "description": "Whether accrued, unused vacation or paid time off must be paid as final wages when employment ends, and whether use-it-or-lose-it forfeiture is allowed.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "payout_required",
+          "type": "enum",
+          "values": [
+            "always",
+            "unless_written_policy",
+            "policy_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "always = statute requires payout; unless_written_policy = owed unless a written policy or agreement says otherwise; policy_only = owed only when the employer's policy or contract promises it; not_required = no state duty"
+        },
+        {
+          "name": "forfeiture_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether use-it-or-lose-it forfeiture of accrued vacation is barred (accrual caps may still be allowed)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_years",
+          "type": "number",
+          "required": false,
+          "description": "Years of service before payout is owed"
+        },
+        {
+          "name": "notice_required_for_forfeiture",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a forfeiture or no-payout policy must be in writing and disclosed in advance to be enforceable"
+        }
+      ],
+      "synonyms": [
+        "vacation payout",
+        "PTO payout",
+        "accrued vacation",
+        "use-it-or-lose-it",
+        "vacation as wages",
+        "unused vacation at termination"
+      ]
+    },
+    {
       "code": "leave.voting",
       "name": "Voting leave",
       "description": "Time off to vote on election day when the employee's schedule leaves too little non-working time while polls are open.",
@@ -2065,17 +2179,32 @@
       "category": "4. Shift",
       "group": "4.1 Timing",
       "derived": "hour component of the shift start time (0-23)"
+    },
+    {
+      "path": "termination.type",
+      "type": "enum",
+      "description": "Type of employment separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "voluntary_resignation",
+        "involuntary_discharge",
+        "layoff",
+        "constructive_discharge",
+        "end_of_contract",
+        "retirement"
+      ]
     }
   ],
   "stats": {
-    "rulesConsidered": 863,
-    "rulesIncluded": 22,
-    "excludedByProfile": 835,
-    "excludedExpired": 6,
+    "rulesConsidered": 922,
+    "rulesIncluded": 23,
+    "excludedByProfile": 892,
+    "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 0
   },
-  "checksum": "b3da098ce79eaedd39a9bcb2ae7d8d0462741121769e920ff158304fa6c41769"
+  "checksum": "fe3393c9c35112cdf24336964f70859bea0597b08ebde9522275268c635abda1"
 }

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:25:20.258Z",
+  "generatedAt": "2026-10-30T20:35:25.382Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "44f735ac294ddb22",
+  "rulesVersion": "a6bb834ed1cbf6f8",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -438,6 +438,65 @@
         }
       ],
       "hash": "006a828c6cbdd20b"
+    },
+    {
+      "id": "ny-pto-payout",
+      "title": "New York — Accrued Vacation at Separation (payout unless written policy says otherwise)",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "leave.personal.pto_payout",
+      "topicCode": "leave.personal",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "termination.type",
+        "op": "in",
+        "value": [
+          "voluntary_resignation",
+          "involuntary_discharge",
+          "layoff",
+          "constructive_discharge",
+          "end_of_contract",
+          "retirement"
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "termination.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.pto_payout",
+        "params": {
+          "payout_required": "unless_written_policy",
+          "forfeiture_prohibited": false,
+          "notice_required_for_forfeiture": true
+        },
+        "summary": "Accrued vacation must be paid on separation unless a written policy, communicated in advance, says it is forfeited; use-it-or-lose-it allowed with advance written notice. (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law §198-c",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/198-C",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Patriot Software, PTO Payout Laws by State (survey used for encoding)",
+          "url": "https://www.patriotsoftware.com/blog/payroll/pto-payout-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "5981891fb04e2f76"
     },
     {
       "id": "ny-sick-leave-100-plus",
@@ -3444,6 +3503,62 @@
       ]
     },
     {
+      "code": "leave.pto_payout",
+      "name": "Vacation and PTO payout at separation",
+      "description": "Whether accrued, unused vacation or paid time off must be paid as final wages when employment ends, and whether use-it-or-lose-it forfeiture is allowed.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "payout_required",
+          "type": "enum",
+          "values": [
+            "always",
+            "unless_written_policy",
+            "policy_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "always = statute requires payout; unless_written_policy = owed unless a written policy or agreement says otherwise; policy_only = owed only when the employer's policy or contract promises it; not_required = no state duty"
+        },
+        {
+          "name": "forfeiture_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether use-it-or-lose-it forfeiture of accrued vacation is barred (accrual caps may still be allowed)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_years",
+          "type": "number",
+          "required": false,
+          "description": "Years of service before payout is owed"
+        },
+        {
+          "name": "notice_required_for_forfeiture",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a forfeiture or no-payout policy must be in writing and disclosed in advance to be enforceable"
+        }
+      ],
+      "synonyms": [
+        "vacation payout",
+        "PTO payout",
+        "accrued vacation",
+        "use-it-or-lose-it",
+        "vacation as wages",
+        "unused vacation at termination"
+      ]
+    },
+    {
       "code": "leave.sick.accrual",
       "name": "Paid sick leave accrual",
       "description": "Sick (or safe) leave the employee accrues per hour worked, with a yearly cap.",
@@ -4616,17 +4731,32 @@
       "description": "Whether this is part of a mass layoff",
       "category": "7. Termination",
       "group": "4.4 Breaks"
+    },
+    {
+      "path": "termination.type",
+      "type": "enum",
+      "description": "Type of employment separation",
+      "category": "7. Termination",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "voluntary_resignation",
+        "involuntary_discharge",
+        "layoff",
+        "constructive_discharge",
+        "end_of_contract",
+        "retirement"
+      ]
     }
   ],
   "stats": {
-    "rulesConsidered": 863,
-    "rulesIncluded": 53,
-    "excludedByProfile": 804,
-    "excludedExpired": 6,
+    "rulesConsidered": 922,
+    "rulesIncluded": 54,
+    "excludedByProfile": 861,
+    "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "50b935ebc7df6cae943f541e5fe33414116176c1860ee111a98c1e731fc4bc67"
+  "checksum": "b5faffbd99162a473be62dbfa3d48402e3ef2f252f623cf4c75a22d21fdce9ab"
 }
