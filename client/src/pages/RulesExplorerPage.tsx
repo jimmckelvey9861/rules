@@ -61,7 +61,16 @@ interface TaxonomyApi {
 function buildTaxonomyRows(taxonomy: TaxonomyApi): TaxonomyRow[] {
   const rows: TaxonomyRow[] = [];
   taxonomy.categories.forEach((cat, ci) => {
-    const c = ci + 1;
+    const c = `${ci + 1}`;
+    if (cat.topics.length === 1) {
+      // A category with one topic is one row: the category carries the topic's rules and sub-topics.
+      const topic = cat.topics[0];
+      rows.push({ id: cat.code, label: `${c}. ${cat.name}`, level: 0, topics: [topic.code] });
+      topic.subtopics.forEach((sub, si) => {
+        rows.push({ id: sub.code, label: `${c}.${si + 1} ${sub.name}`, level: 2, parentId: cat.code, topics: [sub.code] });
+      });
+      return;
+    }
     rows.push({ id: cat.code, label: `${c}. ${cat.name}`, level: 0, topics: [] });
     cat.topics.forEach((topic, ti) => {
       const t = `${c}.${ti + 1}`;
@@ -72,6 +81,12 @@ function buildTaxonomyRows(taxonomy: TaxonomyApi): TaxonomyRow[] {
     });
   });
   return rows;
+}
+
+/** Rows that own sub-topic rows (topics, and single-topic categories). */
+function parentRowIds(rows: TaxonomyRow[]): string[] {
+  const parents = new Set(rows.filter(r => r.level === 2).map(r => r.parentId!));
+  return rows.filter(r => parents.has(r.id)).map(r => r.id);
 }
 
 // ─── Taxonomy: Columns (Locations) ─────────────────────────────────
@@ -377,7 +392,11 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
 
   useEffect(() => {
     fetch("/api/coverage").then(r => r.json()).then(setCoverage).catch(() => {});
-    fetch("/api/taxonomy").then(r => r.json()).then((t: TaxonomyApi) => setLawTaxonomy(buildTaxonomyRows(t))).catch(() => {});
+    fetch("/api/taxonomy").then(r => r.json()).then((t: TaxonomyApi) => {
+      const rows = buildTaxonomyRows(t);
+      setLawTaxonomy(rows);
+      setExpandedTopics(new Set(parentRowIds(rows)));
+    }).catch(() => {});
   }, []);
 
   function toggleTopic(id: string) {
@@ -454,7 +473,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
 
   // Helper: look up coverage status for an empty cell
   function getCoverageStatus(row: TaxonomyRow, col: LocationColumn): "no_law" | "not_checked" | null {
-    if (!coverage || row.level !== 1) return null;
+    if (!coverage || row.level === 2 || row.topics.length === 0) return null;
     // Map the location column to a state code (only works for state-level columns)
     const jurisdiction = col.jurisdictions[0];
     if (!jurisdiction || !coverage.matrix[jurisdiction]) return null;
@@ -487,7 +506,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
         </span>
         <button
           type="button"
-          onClick={() => setExpandedTopics(expandedTopics.size ? new Set() : new Set(lawTaxonomy.filter(r => r.level === 1).map(r => r.id)))}
+          onClick={() => setExpandedTopics(expandedTopics.size ? new Set() : new Set(parentRowIds(lawTaxonomy)))}
           className="text-xs text-blue-600 hover:underline"
         >
           {expandedTopics.size ? "Collapse sub-topics" : "Expand all sub-topics"}
@@ -538,7 +557,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
                   }`}
                   style={{ paddingLeft: `${12 + row.level * 16}px` }}
                 >
-                  {row.level === 1 && hasSubtopics(row) ? (
+                  {row.level !== 2 && hasSubtopics(row) ? (
                     <button type="button" onClick={() => toggleTopic(row.id)} className="inline-flex items-center gap-1 hover:text-blue-700" title={expandedTopics.has(row.id) ? "Hide sub-topics" : "Show sub-topics"}>
                       <span className="text-gray-400 w-3 inline-block">{expandedTopics.has(row.id) ? "▾" : "▸"}</span>
                       {row.label}
@@ -558,7 +577,7 @@ function MatrixView({ rules, navigate }: { rules: TsRule[]; navigate: (path: str
                       : status === "not_checked"
                       ? "border text-center bg-amber-50"
                       : "border text-center";
-                    const cellContent = row.level === 0 ? null
+                    const cellContent = row.topics.length === 0 ? null
                       : status === "no_law" ? <span className="text-gray-300 text-[10px]" title="No state law exists">—</span>
                       : status === "not_checked" ? <span className="text-amber-400 text-[10px]" title="Law exists, rule not yet encoded">?</span>
                       : <span className="text-gray-200">—</span>;
