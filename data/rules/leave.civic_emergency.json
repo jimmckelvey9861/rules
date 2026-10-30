@@ -35,8 +35,13 @@
       "citations": [
         {
           "source": "Alaska Stat. \u00a715.56.100",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.akleg.gov/basis/statutes.asp#15.56.100",
           "kind": "statute"
+        },
+        {
+          "source": "Alaska Stat. \u00a715.56.100 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -84,7 +89,7 @@
       "jurisdiction": "AL",
       "topic": "leave.civic_emergency.voting",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2007-01-01",
       "appliesWhen": {
         "all": [
           {
@@ -112,8 +117,13 @@
       "citations": [
         {
           "source": "Ala. Code \u00a717-1-5",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/alabama/title-17/chapter-1/section-17-1-5",
           "kind": "statute"
+        },
+        {
+          "source": "Ala. Code \u00a717-1-5 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -150,8 +160,13 @@
       "citations": [
         {
           "source": "Ark. Code Ann. \u00a77-1-102",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/arkansas/2020/title-7/chapter-1/section-7-1-102/",
           "kind": "statute"
+        },
+        {
+          "source": "Ark. Code Ann. \u00a77-1-102 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -191,8 +206,13 @@
       "citations": [
         {
           "source": "Ariz. Rev. Stat. \u00a716-402",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.azleg.gov/ars/16/00402.htm",
           "kind": "statute"
+        },
+        {
+          "source": "Ariz. Rev. Stat. \u00a716-402 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -230,8 +250,13 @@
       "citations": [
         {
           "source": "Cal. Elec. Code \u00a7\u00a714000-14003",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=ELEC&sectionNum=14000",
           "kind": "statute"
+        },
+        {
+          "source": "Cal. Elec. Code \u00a7\u00a714000-14003 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -310,8 +335,13 @@
       "citations": [
         {
           "source": "Colo. Rev. Stat. \u00a71-7-102",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://colorado.public.law/statutes/crs_1-7-102",
           "kind": "statute"
+        },
+        {
+          "source": "Colo. Rev. Stat. \u00a71-7-102 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -434,8 +464,13 @@
       "citations": [
         {
           "source": "D.C. Code \u00a71-1001.07a",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.07a",
           "kind": "statute"
+        },
+        {
+          "source": "D.C. Code \u00a71-1001.07a (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -445,7 +480,7 @@
       "jurisdiction": "GA",
       "topic": "leave.civic_emergency.voting",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2023-07-01",
       "appliesWhen": {
         "all": [
           {
@@ -473,8 +508,13 @@
       "citations": [
         {
           "source": "O.C.G.A. \u00a721-2-404",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/georgia/2023/title-21/chapter-2/article-11/part-1/section-21-2-404",
           "kind": "statute"
+        },
+        {
+          "source": "O.C.G.A. \u00a721-2-404 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -484,7 +524,7 @@
       "jurisdiction": "IA",
       "topic": "leave.civic_emergency.voting",
       "status": "active",
-      "effectiveFrom": "2000-01-01",
+      "effectiveFrom": "2021-03-08",
       "appliesWhen": {
         "all": [
           {
@@ -514,8 +554,13 @@
       "citations": [
         {
           "source": "Iowa Code \u00a749.109",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.legis.iowa.gov/docs/code/2025/49.109.pdf",
           "kind": "statute"
+        },
+        {
+          "source": "Iowa Code \u00a749.109 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -555,8 +600,13 @@
       "citations": [
         {
           "source": "10 ILCS 5/17-15",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.ilga.gov/legislation/ilcs/documents/001000050K17-15.htm",
           "kind": "statute"
+        },
+        {
+          "source": "10 ILCS 5/17-15 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -595,8 +645,13 @@
       "citations": [
         {
           "source": "Kan. Stat. Ann. \u00a725-418",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.ksrevisor.gov/statutes/chapters/ch25/025_004_0018.html",
           "kind": "statute"
+        },
+        {
+          "source": "Kan. Stat. Ann. \u00a725-418 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -635,8 +690,13 @@
       "citations": [
         {
           "source": "Ky. Rev. Stat. \u00a7118.035",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/kentucky/chapter-118/section-118-035",
           "kind": "statute"
+        },
+        {
+          "source": "Ky. Rev. Stat. \u00a7118.035 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -749,8 +809,13 @@
       "citations": [
         {
           "source": "Mass. Gen. Laws ch. 149, \u00a7178",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section178",
           "kind": "statute"
+        },
+        {
+          "source": "Mass. Gen. Laws ch. 149, \u00a7178 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -788,8 +853,13 @@
       "citations": [
         {
           "source": "Md. Code, Elec. Law \u00a710-315",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gel&section=10-315&enactments=false",
           "kind": "statute"
+        },
+        {
+          "source": "Md. Code, Elec. Law \u00a710-315 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -825,8 +895,13 @@
       "citations": [
         {
           "source": "Minn. Stat. \u00a7204C.04",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.revisor.mn.gov/statutes/cite/204C.04",
           "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7204C.04 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -866,8 +941,13 @@
       "citations": [
         {
           "source": "Mo. Rev. Stat. \u00a7115.639",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=115.639",
           "kind": "statute"
+        },
+        {
+          "source": "Mo. Rev. Stat. \u00a7115.639 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -944,8 +1024,13 @@
       "citations": [
         {
           "source": "Neb. Rev. Stat. \u00a732-922",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=32-922",
           "kind": "statute"
+        },
+        {
+          "source": "Neb. Rev. Stat. \u00a732-922 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -983,8 +1068,13 @@
       "citations": [
         {
           "source": "N.M. Stat. Ann. \u00a71-12-42",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-1/article-12/section-1-12-42",
           "kind": "statute"
+        },
+        {
+          "source": "N.M. Stat. Ann. \u00a71-12-42 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1062,8 +1152,13 @@
       "citations": [
         {
           "source": "Nev. Rev. Stat. \u00a7293.463",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-293.html#NRS293Sec463",
           "kind": "statute"
+        },
+        {
+          "source": "Nev. Rev. Stat. \u00a7293.463 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1147,8 +1242,13 @@
       "citations": [
         {
           "source": "N.Y. Elec. Law \u00a73-110",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://www.nysenate.gov/legislation/laws/ELN/3-110",
           "kind": "statute"
+        },
+        {
+          "source": "N.Y. Elec. Law \u00a73-110 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1184,8 +1284,13 @@
       "citations": [
         {
           "source": "Ohio Rev. Code \u00a73599.06",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-3599.06",
           "kind": "statute"
+        },
+        {
+          "source": "Ohio Rev. Code \u00a73599.06 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1225,8 +1330,18 @@
       "citations": [
         {
           "source": "26 Okla. Stat. \u00a77-101",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/oklahoma/title-26/section-26-7-101/",
           "kind": "statute"
+        },
+        {
+          "source": "26 Okla. Stat. \u00a77-101 (state election board guidance)",
+          "url": "https://oklahoma.gov/elections/voters/time-off-for-voting.html",
+          "kind": "guidance"
+        },
+        {
+          "source": "26 Okla. Stat. \u00a77-101 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1265,8 +1380,13 @@
       "citations": [
         {
           "source": "S.D. Codified Laws \u00a712-3-5",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://sdlegislature.gov/Statutes/12-3-5",
           "kind": "statute"
+        },
+        {
+          "source": "S.D. Codified Laws \u00a712-3-5 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1354,8 +1474,13 @@
       "citations": [
         {
           "source": "Tenn. Code Ann. \u00a72-1-106",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/tennessee/title-2/chapter-1/section-2-1-106/",
           "kind": "statute"
+        },
+        {
+          "source": "Tenn. Code Ann. \u00a72-1-106 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1392,8 +1517,13 @@
       "citations": [
         {
           "source": "Tex. Elec. Code \u00a7276.004",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://statutes.capitol.texas.gov/Docs/EL/htm/EL.276.htm",
           "kind": "statute"
+        },
+        {
+          "source": "Tex. Elec. Code \u00a7276.004 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1433,8 +1563,13 @@
       "citations": [
         {
           "source": "Utah Code \u00a720A-3a-105",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://le.utah.gov/xcode/Title20A/Chapter3A/20A-3a-S105.html",
           "kind": "statute"
+        },
+        {
+          "source": "Utah Code \u00a720A-3a-105 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1511,8 +1646,13 @@
       "citations": [
         {
           "source": "Wis. Stat. \u00a76.76",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/6/iii/76",
           "kind": "statute"
+        },
+        {
+          "source": "Wis. Stat. \u00a76.76 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1551,8 +1691,13 @@
       "citations": [
         {
           "source": "W. Va. Code \u00a73-1-42",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://code.wvlegislature.gov/3-1-42/",
           "kind": "statute"
+        },
+        {
+          "source": "W. Va. Code \u00a73-1-42 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     },
@@ -1590,8 +1735,13 @@
       "citations": [
         {
           "source": "Wyo. Stat. \u00a722-2-111",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://law.justia.com/codes/wyoming/title-22/chapter-2/article-1/section-22-2-111/",
           "kind": "statute"
+        },
+        {
+          "source": "Wyo. Stat. \u00a722-2-111 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ]
     }

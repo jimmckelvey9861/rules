@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:26:07.166Z",
+  "generatedAt": "2026-10-30T18:53:15.269Z",
   "asOf": "2026-10-20",
   "horizonDays": 365,
-  "rulesVersion": "c68047ea12aa5a94",
+  "rulesVersion": "1e560f4c922d0d79",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -68,11 +68,16 @@
       "citations": [
         {
           "source": "Tex. Elec. Code §276.004",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://statutes.capitol.texas.gov/Docs/EL/htm/EL.276.htm",
           "kind": "statute"
+        },
+        {
+          "source": "Tex. Elec. Code §276.004 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ],
-      "hash": "2d8a25adf5c56319"
+      "hash": "826dfc4586add336"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -1661,5 +1666,5 @@
     "upcoming": 0,
     "fullyResolved": 0
   },
-  "checksum": "29e719f7733e71c88de4572203a2e5700519c93211b02a09fc31ec49107221d3"
+  "checksum": "1af52785f16749915165fb703c8f7dbe3dc7c57f26de0f3b0d95bdbf48f03176"
 }

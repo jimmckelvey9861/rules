@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:26:07.165Z",
+  "generatedAt": "2026-10-30T18:53:15.268Z",
   "asOf": "2026-10-20",
   "horizonDays": 365,
-  "rulesVersion": "c68047ea12aa5a94",
+  "rulesVersion": "1e560f4c922d0d79",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -76,11 +76,16 @@
       "citations": [
         {
           "source": "Cal. Elec. Code §§14000-14003",
-          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=ELEC&sectionNum=14000",
           "kind": "statute"
+        },
+        {
+          "source": "Cal. Elec. Code §§14000-14003 (50-state survey used for encoding)",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "guidance"
         }
       ],
-      "hash": "a8002470bff48543"
+      "hash": "1dda149ebc073a78"
     },
     {
       "id": "ca-family-medical-leave",
@@ -2135,11 +2140,16 @@
       "citations": [
         {
           "source": "Cal. Labor Code §§1030-1034",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=1030",
           "kind": "statute"
+        },
+        {
+          "source": "Cal. Labor Code §§1030-1034 (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ],
-      "hash": "19b22bec1b2d50df"
+      "hash": "e3e53097542d4497"
     },
     {
       "id": "ca-rest-break-4hr",
@@ -3673,5 +3683,5 @@
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "3e1e96a46fd30035f320e25db0dc43b5e042de86b1140cabd31f6538e9332fa3"
+  "checksum": "b829d038feff6bd9cbe2ba0d0082fa229621eda76b21e4196574c6337ad55438"
 }

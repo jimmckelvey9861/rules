@@ -148,6 +148,12 @@ npm run diff-packs -- old-pack.json new-pack.json [--json]
 
 Law changes are modelled as rule history, never as edits that lose the past:
 
+- `effectiveFrom` is the date the current text took effect where that has been
+  verified. `2000-01-01` is a convention, not a date: it marks a rule in force on
+  or before that day whose enactment date has not been researched (long-standing
+  overtime, jury duty and child labor statutes). A pack built as of any later
+  date treats them as in force, which is correct; only a historical as-of before
+  2000 would be wrong for them.
 - Every rule has an `effectiveFrom`, and a rule that stopped applying keeps its
   record with an `effectiveTo`. The replacement is a new rule (new id) with
   `supersedes` naming the old one. The loader rejects a link whose two rules sit

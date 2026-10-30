@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T18:26:07.157Z",
+  "generatedAt": "2026-10-30T18:53:15.260Z",
   "asOf": "2026-10-20",
   "horizonDays": 365,
-  "rulesVersion": "c68047ea12aa5a94",
+  "rulesVersion": "1e560f4c922d0d79",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1861,11 +1861,16 @@
       "citations": [
         {
           "source": "Wash. Rev. Code §43.10.005 (Healthy Starts Act)",
-          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=43.10.005",
           "kind": "statute"
+        },
+        {
+          "source": "Wash. Rev. Code §43.10.005 (Healthy Starts Act) (50-state survey used for encoding)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "guidance"
         }
       ],
-      "hash": "5fba16b4a132f637"
+      "hash": "dd145dda48d442dd"
     },
     {
       "id": "wa-rest-break-4hr",
@@ -2998,5 +3003,5 @@
     "upcoming": 0,
     "fullyResolved": 2
   },
-  "checksum": "54663fb970ecb05dd100b11dee6355d5730b8c5d40b7a2fcdd2de57040bcc703"
+  "checksum": "7ef04ec4e8f84e9aed26f2bdec5a6c0bc490eb9d226c82edbe6249a8ef18accd"
 }
