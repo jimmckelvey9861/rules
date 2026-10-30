@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:05:10.227Z",
+  "generatedAt": "2026-10-30T20:25:20.267Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "373a0ebda26f7307",
+  "rulesVersion": "44f735ac294ddb22",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -78,6 +78,108 @@
         }
       ],
       "hash": "826dfc4586add336"
+    },
+    {
+      "id": "federal-userra",
+      "title": "USERRA — Uniformed Services Leave and Reemployment",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "leave.civic_emergency.military",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1994-10-13",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "military"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "max_cumulative_years": 5,
+          "service_type": "uniformed services (active duty, reserve and National Guard federal duty, training)"
+        },
+        "summary": "All employers must grant unpaid leave for service in the uniformed services and reemploy the employee in the escalator position after up to 5 cumulative years of service, with no discrimination or retaliation; health coverage continues up to 24 months at the employee's expense. State-ordered National Guard duty is covered only by state law.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. §§4301-4335 (USERRA)",
+          "url": "https://www.law.cornell.edu/uscode/text/38/part-III/chapter-43",
+          "section": "Ch. 43",
+          "kind": "statute"
+        },
+        {
+          "source": "20 CFR Part 1002",
+          "url": "https://www.ecfr.gov/current/title-20/chapter-IX/part-1002",
+          "section": "Part 1002",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "113e563b7867ece4"
+    },
+    {
+      "id": "tx-state-military-leave",
+      "title": "Texas — State Military Leave and Reemployment",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "leave.civic_emergency.military",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "military"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state military forces training or duty with reinstatement and no loss of time, efficiency rating, vacation or benefits; USERRA-equivalent for state active duty. (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Gov't Code §§437.204, 437.213",
+          "url": "https://statutes.capitol.texas.gov/Docs/GV/htm/GV.437.htm",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "5fc9edf9d44404e0"
     },
     {
       "id": "federal-fmla-eligibility",
@@ -1317,6 +1419,84 @@
       ]
     },
     {
+      "code": "leave.military",
+      "name": "Military service leave",
+      "description": "Unpaid leave and reemployment rights for an employee called to uniformed or state military service, training or drills (USERRA and state National Guard laws).",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must pay during the leave (false under USERRA and all state laws)"
+        },
+        {
+          "name": "covers_state_active_duty",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the law protects state-ordered (Governor-called) National Guard or militia duty, which USERRA does not"
+        },
+        {
+          "name": "reinstatement_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must be restored to the same or an escalator position on return"
+        },
+        {
+          "name": "max_cumulative_years",
+          "type": "number",
+          "required": false,
+          "description": "Cumulative years of service after which reemployment rights end"
+        },
+        {
+          "name": "annual_training_leave_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of leave per year the law guarantees for drills, encampments or training"
+        },
+        {
+          "name": "no_discharge_without_cause_months",
+          "type": "number",
+          "required": false,
+          "description": "Months after return during which the employee may be discharged only for cause"
+        },
+        {
+          "name": "health_continuation_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employer must keep health coverage in force at its own expense"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "service_type",
+          "type": "string",
+          "required": false,
+          "description": "Service the rule covers (uniformed services, state active duty, civil air patrol)"
+        }
+      ],
+      "synonyms": [
+        "USERRA",
+        "National Guard leave",
+        "military leave",
+        "reservist leave",
+        "state active duty leave",
+        "drill leave",
+        "civil air patrol leave",
+        "reemployment rights"
+      ]
+    },
+    {
       "code": "leave.voting",
       "name": "Voting leave",
       "description": "Time off to vote on election day when the employee's schedule leaves too little non-working time while polls are open.",
@@ -1888,14 +2068,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 765,
-    "rulesIncluded": 20,
-    "excludedByProfile": 739,
+    "rulesConsidered": 863,
+    "rulesIncluded": 22,
+    "excludedByProfile": 835,
     "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 0
   },
-  "checksum": "6aa990a7ad61ca733fdebcc710c67f37130ed3f774dff7262b254f0bf99496e3"
+  "checksum": "b3da098ce79eaedd39a9bcb2ae7d8d0462741121769e920ff158304fa6c41769"
 }

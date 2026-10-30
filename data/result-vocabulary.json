@@ -505,6 +505,65 @@
         { "name": "rehire_reinstatement_months", "type": "number", "required": false, "description": "Months after separation within which a rehired employee gets the unused balance back" }
       ],
       "synonyms": ["sick leave carryover", "rollover", "carry forward", "sick leave payout", "frontloading", "reinstatement on rehire"]
+    },
+    {
+      "code": "leave.domestic_violence",
+      "name": "Domestic violence, safe and crime victim leave",
+      "description": "Job-protected time off for an employee (or family member) who is a victim of domestic violence, sexual assault, stalking or another crime, for court, medical, counseling, relocation or safety needs; some laws instead require reasonable accommodation.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "paid", "type": "boolean", "required": true, "description": "Whether the employer must pay for the leave (false = unpaid, or paid only at the employer's option or from accrued paid leave)" },
+        { "name": "max_days", "type": "number", "unit": "days", "required": false, "description": "Most days of leave per period, where the law sets a cap" },
+        { "name": "max_hours", "type": "number", "unit": "hours", "required": false, "description": "Most hours of leave per period, where the law counts hours" },
+        { "name": "max_weeks", "type": "number", "unit": "weeks", "required": false, "description": "Most weeks of leave per period, where the law counts weeks" },
+        { "name": "period_months", "type": "number", "required": false, "description": "Length of the period the cap applies to, in months (12 = per year)" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the duty attaches" },
+        { "name": "tenure_days", "type": "number", "unit": "days", "required": false, "description": "Days of employment before the employee is eligible" },
+        { "name": "family_member_covered", "type": "boolean", "required": false, "description": "Whether leave is also owed when a family or household member is the victim" },
+        { "name": "court_proceedings_only", "type": "boolean", "required": false, "description": "True when the law covers only attendance at court or legal proceedings (crime victim leave)" },
+        { "name": "accommodation_required", "type": "boolean", "required": false, "description": "True when the law requires reasonable safety accommodations (schedule changes, transfer) rather than or in addition to a leave entitlement" },
+        { "name": "covered_reasons", "type": "string", "required": false, "description": "Purposes the leave may be used for" }
+      ],
+      "synonyms": ["safe leave", "domestic violence leave", "crime victim leave", "victim leave", "VESSA", "SAFE Act leave", "family violence leave", "court attendance leave"]
+    },
+    {
+      "code": "leave.military",
+      "name": "Military service leave",
+      "description": "Unpaid leave and reemployment rights for an employee called to uniformed or state military service, training or drills (USERRA and state National Guard laws).",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "paid", "type": "boolean", "required": true, "description": "Whether the employer must pay during the leave (false under USERRA and all state laws)" },
+        { "name": "covers_state_active_duty", "type": "boolean", "required": true, "description": "Whether the law protects state-ordered (Governor-called) National Guard or militia duty, which USERRA does not" },
+        { "name": "reinstatement_required", "type": "boolean", "required": false, "description": "Whether the employee must be restored to the same or an escalator position on return" },
+        { "name": "max_cumulative_years", "type": "number", "required": false, "description": "Cumulative years of service after which reemployment rights end" },
+        { "name": "annual_training_leave_days", "type": "number", "unit": "days", "required": false, "description": "Days of leave per year the law guarantees for drills, encampments or training" },
+        { "name": "no_discharge_without_cause_months", "type": "number", "required": false, "description": "Months after return during which the employee may be discharged only for cause" },
+        { "name": "health_continuation_days", "type": "number", "unit": "days", "required": false, "description": "Days the employer must keep health coverage in force at its own expense" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the duty attaches" },
+        { "name": "service_type", "type": "string", "required": false, "description": "Service the rule covers (uniformed services, state active duty, civil air patrol)" }
+      ],
+      "synonyms": ["USERRA", "National Guard leave", "military leave", "reservist leave", "state active duty leave", "drill leave", "civil air patrol leave", "reemployment rights"]
+    },
+    {
+      "code": "leave.military_family",
+      "name": "Military family leave",
+      "description": "Unpaid leave for the spouse, parent or other family member of a service member who is deployed, on leave from deployment, injured or killed on active duty.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "max_days", "type": "number", "unit": "days", "required": true, "description": "Most days of leave per deployment or per year" },
+        { "name": "paid", "type": "boolean", "required": true, "description": "Whether the leave must be paid (false everywhere today)" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the duty attaches" },
+        { "name": "min_hours_per_week", "type": "number", "unit": "hours", "required": false, "description": "Weekly hours the employee must average to be eligible" },
+        { "name": "tenure_months", "type": "number", "required": false, "description": "Months of employment required" },
+        { "name": "tenure_hours", "type": "number", "unit": "hours", "required": false, "description": "Hours worked in the prior 12 months required" },
+        { "name": "deployment_days_min", "type": "number", "unit": "days", "required": false, "description": "Minimum length of the service member's orders for the leave to apply" },
+        { "name": "covered_relationships", "type": "string", "required": false, "description": "Family members whose service triggers the leave" },
+        { "name": "trigger", "type": "string", "required": false, "description": "Event the leave attaches to (deployment, leave from deployment, injury, death, ceremony)" }
+      ],
+      "synonyms": ["military spouse leave", "family military leave", "deployment leave", "OMFLA", "Family Military Leave Act"]
     }
   ]
 }

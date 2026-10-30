@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:05:10.215Z",
+  "generatedAt": "2026-10-30T20:25:20.253Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "373a0ebda26f7307",
+  "rulesVersion": "44f735ac294ddb22",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,6 +39,213 @@
     }
   ],
   "rules": [
+    {
+      "id": "wa-dv-leave",
+      "title": "Washington — Domestic Violence Leave (reasonable leave, all employers)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-04-01",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "domestic_violence"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "family_member_covered": true,
+          "accommodation_required": true,
+          "covered_reasons": "legal or law enforcement assistance, medical treatment, counseling, victim services, relocation or safety planning"
+        },
+        "summary": "All employers must allow reasonable leave (paid from accrued leave, otherwise unpaid), intermittent or on a reduced schedule, for an employee who is (or whose family member is) a victim of domestic violence, sexual assault or stalking, and must provide reasonable safety accommodations. Safe leave is also a use of WA paid sick leave (RCW 49.46.210).",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.76.030",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.76.030",
+          "section": "§49.76.030",
+          "kind": "statute"
+        },
+        {
+          "source": "RCW 49.76.115",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.76.115",
+          "section": "§49.76.115",
+          "kind": "statute"
+        }
+      ],
+      "hash": "0f19b943589d63ec"
+    },
+    {
+      "id": "federal-userra",
+      "title": "USERRA — Uniformed Services Leave and Reemployment",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "leave.civic_emergency.military",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1994-10-13",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "military"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "max_cumulative_years": 5,
+          "service_type": "uniformed services (active duty, reserve and National Guard federal duty, training)"
+        },
+        "summary": "All employers must grant unpaid leave for service in the uniformed services and reemploy the employee in the escalator position after up to 5 cumulative years of service, with no discrimination or retaliation; health coverage continues up to 24 months at the employee's expense. State-ordered National Guard duty is covered only by state law.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. §§4301-4335 (USERRA)",
+          "url": "https://www.law.cornell.edu/uscode/text/38/part-III/chapter-43",
+          "section": "Ch. 43",
+          "kind": "statute"
+        },
+        {
+          "source": "20 CFR Part 1002",
+          "url": "https://www.ecfr.gov/current/title-20/chapter-IX/part-1002",
+          "section": "Part 1002",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "113e563b7867ece4"
+    },
+    {
+      "id": "wa-state-military-leave",
+      "title": "Washington — State Military Leave and Reemployment",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.civic_emergency.military",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "military"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Washington residents or employees serving in the uniformed services, including state active duty. (Survey-based encoding; dates not researched.)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW §§73.16.032-73.16.035",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=73.16.033",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "c147f78b5c3e57fb"
+    },
+    {
+      "id": "wa-military-spouse-leave",
+      "title": "Washington — Military Family Leave (15 days)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "leave.civic_emergency.military",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2008-06-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.reason",
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 15,
+          "paid": false,
+          "min_hours_per_week": 20,
+          "covered_relationships": "spouse or registered domestic partner",
+          "trigger": "spouse notified of an impending call to active duty or on leave from deployment during a period of military conflict"
+        },
+        "summary": "All employers must give an employee who works an average of 20 or more hours a week up to 15 days of unpaid leave per deployment when a spouse or domestic partner is called to active duty or is on leave from deployment during a military conflict; employee may elect accrued paid leave; 5 business days' notice.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.77.030",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.77.030",
+          "section": "§49.77.030",
+          "kind": "statute"
+        }
+      ],
+      "hash": "638c4370f1c2c57e"
+    },
     {
       "id": "federal-fmla-eligibility",
       "title": "Federal FMLA — Employee Eligibility",
@@ -2787,6 +2994,98 @@
       ]
     },
     {
+      "code": "leave.domestic_violence",
+      "name": "Domestic violence, safe and crime victim leave",
+      "description": "Job-protected time off for an employee (or family member) who is a victim of domestic violence, sexual assault, stalking or another crime, for court, medical, counseling, relocation or safety needs; some laws instead require reasonable accommodation.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must pay for the leave (false = unpaid, or paid only at the employer's option or from accrued paid leave)"
+        },
+        {
+          "name": "max_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Most days of leave per period, where the law sets a cap"
+        },
+        {
+          "name": "max_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Most hours of leave per period, where the law counts hours"
+        },
+        {
+          "name": "max_weeks",
+          "type": "number",
+          "unit": "weeks",
+          "required": false,
+          "description": "Most weeks of leave per period, where the law counts weeks"
+        },
+        {
+          "name": "period_months",
+          "type": "number",
+          "required": false,
+          "description": "Length of the period the cap applies to, in months (12 = per year)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "tenure_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of employment before the employee is eligible"
+        },
+        {
+          "name": "family_member_covered",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether leave is also owed when a family or household member is the victim"
+        },
+        {
+          "name": "court_proceedings_only",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law covers only attendance at court or legal proceedings (crime victim leave)"
+        },
+        {
+          "name": "accommodation_required",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law requires reasonable safety accommodations (schedule changes, transfer) rather than or in addition to a leave entitlement"
+        },
+        {
+          "name": "covered_reasons",
+          "type": "string",
+          "required": false,
+          "description": "Purposes the leave may be used for"
+        }
+      ],
+      "synonyms": [
+        "safe leave",
+        "domestic violence leave",
+        "crime victim leave",
+        "victim leave",
+        "VESSA",
+        "SAFE Act leave",
+        "family violence leave",
+        "court attendance leave"
+      ]
+    },
+    {
       "code": "leave.family_medical",
       "name": "Family and medical leave entitlement",
       "description": "Weeks of job-protected family or medical leave the employee is entitled to in a benefit year.",
@@ -2819,6 +3118,161 @@
         "paid family leave",
         "family leave insurance",
         "FAMLI"
+      ]
+    },
+    {
+      "code": "leave.military",
+      "name": "Military service leave",
+      "description": "Unpaid leave and reemployment rights for an employee called to uniformed or state military service, training or drills (USERRA and state National Guard laws).",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the employer must pay during the leave (false under USERRA and all state laws)"
+        },
+        {
+          "name": "covers_state_active_duty",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the law protects state-ordered (Governor-called) National Guard or militia duty, which USERRA does not"
+        },
+        {
+          "name": "reinstatement_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must be restored to the same or an escalator position on return"
+        },
+        {
+          "name": "max_cumulative_years",
+          "type": "number",
+          "required": false,
+          "description": "Cumulative years of service after which reemployment rights end"
+        },
+        {
+          "name": "annual_training_leave_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of leave per year the law guarantees for drills, encampments or training"
+        },
+        {
+          "name": "no_discharge_without_cause_months",
+          "type": "number",
+          "required": false,
+          "description": "Months after return during which the employee may be discharged only for cause"
+        },
+        {
+          "name": "health_continuation_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employer must keep health coverage in force at its own expense"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "service_type",
+          "type": "string",
+          "required": false,
+          "description": "Service the rule covers (uniformed services, state active duty, civil air patrol)"
+        }
+      ],
+      "synonyms": [
+        "USERRA",
+        "National Guard leave",
+        "military leave",
+        "reservist leave",
+        "state active duty leave",
+        "drill leave",
+        "civil air patrol leave",
+        "reemployment rights"
+      ]
+    },
+    {
+      "code": "leave.military_family",
+      "name": "Military family leave",
+      "description": "Unpaid leave for the spouse, parent or other family member of a service member who is deployed, on leave from deployment, injured or killed on active duty.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "max_days",
+          "type": "number",
+          "unit": "days",
+          "required": true,
+          "description": "Most days of leave per deployment or per year"
+        },
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the leave must be paid (false everywhere today)"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "min_hours_per_week",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Weekly hours the employee must average to be eligible"
+        },
+        {
+          "name": "tenure_months",
+          "type": "number",
+          "required": false,
+          "description": "Months of employment required"
+        },
+        {
+          "name": "tenure_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Hours worked in the prior 12 months required"
+        },
+        {
+          "name": "deployment_days_min",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Minimum length of the service member's orders for the leave to apply"
+        },
+        {
+          "name": "covered_relationships",
+          "type": "string",
+          "required": false,
+          "description": "Family members whose service triggers the leave"
+        },
+        {
+          "name": "trigger",
+          "type": "string",
+          "required": false,
+          "description": "Event the leave attaches to (deployment, leave from deployment, injury, death, ceremony)"
+        }
+      ],
+      "synonyms": [
+        "military spouse leave",
+        "family military leave",
+        "deployment leave",
+        "OMFLA",
+        "Family Military Leave Act"
       ]
     },
     {
@@ -3566,6 +4020,25 @@
       ]
     },
     {
+      "path": "leave.reason",
+      "type": "enum",
+      "description": "Specific qualifying reason for leave",
+      "category": "6. Leave",
+      "group": "4.4 Breaks",
+      "enumValues": [
+        "own_illness",
+        "family_illness",
+        "childbirth",
+        "adoption",
+        "foster_care",
+        "military_deployment",
+        "domestic_violence",
+        "sexual_assault",
+        "stalking",
+        "other"
+      ]
+    },
+    {
       "path": "leave.type",
       "type": "enum",
       "description": "Type of leave requested",
@@ -3842,14 +4315,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 765,
-    "rulesIncluded": 45,
-    "excludedByProfile": 714,
+    "rulesConsidered": 863,
+    "rulesIncluded": 49,
+    "excludedByProfile": 808,
     "excludedExpired": 6,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
     "fullyResolved": 4
   },
-  "checksum": "ba3baa781e993cd07b1ad2f3801806d2e963972fbd90692d78153a683f042109"
+  "checksum": "1f938705d88c1501d0b1662af46618c8dea102235084e01d88326a18c9aa2ff1"
 }
