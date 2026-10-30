@@ -1744,6 +1744,4883 @@
           "kind": "guidance"
         }
       ]
+    },
+    {
+      "id": "az-crime-victim-leave",
+      "title": "Arizona \u2014 Crime Victim Leave (court proceedings, 50+ employees)",
+      "jurisdiction": "AZ",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "min_employees": 50,
+          "court_proceedings_only": true,
+          "covered_reasons": "attend court proceedings and obtain or enforce protective orders as a crime victim"
+        },
+        "summary": "Employers with 50 or more employees must allow a crime victim (or immediate family of a victim) unpaid leave to attend court proceedings and obtain protective orders; accrued paid leave may be used. Safe leave for domestic violence is also a use of Arizona earned paid sick time (ARS 23-373)."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a713-4439",
+          "url": "https://www.azleg.gov/ars/13/04439.htm",
+          "section": "\u00a713-4439",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-dv-leave-all-employers",
+      "title": "California \u2014 Victim Leave for Court and Safety (all employers)",
+      "jurisdiction": "CA",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "family_member_covered": true,
+          "accommodation_required": true,
+          "covered_reasons": "judicial proceedings related to the crime; relief such as restraining orders for the safety of the employee or a child"
+        },
+        "summary": "All employers: no discharge or retaliation for time off to appear in court as a crime victim or to seek a restraining order or other relief for safety (Lab. Code 230(c), (e)); reasonable safety accommodations required on request (230(f)). Employee may use accrued paid leave. Expanded 2025 (AB 2499) to victims of 'qualifying acts of violence' and moved to Gov. Code 12945.8 for CRD enforcement."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7230",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=230.&lawCode=LAB",
+          "section": "\u00a7230(c)-(f)",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Gov. Code \u00a712945.8 (AB 2499, 2025)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=12945.8.&lawCode=GOV",
+          "section": "\u00a712945.8",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-dv-leave-25-plus",
+      "title": "California \u2014 Victim Leave for Medical, Counseling and Relocation (25+ employees)",
+      "jurisdiction": "CA",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "min_employees": 25,
+          "family_member_covered": true,
+          "covered_reasons": "medical attention, victim services, counseling, safety planning, relocation"
+        },
+        "summary": "Employers with 25 or more employees must also allow unpaid time off for medical attention, victim services, psychological counseling, safety planning and relocation (Lab. Code 230.1); from 2025 the right is in Gov. Code 12945.8 and family members of victims are covered for certain purposes."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7230.1",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=230.1.&lawCode=LAB",
+          "section": "\u00a7230.1",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Gov. Code \u00a712945.8 (AB 2499, 2025)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=12945.8.&lawCode=GOV",
+          "section": "\u00a712945.8",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-dv-leave",
+      "title": "Colorado \u2014 Domestic Violence Leave (3 days, 50+ employees)",
+      "jurisdiction": "CO",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2002-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 3,
+          "period_months": 12,
+          "min_employees": 50,
+          "tenure_days": 365,
+          "covered_reasons": "protective orders, medical care, counseling, relocation, legal assistance"
+        },
+        "summary": "Employers with 50 or more employees must give an employee with 12 months of service up to 3 working days of leave in any 12-month period for domestic abuse, stalking, sexual assault or another DV-related crime; unpaid unless the employee elects accrued paid leave. Safe time is also a use of Colorado paid sick leave (CRS 8-13.3-404)."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a724-34-402.7",
+          "url": "https://law.justia.com/codes/colorado/title-24/principal-departments/article-34/part-4/section-24-34-402-7/",
+          "section": "\u00a724-34-402.7",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-family-violence-leave",
+      "title": "Connecticut \u2014 Family Violence and Sexual Assault Leave (12 days, 3+ employees)",
+      "jurisdiction": "CT",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2010-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 3
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 12,
+          "period_months": 12,
+          "min_employees": 3,
+          "covered_reasons": "medical care or counseling, victim services, relocation, civil or criminal proceedings"
+        },
+        "summary": "Employers with 3 or more employees must allow paid or unpaid leave reasonably necessary for a victim of family violence or sexual assault; unpaid leave may be limited to 12 days a calendar year. Up to 7 days' notice may be required when foreseeable."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-51ss",
+          "url": "https://codes.findlaw.com/ct/title-31-labor/ct-gen-st-sect-31-51ss/",
+          "section": "\u00a731-51ss",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "fl-dv-leave",
+      "title": "Florida \u2014 Domestic Violence Leave (3 days, 50+ employees)",
+      "jurisdiction": "FL",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 3,
+          "period_months": 12,
+          "min_employees": 50,
+          "tenure_days": 90,
+          "family_member_covered": true,
+          "covered_reasons": "injunctions, medical care or counseling, victim services, new housing, legal help"
+        },
+        "summary": "Employers with 50 or more employees must give an employee with 3 months of service up to 3 working days of leave in any 12-month period when the employee or a household member is a victim of domestic or sexual violence; paid or unpaid at the employer's option; other accrued leave must be used first unless waived."
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7741.313",
+          "url": "https://florida.public.law/statutes/fla._stat._741.313",
+          "section": "\u00a7741.313",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "hi-dv-leave-large",
+      "title": "Hawaii \u2014 Domestic or Sexual Violence Leave (30 days, 50+ employees)",
+      "jurisdiction": "HI",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2011-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 30,
+          "period_months": 12,
+          "min_employees": 50,
+          "family_member_covered": true,
+          "covered_reasons": "medical care, victim services, counseling, relocation, legal action"
+        },
+        "summary": "Employers with 50 or more employees must allow up to 30 days of unpaid leave per calendar year when the employee or the employee's minor child is a victim of domestic or sexual violence."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7378-72",
+          "url": "https://law.justia.com/codes/hawaii/title-21/chapter-378/section-378-72/",
+          "section": "\u00a7378-72",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "hi-dv-leave-small",
+      "title": "Hawaii \u2014 Domestic or Sexual Violence Leave (5 days, under 50 employees)",
+      "jurisdiction": "HI",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2011-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 5,
+          "period_months": 12,
+          "family_member_covered": true,
+          "covered_reasons": "medical care, victim services, counseling, relocation, legal action"
+        },
+        "summary": "Employers with 49 or fewer employees must allow up to 5 days of unpaid leave per calendar year when the employee or the employee's minor child is a victim of domestic or sexual violence."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7378-72",
+          "url": "https://law.justia.com/codes/hawaii/title-21/chapter-378/section-378-72/",
+          "section": "\u00a7378-72",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-vessa-50-plus",
+      "title": "Illinois VESSA \u2014 12 weeks (50+ employees)",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2003-08-25",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_weeks": 12,
+          "period_months": 12,
+          "min_employees": 50,
+          "family_member_covered": true,
+          "covered_reasons": "medical care or recovery, victim services, safety planning or relocation, legal assistance and court proceedings"
+        },
+        "summary": "Victims' Economic Security and Safety Act: employers with 50 or more employees must give up to 12 weeks of unpaid leave per 12 months to an employee who is, or whose family or household member is, a victim of domestic, sexual or gender violence or another crime of violence (2024 amendment adds funeral and bereavement time for a family member killed in a crime)."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 180/20",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "\u00a7180/20",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL VESSA page",
+          "url": "https://labor.illinois.gov/laws-rules/fls/vessa.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-vessa-15-49",
+      "title": "Illinois VESSA \u2014 8 weeks (15-49 employees)",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2009-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_weeks": 8,
+          "period_months": 12,
+          "min_employees": 15,
+          "family_member_covered": true,
+          "covered_reasons": "medical care or recovery, victim services, safety planning or relocation, legal assistance and court proceedings"
+        },
+        "summary": "Employers with 15 to 49 employees must give up to 8 weeks of unpaid VESSA leave per 12 months."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 180/20",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "\u00a7180/20",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL VESSA page",
+          "url": "https://labor.illinois.gov/laws-rules/fls/vessa.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-vessa-1-14",
+      "title": "Illinois VESSA \u2014 4 weeks (1-14 employees)",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2017-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_weeks": 4,
+          "period_months": 12,
+          "family_member_covered": true,
+          "covered_reasons": "medical care or recovery, victim services, safety planning or relocation, legal assistance and court proceedings"
+        },
+        "summary": "From 2017-01-01 employers with 1 to 14 employees must give up to 4 weeks of unpaid VESSA leave per 12 months."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 180/20",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "\u00a7180/20",
+          "kind": "statute"
+        },
+        {
+          "source": "IDOL VESSA page",
+          "url": "https://labor.illinois.gov/laws-rules/fls/vessa.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-crime-victim-leave",
+      "title": "Iowa \u2014 Victim and Witness Court Leave",
+      "jurisdiction": "IA",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "court_proceedings_only": true,
+          "covered_reasons": "attend criminal proceedings as a victim or witness, including domestic abuse proceedings"
+        },
+        "summary": "An employer may not discharge or penalize an employee for taking time off to attend criminal proceedings as a victim or to honor a subpoena as a witness; unpaid."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a7915.23",
+          "url": "https://www.legis.iowa.gov/docs/code/915.23.pdf",
+          "section": "\u00a7915.23",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ks-dv-leave",
+      "title": "Kansas \u2014 Domestic Violence and Sexual Assault Leave (8 days)",
+      "jurisdiction": "KS",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2011-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 8,
+          "period_months": 12,
+          "covered_reasons": "restraining orders, medical care, shelter or crisis services, court appearances"
+        },
+        "summary": "Employees who are victims of domestic violence or sexual assault may take up to 8 days of leave per calendar year for protective orders, medical care, shelter or rape-crisis services and court appearances; accrued paid leave first, then unpaid. Documentation within 48 hours."
+      },
+      "citations": [
+        {
+          "source": "K.S.A. \u00a744-1132",
+          "url": "https://law.justia.com/codes/kansas/chapter-44/article-11/section-44-1132/",
+          "section": "\u00a744-1132",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-dv-leave",
+      "title": "Maine \u2014 Leave for Victims of Violence (reasonable and necessary)",
+      "jurisdiction": "ME",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "family_member_covered": true,
+          "covered_reasons": "court proceedings, medical care, victim services for the employee or a family member"
+        },
+        "summary": "Employers must grant reasonable and necessary leave, with or without pay, for an employee who is (or whose parent, spouse or child is) a victim of violence, assault, sexual assault, stalking or domestic violence to prepare for and attend court, receive medical treatment or obtain services; the employee must not be the perpetrator."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7850",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec850.html",
+          "section": "\u00a7850",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-dv-leave",
+      "title": "Massachusetts \u2014 Domestic Violence Leave (15 days, 50+ employees)",
+      "jurisdiction": "MA",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2014-08-08",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 15,
+          "period_months": 12,
+          "min_employees": 50,
+          "family_member_covered": true,
+          "covered_reasons": "medical attention, counseling, victim services, legal assistance, housing, protective orders, court, child custody matters"
+        },
+        "summary": "Employers with 50 or more employees must give up to 15 days of leave in any 12-month period when the employee or a family member is a victim of abusive behavior; paid or unpaid at the employer's option; employer may require other leave be exhausted first; employees must be notified of the right."
+      },
+      "citations": [
+        {
+          "source": "MGL c.149 \u00a752E",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section52E",
+          "section": "\u00a752E",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-dv-protective-order-leave",
+      "title": "Minnesota \u2014 Leave to Seek an Order for Protection",
+      "jurisdiction": "MN",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "covered_reasons": "attend court to obtain or enforce an order for protection or harassment restraining order for the employee or a minor child"
+        },
+        "summary": "No employer may discharge or discipline an employee for taking reasonable time off to obtain or attempt to obtain relief under an order for protection (Minn. Stat. 518B.01) for the employee or a minor child; unpaid. Safe time is also a use of Earned Sick and Safe Time (181.9447)."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7518B.01 subd. 23",
+          "url": "https://www.revisor.mn.gov/statutes/cite/518B.01",
+          "section": "\u00a7518B.01 subd. 23",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mo-dv-leave-50-plus",
+      "title": "Missouri \u2014 Victims Economic Safety and Security Act (2 weeks, 50+ employees)",
+      "jurisdiction": "MO",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2021-10-28",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_weeks": 2,
+          "period_months": 12,
+          "min_employees": 50,
+          "family_member_covered": true,
+          "covered_reasons": "medical care, victim services, counseling, safety planning or relocation, legal assistance"
+        },
+        "summary": "Employers with 50 or more employees must give up to 2 workweeks of unpaid leave per 12 months to an employee who is, or whose family or household member is, a victim of domestic or sexual violence."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7\u00a7285.625-285.670",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=285.630",
+          "section": "\u00a7285.630",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mo-dv-leave-20-49",
+      "title": "Missouri \u2014 Victims Economic Safety and Security Act (1 week, 20-49 employees)",
+      "jurisdiction": "MO",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2021-10-28",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_weeks": 1,
+          "period_months": 12,
+          "min_employees": 20,
+          "family_member_covered": true,
+          "covered_reasons": "medical care, victim services, counseling, safety planning or relocation, legal assistance"
+        },
+        "summary": "Employers with 20 to 49 employees must give up to 1 workweek of unpaid leave per 12 months for domestic or sexual violence."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7\u00a7285.625-285.670",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=285.630",
+          "section": "\u00a7285.630",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-dv-leave",
+      "title": "Nevada \u2014 Domestic Violence Leave (160 hours)",
+      "jurisdiction": "NV",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_hours": 160,
+          "period_months": 12,
+          "tenure_days": 90,
+          "family_member_covered": true,
+          "accommodation_required": true,
+          "covered_reasons": "diagnosis and treatment, counseling, court proceedings, safety planning"
+        },
+        "summary": "Employees with 90 days of service who are (or whose family or household member is) a victim of domestic violence or sexual assault get up to 160 hours of leave in the 12 months after the act, paid or unpaid at the employer's option, consecutive or intermittent; reasonable accommodations also required (NRS 613.222)."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.0198",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec0198",
+          "section": "\u00a7608.0198",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-crime-victim-leave",
+      "title": "New Hampshire \u2014 Crime Victim Employment Leave (25+ employees)",
+      "jurisdiction": "NH",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "min_employees": 25,
+          "court_proceedings_only": true,
+          "family_member_covered": true,
+          "covered_reasons": "attend court or other legal or investigative proceedings associated with the prosecution of the crime"
+        },
+        "summary": "Employers with 25 or more employees must allow a crime victim (or immediate family of a homicide or incapacitated victim) unpaid leave to attend court and other proceedings associated with the prosecution of the crime; accrued paid leave may be required to be used."
+      },
+      "citations": [
+        {
+          "source": "RSA 275:61-275:65",
+          "url": "https://gc.nh.gov/rsa/html/XXIII/275/275-mrg.htm",
+          "section": "\u00a7\u00a7275:61-275:65",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-safe-act",
+      "title": "New Jersey SAFE Act \u2014 20 days (25+ employees)",
+      "jurisdiction": "NJ",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2013-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 20,
+          "period_months": 12,
+          "min_employees": 25,
+          "tenure_days": 365,
+          "family_member_covered": true,
+          "covered_reasons": "medical attention, victim services, counseling, safety planning or relocation, legal assistance, court proceedings"
+        },
+        "summary": "Security and Financial Empowerment Act: employers with 25 or more employees must give an employee with 12 months and 1,000 hours of service up to 20 days of unpaid leave in the 12 months after an incident of domestic violence or a sexually violent offense against the employee or a family member; may be intermittent in full-day units; poster required."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:11C-1 to 34:11C-7",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11c-3/",
+          "section": "\u00a734:11C-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-dv-leave",
+      "title": "New Mexico \u2014 Promoting Financial Independence for Victims of Domestic Abuse Act (14 days)",
+      "jurisdiction": "NM",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2009-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "max_days": 14,
+          "period_months": 12,
+          "family_member_covered": true,
+          "covered_reasons": "protective orders, court proceedings, law enforcement, medical care or counseling for the employee or a family member"
+        },
+        "summary": "All employers must allow intermittent paid or unpaid leave of up to 14 days per calendar year, in increments of up to 8 hours a day, for an employee who is (or whose family member is) a victim of domestic abuse to obtain orders of protection, meet with law enforcement or attend court, medical or counseling appointments."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-4A-1 to 50-4A-8",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4a/section-50-4a-3/",
+          "section": "\u00a750-4A-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-dv-accommodation",
+      "title": "New York \u2014 Reasonable Accommodation for Domestic Violence Victims",
+      "jurisdiction": "NY",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2019-11-18",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "accommodation_required": true,
+          "covered_reasons": "medical attention, victim services, counseling, safety planning or relocation, legal assistance and court proceedings"
+        },
+        "summary": "Employers must provide reasonable accommodation, including a reasonable amount of time off, to an employee who is a victim of domestic violence for medical care, victim services, counseling, relocation or legal proceedings unless undue hardship; accrued paid leave may be charged first (Exec. Law 296(22)). Safe leave is also a use of NY paid sick leave (Labor Law 196-b)."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Exec. Law \u00a7296(22)",
+          "url": "https://www.nysenate.gov/legislation/laws/EXC/296",
+          "section": "\u00a7296(22)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nc-dv-protective-order-leave",
+      "title": "North Carolina \u2014 Leave to Seek a Domestic Violence Protective Order",
+      "jurisdiction": "NC",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2004-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "covered_reasons": "obtain or attempt to obtain relief under Chapter 50B (domestic violence protective orders) for the employee or a minor child"
+        },
+        "summary": "No employer may discharge, demote or discipline an employee for taking reasonable time off to obtain or attempt to obtain a domestic violence protective order; unpaid, employee must follow the employer's usual time-off procedures where practicable."
+      },
+      "citations": [
+        {
+          "source": "N.C.G.S. \u00a750B-5.5",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_50B/GS_50B-5.5.html",
+          "section": "\u00a750B-5.5",
+          "kind": "statute"
+        },
+        {
+          "source": "N.C.G.S. \u00a795-270",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_95/GS_95-270.html",
+          "section": "\u00a795-270",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-dv-leave",
+      "title": "Oregon \u2014 Leave for Victims of Domestic Violence, Harassment, Sexual Assault, Bias or Stalking (6+ employees)",
+      "jurisdiction": "OR",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2007-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "min_employees": 6,
+          "family_member_covered": true,
+          "accommodation_required": true,
+          "covered_reasons": "legal or law enforcement assistance, medical treatment, counseling, victim services, relocation or safety measures"
+        },
+        "summary": "Employers with 6 or more employees must allow reasonable unpaid leave (accrued paid leave may be used) for an employee who is (or whose minor child or dependent is) a victim of domestic violence, harassment, sexual assault, bias crime or stalking, and must provide reasonable safety accommodations (ORS 659A.290). Paid safe leave also available under Oregon sick time (ORS 653.616)."
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7659A.272",
+          "url": "https://oregon.public.law/statutes/ors_659a.272",
+          "section": "\u00a7659A.272",
+          "kind": "statute"
+        },
+        {
+          "source": "ORS \u00a7659A.290",
+          "url": "https://oregon.public.law/statutes/ors_659a.290",
+          "section": "\u00a7659A.290",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ri-crime-victim-leave",
+      "title": "Rhode Island \u2014 Crime Victim Court Leave (50+ employees)",
+      "jurisdiction": "RI",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "min_employees": 50,
+          "court_proceedings_only": true,
+          "covered_reasons": "attend court proceedings related to the crime"
+        },
+        "summary": "Employers with 50 or more employees may not discharge or penalize a crime victim (or qualifying family member) for attending court proceedings related to the crime; unpaid, employer may require 30 days' notice where practicable. Safe leave is also a use of RI paid sick and safe leave (RIGL 28-57)."
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a712-28-10",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE12/12-28/12-28-10.htm",
+          "section": "\u00a712-28-10",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-crime-victim-leave",
+      "title": "Vermont \u2014 Crime Victim Leave (court proceedings)",
+      "jurisdiction": "VT",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "court_proceedings_only": true,
+          "family_member_covered": true,
+          "covered_reasons": "attend depositions and court proceedings related to a listed crime, including relief from abuse hearings"
+        },
+        "summary": "An employee who has worked an average of 20 hours a week for 6 months and is a victim of a listed crime (or the family member of a homicide victim) may take unpaid leave to attend depositions and court proceedings; accrued paid leave may be used; employer continues benefits at the employee's expense."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7472c",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00472c",
+          "section": "\u00a7472c",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "va-crime-victim-leave",
+      "title": "Virginia \u2014 Crime Victim Court Leave",
+      "jurisdiction": "VA",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "court_proceedings_only": true,
+          "covered_reasons": "attend criminal proceedings as a victim, after notice to the employer"
+        },
+        "summary": "Employers may not discharge or discipline a crime victim for leaving work to attend criminal proceedings relating to the crime, after a copy of the notice of proceedings is given; unpaid, and the employer may limit leave when it creates an undue hardship."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a740.1-28.7:2",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-28.7:2/",
+          "section": "\u00a740.1-28.7:2",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-dv-leave",
+      "title": "Washington \u2014 Domestic Violence Leave (reasonable leave, all employers)",
+      "jurisdiction": "WA",
+      "topic": "leave.civic_emergency.domestic_violence",
+      "status": "active",
+      "effectiveFrom": "2008-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "domestic_violence"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.domestic_violence",
+        "params": {
+          "paid": false,
+          "family_member_covered": true,
+          "accommodation_required": true,
+          "covered_reasons": "legal or law enforcement assistance, medical treatment, counseling, victim services, relocation or safety planning"
+        },
+        "summary": "All employers must allow reasonable leave (paid from accrued leave, otherwise unpaid), intermittent or on a reduced schedule, for an employee who is (or whose family member is) a victim of domestic violence, sexual assault or stalking, and must provide reasonable safety accommodations. Safe leave is also a use of WA paid sick leave (RCW 49.46.210)."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.76.030",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.76.030",
+          "section": "\u00a749.76.030",
+          "kind": "statute"
+        },
+        {
+          "source": "RCW 49.76.115",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.76.115",
+          "section": "\u00a749.76.115",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-userra",
+      "title": "USERRA \u2014 Uniformed Services Leave and Reemployment",
+      "jurisdiction": "Federal",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "1994-10-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "max_cumulative_years": 5,
+          "service_type": "uniformed services (active duty, reserve and National Guard federal duty, training)"
+        },
+        "summary": "All employers must grant unpaid leave for service in the uniformed services and reemploy the employee in the escalator position after up to 5 cumulative years of service, with no discrimination or retaliation; health coverage continues up to 24 months at the employee's expense. State-ordered National Guard duty is covered only by state law."
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. \u00a7\u00a74301-4335 (USERRA)",
+          "url": "https://www.law.cornell.edu/uscode/text/38/part-III/chapter-43",
+          "section": "Ch. 43",
+          "kind": "statute"
+        },
+        {
+          "source": "20 CFR Part 1002",
+          "url": "https://www.ecfr.gov/current/title-20/chapter-IX/part-1002",
+          "section": "Part 1002",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "al-state-military-leave",
+      "title": "Alabama \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "AL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Guard or militia members on state active duty or federally funded homeland duty of 30 days or more. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Ala. Code \u00a731-12-1 et seq.",
+          "url": "https://law.justia.com/codes/alabama/title-31/chapter-12/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-state-military-leave",
+      "title": "Alaska \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "AK",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unlimited unpaid leave for state militia or Guard service with reinstatement to the former position, pay, seniority and benefits. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "AS \u00a726.05.075",
+          "url": "https://www.akleg.gov/basis/statutes.asp#26.05.075",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "az-state-military-leave",
+      "title": "Arizona \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "AZ",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state active duty or training with escalator reinstatement; seniority and vacation unaffected; threats of economic reprisal to deter enlistment barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "A.R.S. \u00a7\u00a726-167, 26-168",
+          "url": "https://www.azleg.gov/ars/26/00168.htm",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-state-military-leave",
+      "title": "Arkansas \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "AR",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for Guard and militia members called to state active duty by the Governor. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a712-62-413",
+          "url": "https://law.justia.com/codes/arkansas/title-12/subtitle-5/chapter-62/subchapter-4/section-12-62-413/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-state-military-leave",
+      "title": "California \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "CA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 17,
+          "no_discharge_without_cause_months": 12
+        },
+        "summary": "No discrimination for state or federal military membership or service (\u00a7394); up to 17 days a year of unpaid leave for reserve, Guard or Naval Militia training (\u00a7395.06); Guard members on state active duty must be reinstated and may not be discharged without cause for one year (\u00a7395.05, \u00a7394.5). (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Cal. Mil. & Vet. Code \u00a7\u00a7394, 394.5, 395.06",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=395.06.&lawCode=MVC",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-state-military-leave",
+      "title": "Colorado \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "CO",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 15
+        },
+        "summary": "Up to 15 days a year of unpaid leave for Guard or reserve training and unpaid leave for state active duty, with reinstatement to the same position, status, pay and seniority for permanent employees. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "C.R.S. \u00a7\u00a728-3-609, 28-3-610",
+          "url": "https://law.justia.com/codes/colorado/title-28/military-affairs/article-3/part-6/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-state-military-leave",
+      "title": "Connecticut \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "CT",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for state active duty; employees may not be forced to use vacation for drills or training and may not be discriminated against in hiring, promotion or retention for Guard membership. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a7\u00a727-33, 27-33a",
+          "url": "https://law.justia.com/codes/connecticut/title-27/chapter-504/section-27-33a/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-state-military-leave",
+      "title": "Delaware \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "DE",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Guard members ordered to state active duty. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "20 Del. C. \u00a7905",
+          "url": "https://delcode.delaware.gov/title20/c009/index.html",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-state-military-leave",
+      "title": "Florida \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "FL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Guard members ordered to state active duty by the Governor may not be penalized for the absence; reinstatement to the same or comparable position unless undue hardship, with no loss of benefits. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7250.482",
+          "url": "https://florida.public.law/statutes/fla._stat._250.482",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-state-military-leave",
+      "title": "Georgia \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "GA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state active duty and up to 6 months in any 4-year period for service schools or training, with reinstatement and full benefits unless impossible or unreasonable. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Ga. Code \u00a738-2-280",
+          "url": "https://law.justia.com/codes/georgia/title-38/chapter-2/article-6/section-38-2-280/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-state-military-leave",
+      "title": "Hawaii \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "HI",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for state Guard service with escalator reinstatement; a similar position if a service-related disability prevents return to the former job. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7121-43",
+          "url": "https://law.justia.com/codes/hawaii/title-10/chapter-121/section-121-43/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "id-state-military-leave",
+      "title": "Idaho \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "ID",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 15,
+          "no_discharge_without_cause_months": 12
+        },
+        "summary": "Up to one year of unpaid leave for Governor-ordered Guard duty with reinstatement and no discharge without cause for one year; 15 days a year of unpaid training leave on 90 days' notice. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Idaho Code \u00a7\u00a746-224, 46-225, 46-407",
+          "url": "https://law.justia.com/codes/idaho/title-46/chapter-4/section-46-407/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-state-military-leave",
+      "title": "Illinois \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2019-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "ISERRA (2019) applies USERRA-equivalent leave, reemployment and anti-discrimination rights to Illinois National Guard and State Guard members on state active duty and adds state enforcement through the Attorney General. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "330 ILCS 61 (Illinois Service Member Employment and Reemployment Rights Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=30",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-state-military-leave",
+      "title": "Indiana \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "IN",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 15
+        },
+        "summary": "Up to 15 days a year of unpaid (or paid at the employer's option) leave for reserve or Guard training on 90 days' notice, with no loss of vacation, sick leave, bonus or promotion rights; USERRA-equivalent rights for state active duty. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a7\u00a710-16-7-5, 10-17-4-1 to -5",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/10#10-17-4",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-state-military-leave",
+      "title": "Iowa \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "IA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for Guard, reserve or state military duty with reinstatement; vacation, sick leave, bonuses and benefits unaffected; proof of service may be required on return. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a729A.43",
+          "url": "https://www.legis.iowa.gov/docs/code/29A.43.pdf",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-state-military-leave",
+      "title": "Kansas \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "KS",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 10
+        },
+        "summary": "USERRA-equivalent rights for state-called forces; 5 to 10 days a year of leave for Guard training camp; reinstatement unless impossible or unreasonable. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "K.S.A. \u00a7\u00a748-222, 48-517",
+          "url": "https://law.justia.com/codes/kansas/chapter-48/article-5/section-48-517/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ky-state-military-leave",
+      "title": "Kentucky \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "KY",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unlimited unpaid leave for Guard training or state active duty with reinstatement and no loss of seniority or benefits; discrimination and threats over enlistment barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "KRS \u00a7\u00a738.238, 38.460",
+          "url": "https://law.justia.com/codes/kentucky/chapter-38/section-38-238/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-state-military-leave",
+      "title": "Louisiana \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "LA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and escalator reemployment rights for state military forces on state active duty, with no loss of benefits. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "La. R.S. \u00a7\u00a729:38, 29:38.1, 29:410",
+          "url": "https://law.justia.com/codes/louisiana/revised-statutes/title-29/rs-29-38/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-state-military-leave",
+      "title": "Maine \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "ME",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "health_continuation_days": 30
+        },
+        "summary": "Unpaid leave for state active duty; the employer continues health, dental and life insurance for 30 days, after which the employee may continue at the employer's rate; return window of 24 hours to 90 days depending on service length; discrimination for state military membership barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7811-814; 37-B MRSA \u00a7342(5)",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec811.html",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-state-military-leave",
+      "title": "Maryland \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MD",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Guard or militia members called to state active duty by the Governor. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Pub. Safety \u00a713-705",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gps&section=13-705",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-state-military-leave",
+      "title": "Massachusetts \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for members of the state armed forces employed in Massachusetts; reemployment not required after more than 5 cumulative years. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "MGL c.33 \u00a713(b)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleV/Chapter33/Section13",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-state-military-leave",
+      "title": "Michigan \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MI",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state or federal duty, physicals, enlistment and training with reinstatement; discrimination and enlistment threats barred; reemployment not required after more than 5 cumulative years. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7\u00a732.271-32.274",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-32-271",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-state-military-leave",
+      "title": "Minnesota \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MN",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "No discharge of, interference with or enlistment threats against an employee for service in the US, Minnesota or another state's military forces; state active duty covered. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7192.34",
+          "url": "https://www.revisor.mn.gov/statutes/cite/192.34",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-state-military-leave",
+      "title": "Mississippi \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MS",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state active or training duty with reinstatement to the same or similar position and no discrimination; proof of training may be required. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Miss. Code \u00a7\u00a733-1-15, 33-1-19, 33-1-39",
+          "url": "https://law.justia.com/codes/mississippi/title-33/chapter-1/section-33-1-19/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-state-military-leave",
+      "title": "Missouri \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MO",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for state organized militia members on state active duty; discharge, interference or enlistment threats barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7\u00a741.730, 41.946",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=41.730",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-state-military-leave",
+      "title": "Montana \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "MT",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state militia service that may not be charged to sick or vacation leave, with escalator reinstatement and no discrimination; USERRA rights extended to state duty. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Mont. Code \u00a7\u00a710-1-1005 to 10-1-1007",
+          "url": "https://law.justia.com/codes/montana/title-10/chapter-1/part-10/section-10-1-1005/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-state-military-leave",
+      "title": "Nebraska \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NE",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Guard members called to active state duty. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a755-161",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=55-161",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-state-military-leave",
+      "title": "Nevada \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NV",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "No discharge or discrimination against Guard members for state active duty, training, maneuvers or ceremonies. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7\u00a7412.139, 412.606",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-412.html#NRS412Sec139",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nh-state-military-leave",
+      "title": "New Hampshire \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NH",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for Guard and militia members on state active duty; discrimination and job threats tied to enlistment barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "RSA 110-B:65, 110-C:1",
+          "url": "https://gc.nh.gov/rsa/html/VIII/110-B/110-B-65.htm",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-state-military-leave",
+      "title": "New Jersey \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NJ",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "no_discharge_without_cause_months": 12
+        },
+        "summary": "Unpaid leave for US or state service with escalator reinstatement unless unreasonable and no discharge without cause for one year; up to 3 months in any 4 years for training or service schools; apply within 10 days of completing training. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. \u00a7\u00a738:23C-20, 38:23A-5",
+          "url": "https://law.justia.com/codes/new-jersey/title-38/section-38-23c-20/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nm-state-military-leave",
+      "title": "New Mexico \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NM",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "no_discharge_without_cause_months": 12
+        },
+        "summary": "Unpaid leave for Guard or militia service, including up to one year of hospitalization after service, with escalator reinstatement on request within 90 days and no discharge without cause for one year. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a7\u00a728-15-1 to 28-15-3",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-28/article-15/section-28-15-1/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-state-military-leave",
+      "title": "New York \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NY",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state active duty, drills, training or service school with reinstatement unless unreasonable, or a position of like seniority, status and pay; discrimination barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Mil. Law \u00a7\u00a7251, 252, 317",
+          "url": "https://www.nysenate.gov/legislation/laws/MIL/317",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nc-state-military-leave",
+      "title": "North Carolina \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "NC",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for Governor-called Guard duty with restoration to the former position; denial of employment, promotion or benefits for Guard membership barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "N.C.G.S. \u00a7\u00a7127A-201 to 127A-203, 127B-14",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_127A/GS_127A-202.html",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nd-state-military-leave",
+      "title": "North Dakota \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "ND",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 20
+        },
+        "summary": "Unpaid leave for involuntary state active duty with reemployment; voluntary state service protected up to 20 days a year. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "N.D.C.C. \u00a737-01-25.1",
+          "url": "https://ndlegis.gov/cencode/t37c01.pdf",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oh-state-military-leave",
+      "title": "Ohio \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "OH",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Ohio organized militia and Guard members on state active duty or training. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a7\u00a75903.01, 5903.02",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-5903.02",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ok-state-military-leave",
+      "title": "Oklahoma \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "OK",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for state Guard members on state active duty; preventing a Guard member from attending drills, exercises or ceremonies is a misdemeanor. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "44 O.S. \u00a7\u00a771, 208",
+          "url": "https://law.justia.com/codes/oklahoma/title-44/section-44-208/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-state-military-leave",
+      "title": "Oregon \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "OR",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for Governor-called militia or Guard service with escalator reinstatement and no loss of seniority, sick leave or vacation on reporting within one week of release; discrimination against uniformed service members barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7\u00a7659A.082, 659A.086",
+          "url": "https://oregon.public.law/statutes/ors_659a.086",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-state-military-leave",
+      "title": "Pennsylvania \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "PA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "health_continuation_days": 30
+        },
+        "summary": "Unpaid leave for state active duty, enlistment and reserve service with escalator reinstatement unless unreasonable; health insurance continues 30 days; return within 90 days (reservists, enlistees) or 30 days (state Guard). (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "51 Pa.C.S. \u00a7\u00a77301-7309",
+          "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/consCheck.cfm?txtType=HTM&ttl=51&div=0&chpt=73",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-state-military-leave",
+      "title": "Rhode Island \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "RI",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent rights for state military forces including unpaid training leave and escalator reinstatement on request within 40 days; discharge for membership and enlistment threats barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a7\u00a730-11-2 to 30-11-6, 30-21-1",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE30/30-11/INDEX.htm",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-state-military-leave",
+      "title": "South Carolina \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "SC",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for Governor-called state duty with reinstatement to the same seniority, status and salary on written request within 5 days of release. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "S.C. Code \u00a7\u00a725-1-2310 to 25-1-2340",
+          "url": "https://law.justia.com/codes/south-carolina/title-25/chapter-1/section-25-1-2320/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-state-military-leave",
+      "title": "South Dakota \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "SD",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Guard members ordered to duty by the Governor or the President. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "SDCL \u00a733-17-15.1",
+          "url": "https://sdlegislature.gov/Statutes/33-17-15.1",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-state-military-leave",
+      "title": "Tennessee \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "TN",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "No refusal to hire or termination for Tennessee National Guard membership or absence for required drills or training; USERRA-equivalent for state active duty (\u00a758-1-106). (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code \u00a758-1-604",
+          "url": "https://law.justia.com/codes/tennessee/title-58/chapter-1/part-6/section-58-1-604/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-state-military-leave",
+      "title": "Texas \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "TX",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state military forces training or duty with reinstatement and no loss of time, efficiency rating, vacation or benefits; USERRA-equivalent for state active duty. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Tex. Gov't Code \u00a7\u00a7437.204, 437.213",
+          "url": "https://statutes.capitol.texas.gov/Docs/GV/htm/GV.437.htm",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ut-state-military-leave",
+      "title": "Utah \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "UT",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "max_cumulative_years": 5
+        },
+        "summary": "Up to 5 years of unpaid leave for reserve or state active duty with reinstatement and seniority; discrimination barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a739-1-36",
+          "url": "https://le.utah.gov/xcode/Title39/Chapter1/39-1-S36.html",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vt-state-military-leave",
+      "title": "Vermont \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "VT",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "annual_training_leave_days": 15
+        },
+        "summary": "Unpaid leave for state or federal Guard or ready-reserve duty and up to 15 days a year of training leave, with escalator reinstatement; discrimination barred. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7\u00a7491-493",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00491",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "va-state-military-leave",
+      "title": "Virginia \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "VA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "max_cumulative_years": 5
+        },
+        "summary": "Up to 5 years of unpaid leave for Governor-called state active duty, which may not be forced from other leave, with reinstatement or a comparable position on application within 14 or 90 days of return. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a7\u00a744-93.2 to 44-93.4",
+          "url": "https://law.lis.virginia.gov/vacode/title44/chapter1/section44-93.3/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-state-military-leave",
+      "title": "Washington \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "WA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for Washington residents or employees serving in the uniformed services, including state active duty. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "RCW \u00a7\u00a773.16.032-73.16.035",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=73.16.033",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wv-state-military-leave",
+      "title": "West Virginia \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "WV",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "USERRA-equivalent leave and reemployment rights for organized militia members on state service. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a715-1F-8",
+          "url": "https://code.wvlegislature.gov/15-1F-8/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-state-military-leave",
+      "title": "Wisconsin \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "WI",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service"
+        },
+        "summary": "Unpaid leave for state active duty with pay, seniority and status accruing and escalator reinstatement on return within 90 days unless unreasonable; discharge limits after state service. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7\u00a7321.60, 321.64-321.66",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/321/VI/64",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wy-state-military-leave",
+      "title": "Wyoming \u2014 State Military Leave and Reemployment",
+      "jurisdiction": "WY",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": true,
+          "reinstatement_required": true,
+          "service_type": "state active duty and National Guard or state militia service",
+          "max_cumulative_years": 5,
+          "no_discharge_without_cause_months": 12
+        },
+        "summary": "Up to 5 years of unpaid leave for state active duty or training with seniority and benefits accruing, reemployment rights and no discharge without cause for one year after return. (Survey-based encoding; dates not researched.)"
+      },
+      "citations": [
+        {
+          "source": "Wyo. Stat. \u00a7\u00a719-11-101 to 19-11-123",
+          "url": "https://law.justia.com/codes/wyoming/title-19/chapter-11/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, State Laws on Military Leave (50-state survey, used for encoding)",
+          "url": "https://www.workplacefairness.org/military-leave-state-laws",
+          "kind": "guidance"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-civil-air-patrol-leave",
+      "title": "California \u2014 Civil Air Patrol Leave (10 days, 16+ employees)",
+      "jurisdiction": "CA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 16
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "annual_training_leave_days": 10,
+          "min_employees": 16,
+          "service_type": "Civil Air Patrol emergency service operations or training"
+        },
+        "summary": "Employers with 16 or more employees must give Civil Air Patrol volunteers up to 10 days a year of unpaid leave for emergency service operations (3 days per mission), with reinstatement and no loss of benefits."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a71503",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1503.&lawCode=LAB",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-civil-air-patrol-leave",
+      "title": "Florida \u2014 Civil Air Patrol Leave (15 days, 15+ employees)",
+      "jurisdiction": "FL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "annual_training_leave_days": 15,
+          "min_employees": 15,
+          "service_type": "Civil Air Patrol emergency service operations or training"
+        },
+        "summary": "Employers with 15 or more employees must give Civil Air Patrol volunteers up to 15 days a year of unpaid leave for emergency service operations, with reinstatement and no loss of benefits."
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7252.55",
+          "url": "https://florida.public.law/statutes/fla._stat._252.55",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-civil-air-patrol-leave",
+      "title": "Illinois \u2014 Civil Air Patrol Leave (30 days, 51+ employees)",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2011-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 51
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "annual_training_leave_days": 30,
+          "min_employees": 51,
+          "service_type": "Civil Air Patrol emergency service operations or training"
+        },
+        "summary": "Employers with 51 or more employees must give Civil Air Patrol volunteers up to 30 days a year of unpaid leave for emergency service operations (15 days for employers with 15 to 50 employees), with reinstatement and no loss of benefits."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 148 (Civil Air Patrol Leave Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-civil-air-patrol-leave",
+      "title": "Maryland \u2014 Civil Air Patrol Leave (15 days, 15+ employees)",
+      "jurisdiction": "MD",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2015-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "annual_training_leave_days": 15,
+          "min_employees": 15,
+          "service_type": "Civil Air Patrol emergency service operations or training"
+        },
+        "summary": "Employers with 15 or more employees must give Civil Air Patrol volunteers up to 15 days a year of unpaid leave for emergency service operations, with reinstatement and no loss of benefits."
+      },
+      "citations": [
+        {
+          "source": "Md. Lab. & Empl. \u00a73-1301 et seq. (Civil Air Patrol Leave)",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1301",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-civil-air-patrol-leave",
+      "title": "Wisconsin \u2014 Civil Air Patrol Leave (15 days, 11+ employees)",
+      "jurisdiction": "WI",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military",
+        "params": {
+          "paid": false,
+          "covers_state_active_duty": false,
+          "reinstatement_required": true,
+          "annual_training_leave_days": 15,
+          "min_employees": 11,
+          "service_type": "Civil Air Patrol emergency service operations or training"
+        },
+        "summary": "Employers with 11 or more employees must give Civil Air Patrol volunteers up to 15 days a year of unpaid leave for emergency service operations (5 days for non-emergency training), with reinstatement and no loss of benefits."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7103.88",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/103/88",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Military Leave Laws by State (survey used for encoding)",
+          "url": "https://www.paycor.com/resource-center/articles/military-leave-laws-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-military-spouse-leave",
+      "title": "California \u2014 Military Spouse Leave (10 days, 25+ employees)",
+      "jurisdiction": "CA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2007-10-09",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 10,
+          "paid": false,
+          "min_employees": 25,
+          "min_hours_per_week": 20,
+          "covered_relationships": "spouse or registered domestic partner",
+          "trigger": "service member on leave from deployment during a period of military conflict"
+        },
+        "summary": "Employers with 25 or more employees must give an employee who works 20 or more hours a week up to 10 days of unpaid leave while their spouse or domestic partner is on leave from deployment during a military conflict; 2 business days' notice."
+      },
+      "citations": [
+        {
+          "source": "Cal. Mil. & Vet. Code \u00a7395.10",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=395.10.&lawCode=MVC",
+          "section": "\u00a7395.10",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-family-military-leave-51-plus",
+      "title": "Illinois Family Military Leave Act \u2014 30 days (51+ employees)",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2005-08-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 51
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 30,
+          "paid": false,
+          "min_employees": 51,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 30,
+          "covered_relationships": "spouse, parent, child, grandparent",
+          "trigger": "family member called to military service lasting longer than 30 days"
+        },
+        "summary": "Employers with more than 50 employees must give an employee with 12 months and 1,250 hours of service up to 30 days of unpaid leave during a family member's call to military service of more than 30 days; other paid leave (except sick and disability) must be exhausted first; 14 days' notice for leave of 5 or more days. Expanded 2022 to include children and grandparents."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 151 (Family Military Leave Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "\u00a7151/10",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-family-military-leave-15-50",
+      "title": "Illinois Family Military Leave Act \u2014 15 days (15-50 employees)",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2005-08-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 51
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 15,
+          "paid": false,
+          "min_employees": 15,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 30,
+          "covered_relationships": "spouse, parent, child, grandparent",
+          "trigger": "family member called to military service lasting longer than 30 days"
+        },
+        "summary": "Employers with 15 to 50 employees must give up to 15 days of unpaid family military leave under the same conditions."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 151 (Family Military Leave Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs2.asp?ChapterID=68",
+          "section": "\u00a7151/10",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "in-military-family-leave",
+      "title": "Indiana \u2014 Military Family Leave (10 days, 50+ employees)",
+      "jurisdiction": "IN",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2007-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 10,
+          "paid": false,
+          "min_employees": 50,
+          "tenure_months": 12,
+          "tenure_hours": 1500,
+          "covered_relationships": "spouse, parent, grandparent, sibling, child",
+          "trigger": "family member ordered to active duty: 30 days before orders take effect, during the member's leave, or 30 days after active duty ends"
+        },
+        "summary": "Employers with 50 or more employees must give an employee with 12 months and 1,500 hours of service up to 10 days of unpaid leave per year around a family member's active duty; employee may elect accrued paid leave; 30 days' notice unless orders give less."
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a722-2-13",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/22#22-2-13",
+          "section": "\u00a722-2-13",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-family-military-leave",
+      "title": "Maine \u2014 Family Military Leave (15 days, 15+ employees)",
+      "jurisdiction": "ME",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2007-09-20",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 15,
+          "paid": false,
+          "min_employees": 15,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 180,
+          "covered_relationships": "spouse, domestic partner, parent",
+          "trigger": "family member deployed for 180 days or more: the 15 days before and after deployment and during the member's leave"
+        },
+        "summary": "Employers with 15 or more employees must give an employee with 12 months and 1,250 hours of service up to 15 days of unpaid leave per deployment when a spouse, domestic partner or child is deployed for 180 days or more."
+      },
+      "citations": [
+        {
+          "source": "26 MRSA \u00a7814",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec814.html",
+          "section": "\u00a7814",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-military-family-leave",
+      "title": "Minnesota \u2014 Leave for Injury or Death of a Service Member Family Member (10 days)",
+      "jurisdiction": "MN",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2005-08-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 10,
+          "paid": false,
+          "covered_relationships": "parent, child, grandparent, sibling, spouse",
+          "trigger": "family member injured or killed while on active duty"
+        },
+        "summary": "All employers must give up to 10 working days of unpaid leave to an employee whose immediate family member is injured or killed on active duty (181.947), and up to one day for a send-off or homecoming ceremony (181.948); employer may require other paid leave (not sick leave) be used first."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.947",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.947",
+          "section": "\u00a7181.947",
+          "kind": "statute"
+        },
+        {
+          "source": "Minn. Stat. \u00a7181.948",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.948",
+          "section": "\u00a7181.948",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-family-military-leave-51-plus",
+      "title": "Nebraska Family Military Leave Act \u2014 30 days (51+ employees)",
+      "jurisdiction": "NE",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2007-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 51
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 30,
+          "paid": false,
+          "min_employees": 51,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 179,
+          "covered_relationships": "spouse, parent",
+          "trigger": "family member called to military service for more than 179 days"
+        },
+        "summary": "Employers with more than 50 employees must give an employee with 12 months and 1,250 hours of service up to 30 days of unpaid leave during a spouse's or child's call to service of more than 179 days; 14 days' notice for leave over 5 days."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a7\u00a755-501 to 55-507",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=55-503",
+          "section": "\u00a755-503",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-family-military-leave-15-50",
+      "title": "Nebraska Family Military Leave Act \u2014 15 days (15-50 employees)",
+      "jurisdiction": "NE",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2007-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 51
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 15,
+          "paid": false,
+          "min_employees": 15,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 179,
+          "covered_relationships": "spouse, parent",
+          "trigger": "family member called to military service for more than 179 days"
+        },
+        "summary": "Employers with 15 to 50 employees must give up to 15 days of unpaid family military leave under the same conditions."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a7\u00a755-501 to 55-507",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=55-503",
+          "section": "\u00a755-503",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-military-spouse-leave",
+      "title": "New York \u2014 Military Spouse Leave (10 days, 20+ employees)",
+      "jurisdiction": "NY",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2006-08-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 10,
+          "paid": false,
+          "min_employees": 20,
+          "min_hours_per_week": 20,
+          "covered_relationships": "spouse",
+          "trigger": "spouse on leave from deployment to a combat theater or zone of operations"
+        },
+        "summary": "Employers with 20 or more employees at one site must give an employee who works 20 or more hours a week up to 10 days of unpaid leave while a spouse on active duty in a combat theater or zone is on leave."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7202-i",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/202-I",
+          "section": "\u00a7202-i",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "oh-military-family-leave",
+      "title": "Ohio \u2014 Military Family Leave (10 days or 80 hours, 50+ employees)",
+      "jurisdiction": "OH",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2010-07-02",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 10,
+          "paid": false,
+          "min_employees": 50,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 30,
+          "covered_relationships": "spouse, parent (of a child), or the employee is the parent of the service member",
+          "trigger": "family member called to active duty for longer than 30 days, or injured or hospitalized while on duty"
+        },
+        "summary": "Employers with 50 or more employees must give an employee with 12 consecutive months and 1,250 hours of service up to 10 days or 80 hours (whichever is less) of unpaid leave per calendar year when a spouse or child is called to active duty of more than 30 days or is injured; leave only in the 2 weeks before and after deployment or during the member's leave; 14 days' notice."
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a75906.02",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-5906.02",
+          "section": "\u00a75906.02",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-military-family-leave",
+      "title": "Oregon Military Family Leave Act (14 days, 25+ employees)",
+      "jurisdiction": "OR",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2010-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 14,
+          "paid": false,
+          "min_employees": 25,
+          "min_hours_per_week": 20,
+          "covered_relationships": "spouse or registered domestic partner",
+          "trigger": "spouse called to active duty or on leave from deployment"
+        },
+        "summary": "Employers with 25 or more employees must give an employee who works 20 or more hours a week up to 14 days of unpaid leave per deployment when a spouse or domestic partner is notified of an impending call to active duty or is on leave from deployment; OFLA job protections apply."
+      },
+      "citations": [
+        {
+          "source": "ORS \u00a7\u00a7659A.090-659A.099",
+          "url": "https://oregon.public.law/statutes/ors_659a.093",
+          "section": "\u00a7659A.093",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ri-military-family-relief",
+      "title": "Rhode Island Military Family Relief Act (15 or 30 days, 15+ employees)",
+      "jurisdiction": "RI",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2009-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 30,
+          "paid": false,
+          "min_employees": 15,
+          "tenure_months": 12,
+          "tenure_hours": 1250,
+          "deployment_days_min": 30,
+          "covered_relationships": "spouse, parent",
+          "trigger": "family member called to military service lasting longer than 30 days"
+        },
+        "summary": "Employers with 15 to 50 employees must give up to 15 days, and employers with more than 50 employees up to 30 days, of unpaid leave to an employee with 12 months and 1,250 hours of service during a spouse's or child's call to military service of more than 30 days; 14 days' notice for leave of 5 or more days."
+      },
+      "citations": [
+        {
+          "source": "RIGL \u00a730-33-1 et seq.",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE30/30-33/INDEX.htm",
+          "section": "\u00a730-33-3",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-military-spouse-leave",
+      "title": "Washington \u2014 Military Family Leave (15 days)",
+      "jurisdiction": "WA",
+      "topic": "leave.civic_emergency.military",
+      "status": "active",
+      "effectiveFrom": "2008-06-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "military"
+          },
+          {
+            "fact": "leave.reason",
+            "op": "=",
+            "value": "military_deployment"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.military_family",
+        "params": {
+          "max_days": 15,
+          "paid": false,
+          "min_hours_per_week": 20,
+          "covered_relationships": "spouse or registered domestic partner",
+          "trigger": "spouse notified of an impending call to active duty or on leave from deployment during a period of military conflict"
+        },
+        "summary": "All employers must give an employee who works an average of 20 or more hours a week up to 15 days of unpaid leave per deployment when a spouse or domestic partner is called to active duty or is on leave from deployment during a military conflict; employee may elect accrued paid leave; 5 business days' notice."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.77.030",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.77.030",
+          "section": "\u00a749.77.030",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

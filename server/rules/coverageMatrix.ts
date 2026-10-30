@@ -330,13 +330,7 @@ const STATES_WITH_LACTATION_BREAK: StateCode[] = [
  * Civic leave — states with a voting-leave statute, or a jury-duty statute that
  * requires pay or limits the shifts an employer may require around service.
  */
-const STATES_WITH_CIVIC_LEAVE: StateCode[] = [
-  // voting leave
-  "AK", "AL", "AR", "AZ", "CA", "CO", "DC", "GA", "IA", "IL", "KS", "KY", "MA", "MD", "MN", "MO",
-  "NE", "NM", "NV", "NY", "OH", "OK", "SD", "TN", "TX", "UT", "WI", "WV", "WY",
-  // jury duty pay or shift limits (not already listed)
-  "CT", "LA", "VA",
-];
+const STATES_WITH_CIVIC_LEAVE: StateCode[] = [...ALL_STATES]; // voting, jury, military (every state has a Guard leave law), DV/crime victim leave
 
 const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   day_of_rest: STATES_WITH_DAY_OF_REST,
