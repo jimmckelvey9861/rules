@@ -61,7 +61,7 @@
         { "code": "sched.rest_break", "name": "Rest Breaks", "enforcement": "kronto", "legacyTopic": "rest_break",
           "subtopics": [
             { "code": "sched.rest_break.paid_rest", "name": "Paid rest periods" },
-            { "code": "sched.rest_break.lactation", "name": "Lactation breaks" }
+            { "code": "sched.rest_break.lactation", "name": "Lactation breaks", "legacyTopic": "lactation_break" }
           ] },
         { "code": "sched.predictive", "name": "Predictive Scheduling (Fair Workweek)", "enforcement": "kronto", "legacyTopic": "predictive_scheduling",
           "subtopics": [
@@ -108,7 +108,7 @@
             { "code": "leave.personal.pto_payout", "name": "Paid time off accrual and payout" },
             { "code": "leave.personal.bereavement", "name": "Bereavement leave" }
           ] },
-        { "code": "leave.civic_emergency", "name": "Safety, Civic & Emergency Leave", "enforcement": "kronto", "legacyTopic": "emergency_leave",
+        { "code": "leave.civic_emergency", "name": "Safety, Civic & Emergency Leave", "enforcement": "kronto", "legacyTopic": "civic_leave",
           "subtopics": [
             { "code": "leave.civic_emergency.voting", "name": "Voting leave" },
             { "code": "leave.civic_emergency.jury_witness", "name": "Jury duty and witness leave" },

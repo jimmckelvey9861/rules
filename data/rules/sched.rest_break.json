@@ -3,6 +3,82 @@
   "topic": "sched.rest_break",
   "rules": [
     {
+      "id": "ar-lactation-break",
+      "title": "Arkansas Lactation Break Time",
+      "jurisdiction": "AR",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable unpaid break time to express milk, with a private space, unless it would unduly disrupt operations"
+      },
+      "citations": [
+        {
+          "source": "Ark. Code Ann. \u00a711-5-116",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-lactation-break",
+      "title": "California Lactation Accommodation",
+      "jurisdiction": "CA",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2002-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "concurrent_with_breaks": false,
+          "hardship_exemption_under": 50
+        },
+        "summary": "Reasonable break time to express milk, running with paid rest breaks where possible and otherwise unpaid; a private non-bathroom space is required (space-only hardship exemption under 50 employees)"
+      },
+      "citations": [
+        {
+          "source": "Cal. Labor Code \u00a7\u00a71030-1034",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "ca-rest-break-4hr",
       "title": "California Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "CA",
@@ -93,6 +169,44 @@
           "url": "https://www.dir.ca.gov/dlse/faq_restperiods.htm",
           "section": "IWC Orders \u00a711-12",
           "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "co-lactation-break",
+      "title": "Colorado Workplace Accommodations for Nursing Mothers",
+      "jurisdiction": "CO",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2008-08-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 24
+        },
+        "summary": "Reasonable unpaid break time (or use of paid breaks and meal periods) to express milk for up to two years after the child's birth"
+      },
+      "citations": [
+        {
+          "source": "Colo. Rev. Stat. \u00a78-13.5-104",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
         }
       ]
     },
@@ -191,6 +305,280 @@
       ]
     },
     {
+      "id": "ct-lactation-break",
+      "title": "Connecticut Right to Express Milk at Work",
+      "jurisdiction": "CT",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "concurrent_with_breaks": true
+        },
+        "summary": "The employee may express milk or breastfeed during existing meal or break periods, in a private room near the work area"
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-40w",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-lactation-break",
+      "title": "District of Columbia Lactation Breaks",
+      "jurisdiction": "DC",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable daily unpaid break periods to express milk, with a sanitary private space other than a bathroom"
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a72-1402.82",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "de-lactation-break",
+      "title": "Delaware Lactation Accommodation",
+      "jurisdiction": "DE",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 4
+        },
+        "summary": "Break time to express milk is a reasonable accommodation the employer must provide absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "19 Del. Code \u00a7710(19)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "federal-lactation-break-pump-act",
+      "title": "Federal Lactation Break Time (PUMP Act)",
+      "jurisdiction": "Federal",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2022-12-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 12,
+          "hardship_exemption_under": 50
+        },
+        "summary": "Reasonable break time each time the employee needs to express milk for one year after the child's birth, in a private non-bathroom space; unpaid unless the employee is not fully relieved or uses a paid break (employers under 50 may claim undue hardship)"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act \u00a718d (PUMP for Nursing Mothers Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/218d",
+          "section": "29 U.S.C. \u00a7218d",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ga-lactation-break",
+      "title": "Georgia Paid Lactation Breaks",
+      "jurisdiction": "GA",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2020-08-05",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": true,
+          "hardship_exemption_under": 50
+        },
+        "summary": "Reasonable paid break time at the regular rate to express milk, with a private space (employers under 50 may claim undue hardship)"
+      },
+      "citations": [
+        {
+          "source": "Ga. Code Ann. \u00a734-1-6",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "hi-lactation-break",
+      "title": "Hawaii Lactation Breaks",
+      "jurisdiction": "HI",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2013-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 12,
+          "hardship_exemption_under": 20
+        },
+        "summary": "Reasonable unpaid break time to express milk for one year after birth, with a private space (employers under 20 may claim undue hardship)"
+      },
+      "citations": [
+        {
+          "source": "Haw. Rev. Stat. \u00a7378-92",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-lactation-break",
+      "title": "Illinois Paid Lactation Breaks",
+      "jurisdiction": "IL",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": true,
+          "duration_months": 12,
+          "min_employees": 6
+        },
+        "summary": "Reasonable break time to express milk for one year after birth, paid at the regular rate from 2026-01-01, with a private space"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 260 (Nursing Mothers in the Workplace Act), as amended by P.A. 104-0076",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "il-rest-break",
       "title": "Illinois Rest Break (hotel room attendants \u2014 2\u00d715 min per 7+ hr shift)",
       "jurisdiction": "IL",
@@ -229,6 +617,49 @@
           "source": "820 ILCS 140/3.1 (Hotel Room Attendant provisions)",
           "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1505",
           "section": "820 ILCS 140/3.1",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-lactation-break",
+      "title": "Kentucky Lactation Accommodation",
+      "jurisdiction": "KY",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2019-06-27",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 15
+        },
+        "summary": "Break time and a private space to express milk are reasonable accommodations the employer must provide absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "Ky. Rev. Stat. \u00a7\u00a7344.030, 344.040 (Pregnant Workers Act)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
           "kind": "statute"
         }
       ]
@@ -328,6 +759,124 @@
       ]
     },
     {
+      "id": "ma-lactation-break",
+      "title": "Massachusetts Lactation Accommodation",
+      "jurisdiction": "MA",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2018-04-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 6
+        },
+        "summary": "More frequent or longer breaks and a private space to express milk are reasonable accommodations the employer must provide absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws ch. 151B, \u00a74 (Pregnant Workers Fairness Act)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "me-lactation-break",
+      "title": "Maine Lactation Breaks",
+      "jurisdiction": "ME",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 36
+        },
+        "summary": "Adequate unpaid break time (or use of paid breaks) to express milk for up to three years after birth, with a private space"
+      },
+      "citations": [
+        {
+          "source": "Me. Rev. Stat. tit. 26, \u00a7604",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-lactation-break",
+      "title": "Minnesota Paid Lactation Breaks",
+      "jurisdiction": "MN",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": true
+        },
+        "summary": "Reasonable break time to express milk, as often as needed, without a reduction in pay, with a private space other than a bathroom"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.939",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "mn-rest-break-4hr",
       "title": "Minnesota Rest Break (adequate time per 4 consecutive hours)",
       "jurisdiction": "MN",
@@ -417,6 +966,249 @@
           "source": "Minn. Stat. \u00a7177.254",
           "url": "https://www.revisor.mn.gov/statutes/cite/177.254",
           "section": "Minn. Stat. \u00a7177.254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ms-lactation-break",
+      "title": "Mississippi Right to Express Milk During Breaks",
+      "jurisdiction": "MS",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "concurrent_with_breaks": true
+        },
+        "summary": "The employer may not prohibit an employee from expressing milk during any meal or break period already provided"
+      },
+      "citations": [
+        {
+          "source": "Miss. Code Ann. \u00a771-1-55",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-lactation-break",
+      "title": "Nebraska Lactation Accommodation",
+      "jurisdiction": "NE",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 15
+        },
+        "summary": "Break time to express milk is a reasonable accommodation the employer must provide absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a748-1102(11)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-lactation-break",
+      "title": "New Hampshire Lactation Breaks",
+      "jurisdiction": "NH",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 6
+        },
+        "summary": "Reasonable unpaid break time to express milk, roughly 30 minutes for every 3 hours worked, with a private space (employee gives two weeks notice where practicable)"
+      },
+      "citations": [
+        {
+          "source": "N.H. Rev. Stat. Ann. \u00a7\u00a7275:78-275:83",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nj-lactation-break",
+      "title": "New Jersey Lactation Breaks",
+      "jurisdiction": "NJ",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2018-01-08",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable break time each day to express milk, with a suitable private room near the work area, absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "N.J. Stat. Ann. \u00a710:5-12(s)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-lactation-break",
+      "title": "New Mexico Lactation Breaks",
+      "jurisdiction": "NM",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 4
+        },
+        "summary": "Flexible break time to express milk, with a clean private space other than a bathroom"
+      },
+      "citations": [
+        {
+          "source": "N.M. Stat. Ann. \u00a728-20-2",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-lactation-break",
+      "title": "Nevada Lactation Breaks",
+      "jurisdiction": "NV",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 12,
+          "hardship_exemption_under": 50
+        },
+        "summary": "Reasonable unpaid break time to express milk for one year after birth, with a private space (employers under 50 may claim undue hardship)"
+      },
+      "citations": [
+        {
+          "source": "Nev. Rev. Stat. \u00a7608.0193",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
           "kind": "statute"
         }
       ]
@@ -516,6 +1308,121 @@
       ]
     },
     {
+      "id": "ny-lactation-break",
+      "title": "New York Paid Lactation Breaks",
+      "jurisdiction": "NY",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2024-06-19",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": true,
+          "duration_months": 36,
+          "minimum_minutes": 30
+        },
+        "summary": "30 minutes of paid break time each time the employee needs to express milk, for up to three years after birth, plus use of other breaks for longer sessions; a private space is required"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7206-c",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ok-lactation-break",
+      "title": "Oklahoma Lactation Breaks",
+      "jurisdiction": "OK",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable unpaid break time to express milk, with a private space other than a toilet stall"
+      },
+      "citations": [
+        {
+          "source": "40 Okla. Stat. \u00a7435",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "or-lactation-break",
+      "title": "Oregon Lactation Breaks",
+      "jurisdiction": "OR",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2019-09-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 18,
+          "hardship_exemption_under": 10
+        },
+        "summary": "Reasonable unpaid break time to express milk each time needed, for 18 months after birth, with a private space (employers under 10 may claim undue hardship)"
+      },
+      "citations": [
+        {
+          "source": "Or. Rev. Stat. \u00a7653.077",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "or-rest-break-4hr",
       "title": "Oregon Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "OR",
@@ -610,6 +1517,241 @@
       ]
     },
     {
+      "id": "ri-lactation-break",
+      "title": "Rhode Island Lactation Breaks",
+      "jurisdiction": "RI",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable unpaid break time to express milk, with a private space other than a bathroom, absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a7\u00a723-13.2-1, 28-5-7.4",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "sc-lactation-break",
+      "title": "South Carolina Lactation Breaks",
+      "jurisdiction": "SC",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2020-06-25",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable unpaid break time (or use of existing paid breaks) to express milk, with a private space other than a bathroom"
+      },
+      "citations": [
+        {
+          "source": "S.C. Code Ann. \u00a741-1-130",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tn-lactation-break",
+      "title": "Tennessee Lactation Breaks",
+      "jurisdiction": "TN",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false
+        },
+        "summary": "Reasonable unpaid break time to express milk, running with any break already provided where possible, with a private space"
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code Ann. \u00a750-1-305",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ut-lactation-break",
+      "title": "Utah Lactation Accommodation",
+      "jurisdiction": "UT",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2016-05-10",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 15
+        },
+        "summary": "Break time and a private space to express milk are reasonable accommodations the employer must provide absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "Utah Code Ann. \u00a734A-5-106(1)(g)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "va-lactation-break",
+      "title": "Virginia Lactation Accommodation",
+      "jurisdiction": "VA",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "min_employees": 5
+        },
+        "summary": "Break time and a private space to express milk are reasonable accommodations the employer must provide absent undue hardship"
+      },
+      "citations": [
+        {
+          "source": "Va. Code Ann. \u00a72.2-3909 (Virginia Human Rights Act)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "vt-lactation-break",
+      "title": "Vermont Lactation Breaks",
+      "jurisdiction": "VT",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2008-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 36
+        },
+        "summary": "Reasonable unpaid break time (or use of paid breaks) to express milk for up to three years after birth, with a private space"
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7305",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "vt-rest-break",
       "title": "Vermont Rest Break (reasonable opportunities to eat and use restroom)",
       "jurisdiction": "VT",
@@ -643,6 +1785,50 @@
           "source": "21 V.S.A. \u00a7304",
           "url": "https://legislature.vermont.gov/statutes/section/21/005/00304",
           "section": "21 V.S.A. \u00a7304",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-lactation-break",
+      "title": "Washington Lactation Breaks",
+      "jurisdiction": "WA",
+      "topic": "sched.rest_break.lactation",
+      "status": "active",
+      "effectiveFrom": "2017-07-23",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          },
+          {
+            "fact": "employee.is_lactating",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 24,
+          "min_employees": 15
+        },
+        "summary": "Reasonable break time to express milk, as often as needed, for two years after birth, with a private space; unpaid until 2027-01-01, when paid break time is required"
+      },
+      "citations": [
+        {
+          "source": "Wash. Rev. Code \u00a743.10.005 (Healthy Starts Act)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
           "kind": "statute"
         }
       ]

@@ -52,7 +52,7 @@ data/
                           preemption flags with statute citations; 28 states preempt some local labor rule)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
   profiles/             — Business profiles (sample multi-state retail chain)
-  rules/<topic>.json    — All rules, one file per taxonomy topic code (552 rules across 12 topics)
+  rules/<topic>.json    — All rules, one file per taxonomy topic code (624 rules across 13 topics)
   schema/               — JSON Schema for rule files (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
@@ -76,7 +76,7 @@ server/
     partialEvaluate.ts  — Three-valued condition evaluation against partial facts
   rules/
     types.ts            — Core type definitions
-    facts.ts            — Fact registry (117 facts)
+    facts.ts            — Fact registry (118 facts)
     conditions.ts       — Condition DSL validation
     createRule.ts       — Rule validator
     loadRules.ts        — Loads and cross-checks data/rules/*.json
@@ -170,7 +170,7 @@ report is attached as an artifact. Only broken links fail the nightly run.
 
 ## Rules
 
-552 rules across 12 taxonomy topics (26 sub-topics) and 87 jurisdictions.
+624 rules across 13 taxonomy topics (30 sub-topics) and 87 jurisdictions.
 `GET /api/coverage` reports which jurisdiction × topic cells have a rule, are
-confirmed to have no law, or are unchecked; its 13 rows are the historical topic
-names, which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.
+confirmed to have no law, or are unchecked; its 15 rows are the historical topic
+names (plus lactation breaks and civic leave), which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.
