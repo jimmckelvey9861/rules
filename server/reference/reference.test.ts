@@ -11,7 +11,7 @@ import { TAXONOMY, getAllTaxonomyNodes, resolveTopic, getEnforcementTarget, topi
 import { matrixTopicFor, MATRIX_ROWS_BY_TOPIC_CODE } from "../rules/coverageMatrix.js";
 import { listJsonFiles, readJsonFile } from "./dataFiles.js";
 import {
-  JURISDICTIONS, resolveJurisdiction, getJurisdictionChain, findPreemptingAncestor, getJurisdictionsByType,
+  JURISDICTIONS, resolveJurisdiction, getJurisdiction, getJurisdictionChain, findPreemptingAncestor, getPreemptionDetail, getJurisdictionsByType,
 } from "./jurisdictions.js";
 
 let passed = 0;
@@ -72,6 +72,21 @@ assert(findPreemptingAncestor("Portland Metro Area", "minimum_wage") === undefin
 assert(findPreemptingAncestor("Chicago", "minimum_wage") === undefined, "Illinois does not preempt Chicago's minimum wage");
 const texasPreemption = resolveJurisdiction("TX")?.preemption?.minimum_wage;
 assert(texasPreemption === "preempted", "Texas is recorded as preempting local minimum wage");
+const states = JURISDICTIONS.filter(j => j.type === "state" || j.type === "district");
+assert(states.every(j => j.verified && j.preemption !== undefined), "Every state record is verified and carries a preemption map (possibly empty)");
+const PREEMPTION_TOPICS = new Set(["minimum_wage", "sick_leave", "predictive_scheduling"]);
+assert(states.every(j => Object.keys(j.preemption ?? {}).every(t => PREEMPTION_TOPICS.has(t))), "Preemption flags use the three legacy topic names the loader checks");
+assert(states.every(j => Object.entries(j.preemption ?? {}).every(([t, mode]) => mode !== "preempted" || (j.preemptionDetails?.[t]?.citation ?? "").length > 0)), "Every preempted flag cites its statute in preemptionDetails");
+assert(states.every(j => Object.keys(j.preemptionDetails ?? {}).every(t => j.preemption?.[t] === "preempted")), "preemptionDetails only describes flags that exist");
+assert(states.every(j => Object.values(j.preemptionDetails ?? {}).every(x => (x.exempt ?? []).every(id => getJurisdiction(id)?.parent === j.id))), "Grandfathered exemptions name real locals of that state");
+assert(states.filter(j => Object.values(j.preemption ?? {}).includes("preempted")).length === 28, `28 states preempt at least one topic (got ${states.filter(j => Object.values(j.preemption ?? {}).includes("preempted")).length})`);
+assert(findPreemptingAncestor("Montgomery County", "sick_leave") === undefined, "Montgomery County's sick leave law is grandfathered under Maryland's act");
+assert(resolveJurisdiction("MD")?.preemption?.sick_leave === "preempted" && getPreemptionDetail("MD", "sick_leave")?.exempt?.includes("us-md-montgomery-county") === true, "Maryland preempts new local sick leave laws and lists Montgomery County as exempt");
+assert(findPreemptingAncestor("Philadelphia", "sick_leave") === undefined && findPreemptingAncestor("Philadelphia", "predictive_scheduling") === undefined, "Pennsylvania does not preempt Philadelphia's sick leave or fair workweek ordinances");
+assert(findPreemptingAncestor("Philadelphia", "minimum_wage")?.id === "us-pa", "Pennsylvania preempts a local minimum wage");
+assert(resolveJurisdiction("OR")?.preemption?.predictive_scheduling === "preempted" && resolveJurisdiction("TX")?.preemption?.predictive_scheduling === "preempted" && resolveJurisdiction("FL")?.preemption?.predictive_scheduling === "preempted", "Oregon, Texas and Florida preempt local scheduling ordinances");
+assert(resolveJurisdiction("OK")?.preemption?.predictive_scheduling === undefined, "Oklahoma's statute does not reach scheduling");
+assert(resolveJurisdiction("CO")?.preemption?.minimum_wage === undefined && resolveJurisdiction("AZ")?.preemption?.sick_leave === undefined && resolveJurisdiction("NE")?.preemption?.minimum_wage === undefined, "Colorado (repealed), Arizona (struck down) and Nebraska (no statute) carry no flags");
 console.log("\n═══ Result vocabulary ═══");
 const obligations = getAllObligations();
 assert(obligations.length >= 19, `At least 19 obligation types (got ${obligations.length})`);

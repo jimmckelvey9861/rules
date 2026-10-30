@@ -48,7 +48,8 @@ No database required. No Docker. No environment variables.
 ```
 data/
   taxonomy.json         — 9 categories > 28 topics > 65 sub-topics, enforcement target per topic
-  jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent, preemption)
+  jurisdictions.json    — Federal, 50 states + DC, 5 territories, 26 local jurisdictions (FIPS, parent,
+                          preemption flags with statute citations; 28 states preempt some local labor rule)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
   profiles/             — Business profiles (sample multi-state retail chain)
   rules/<topic>.json    — All rules, one file per taxonomy topic code (476 rules across 12 topics)
