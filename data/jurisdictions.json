@@ -1076,6 +1076,16 @@
       "verified": false
     },
     {
+      "id": "us-ca-berkeley",
+      "ruleKey": "Berkeley",
+      "name": "Berkeley",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0606000",
+      "verified": false,
+      "note": "Fair Workweek Ordinance (BMC 13.102) operative 2024-01-12; also local minimum wage and paid sick leave"
+    },
+    {
       "id": "us-ca-daly-city",
       "ruleKey": "Daly City",
       "name": "Daly City",
@@ -1083,6 +1093,16 @@
       "parent": "us-ca",
       "fips": "0617918",
       "verified": false
+    },
+    {
+      "id": "us-ca-emeryville",
+      "ruleKey": "Emeryville",
+      "name": "Emeryville",
+      "type": "city",
+      "parent": "us-ca",
+      "fips": "0622594",
+      "verified": false,
+      "note": "Fair Workweek Ordinance (EMC Title 5 ch. 39) effective 2017-07-01; also local minimum wage and paid sick leave"
     },
     {
       "id": "us-ca-fremont",
@@ -1120,6 +1140,16 @@
       "fips": "0644000",
       "verified": false,
       "note": "City of Los Angeles; Los Angeles County unincorporated areas have a separate ordinance"
+    },
+    {
+      "id": "us-ca-los-angeles-county",
+      "ruleKey": "Los Angeles County",
+      "name": "Los Angeles County",
+      "type": "county",
+      "parent": "us-ca",
+      "fips": "06037",
+      "verified": false,
+      "note": "County FIPS. County ordinances (Fair Workweek, minimum wage) reach unincorporated areas only; rules test location.is_unincorporated"
     },
     {
       "id": "us-ca-malibu",
@@ -1250,6 +1280,16 @@
       "parent": "us-il",
       "fips": "1714000",
       "verified": false
+    },
+    {
+      "id": "us-il-evanston",
+      "ruleKey": "Evanston",
+      "name": "Evanston",
+      "type": "city",
+      "parent": "us-il",
+      "fips": "1724582",
+      "verified": false,
+      "note": "Fair Workweek Ordinance (City Code Title 3 ch. 34, Ord. 24-O-23) effective 2024-01-01"
     },
     {
       "id": "us-md-montgomery-county",

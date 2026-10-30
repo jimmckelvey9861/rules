@@ -1176,6 +1176,166 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "berkeley-sick-leave-small",
+      "title": "Berkeley Paid Sick Leave, small employer (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Berkeley",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2017-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": "<",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Paid Sick Leave Ordinance",
+          "url": "https://berkeley.municipal.codes/BMC/13.100",
+          "section": "BMC Ch. 13.100",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "berkeley-sick-leave-large",
+      "title": "Berkeley Paid Sick Leave, 25+ employees (1 hr per 30 hrs worked, up to 72 hrs)",
+      "jurisdiction": "Berkeley",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2017-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Paid Sick Leave Ordinance",
+          "url": "https://berkeley.municipal.codes/BMC/13.100",
+          "section": "BMC Ch. 13.100",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emeryville-sick-leave-small",
+      "title": "Emeryville Paid Sick Leave, 55 or fewer employees in Emeryville (1 hr per 30 hrs worked, up to 48 hrs)",
+      "jurisdiction": "Emeryville",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2015-07-02",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": "<=",
+            "value": 55
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 48,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "48 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Minimum Wage, Paid Sick Leave and Hospitality Service Charge Ordinance",
+          "url": "https://www.emeryville.org/Services/Business/Labor-Standards",
+          "section": "EMC Title 5, Ch. 37",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "emeryville-sick-leave-large",
+      "title": "Emeryville Paid Sick Leave, 56+ employees in Emeryville (1 hr per 30 hrs worked, up to 72 hrs)",
+      "jurisdiction": "Emeryville",
+      "topic": "leave.sick.accrual",
+      "status": "active",
+      "effectiveFrom": "2015-07-02",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 56
+          }
+        ]
+      },
+      "result": {
+        "type": "minimum_required_value",
+        "obligation": "leave.sick.accrual",
+        "params": {
+          "annual_cap_hours": 72,
+          "hours_worked_per_hour_accrued": 30,
+          "paid": true
+        },
+        "summary": "72 hours of paid sick leave per year, accrued at 1 hour per 30 hours worked"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Minimum Wage, Paid Sick Leave and Hospitality Service Charge Ordinance",
+          "url": "https://www.emeryville.org/Services/Business/Labor-Standards",
+          "section": "EMC Title 5, Ch. 37",
+          "kind": "ordinance"
+        }
+      ]
     }
   ]
 }

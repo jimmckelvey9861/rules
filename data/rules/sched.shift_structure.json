@@ -3,6 +3,97 @@
   "topic": "sched.shift_structure",
   "rules": [
     {
+      "id": "brk-clopening-11hr",
+      "title": "Berkeley \u2014 Rest Between Shifts (11 hours)",
+      "jurisdiction": "Berkeley",
+      "topic": "sched.shift_structure.clopening",
+      "status": "active",
+      "effectiveFrom": "2024-01-12",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Berkeley"
+          },
+          {
+            "fact": "employer.total_employees_city",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "retail",
+                      "hotel",
+                      "healthcare",
+                      "manufacturing",
+                      "warehouse"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 56
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 11
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 11,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5 times the regular rate for hours worked less than 11 hours after the previous shift ended; the employee may decline such a shift, and working it requires written consent"
+      },
+      "citations": [
+        {
+          "source": "Berkeley Municipal Code Chapter 13.102 (Fair Workweek Ordinance)",
+          "url": "https://berkeley.municipal.codes/BMC/13.102.010",
+          "section": "BMC 13.102 (right to rest)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "ca-day-of-rest",
       "title": "California Day of Rest (1 day off per 7-day workweek)",
       "jurisdiction": "CA",
@@ -105,6 +196,150 @@
       ]
     },
     {
+      "id": "emv-clopening-11hr",
+      "title": "Emeryville \u2014 Rest Between Shifts (11 hours)",
+      "jurisdiction": "Emeryville",
+      "topic": "sched.shift_structure.clopening",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Emeryville"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "fast_food"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 56
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 11
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 11,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5 times the regular rate for hours worked less than 11 hours after the previous shift ended; the employee may decline such a shift, and working it requires written consent"
+      },
+      "citations": [
+        {
+          "source": "Emeryville Municipal Code Title 5, Chapter 39 (Fair Workweek Ordinance)",
+          "url": "https://www.emeryville.org/files/assets/city/v/1/development/documents/fair-workweek-ordinance/fair-work-week-poster.pdf",
+          "section": "EMC 5-39 (right to rest)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "evn-clopening-11hr",
+      "title": "Evanston \u2014 Rest Between Shifts (11 hours)",
+      "jurisdiction": "Evanston",
+      "topic": "sched.shift_structure.clopening",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Evanston"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "hospitality",
+                      "hotel",
+                      "retail",
+                      "warehouse",
+                      "manufacturing"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "employer.industry_tag",
+                    "op": "in",
+                    "value": [
+                      "restaurant",
+                      "fast_food"
+                    ]
+                  },
+                  {
+                    "fact": "employer.total_employees_global",
+                    "op": ">=",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 11
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 11,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "1.5 times the regular rate for hours worked less than 11 hours after the previous shift ended; the employee may decline such a shift, and working it requires written consent"
+      },
+      "citations": [
+        {
+          "source": "Evanston City Code Title 3, Chapter 34 (Fair Workweek Ordinance, Ord. 24-O-23)",
+          "url": "https://www.cityofevanston.org/business/fair_workweek.php",
+          "section": "3-34 (right to rest)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
       "id": "il-day-of-rest",
       "title": "Illinois One Day Rest in Seven Act",
       "jurisdiction": "IL",
@@ -194,6 +429,66 @@
           "source": "Los Angeles Municipal Code Art. 5, \u00a7185.00 et seq. (Fair Work Week Ordinance)",
           "url": "https://wagesla.lacity.gov/fair-work-week-information",
           "section": "LAMC Art. 5 (rest between shifts)",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "lac-clopening-10hr",
+      "title": "Los Angeles County \u2014 Rest Between Shifts (10 hours)",
+      "jurisdiction": "Los Angeles County",
+      "topic": "sched.shift_structure.clopening",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Los Angeles"
+          },
+          {
+            "fact": "location.is_unincorporated",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "=",
+            "value": "retail"
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 300
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 10
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 10,
+          "amount": 1.5,
+          "unit": "multiplier"
+        },
+        "summary": "Shifts may not be scheduled less than 10 hours apart without the employee's written consent; hours worked inside the 10-hour window are paid at 1.5 times the regular rate"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles County Code, Fair Workweek Ordinance (adopted 2024-04-23, unincorporated areas)",
+          "url": "https://dcba.lacounty.gov/fairworkweek/",
+          "section": "Fair Workweek Ordinance (rest between shifts)",
           "kind": "ordinance"
         }
       ]
@@ -524,65 +819,6 @@
       ]
     },
     {
-      "id": "sf-clopening-11hr",
-      "title": "San Francisco \u2014 Right to Rest (11-Hour Gap)",
-      "jurisdiction": "San Francisco",
-      "topic": "sched.shift_structure.clopening",
-      "status": "active",
-      "effectiveFrom": "2015-07-03",
-      "appliesWhen": {
-        "all": [
-          {
-            "fact": "location.city",
-            "op": "=",
-            "value": "San Francisco"
-          },
-          {
-            "fact": "employer.industry_tag",
-            "op": "in",
-            "value": [
-              "retail",
-              "restaurant",
-              "hospitality"
-            ]
-          },
-          {
-            "fact": "employer.total_employees_global",
-            "op": ">=",
-            "value": 40
-          },
-          {
-            "fact": "shift.hours_since_last_shift_end",
-            "op": "<",
-            "value": 11
-          },
-          {
-            "fact": "schedule.employee_consented",
-            "op": "=",
-            "value": false
-          }
-        ]
-      },
-      "result": {
-        "type": "premium_required",
-        "obligation": "sched.clopening",
-        "params": {
-          "rest_hours": 11,
-          "amount": 1.25,
-          "unit": "multiplier"
-        },
-        "summary": "1.25x pay rate for hours worked within the 11-hour rest period"
-      },
-      "citations": [
-        {
-          "source": "San Francisco Administrative Code Ch. 12Z \u00a712Z.6",
-          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
-          "section": "SF Admin Code \u00a712Z.6",
-          "kind": "ordinance"
-        }
-      ]
-    },
-    {
       "id": "sea-clopening-10hr",
       "title": "Seattle \u2014 10-Hour Rest Period",
       "jurisdiction": "Seattle",
@@ -637,6 +873,65 @@
           "source": "Seattle Municipal Code Ch. 14.22 (Secure Scheduling)",
           "url": "https://www.seattle.gov/laborstandards/ordinances/secure-scheduling",
           "section": "SMC 14.22.050",
+          "kind": "ordinance"
+        }
+      ]
+    },
+    {
+      "id": "sf-clopening-11hr",
+      "title": "San Francisco \u2014 Right to Rest (11-Hour Gap)",
+      "jurisdiction": "San Francisco",
+      "topic": "sched.shift_structure.clopening",
+      "status": "active",
+      "effectiveFrom": "2015-07-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          },
+          {
+            "fact": "employer.industry_tag",
+            "op": "in",
+            "value": [
+              "retail",
+              "restaurant",
+              "hospitality"
+            ]
+          },
+          {
+            "fact": "employer.total_employees_global",
+            "op": ">=",
+            "value": 40
+          },
+          {
+            "fact": "shift.hours_since_last_shift_end",
+            "op": "<",
+            "value": 11
+          },
+          {
+            "fact": "schedule.employee_consented",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "premium_required",
+        "obligation": "sched.clopening",
+        "params": {
+          "rest_hours": 11,
+          "amount": 1.25,
+          "unit": "multiplier"
+        },
+        "summary": "1.25x pay rate for hours worked within the 11-hour rest period"
+      },
+      "citations": [
+        {
+          "source": "San Francisco Administrative Code Ch. 12Z \u00a712Z.6",
+          "url": "https://www.sf.gov/information/formula-retail-employee-rights-ordinance",
+          "section": "SF Admin Code \u00a712Z.6",
           "kind": "ordinance"
         }
       ]
