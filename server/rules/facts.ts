@@ -132,6 +132,7 @@ const FACTS: FactDefinition[] = [
   { path: "employee.tenure_months", type: "number", description: "Months employed with current employer", category: "3. Employee" },
   { path: "employee.hours_worked_last_12_months", type: "number", description: "Total hours worked in prior 12 months (for FMLA eligibility)", category: "3. Employee" },
   { path: "employee.hire_date", type: "date", description: "Employee hire date (ISO YYYY-MM-DD)", category: "3. Employee" },
+  { path: "employee.is_lactating", type: "boolean", description: "Whether the employee is nursing a child and has asked for lactation breaks", category: "3. Employee" },
   { path: "employee.union_member", type: "boolean", description: "Whether employee is a union member", category: "3. Employee" },
 
   // 3.5 Work Arrangement

@@ -821,6 +821,86 @@
           "kind": "statute"
         }
       ]
+    },
+    {
+      "id": "federal-workweek-definition",
+      "title": "Federal Workweek Definition (FLSA)",
+      "jurisdiction": "Federal",
+      "topic": "pay.overtime.workweek_definition",
+      "status": "active",
+      "effectiveFrom": "1968-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.workweek_definition",
+        "params": {
+          "period_hours": 168,
+          "fixed_recurring": true
+        },
+        "summary": "Overtime is computed over a fixed and regularly recurring period of 168 hours (seven consecutive 24-hour periods) that may begin on any day and hour; it may be changed only permanently and not to evade overtime, and hours may not be averaged across weeks"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7778.105 (Determining the workweek)",
+          "url": "https://www.ecfr.gov/current/title-29/section-778.105",
+          "section": "29 CFR 778.105",
+          "kind": "regulation"
+        },
+        {
+          "source": "Fair Labor Standards Act \u00a77(a)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. \u00a7207(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-workday-workweek-definition",
+      "title": "California Workday and Workweek Definition",
+      "jurisdiction": "CA",
+      "topic": "pay.overtime.workweek_definition",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.workweek_definition",
+        "params": {
+          "period_hours": 168,
+          "workday_hours": 24,
+          "fixed_recurring": true
+        },
+        "summary": "Daily overtime is measured over a fixed 24-hour workday and weekly and seventh-day overtime over a fixed 168-hour workweek, each starting at a time the employer sets and changes only for legitimate business reasons"
+      },
+      "citations": [
+        {
+          "source": "Cal. Labor Code \u00a7500",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=500",
+          "section": "Lab. Code \u00a7500",
+          "kind": "statute"
+        }
+      ]
     }
   ]
 }

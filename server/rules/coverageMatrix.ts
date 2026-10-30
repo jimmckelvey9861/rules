@@ -23,6 +23,12 @@
  * - Premium pay: NY spread-of-hours; limited applicability elsewhere
  * - Minimum wage: All 50 + DC (federal floor applies everywhere)
  * - Minor labor: All 50 + DC have child labor laws
+ * - Lactation breaks: federal PUMP Act everywhere; ~29 states + DC add break-time or
+ *   accommodation duties (Pregnant@Work 50-state survey, 2025). Space-only (IN) and
+ *   public-employer-only (TX, LA, MT, NC) laws are not counted.
+ * - Civic leave: voting leave in 28 states + DC (AbsenceSoft / Jackson Lewis 2026) plus
+ *   jury-duty pay or shift limits in AL, CO, CT, DC, LA, MA, NE, NV, NY, TN, VA. Bare
+ *   job protection for jury service exists in every state and is not a row of its own.
  */
 
 export type CoverageStatus = "has_rule" | "no_law" | "not_checked";
@@ -40,7 +46,9 @@ export type Topic =
   | "rest_break"
   | "sick_leave"
   | "split_shift_premium"
-  | "warn_act";
+  | "warn_act"
+  | "lactation_break"
+  | "civic_leave";
 
 export const ALL_TOPICS: Topic[] = [
   "day_of_rest",
@@ -56,6 +64,8 @@ export const ALL_TOPICS: Topic[] = [
   "sick_leave",
   "split_shift_premium",
   "warn_act",
+  "lactation_break",
+  "civic_leave",
 ];
 
 export const ALL_STATES = [
@@ -265,6 +275,27 @@ const STATES_WITH_WARN_ACT: StateCode[] = [
 
 // ─── Build the matrix ──────────────────────────────────────────────
 
+/**
+ * Lactation breaks — states with a break-time or accommodation duty for private
+ * employers beyond the federal PUMP Act (29 U.S.C. §218d).
+ */
+const STATES_WITH_LACTATION_BREAK: StateCode[] = [
+  "AR", "CA", "CO", "CT", "DC", "DE", "GA", "HI", "IL", "KY", "MA", "ME", "MN", "MS", "NE",
+  "NH", "NJ", "NM", "NV", "NY", "OK", "OR", "RI", "SC", "TN", "UT", "VA", "VT", "WA",
+];
+
+/**
+ * Civic leave — states with a voting-leave statute, or a jury-duty statute that
+ * requires pay or limits the shifts an employer may require around service.
+ */
+const STATES_WITH_CIVIC_LEAVE: StateCode[] = [
+  // voting leave
+  "AK", "AL", "AR", "AZ", "CA", "CO", "DC", "GA", "IA", "IL", "KS", "KY", "MA", "MD", "MN", "MO",
+  "NE", "NM", "NV", "NY", "OH", "OK", "SD", "TN", "TX", "UT", "WI", "WV", "WY",
+  // jury duty pay or shift limits (not already listed)
+  "CT", "LA", "VA",
+];
+
 const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   day_of_rest: STATES_WITH_DAY_OF_REST,
   family_medical_leave: STATES_WITH_FAMILY_MEDICAL_LEAVE,
@@ -279,6 +310,8 @@ const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   sick_leave: STATES_WITH_SICK_LEAVE,
   split_shift_premium: STATES_WITH_SPLIT_SHIFT_PREMIUM,
   warn_act: STATES_WITH_WARN_ACT,
+  lactation_break: STATES_WITH_LACTATION_BREAK,
+  civic_leave: STATES_WITH_CIVIC_LEAVE,
 };
 
 // ─── Local (City/County) Coverage ──────────────────────────────────
@@ -441,12 +474,13 @@ export function matrixTopicFor(topic: string, obligation?: string): Topic | unde
       if (topic === "pay.premium.split_shift") return obligation === "premium.spread_of_hours" ? "premium_pay" : "split_shift_premium";
       return "premium_pay";
     case "sched.meal_break": return "meal_break";
-    case "sched.rest_break": return "rest_break";
+    case "sched.rest_break": return topic === "sched.rest_break.lactation" ? "lactation_break" : "rest_break";
     case "sched.predictive": return "predictive_scheduling";
     case "sched.shift_structure":
       return topic === "sched.shift_structure.day_of_rest" ? "day_of_rest" : "predictive_scheduling";
     case "leave.sick": return "sick_leave";
     case "leave.family_medical": return "family_medical_leave";
+    case "leave.civic_emergency": return "civic_leave";
     case "minor.labor": return "minor_labor";
     case "sep.warn": return "warn_act";
     default: return undefined;
@@ -460,11 +494,12 @@ export const MATRIX_ROWS_BY_TOPIC_CODE: Record<string, readonly Topic[]> = {
   "pay.overtime": ["overtime"],
   "pay.premium": ["reporting_time_pay", "split_shift_premium", "premium_pay"],
   "sched.meal_break": ["meal_break"],
-  "sched.rest_break": ["rest_break"],
+  "sched.rest_break": ["rest_break", "lactation_break"],
   "sched.predictive": ["predictive_scheduling"],
   "sched.shift_structure": ["day_of_rest", "predictive_scheduling"],
   "leave.sick": ["sick_leave"],
   "leave.family_medical": ["family_medical_leave"],
+  "leave.civic_emergency": ["civic_leave"],
   "minor.labor": ["minor_labor"],
   "sep.warn": ["warn_act"],
 };

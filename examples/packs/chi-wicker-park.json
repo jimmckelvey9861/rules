@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T17:41:11.396Z",
+  "generatedAt": "2026-10-30T17:59:45.407Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "88dccb96266295bc",
+  "rulesVersion": "9ca246342bf81405",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -38,6 +38,49 @@
     }
   ],
   "rules": [
+    {
+      "id": "il-voting-leave",
+      "title": "Illinois Voting Leave",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "leave.civic_emergency.voting",
+      "topicCode": "leave.civic_emergency",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "leave.type",
+        "op": "=",
+        "value": "voting"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "leave.type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 0,
+          "nonworking_hours_exception": 2,
+          "employer_sets_time": true
+        },
+        "summary": "2 hours of paid leave to vote, requested before election day, when the shift begins less than 2 hours after polls open and ends less than 2 hours before they close",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "10 ILCS 5/17-15",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
     {
       "id": "federal-fmla-eligibility",
       "title": "Federal FMLA — Employee Eligibility",
@@ -1092,6 +1135,51 @@
       ]
     },
     {
+      "id": "federal-workweek-definition",
+      "title": "Federal Workweek Definition (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.workweek_definition",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1968-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.workweek_definition",
+        "params": {
+          "period_hours": 168,
+          "fixed_recurring": true
+        },
+        "summary": "Overtime is computed over a fixed and regularly recurring period of 168 hours (seven consecutive 24-hour periods) that may begin on any day and hour; it may be changed only permanently and not to evade overtime, and hours may not be averaged across weeks",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. §778.105 (Determining the workweek)",
+          "url": "https://www.ecfr.gov/current/title-29/section-778.105",
+          "section": "29 CFR 778.105",
+          "kind": "regulation"
+        },
+        {
+          "source": "Fair Labor Standards Act §7(a)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. §207(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "il-meal-break-7.5hr",
       "title": "Illinois Meal Break (20 min for 7.5+ hr shift)",
       "jurisdiction": "IL",
@@ -1480,6 +1568,88 @@
       ]
     },
     {
+      "id": "federal-lactation-break-pump-act",
+      "title": "Federal Lactation Break Time (PUMP Act)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sched.rest_break.lactation",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2022-12-29",
+      "appliesWhen": {
+        "fact": "employee.is_lactating",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.is_lactating"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 12,
+          "hardship_exemption_under": 50
+        },
+        "summary": "Reasonable break time each time the employee needs to express milk for one year after the child's birth, in a private non-bathroom space; unpaid unless the employee is not fully relieved or uses a paid break (employers under 50 may claim undue hardship)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §18d (PUMP for Nursing Mothers Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/218d",
+          "section": "29 U.S.C. §218d",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-lactation-break",
+      "title": "Illinois Paid Lactation Breaks",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sched.rest_break.lactation",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "fact": "employee.is_lactating",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.is_lactating"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": true,
+          "duration_months": 12,
+          "min_employees": 6
+        },
+        "summary": "Reasonable break time to express milk for one year after birth, paid at the regular rate from 2026-01-01, with a private space",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 260 (Nursing Mothers in the Workplace Act), as amended by P.A. 104-0076",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "il-rest-break",
       "title": "Illinois Rest Break (hotel room attendants — 2×15 min per 7+ hr shift)",
       "jurisdiction": "IL",
@@ -1669,6 +1839,63 @@
   ],
   "obligations": [
     {
+      "code": "break.lactation",
+      "name": "Lactation break",
+      "description": "Reasonable break time, as often as needed, for an employee to express breast milk, with a private space other than a bathroom.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the break time itself must be paid (false = unpaid unless taken during an existing paid break)"
+        },
+        {
+          "name": "duration_months",
+          "type": "number",
+          "required": false,
+          "description": "How long after the child's birth the right lasts, in months (federal: 12); omitted when the law sets no limit"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches, where the law sets one"
+        },
+        {
+          "name": "hardship_exemption_under",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employers below this size may claim undue hardship (federal: 50)"
+        },
+        {
+          "name": "concurrent_with_breaks",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only guarantees the right to express milk during breaks the employee already has"
+        },
+        {
+          "name": "minimum_minutes",
+          "type": "number",
+          "unit": "minutes",
+          "required": false,
+          "description": "Paid minutes per break where the law sets a figure (New York: 30)"
+        }
+      ],
+      "synonyms": [
+        "lactation accommodation",
+        "breastfeeding break",
+        "PUMP Act",
+        "nursing mothers break time",
+        "express milk at work"
+      ]
+    },
+    {
       "code": "break.meal",
       "name": "Meal break",
       "description": "An uninterrupted meal period owed once a shift reaches a given length.",
@@ -1822,6 +2049,56 @@
       ]
     },
     {
+      "code": "leave.voting",
+      "name": "Voting leave",
+      "description": "Time off to vote on election day when the employee's schedule leaves too little non-working time while polls are open.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the time off must be paid"
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Maximum hours of leave the employee may take; omitted where the law says 'as necessary'"
+        },
+        {
+          "name": "notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Advance notice the employer may require, in days (0 = must be requested before election day)"
+        },
+        {
+          "name": "nonworking_hours_exception",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "No leave is owed when the employee has at least this many consecutive non-working hours while polls are open"
+        },
+        {
+          "name": "employer_sets_time",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may designate when the leave is taken"
+        }
+      ],
+      "synonyms": [
+        "time off to vote",
+        "election leave",
+        "voter leave",
+        "polling leave"
+      ]
+    },
+    {
       "code": "minor.curfew",
       "name": "Minor work-hour curfew",
       "description": "Earliest start or latest end time a minor may work, often differing on school nights.",
@@ -1948,6 +2225,44 @@
       "synonyms": [
         "child labor weekly limit",
         "hours per week for minors"
+      ]
+    },
+    {
+      "code": "pay.workweek_definition",
+      "name": "Workweek and workday definition",
+      "description": "The fixed, regularly recurring period over which overtime hours are counted; it may start on any day and hour but cannot be moved to avoid overtime.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "period_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Length of the workweek in hours (168 = seven consecutive 24-hour periods)"
+        },
+        {
+          "name": "workday_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Length of the workday where daily overtime applies (24 consecutive hours)"
+        },
+        {
+          "name": "fixed_recurring",
+          "type": "boolean",
+          "required": true,
+          "description": "The period must be fixed and regularly recurring; changes are allowed only if permanent and not designed to evade overtime"
+        }
+      ],
+      "synonyms": [
+        "workweek",
+        "work week definition",
+        "FLSA workweek",
+        "workday definition",
+        "168-hour period"
       ]
     },
     {
@@ -2291,6 +2606,12 @@
       "category": "3. Employee"
     },
     {
+      "path": "employee.is_lactating",
+      "type": "boolean",
+      "description": "Whether the employee is nursing a child and has asked for lactation breaks",
+      "category": "3. Employee"
+    },
+    {
       "path": "employee.is_minor",
       "type": "boolean",
       "description": "Whether employee is under 18",
@@ -2479,12 +2800,12 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 552,
-    "rulesIncluded": 29,
-    "excludedByProfile": 522,
+    "rulesConsidered": 624,
+    "rulesIncluded": 33,
+    "excludedByProfile": 590,
     "excludedExpired": 1,
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "cb23308b47de0fd5b840cdc60c2fa69c7bee70611b28111857b22ddf5f6954a3"
+  "checksum": "8f29ce35d91a54392ae532b55ef6afc5510d8f464cdbe5fd38b734a9ddc0b417"
 }

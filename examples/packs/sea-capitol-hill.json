@@ -1,8 +1,8 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T17:41:11.393Z",
+  "generatedAt": "2026-10-30T17:59:45.403Z",
   "asOf": "2026-10-20",
-  "rulesVersion": "88dccb96266295bc",
+  "rulesVersion": "9ca246342bf81405",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1187,6 +1187,51 @@
       ]
     },
     {
+      "id": "federal-workweek-definition",
+      "title": "Federal Workweek Definition (FLSA)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.overtime.workweek_definition",
+      "topicCode": "pay.overtime",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "1968-01-01",
+      "appliesWhen": {
+        "fact": "employee.exempt_status",
+        "op": "=",
+        "value": "non_exempt"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.exempt_status"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.workweek_definition",
+        "params": {
+          "period_hours": 168,
+          "fixed_recurring": true
+        },
+        "summary": "Overtime is computed over a fixed and regularly recurring period of 168 hours (seven consecutive 24-hour periods) that may begin on any day and hour; it may be changed only permanently and not to evade overtime, and hours may not be averaged across weeks",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. §778.105 (Determining the workweek)",
+          "url": "https://www.ecfr.gov/current/title-29/section-778.105",
+          "section": "29 CFR 778.105",
+          "kind": "regulation"
+        },
+        {
+          "source": "Fair Labor Standards Act §7(a)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "section": "29 U.S.C. §207(a)",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "wa-meal-break-5hr",
       "title": "Washington Meal Break (30 min for 5+ hr shift)",
       "jurisdiction": "WA",
@@ -1708,6 +1753,88 @@
       ]
     },
     {
+      "id": "federal-lactation-break-pump-act",
+      "title": "Federal Lactation Break Time (PUMP Act)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sched.rest_break.lactation",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2022-12-29",
+      "appliesWhen": {
+        "fact": "employee.is_lactating",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.is_lactating"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 12,
+          "hardship_exemption_under": 50
+        },
+        "summary": "Reasonable break time each time the employee needs to express milk for one year after the child's birth, in a private non-bathroom space; unpaid unless the employee is not fully relieved or uses a paid break (employers under 50 may claim undue hardship)",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Fair Labor Standards Act §18d (PUMP for Nursing Mothers Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/218d",
+          "section": "29 U.S.C. §218d",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-lactation-break",
+      "title": "Washington Lactation Breaks",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sched.rest_break.lactation",
+      "topicCode": "sched.rest_break",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2017-07-23",
+      "appliesWhen": {
+        "fact": "employee.is_lactating",
+        "op": "=",
+        "value": true
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.is_lactating"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "break.lactation",
+        "params": {
+          "paid": false,
+          "duration_months": 24,
+          "min_employees": 15
+        },
+        "summary": "Reasonable break time to express milk, as often as needed, for two years after birth, with a private space; unpaid until 2027-01-01, when paid break time is required",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Wash. Rev. Code §43.10.005 (Healthy Starts Act)",
+          "url": "https://www.pregnantatwork.org/wp-content/uploads/State-Workplace-Breastfeeding-Laws-Printable.pdf",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
       "id": "wa-rest-break-4hr",
       "title": "Washington Rest Break (10 min per 4 hours worked)",
       "jurisdiction": "WA",
@@ -1872,6 +1999,63 @@
     }
   ],
   "obligations": [
+    {
+      "code": "break.lactation",
+      "name": "Lactation break",
+      "description": "Reasonable break time, as often as needed, for an employee to express breast milk, with a private space other than a bathroom.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "paid",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the break time itself must be paid (false = unpaid unless taken during an existing paid break)"
+        },
+        {
+          "name": "duration_months",
+          "type": "number",
+          "required": false,
+          "description": "How long after the child's birth the right lasts, in months (federal: 12); omitted when the law sets no limit"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches, where the law sets one"
+        },
+        {
+          "name": "hardship_exemption_under",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employers below this size may claim undue hardship (federal: 50)"
+        },
+        {
+          "name": "concurrent_with_breaks",
+          "type": "boolean",
+          "required": false,
+          "description": "True when the law only guarantees the right to express milk during breaks the employee already has"
+        },
+        {
+          "name": "minimum_minutes",
+          "type": "number",
+          "unit": "minutes",
+          "required": false,
+          "description": "Paid minutes per break where the law sets a figure (New York: 30)"
+        }
+      ],
+      "synonyms": [
+        "lactation accommodation",
+        "breastfeeding break",
+        "PUMP Act",
+        "nursing mothers break time",
+        "express milk at work"
+      ]
+    },
     {
       "code": "break.meal",
       "name": "Meal break",
@@ -2155,6 +2339,44 @@
       ]
     },
     {
+      "code": "pay.workweek_definition",
+      "name": "Workweek and workday definition",
+      "description": "The fixed, regularly recurring period over which overtime hours are counted; it may start on any day and hour but cannot be moved to avoid overtime.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "period_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": true,
+          "description": "Length of the workweek in hours (168 = seven consecutive 24-hour periods)"
+        },
+        {
+          "name": "workday_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Length of the workday where daily overtime applies (24 consecutive hours)"
+        },
+        {
+          "name": "fixed_recurring",
+          "type": "boolean",
+          "required": true,
+          "description": "The period must be fixed and regularly recurring; changes are allowed only if permanent and not designed to evade overtime"
+        }
+      ],
+      "synonyms": [
+        "workweek",
+        "work week definition",
+        "FLSA workweek",
+        "workday definition",
+        "168-hour period"
+      ]
+    },
+    {
       "code": "premium.overtime",
       "name": "Overtime premium",
       "description": "A multiple of the regular rate owed for hours past a daily or weekly threshold.",
@@ -2424,6 +2646,12 @@
       "category": "3. Employee"
     },
     {
+      "path": "employee.is_lactating",
+      "type": "boolean",
+      "description": "Whether the employee is nursing a child and has asked for lactation breaks",
+      "category": "3. Employee"
+    },
+    {
       "path": "employee.is_minor",
       "type": "boolean",
       "description": "Whether employee is under 18",
@@ -2592,12 +2820,12 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 552,
-    "rulesIncluded": 32,
-    "excludedByProfile": 519,
+    "rulesConsidered": 624,
+    "rulesIncluded": 35,
+    "excludedByProfile": 588,
     "excludedExpired": 1,
     "excludedInactive": 0,
     "fullyResolved": 2
   },
-  "checksum": "42dada5e528e228a3ff6acf3338f0ec93942c5b4e43f420d9a91d102be07e930"
+  "checksum": "419fa449c475ef141ccafc201aebbb62762f34b540f2df6310482382338a9022"
 }

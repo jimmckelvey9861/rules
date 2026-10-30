@@ -1,0 +1,1599 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "leave.civic_emergency",
+  "rules": [
+    {
+      "id": "ak-voting-leave",
+      "title": "Alaska Voting Leave",
+      "jurisdiction": "AK",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "nonworking_hours_exception": 2
+        },
+        "summary": "As much paid time off as needed to vote, unless the employee has 2 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Alaska Stat. \u00a715.56.100",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "al-jury-duty-pay",
+      "title": "Alabama Jury Duty Pay",
+      "jurisdiction": "AL",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "full_time_only": true
+        },
+        "summary": "Full-time employees receive their usual compensation during jury service; employers with 5 or fewer full-time employees may ask the court to postpone service when a second employee would be out at the same time"
+      },
+      "citations": [
+        {
+          "source": "Ala. Code \u00a712-16-8",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "al-voting-leave",
+      "title": "Alabama Voting Leave",
+      "jurisdiction": "AL",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false,
+          "hours": 1,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 1 hour of unpaid leave to vote, with reasonable notice, unless the shift starts at least 2 hours after polls open or ends at least 1 hour before they close"
+      },
+      "citations": [
+        {
+          "source": "Ala. Code \u00a717-1-5",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ar-voting-leave",
+      "title": "Arkansas Voting Leave",
+      "jurisdiction": "AR",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false,
+          "employer_sets_time": true
+        },
+        "summary": "The employer must schedule work hours on election day so that each employee has an opportunity to vote"
+      },
+      "citations": [
+        {
+          "source": "Ark. Code Ann. \u00a77-1-102",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-voting-leave",
+      "title": "Arizona Voting Leave",
+      "jurisdiction": "AZ",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 3,
+          "notice_days": 0,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "Paid time to arrive late or leave early so the employee has 3 consecutive hours to vote, on request before election day; not owed if the schedule already allows 3 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Ariz. Rev. Stat. \u00a716-402",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-voting-leave",
+      "title": "California Voting Leave",
+      "jurisdiction": "CA",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 2
+        },
+        "summary": "Up to 2 hours of paid leave at the start or end of the shift to vote when the employee lacks sufficient time outside working hours; the employee gives at least 2 working days notice"
+      },
+      "citations": [
+        {
+          "source": "Cal. Elec. Code \u00a7\u00a714000-14003",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-jury-duty-pay",
+      "title": "Colorado Jury Duty Pay",
+      "jurisdiction": "CO",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "paid_days": 3,
+          "daily_cap_usd": 50
+        },
+        "summary": "Regular wages up to $50 a day for the first 3 days of juror service, for full-time, part-time, temporary and casual employees"
+      },
+      "citations": [
+        {
+          "source": "Colo. Rev. Stat. \u00a713-71-126",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "co-voting-leave",
+      "title": "Colorado Voting Leave",
+      "jurisdiction": "CO",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 0,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 2 hours of paid leave to vote, requested before election day, unless the employee has 3 non-working hours while polls are open; the employer may set the hours but must allow the start or end of the shift if asked"
+      },
+      "citations": [
+        {
+          "source": "Colo. Rev. Stat. \u00a71-7-102",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ct-jury-duty-pay",
+      "title": "Connecticut Jury Duty Pay",
+      "jurisdiction": "CT",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "paid_days": 5,
+          "full_time_only": true
+        },
+        "summary": "Full-time employees receive regular wages for the first 5 days of jury service"
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a751-247",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-jury-duty-pay",
+      "title": "District of Columbia Jury Duty Pay",
+      "jurisdiction": "DC",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "paid_days": 5,
+          "min_employees": 11,
+          "full_time_only": true
+        },
+        "summary": "Employers with more than 10 employees pay full-time employees regular wages, less the jury fee, for the first 5 days of service"
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a711-1913",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "dc-voting-leave",
+      "title": "District of Columbia Voting Leave",
+      "jurisdiction": "DC",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2020-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 7,
+          "employer_sets_time": true
+        },
+        "summary": "At least 2 hours of paid leave to vote in person, requested with reasonable notice (7 days where no policy says otherwise); the employer may require early voting or set the time"
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a71-1001.07a",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ga-voting-leave",
+      "title": "Georgia Voting Leave",
+      "jurisdiction": "GA",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false,
+          "hours": 2,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 2 hours of unpaid leave to vote (or vote early) with reasonable notice; the employer may set the hours"
+      },
+      "citations": [
+        {
+          "source": "O.C.G.A. \u00a721-2-404",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ia-voting-leave",
+      "title": "Iowa Voting Leave",
+      "jurisdiction": "IA",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 3,
+          "notice_days": 0,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 3 hours of paid leave to vote, requested in writing before election day, unless the employee has 3 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a749.109",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-voting-leave",
+      "title": "Illinois Voting Leave",
+      "jurisdiction": "IL",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 0,
+          "nonworking_hours_exception": 2,
+          "employer_sets_time": true
+        },
+        "summary": "2 hours of paid leave to vote, requested before election day, when the shift begins less than 2 hours after polls open and ends less than 2 hours before they close"
+      },
+      "citations": [
+        {
+          "source": "10 ILCS 5/17-15",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ks-voting-leave",
+      "title": "Kansas Voting Leave",
+      "jurisdiction": "KS",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "nonworking_hours_exception": 2,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 2 consecutive hours of paid leave to vote unless the employee has 2 consecutive non-working hours while polls are open; the employer may set the time but not during the lunch period"
+      },
+      "citations": [
+        {
+          "source": "Kan. Stat. Ann. \u00a725-418",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ky-voting-leave",
+      "title": "Kentucky Voting Leave",
+      "jurisdiction": "KY",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false,
+          "hours": 4,
+          "notice_days": 0,
+          "employer_sets_time": true
+        },
+        "summary": "At least 4 hours of unpaid leave to vote or to apply for or cast an absentee ballot, requested before election day; the employer may set the hours"
+      },
+      "citations": [
+        {
+          "source": "Ky. Rev. Stat. \u00a7118.035",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-jury-duty-pay",
+      "title": "Louisiana Jury Duty Pay",
+      "jurisdiction": "LA",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "paid_days": 1
+        },
+        "summary": "Regular wages for one day of jury service; the employer may not require the employee to use annual, sick or vacation leave"
+      },
+      "citations": [
+        {
+          "source": "La. Rev. Stat. \u00a723:965",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-jury-duty-pay",
+      "title": "Massachusetts Jury Duty Pay",
+      "jurisdiction": "MA",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "paid_days": 3
+        },
+        "summary": "Regular wages for the first 3 days of juror service, for full-time, part-time, temporary and casual employees"
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws ch. 234A, \u00a748",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ma-voting-leave",
+      "title": "Massachusetts Voting Leave",
+      "jurisdiction": "MA",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false,
+          "hours": 2
+        },
+        "summary": "Employees of manufacturing, mechanical or mercantile establishments may take unpaid leave during the first 2 hours polls are open, on request"
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws ch. 149, \u00a7178",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "md-voting-leave",
+      "title": "Maryland Voting Leave",
+      "jurisdiction": "MD",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "nonworking_hours_exception": 2
+        },
+        "summary": "Up to 2 hours of paid leave to vote (proof of voting required) unless the employee has 2 continuous non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Elec. Law \u00a710-315",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-voting-leave",
+      "title": "Minnesota Voting Leave",
+      "jurisdiction": "MN",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true
+        },
+        "summary": "Paid time off for as long as needed to vote and return to work, without penalty or deduction"
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7204C.04",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mo-voting-leave",
+      "title": "Missouri Voting Leave",
+      "jurisdiction": "MO",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 3,
+          "notice_days": 0,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 3 hours of paid leave to vote, requested before election day, unless the employee has 3 continuous non-working hours while polls are open; the employer may set the hours"
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7115.639",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-jury-duty-pay",
+      "title": "Nebraska Jury Duty Pay",
+      "jurisdiction": "NE",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true
+        },
+        "summary": "Normal wages during jury service, less the juror fee received; the employee gives reasonable notice"
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a725-1640",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-voting-leave",
+      "title": "Nebraska Voting Leave",
+      "jurisdiction": "NE",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 0,
+          "nonworking_hours_exception": 2,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 2 consecutive hours of paid leave to vote, requested before or on election day, unless the employee has 2 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a732-922",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nm-voting-leave",
+      "title": "New Mexico Voting Leave",
+      "jurisdiction": "NM",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "nonworking_hours_exception": 2
+        },
+        "summary": "Up to 2 hours of paid leave to vote unless the shift starts more than 2 hours after polls open or ends more than 3 hours before they close"
+      },
+      "citations": [
+        {
+          "source": "N.M. Stat. Ann. \u00a71-12-42",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-jury-duty-shift-limits",
+      "title": "Nevada Jury Duty Shift Limits",
+      "jurisdiction": "NV",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": false,
+          "no_work_within_hours": 8,
+          "night_shift_ban": true
+        },
+        "summary": "The employer may not require work within 8 hours of the time the employee must report for jury service, nor between 5 p.m. and 3 a.m. on a day the employee served 4 or more hours including travel"
+      },
+      "citations": [
+        {
+          "source": "Nev. Rev. Stat. \u00a76.190",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nv-voting-leave",
+      "title": "Nevada Voting Leave",
+      "jurisdiction": "NV",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 3,
+          "notice_days": 0,
+          "employer_sets_time": true
+        },
+        "summary": "Paid leave to vote of 1 hour (polling place within 2 miles), 2 hours (2 to 10 miles) or 3 hours (over 10 miles), requested before election day, when voting outside working hours is impracticable"
+      },
+      "citations": [
+        {
+          "source": "Nev. Rev. Stat. \u00a7293.463",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-jury-duty-pay",
+      "title": "New York Jury Duty Pay",
+      "jurisdiction": "NY",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "paid_days": 3,
+          "daily_cap_usd": 40,
+          "min_employees": 10
+        },
+        "summary": "Employers with 10 or more employees pay the first $40 of the daily wage for the first 3 days of jury service"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Judiciary Law \u00a7519",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ny-voting-leave",
+      "title": "New York Voting Leave",
+      "jurisdiction": "NY",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2020-04-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 2,
+          "nonworking_hours_exception": 4
+        },
+        "summary": "Up to 2 hours of paid leave at the start or end of the shift to vote, requested 2 to 10 working days ahead, unless the employee has 4 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Elec. Law \u00a73-110",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "oh-voting-leave",
+      "title": "Ohio Voting Leave",
+      "jurisdiction": "OH",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false
+        },
+        "summary": "A reasonable amount of unpaid time off to vote; the employer may not discharge or threaten an employee for taking it"
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a73599.06",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ok-voting-leave",
+      "title": "Oklahoma Voting Leave",
+      "jurisdiction": "OK",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 3,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "2 hours of paid leave to vote (more if the polling place is distant), requested 3 days ahead, unless the employee has 3 non-working hours before or after the shift while polls are open; the employer may set or alter the schedule"
+      },
+      "citations": [
+        {
+          "source": "26 Okla. Stat. \u00a77-101",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "sd-voting-leave",
+      "title": "South Dakota Voting Leave",
+      "jurisdiction": "SD",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "nonworking_hours_exception": 2,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 2 consecutive hours of paid leave to vote unless the employee has 2 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "S.D. Codified Laws \u00a712-3-5",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tn-jury-duty-pay",
+      "title": "Tennessee Jury Duty Pay",
+      "jurisdiction": "TN",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "fact": "employee.tenure_months",
+            "op": ">=",
+            "value": 6
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": true,
+          "min_employees": 5
+        },
+        "summary": "Employers with 5 or more employees pay usual wages, less the jury fee, to employees with at least 6 months of service"
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code Ann. \u00a722-4-106",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tn-voting-leave",
+      "title": "Tennessee Voting Leave",
+      "jurisdiction": "TN",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 3,
+          "notice_days": 1,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 3 hours of paid leave to vote, requested by noon the day before, unless the shift starts 3 or more hours after polls open or ends 3 or more hours before they close"
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code Ann. \u00a72-1-106",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tx-voting-leave",
+      "title": "Texas Voting Leave",
+      "jurisdiction": "TX",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "nonworking_hours_exception": 2
+        },
+        "summary": "Paid time off to vote unless the employee has 2 consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Tex. Elec. Code \u00a7276.004",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ut-voting-leave",
+      "title": "Utah Voting Leave",
+      "jurisdiction": "UT",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 2,
+          "notice_days": 0,
+          "nonworking_hours_exception": 3,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 2 hours of paid leave to vote, requested before election day, unless the employee has 3 or more non-working hours while polls are open; the employer may set the hours"
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a720A-3a-105",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "va-jury-duty-shift-limits",
+      "title": "Virginia Jury Duty Night Shift Ban",
+      "jurisdiction": "VA",
+      "topic": "leave.civic_emergency.jury_witness",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "jury_duty"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "leave.jury_duty",
+        "params": {
+          "paid": false,
+          "night_shift_ban": true
+        },
+        "summary": "The employer may not require an employee who served 4 or more hours of jury duty (including travel) to start a shift at or after 5 p.m. that day or before 3 a.m. the next day"
+      },
+      "citations": [
+        {
+          "source": "Va. Code Ann. \u00a718.2-465.1",
+          "url": "https://www.workforce.com/news/jury-duty-laws-by-state",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wi-voting-leave",
+      "title": "Wisconsin Voting Leave",
+      "jurisdiction": "WI",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": false,
+          "hours": 3,
+          "notice_days": 0,
+          "employer_sets_time": true
+        },
+        "summary": "Up to 3 consecutive hours of unpaid leave to vote, requested before election day; the employer may set the time"
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a76.76",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wv-voting-leave",
+      "title": "West Virginia Voting Leave",
+      "jurisdiction": "WV",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 3,
+          "notice_days": 3,
+          "nonworking_hours_exception": 3
+        },
+        "summary": "Up to 3 hours of paid leave to vote, requested in writing at least 3 days ahead, unless the employee has 3 non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a73-1-42",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wy-voting-leave",
+      "title": "Wyoming Voting Leave",
+      "jurisdiction": "WY",
+      "topic": "leave.civic_emergency.voting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          },
+          {
+            "fact": "leave.type",
+            "op": "=",
+            "value": "voting"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "leave.voting",
+        "params": {
+          "paid": true,
+          "hours": 1,
+          "nonworking_hours_exception": 3
+        },
+        "summary": "1 hour of paid leave to vote, other than the meal hour, unless the employee has 3 or more consecutive non-working hours while polls are open"
+      },
+      "citations": [
+        {
+          "source": "Wyo. Stat. \u00a722-2-111",
+          "url": "https://absencesoft.com/resources/a-comprehensive-guide-to-voting-leave-laws-by-state/",
+          "kind": "statute"
+        }
+      ]
+    }
+  ]
+}
