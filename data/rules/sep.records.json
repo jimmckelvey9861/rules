@@ -1,0 +1,3212 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sep.records",
+  "rules": [
+    {
+      "id": "federal-flsa-payroll-records",
+      "title": "Federal: FLSA payroll records",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records, collective bargaining agreements, sales and purchase records",
+          "level": "federal"
+        },
+        "summary": "FLSA payroll records: keep payroll records, collective bargaining agreements, sales and purchase records for 3 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-flsa-time-records",
+      "title": "Federal: FLSA time cards and wage computation records",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 2,
+          "records": "time cards, work schedules, wage rate tables, records of additions to or deductions from wages",
+          "level": "federal"
+        },
+        "summary": "FLSA time cards and wage computation records: keep time cards, work schedules, wage rate tables, records of additions to or deductions from wages for 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.6",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.6",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-eeoc-personnel-records",
+      "title": "Federal: Title VII / ADA / GINA personnel records (15+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 1,
+          "records": "applications, hiring, promotion, demotion, transfer, layoff, termination, pay rate and training selection records; until final disposition of any charge",
+          "level": "federal"
+        },
+        "summary": "Title VII / ADA / GINA personnel records (15+ employees): keep applications, hiring, promotion, demotion, transfer, layoff, termination, pay rate and training selection records; until final disposition of any charge for 1 year."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 1602.14",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1602.14",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-adea-records",
+      "title": "Federal: ADEA payroll and personnel records (20+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records with name, address, birth date, occupation, pay rate and weekly compensation: 3 years; applications, job orders, test papers, physical exam results, promotion and layoff records: 1 year",
+          "level": "federal"
+        },
+        "summary": "ADEA payroll and personnel records (20+ employees): keep payroll records with name, address, birth date, occupation, pay rate and weekly compensation: 3 years; applications, job orders, test papers, physical exam results, promotion and layoff records: 1 year for 3 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 1627.3",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1627.3",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-fmla-records",
+      "title": "Federal: FMLA leave records (50+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "basic payroll data, dates and hours of FMLA leave, notices, policies, premium payments and disputes; medical records kept confidential and separate",
+          "level": "federal"
+        },
+        "summary": "FMLA leave records (50+ employees): keep basic payroll data, dates and hours of FMLA leave, notices, policies, premium payments and disputes; medical records kept confidential and separate for 3 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 825.500",
+          "url": "https://www.law.cornell.edu/cfr/text/29/825.500",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-i9-records",
+      "title": "Federal: Form I-9 employment eligibility records",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "Form I-9 for each employee: 3 years after hire or 1 year after termination, whichever is later",
+          "level": "federal"
+        },
+        "summary": "Form I-9 employment eligibility records: keep Form I-9 for each employee: 3 years after hire or 1 year after termination, whichever is later for 3 years."
+      },
+      "citations": [
+        {
+          "source": "8 C.F.R. \u00a7 274a.2(b)(2)",
+          "url": "https://www.law.cornell.edu/cfr/text/8/274a.2",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-osha-injury-records",
+      "title": "Federal: OSHA injury and illness records (11+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 11
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 5,
+          "records": "OSHA 300 log, 300A summary, 301 incident reports: 5 years after the year they cover",
+          "level": "federal"
+        },
+        "summary": "OSHA injury and illness records (11+ employees): keep OSHA 300 log, 300A summary, 301 incident reports: 5 years after the year they cover for 5 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 1904.33",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1904.33",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-osha-exposure-records",
+      "title": "Federal: OSHA employee exposure and medical records",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 30,
+          "records": "exposure records 30 years; medical records for duration of employment plus 30 years",
+          "level": "federal"
+        },
+        "summary": "OSHA employee exposure and medical records: keep exposure records 30 years; medical records for duration of employment plus 30 years for 30 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 1910.1020",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1910.1020",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-irs-employment-tax-records",
+      "title": "Federal: Employment tax records",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 4,
+          "records": "wages, tips, withholding, Forms W-4 and W-2, returns and deposits: 4 years after the tax is due or paid, whichever is later",
+          "level": "federal"
+        },
+        "summary": "Employment tax records: keep wages, tips, withholding, Forms W-4 and W-2, returns and deposits: 4 years after the tax is due or paid, whichever is later for 4 years."
+      },
+      "citations": [
+        {
+          "source": "26 C.F.R. \u00a7 31.6001-1",
+          "url": "https://www.law.cornell.edu/cfr/text/26/31.6001-1",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-eppa-records",
+      "title": "Federal: Employee Polygraph Protection Act records",
+      "jurisdiction": "Federal",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "polygraph test records, reasons and notices where a test was administered under an exemption",
+          "level": "federal"
+        },
+        "summary": "Employee Polygraph Protection Act records: keep polygraph test records, reasons and notices where a test was administered under an exemption for 3 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 801.30",
+          "url": "https://www.law.cornell.edu/cfr/text/29/801.30",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "al-payroll-record-retention",
+      "title": "Alabama: payroll record retention",
+      "jurisdiction": "AL",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Alabama sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Alabama has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-payroll-record-retention",
+      "title": "Alaska: payroll record retention",
+      "jurisdiction": "AK",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records for 3 years, mirroring the federal period."
+        },
+        "summary": "Alaska requires payroll and time records to be kept 3 years. Payroll records for 3 years, mirroring the federal period."
+      },
+      "citations": [
+        {
+          "source": "Alaska Stat. \u00a7 23.10.100",
+          "url": "https://law.justia.com/codes/alaska/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "az-payroll-record-retention",
+      "title": "Arizona: payroll record retention",
+      "jurisdiction": "AZ",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 4,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 4,
+          "notes": "Minimum wage and earned paid sick time records must be kept 4 years."
+        },
+        "summary": "Arizona requires payroll and time records to be kept 4 years. Minimum wage and earned paid sick time records must be kept 4 years."
+      },
+      "citations": [
+        {
+          "source": "Ariz. Rev. Stat. \u00a7 23-364(D)",
+          "url": "https://law.justia.com/codes/arizona/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-payroll-record-retention",
+      "title": "Arkansas: payroll record retention",
+      "jurisdiction": "AR",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Arkansas sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Arkansas has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-payroll-record-retention",
+      "title": "California: payroll record retention",
+      "jurisdiction": "CA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years (4 years recommended for the UCL limitations period); employees may inspect or copy pay records within 21 days of request under \u00a7 226(c)."
+        },
+        "summary": "California requires payroll and time records to be kept 3 years. Payroll records 3 years (4 years recommended for the UCL limitations period); employees may inspect or copy pay records within 21 days of request under \u00a7 226(c)."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7 1174(d); \u00a7 226(a)",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-payroll-record-retention",
+      "title": "Colorado: payroll record retention",
+      "jurisdiction": "CO",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll and time records 3 years; $250 per employee per month penalty for missing records."
+        },
+        "summary": "Colorado requires payroll and time records to be kept 3 years. Payroll and time records 3 years; $250 per employee per month penalty for missing records."
+      },
+      "citations": [
+        {
+          "source": "Colo. Rev. Stat. \u00a7 8-4-103(4.5); 7 CCR 1103-1 \u00a7 7",
+          "url": "https://law.justia.com/codes/colorado/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-payroll-record-retention",
+      "title": "Connecticut: payroll record retention",
+      "jurisdiction": "CT",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Time and pay records 3 years; time recorded to the nearest 15 minutes."
+        },
+        "summary": "Connecticut requires payroll and time records to be kept 3 years. Time and pay records 3 years; time recorded to the nearest 15 minutes."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a7 31-66; Conn. Agencies Regs. \u00a7 31-60-12",
+          "url": "https://law.justia.com/codes/connecticut/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "dc-payroll-record-retention",
+      "title": "District of Columbia: payroll record retention",
+      "jurisdiction": "DC",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Records for 3 years or the federal period, whichever is longer."
+        },
+        "summary": "District of Columbia requires payroll and time records to be kept 3 years. Records for 3 years or the federal period, whichever is longer."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a7 32-1008",
+          "url": "https://law.justia.com/codes/district-of-columbia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-payroll-record-retention",
+      "title": "Delaware: payroll record retention",
+      "jurisdiction": "DE",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Delaware requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7 1108",
+          "url": "https://law.justia.com/codes/delaware/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-payroll-record-retention",
+      "title": "Florida: payroll record retention",
+      "jurisdiction": "FL",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Florida sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Florida has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-payroll-record-retention",
+      "title": "Georgia: payroll record retention",
+      "jurisdiction": "GA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Georgia sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Georgia has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-payroll-record-retention",
+      "title": "Hawaii: payroll record retention",
+      "jurisdiction": "HI",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 6,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 6,
+          "notes": "Payroll records 6 years, one of the longest state periods."
+        },
+        "summary": "Hawaii requires payroll and time records to be kept 6 years. Payroll records 6 years, one of the longest state periods."
+      },
+      "citations": [
+        {
+          "source": "Haw. Rev. Stat. \u00a7 387-6; Haw. Admin. R. \u00a7 12-20-6",
+          "url": "https://law.justia.com/codes/hawaii/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "id-payroll-record-retention",
+      "title": "Idaho: payroll record retention",
+      "jurisdiction": "ID",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Idaho sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Idaho has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-payroll-record-retention",
+      "title": "Illinois: payroll record retention",
+      "jurisdiction": "IL",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll and time records 3 years; Paid Leave for All Workers Act records 3 years."
+        },
+        "summary": "Illinois requires payroll and time records to be kept 3 years. Payroll and time records 3 years; Paid Leave for All Workers Act records 3 years."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 105/8; 56 Ill. Adm. Code 210.700",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-payroll-record-retention",
+      "title": "Indiana: payroll record retention",
+      "jurisdiction": "IN",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Indiana requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a7 22-2-2-8",
+          "url": "https://law.justia.com/codes/indiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-payroll-record-retention",
+      "title": "Iowa: payroll record retention",
+      "jurisdiction": "IA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Iowa requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a7 91A.6(3)",
+          "url": "https://law.justia.com/codes/iowa/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-payroll-record-retention",
+      "title": "Kansas: payroll record retention",
+      "jurisdiction": "KS",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Kansas requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Kan. Stat. \u00a7 44-1209",
+          "url": "https://law.justia.com/codes/kansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ky-payroll-record-retention",
+      "title": "Kentucky: payroll record retention",
+      "jurisdiction": "KY",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Kentucky sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Kentucky has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-payroll-record-retention",
+      "title": "Louisiana: payroll record retention",
+      "jurisdiction": "LA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Louisiana sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Louisiana has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-payroll-record-retention",
+      "title": "Maine: payroll record retention",
+      "jurisdiction": "ME",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Time and pay records 3 years."
+        },
+        "summary": "Maine requires payroll and time records to be kept 3 years. Time and pay records 3 years."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7 665",
+          "url": "https://law.justia.com/codes/maine/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-payroll-record-retention",
+      "title": "Maryland: payroll record retention",
+      "jurisdiction": "MD",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Maryland requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a7 3-424",
+          "url": "https://law.justia.com/codes/maryland/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-payroll-record-retention",
+      "title": "Massachusetts: payroll record retention",
+      "jurisdiction": "MA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years; treble damages for wage violations."
+        },
+        "summary": "Massachusetts requires payroll and time records to be kept 3 years. Payroll records 3 years; treble damages for wage violations."
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws c. 151, \u00a7 15",
+          "url": "https://law.justia.com/codes/massachusetts/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-payroll-record-retention",
+      "title": "Michigan: payroll record retention",
+      "jurisdiction": "MI",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Michigan requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Mich. Comp. Laws \u00a7 408.479",
+          "url": "https://law.justia.com/codes/michigan/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-payroll-record-retention",
+      "title": "Minnesota: payroll record retention",
+      "jurisdiction": "MN",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years; records must be available at the worksite within 72 hours of a request."
+        },
+        "summary": "Minnesota requires payroll and time records to be kept 3 years. Payroll records 3 years; records must be available at the worksite within 72 hours of a request."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7 177.30",
+          "url": "https://law.justia.com/codes/minnesota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-payroll-record-retention",
+      "title": "Mississippi: payroll record retention",
+      "jurisdiction": "MS",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Mississippi sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Mississippi has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-payroll-record-retention",
+      "title": "Missouri: payroll record retention",
+      "jurisdiction": "MO",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Missouri requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7 290.520",
+          "url": "https://law.justia.com/codes/missouri/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-payroll-record-retention",
+      "title": "Montana: payroll record retention",
+      "jurisdiction": "MT",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Montana sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Montana has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-payroll-record-retention",
+      "title": "Nebraska: payroll record retention",
+      "jurisdiction": "NE",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Nebraska sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Nebraska has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-payroll-record-retention",
+      "title": "Nevada: payroll record retention",
+      "jurisdiction": "NV",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 2,
+          "notes": "State requires 2 years; the federal 3-year payroll period governs."
+        },
+        "summary": "Nevada requires payroll and time records to be kept 2 years; the federal 3-year period governs where longer. State requires 2 years; the federal 3-year payroll period governs."
+      },
+      "citations": [
+        {
+          "source": "Nev. Rev. Stat. \u00a7 608.115",
+          "url": "https://law.justia.com/codes/nevada/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nh-payroll-record-retention",
+      "title": "New Hampshire: payroll record retention",
+      "jurisdiction": "NH",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "New Hampshire requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "N.H. Rev. Stat. \u00a7 279:27",
+          "url": "https://law.justia.com/codes/new-hampshire/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-payroll-record-retention",
+      "title": "New Jersey: payroll record retention",
+      "jurisdiction": "NJ",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 6,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 6,
+          "notes": "Payroll records 6 years, kept at the workplace or a central New Jersey office."
+        },
+        "summary": "New Jersey requires payroll and time records to be kept 6 years. Payroll records 6 years, kept at the workplace or a central New Jersey office."
+      },
+      "citations": [
+        {
+          "source": "N.J. Stat. \u00a7 34:11-56a20; N.J.A.C. 12:56-4.4",
+          "url": "https://law.justia.com/codes/new-jersey/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nm-payroll-record-retention",
+      "title": "New Mexico: payroll record retention",
+      "jurisdiction": "NM",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 4,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 4,
+          "notes": "Payroll records 4 years."
+        },
+        "summary": "New Mexico requires payroll and time records to be kept 4 years. Payroll records 4 years."
+      },
+      "citations": [
+        {
+          "source": "N.M. Stat. \u00a7 50-4-9",
+          "url": "https://law.justia.com/codes/new-mexico/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-payroll-record-retention",
+      "title": "New York: payroll record retention",
+      "jurisdiction": "NY",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 6,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 6,
+          "notes": "Payroll records 6 years, matching the wage-claim limitations period."
+        },
+        "summary": "New York requires payroll and time records to be kept 6 years. Payroll records 6 years, matching the wage-claim limitations period."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7\u00a7 195(4), 661",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nc-payroll-record-retention",
+      "title": "North Carolina: payroll record retention",
+      "jurisdiction": "NC",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "North Carolina requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "N.C. Gen. Stat. \u00a7 95-25.13; 13 NCAC 12.0802",
+          "url": "https://law.justia.com/codes/north-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nd-payroll-record-retention",
+      "title": "North Dakota: payroll record retention",
+      "jurisdiction": "ND",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "North Dakota sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "North Dakota has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oh-payroll-record-retention",
+      "title": "Ohio: payroll record retention",
+      "jurisdiction": "OH",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Ohio requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a7 4111.08",
+          "url": "https://law.justia.com/codes/ohio/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ok-payroll-record-retention",
+      "title": "Oklahoma: payroll record retention",
+      "jurisdiction": "OK",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Oklahoma sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Oklahoma has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-payroll-record-retention",
+      "title": "Oregon: payroll record retention",
+      "jurisdiction": "OR",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 2,
+          "notes": "Statute sets 2 years; BOLI practice and the federal rule call for 3."
+        },
+        "summary": "Oregon requires payroll and time records to be kept 2 years; the federal 3-year period governs where longer. Statute sets 2 years; BOLI practice and the federal rule call for 3."
+      },
+      "citations": [
+        {
+          "source": "Or. Rev. Stat. \u00a7 653.045",
+          "url": "https://law.justia.com/codes/oregon/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-payroll-record-retention",
+      "title": "Pennsylvania: payroll record retention",
+      "jurisdiction": "PA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Pennsylvania requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a7 333.108; 34 Pa. Code \u00a7 231.31",
+          "url": "https://law.justia.com/codes/pennsylvania/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-payroll-record-retention",
+      "title": "Rhode Island: payroll record retention",
+      "jurisdiction": "RI",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Rhode Island requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a7 28-12-12",
+          "url": "https://law.justia.com/codes/rhode-island/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-payroll-record-retention",
+      "title": "South Carolina: payroll record retention",
+      "jurisdiction": "SC",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "South Carolina requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "S.C. Code \u00a7 41-10-30(C)",
+          "url": "https://law.justia.com/codes/south-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-payroll-record-retention",
+      "title": "South Dakota: payroll record retention",
+      "jurisdiction": "SD",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "South Dakota sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "South Dakota has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-payroll-record-retention",
+      "title": "Tennessee: payroll record retention",
+      "jurisdiction": "TN",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Tennessee sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Tennessee has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-payroll-record-retention",
+      "title": "Texas: payroll record retention",
+      "jurisdiction": "TX",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Texas sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Texas has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ut-payroll-record-retention",
+      "title": "Utah: payroll record retention",
+      "jurisdiction": "UT",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Utah sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Utah has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vt-payroll-record-retention",
+      "title": "Vermont: payroll record retention",
+      "jurisdiction": "VT",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Vermont sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Vermont has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "va-payroll-record-retention",
+      "title": "Virginia: payroll record retention",
+      "jurisdiction": "VA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Virginia sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Virginia has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-payroll-record-retention",
+      "title": "Washington: payroll record retention",
+      "jurisdiction": "WA",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 3,
+          "notes": "Payroll records 3 years."
+        },
+        "summary": "Washington requires payroll and time records to be kept 3 years. Payroll records 3 years."
+      },
+      "citations": [
+        {
+          "source": "Wash. Rev. Code \u00a7 49.46.070; WAC 296-126-050",
+          "url": "https://law.justia.com/codes/washington/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wv-payroll-record-retention",
+      "title": "West Virginia: payroll record retention",
+      "jurisdiction": "WV",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "West Virginia sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "West Virginia has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-payroll-record-retention",
+      "title": "Wisconsin: payroll record retention",
+      "jurisdiction": "WI",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Wisconsin sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Wisconsin has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wy-payroll-record-retention",
+      "title": "Wyoming: payroll record retention",
+      "jurisdiction": "WY",
+      "topic": "sep.records.retention",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records (3 years) and time cards (2 years) under the federal floor",
+          "level": "state",
+          "notes": "Wyoming sets no longer state period for private employers; the FLSA periods govern. Unemployment-tax rules commonly call for 4 years."
+        },
+        "summary": "Wyoming has no payroll record retention period longer than federal law: keep payroll records 3 years and time records 2 years."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-personnel-file-access",
+      "title": "Alaska: employee access to personnel file",
+      "jurisdiction": "AK",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "reasonable",
+          "response_deadline": "not specified",
+          "copies_required": true,
+          "notes": "Employee may inspect and copy at reasonable times; employer may charge for copies."
+        },
+        "summary": "Alaska gives current and former employees a right to inspect their personnel file (reasonable); response due not specified; copies must be provided. Employee may inspect and copy at reasonable times; employer may charge for copies."
+      },
+      "citations": [
+        {
+          "source": "Alaska Stat. \u00a7 23.10.430",
+          "url": "https://law.justia.com/codes/alaska/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-personnel-file-access",
+      "title": "California: employee access to personnel file",
+      "jurisdiction": "CA",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "reasonable intervals",
+          "response_deadline": "30 days after written request",
+          "copies_required": true,
+          "notes": "Copies at the employee's cost; $750 penalty for non-compliance; pay records separately under \u00a7 226(c) within 21 days."
+        },
+        "summary": "California gives current and former employees a right to inspect their personnel file (reasonable intervals); response due 30 days after written request; copies must be provided. Copies at the employee's cost; $750 penalty for non-compliance; pay records separately under \u00a7 226(c) within 21 days."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7 1198.5",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-personnel-file-access",
+      "title": "Colorado: employee access to personnel file",
+      "jurisdiction": "CO",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current employees annually; former employees once after separation",
+          "frequency": "once a year",
+          "response_deadline": "not specified",
+          "copies_required": true,
+          "notes": "Inspection in the employer's presence; excludes investigative and some confidential records."
+        },
+        "summary": "Colorado gives current employees annually; former employees once after separation a right to inspect their personnel file (once a year); response due not specified; copies must be provided. Inspection in the employer's presence; excludes investigative and some confidential records."
+      },
+      "citations": [
+        {
+          "source": "Colo. Rev. Stat. \u00a7 8-2-129",
+          "url": "https://law.justia.com/codes/colorado/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-personnel-file-access",
+      "title": "Connecticut: employee access to personnel file",
+      "jurisdiction": "CT",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "twice a year",
+          "response_deadline": "7 business days (current), 10 business days (former)",
+          "copies_required": true,
+          "notes": "Employer must also give copies of disciplinary documentation within 1 business day and termination notice immediately."
+        },
+        "summary": "Connecticut gives current and former employees a right to inspect their personnel file (twice a year); response due 7 business days (current), 10 business days (former); copies must be provided. Employer must also give copies of disciplinary documentation within 1 business day and termination notice immediately."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a7 31-128b",
+          "url": "https://law.justia.com/codes/connecticut/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-personnel-file-access",
+      "title": "Delaware: employee access to personnel file",
+      "jurisdiction": "DE",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current employees and those on leave or layoff",
+          "frequency": "once a year",
+          "response_deadline": "reasonable time",
+          "copies_required": false,
+          "notes": "Inspection only; employee may take notes."
+        },
+        "summary": "Delaware gives current employees and those on leave or layoff a right to inspect their personnel file (once a year); response due reasonable time; copies are not required. Inspection only; employee may take notes."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7 731",
+          "url": "https://law.justia.com/codes/delaware/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-personnel-file-access",
+      "title": "Illinois: employee access to personnel file",
+      "jurisdiction": "IL",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 5,
+          "who": "current employees and former employees within 1 year",
+          "frequency": "twice a year",
+          "response_deadline": "7 working days",
+          "copies_required": true,
+          "notes": "Personnel Record Review Act applies to employers with 5+ employees; copies at actual cost; 2025 amendments add pay stub access."
+        },
+        "summary": "Illinois gives current employees and former employees within 1 year a right to inspect their personnel file (twice a year); response due 7 working days; copies must be provided. Personnel Record Review Act applies to employers with 5+ employees; copies at actual cost; 2025 amendments add pay stub access."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 40/2",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-personnel-file-access",
+      "title": "Iowa: employee access to personnel file",
+      "jurisdiction": "IA",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current employees",
+          "frequency": "not specified",
+          "response_deadline": "mutually agreed time",
+          "copies_required": true,
+          "notes": "Employer may charge a copying fee; excludes references and investigation records."
+        },
+        "summary": "Iowa gives current employees a right to inspect their personnel file (not specified); response due mutually agreed time; copies must be provided. Employer may charge a copying fee; excludes references and investigation records."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a7 91B.1",
+          "url": "https://law.justia.com/codes/iowa/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-personnel-file-access",
+      "title": "Maine: employee access to personnel file",
+      "jurisdiction": "ME",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "one free copy per year",
+          "response_deadline": "10 days after written request",
+          "copies_required": true,
+          "notes": "Applies to all employers; additional copies at cost."
+        },
+        "summary": "Maine gives current and former employees a right to inspect their personnel file (one free copy per year); response due 10 days after written request; copies must be provided. Applies to all employers; additional copies at cost."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7 631",
+          "url": "https://law.justia.com/codes/maine/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-personnel-file-access",
+      "title": "Massachusetts: employee access to personnel file",
+      "jurisdiction": "MA",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 20,
+          "who": "current and former employees",
+          "frequency": "twice a year",
+          "response_deadline": "5 business days",
+          "copies_required": true,
+          "notes": "Employers with 20+ employees must keep personnel records; all employers must notify employees within 10 days of adding negative information."
+        },
+        "summary": "Massachusetts gives current and former employees a right to inspect their personnel file (twice a year); response due 5 business days; copies must be provided. Employers with 20+ employees must keep personnel records; all employers must notify employees within 10 days of adding negative information."
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws c. 149, \u00a7 52C",
+          "url": "https://law.justia.com/codes/massachusetts/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-personnel-file-access",
+      "title": "Michigan: employee access to personnel file",
+      "jurisdiction": "MI",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 4,
+          "who": "current and former employees",
+          "frequency": "twice a year",
+          "response_deadline": "reasonable intervals",
+          "copies_required": true,
+          "notes": "Bullard-Plawecki Act applies to employers with 4+ employees; copies at actual cost."
+        },
+        "summary": "Michigan gives current and former employees a right to inspect their personnel file (twice a year); response due reasonable intervals; copies must be provided. Bullard-Plawecki Act applies to employers with 4+ employees; copies at actual cost."
+      },
+      "citations": [
+        {
+          "source": "Mich. Comp. Laws \u00a7 423.503",
+          "url": "https://law.justia.com/codes/michigan/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-personnel-file-access",
+      "title": "Minnesota: employee access to personnel file",
+      "jurisdiction": "MN",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 20,
+          "who": "current employees; former employees once a year",
+          "frequency": "once every 6 months (current)",
+          "response_deadline": "7 working days (in state), 14 (out of state)",
+          "copies_required": true,
+          "notes": "Applies to employers with 20+ employees; copies free of charge; employee may submit a rebuttal."
+        },
+        "summary": "Minnesota gives current employees; former employees once a year a right to inspect their personnel file (once every 6 months (current)); response due 7 working days (in state), 14 (out of state); copies must be provided. Applies to employers with 20+ employees; copies free of charge; employee may submit a rebuttal."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7 181.961",
+          "url": "https://law.justia.com/codes/minnesota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-personnel-file-access",
+      "title": "Nevada: employee access to personnel file",
+      "jurisdiction": "NV",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "employees with 60+ days of service and former employees within 60 days",
+          "frequency": "reasonable",
+          "response_deadline": "reasonable opportunity",
+          "copies_required": true,
+          "notes": "Copies at actual cost."
+        },
+        "summary": "Nevada gives employees with 60+ days of service and former employees within 60 days a right to inspect their personnel file (reasonable); response due reasonable opportunity; copies must be provided. Copies at actual cost."
+      },
+      "citations": [
+        {
+          "source": "Nev. Rev. Stat. \u00a7 613.075",
+          "url": "https://law.justia.com/codes/nevada/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nh-personnel-file-access",
+      "title": "New Hampshire: employee access to personnel file",
+      "jurisdiction": "NH",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "reasonable",
+          "response_deadline": "reasonable opportunity",
+          "copies_required": true,
+          "notes": "Employer may charge the cost of copies; employee may submit a written rebuttal."
+        },
+        "summary": "New Hampshire gives current and former employees a right to inspect their personnel file (reasonable); response due reasonable opportunity; copies must be provided. Employer may charge the cost of copies; employee may submit a written rebuttal."
+      },
+      "citations": [
+        {
+          "source": "N.H. Rev. Stat. \u00a7 275:56",
+          "url": "https://law.justia.com/codes/new-hampshire/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-personnel-file-access",
+      "title": "Oregon: employee access to personnel file",
+      "jurisdiction": "OR",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current employees and former employees within 60 days",
+          "frequency": "reasonable",
+          "response_deadline": "45 days after request",
+          "copies_required": true,
+          "notes": "Certified copies at cost; records kept 60 days after termination."
+        },
+        "summary": "Oregon gives current employees and former employees within 60 days a right to inspect their personnel file (reasonable); response due 45 days after request; copies must be provided. Certified copies at cost; records kept 60 days after termination."
+      },
+      "citations": [
+        {
+          "source": "Or. Rev. Stat. \u00a7 652.750",
+          "url": "https://law.justia.com/codes/oregon/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-personnel-file-access",
+      "title": "Pennsylvania: employee access to personnel file",
+      "jurisdiction": "PA",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current employees and recently laid-off employees",
+          "frequency": "once a year",
+          "response_deadline": "reasonable time",
+          "copies_required": false,
+          "notes": "Inspection only; employee may take notes."
+        },
+        "summary": "Pennsylvania gives current employees and recently laid-off employees a right to inspect their personnel file (once a year); response due reasonable time; copies are not required. Inspection only; employee may take notes."
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a7 1322",
+          "url": "https://law.justia.com/codes/pennsylvania/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-personnel-file-access",
+      "title": "Rhode Island: employee access to personnel file",
+      "jurisdiction": "RI",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current employees",
+          "frequency": "up to 3 times a year",
+          "response_deadline": "within 7 days of written request",
+          "copies_required": false,
+          "notes": "Inspection during business hours; copies not required."
+        },
+        "summary": "Rhode Island gives current employees a right to inspect their personnel file (up to 3 times a year); response due within 7 days of written request; copies are not required. Inspection during business hours; copies not required."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a7 28-6.4-1",
+          "url": "https://law.justia.com/codes/rhode-island/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-personnel-file-access",
+      "title": "Washington: employee access to personnel file",
+      "jurisdiction": "WA",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "at least once a year",
+          "response_deadline": "21 days (since 2025-07-27)",
+          "copies_required": true,
+          "notes": "SHB 1308 (2025) requires a free copy within 21 days of request and extends access to former employees; statutory damages for non-compliance."
+        },
+        "summary": "Washington gives current and former employees a right to inspect their personnel file (at least once a year); response due 21 days (since 2025-07-27); copies must be provided. SHB 1308 (2025) requires a free copy within 21 days of request and extends access to former employees; statutory damages for non-compliance."
+      },
+      "citations": [
+        {
+          "source": "Wash. Rev. Code \u00a7\u00a7 49.12.240-250",
+          "url": "https://law.justia.com/codes/washington/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-personnel-file-access",
+      "title": "Wisconsin: employee access to personnel file",
+      "jurisdiction": "WI",
+      "topic": "sep.records.personnel_file",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "records.personnel_file_access",
+        "params": {
+          "min_employees": 1,
+          "who": "current and former employees",
+          "frequency": "twice a year",
+          "response_deadline": "7 working days",
+          "copies_required": true,
+          "notes": "Copies at actual cost; employee may submit a rebuttal."
+        },
+        "summary": "Wisconsin gives current and former employees a right to inspect their personnel file (twice a year); response due 7 working days; copies must be provided. Copies at actual cost; employee may submit a rebuttal."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7 103.13",
+          "url": "https://law.justia.com/codes/wisconsin/",
+          "kind": "statute"
+        },
+        {
+          "source": "Workplace Fairness, Personnel Files: State Laws",
+          "url": "https://www.workplacefairness.org/personnel-files-state-law/",
+          "kind": "guidance"
+        }
+      ]
+    }
+  ]
+}

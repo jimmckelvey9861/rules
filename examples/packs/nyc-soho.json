@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T01:28:15.190Z",
+  "generatedAt": "2026-10-31T12:54:33.659Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "18d0d69b997eb9ae",
+  "rulesVersion": "66854779918b541f",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,6 +39,391 @@
     }
   ],
   "rules": [
+    {
+      "id": "federal-flsa-poster",
+      "title": "Federal: FLSA minimum wage poster",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Employee Rights Under the Fair Labor Standards Act (WH-1088)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "FLSA minimum wage poster: every covered employer must display 'Employee Rights Under the Fair Labor Standards Act (WH-1088)' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 516.4",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.4",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "a96d255481575119"
+    },
+    {
+      "id": "federal-osha-poster",
+      "title": "Federal: OSHA Job Safety and Health poster",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Job Safety and Health: It's the Law (OSHA 3165); State Plan states substitute their own poster",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "OSHA Job Safety and Health poster: every covered employer must display 'Job Safety and Health: It's the Law (OSHA 3165); State Plan states substitute their own poster' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 1903.2",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1903.2",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "7e91ee591f35f2e0"
+    },
+    {
+      "id": "federal-eeoc-poster",
+      "title": "Federal: EEOC Know Your Rights poster (15+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 15,
+          "posters": "Know Your Rights: Workplace Discrimination is Illegal (Title VII, ADA, GINA, PWFA)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "EEOC Know Your Rights poster (15+ employees): employers with 15+ employees must display 'Know Your Rights: Workplace Discrimination is Illegal (Title VII, ADA, GINA, PWFA)' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000e-10",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-10",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "2c6d8ba4c479460f"
+    },
+    {
+      "id": "federal-adea-poster",
+      "title": "Federal: ADEA notice (20+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 20,
+          "posters": "Age discrimination notice (included in the EEOC Know Your Rights poster)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "ADEA notice (20+ employees): employers with 20+ employees must display 'Age discrimination notice (included in the EEOC Know Your Rights poster)' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 1627.10",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1627.10",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "9cc6994d0938b0ba"
+    },
+    {
+      "id": "federal-fmla-poster",
+      "title": "Federal: FMLA poster (50+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 50,
+          "posters": "Employee Rights Under the FMLA (WH-1420); also required in handbooks or at hire",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "FMLA poster (50+ employees): employers with 50+ employees must display 'Employee Rights Under the FMLA (WH-1420); also required in handbooks or at hire' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 825.300(a)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/825.300",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "ed8e9a71a4024dff"
+    },
+    {
+      "id": "federal-eppa-poster",
+      "title": "Federal: Employee Polygraph Protection Act poster",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Employee Rights: Employee Polygraph Protection Act (WH-1462)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "Employee Polygraph Protection Act poster: every covered employer must display 'Employee Rights: Employee Polygraph Protection Act (WH-1462)' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 801.6",
+          "url": "https://www.law.cornell.edu/cfr/text/29/801.6",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f1c2d975617cde4e"
+    },
+    {
+      "id": "federal-userra-poster",
+      "title": "Federal: USERRA notice",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Your Rights Under USERRA; may be posted or distributed",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "USERRA notice: every covered employer must display 'Your Rights Under USERRA; may be posted or distributed' where employees can see it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. § 4334",
+          "url": "https://www.law.cornell.edu/uscode/text/38/4334",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "8ae048c022fe803e"
+    },
+    {
+      "id": "ny-state-posters",
+      "title": "New York: state workplace posters",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "coverage.general.posting",
+      "topicCode": "coverage.general",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fringe Benefits and Hours; Equal Pay; Child Labor Schedule of Hours; Fair Employment; Correction Law Article 23-A; Discrimination Against Certain Activities; Electronic Monitoring; Whistleblower Protection; Time Off to Vote; Right to Know; Airborne Infectious Disease Exposure Prevention Plan; Paid Family Leave; Disability Benefits; Veterans Benefits; Unemployment Insurance; Workers' Compensation; Smoking",
+          "digital_posting": "required",
+          "notes": "Labor Law § 201: employers must also make required posters available electronically (website or email). Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "New York employers must display the state posters in addition to the federal set: Minimum Wage; Fringe Benefits and Hours; Equal Pay; Child Labor Schedule of Hours; Fair Employment; Correction Law Article 23-A; Discrimination Against Certain Activities; Electronic Monitoring; Whistleblower Protection; Time Off to Vote; Right to Know; Airborne Infectious Disease Exposure Prevention Plan; Paid Family Leave; Disability Benefits; Veterans Benefits; Unemployment Insurance; Workers' Compensation; Smoking. Electronic posting: required.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "New York labor department posting requirements",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "4f93e5aabf5c4b9d"
+    },
     {
       "id": "ny-wage-notice-at-hire",
       "title": "New York — Wage Notice at Hire",
@@ -5301,6 +5686,459 @@
       "hash": "65632d2b78830abc"
     },
     {
+      "id": "federal-flsa-payroll-records",
+      "title": "Federal: FLSA payroll records",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records, collective bargaining agreements, sales and purchase records",
+          "level": "federal"
+        },
+        "summary": "FLSA payroll records: keep payroll records, collective bargaining agreements, sales and purchase records for 3 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 516.5",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.5",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "53076abaf5b68321"
+    },
+    {
+      "id": "federal-flsa-time-records",
+      "title": "Federal: FLSA time cards and wage computation records",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 2,
+          "records": "time cards, work schedules, wage rate tables, records of additions to or deductions from wages",
+          "level": "federal"
+        },
+        "summary": "FLSA time cards and wage computation records: keep time cards, work schedules, wage rate tables, records of additions to or deductions from wages for 2 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 516.6",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.6",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "092e65b591dca0a4"
+    },
+    {
+      "id": "federal-eeoc-personnel-records",
+      "title": "Federal: Title VII / ADA / GINA personnel records (15+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 1,
+          "records": "applications, hiring, promotion, demotion, transfer, layoff, termination, pay rate and training selection records; until final disposition of any charge",
+          "level": "federal"
+        },
+        "summary": "Title VII / ADA / GINA personnel records (15+ employees): keep applications, hiring, promotion, demotion, transfer, layoff, termination, pay rate and training selection records; until final disposition of any charge for 1 year.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 1602.14",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1602.14",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "bc9c79427facaee9"
+    },
+    {
+      "id": "federal-adea-records",
+      "title": "Federal: ADEA payroll and personnel records (20+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "payroll records with name, address, birth date, occupation, pay rate and weekly compensation: 3 years; applications, job orders, test papers, physical exam results, promotion and layoff records: 1 year",
+          "level": "federal"
+        },
+        "summary": "ADEA payroll and personnel records (20+ employees): keep payroll records with name, address, birth date, occupation, pay rate and weekly compensation: 3 years; applications, job orders, test papers, physical exam results, promotion and layoff records: 1 year for 3 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 1627.3",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1627.3",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "733535da5a1b27a5"
+    },
+    {
+      "id": "federal-fmla-records",
+      "title": "Federal: FMLA leave records (50+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "basic payroll data, dates and hours of FMLA leave, notices, policies, premium payments and disputes; medical records kept confidential and separate",
+          "level": "federal"
+        },
+        "summary": "FMLA leave records (50+ employees): keep basic payroll data, dates and hours of FMLA leave, notices, policies, premium payments and disputes; medical records kept confidential and separate for 3 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 825.500",
+          "url": "https://www.law.cornell.edu/cfr/text/29/825.500",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "14db1b0e2e45f236"
+    },
+    {
+      "id": "federal-i9-records",
+      "title": "Federal: Form I-9 employment eligibility records",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "Form I-9 for each employee: 3 years after hire or 1 year after termination, whichever is later",
+          "level": "federal"
+        },
+        "summary": "Form I-9 employment eligibility records: keep Form I-9 for each employee: 3 years after hire or 1 year after termination, whichever is later for 3 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "8 C.F.R. § 274a.2(b)(2)",
+          "url": "https://www.law.cornell.edu/cfr/text/8/274a.2",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "65a68fd99024e207"
+    },
+    {
+      "id": "federal-osha-injury-records",
+      "title": "Federal: OSHA injury and illness records (11+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 5,
+          "records": "OSHA 300 log, 300A summary, 301 incident reports: 5 years after the year they cover",
+          "level": "federal"
+        },
+        "summary": "OSHA injury and illness records (11+ employees): keep OSHA 300 log, 300A summary, 301 incident reports: 5 years after the year they cover for 5 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 1904.33",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1904.33",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "9c0e998ce7e7a1c9"
+    },
+    {
+      "id": "federal-osha-exposure-records",
+      "title": "Federal: OSHA employee exposure and medical records",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 30,
+          "records": "exposure records 30 years; medical records for duration of employment plus 30 years",
+          "level": "federal"
+        },
+        "summary": "OSHA employee exposure and medical records: keep exposure records 30 years; medical records for duration of employment plus 30 years for 30 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 1910.1020",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1910.1020",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "45b3a61f7b0fd255"
+    },
+    {
+      "id": "federal-irs-employment-tax-records",
+      "title": "Federal: Employment tax records",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 4,
+          "records": "wages, tips, withholding, Forms W-4 and W-2, returns and deposits: 4 years after the tax is due or paid, whichever is later",
+          "level": "federal"
+        },
+        "summary": "Employment tax records: keep wages, tips, withholding, Forms W-4 and W-2, returns and deposits: 4 years after the tax is due or paid, whichever is later for 4 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "26 C.F.R. § 31.6001-1",
+          "url": "https://www.law.cornell.edu/cfr/text/26/31.6001-1",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "e5a83354ab03fb8b"
+    },
+    {
+      "id": "federal-eppa-records",
+      "title": "Federal: Employee Polygraph Protection Act records",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 3,
+          "records": "polygraph test records, reasons and notices where a test was administered under an exemption",
+          "level": "federal"
+        },
+        "summary": "Employee Polygraph Protection Act records: keep polygraph test records, reasons and notices where a test was administered under an exemption for 3 years.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. § 801.30",
+          "url": "https://www.law.cornell.edu/cfr/text/29/801.30",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "9b9dea2cdf819603"
+    },
+    {
+      "id": "ny-payroll-record-retention",
+      "title": "New York: payroll record retention",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "sep.records.retention",
+      "topicCode": "sep.records",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "records.retention",
+        "params": {
+          "years": 6,
+          "records": "payroll and time records",
+          "level": "state",
+          "state_years": 6,
+          "notes": "Payroll records 6 years, matching the wage-claim limitations period."
+        },
+        "summary": "New York requires payroll and time records to be kept 6 years. Payroll records 6 years, matching the wage-claim limitations period.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law §§ 195(4), 661",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Recordkeeping Requirements by State",
+          "url": "https://www.clockspot.com/articles/recordkeeping-requirements-by-state",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "c39827a1b9846ee7"
+    },
+    {
       "id": "ny-warn-act",
       "title": "New York Mini-WARN Act (90-day notice, 50+ employees)",
       "jurisdiction": "NY",
@@ -5495,6 +6333,66 @@
         "lunch waiver",
         "meal period agreement",
         "working lunch"
+      ]
+    },
+    {
+      "code": "compliance.posting",
+      "name": "Workplace poster requirement",
+      "description": "Which federal or state notices must be displayed (or delivered electronically) for employees.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "level",
+          "type": "enum",
+          "values": [
+            "federal",
+            "state",
+            "local"
+          ],
+          "required": true,
+          "description": "Whether the poster set is federal or state"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the posting duty attaches"
+        },
+        {
+          "name": "posters",
+          "type": "string",
+          "required": true,
+          "description": "Posters or notices required"
+        },
+        {
+          "name": "digital_posting",
+          "type": "enum",
+          "values": [
+            "required",
+            "encouraged",
+            "allowed_in_addition",
+            "none_stated"
+          ],
+          "required": false,
+          "description": "Whether electronic posting is required, encouraged, allowed in addition to physical posting, or unaddressed"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Remote-worker delivery rules and size or industry conditions"
+        }
+      ],
+      "synonyms": [
+        "labor law poster",
+        "required posters",
+        "workplace notices",
+        "posting requirements",
+        "all-in-one poster"
       ]
     },
     {
@@ -7574,6 +8472,61 @@
       ]
     },
     {
+      "code": "records.retention",
+      "name": "Employment record retention",
+      "description": "How long payroll, time, personnel and compliance records must be kept.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "years",
+          "type": "number",
+          "unit": "years",
+          "required": true,
+          "description": "Minimum retention period that governs (longer of state and federal)"
+        },
+        {
+          "name": "records",
+          "type": "string",
+          "required": true,
+          "description": "Records covered"
+        },
+        {
+          "name": "level",
+          "type": "enum",
+          "values": [
+            "federal",
+            "state"
+          ],
+          "required": false,
+          "description": "Source of the rule"
+        },
+        {
+          "name": "state_years",
+          "type": "number",
+          "unit": "years",
+          "required": false,
+          "description": "The state's own stated period where it differs from the governing period"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Location, format, inspection and penalty wrinkles"
+        }
+      ],
+      "synonyms": [
+        "record retention",
+        "recordkeeping",
+        "payroll records",
+        "time records",
+        "how long to keep records",
+        "I-9 retention"
+      ]
+    },
+    {
       "code": "rest.weekly_day_of_rest",
       "name": "Weekly day of rest",
       "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
@@ -8358,14 +9311,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1569,
-    "rulesIncluded": 103,
-    "excludedByProfile": 1459,
+    "rulesConsidered": 1706,
+    "rulesIncluded": 122,
+    "excludedByProfile": 1577,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 1,
-    "fullyResolved": 21
+    "fullyResolved": 23
   },
-  "checksum": "ad588d40c50849ba336929925de16042ee3a829247394abc78535bc0600f5300"
+  "checksum": "2c83f4f31aef6f91d71bb4666a6fffefadaf9289b70cd14596826409c19f4f52"
 }

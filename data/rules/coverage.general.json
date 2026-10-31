@@ -1,0 +1,2654 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "coverage.general",
+  "rules": [
+    {
+      "id": "federal-flsa-poster",
+      "title": "Federal: FLSA minimum wage poster",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Employee Rights Under the Fair Labor Standards Act (WH-1088)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "FLSA minimum wage poster: every covered employer must display 'Employee Rights Under the Fair Labor Standards Act (WH-1088)' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 516.4",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.4",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-osha-poster",
+      "title": "Federal: OSHA Job Safety and Health poster",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Job Safety and Health: It's the Law (OSHA 3165); State Plan states substitute their own poster",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "OSHA Job Safety and Health poster: every covered employer must display 'Job Safety and Health: It's the Law (OSHA 3165); State Plan states substitute their own poster' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 1903.2",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1903.2",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-eeoc-poster",
+      "title": "Federal: EEOC Know Your Rights poster (15+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 15,
+          "posters": "Know Your Rights: Workplace Discrimination is Illegal (Title VII, ADA, GINA, PWFA)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "EEOC Know Your Rights poster (15+ employees): employers with 15+ employees must display 'Know Your Rights: Workplace Discrimination is Illegal (Title VII, ADA, GINA, PWFA)' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. \u00a7 2000e-10",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-10",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-adea-poster",
+      "title": "Federal: ADEA notice (20+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 20,
+          "posters": "Age discrimination notice (included in the EEOC Know Your Rights poster)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "ADEA notice (20+ employees): employers with 20+ employees must display 'Age discrimination notice (included in the EEOC Know Your Rights poster)' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 1627.10",
+          "url": "https://www.law.cornell.edu/cfr/text/29/1627.10",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-fmla-poster",
+      "title": "Federal: FMLA poster (50+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 50,
+          "posters": "Employee Rights Under the FMLA (WH-1420); also required in handbooks or at hire",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "FMLA poster (50+ employees): employers with 50+ employees must display 'Employee Rights Under the FMLA (WH-1420); also required in handbooks or at hire' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 825.300(a)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/825.300",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-eppa-poster",
+      "title": "Federal: Employee Polygraph Protection Act poster",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Employee Rights: Employee Polygraph Protection Act (WH-1462)",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "Employee Polygraph Protection Act poster: every covered employer must display 'Employee Rights: Employee Polygraph Protection Act (WH-1462)' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. \u00a7 801.6",
+          "url": "https://www.law.cornell.edu/cfr/text/29/801.6",
+          "kind": "regulation"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-userra-poster",
+      "title": "Federal: USERRA notice",
+      "jurisdiction": "Federal",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "federal",
+          "min_employees": 1,
+          "posters": "Your Rights Under USERRA; may be posted or distributed",
+          "digital_posting": "allowed_in_addition",
+          "notes": "DOL Field Assistance Bulletin 2020-7: electronic posting satisfies the duty only for a fully remote workforce that customarily receives information electronically and can readily access it; otherwise a physical posting is still required."
+        },
+        "summary": "USERRA notice: every covered employer must display 'Your Rights Under USERRA; may be posted or distributed' where employees can see it."
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. \u00a7 4334",
+          "url": "https://www.law.cornell.edu/uscode/text/38/4334",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Compliance Center, U.S. Department of Labor Posting Requirements",
+          "url": "https://www.postercompliance.com/labor-law-101/department-labor-posters-dol/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "al-state-posters",
+      "title": "Alabama: state workplace posters",
+      "jurisdiction": "AL",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Child Labor; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Alabama employers must display the state posters in addition to the federal set: Child Labor; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Alabama labor department posting requirements",
+          "url": "https://law.justia.com/codes/alabama/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-state-posters",
+      "title": "Alaska: state workplace posters",
+      "jurisdiction": "AK",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Child Labor; Safety and Health Protection on the Job (AKOSH); Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Alaska employers must display the state posters in addition to the federal set: Minimum Wage; Child Labor; Safety and Health Protection on the Job (AKOSH); Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Alaska labor department posting requirements",
+          "url": "https://law.justia.com/codes/alaska/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "az-state-posters",
+      "title": "Arizona: state workplace posters",
+      "jurisdiction": "AZ",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Earned Paid Sick Time; Fair Employment (ACRA); Constructive Discharge; ADOSH Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; No Smoking",
+          "digital_posting": "encouraged",
+          "notes": "State guidance advises electronic access for remote staff. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Arizona employers must display the state posters in addition to the federal set: Minimum Wage; Earned Paid Sick Time; Fair Employment (ACRA); Constructive Discharge; ADOSH Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; No Smoking. Electronic posting: encouraged."
+      },
+      "citations": [
+        {
+          "source": "Arizona labor department posting requirements",
+          "url": "https://law.justia.com/codes/arizona/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-state-posters",
+      "title": "Arkansas: state workplace posters",
+      "jurisdiction": "AR",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Unemployment Insurance; Workers' Compensation; Veterans Benefits; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Arkansas employers must display the state posters in addition to the federal set: Minimum Wage; Unemployment Insurance; Workers' Compensation; Veterans Benefits; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Arkansas labor department posting requirements",
+          "url": "https://law.justia.com/codes/arkansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-state-posters",
+      "title": "California: state workplace posters",
+      "jurisdiction": "CA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage and applicable IWC Wage Order; Payday Notice; Paid Sick Leave; Pregnancy Disability Leave and CFRA; Fair Employment (CRD); Transgender Rights; Whistleblower Protection; Cal/OSHA Safety and Health; Access to Medical and Exposure Records; Emergency Numbers; Time Off to Vote; Unemployment and Disability Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "allowed_in_addition",
+          "notes": "SB 657 (Lab. Code \u00a7 1207): posters may also be emailed, but physical posting remains required. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "California employers must display the state posters in addition to the federal set: Minimum Wage and applicable IWC Wage Order; Payday Notice; Paid Sick Leave; Pregnancy Disability Leave and CFRA; Fair Employment (CRD); Transgender Rights; Whistleblower Protection; Cal/OSHA Safety and Health; Access to Medical and Exposure Records; Emergency Numbers; Time Off to Vote; Unemployment and Disability Insurance; Workers' Compensation; No Smoking. Electronic posting: allowed in addition."
+      },
+      "citations": [
+        {
+          "source": "California labor department posting requirements",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-state-posters",
+      "title": "Colorado: state workplace posters",
+      "jurisdiction": "CO",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "COMPS Order poster; Fair Employment (CADA); Paid Leave, Whistleblowing and Protective Equipment; FAMLI program notice; Payday Notice; Unemployment Insurance; Workers' Compensation Report of Injury",
+          "digital_posting": "required",
+          "notes": "COMPS Order poster and FAMLI notice must be provided to remote employees electronically. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Colorado employers must display the state posters in addition to the federal set: COMPS Order poster; Fair Employment (CADA); Paid Leave, Whistleblowing and Protective Equipment; FAMLI program notice; Payday Notice; Unemployment Insurance; Workers' Compensation Report of Injury. Electronic posting: required."
+      },
+      "citations": [
+        {
+          "source": "Colorado labor department posting requirements",
+          "url": "https://law.justia.com/codes/colorado/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-state-posters",
+      "title": "Connecticut: state workplace posters",
+      "jurisdiction": "CT",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage (administrative, mercantile or restaurant wage order); Child Labor (mercantile or restaurant); Fair Employment; Sexual Harassment; Pregnancy Discrimination; Paid Sick Leave; Electronic Monitoring; Domestic Violence; Managed Care; Workers' Compensation; Unemployment Insurance; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Connecticut employers must display the state posters in addition to the federal set: Minimum Wage (administrative, mercantile or restaurant wage order); Child Labor (mercantile or restaurant); Fair Employment; Sexual Harassment; Pregnancy Discrimination; Paid Sick Leave; Electronic Monitoring; Domestic Violence; Managed Care; Workers' Compensation; Unemployment Insurance; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Connecticut labor department posting requirements",
+          "url": "https://law.justia.com/codes/connecticut/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "dc-state-posters",
+      "title": "District of Columbia: state workplace posters",
+      "jurisdiction": "DC",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Wage Theft Prevention; Accrued Sick and Safe Leave; Paid Family Leave; DC FMLA and Parental Leave; Fair Employment; Protecting Pregnant Workers; Right to Breastfeed; Child Labor; Time Off to Vote; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "District of Columbia employers must display the state posters in addition to the federal set: Minimum Wage; Wage Theft Prevention; Accrued Sick and Safe Leave; Paid Family Leave; DC FMLA and Parental Leave; Fair Employment; Protecting Pregnant Workers; Right to Breastfeed; Child Labor; Time Off to Vote; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "District of Columbia labor department posting requirements",
+          "url": "https://law.justia.com/codes/district-of-columbia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-state-posters",
+      "title": "Delaware: state workplace posters",
+      "jurisdiction": "DE",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Payment of Wages; Breaks; Child Labor; Fair Employment; Whistleblowers' Protection; Unemployment Insurance; Workers' Compensation; Human Trafficking (hotels, hospitals, licensed restaurants)",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Delaware employers must display the state posters in addition to the federal set: Minimum Wage; Payment of Wages; Breaks; Child Labor; Fair Employment; Whistleblowers' Protection; Unemployment Insurance; Workers' Compensation; Human Trafficking (hotels, hospitals, licensed restaurants). Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Delaware labor department posting requirements",
+          "url": "https://law.justia.com/codes/delaware/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-state-posters",
+      "title": "Florida: state workplace posters",
+      "jurisdiction": "FL",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fair Employment; Child Labor; Unemployment Insurance (Reemployment Assistance); Workers' Compensation; Right to Work and E-Verify",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Florida employers must display the state posters in addition to the federal set: Minimum Wage; Fair Employment; Child Labor; Unemployment Insurance (Reemployment Assistance); Workers' Compensation; Right to Work and E-Verify. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Florida labor department posting requirements",
+          "url": "https://law.justia.com/codes/florida/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-state-posters",
+      "title": "Georgia: state workplace posters",
+      "jurisdiction": "GA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Workers' Compensation Bill of Rights and Panel of Physicians; Unemployment Insurance; Vacation Unemployment; Equal Pay; Right to Work and E-Verify; Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Georgia employers must display the state posters in addition to the federal set: Workers' Compensation Bill of Rights and Panel of Physicians; Unemployment Insurance; Vacation Unemployment; Equal Pay; Right to Work and E-Verify; Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Georgia labor department posting requirements",
+          "url": "https://law.justia.com/codes/georgia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-state-posters",
+      "title": "Hawaii: state workplace posters",
+      "jurisdiction": "HI",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fair Employment; HIOSH Safety and Health; Right to Breastfeed; Whistleblower Protection; Dislocated Workers; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Hawaii employers must display the state posters in addition to the federal set: Minimum Wage; Fair Employment; HIOSH Safety and Health; Right to Breastfeed; Whistleblower Protection; Dislocated Workers; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Hawaii labor department posting requirements",
+          "url": "https://law.justia.com/codes/hawaii/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "id-state-posters",
+      "title": "Idaho: state workplace posters",
+      "jurisdiction": "ID",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fair Employment; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Idaho employers must display the state posters in addition to the federal set: Minimum Wage; Fair Employment; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Idaho labor department posting requirements",
+          "url": "https://law.justia.com/codes/idaho/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-state-posters",
+      "title": "Illinois: state workplace posters",
+      "jurisdiction": "IL",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage, Overtime, Meal and Rest, Equal Pay, Child Labor and VESSA (combined); Paid Leave for All Workers; Payday Notice; Pregnancy Rights; Fair Employment (IDHR); Captive Audience; ISERRA; Veterans Benefits; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "required",
+          "notes": "P.A. 103-0201 (HB 3733): employers with remote or traveling employees must provide posters electronically. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Illinois employers must display the state posters in addition to the federal set: Minimum Wage, Overtime, Meal and Rest, Equal Pay, Child Labor and VESSA (combined); Paid Leave for All Workers; Payday Notice; Pregnancy Rights; Fair Employment (IDHR); Captive Audience; ISERRA; Veterans Benefits; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: required."
+      },
+      "citations": [
+        {
+          "source": "Illinois labor department posting requirements",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-state-posters",
+      "title": "Indiana: state workplace posters",
+      "jurisdiction": "IN",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Child Labor; Fair Employment; IOSHA Safety and Health; Unemployment Insurance; Workers' Compensation; Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Indiana employers must display the state posters in addition to the federal set: Minimum Wage; Child Labor; Fair Employment; IOSHA Safety and Health; Unemployment Insurance; Workers' Compensation; Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Indiana labor department posting requirements",
+          "url": "https://law.justia.com/codes/indiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-state-posters",
+      "title": "Iowa: state workplace posters",
+      "jurisdiction": "IA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fair Employment; Iowa OSHA Safety and Health; Unemployment Insurance; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Iowa employers must display the state posters in addition to the federal set: Minimum Wage; Fair Employment; Iowa OSHA Safety and Health; Unemployment Insurance; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Iowa labor department posting requirements",
+          "url": "https://law.justia.com/codes/iowa/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-state-posters",
+      "title": "Kansas: state workplace posters",
+      "jurisdiction": "KS",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Fair Employment; Child Labor; Workers' Compensation; Unemployment Insurance; Human Trafficking; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Kansas employers must display the state posters in addition to the federal set: Fair Employment; Child Labor; Workers' Compensation; Unemployment Insurance; Human Trafficking; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Kansas labor department posting requirements",
+          "url": "https://law.justia.com/codes/kansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ky-state-posters",
+      "title": "Kentucky: state workplace posters",
+      "jurisdiction": "KY",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Wage Discrimination; Child Labor; Fair Employment; KY OSH Safety and Health; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Kentucky employers must display the state posters in addition to the federal set: Minimum Wage; Wage Discrimination; Child Labor; Fair Employment; KY OSH Safety and Health; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Kentucky labor department posting requirements",
+          "url": "https://law.justia.com/codes/kentucky/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-state-posters",
+      "title": "Louisiana: state workplace posters",
+      "jurisdiction": "LA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Payment of Wages; Child Labor; Age, Genetic and Sickle Cell Trait Discrimination; Pregnancy Rights; Independent Contractor; Earned Income Credit; National Guard and Reserve; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; Veterans Benefits; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Louisiana employers must display the state posters in addition to the federal set: Payment of Wages; Child Labor; Age, Genetic and Sickle Cell Trait Discrimination; Pregnancy Rights; Independent Contractor; Earned Income Credit; National Guard and Reserve; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; Veterans Benefits; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Louisiana labor department posting requirements",
+          "url": "https://law.justia.com/codes/louisiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-state-posters",
+      "title": "Maine: state workplace posters",
+      "jurisdiction": "ME",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Regulation of Employment; Child Labor; Sexual Harassment; Whistleblowers' Protection; Video Display Terminals; Captive Audience; Paid Family and Medical Leave; Veterans Benefits; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Maine employers must display the state posters in addition to the federal set: Minimum Wage; Regulation of Employment; Child Labor; Sexual Harassment; Whistleblowers' Protection; Video Display Terminals; Captive Audience; Paid Family and Medical Leave; Veterans Benefits; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Maine labor department posting requirements",
+          "url": "https://law.justia.com/codes/maine/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-state-posters",
+      "title": "Maryland: state workplace posters",
+      "jurisdiction": "MD",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Equal Pay for Equal Work; Fair Employment; Pregnant and Working; Earned Sick and Safe Leave; Child Labor; Health Insurance; Captive Audience; MOSH Safety and Health; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Maryland employers must display the state posters in addition to the federal set: Minimum Wage; Equal Pay for Equal Work; Fair Employment; Pregnant and Working; Earned Sick and Safe Leave; Child Labor; Health Insurance; Captive Audience; MOSH Safety and Health; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Maryland labor department posting requirements",
+          "url": "https://law.justia.com/codes/maryland/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-state-posters",
+      "title": "Massachusetts: state workplace posters",
+      "jurisdiction": "MA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage (Wage and Hour Laws); Earned Sick Time; Paid Family and Medical Leave; Parental Leave; Fair Employment; Veterans Benefits; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Massachusetts employers must display the state posters in addition to the federal set: Minimum Wage (Wage and Hour Laws); Earned Sick Time; Paid Family and Medical Leave; Parental Leave; Fair Employment; Veterans Benefits; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Massachusetts labor department posting requirements",
+          "url": "https://law.justia.com/codes/massachusetts/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-state-posters",
+      "title": "Michigan: state workplace posters",
+      "jurisdiction": "MI",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Earned Sick Time Act; Child Labor; Fair Employment; Whistleblower Protection; MIOSHA Safety and Health; Right to Know; Veterans Benefits; Unemployment Insurance; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Michigan employers must display the state posters in addition to the federal set: Minimum Wage; Earned Sick Time Act; Child Labor; Fair Employment; Whistleblower Protection; MIOSHA Safety and Health; Right to Know; Veterans Benefits; Unemployment Insurance; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Michigan labor department posting requirements",
+          "url": "https://law.justia.com/codes/michigan/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-state-posters",
+      "title": "Minnesota: state workplace posters",
+      "jurisdiction": "MN",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Paid Leave; Fair Employment; Captive Audience; MNOSHA Safety and Health; Veterans Benefits; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Minnesota employers must display the state posters in addition to the federal set: Minimum Wage; Paid Leave; Fair Employment; Captive Audience; MNOSHA Safety and Health; Veterans Benefits; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Minnesota labor department posting requirements",
+          "url": "https://law.justia.com/codes/minnesota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-state-posters",
+      "title": "Mississippi: state workplace posters",
+      "jurisdiction": "MS",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Mississippi employers must display the state posters in addition to the federal set: Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Mississippi labor department posting requirements",
+          "url": "https://law.justia.com/codes/mississippi/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-state-posters",
+      "title": "Missouri: state workplace posters",
+      "jurisdiction": "MO",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Earned Paid Sick Time; Child Labor; Fair Employment; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Missouri employers must display the state posters in addition to the federal set: Minimum Wage; Earned Paid Sick Time; Child Labor; Fair Employment; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Missouri labor department posting requirements",
+          "url": "https://law.justia.com/codes/missouri/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-state-posters",
+      "title": "Montana: state workplace posters",
+      "jurisdiction": "MT",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fair Employment; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Montana employers must display the state posters in addition to the federal set: Minimum Wage; Fair Employment; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Montana labor department posting requirements",
+          "url": "https://law.justia.com/codes/montana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-state-posters",
+      "title": "Nebraska: state workplace posters",
+      "jurisdiction": "NE",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Paid Sick Time; Child Labor; Fair Employment; Unemployment Insurance",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Nebraska employers must display the state posters in addition to the federal set: Minimum Wage; Paid Sick Time; Child Labor; Fair Employment; Unemployment Insurance. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Nebraska labor department posting requirements",
+          "url": "https://law.justia.com/codes/nebraska/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-state-posters",
+      "title": "Nevada: state workplace posters",
+      "jurisdiction": "NV",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage and Annual Minimum Wage and Daily Overtime Bulletins; Paid Leave; Payday Notice; Fair Employment; Pregnant Workers' Fairness Act; Nursing Mothers' Accommodation; Domestic Violence Bulletin; Lie Detector Tests; Child Labor; Nevada OSHA Safety and Health; Emergency Phone Numbers; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Nevada employers must display the state posters in addition to the federal set: Minimum Wage and Annual Minimum Wage and Daily Overtime Bulletins; Paid Leave; Payday Notice; Fair Employment; Pregnant Workers' Fairness Act; Nursing Mothers' Accommodation; Domestic Violence Bulletin; Lie Detector Tests; Child Labor; Nevada OSHA Safety and Health; Emergency Phone Numbers; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Nevada labor department posting requirements",
+          "url": "https://law.justia.com/codes/nevada/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nh-state-posters",
+      "title": "New Hampshire: state workplace posters",
+      "jurisdiction": "NH",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Protective Legislation; Equal Pay; Fair Employment; Whistleblowers' Protection; Employee or Independent Contractor Criteria; Right to Know; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "New Hampshire employers must display the state posters in addition to the federal set: Minimum Wage; Protective Legislation; Equal Pay; Fair Employment; Whistleblowers' Protection; Employee or Independent Contractor Criteria; Right to Know; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "New Hampshire labor department posting requirements",
+          "url": "https://law.justia.com/codes/new-hampshire/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-state-posters",
+      "title": "New Jersey: state workplace posters",
+      "jurisdiction": "NJ",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Payment of Wages; Earned Sick Leave; Family Leave Act; Family Leave Insurance; Temporary Disability Insurance; Fair Employment (LAD); Gender Equity; Conscientious Employee Protection Act; SAFE Act; Worker Misclassification; Employee Recordkeeping; Captive Audience; Child Labor Abstract and Schedule of Hours; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "allowed_in_addition",
+          "notes": "N.J.A.C. 13:8-1.2 allows the LAD poster on an intranet or website. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "New Jersey employers must display the state posters in addition to the federal set: Minimum Wage; Payment of Wages; Earned Sick Leave; Family Leave Act; Family Leave Insurance; Temporary Disability Insurance; Fair Employment (LAD); Gender Equity; Conscientious Employee Protection Act; SAFE Act; Worker Misclassification; Employee Recordkeeping; Captive Audience; Child Labor Abstract and Schedule of Hours; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: allowed in addition."
+      },
+      "citations": [
+        {
+          "source": "New Jersey labor department posting requirements",
+          "url": "https://law.justia.com/codes/new-jersey/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nm-state-posters",
+      "title": "New Mexico: state workplace posters",
+      "jurisdiction": "NM",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Paid Sick Leave (Healthy Workplaces Act); Fair Employment; NM OSHA Safety and Health; Human Trafficking; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "encouraged",
+          "notes": "Department of Workforce Solutions allows electronic delivery to remote employees. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "New Mexico employers must display the state posters in addition to the federal set: Minimum Wage; Paid Sick Leave (Healthy Workplaces Act); Fair Employment; NM OSHA Safety and Health; Human Trafficking; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: encouraged."
+      },
+      "citations": [
+        {
+          "source": "New Mexico labor department posting requirements",
+          "url": "https://law.justia.com/codes/new-mexico/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-state-posters",
+      "title": "New York: state workplace posters",
+      "jurisdiction": "NY",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fringe Benefits and Hours; Equal Pay; Child Labor Schedule of Hours; Fair Employment; Correction Law Article 23-A; Discrimination Against Certain Activities; Electronic Monitoring; Whistleblower Protection; Time Off to Vote; Right to Know; Airborne Infectious Disease Exposure Prevention Plan; Paid Family Leave; Disability Benefits; Veterans Benefits; Unemployment Insurance; Workers' Compensation; Smoking",
+          "digital_posting": "required",
+          "notes": "Labor Law \u00a7 201: employers must also make required posters available electronically (website or email). Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "New York employers must display the state posters in addition to the federal set: Minimum Wage; Fringe Benefits and Hours; Equal Pay; Child Labor Schedule of Hours; Fair Employment; Correction Law Article 23-A; Discrimination Against Certain Activities; Electronic Monitoring; Whistleblower Protection; Time Off to Vote; Right to Know; Airborne Infectious Disease Exposure Prevention Plan; Paid Family Leave; Disability Benefits; Veterans Benefits; Unemployment Insurance; Workers' Compensation; Smoking. Electronic posting: required."
+      },
+      "citations": [
+        {
+          "source": "New York labor department posting requirements",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nc-state-posters",
+      "title": "North Carolina: state workplace posters",
+      "jurisdiction": "NC",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage (Wage and Hour Notice); NC OSH Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "North Carolina employers must display the state posters in addition to the federal set: Minimum Wage (Wage and Hour Notice); NC OSH Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "North Carolina labor department posting requirements",
+          "url": "https://law.justia.com/codes/north-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nd-state-posters",
+      "title": "North Dakota: state workplace posters",
+      "jurisdiction": "ND",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "North Dakota employers must display the state posters in addition to the federal set: Minimum Wage; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "North Dakota labor department posting requirements",
+          "url": "https://law.justia.com/codes/north-dakota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oh-state-posters",
+      "title": "Ohio: state workplace posters",
+      "jurisdiction": "OH",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Child Labor; Fair Employment; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "allowed_in_addition",
+          "notes": "SB 33 allows certain posters to be posted online where employees can access them. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Ohio employers must display the state posters in addition to the federal set: Minimum Wage; Child Labor; Fair Employment; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: allowed in addition."
+      },
+      "citations": [
+        {
+          "source": "Ohio labor department posting requirements",
+          "url": "https://law.justia.com/codes/ohio/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ok-state-posters",
+      "title": "Oklahoma: state workplace posters",
+      "jurisdiction": "OK",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage and Statutory Language; Fair Employment; USERRA; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Oklahoma employers must display the state posters in addition to the federal set: Minimum Wage and Statutory Language; Fair Employment; USERRA; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Oklahoma labor department posting requirements",
+          "url": "https://law.justia.com/codes/oklahoma/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-state-posters",
+      "title": "Oregon: state workplace posters",
+      "jurisdiction": "OR",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Breaks and Overtime; Paid Sick Time; Paid Leave Oregon; Family Leave Act; Equal Pay; Pregnancy Accommodations; Domestic Violence; Captive Audience; Oregon OSHA Safety and Health; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "required",
+          "notes": "Paid Leave Oregon poster must be provided electronically to remote employees. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Oregon employers must display the state posters in addition to the federal set: Minimum Wage; Breaks and Overtime; Paid Sick Time; Paid Leave Oregon; Family Leave Act; Equal Pay; Pregnancy Accommodations; Domestic Violence; Captive Audience; Oregon OSHA Safety and Health; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: required."
+      },
+      "citations": [
+        {
+          "source": "Oregon labor department posting requirements",
+          "url": "https://law.justia.com/codes/oregon/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-state-posters",
+      "title": "Pennsylvania: state workplace posters",
+      "jurisdiction": "PA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Equal Pay; Fair Employment; Child Labor Abstract and Hours of Work for Minors; Veterans Benefits; Unemployment Insurance; Workers' Compensation and Panel of Physicians; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Pennsylvania employers must display the state posters in addition to the federal set: Minimum Wage; Equal Pay; Fair Employment; Child Labor Abstract and Hours of Work for Minors; Veterans Benefits; Unemployment Insurance; Workers' Compensation and Panel of Physicians; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Pennsylvania labor department posting requirements",
+          "url": "https://law.justia.com/codes/pennsylvania/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-state-posters",
+      "title": "Rhode Island: state workplace posters",
+      "jurisdiction": "RI",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Pay Equity; Fair Employment; Pregnancy Discrimination; Ban the Box; Parental and Family Leave; Healthy and Safe Families and Workplaces Act; Whistleblowers' Protection; Right to Know; Veterans Benefits; Unemployment Insurance and TDI; Workers' Compensation; No Smoking",
+          "digital_posting": "required",
+          "notes": "DLT requires remote and hybrid workers to receive posters by email or text. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Rhode Island employers must display the state posters in addition to the federal set: Minimum Wage; Pay Equity; Fair Employment; Pregnancy Discrimination; Ban the Box; Parental and Family Leave; Healthy and Safe Families and Workplaces Act; Whistleblowers' Protection; Right to Know; Veterans Benefits; Unemployment Insurance and TDI; Workers' Compensation; No Smoking. Electronic posting: required."
+      },
+      "citations": [
+        {
+          "source": "Rhode Island labor department posting requirements",
+          "url": "https://law.justia.com/codes/rhode-island/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-state-posters",
+      "title": "South Carolina: state workplace posters",
+      "jurisdiction": "SC",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Labor Law Abstract; Fair Employment; SC OSHA Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "South Carolina employers must display the state posters in addition to the federal set: Labor Law Abstract; Fair Employment; SC OSHA Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "South Carolina labor department posting requirements",
+          "url": "https://law.justia.com/codes/south-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-state-posters",
+      "title": "South Dakota: state workplace posters",
+      "jurisdiction": "SD",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Workplace Safety; Unemployment Insurance (Reemployment Assistance)",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "South Dakota employers must display the state posters in addition to the federal set: Workplace Safety; Unemployment Insurance (Reemployment Assistance). Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "South Dakota labor department posting requirements",
+          "url": "https://law.justia.com/codes/south-dakota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-state-posters",
+      "title": "Tennessee: state workplace posters",
+      "jurisdiction": "TN",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Wage Regulation, Child Labor and Payday (combined); Fair Employment; TOSHA Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Tennessee employers must display the state posters in addition to the federal set: Wage Regulation, Child Labor and Payday (combined); Fair Employment; TOSHA Safety and Health; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Tennessee labor department posting requirements",
+          "url": "https://law.justia.com/codes/tennessee/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-state-posters",
+      "title": "Texas: state workplace posters",
+      "jurisdiction": "TX",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Payday Law and Unemployment Compensation; Workers' Compensation (insured, uninsured or self-insured notice); Ombudsman Notice; Reporting Workplace Violence; Employee Assistance",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Texas employers must display the state posters in addition to the federal set: Payday Law and Unemployment Compensation; Workers' Compensation (insured, uninsured or self-insured notice); Ombudsman Notice; Reporting Workplace Violence; Employee Assistance. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Texas labor department posting requirements",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ut-state-posters",
+      "title": "Utah: state workplace posters",
+      "jurisdiction": "UT",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "UOSH Safety and Health; Pregnancy Accommodation; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Utah employers must display the state posters in addition to the federal set: UOSH Safety and Health; Pregnancy Accommodation; Unemployment Insurance; Workers' Compensation; Right to Work and E-Verify; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Utah labor department posting requirements",
+          "url": "https://law.justia.com/codes/utah/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vt-state-posters",
+      "title": "Vermont: state workplace posters",
+      "jurisdiction": "VT",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Meals and Lodging; Earned Sick Time; Family Leave; Accommodations for Pregnant Employees; Protections for Victims of Crime; Sexual Harassment; Employer's Reinstatement; Child Labor; VOSHA Safety and Health; Posting of Safety Records; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Vermont employers must display the state posters in addition to the federal set: Minimum Wage; Meals and Lodging; Earned Sick Time; Family Leave; Accommodations for Pregnant Employees; Protections for Victims of Crime; Sexual Harassment; Employer's Reinstatement; Child Labor; VOSHA Safety and Health; Posting of Safety Records; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Vermont labor department posting requirements",
+          "url": "https://law.justia.com/codes/vermont/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "va-state-posters",
+      "title": "Virginia: state workplace posters",
+      "jurisdiction": "VA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Human Rights; Pregnancy Accommodation; Disability Accommodation; Covenants Not to Compete; Earned Income Tax Credit; Seizure First Aid; VOSH Safety and Health; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Virginia employers must display the state posters in addition to the federal set: Human Rights; Pregnancy Accommodation; Disability Accommodation; Covenants Not to Compete; Earned Income Tax Credit; Seizure First Aid; VOSH Safety and Health; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Virginia labor department posting requirements",
+          "url": "https://law.justia.com/codes/virginia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-state-posters",
+      "title": "Washington: state workplace posters",
+      "jurisdiction": "WA",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Your Rights as a Worker; Paid Family and Medical Leave; Domestic Violence Resources; Captive Audience; I-9 Inspection Notice; DOSH Safety and Health; Unemployment Insurance; Workers' Compensation; No Smoking",
+          "digital_posting": "encouraged",
+          "notes": "L&I: remote employees must receive a physical copy or a link to print the posters. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Washington employers must display the state posters in addition to the federal set: Your Rights as a Worker; Paid Family and Medical Leave; Domestic Violence Resources; Captive Audience; I-9 Inspection Notice; DOSH Safety and Health; Unemployment Insurance; Workers' Compensation; No Smoking. Electronic posting: encouraged."
+      },
+      "citations": [
+        {
+          "source": "Washington labor department posting requirements",
+          "url": "https://law.justia.com/codes/washington/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wv-state-posters",
+      "title": "West Virginia: state workplace posters",
+      "jurisdiction": "WV",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Wage Payment and Collection; Fair Employment; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "West Virginia employers must display the state posters in addition to the federal set: Minimum Wage; Wage Payment and Collection; Fair Employment; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "West Virginia labor department posting requirements",
+          "url": "https://law.justia.com/codes/west-virginia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-state-posters",
+      "title": "Wisconsin: state workplace posters",
+      "jurisdiction": "WI",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Fair Employment; Family and Medical Leave; Child Labor (Hours and Times of Day Minors May Work); Honesty Testing; Business Closing and Layoff; Cessation of Health Care Benefits; Organ Donation Leave; Unemployment Insurance; No Smoking",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Wisconsin employers must display the state posters in addition to the federal set: Minimum Wage; Fair Employment; Family and Medical Leave; Child Labor (Hours and Times of Day Minors May Work); Honesty Testing; Business Closing and Layoff; Cessation of Health Care Benefits; Organ Donation Leave; Unemployment Insurance; No Smoking. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Wisconsin labor department posting requirements",
+          "url": "https://law.justia.com/codes/wisconsin/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wy-state-posters",
+      "title": "Wyoming: state workplace posters",
+      "jurisdiction": "WY",
+      "topic": "coverage.general.posting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "compliance.posting",
+        "params": {
+          "level": "state",
+          "min_employees": 1,
+          "posters": "Minimum Wage; Workers' Rights; Non-Compete Clauses; Wyoming OSHA Safety and Health; Unemployment Insurance; Workers' Compensation",
+          "digital_posting": "none_stated",
+          "notes": "No state rule on electronic posting; follow the federal bulletin for remote workers. Poster set from a vendor survey; several posters depend on size, industry or insurance status (noted in the list)."
+        },
+        "summary": "Wyoming employers must display the state posters in addition to the federal set: Minimum Wage; Workers' Rights; Non-Compete Clauses; Wyoming OSHA Safety and Health; Unemployment Insurance; Workers' Compensation. Electronic posting: none stated."
+      },
+      "citations": [
+        {
+          "source": "Wyoming labor department posting requirements",
+          "url": "https://law.justia.com/codes/wyoming/",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Guard, Labor Law Posting Requirements by State",
+          "url": "https://www.posterguard.com/labor-law-posting-requirements-by-state",
+          "kind": "guidance"
+        },
+        {
+          "source": "Poster Compliance Center, State Digital Labor Law Poster Requirements (2026)",
+          "url": "https://www.postercompliance.com/blog/latest-digital-labor-law-poster-requirements/",
+          "kind": "guidance"
+        }
+      ]
+    }
+  ]
+}

@@ -173,7 +173,11 @@
             { "code": "sep.warn.notice", "name": "Notice period and triggers" }
           ] },
         { "code": "sep.post_employment", "name": "Post-Employment Restrictions", "enforcement": "informational", "legacyTopic": "post_employment", "subtopics": [] },
-        { "code": "sep.records", "name": "Record Retention", "enforcement": "informational", "legacyTopic": "record_retention", "subtopics": [] }
+        { "code": "sep.records", "name": "Record Retention", "enforcement": "informational", "legacyTopic": "record_retention",
+          "subtopics": [
+            { "code": "sep.records.retention", "name": "Payroll and time record retention" },
+            { "code": "sep.records.personnel_file", "name": "Employee access to personnel files" }
+          ] }
       ]
     },
     {
