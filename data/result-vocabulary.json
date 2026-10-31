@@ -615,6 +615,53 @@
         { "name": "penalty", "type": "string", "required": false, "description": "Statutory penalty for late payment" }
       ],
       "synonyms": ["final paycheck", "final wages", "last paycheck", "termination pay timing", "wages due on discharge", "wages due on quitting"]
+    },
+    {
+      "code": "pay.pay_frequency",
+      "name": "Pay frequency",
+      "description": "How often wages must be paid and how soon after the pay period ends; many states let exempt or salaried staff be paid less often.",
+      "behaviors": ["prohibition", "warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "minimum_frequency", "type": "enum", "values": ["weekly", "biweekly", "semimonthly", "monthly", "none"], "required": true, "description": "Least frequent lawful pay schedule for the employees the rule covers; none means the state sets no frequency" },
+        { "name": "max_days_between_paydays", "type": "number", "unit": "days", "required": false, "description": "Longest lawful gap between paydays where the statute counts days" },
+        { "name": "max_lag_days", "type": "number", "unit": "days", "required": false, "description": "Days after the end of a pay period by which wages for that period must be paid" },
+        { "name": "lag_business_days", "type": "boolean", "required": false, "description": "Whether max_lag_days counts business days only" },
+        { "name": "exempt_may_be_monthly", "type": "boolean", "required": false, "description": "Whether exempt, executive, administrative or professional employees may be paid monthly" },
+        { "name": "applies_to", "type": "string", "required": false, "description": "Who the frequency rule covers when narrower than all employees" },
+        { "name": "notes", "type": "string", "required": false, "description": "Waivers, agency approvals and other wrinkles" }
+      ],
+      "synonyms": ["payday requirements", "pay period", "how often paid", "semimonthly pay", "weekly pay law", "payday frequency"]
+    },
+    {
+      "code": "pay.wage_deductions",
+      "name": "Wage deductions",
+      "description": "What an employer may take out of a paycheck beyond taxes and court orders, whether the employee must authorize it in writing, and whether cash shortages, breakage or damage may ever be charged back.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "written_authorization_required", "type": "enum", "values": ["required", "approved_form_required", "notice_only", "not_required"], "required": true, "description": "What the employee must sign (or be told) before a voluntary deduction; not_required means the state has no general consent statute and only the FLSA floor applies" },
+        { "name": "shortage_damage_deductions", "type": "enum", "values": ["prohibited", "written_consent_after_loss", "fault_finding_required", "with_written_authorization", "with_written_notice", "final_pay_only", "allowed_above_minimum_wage", "not_addressed"], "required": true, "description": "Whether cash shortages, breakage, lost or damaged property may be deducted and on what condition" },
+        { "name": "below_minimum_wage_prohibited", "type": "boolean", "required": false, "description": "Whether employer-benefit deductions may never reduce pay below the minimum wage" },
+        { "name": "penalty", "type": "string", "required": false, "description": "Statutory remedy for an unlawful deduction" },
+        { "name": "notes", "type": "string", "required": false, "description": "Caps, timing, revocation and other wrinkles" }
+      ],
+      "synonyms": ["paycheck deductions", "wage withholding", "chargebacks", "cash shortage deduction", "breakage deduction", "uniform deduction", "payroll deductions"]
+    },
+    {
+      "code": "pay.equal_pay",
+      "name": "Equal pay",
+      "description": "Employees doing the same or comparable work may not be paid differently because of a protected characteristic; some states also protect employees who discuss wages.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "comparison_standard", "type": "enum", "values": ["equal_work", "substantially_similar", "comparable_work", "discrimination_statute_only", "no_state_law"], "required": true, "description": "How alike two jobs must be for a pay difference to need a lawful justification; discrimination_statute_only means pay bias is reached only through the general anti-discrimination law" },
+        { "name": "protected_classes", "type": "string", "required": true, "description": "Characteristics the pay comparison protects" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the law attaches" },
+        { "name": "pay_secrecy_prohibited", "type": "boolean", "required": false, "description": "Whether the state bars employers from forbidding or punishing wage discussions" },
+        { "name": "notes", "type": "string", "required": false, "description": "Lawful justifications, remedies and recent amendments" }
+      ],
+      "synonyms": ["equal pay act", "pay equity", "wage discrimination", "gender pay gap", "pay transparency", "wage discussion protection", "pay secrecy"]
     }
   ]
 }

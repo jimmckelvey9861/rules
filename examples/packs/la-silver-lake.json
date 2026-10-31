@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T20:44:49.515Z",
+  "generatedAt": "2026-10-30T21:06:28.831Z",
   "asOf": "2026-10-30",
   "horizonDays": 365,
-  "rulesVersion": "eaaf0fae6a0089ff",
+  "rulesVersion": "50b5ba62c6cae8bb",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -2302,6 +2302,249 @@
       "hash": "833df9d7f7a3521d"
     },
     {
+      "id": "ca-pay-frequency",
+      "title": "California — Pay Frequency",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.pay_frequency",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.exempt_status",
+            "op": "=",
+            "value": "non_exempt"
+          },
+          {
+            "fact": "employee.pay_frequency",
+            "op": "in",
+            "value": [
+              "monthly"
+            ]
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "employee.exempt_status",
+        "employee.pay_frequency"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "pay.pay_frequency",
+        "params": {
+          "minimum_frequency": "semimonthly",
+          "exempt_may_be_monthly": true,
+          "notes": "Weekly or biweekly schedules must pay within 7 days of the period end; executive, administrative and professional employees may be paid monthly by the 26th"
+        },
+        "summary": "Wages must be paid at least twice a month on regular paydays designated in advance; work in the 1st-15th is paid by the 26th and the 16th-end by the 10th.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §204",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=204.&lawCode=LAB",
+          "section": "§204",
+          "kind": "statute"
+        },
+        {
+          "source": "US DOL, State Payday Requirements",
+          "url": "https://www.dol.gov/agencies/whd/state/payday",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "3c7d0940125f9067"
+    },
+    {
+      "id": "federal-flsa-wage-deductions",
+      "title": "FLSA — Wage Deductions",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.wage_protection.deductions",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.wage_deductions",
+        "params": {
+          "written_authorization_required": "not_required",
+          "shortage_damage_deductions": "allowed_above_minimum_wage",
+          "below_minimum_wage_prohibited": true
+        },
+        "summary": "Under the FLSA, deductions for items that primarily benefit the employer (uniforms, tools, cash shortages, damage) may not reduce pay below the minimum wage or cut into overtime.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §531.35 (wages must be paid free and clear)",
+          "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-V/subchapter-A/part-531/subpart-B/section-531.35",
+          "section": "§531.35",
+          "kind": "regulation"
+        },
+        {
+          "source": "US DOL Fact Sheet #16: Deductions from Wages for Uniforms and Other Facilities",
+          "url": "https://www.dol.gov/agencies/whd/fact-sheets/16-flsa-wage-deductions",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "ef6d478bc01f46d3"
+    },
+    {
+      "id": "ca-wage-deductions",
+      "title": "California — Wage Deductions",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.deductions",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.wage_deductions",
+        "params": {
+          "written_authorization_required": "required",
+          "shortage_damage_deductions": "prohibited",
+          "below_minimum_wage_prohibited": true,
+          "penalty": "civil penalties under §225.5 plus waiting-time and PAGA exposure"
+        },
+        "summary": "Employers may not take back any part of wages; only deductions required by law or expressly authorized in writing for the employee's benefit are allowed, and shortages, breakage or damage may not be deducted absent dishonesty, willfulness or gross negligence.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §221",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=221.&lawCode=LAB",
+          "section": "§221",
+          "kind": "statute"
+        },
+        {
+          "source": "Cal. Lab. Code §224",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=224.&lawCode=LAB",
+          "section": "§224",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, Employee Wage Deduction Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/employee-wage-deduction-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "1799f34c0771796c"
+    },
+    {
+      "id": "federal-equal-pay-act",
+      "title": "Equal Pay Act of 1963 — Equal Pay",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.wage_protection.equal_pay",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.equal_pay",
+        "params": {
+          "comparison_standard": "equal_work",
+          "protected_classes": "sex",
+          "notes": "Covers all FLSA-covered employers; NLRA §7 separately protects most non-supervisory employees who discuss wages"
+        },
+        "summary": "Employees of the opposite sex doing equal work (equal skill, effort and responsibility under similar conditions) in the same establishment must be paid equally unless a seniority, merit, production or other factor-other-than-sex system explains the gap.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §206(d) (Equal Pay Act of 1963)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "section": "§206(d)",
+          "kind": "statute"
+        }
+      ],
+      "hash": "a30c952bdb8e8f93"
+    },
+    {
+      "id": "ca-equal-pay",
+      "title": "California — Equal Pay",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.wage_protection.equal_pay",
+      "topicCode": "pay.wage_protection",
+      "enforcement": "payroll",
+      "status": "active",
+      "effectiveFrom": "2016-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.equal_pay",
+        "params": {
+          "comparison_standard": "substantially_similar",
+          "protected_classes": "sex, race, ethnicity",
+          "pay_secrecy_prohibited": true,
+          "notes": "Race and ethnicity added 2017-01-01; prior salary may not justify a gap"
+        },
+        "summary": "Employees of another sex, race or ethnicity doing substantially similar work (viewed as a composite of skill, effort and responsibility under similar conditions) must be paid equally unless the whole gap is explained by seniority, merit, production or a bona fide factor other than the protected trait; employees may discuss and disclose wages.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §1197.5",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1197.5.&lawCode=LAB",
+          "section": "§1197.5",
+          "kind": "statute"
+        },
+        {
+          "source": "Paycor, Pay Equity and State-by-State Laws (survey)",
+          "url": "https://www.paycor.com/resource-center/articles/pay-equity-and-state-by-state-laws/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "26053aa5f95de478"
+    },
+    {
       "id": "ca-meal-break-first-5hr",
       "title": "California First Meal Break (>5 hours)",
       "jurisdiction": "CA",
@@ -4462,6 +4705,64 @@
       ]
     },
     {
+      "code": "pay.equal_pay",
+      "name": "Equal pay",
+      "description": "Employees doing the same or comparable work may not be paid differently because of a protected characteristic; some states also protect employees who discuss wages.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "comparison_standard",
+          "type": "enum",
+          "values": [
+            "equal_work",
+            "substantially_similar",
+            "comparable_work",
+            "discrimination_statute_only",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "How alike two jobs must be for a pay difference to need a lawful justification; discrimination_statute_only means pay bias is reached only through the general anti-discrimination law"
+        },
+        {
+          "name": "protected_classes",
+          "type": "string",
+          "required": true,
+          "description": "Characteristics the pay comparison protects"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "pay_secrecy_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the state bars employers from forbidding or punishing wage discussions"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Lawful justifications, remedies and recent amendments"
+        }
+      ],
+      "synonyms": [
+        "equal pay act",
+        "pay equity",
+        "wage discrimination",
+        "gender pay gap",
+        "pay transparency",
+        "wage discussion protection",
+        "pay secrecy"
+      ]
+    },
+    {
       "code": "pay.exempt_salary_threshold",
       "name": "Exempt salary threshold",
       "description": "The lowest weekly salary at which an executive, administrative or professional employee may be treated as exempt from overtime; below it the employee is owed overtime regardless of duties.",
@@ -4500,6 +4801,143 @@
         "EAP exemption",
         "salary level test",
         "exempt minimum salary"
+      ]
+    },
+    {
+      "code": "pay.pay_frequency",
+      "name": "Pay frequency",
+      "description": "How often wages must be paid and how soon after the pay period ends; many states let exempt or salaried staff be paid less often.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "minimum_frequency",
+          "type": "enum",
+          "values": [
+            "weekly",
+            "biweekly",
+            "semimonthly",
+            "monthly",
+            "none"
+          ],
+          "required": true,
+          "description": "Least frequent lawful pay schedule for the employees the rule covers; none means the state sets no frequency"
+        },
+        {
+          "name": "max_days_between_paydays",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Longest lawful gap between paydays where the statute counts days"
+        },
+        {
+          "name": "max_lag_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days after the end of a pay period by which wages for that period must be paid"
+        },
+        {
+          "name": "lag_business_days",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether max_lag_days counts business days only"
+        },
+        {
+          "name": "exempt_may_be_monthly",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether exempt, executive, administrative or professional employees may be paid monthly"
+        },
+        {
+          "name": "applies_to",
+          "type": "string",
+          "required": false,
+          "description": "Who the frequency rule covers when narrower than all employees"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Waivers, agency approvals and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "payday requirements",
+        "pay period",
+        "how often paid",
+        "semimonthly pay",
+        "weekly pay law",
+        "payday frequency"
+      ]
+    },
+    {
+      "code": "pay.wage_deductions",
+      "name": "Wage deductions",
+      "description": "What an employer may take out of a paycheck beyond taxes and court orders, whether the employee must authorize it in writing, and whether cash shortages, breakage or damage may ever be charged back.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "written_authorization_required",
+          "type": "enum",
+          "values": [
+            "required",
+            "approved_form_required",
+            "notice_only",
+            "not_required"
+          ],
+          "required": true,
+          "description": "What the employee must sign (or be told) before a voluntary deduction; not_required means the state has no general consent statute and only the FLSA floor applies"
+        },
+        {
+          "name": "shortage_damage_deductions",
+          "type": "enum",
+          "values": [
+            "prohibited",
+            "written_consent_after_loss",
+            "fault_finding_required",
+            "with_written_authorization",
+            "with_written_notice",
+            "final_pay_only",
+            "allowed_above_minimum_wage",
+            "not_addressed"
+          ],
+          "required": true,
+          "description": "Whether cash shortages, breakage, lost or damaged property may be deducted and on what condition"
+        },
+        {
+          "name": "below_minimum_wage_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether employer-benefit deductions may never reduce pay below the minimum wage"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Statutory remedy for an unlawful deduction"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Caps, timing, revocation and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "paycheck deductions",
+        "wage withholding",
+        "chargebacks",
+        "cash shortage deduction",
+        "breakage deduction",
+        "uniform deduction",
+        "payroll deductions"
       ]
     },
     {
@@ -5124,6 +5562,19 @@
       "derived": "employee.age < 18"
     },
     {
+      "path": "employee.pay_frequency",
+      "type": "enum",
+      "description": "How often employee is paid",
+      "category": "3. Employee",
+      "group": "3.6 Compensation",
+      "enumValues": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+      ]
+    },
+    {
       "path": "employee.pay_structure",
       "type": "enum",
       "description": "How employee is paid (for exemption tests)",
@@ -5148,6 +5599,24 @@
         "length of service",
         "months employed",
         "seniority"
+      ]
+    },
+    {
+      "path": "employee.worker_type",
+      "type": "enum",
+      "description": "Worker classification type",
+      "category": "3. Employee",
+      "group": "3.1 Classification",
+      "enumValues": [
+        "w2_employee",
+        "independent_contractor",
+        "temp_agency",
+        "intern",
+        "volunteer"
+      ],
+      "synonyms": [
+        "worker classification",
+        "employee or contractor"
       ]
     },
     {
@@ -5532,14 +6001,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 992,
-    "rulesIncluded": 63,
-    "excludedByProfile": 922,
+    "rulesConsidered": 1149,
+    "rulesIncluded": 68,
+    "excludedByProfile": 1074,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 4
+    "fullyResolved": 6
   },
-  "checksum": "d41d55bf4175630fdbcfe8062f821708d32a272a77fd171b795e6ce2271fc96b"
+  "checksum": "25bdee51cba6ebac2a422d1c193dde1374ccfda021b6234adc9f535b3b722fd9"
 }
