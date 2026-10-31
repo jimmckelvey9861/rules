@@ -57,7 +57,8 @@ export type Topic =
   | "final_pay"
   | "equal_pay"
   | "compensable_time"
-  | "hiring";
+  | "hiring"
+  | "workplace_protections";
 
 export const ALL_TOPICS: Topic[] = [
   "day_of_rest",
@@ -81,6 +82,7 @@ export const ALL_TOPICS: Topic[] = [
   "equal_pay",
   "compensable_time",
   "hiring",
+  "workplace_protections",
 ];
 
 export const ALL_STATES = [
@@ -346,6 +348,7 @@ const STATES_WITH_PERSONAL_LEAVE: StateCode[] = [...ALL_STATES]; // every state 
 
 const STATES_WITH_FINAL_PAY: StateCode[] = [...ALL_STATES]; // every state has a final paycheck rule (4 states: no statute, FLSA practice)
 const STATES_WITH_HIRING: StateCode[] = [...ALL_STATES]; // every state carries a wage-notice-at-hire rule (incl. explicit "none")
+const STATES_WITH_WORKPLACE_PROTECTIONS: StateCode[] = [...ALL_STATES]; // every state carries anti-discrimination, OSHA-authority and whistleblower rules
 const STATES_WITH_COMPENSABLE_TIME: StateCode[] = [...ALL_STATES]; // every state carries an hours-worked standard rule (FLSA by reference, own regulation, control test or no state law)
 const STATES_WITH_WAGE_PROTECTION: StateCode[] = [...ALL_STATES]; // pay frequency, deductions and equal pay rules for every state (no-law states carry explicit FLSA-only rules)
 
@@ -371,6 +374,7 @@ const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   equal_pay: STATES_WITH_WAGE_PROTECTION,
   compensable_time: STATES_WITH_COMPENSABLE_TIME,
   hiring: STATES_WITH_HIRING,
+  workplace_protections: STATES_WITH_WORKPLACE_PROTECTIONS,
 };
 
 // ─── Local (City/County) Coverage ──────────────────────────────────
@@ -543,6 +547,7 @@ export function matrixTopicFor(topic: string, obligation?: string): Topic | unde
     case "pay.wage_protection": return "equal_pay";
     case "pay.compensable_time": return "compensable_time";
     case "hiring.general": return "hiring";
+    case "protect.general": return "workplace_protections";
     case "leave.sick": return "sick_leave";
     case "leave.family_medical": return "family_medical_leave";
     case "leave.civic_emergency": return "civic_leave";
@@ -568,6 +573,7 @@ export const MATRIX_ROWS_BY_TOPIC_CODE: Record<string, readonly Topic[]> = {
   "pay.wage_protection": ["equal_pay"],
   "pay.compensable_time": ["compensable_time"],
   "hiring.general": ["hiring"],
+  "protect.general": ["workplace_protections"],
   "leave.sick": ["sick_leave"],
   "leave.family_medical": ["family_medical_leave"],
   "leave.civic_emergency": ["civic_leave"],

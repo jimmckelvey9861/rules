@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T01:11:32.098Z",
+  "generatedAt": "2026-10-31T01:28:15.199Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "6a5ba9e4f8bb426b",
+  "rulesVersion": "18d0d69b997eb9ae",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -3832,6 +3832,977 @@
       "hash": "26053aa5f95de478"
     },
     {
+      "id": "federal-title-vii",
+      "title": "Title VII of the Civil Rights Act: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1965-07-02",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "race, color, religion, sex (including pregnancy, sexual orientation and gender identity per Bostock), national origin",
+          "sexual_orientation_protected": true,
+          "gender_identity_protected": true,
+          "marital_status_protected": false
+        },
+        "summary": "Title VII of the Civil Rights Act applies to employers with 15+ employees and prohibits discrimination based on race, color, religion, sex (including pregnancy, sexual orientation and gender identity per Bostock), national origin.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000e-2",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+          "kind": "statute"
+        }
+      ],
+      "hash": "8364682768775784"
+    },
+    {
+      "id": "federal-ada",
+      "title": "Americans with Disabilities Act, Title I: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1992-07-26",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "disability; reasonable accommodation required absent undue hardship",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Americans with Disabilities Act, Title I applies to employers with 15+ employees and prohibits discrimination based on disability; reasonable accommodation required absent undue hardship.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 12112",
+          "url": "https://www.law.cornell.edu/uscode/text/42/12112",
+          "kind": "statute"
+        }
+      ],
+      "hash": "75d25fceb06f6ba9"
+    },
+    {
+      "id": "federal-adea",
+      "title": "Age Discrimination in Employment Act: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1968-06-12",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 20,
+          "protected_classes": "age 40 and over",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Age Discrimination in Employment Act applies to employers with 20+ employees and prohibits discrimination based on age 40 and over.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 623",
+          "url": "https://www.law.cornell.edu/uscode/text/29/623",
+          "kind": "statute"
+        }
+      ],
+      "hash": "5bc78823400b349c"
+    },
+    {
+      "id": "federal-pwfa",
+      "title": "Pregnant Workers Fairness Act: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-06-27",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "known limitations related to pregnancy, childbirth or related conditions; reasonable accommodation required",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Pregnant Workers Fairness Act applies to employers with 15+ employees and prohibits discrimination based on known limitations related to pregnancy, childbirth or related conditions; reasonable accommodation required.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000gg-1",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000gg-1",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b0463b8e14588160"
+    },
+    {
+      "id": "federal-gina",
+      "title": "Genetic Information Nondiscrimination Act, Title II: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2009-11-21",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "genetic information, including family medical history",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Genetic Information Nondiscrimination Act, Title II applies to employers with 15+ employees and prohibits discrimination based on genetic information, including family medical history.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000ff-1",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000ff-1",
+          "kind": "statute"
+        }
+      ],
+      "hash": "6f47af188a05f039"
+    },
+    {
+      "id": "federal-section-1981",
+      "title": "Civil Rights Act of 1866 (Section 1981): anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 1,
+          "protected_classes": "race and ethnicity in making and enforcing contracts, including employment; no employer-size floor",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Civil Rights Act of 1866 (Section 1981) applies to employers of any size and prohibits discrimination based on race and ethnicity in making and enforcing contracts, including employment; no employer-size floor.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 1981",
+          "url": "https://www.law.cornell.edu/uscode/text/42/1981",
+          "kind": "statute"
+        }
+      ],
+      "hash": "679e1c1364a00e3c"
+    },
+    {
+      "id": "federal-userra-discrimination",
+      "title": "USERRA anti-discrimination: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1994-10-13",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 1,
+          "protected_classes": "past, present or future uniformed service membership or obligations",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "USERRA anti-discrimination applies to employers of any size and prohibits discrimination based on past, present or future uniformed service membership or obligations.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. § 4311",
+          "url": "https://www.law.cornell.edu/uscode/text/38/4311",
+          "kind": "statute"
+        }
+      ],
+      "hash": "f18c4df1cfe5f723"
+    },
+    {
+      "id": "ca-fair-employment-coverage",
+      "title": "California: state anti-discrimination law coverage",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 5,
+          "protected_classes": "federal classes plus those in notes",
+          "sexual_orientation_protected": true,
+          "gender_identity_protected": true,
+          "marital_status_protected": true,
+          "notes": "Harassment liability reaches employers of any size. Also covers ancestry, medical condition, genetic information, military and veteran status, reproductive health decisions; age 40+."
+        },
+        "summary": "California's fair employment law covers employers with 5+ employees; sexual orientation is and gender identity is expressly protected. Harassment liability reaches employers of any size. Also covers ancestry, medical condition, genetic information, military and veteran status, reproductive health decisions; age 40+.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Gov. Code § 12940 (FEHA)",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "Justia, Employment Discrimination Laws: 50-State Survey",
+          "url": "https://www.justia.com/employment/employment-laws-50-state-surveys/employment-discrimination-laws-50-state-survey/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Workplace Fairness, Sexual Orientation and Gender Identity Discrimination: State Law",
+          "url": "https://www.workplacefairness.org/sexual-orientation-discrimination-state-law/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "7d857ef427774215"
+    },
+    {
+      "id": "ca-harassment-training",
+      "title": "California: sexual harassment prevention training (5+ employees)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2019-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.harassment_training",
+        "params": {
+          "min_employees": 5,
+          "audience": "all_employees",
+          "frequency": "every_2_years",
+          "supervisor_hours": 2,
+          "employee_hours": 1,
+          "new_hire_deadline": "within 6 months of hire or promotion; seasonal/temporary within 30 days or 100 hours",
+          "notes": "Interactive training; Civil Rights Department provides free online courses."
+        },
+        "summary": "California employers with 5+ employees must give 2 hours of interactive harassment prevention training to supervisors and 1 hour to other employees every two years, and within 6 months of hire or promotion.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Gov. Code § 12950.1",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12950.1.",
+          "kind": "statute"
+        },
+        {
+          "source": "Ethena, Harassment Training Requirements by City and State (2026)",
+          "url": "https://www.goethena.com/post/harassment-training-requirements-by-city-and-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "a56ce9bfe69d5530"
+    },
+    {
+      "id": "ca-harassment-policy",
+      "title": "California: written harassment prevention policy (all employers)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2016-04-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.harassment_policy",
+        "params": {
+          "min_employees": 1,
+          "form": "written_policy",
+          "distribution": "at hire, with signed acknowledgment, email, intranet or other tracked method; translated where 10%+ of workforce speaks another language",
+          "notes": "Policy must cover complaint process, investigation, confidentiality, no retaliation; CRD poster and pamphlet DFEH-185 also required."
+        },
+        "summary": "Every California employer must adopt and distribute a written harassment, discrimination and retaliation prevention policy with the elements listed in 2 CCR 11023.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Code Regs. tit. 2, § 11023",
+          "url": "https://www.law.cornell.edu/regulations/california/2-CCR-11023",
+          "kind": "regulation"
+        },
+        {
+          "source": "ADP, Which States Require a Written Harassment Prevention Policy",
+          "url": "https://sbshrs.adpinfo.com/blog/which-states-require-a-written-harassment-prevention-policy",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "2b282a30145dd3ec"
+    },
+    {
+      "id": "federal-osha-general-duty",
+      "title": "Federal OSHA: coverage and general duty clause",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1971-04-28",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.osha_authority",
+        "params": {
+          "authority": "federal_osha",
+          "agency": "U.S. Occupational Safety and Health Administration",
+          "notes": "Covers private employers in all states; the general duty clause requires a workplace free of recognized serious hazards. States with approved plans enforce their own standards (see state rules)."
+        },
+        "summary": "Private employers are covered by the OSH Act and must keep the workplace free of recognized hazards likely to cause death or serious harm.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 654",
+          "url": "https://www.law.cornell.edu/uscode/text/29/654",
+          "kind": "statute"
+        }
+      ],
+      "hash": "d324be04b1e3569d"
+    },
+    {
+      "id": "federal-osha-injury-recordkeeping",
+      "title": "Federal OSHA: injury and illness recordkeeping (11+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2002-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.injury_recordkeeping",
+        "params": {
+          "min_employees": 11,
+          "forms": "OSHA 300 log, 301 incident reports, 300A annual summary posted Feb 1 to Apr 30",
+          "exemptions": "Establishments in partially exempt low-hazard industries (Appendix A to Subpart B) need not keep the log; all employers must report fatalities within 8 hours and in-patient hospitalizations, amputations or eye losses within 24 hours.",
+          "electronic_submission": "Establishments with 20-249 employees in designated industries and 250+ employees submit 300A electronically; 100+ in designated industries also submit 300/301 data (since 2024)."
+        },
+        "summary": "Employers with 11+ employees (outside partially exempt industries) must keep OSHA 300 logs and post the 300A summary; every employer must report severe injuries.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. Part 1904",
+          "url": "https://www.law.cornell.edu/cfr/text/29/part-1904",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "75e253e446325c79"
+    },
+    {
+      "id": "ca-osha-authority",
+      "title": "California: workplace safety enforcement authority",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.osha_authority",
+        "params": {
+          "authority": "state_plan",
+          "agency": "Cal/OSHA (Division of Occupational Safety and Health)",
+          "notes": "State Plans may adopt stricter standards (heat, workplace violence, ergonomics, safety programs); see the state's other safety rules."
+        },
+        "summary": "California runs an OSHA-approved State Plan: private employers are inspected by Cal/OSHA (Division of Occupational Safety and Health) under state standards at least as effective as federal OSHA's.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 667",
+          "url": "https://www.law.cornell.edu/uscode/text/29/667",
+          "kind": "statute"
+        },
+        {
+          "source": "OSHA, State Plans: Frequently Asked Questions",
+          "url": "https://www.osha.gov/stateplans/faqs",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "fa8e6fc2ea60eba3"
+    },
+    {
+      "id": "ca-heat-illness-outdoor",
+      "title": "California: outdoor heat illness prevention",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2005-08-22",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.heat_illness",
+        "params": {
+          "scope": "outdoor",
+          "trigger_f": 80,
+          "high_heat_trigger_f": 95,
+          "water": "1 quart per employee per hour",
+          "rest": "shade at 80°F; 10-minute preventive cool-down rest every 2 hours at 95°F (agriculture)",
+          "acclimatization_days": 14,
+          "written_plan_required": true,
+          "training_required": true
+        },
+        "summary": "California outdoor employers must provide water, shade at 80°F, high-heat procedures at 95°F, acclimatization and a written heat illness prevention plan.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Code Regs. tit. 8, § 3395",
+          "url": "https://www.dir.ca.gov/title8/3395.html",
+          "kind": "regulation"
+        },
+        {
+          "source": "Certainty Software, State Heat Illness Standards in 2026",
+          "url": "https://www.certaintysoftware.com/state-heat-rules-exceed-osha-2026/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "6791f479db6c4b09"
+    },
+    {
+      "id": "ca-heat-illness-indoor",
+      "title": "California: indoor heat illness prevention",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2024-07-23",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.heat_illness",
+        "params": {
+          "scope": "indoor",
+          "trigger_f": 82,
+          "high_heat_trigger_f": 87,
+          "water": "fresh, cool drinking water",
+          "rest": "cool-down area kept below 82°F; preventive cool-down rest on request",
+          "written_plan_required": true,
+          "training_required": true,
+          "notes": "At 87°F (or 82°F with heavy clothing or radiant heat) employers must measure and record temperature and apply engineering or administrative controls."
+        },
+        "summary": "California indoor workplaces reaching 82°F must provide water, a cool-down area, training and a written plan; at 87°F controls and temperature records are required.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Code Regs. tit. 8, § 3396",
+          "url": "https://www.dir.ca.gov/title8/3396.html",
+          "kind": "regulation"
+        },
+        {
+          "source": "Certainty Software, State Heat Illness Standards in 2026",
+          "url": "https://www.certaintysoftware.com/state-heat-rules-exceed-osha-2026/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "6d2c0aed601fcacf"
+    },
+    {
+      "id": "ca-iipp",
+      "title": "California: Injury and Illness Prevention Program (all employers)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1991-07-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.safety_program",
+        "params": {
+          "program_required": true,
+          "committee_required": false,
+          "min_employees": 1,
+          "notes": "Written IIPP with responsibility, compliance, communication, hazard identification, investigation, correction, training and recordkeeping elements; employers with fewer than 10 employees may communicate orally and keep fewer records."
+        },
+        "summary": "Every California employer must maintain a written Injury and Illness Prevention Program.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Code Regs. tit. 8, § 3203",
+          "url": "https://www.dir.ca.gov/title8/3203.html",
+          "kind": "regulation"
+        },
+        {
+          "source": "OSHA, Safety and Health Programs in the States (summary)",
+          "url": "https://www.osha.gov/sites/default/files/Safety_and_Health_Programs_in_the_States_Summary.pdf",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f6cc3959799237b0"
+    },
+    {
+      "id": "ca-workplace-violence-prevention-plan",
+      "title": "California: workplace violence prevention plan (SB 553)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2024-07-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.workplace_violence",
+        "params": {
+          "plan_required": true,
+          "training": "at plan implementation, annually, and when new hazards or changes arise",
+          "incident_log_required": true,
+          "notes": "Exempts healthcare covered by § 3342, employees teleworking from a location of their choice, and workplaces not open to the public with fewer than 10 employees present at a time. Violent incident log kept 5 years."
+        },
+        "summary": "Nearly every California employer must keep a written workplace violence prevention plan, train employees annually and maintain a violent incident log.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code § 6401.9",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=6401.9.",
+          "kind": "statute"
+        },
+        {
+          "source": "Poster Compliance Center, Workplace Violence Laws: California and New York",
+          "url": "https://www.postercompliance.com/blog/workplace-violence-laws/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "fa7cffab0047a8cd"
+    },
+    {
+      "id": "federal-osha-11c-retaliation",
+      "title": "OSH Act § 11(c): retaliation for safety complaints prohibited",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1971-04-28",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "filing a safety or health complaint, participating in an inspection, refusing imminently dangerous work",
+          "min_employees": 1,
+          "complaint_window_days": 30,
+          "notes": "Complaints go to OSHA within 30 days; no private right of action."
+        },
+        "summary": "Employers may not discharge or discriminate against an employee for raising safety concerns or exercising OSH Act rights.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 660(c)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/660",
+          "kind": "statute"
+        }
+      ],
+      "hash": "bc430e0306696267"
+    },
+    {
+      "id": "federal-flsa-retaliation",
+      "title": "FLSA § 15(a)(3): retaliation for wage complaints prohibited",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "filing a wage-hour complaint, oral or written, internal or to the Department of Labor; testifying in an FLSA proceeding",
+          "min_employees": 1,
+          "notes": "Private right of action with back pay, liquidated damages and reinstatement."
+        },
+        "summary": "Employers may not retaliate against an employee for complaining about minimum wage or overtime violations.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 215(a)(3)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/215",
+          "kind": "statute"
+        }
+      ],
+      "hash": "3526f53701102dc9"
+    },
+    {
+      "id": "federal-title-vii-retaliation",
+      "title": "Title VII § 704(a): retaliation for opposing discrimination prohibited",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1965-07-02",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "opposing unlawful discrimination or participating in an EEOC charge, investigation or proceeding",
+          "min_employees": 15,
+          "notes": "Parallel provisions in the ADA (42 U.S.C. § 12203), ADEA (29 U.S.C. § 623(d)) and PWFA."
+        },
+        "summary": "Employers with 15+ employees may not retaliate against employees who oppose discrimination or take part in EEOC proceedings.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000e-3(a)",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-3",
+          "kind": "statute"
+        }
+      ],
+      "hash": "26c5a4cfc8c463c6"
+    },
+    {
+      "id": "federal-nlra-concerted-activity",
+      "title": "NLRA § 7: protected concerted activity",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "employees acting together about wages, hours or working conditions, including discussing pay and raising group complaints, union or not",
+          "min_employees": 1,
+          "notes": "Covers most private employers meeting NLRB jurisdictional thresholds; excludes supervisors, agricultural workers and independent contractors."
+        },
+        "summary": "Private employers may not discipline or restrain employees for concerted activity about working conditions, including discussing pay.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §§ 157-158",
+          "url": "https://www.law.cornell.edu/uscode/text/29/157",
+          "kind": "statute"
+        }
+      ],
+      "hash": "318c27660f796de9"
+    },
+    {
+      "id": "ca-whistleblower-protection",
+      "title": "California: whistleblower protection for private employees",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.whistleblower",
+        "params": {
+          "private_sector_coverage": "general_statute",
+          "notes": "Protects internal or external disclosure of a reasonably believed violation of law, refusal to participate in a violation, and family members; § 1102.6 shifts the burden to the employer; § 1102.8 posting required."
+        },
+        "summary": "California has a general whistleblower statute covering private employers. Protects internal or external disclosure of a reasonably believed violation of law, refusal to participate in a violation, and family members; § 1102.6 shifts the burden to the employer; § 1102.8 posting required.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code § 1102.5",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "Tate & Renner, State Whistleblower Law Chart",
+          "url": "https://www.taterenner.com/stchart.php",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "9ce44b1f5e9a0c5e"
+    },
+    {
       "id": "ca-meal-break-first-5hr",
       "title": "California First Meal Break (>5 hours)",
       "jurisdiction": "CA",
@@ -6958,6 +7929,520 @@
       ]
     },
     {
+      "code": "protect.anti_discrimination",
+      "name": "Anti-discrimination law coverage",
+      "description": "Which fair employment law reaches the employer, at what size, and which protected classes it adds beyond federal law.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "general",
+            "limited",
+            "none"
+          ],
+          "required": true,
+          "description": "general: a fair employment statute covering private employers; limited: only some classes or sectors; none: no state private-sector statute"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "protected_classes",
+          "type": "string",
+          "required": false,
+          "description": "Protected characteristics"
+        },
+        {
+          "name": "sexual_orientation_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether sexual orientation is expressly protected"
+        },
+        {
+          "name": "gender_identity_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether gender identity or expression is expressly protected"
+        },
+        {
+          "name": "marital_status_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether marital or familial status is protected"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Additional classes, thresholds that differ by claim type, and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair employment practices act",
+        "human rights act",
+        "FEPA",
+        "protected classes",
+        "EEO coverage",
+        "Title VII threshold"
+      ]
+    },
+    {
+      "code": "protect.anti_retaliation",
+      "name": "Anti-retaliation (federal employment statutes)",
+      "description": "Federal prohibitions on retaliating against employees who exercise rights under wage, safety, discrimination or labor law.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "protected_activity",
+          "type": "string",
+          "required": true,
+          "description": "What the employee may do without reprisal"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the statute attaches"
+        },
+        {
+          "name": "complaint_window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employee has to file a complaint with the agency"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Enforcement path and parallel provisions"
+        }
+      ],
+      "synonyms": [
+        "retaliation",
+        "11(c) complaint",
+        "protected concerted activity",
+        "section 7 rights",
+        "FLSA retaliation"
+      ]
+    },
+    {
+      "code": "protect.harassment_policy",
+      "name": "Harassment policy or notice mandate",
+      "description": "Whether the employer must adopt a written anti-harassment policy or deliver a harassment notice to employees, and how.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which the mandate attaches"
+        },
+        {
+          "name": "form",
+          "type": "enum",
+          "values": [
+            "written_policy",
+            "written_notice",
+            "notice"
+          ],
+          "required": true,
+          "description": "What must be adopted or delivered"
+        },
+        {
+          "name": "distribution",
+          "type": "string",
+          "required": false,
+          "description": "How and when it reaches employees"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Required contents and related posting duties"
+        }
+      ],
+      "synonyms": [
+        "sexual harassment policy",
+        "anti-harassment policy",
+        "harassment notice",
+        "model policy"
+      ]
+    },
+    {
+      "code": "protect.harassment_training",
+      "name": "Harassment prevention training mandate",
+      "description": "Whether the employer must train employees on sexual harassment prevention, who, how often and how long.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which the mandate attaches"
+        },
+        {
+          "name": "audience",
+          "type": "string",
+          "required": true,
+          "description": "Who must be trained"
+        },
+        {
+          "name": "frequency",
+          "type": "enum",
+          "values": [
+            "once",
+            "annual",
+            "every_2_years",
+            "every_10_years"
+          ],
+          "required": true,
+          "description": "How often training recurs"
+        },
+        {
+          "name": "supervisor_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Minimum hours for supervisors"
+        },
+        {
+          "name": "employee_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Minimum hours for non-supervisory employees"
+        },
+        {
+          "name": "new_hire_deadline",
+          "type": "string",
+          "required": false,
+          "description": "How soon after hire or promotion training is due"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Content standards, recordkeeping and industry add-ons"
+        }
+      ],
+      "synonyms": [
+        "sexual harassment training",
+        "SB 1343 training",
+        "harassment prevention training",
+        "bystander training"
+      ]
+    },
+    {
+      "code": "protect.heat_illness",
+      "name": "Heat illness prevention standard",
+      "description": "Whether a heat illness prevention standard applies, its temperature triggers and what it requires.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "scope",
+          "type": "enum",
+          "values": [
+            "outdoor",
+            "indoor",
+            "indoor_and_outdoor"
+          ],
+          "required": true,
+          "description": "Work settings covered"
+        },
+        {
+          "name": "trigger_f",
+          "type": "number",
+          "unit": "degrees_f",
+          "required": false,
+          "description": "Temperature (°F) at which the standard activates"
+        },
+        {
+          "name": "high_heat_trigger_f",
+          "type": "number",
+          "unit": "degrees_f",
+          "required": false,
+          "description": "Temperature (°F) at which high-heat procedures or mandatory rest apply"
+        },
+        {
+          "name": "water",
+          "type": "string",
+          "required": false,
+          "description": "Drinking water requirement"
+        },
+        {
+          "name": "rest",
+          "type": "string",
+          "required": false,
+          "description": "Shade, cool-down and rest-break requirements"
+        },
+        {
+          "name": "acclimatization_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Length of the acclimatization observation period"
+        },
+        {
+          "name": "written_plan_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a written heat illness prevention plan is required"
+        },
+        {
+          "name": "training_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether employee and supervisor training is required"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Industry limits, measurement duties and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "heat stress",
+        "heat standard",
+        "outdoor heat",
+        "indoor heat",
+        "cool-down rest",
+        "shade requirement"
+      ]
+    },
+    {
+      "code": "protect.injury_recordkeeping",
+      "name": "Injury and illness recordkeeping",
+      "description": "Whether the employer must keep OSHA injury logs and report severe injuries.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which log-keeping attaches"
+        },
+        {
+          "name": "forms",
+          "type": "string",
+          "required": false,
+          "description": "Required forms and posting"
+        },
+        {
+          "name": "exemptions",
+          "type": "string",
+          "required": false,
+          "description": "Industry exemptions and universal reporting duties"
+        },
+        {
+          "name": "electronic_submission",
+          "type": "string",
+          "required": false,
+          "description": "Electronic submission thresholds"
+        }
+      ],
+      "synonyms": [
+        "OSHA 300 log",
+        "OSHA 300A",
+        "injury log",
+        "recordable injury",
+        "severe injury reporting"
+      ]
+    },
+    {
+      "code": "protect.osha_authority",
+      "name": "Workplace safety enforcement authority",
+      "description": "Whether private employers in the jurisdiction answer to federal OSHA or an OSHA-approved State Plan.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "authority",
+          "type": "enum",
+          "values": [
+            "federal_osha",
+            "state_plan"
+          ],
+          "required": true,
+          "description": "Who enforces occupational safety for private employers"
+        },
+        {
+          "name": "agency",
+          "type": "string",
+          "required": false,
+          "description": "Enforcing agency"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Standards that apply and notable state additions"
+        }
+      ],
+      "synonyms": [
+        "OSHA state plan",
+        "Cal/OSHA",
+        "state OSHA",
+        "occupational safety jurisdiction"
+      ]
+    },
+    {
+      "code": "protect.safety_program",
+      "name": "Written safety program or safety committee",
+      "description": "Whether the employer must maintain a written safety and health program and/or a safety committee.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "program_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether a written safety and health program is required"
+        },
+        {
+          "name": "committee_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether a safety committee (or safety meetings) is required"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Program elements, meeting cadence and smaller-employer alternatives"
+        }
+      ],
+      "synonyms": [
+        "IIPP",
+        "injury and illness prevention program",
+        "accident prevention program",
+        "AWAIR",
+        "safety committee",
+        "written safety program"
+      ]
+    },
+    {
+      "code": "protect.whistleblower",
+      "name": "State whistleblower protection",
+      "description": "Whether state law protects private-sector employees who report violations of law or refuse to break it, and through what kind of law.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "private_sector_coverage",
+          "type": "enum",
+          "values": [
+            "general_statute",
+            "limited_statute",
+            "public_only_statute",
+            "common_law_only"
+          ],
+          "required": true,
+          "description": "general_statute: a general whistleblower statute covers private employers; limited_statute: only listed subjects or sectors; public_only_statute: statute covers government employees, private employees rely on common law; common_law_only: no statute"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Protected activity, procedural prerequisites and notable carve-outs"
+        }
+      ],
+      "synonyms": [
+        "whistleblower act",
+        "CEPA",
+        "retaliatory discharge",
+        "public policy exception",
+        "wrongful discharge",
+        "whistleblowing"
+      ]
+    },
+    {
+      "code": "protect.workplace_violence",
+      "name": "Workplace violence prevention",
+      "description": "Whether the employer must adopt a workplace violence prevention plan or policy, train employees and keep an incident log.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "plan_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether a written plan or policy is required"
+        },
+        {
+          "name": "training",
+          "type": "string",
+          "required": false,
+          "description": "When training is owed"
+        },
+        {
+          "name": "incident_log_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a violent incident log must be kept"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Coverage, exemptions and equipment duties such as panic buttons"
+        }
+      ],
+      "synonyms": [
+        "WVPP",
+        "SB 553",
+        "Retail Worker Safety Act",
+        "panic button",
+        "violent incident log",
+        "workplace violence plan"
+      ]
+    },
+    {
       "code": "rest.weekly_day_of_rest",
       "name": "Weekly day of rest",
       "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
@@ -7867,14 +9352,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1359,
-    "rulesIncluded": 92,
-    "excludedByProfile": 1260,
+    "rulesConsidered": 1569,
+    "rulesIncluded": 114,
+    "excludedByProfile": 1448,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 12
+    "fullyResolved": 21
   },
-  "checksum": "ea29567fd17e09e00f2c65474248c37ece77b1cf051a60848729e68c4051361f"
+  "checksum": "be9801439bbddccaef7d31d51d34fb892736ad72b4c293a2bd283336b85dc575"
 }

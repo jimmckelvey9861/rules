@@ -13,7 +13,8 @@
     "percent": "Percent",
     "hour_of_day": "Hour of the day, 0-24, local time",
     "employees": "Count of employees",
-    "miles": "Miles"
+    "miles": "Miles",
+    "degrees_f": "Degrees Fahrenheit"
   },
   "obligations": [
     {
@@ -803,6 +804,520 @@
         { "name": "notes", "type": "string", "required": false, "description": "Agency templates, exemptions and retention periods" }
       ],
       "synonyms": ["wage theft prevention act notice", "notice of pay rate", "new hire notice", "pay rate notice", "LS 54", "2810.5 notice"]
+    },
+    {
+      "code": "protect.anti_discrimination",
+      "name": "Anti-discrimination law coverage",
+      "description": "Which fair employment law reaches the employer, at what size, and which protected classes it adds beyond federal law.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "general",
+            "limited",
+            "none"
+          ],
+          "required": true,
+          "description": "general: a fair employment statute covering private employers; limited: only some classes or sectors; none: no state private-sector statute"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "protected_classes",
+          "type": "string",
+          "required": false,
+          "description": "Protected characteristics"
+        },
+        {
+          "name": "sexual_orientation_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether sexual orientation is expressly protected"
+        },
+        {
+          "name": "gender_identity_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether gender identity or expression is expressly protected"
+        },
+        {
+          "name": "marital_status_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether marital or familial status is protected"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Additional classes, thresholds that differ by claim type, and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair employment practices act",
+        "human rights act",
+        "FEPA",
+        "protected classes",
+        "EEO coverage",
+        "Title VII threshold"
+      ]
+    },
+    {
+      "code": "protect.harassment_training",
+      "name": "Harassment prevention training mandate",
+      "description": "Whether the employer must train employees on sexual harassment prevention, who, how often and how long.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which the mandate attaches"
+        },
+        {
+          "name": "audience",
+          "type": "string",
+          "required": true,
+          "description": "Who must be trained"
+        },
+        {
+          "name": "frequency",
+          "type": "enum",
+          "values": [
+            "once",
+            "annual",
+            "every_2_years",
+            "every_10_years"
+          ],
+          "required": true,
+          "description": "How often training recurs"
+        },
+        {
+          "name": "supervisor_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Minimum hours for supervisors"
+        },
+        {
+          "name": "employee_hours",
+          "type": "number",
+          "unit": "hours",
+          "required": false,
+          "description": "Minimum hours for non-supervisory employees"
+        },
+        {
+          "name": "new_hire_deadline",
+          "type": "string",
+          "required": false,
+          "description": "How soon after hire or promotion training is due"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Content standards, recordkeeping and industry add-ons"
+        }
+      ],
+      "synonyms": [
+        "sexual harassment training",
+        "SB 1343 training",
+        "harassment prevention training",
+        "bystander training"
+      ]
+    },
+    {
+      "code": "protect.harassment_policy",
+      "name": "Harassment policy or notice mandate",
+      "description": "Whether the employer must adopt a written anti-harassment policy or deliver a harassment notice to employees, and how.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which the mandate attaches"
+        },
+        {
+          "name": "form",
+          "type": "enum",
+          "values": [
+            "written_policy",
+            "written_notice",
+            "notice"
+          ],
+          "required": true,
+          "description": "What must be adopted or delivered"
+        },
+        {
+          "name": "distribution",
+          "type": "string",
+          "required": false,
+          "description": "How and when it reaches employees"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Required contents and related posting duties"
+        }
+      ],
+      "synonyms": [
+        "sexual harassment policy",
+        "anti-harassment policy",
+        "harassment notice",
+        "model policy"
+      ]
+    },
+    {
+      "code": "protect.osha_authority",
+      "name": "Workplace safety enforcement authority",
+      "description": "Whether private employers in the jurisdiction answer to federal OSHA or an OSHA-approved State Plan.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "authority",
+          "type": "enum",
+          "values": [
+            "federal_osha",
+            "state_plan"
+          ],
+          "required": true,
+          "description": "Who enforces occupational safety for private employers"
+        },
+        {
+          "name": "agency",
+          "type": "string",
+          "required": false,
+          "description": "Enforcing agency"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Standards that apply and notable state additions"
+        }
+      ],
+      "synonyms": [
+        "OSHA state plan",
+        "Cal/OSHA",
+        "state OSHA",
+        "occupational safety jurisdiction"
+      ]
+    },
+    {
+      "code": "protect.injury_recordkeeping",
+      "name": "Injury and illness recordkeeping",
+      "description": "Whether the employer must keep OSHA injury logs and report severe injuries.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which log-keeping attaches"
+        },
+        {
+          "name": "forms",
+          "type": "string",
+          "required": false,
+          "description": "Required forms and posting"
+        },
+        {
+          "name": "exemptions",
+          "type": "string",
+          "required": false,
+          "description": "Industry exemptions and universal reporting duties"
+        },
+        {
+          "name": "electronic_submission",
+          "type": "string",
+          "required": false,
+          "description": "Electronic submission thresholds"
+        }
+      ],
+      "synonyms": [
+        "OSHA 300 log",
+        "OSHA 300A",
+        "injury log",
+        "recordable injury",
+        "severe injury reporting"
+      ]
+    },
+    {
+      "code": "protect.heat_illness",
+      "name": "Heat illness prevention standard",
+      "description": "Whether a heat illness prevention standard applies, its temperature triggers and what it requires.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "scope",
+          "type": "enum",
+          "values": [
+            "outdoor",
+            "indoor",
+            "indoor_and_outdoor"
+          ],
+          "required": true,
+          "description": "Work settings covered"
+        },
+        {
+          "name": "trigger_f",
+          "type": "number",
+          "unit": "degrees_f",
+          "required": false,
+          "description": "Temperature (°F) at which the standard activates"
+        },
+        {
+          "name": "high_heat_trigger_f",
+          "type": "number",
+          "unit": "degrees_f",
+          "required": false,
+          "description": "Temperature (°F) at which high-heat procedures or mandatory rest apply"
+        },
+        {
+          "name": "water",
+          "type": "string",
+          "required": false,
+          "description": "Drinking water requirement"
+        },
+        {
+          "name": "rest",
+          "type": "string",
+          "required": false,
+          "description": "Shade, cool-down and rest-break requirements"
+        },
+        {
+          "name": "acclimatization_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Length of the acclimatization observation period"
+        },
+        {
+          "name": "written_plan_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a written heat illness prevention plan is required"
+        },
+        {
+          "name": "training_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether employee and supervisor training is required"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Industry limits, measurement duties and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "heat stress",
+        "heat standard",
+        "outdoor heat",
+        "indoor heat",
+        "cool-down rest",
+        "shade requirement"
+      ]
+    },
+    {
+      "code": "protect.safety_program",
+      "name": "Written safety program or safety committee",
+      "description": "Whether the employer must maintain a written safety and health program and/or a safety committee.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "program_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether a written safety and health program is required"
+        },
+        {
+          "name": "committee_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether a safety committee (or safety meetings) is required"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Program elements, meeting cadence and smaller-employer alternatives"
+        }
+      ],
+      "synonyms": [
+        "IIPP",
+        "injury and illness prevention program",
+        "accident prevention program",
+        "AWAIR",
+        "safety committee",
+        "written safety program"
+      ]
+    },
+    {
+      "code": "protect.workplace_violence",
+      "name": "Workplace violence prevention",
+      "description": "Whether the employer must adopt a workplace violence prevention plan or policy, train employees and keep an incident log.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "plan_required",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether a written plan or policy is required"
+        },
+        {
+          "name": "training",
+          "type": "string",
+          "required": false,
+          "description": "When training is owed"
+        },
+        {
+          "name": "incident_log_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a violent incident log must be kept"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Coverage, exemptions and equipment duties such as panic buttons"
+        }
+      ],
+      "synonyms": [
+        "WVPP",
+        "SB 553",
+        "Retail Worker Safety Act",
+        "panic button",
+        "violent incident log",
+        "workplace violence plan"
+      ]
+    },
+    {
+      "code": "protect.anti_retaliation",
+      "name": "Anti-retaliation (federal employment statutes)",
+      "description": "Federal prohibitions on retaliating against employees who exercise rights under wage, safety, discrimination or labor law.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "protected_activity",
+          "type": "string",
+          "required": true,
+          "description": "What the employee may do without reprisal"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the statute attaches"
+        },
+        {
+          "name": "complaint_window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employee has to file a complaint with the agency"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Enforcement path and parallel provisions"
+        }
+      ],
+      "synonyms": [
+        "retaliation",
+        "11(c) complaint",
+        "protected concerted activity",
+        "section 7 rights",
+        "FLSA retaliation"
+      ]
+    },
+    {
+      "code": "protect.whistleblower",
+      "name": "State whistleblower protection",
+      "description": "Whether state law protects private-sector employees who report violations of law or refuse to break it, and through what kind of law.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "private_sector_coverage",
+          "type": "enum",
+          "values": [
+            "general_statute",
+            "limited_statute",
+            "public_only_statute",
+            "common_law_only"
+          ],
+          "required": true,
+          "description": "general_statute: a general whistleblower statute covers private employers; limited_statute: only listed subjects or sectors; public_only_statute: statute covers government employees, private employees rely on common law; common_law_only: no statute"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Protected activity, procedural prerequisites and notable carve-outs"
+        }
+      ],
+      "synonyms": [
+        "whistleblower act",
+        "CEPA",
+        "retaliatory discharge",
+        "public policy exception",
+        "wrongful discharge",
+        "whistleblowing"
+      ]
     }
   ]
 }

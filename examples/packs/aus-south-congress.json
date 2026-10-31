@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T01:11:32.100Z",
+  "generatedAt": "2026-10-31T01:28:15.202Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "6a5ba9e4f8bb426b",
+  "rulesVersion": "18d0d69b997eb9ae",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -2295,6 +2295,701 @@
       "hash": "fefda2de30f68810"
     },
     {
+      "id": "federal-title-vii",
+      "title": "Title VII of the Civil Rights Act: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1965-07-02",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "race, color, religion, sex (including pregnancy, sexual orientation and gender identity per Bostock), national origin",
+          "sexual_orientation_protected": true,
+          "gender_identity_protected": true,
+          "marital_status_protected": false
+        },
+        "summary": "Title VII of the Civil Rights Act applies to employers with 15+ employees and prohibits discrimination based on race, color, religion, sex (including pregnancy, sexual orientation and gender identity per Bostock), national origin.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000e-2",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+          "kind": "statute"
+        }
+      ],
+      "hash": "8364682768775784"
+    },
+    {
+      "id": "federal-ada",
+      "title": "Americans with Disabilities Act, Title I: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1992-07-26",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "disability; reasonable accommodation required absent undue hardship",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Americans with Disabilities Act, Title I applies to employers with 15+ employees and prohibits discrimination based on disability; reasonable accommodation required absent undue hardship.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 12112",
+          "url": "https://www.law.cornell.edu/uscode/text/42/12112",
+          "kind": "statute"
+        }
+      ],
+      "hash": "75d25fceb06f6ba9"
+    },
+    {
+      "id": "federal-adea",
+      "title": "Age Discrimination in Employment Act: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1968-06-12",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 20,
+          "protected_classes": "age 40 and over",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Age Discrimination in Employment Act applies to employers with 20+ employees and prohibits discrimination based on age 40 and over.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 623",
+          "url": "https://www.law.cornell.edu/uscode/text/29/623",
+          "kind": "statute"
+        }
+      ],
+      "hash": "5bc78823400b349c"
+    },
+    {
+      "id": "federal-pwfa",
+      "title": "Pregnant Workers Fairness Act: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-06-27",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "known limitations related to pregnancy, childbirth or related conditions; reasonable accommodation required",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Pregnant Workers Fairness Act applies to employers with 15+ employees and prohibits discrimination based on known limitations related to pregnancy, childbirth or related conditions; reasonable accommodation required.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000gg-1",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000gg-1",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b0463b8e14588160"
+    },
+    {
+      "id": "federal-gina",
+      "title": "Genetic Information Nondiscrimination Act, Title II: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2009-11-21",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "genetic information, including family medical history",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Genetic Information Nondiscrimination Act, Title II applies to employers with 15+ employees and prohibits discrimination based on genetic information, including family medical history.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000ff-1",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000ff-1",
+          "kind": "statute"
+        }
+      ],
+      "hash": "6f47af188a05f039"
+    },
+    {
+      "id": "federal-section-1981",
+      "title": "Civil Rights Act of 1866 (Section 1981): anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 1,
+          "protected_classes": "race and ethnicity in making and enforcing contracts, including employment; no employer-size floor",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "Civil Rights Act of 1866 (Section 1981) applies to employers of any size and prohibits discrimination based on race and ethnicity in making and enforcing contracts, including employment; no employer-size floor.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 1981",
+          "url": "https://www.law.cornell.edu/uscode/text/42/1981",
+          "kind": "statute"
+        }
+      ],
+      "hash": "679e1c1364a00e3c"
+    },
+    {
+      "id": "federal-userra-discrimination",
+      "title": "USERRA anti-discrimination: anti-discrimination coverage",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1994-10-13",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 1,
+          "protected_classes": "past, present or future uniformed service membership or obligations",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false
+        },
+        "summary": "USERRA anti-discrimination applies to employers of any size and prohibits discrimination based on past, present or future uniformed service membership or obligations.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "38 U.S.C. § 4311",
+          "url": "https://www.law.cornell.edu/uscode/text/38/4311",
+          "kind": "statute"
+        }
+      ],
+      "hash": "f18c4df1cfe5f723"
+    },
+    {
+      "id": "tx-fair-employment-coverage",
+      "title": "Texas: state anti-discrimination law coverage",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "protect.general.discrimination",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.anti_discrimination",
+        "params": {
+          "coverage": "general",
+          "min_employees": 15,
+          "protected_classes": "federal classes plus those in notes",
+          "sexual_orientation_protected": false,
+          "gender_identity_protected": false,
+          "marital_status_protected": false,
+          "notes": "Also covers genetic information; age 40+."
+        },
+        "summary": "Texas's fair employment law covers employers with 15+ employees; sexual orientation is not and gender identity is not expressly protected. Also covers genetic information; age 40+.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code § 21.051",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Justia, Employment Discrimination Laws: 50-State Survey",
+          "url": "https://www.justia.com/employment/employment-laws-50-state-surveys/employment-discrimination-laws-50-state-survey/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Workplace Fairness, Sexual Orientation and Gender Identity Discrimination: State Law",
+          "url": "https://www.workplacefairness.org/sexual-orientation-discrimination-state-law/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "e8fb6791f040a64d"
+    },
+    {
+      "id": "federal-osha-general-duty",
+      "title": "Federal OSHA: coverage and general duty clause",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1971-04-28",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.osha_authority",
+        "params": {
+          "authority": "federal_osha",
+          "agency": "U.S. Occupational Safety and Health Administration",
+          "notes": "Covers private employers in all states; the general duty clause requires a workplace free of recognized serious hazards. States with approved plans enforce their own standards (see state rules)."
+        },
+        "summary": "Private employers are covered by the OSH Act and must keep the workplace free of recognized hazards likely to cause death or serious harm.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 654",
+          "url": "https://www.law.cornell.edu/uscode/text/29/654",
+          "kind": "statute"
+        }
+      ],
+      "hash": "d324be04b1e3569d"
+    },
+    {
+      "id": "federal-osha-injury-recordkeeping",
+      "title": "Federal OSHA: injury and illness recordkeeping (11+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2002-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.injury_recordkeeping",
+        "params": {
+          "min_employees": 11,
+          "forms": "OSHA 300 log, 301 incident reports, 300A annual summary posted Feb 1 to Apr 30",
+          "exemptions": "Establishments in partially exempt low-hazard industries (Appendix A to Subpart B) need not keep the log; all employers must report fatalities within 8 hours and in-patient hospitalizations, amputations or eye losses within 24 hours.",
+          "electronic_submission": "Establishments with 20-249 employees in designated industries and 250+ employees submit 300A electronically; 100+ in designated industries also submit 300/301 data (since 2024)."
+        },
+        "summary": "Employers with 11+ employees (outside partially exempt industries) must keep OSHA 300 logs and post the 300A summary; every employer must report severe injuries.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 C.F.R. Part 1904",
+          "url": "https://www.law.cornell.edu/cfr/text/29/part-1904",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "75e253e446325c79"
+    },
+    {
+      "id": "tx-osha-authority",
+      "title": "Texas: workplace safety enforcement authority",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "protect.general.safety",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.osha_authority",
+        "params": {
+          "authority": "federal_osha",
+          "agency": "Federal OSHA",
+          "notes": "Federal standards (29 C.F.R. Parts 1904, 1910, 1926) apply."
+        },
+        "summary": "Texas has no State Plan; private employers are covered directly by federal OSHA.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 667",
+          "url": "https://www.law.cornell.edu/uscode/text/29/667",
+          "kind": "statute"
+        },
+        {
+          "source": "OSHA, State Plans: Frequently Asked Questions",
+          "url": "https://www.osha.gov/stateplans/faqs",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "225f017f46478368"
+    },
+    {
+      "id": "federal-osha-11c-retaliation",
+      "title": "OSH Act § 11(c): retaliation for safety complaints prohibited",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1971-04-28",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "filing a safety or health complaint, participating in an inspection, refusing imminently dangerous work",
+          "min_employees": 1,
+          "complaint_window_days": 30,
+          "notes": "Complaints go to OSHA within 30 days; no private right of action."
+        },
+        "summary": "Employers may not discharge or discriminate against an employee for raising safety concerns or exercising OSH Act rights.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 660(c)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/660",
+          "kind": "statute"
+        }
+      ],
+      "hash": "bc430e0306696267"
+    },
+    {
+      "id": "federal-flsa-retaliation",
+      "title": "FLSA § 15(a)(3): retaliation for wage complaints prohibited",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "filing a wage-hour complaint, oral or written, internal or to the Department of Labor; testifying in an FLSA proceeding",
+          "min_employees": 1,
+          "notes": "Private right of action with back pay, liquidated damages and reinstatement."
+        },
+        "summary": "Employers may not retaliate against an employee for complaining about minimum wage or overtime violations.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. § 215(a)(3)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/215",
+          "kind": "statute"
+        }
+      ],
+      "hash": "3526f53701102dc9"
+    },
+    {
+      "id": "federal-title-vii-retaliation",
+      "title": "Title VII § 704(a): retaliation for opposing discrimination prohibited",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1965-07-02",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "opposing unlawful discrimination or participating in an EEOC charge, investigation or proceeding",
+          "min_employees": 15,
+          "notes": "Parallel provisions in the ADA (42 U.S.C. § 12203), ADEA (29 U.S.C. § 623(d)) and PWFA."
+        },
+        "summary": "Employers with 15+ employees may not retaliate against employees who oppose discrimination or take part in EEOC proceedings.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "42 U.S.C. § 2000e-3(a)",
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-3",
+          "kind": "statute"
+        }
+      ],
+      "hash": "26c5a4cfc8c463c6"
+    },
+    {
+      "id": "federal-nlra-concerted-activity",
+      "title": "NLRA § 7: protected concerted activity",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "prohibition",
+        "obligation": "protect.anti_retaliation",
+        "params": {
+          "protected_activity": "employees acting together about wages, hours or working conditions, including discussing pay and raising group complaints, union or not",
+          "min_employees": 1,
+          "notes": "Covers most private employers meeting NLRB jurisdictional thresholds; excludes supervisors, agricultural workers and independent contractors."
+        },
+        "summary": "Private employers may not discipline or restrain employees for concerted activity about working conditions, including discussing pay.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §§ 157-158",
+          "url": "https://www.law.cornell.edu/uscode/text/29/157",
+          "kind": "statute"
+        }
+      ],
+      "hash": "318c27660f796de9"
+    },
+    {
+      "id": "tx-whistleblower-protection",
+      "title": "Texas: whistleblower protection for private employees",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "protect.general.retaliation",
+      "topicCode": "protect.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "protect.whistleblower",
+        "params": {
+          "private_sector_coverage": "public_only_statute",
+          "notes": "Whistleblower Act covers public employees; private employees have only the Sabine Pilot exception (discharge solely for refusing to commit a crime) and subject-specific statutes."
+        },
+        "summary": "Texas's whistleblower statute covers public employees only; private employees rely on common law. Whistleblower Act covers public employees; private employees have only the Sabine Pilot exception (discharge solely for refusing to commit a crime) and subject-specific statutes.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Gov't Code ch. 554",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Tate & Renner, State Whistleblower Law Chart",
+          "url": "https://www.taterenner.com/stchart.php",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f1b107f7d38cc9bc"
+    },
+    {
       "id": "federal-lactation-break-pump-act",
       "title": "Federal Lactation Break Time (PUMP Act)",
       "jurisdiction": "Federal",
@@ -3535,6 +4230,237 @@
       ]
     },
     {
+      "code": "protect.anti_discrimination",
+      "name": "Anti-discrimination law coverage",
+      "description": "Which fair employment law reaches the employer, at what size, and which protected classes it adds beyond federal law.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "general",
+            "limited",
+            "none"
+          ],
+          "required": true,
+          "description": "general: a fair employment statute covering private employers; limited: only some classes or sectors; none: no state private-sector statute"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "protected_classes",
+          "type": "string",
+          "required": false,
+          "description": "Protected characteristics"
+        },
+        {
+          "name": "sexual_orientation_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether sexual orientation is expressly protected"
+        },
+        {
+          "name": "gender_identity_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether gender identity or expression is expressly protected"
+        },
+        {
+          "name": "marital_status_protected",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether marital or familial status is protected"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Additional classes, thresholds that differ by claim type, and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair employment practices act",
+        "human rights act",
+        "FEPA",
+        "protected classes",
+        "EEO coverage",
+        "Title VII threshold"
+      ]
+    },
+    {
+      "code": "protect.anti_retaliation",
+      "name": "Anti-retaliation (federal employment statutes)",
+      "description": "Federal prohibitions on retaliating against employees who exercise rights under wage, safety, discrimination or labor law.",
+      "behaviors": [
+        "prohibition"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "protected_activity",
+          "type": "string",
+          "required": true,
+          "description": "What the employee may do without reprisal"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the statute attaches"
+        },
+        {
+          "name": "complaint_window_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days the employee has to file a complaint with the agency"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Enforcement path and parallel provisions"
+        }
+      ],
+      "synonyms": [
+        "retaliation",
+        "11(c) complaint",
+        "protected concerted activity",
+        "section 7 rights",
+        "FLSA retaliation"
+      ]
+    },
+    {
+      "code": "protect.injury_recordkeeping",
+      "name": "Injury and illness recordkeeping",
+      "description": "Whether the employer must keep OSHA injury logs and report severe injuries.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which log-keeping attaches"
+        },
+        {
+          "name": "forms",
+          "type": "string",
+          "required": false,
+          "description": "Required forms and posting"
+        },
+        {
+          "name": "exemptions",
+          "type": "string",
+          "required": false,
+          "description": "Industry exemptions and universal reporting duties"
+        },
+        {
+          "name": "electronic_submission",
+          "type": "string",
+          "required": false,
+          "description": "Electronic submission thresholds"
+        }
+      ],
+      "synonyms": [
+        "OSHA 300 log",
+        "OSHA 300A",
+        "injury log",
+        "recordable injury",
+        "severe injury reporting"
+      ]
+    },
+    {
+      "code": "protect.osha_authority",
+      "name": "Workplace safety enforcement authority",
+      "description": "Whether private employers in the jurisdiction answer to federal OSHA or an OSHA-approved State Plan.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "authority",
+          "type": "enum",
+          "values": [
+            "federal_osha",
+            "state_plan"
+          ],
+          "required": true,
+          "description": "Who enforces occupational safety for private employers"
+        },
+        {
+          "name": "agency",
+          "type": "string",
+          "required": false,
+          "description": "Enforcing agency"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Standards that apply and notable state additions"
+        }
+      ],
+      "synonyms": [
+        "OSHA state plan",
+        "Cal/OSHA",
+        "state OSHA",
+        "occupational safety jurisdiction"
+      ]
+    },
+    {
+      "code": "protect.whistleblower",
+      "name": "State whistleblower protection",
+      "description": "Whether state law protects private-sector employees who report violations of law or refuse to break it, and through what kind of law.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "private_sector_coverage",
+          "type": "enum",
+          "values": [
+            "general_statute",
+            "limited_statute",
+            "public_only_statute",
+            "common_law_only"
+          ],
+          "required": true,
+          "description": "general_statute: a general whistleblower statute covers private employers; limited_statute: only listed subjects or sectors; public_only_statute: statute covers government employees, private employees rely on common law; common_law_only: no statute"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Protected activity, procedural prerequisites and notable carve-outs"
+        }
+      ],
+      "synonyms": [
+        "whistleblower act",
+        "CEPA",
+        "retaliatory discharge",
+        "public policy exception",
+        "wrongful discharge",
+        "whistleblowing"
+      ]
+    },
+    {
       "code": "rest.weekly_day_of_rest",
       "name": "Weekly day of rest",
       "description": "The employee must get a day (24 consecutive hours) of rest in each week or run of consecutive days.",
@@ -4006,14 +4932,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1359,
-    "rulesIncluded": 44,
-    "excludedByProfile": 1308,
+    "rulesConsidered": 1569,
+    "rulesIncluded": 60,
+    "excludedByProfile": 1502,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 4
+    "fullyResolved": 7
   },
-  "checksum": "2ae7136e924beb4b15acea9fc8d5494ae4007517a1541dde839c64706860c64f"
+  "checksum": "84e6a07c614099d24bfc9fb5334446d3adb3cfca9cf25117b708f748b8721687"
 }
