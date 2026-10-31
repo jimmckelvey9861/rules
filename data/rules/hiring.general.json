@@ -1,0 +1,4602 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "hiring.general",
+  "rules": [
+    {
+      "id": "al-wage-notice-at-hire",
+      "title": "Alabama \u2014 Wage Notice at Hire",
+      "jurisdiction": "AL",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Alabama requires no individual wage notice at hire; only the federal and state minimum wage posters apply."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7516.4 (FLSA poster requirement)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.4",
+          "section": "\u00a7516.4",
+          "kind": "regulation"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ky-wage-notice-at-hire",
+      "title": "Kentucky \u2014 Wage Notice at Hire",
+      "jurisdiction": "KY",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Kentucky requires no individual wage notice at hire; only the federal and state minimum wage posters apply."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7516.4 (FLSA poster requirement)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.4",
+          "section": "\u00a7516.4",
+          "kind": "regulation"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-wage-notice-at-hire",
+      "title": "Mississippi \u2014 Wage Notice at Hire",
+      "jurisdiction": "MS",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Mississippi requires no individual wage notice at hire; only the federal and state minimum wage posters apply."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7516.4 (FLSA poster requirement)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/516.4",
+          "section": "\u00a7516.4",
+          "kind": "regulation"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-wage-notice-at-hire",
+      "title": "Alaska \u2014 Wage Notice at Hire",
+      "jurisdiction": "AK",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "rate of pay; day and place of payment",
+          "change_notice": "on the payday before the change"
+        },
+        "summary": "Employers must notify new hires, in writing or by posting, of the rate of pay and the day and place of payment, and announce changes by the payday before they take effect."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.05.160",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.05.160",
+          "section": "\u00a723.05.160",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "az-wage-notice-at-hire",
+      "title": "Arizona \u2014 Wage Notice at Hire",
+      "jurisdiction": "AZ",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "notes": "Sick-time poster in English, Spanish and Commission-designated languages"
+        },
+        "summary": "Arizona requires no general pay-term notice; employers must post the earned paid sick time notice and give tipped employees written tip-credit notice."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-364(D)",
+          "url": "https://www.azleg.gov/ars/23/00364.htm",
+          "section": "\u00a723-364(D)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-wage-notice-at-hire",
+      "title": "Arkansas \u2014 Wage Notice at Hire",
+      "jurisdiction": "AR",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Arkansas requires no individual wage notice; the minimum wage summary must be posted and any tip credit disclosed in writing."
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a711-4-201",
+          "url": "https://law.justia.com/codes/arkansas/title-11/chapter-4/subchapter-2/section-11-4-201/",
+          "section": "\u00a711-4-201",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-wage-notice-at-hire",
+      "title": "California \u2014 Wage Notice at Hire",
+      "jurisdiction": "CA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate(s) and basis; overtime rates; payday; allowances; employer legal and DBA names, address, phone; workers' comp carrier; paid sick leave; emergency declarations",
+          "language_requirement": "language the employer normally uses for employment communications (Labor Commissioner templates)",
+          "change_notice": "written notice within 7 calendar days unless shown on a timely wage statement",
+          "acknowledgment_required": false,
+          "notes": "Wage Theft Prevention Act of 2011; exempt employees and public employers excluded"
+        },
+        "summary": "Non-exempt new hires must receive a written notice of pay rate and basis, overtime rates, payday, allowances, employer names and addresses, workers' compensation carrier and paid sick leave rights; changes must be noticed within 7 days."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a72810.5",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2810.5.&lawCode=LAB",
+          "section": "\u00a72810.5",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-wage-notice-at-hire",
+      "title": "Colorado \u2014 Wage Notice at Hire",
+      "jurisdiction": "CO",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "posting_only",
+          "contents": "payday and place of payment (posted); HFWA sick leave and FAMLI notices",
+          "language_requirement": "HFWA notice in English and any language spoken by 5% or more of the workforce"
+        },
+        "summary": "Colorado requires posting of the regular payday and place of payment plus individual Healthy Families and Workplaces Act and FAMLI notices; no individual pay-rate notice."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-4-107",
+          "url": "https://law.justia.com/codes/colorado/title-8/labor-i-department-of-labor-and-employment/article-4/part-1/section-8-4-107/",
+          "section": "\u00a78-4-107",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-wage-notice-at-hire",
+      "title": "Connecticut \u2014 Wage Notice at Hire",
+      "jurisdiction": "CT",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate of remuneration; hours of employment; wage payment schedule; employment practices and policies on wages, vacation, sick leave and benefits",
+          "change_notice": "policy changes in writing or by accessible posting"
+        },
+        "summary": "Employers must advise each new hire in writing of the rate of pay, hours and wage payment schedule, and make wage and benefit policies available in writing or by posting."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-71f",
+          "url": "https://law.justia.com/codes/connecticut/title-31/chapter-558/section-31-71f/",
+          "section": "\u00a731-71f",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-wage-notice-at-hire",
+      "title": "Delaware \u2014 Wage Notice at Hire",
+      "jurisdiction": "DE",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "rate of pay; day, hour and place of payment",
+          "change_notice": "before any reduction, in writing or by posting"
+        },
+        "summary": "Employers of more than three must notify new hires of the rate of pay and the day, hour and place of payment, in writing or by posting, and give notice before reducing pay."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a71108",
+          "url": "https://delcode.delaware.gov/title19/c011/sc01/index.html",
+          "section": "\u00a71108",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "dc-wage-notice-at-hire",
+      "title": "District of Columbia \u2014 Wage Notice at Hire",
+      "jurisdiction": "DC",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2015-02-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate and basis; allowances; overtime rate or exemption; living and prevailing wage status; payday; tip-sharing policy; employer legal and DBA names, address, phone",
+          "language_requirement": "English plus the employee's primary language where the Mayor has a translated template",
+          "change_notice": "updated notice within 30 days of a change",
+          "acknowledgment_required": true
+        },
+        "summary": "Employers must give each new hire a signed written notice of rate and basis of pay, allowances, overtime status, living/prevailing wage status, payday, tip-sharing policy and employer names and addresses, and an updated notice within 30 days of a change."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1008(c)",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1008",
+          "section": "\u00a732-1008(c)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-wage-notice-at-hire",
+      "title": "Florida \u2014 Wage Notice at Hire",
+      "jurisdiction": "FL",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "posting_only"
+        },
+        "summary": "Florida requires only the state minimum wage poster; no individual wage notice."
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7448.109",
+          "url": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0400-0499/0448/Sections/0448.109.html",
+          "section": "\u00a7448.109",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-wage-notice-at-hire",
+      "title": "Georgia \u2014 Wage Notice at Hire",
+      "jurisdiction": "GA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Georgia requires no wage notice at hire beyond payroll-card fee disclosure where cards are used."
+      },
+      "citations": [
+        {
+          "source": "O.C.G.A. \u00a734-7-2(c)",
+          "url": "https://law.justia.com/codes/georgia/title-34/chapter-7/article-1/section-34-7-2/",
+          "section": "\u00a734-7-2(c)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-wage-notice-at-hire",
+      "title": "Hawaii \u2014 Wage Notice at Hire",
+      "jurisdiction": "HI",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "rate of pay; day, hour and place of payment",
+          "change_notice": "before the change, in writing or by posting"
+        },
+        "summary": "Employers must notify new hires, in writing or by posting, of the rate of pay and the day, hour and place of payment, and give notice before any change."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7388-7(1)",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0388/HRS_0388-0007.htm",
+          "section": "\u00a7388-7(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "id-wage-notice-at-hire",
+      "title": "Idaho \u2014 Wage Notice at Hire",
+      "jurisdiction": "ID",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "on_request",
+          "change_notice": "reduction noticed before the work is performed"
+        },
+        "summary": "Idaho employers must furnish the rate of pay and usual payday on the employee's request and give written notice of a reduction before the lower-rate work is performed."
+      },
+      "citations": [
+        {
+          "source": "Idaho Code \u00a745-610",
+          "url": "https://legislature.idaho.gov/statutesrules/idstat/Title45/T45CH6/SECT45-610/",
+          "section": "\u00a745-610",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-wage-notice-at-hire",
+      "title": "Illinois \u2014 Wage Notice at Hire",
+      "jurisdiction": "IL",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate of pay (all compensation); time and place of payment",
+          "change_notice": "in writing before the effective date",
+          "acknowledgment_required": true,
+          "notes": "56 Ill. Adm. Code 300.630"
+        },
+        "summary": "Employers must notify each new hire in writing of the rate of pay and the time and place of payment, acknowledged by both parties where possible, and give written notice of changes before they take effect."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 115/10",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001150K10",
+          "section": "115/10",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-wage-notice-at-hire",
+      "title": "Indiana \u2014 Wage Notice at Hire",
+      "jurisdiction": "IN",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Indiana requires no wage notice at hire; a pay statement each pay period and the minimum wage poster are required."
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a722-2-2-8",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/22#22-2-2-8",
+          "section": "\u00a722-2-2-8",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-wage-notice-at-hire",
+      "title": "Iowa \u2014 Wage Notice at Hire",
+      "jurisdiction": "IA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "change_notice": "at least one pay period before a reduction or payday change"
+        },
+        "summary": "Employers must notify employees in writing or by posting of designated wages and regular paydays at least one pay period before any reduction or payday change (the hire notice duty is triggered after a wage claim)."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a791A.6(1)",
+          "url": "https://www.legis.iowa.gov/docs/code/91A.6.pdf",
+          "section": "\u00a791A.6(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-wage-notice-at-hire",
+      "title": "Kansas \u2014 Wage Notice at Hire",
+      "jurisdiction": "KS",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "on_request"
+        },
+        "summary": "Kansas employers must disclose the rate of pay and day and place of payment on request."
+      },
+      "citations": [
+        {
+          "source": "K.S.A. \u00a744-320",
+          "url": "https://www.ksrevisor.gov/statutes/chapters/ch44/044_003_0020.html",
+          "section": "\u00a744-320",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-wage-notice-at-hire",
+      "title": "Louisiana \u2014 Wage Notice at Hire",
+      "jurisdiction": "LA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "oral_or_written",
+          "contents": "wage rate; payment frequency and method"
+        },
+        "summary": "Covered employers must inform new hires of the wage rate and payment frequency and method at hire and before any change; a state poster is required."
+      },
+      "citations": [
+        {
+          "source": "La. R.S. 23:633",
+          "url": "https://legis.la.gov/Legis/Law.aspx?d=83859",
+          "section": "\u00a723:633",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-wage-notice-at-hire",
+      "title": "Maine \u2014 Wage Notice at Hire",
+      "jurisdiction": "ME",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "change_notice": "30 days' written notice before increasing the pay interval"
+        },
+        "summary": "Maine requires no general wage notice at hire; 30 days' written notice is owed before lengthening the pay interval and tip-credit terms must be given in advance."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7621-A",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec621-A.html",
+          "section": "\u00a7621-A",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-wage-notice-at-hire",
+      "title": "Maryland \u2014 Wage Notice at Hire",
+      "jurisdiction": "MD",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate of pay; regular paydays; leave benefits",
+          "change_notice": "at least one pay period before a payday or wage change"
+        },
+        "summary": "Employers must give each new hire notice of the rate of pay, regular paydays and leave benefits, and at least one pay period's notice of a payday or wage change (increases exempt)."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a73-504",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-504",
+          "section": "\u00a73-504",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-wage-notice-at-hire",
+      "title": "Massachusetts \u2014 Wage Notice at Hire",
+      "jurisdiction": "MA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "notes": "PFML notice in the employee's primary language with signed acknowledgment or refusal"
+        },
+        "summary": "Massachusetts requires no general pay-rate notice at hire; PFML and earned sick time notices are required and tipped service rates and meal or lodging deductions need written terms."
+      },
+      "citations": [
+        {
+          "source": "M.G.L. c.149 \u00a7148C",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148C",
+          "section": "\u00a7148C",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-wage-notice-at-hire",
+      "title": "Michigan \u2014 Wage Notice at Hire",
+      "jurisdiction": "MI",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Michigan requires no general wage notice at hire; payment-method option forms and written deduction consents are required where used."
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.476",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-476",
+          "section": "\u00a7408.476",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-wage-notice-at-hire",
+      "title": "Minnesota \u2014 Wage Notice at Hire",
+      "jurisdiction": "MN",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2019-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate(s) and basis; allowances; paid leave accrual and terms; deductions; pay period and payday; employment status and exemption; employer legal and operating names, address, phone",
+          "language_requirement": "English with a multilingual statement of the right to a translation; full notice in a requested language",
+          "change_notice": "in writing before the change takes effect",
+          "acknowledgment_required": true,
+          "notes": "Wage Theft Prevention Act 2019"
+        },
+        "summary": "Employers must give each new hire a written notice of rates and basis of pay, allowances, paid leave, deductions, pay periods, paydays, employment status and employer names and addresses, signed by the employee, with written notice before any change."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.032(d)",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.032",
+          "section": "\u00a7181.032(d)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-wage-notice-at-hire",
+      "title": "Missouri \u2014 Wage Notice at Hire",
+      "jurisdiction": "MO",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "change_notice": "30 days' written or printed notice before a reduction"
+        },
+        "summary": "Missouri requires no wage notice at hire; 30 days' written notice is owed before a wage reduction."
+      },
+      "citations": [
+        {
+          "source": "RSMo \u00a7290.100",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=290.100",
+          "section": "\u00a7290.100",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-wage-notice-at-hire",
+      "title": "Montana \u2014 Wage Notice at Hire",
+      "jurisdiction": "MT",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "on_request"
+        },
+        "summary": "Montana employers must state the rate and pay period in writing when the employee demands it before starting work."
+      },
+      "citations": [
+        {
+          "source": "MCA \u00a739-3-203",
+          "url": "https://leg.mt.gov/bills/mca/title_0390/chapter_0030/part_0020/section_0030/0390-0030-0020-0030.html",
+          "section": "\u00a739-3-203",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-wage-notice-at-hire",
+      "title": "Nebraska \u2014 Wage Notice at Hire",
+      "jurisdiction": "NE",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "change_notice": "30 days' written notice before a payday change"
+        },
+        "summary": "Nebraska requires no wage notice at hire; 30 days' written notice is owed before changing the regular payday."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a748-1230",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-1230",
+          "section": "\u00a748-1230",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-wage-notice-at-hire",
+      "title": "Nevada \u2014 Wage Notice at Hire",
+      "jurisdiction": "NV",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "posting_only",
+          "change_notice": "7 days' written notice before a payday, payment place or pay decrease"
+        },
+        "summary": "Nevada requires posting of regular paydays and the place of payment in two conspicuous places and 7 days' written notice before changing them or decreasing pay."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.080",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec080",
+          "section": "\u00a7608.080",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nh-wage-notice-at-hire",
+      "title": "New Hampshire \u2014 Wage Notice at Hire",
+      "jurisdiction": "NH",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate or salary; pay frequency; wage payment methods; day and place of payment; written policies on vacation, sick leave and benefits",
+          "change_notice": "in writing before the effective date",
+          "acknowledgment_required": true,
+          "notes": "N.H. Code Admin. R. Lab 803.03"
+        },
+        "summary": "Employers must notify each new hire in writing of the rate of pay, pay frequency, payment methods and day and place of payment, and of written policies on benefits; the employee signs and the employer keeps the copy."
+      },
+      "citations": [
+        {
+          "source": "RSA 275:49",
+          "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/275/275-49.htm",
+          "section": "275:49",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-wage-notice-at-hire",
+      "title": "New Jersey \u2014 Wage Notice at Hire",
+      "jurisdiction": "NJ",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "oral_or_written",
+          "contents": "rate of pay; regular payday",
+          "change_notice": "before any change"
+        },
+        "summary": "Employers must notify new hires of the rate of pay and regular payday and notify them before any change; the statute does not require a writing."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:11-4.6",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-11-4-6/",
+          "section": "34:11-4.6",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nm-wage-notice-at-hire",
+      "title": "New Mexico \u2014 Wage Notice at Hire",
+      "jurisdiction": "NM",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "New Mexico requires no general wage notice at hire; the wage poster is required and contract-based deductions need a written agreement."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-4-9",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4/section-50-4-9/",
+          "section": "\u00a750-4-9",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-wage-notice-at-hire",
+      "title": "New York \u2014 Wage Notice at Hire",
+      "jurisdiction": "NY",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2011-04-09",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate(s) and basis; regular and overtime rates for non-exempt employees; payday; allowances; employer legal and DBA names, address, phone",
+          "language_requirement": "English and the employee's identified primary language (DOL templates)",
+          "change_notice": "at least 7 calendar days before the change unless shown on the wage statement",
+          "acknowledgment_required": true,
+          "notes": "Form LS 54 and variants; damages up to $5,000 per employee"
+        },
+        "summary": "Employers must give each new hire a written notice (Wage Theft Prevention Act) of rate and basis of pay, overtime rate, payday, allowances and employer names and addresses in English and the employee's primary language, with a signed acknowledgment kept 6 years and 7 days' written notice of changes."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Lab. Law \u00a7195(1)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/195",
+          "section": "\u00a7195(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nc-wage-notice-at-hire",
+      "title": "North Carolina \u2014 Wage Notice at Hire",
+      "jurisdiction": "NC",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "promised wages; day and place of payment",
+          "change_notice": "at least one pay period's written notice before a wage change (retroactive increases allowed)"
+        },
+        "summary": "Employers must notify new hires in writing (or by posting) of the promised wages and the day and place of payment, and give at least one pay period's written notice of a change to promised wages."
+      },
+      "citations": [
+        {
+          "source": "N.C. Gen. Stat. \u00a795-25.13",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_95/GS_95-25.13.html",
+          "section": "\u00a795-25.13",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nd-wage-notice-at-hire",
+      "title": "North Dakota \u2014 Wage Notice at Hire",
+      "jurisdiction": "ND",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "North Dakota requires no general wage notice at hire; written notice is required to limit PTO payout and to take a tip credit."
+      },
+      "citations": [
+        {
+          "source": "N.D.C.C. \u00a734-14-09.2",
+          "url": "https://ndlegis.gov/cencode/t34c14.pdf",
+          "section": "\u00a734-14-09.2",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oh-wage-notice-at-hire",
+      "title": "Ohio \u2014 Wage Notice at Hire",
+      "jurisdiction": "OH",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "employer name, address, telephone and contact information",
+          "change_notice": "within 60 business days"
+        },
+        "summary": "Employers must give each new hire the employer's name, address, telephone number and other contact information at hire, updated within 60 business days of a change; no pay-rate notice is required."
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a74111.14(E)",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4111.14",
+          "section": "\u00a74111.14(E)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ok-wage-notice-at-hire",
+      "title": "Oklahoma \u2014 Wage Notice at Hire",
+      "jurisdiction": "OK",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Oklahoma requires no wage notice at hire."
+      },
+      "citations": [
+        {
+          "source": "40 O.S. \u00a7165.2",
+          "url": "https://law.justia.com/codes/oklahoma/title-40/section-40-165-2/",
+          "section": "\u00a7165.2",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-wage-notice-at-hire",
+      "title": "Oregon \u2014 Wage Notice at Hire",
+      "jurisdiction": "OR",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2026-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "pay types and rates; payroll codes; pay period; deductions; allowances; employer-provided benefits",
+          "change_notice": "annual review by January 1",
+          "notes": "BOLI model notice in English and Spanish; penalties up to $1,000"
+        },
+        "summary": "From 2026 employers must give new hires a written explanation (which may be posted or online) of pay types, payroll codes, pay periods, deductions, allowances and employer-provided benefits, reviewed annually."
+      },
+      "citations": [
+        {
+          "source": "ORS 652.610(5)",
+          "url": "https://oregon.public.law/statutes/ors_652.610",
+          "section": "\u00a7652.610(5)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-wage-notice-at-hire",
+      "title": "Pennsylvania \u2014 Wage Notice at Hire",
+      "jurisdiction": "PA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "rate of pay; time and place of payment; fringe benefits and wage supplements",
+          "change_notice": "before any change"
+        },
+        "summary": "Employers must notify new hires, individually or by conspicuous posting, of the rate of pay, time and place of payment and any fringe benefits or wage supplements, and notify them before any change."
+      },
+      "citations": [
+        {
+          "source": "43 P.S. \u00a7260.4",
+          "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/uconsCheck.cfm?txtType=HTM&yr=1961&sessInd=0&smthLwInd=0&act=329&chpt=0&sctn=4&subsctn=0",
+          "section": "\u00a7260.4",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-wage-notice-at-hire",
+      "title": "Rhode Island \u2014 Wage Notice at Hire",
+      "jurisdiction": "RI",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate(s) and basis; allowances; leave policies; deductions; pay period; employment status; employer legal and DBA names, address, phone; wage range",
+          "language_requirement": "English",
+          "acknowledgment_required": true
+        },
+        "summary": "Employers must give each new hire a signed written notice of rates and basis of pay, allowances, leave policies, deductions, pay period, employment status and employer names and addresses, plus the wage range for the position."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a728-14-12",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-14/28-14-12.htm",
+          "section": "\u00a728-14-12",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-wage-notice-at-hire",
+      "title": "South Carolina \u2014 Wage Notice at Hire",
+      "jurisdiction": "SC",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "wages agreed; normal hours; time and place of payment; deductions including insurance",
+          "change_notice": "at least 7 calendar days' written notice before a change"
+        },
+        "summary": "Employers of five or more must notify new hires in writing (or by conspicuous posting) of the agreed wages, normal hours, time and place of payment and deductions, and give 7 days' written notice of changes (increases exempt)."
+      },
+      "citations": [
+        {
+          "source": "S.C. Code \u00a741-10-30",
+          "url": "https://www.scstatehouse.gov/code/t41c010.php",
+          "section": "\u00a741-10-30",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-wage-notice-at-hire",
+      "title": "South Dakota \u2014 Wage Notice at Hire",
+      "jurisdiction": "SD",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "South Dakota requires no wage notice at hire."
+      },
+      "citations": [
+        {
+          "source": "SDCL \u00a760-11-9",
+          "url": "https://sdlegislature.gov/Statutes/60-11-9",
+          "section": "\u00a760-11-9",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-wage-notice-at-hire",
+      "title": "Tennessee \u2014 Wage Notice at Hire",
+      "jurisdiction": "TN",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "oral_or_written",
+          "contents": "amount of wages",
+          "change_notice": "before any work at the new rate"
+        },
+        "summary": "Employers must tell new hires the amount of wages before work begins and before any work at a new rate; the notice may be oral or written."
+      },
+      "citations": [
+        {
+          "source": "Tenn. Code \u00a750-2-101",
+          "url": "https://law.justia.com/codes/tennessee/title-50/chapter-2/part-1/section-50-2-101/",
+          "section": "\u00a750-2-101",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-wage-notice-at-hire",
+      "title": "Texas \u2014 Wage Notice at Hire",
+      "jurisdiction": "TX",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "posting_only",
+          "change_notice": "60 days' written notice before requiring direct deposit"
+        },
+        "summary": "Texas requires paydays to be posted and payroll-card fees disclosed; no individual wage notice at hire."
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a761.012",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm#61.012",
+          "section": "\u00a761.012",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ut-wage-notice-at-hire",
+      "title": "Utah \u2014 Wage Notice at Hire",
+      "jurisdiction": "UT",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_or_posting",
+          "contents": "rate of pay; day and place of payment",
+          "change_notice": "before any change"
+        },
+        "summary": "Employers must notify new hires, individually or by posting, of the rate of pay and the day and place of payment, and notify them before any change."
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a734-28-4(1)",
+          "url": "https://le.utah.gov/xcode/Title34/Chapter28/34-28-S4.html",
+          "section": "\u00a734-28-4(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vt-wage-notice-at-hire",
+      "title": "Vermont \u2014 Wage Notice at Hire",
+      "jurisdiction": "VT",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Vermont requires no general wage notice at hire; pay-schedule changes and payroll-card terms need written notice."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7342",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00342",
+          "section": "\u00a7342",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "va-wage-notice-at-hire",
+      "title": "Virginia \u2014 Wage Notice at Hire",
+      "jurisdiction": "VA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Virginia requires no individual wage notice at hire; an itemized pay statement is required each pay date."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a740.1-29",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-29/",
+          "section": "\u00a740.1-29",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-wage-notice-at-hire",
+      "title": "Washington \u2014 Wage Notice at Hire",
+      "jurisdiction": "WA",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "notes": "Sick leave notice may be electronic; no signature required"
+        },
+        "summary": "Washington requires no general pay-term notice at hire; a written paid sick leave rights notice must be given by the start of employment."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-128-755",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-128-755",
+          "section": "\u00a7296-128-755",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wv-wage-notice-at-hire",
+      "title": "West Virginia \u2014 Wage Notice at Hire",
+      "jurisdiction": "WV",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate of pay; day, hour and place of payment",
+          "change_notice": "at least one full pay period's written notice"
+        },
+        "summary": "Employers must notify each new hire in writing of the rate of pay and the day, hour and place of payment, and give one full pay period's written notice before changing them."
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a721-5-9(1)",
+          "url": "https://code.wvlegislature.gov/21-5-9/",
+          "section": "\u00a721-5-9(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-wage-notice-at-hire",
+      "title": "Wisconsin \u2014 Wage Notice at Hire",
+      "jurisdiction": "WI",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Wisconsin requires no general wage notice at hire (grooming requirements must be disclosed and migrant workers need a written agreement)."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7103.14",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/103/14",
+          "section": "\u00a7103.14",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wy-wage-notice-at-hire",
+      "title": "Wyoming \u2014 Wage Notice at Hire",
+      "jurisdiction": "WY",
+      "topic": "hiring.general.notices",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none"
+        },
+        "summary": "Wyoming requires no wage notice at hire beyond posting the wage law."
+      },
+      "citations": [
+        {
+          "source": "Wyo. Stat. \u00a727-4-101",
+          "url": "https://wyoleg.gov/statutes/compress/title27.pdf",
+          "section": "\u00a727-4-101",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "california-ban-the-box",
+      "title": "California \u2014 Ban the Box",
+      "jurisdiction": "CA",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 5,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Employers of five or more may not ask about or consider conviction history until after a conditional offer, must make an individualized assessment and give written notice with at least 5 business days to respond before rescinding."
+      },
+      "citations": [
+        {
+          "source": "Cal. Gov. Code \u00a712952 (Fair Chance Act)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=12952.&lawCode=GOV",
+          "section": "\u00a712952",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "colorado-ban-the-box",
+      "title": "Colorado \u2014 Ban the Box",
+      "jurisdiction": "CO",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2021-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_application",
+          "notes": "Applied to employers of 11+ from 2019-09-01, all employers from 2021-09-01"
+        },
+        "summary": "Employers may not state that people with criminal histories may not apply or ask about criminal history on the initial application; checks may follow later in the process."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-2-130 (Colorado Chance to Compete Act)",
+          "url": "https://law.justia.com/codes/colorado/title-8/labor-i-department-of-labor-and-employment/article-2/part-1/section-8-2-130/",
+          "section": "\u00a78-2-130",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "connecticut-ban-the-box",
+      "title": "Connecticut \u2014 Ban the Box",
+      "jurisdiction": "CT",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2017-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_application"
+        },
+        "summary": "Employers may not ask about prior arrests, charges or convictions on an initial employment application unless a background check is required by law."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-51i(b)",
+          "url": "https://law.justia.com/codes/connecticut/title-31/chapter-557/section-31-51i/",
+          "section": "\u00a731-51i(b)",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "district-of-columbia-ban-the-box",
+      "title": "District of Columbia \u2014 Ban the Box",
+      "jurisdiction": "DC",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2014-12-17",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 11,
+          "individualized_assessment_required": true
+        },
+        "summary": "Employers of 11 or more may not ask about criminal convictions until after a conditional offer and may withdraw it only for a legitimate business reason after considering listed factors."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1342 (Fair Criminal Record Screening Amendment Act)",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1342",
+          "section": "\u00a732-1342",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hawaii-ban-the-box",
+      "title": "Hawaii \u2014 Ban the Box",
+      "jurisdiction": "HI",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "lookback_years": 7,
+          "notes": "Lookback shortened to 7/5 years effective 2020-09-15"
+        },
+        "summary": "Employers may inquire into conviction history only after a conditional offer and may consider only convictions within the past 7 years (5 years for misdemeanors) that bear a rational relationship to the job."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7378-2.5",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0378/HRS_0378-0002_0005.htm",
+          "section": "\u00a7378-2.5",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "illinois-ban-the-box",
+      "title": "Illinois \u2014 Ban the Box",
+      "jurisdiction": "IL",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2015-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview",
+          "min_employees": 15,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Employers of 15 or more may not ask about criminal history until the applicant is selected for an interview or, if none, until a conditional offer; the Human Rights Act (2021) also requires an individualized assessment and notice before an adverse decision."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 75/15 (Job Opportunities for Qualified Applicants Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3549&ChapterID=68",
+          "section": "75/15",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "maine-ban-the-box",
+      "title": "Maine \u2014 Ban the Box",
+      "jurisdiction": "ME",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2021-10-18",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview"
+        },
+        "summary": "Employers may not ask about criminal history on the initial application or state that applicants with a record will not be considered; questions may be asked during the interview or once the applicant is deemed qualified."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7600-A",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec600-A.html",
+          "section": "\u00a7600-A",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "maryland-ban-the-box",
+      "title": "Maryland \u2014 Ban the Box",
+      "jurisdiction": "MD",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2020-02-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview",
+          "min_employees": 15
+        },
+        "summary": "Employers of 15 or more full-time employees may not ask about criminal history before the first in-person interview."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a73-1503 (Ban the Box Act)",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-1503",
+          "section": "\u00a73-1503",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "massachusetts-ban-the-box",
+      "title": "Massachusetts \u2014 Ban the Box",
+      "jurisdiction": "MA",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2010-11-04",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview",
+          "lookback_years": 3,
+          "notes": "Misdemeanor lookback shortened to 3 years in 2018"
+        },
+        "summary": "Employers may not ask about criminal history on the initial written application and may never ask about sealed records, misdemeanors older than 3 years or certain other matters."
+      },
+      "citations": [
+        {
+          "source": "M.G.L. c.151B \u00a74(9\u00bd)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4",
+          "section": "\u00a74(9\u00bd)",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "minnesota-ban-the-box",
+      "title": "Minnesota \u2014 Ban the Box",
+      "jurisdiction": "MN",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2014-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer"
+        },
+        "summary": "Private employers may not ask about or consider criminal history until the applicant is selected for an interview or, if none, until a conditional offer."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7364.021",
+          "url": "https://www.revisor.mn.gov/statutes/cite/364.021",
+          "section": "\u00a7364.021",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-jersey-ban-the-box",
+      "title": "New Jersey \u2014 Ban the Box",
+      "jurisdiction": "NJ",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2015-03-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview",
+          "min_employees": 15
+        },
+        "summary": "Employers of 15 or more may not ask about criminal record during the initial employment application process, which ends after the first interview."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:6B-14 (Opportunity to Compete Act)",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-6b-14/",
+          "section": "34:6B-14",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-mexico-ban-the-box",
+      "title": "New Mexico \u2014 Ban the Box",
+      "jurisdiction": "NM",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2019-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_application"
+        },
+        "summary": "Private employers may not ask about conviction history on the written application; it may be considered after review of the application and discussion with the applicant."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a728-2-3.1 (Criminal Offender Employment Act)",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-28/article-2/section-28-2-3-1/",
+          "section": "\u00a728-2-3.1",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oregon-ban-the-box",
+      "title": "Oregon \u2014 Ban the Box",
+      "jurisdiction": "OR",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2016-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview"
+        },
+        "summary": "Employers may not ask about criminal convictions before the initial interview or, if none, before a conditional offer."
+      },
+      "citations": [
+        {
+          "source": "ORS 659A.360",
+          "url": "https://oregon.public.law/statutes/ors_659a.360",
+          "section": "\u00a7659A.360",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "rhode-island-ban-the-box",
+      "title": "Rhode Island \u2014 Ban the Box",
+      "jurisdiction": "RI",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2014-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview",
+          "min_employees": 4
+        },
+        "summary": "Employers of four or more may not ask about arrests or convictions on the application or before the first interview."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a728-5-7(7)",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-5/28-5-7.htm",
+          "section": "\u00a728-5-7(7)",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vermont-ban-the-box",
+      "title": "Vermont \u2014 Ban the Box",
+      "jurisdiction": "VT",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2017-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview"
+        },
+        "summary": "Employers may not ask about criminal history on the initial application; questions may be asked during the interview or once the applicant is deemed otherwise qualified, with a chance to explain."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7495j",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00495j",
+          "section": "\u00a7495j",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "washington-ban-the-box",
+      "title": "Washington \u2014 Ban the Box",
+      "jurisdiction": "WA",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2018-06-07",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "when_otherwise_qualified"
+        },
+        "summary": "Employers may not ask about criminal history, run a background check or advertise exclusions until the applicant is determined otherwise qualified for the position."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.94.010 (Fair Chance Act)",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.94.010",
+          "section": "\u00a749.94.010",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "los-angeles-ban-the-box",
+      "title": "Los Angeles \u2014 Ban the Box",
+      "jurisdiction": "Los Angeles",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2017-01-22",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Los Angeles"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 10,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Employers of 10 or more may not ask about criminal history until after a conditional offer and must perform a written assessment and a fair chance process before withdrawing it."
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code ch. XVIII art. 9 \u00a7189.00 et seq. (Fair Chance Initiative for Hiring)",
+          "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-186391",
+          "section": "\u00a7189.00",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "san-francisco-ban-the-box",
+      "title": "San Francisco \u2014 Ban the Box",
+      "jurisdiction": "San Francisco",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2018-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 5,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true,
+          "lookback_years": 7
+        },
+        "summary": "Employers of five or more may not ask about conviction history until after a conditional offer and may never consider decriminalized offenses or convictions older than 7 years."
+      },
+      "citations": [
+        {
+          "source": "San Francisco Police Code art. 49 (Fair Chance Ordinance)",
+          "url": "https://codelibrary.amlegal.com/codes/san_francisco/latest/sf_police/0-0-0-30467",
+          "section": "art. 49",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "chicago-ban-the-box",
+      "title": "Chicago \u2014 Ban the Box",
+      "jurisdiction": "Chicago",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2023-04-24",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Chicago"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Chicago employers may not consider criminal history until after a conditional offer and must give written notice, an individualized assessment and 5 business days to respond before rescinding."
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code \u00a76-10-054 (Human Rights Ordinance, criminal history)",
+          "url": "https://codelibrary.amlegal.com/codes/chicago/latest/chicago_il/0-0-0-2630053",
+          "section": "\u00a76-10-054",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "montgomery-county-ban-the-box",
+      "title": "Montgomery County \u2014 Ban the Box",
+      "jurisdiction": "Montgomery County",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2015-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "location.county",
+            "op": "=",
+            "value": "Montgomery County"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "notice_and_response_required": true,
+          "notes": "Originally 15+ employees; extended to all employers 2021-02-19"
+        },
+        "summary": "Montgomery County employers may not ask about criminal history until after a conditional offer (all employers since 2021) and must give notice and 7 days to respond before rescinding."
+      },
+      "citations": [
+        {
+          "source": "Montgomery County Code \u00a727-72 (Fair Criminal Record Screening Standards)",
+          "url": "https://codelibrary.amlegal.com/codes/montgomerycounty/latest/montgomeryco_md/0-0-0-76533",
+          "section": "\u00a727-72",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-york-city-ban-the-box",
+      "title": "New York City \u2014 Ban the Box",
+      "jurisdiction": "New York City",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2015-10-27",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 4,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true,
+          "notes": "Amended 2021-07-29 to cover pending arrests and current employees"
+        },
+        "summary": "Employers of four or more may not ask about criminal history until after a conditional offer, must apply the Article 23-A factors in a written analysis and hold the position open at least 5 business days for the applicant's response."
+      },
+      "citations": [
+        {
+          "source": "NYC Admin. Code \u00a78-107(11-a) (Fair Chance Act)",
+          "url": "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-2820",
+          "section": "\u00a78-107(11-a)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "philadelphia-ban-the-box",
+      "title": "Philadelphia \u2014 Ban the Box",
+      "jurisdiction": "Philadelphia",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2016-03-14",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true,
+          "lookback_years": 7
+        },
+        "summary": "Philadelphia employers may not ask about criminal history until after a conditional offer, may consider only convictions within 7 years and must do an individualized assessment with 10 business days to respond."
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code ch. 9-3500 (Fair Criminal Records Screening Standards)",
+          "url": "https://codelibrary.amlegal.com/codes/philadelphia/latest/philadelphia_pa/0-0-0-205033",
+          "section": "\u00a79-3504",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "seattle-ban-the-box",
+      "title": "Seattle \u2014 Ban the Box",
+      "jurisdiction": "Seattle",
+      "topic": "hiring.general.ban_the_box",
+      "status": "active",
+      "effectiveFrom": "2013-11-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Seattle"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_application",
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Seattle employers may not exclude applicants with records in ads or applications, may ask about criminal history only after an initial screening, and need a legitimate business reason plus a chance to explain before an adverse decision."
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code ch. 14.17 (Fair Chance Employment)",
+          "url": "https://library.municode.com/wa/seattle/codes/municipal_code?nodeId=TIT14HURI_CH14.17THUSCRHIEMDE",
+          "section": "\u00a714.17.020",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "alabama-salary-history-ban",
+      "title": "Alabama \u2014 Salary History Ban",
+      "jurisdiction": "AL",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2019-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": false,
+          "reliance_prohibited": false,
+          "notes": "Retaliation for non-disclosure barred; inquiry itself allowed"
+        },
+        "summary": "Employers may ask about pay history but may not refuse to interview, hire or promote an applicant who declines to provide it."
+      },
+      "citations": [
+        {
+          "source": "Ala. Code \u00a725-1-30(c)",
+          "url": "https://law.justia.com/codes/alabama/title-25/chapter-1/article-2/section-25-1-30/",
+          "section": "\u00a725-1-30(c)",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "california-salary-history-ban",
+      "title": "California \u2014 Salary History Ban",
+      "jurisdiction": "CA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": false,
+          "pay_range_on_request": true,
+          "notes": "Volunteered history may be considered but may not alone justify a pay gap"
+        },
+        "summary": "Employers may not seek or rely on an applicant's salary history and must provide the pay scale on reasonable request."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7432.3",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=432.3.&lawCode=LAB",
+          "section": "\u00a7432.3",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "colorado-salary-history-ban",
+      "title": "Colorado \u2014 Salary History Ban",
+      "jurisdiction": "CO",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not seek wage history, rely on it to set pay, or retaliate against applicants who withhold it."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-5-102(2)",
+          "url": "https://law.justia.com/codes/colorado/title-8/labor-i-department-of-labor-and-employment/article-5/part-1/section-8-5-102/",
+          "section": "\u00a78-5-102(2)",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "connecticut-salary-history-ban",
+      "title": "Connecticut \u2014 Salary History Ban",
+      "jurisdiction": "CT",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2019-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true,
+          "pay_range_on_request": true
+        },
+        "summary": "Employers may not ask about an applicant's wage and salary history unless the applicant volunteers it; wage range must be provided on request."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-40z(b)(5)",
+          "url": "https://law.justia.com/codes/connecticut/title-31/chapter-557/section-31-40z/",
+          "section": "\u00a731-40z",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "delaware-salary-history-ban",
+      "title": "Delaware \u2014 Salary History Ban",
+      "jurisdiction": "DE",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2017-12-14",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not screen applicants by compensation history or ask about it; they may confirm history after an offer with compensation terms has been extended."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7709B",
+          "url": "https://delcode.delaware.gov/title19/c007/sc02/index.html",
+          "section": "\u00a7709B",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "district-of-columbia-salary-history-ban",
+      "title": "District of Columbia \u2014 Salary History Ban",
+      "jurisdiction": "DC",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2024-06-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not screen applicants by wage history or ask about it, and must disclose the pay range before the first interview."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1452 (Wage Transparency Omnibus Amendment Act)",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1452",
+          "section": "\u00a732-1452",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hawaii-salary-history-ban",
+      "title": "Hawaii \u2014 Salary History Ban",
+      "jurisdiction": "HI",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2019-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "notes": "Does not apply to current employees applying internally"
+        },
+        "summary": "Employers may not ask about or rely on an applicant's salary history unless the applicant volunteers it; internal applicants are excluded."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7378-2.4",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0378/HRS_0378-0002_0004.htm",
+          "section": "\u00a7378-2.4",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "illinois-salary-history-ban",
+      "title": "Illinois \u2014 Salary History Ban",
+      "jurisdiction": "IL",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2019-09-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not screen by or ask about wage, salary or benefits history, including from prior employers; applicants may volunteer and discuss expectations."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 112/10(b-5)",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001120K10",
+          "section": "112/10(b-5)",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "maine-salary-history-ban",
+      "title": "Maine \u2014 Salary History Ban",
+      "jurisdiction": "ME",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2019-09-17",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not ask about compensation history until after an offer with compensation terms has been negotiated."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7628-A",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec628-A.html",
+          "section": "\u00a7628-A",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "maryland-salary-history-ban",
+      "title": "Maryland \u2014 Salary History Ban",
+      "jurisdiction": "MD",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2020-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": true,
+          "pay_range_on_request": true
+        },
+        "summary": "Employers may not seek or rely on wage history, must give the wage range on request, and may confirm volunteered history only after an initial offer."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a73-304.1",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-304.1",
+          "section": "\u00a73-304.1",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "massachusetts-salary-history-ban",
+      "title": "Massachusetts \u2014 Salary History Ban",
+      "jurisdiction": "MA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not seek wage or salary history from an applicant or prior employer before an offer with compensation; confirmation is allowed after an offer or if volunteered."
+      },
+      "citations": [
+        {
+          "source": "M.G.L. c.149 \u00a7105A(c)(2)",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section105A",
+          "section": "\u00a7105A(c)(2)",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nevada-salary-history-ban",
+      "title": "Nevada \u2014 Salary History Ban",
+      "jurisdiction": "NV",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2021-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "pay_range_on_request": true
+        },
+        "summary": "Employers may not seek wage history, rely on it, or refuse to hire or interview an applicant who withholds it, and must give the wage range after an interview on request."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7613.133",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-613.html#NRS613Sec133",
+          "section": "\u00a7613.133",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-jersey-salary-history-ban",
+      "title": "New Jersey \u2014 Salary History Ban",
+      "jurisdiction": "NJ",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not screen by salary history or require it to meet pay criteria; they may confirm history after an offer with compensation terms."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:6B-20",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-6b-20/",
+          "section": "34:6B-20",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-york-salary-history-ban",
+      "title": "New York \u2014 Salary History Ban",
+      "jurisdiction": "NY",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2020-01-06",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not rely on or seek an applicant's or employee's wage history; they may confirm history the applicant volunteers to support a higher offer."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Lab. Law \u00a7194-a",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/194-A",
+          "section": "\u00a7194-a",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oregon-salary-history-ban",
+      "title": "Oregon \u2014 Salary History Ban",
+      "jurisdiction": "OR",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2017-10-06",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not seek salary history from an applicant or prior employer or use it to set pay, except for current employees moving to a new position; confirmation is allowed after an offer."
+      },
+      "citations": [
+        {
+          "source": "ORS 659A.357",
+          "url": "https://oregon.public.law/statutes/ors_659a.357",
+          "section": "\u00a7659A.357",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "rhode-island-salary-history-ban",
+      "title": "Rhode Island \u2014 Salary History Ban",
+      "jurisdiction": "RI",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": true,
+          "pay_range_on_request": true
+        },
+        "summary": "Employers may not seek or rely on wage history; after an offer they may confirm volunteered history to support a higher wage."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a728-6-18(b)",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-6/28-6-18.htm",
+          "section": "\u00a728-6-18(b)",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vermont-salary-history-ban",
+      "title": "Vermont \u2014 Salary History Ban",
+      "jurisdiction": "VT",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not ask about or seek salary history; volunteered history may be confirmed only after an offer with compensation."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7495m",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00495m",
+          "section": "\u00a7495m",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "washington-salary-history-ban",
+      "title": "Washington \u2014 Salary History Ban",
+      "jurisdiction": "WA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2019-07-28",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true,
+          "pay_range_on_request": true
+        },
+        "summary": "Employers may not seek wage history or require it to meet criteria; they may confirm volunteered history and must give the minimum wage or salary on request after an offer."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.58.100",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.58.100",
+          "section": "\u00a749.58.100",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-york-city-salary-history-ban",
+      "title": "New York City \u2014 Salary History Ban",
+      "jurisdiction": "New York City",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2017-10-31",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not ask about an applicant's salary or benefits history or rely on it to set pay unless the applicant volunteers it."
+      },
+      "citations": [
+        {
+          "source": "NYC Admin. Code \u00a78-107(25)",
+          "url": "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-2820",
+          "section": "\u00a78-107(25)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "san-francisco-salary-history-ban",
+      "title": "San Francisco \u2014 Salary History Ban",
+      "jurisdiction": "San Francisco",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2018-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "San Francisco"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not ask about or rely on salary history and may not disclose a current or former employee's salary without consent."
+      },
+      "citations": [
+        {
+          "source": "San Francisco Police Code art. 33J (Parity in Pay Ordinance)",
+          "url": "https://codelibrary.amlegal.com/codes/san_francisco/latest/sf_police/0-0-0-48912",
+          "section": "art. 33J",
+          "kind": "ordinance"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "philadelphia-salary-history-ban",
+      "title": "Philadelphia \u2014 Salary History Ban",
+      "jurisdiction": "Philadelphia",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2020-09-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "Philadelphia"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not ask about or rely on wage history unless the applicant knowingly volunteers it (upheld by the Third Circuit in 2020)."
+      },
+      "citations": [
+        {
+          "source": "Philadelphia Code \u00a79-1131 (Wage Equity Ordinance)",
+          "url": "https://codelibrary.amlegal.com/codes/philadelphia/latest/philadelphia_pa/0-0-0-203580",
+          "section": "\u00a79-1131",
+          "kind": "ordinance"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "california-pay-range-disclosure",
+      "title": "California \u2014 Pay Range Disclosure",
+      "jurisdiction": "CA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 15,
+          "current_employees_on_request": true,
+          "remote_coverage": "postings for roles that could be filled by a California resident",
+          "penalty": "$100 to $10,000 per violation",
+          "notes": "SB 642 amendments effective 2026-01-01"
+        },
+        "summary": "Employers of 15 or more must include the good-faith pay scale in every job posting (including third-party postings) and give current employees the scale for their position on request."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7432.3(c)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=432.3.&lawCode=LAB",
+          "section": "\u00a7432.3(c)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "colorado-pay-range-disclosure",
+      "title": "Colorado \u2014 Pay Range Disclosure",
+      "jurisdiction": "CO",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2021-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "benefits_disclosure_required": true,
+          "remote_coverage": "postings for roles that could be performed in Colorado",
+          "penalty": "$500 to $10,000 per violation",
+          "notes": "2024 amendments: post-selection notice of who was hired and career-progression disclosures"
+        },
+        "summary": "Every job posting must state the compensation or range and a general description of benefits; internal job opportunities must be announced to employees."
+      },
+      "citations": [
+        {
+          "source": "CRS \u00a78-5-201",
+          "url": "https://law.justia.com/codes/colorado/title-8/labor-i-department-of-labor-and-employment/article-5/part-2/section-8-5-201/",
+          "section": "\u00a78-5-201",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "connecticut-pay-range-disclosure",
+      "title": "Connecticut \u2014 Pay Range Disclosure",
+      "jurisdiction": "CT",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2021-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "on_request",
+          "current_employees_on_request": true
+        },
+        "summary": "Employers must provide the wage range to applicants on request or before an offer, whichever is earlier, and to current employees on hire, on a change of position or on request."
+      },
+      "citations": [
+        {
+          "source": "Conn. Gen. Stat. \u00a731-40z(b)(6)",
+          "url": "https://law.justia.com/codes/connecticut/title-31/chapter-557/section-31-40z/",
+          "section": "\u00a731-40z",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "district-of-columbia-pay-range-disclosure",
+      "title": "District of Columbia \u2014 Pay Range Disclosure",
+      "jurisdiction": "DC",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2024-06-30",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "before_offer",
+          "benefits_disclosure_required": true,
+          "notes": "Posting disclosure plus pre-interview benefits disclosure"
+        },
+        "summary": "Employers must state the minimum and maximum salary or hourly pay in job postings and disclose healthcare benefits before the first interview."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1452",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1452",
+          "section": "\u00a732-1452",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hawaii-pay-range-disclosure",
+      "title": "Hawaii \u2014 Pay Range Disclosure",
+      "jurisdiction": "HI",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2024-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 50
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 50
+        },
+        "summary": "Employers of 50 or more must disclose the hourly rate or salary range in job listings (internal transfers and public-employee postings excluded)."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7378-2.4(b)",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0378/HRS_0378-0002_0004.htm",
+          "section": "\u00a7378-2.4(b)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "illinois-pay-range-disclosure",
+      "title": "Illinois \u2014 Pay Range Disclosure",
+      "jurisdiction": "IL",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 15,
+          "benefits_disclosure_required": true,
+          "penalty": "up to $10,000 per violation after cure periods"
+        },
+        "summary": "Employers of 15 or more must include the pay scale and a description of benefits in every job posting, including third-party postings, and announce promotion opportunities to current employees."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 112/10(b-20)",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001120K10",
+          "section": "112/10(b-20)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "maryland-pay-range-disclosure",
+      "title": "Maryland \u2014 Pay Range Disclosure",
+      "jurisdiction": "MD",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2024-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "benefits_disclosure_required": true
+        },
+        "summary": "Every job posting must state the wage range, a general description of benefits and any other compensation offered."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a73-304.2",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=3-304.2",
+          "section": "\u00a73-304.2",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "massachusetts-pay-range-disclosure",
+      "title": "Massachusetts \u2014 Pay Range Disclosure",
+      "jurisdiction": "MA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2025-10-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 25
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 25,
+          "current_employees_on_request": true
+        },
+        "summary": "Employers of 25 or more in Massachusetts must include the pay range in job postings and give it to employees offered a promotion or transfer and on request."
+      },
+      "citations": [
+        {
+          "source": "M.G.L. c.149 \u00a7105F",
+          "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section105F",
+          "section": "\u00a7105F",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "minnesota-pay-range-disclosure",
+      "title": "Minnesota \u2014 Pay Range Disclosure",
+      "jurisdiction": "MN",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 30
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 30,
+          "benefits_disclosure_required": true
+        },
+        "summary": "Employers of 30 or more must include the starting salary range (or fixed rate) and a general description of benefits in every job posting."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7181.173",
+          "url": "https://www.revisor.mn.gov/statutes/cite/181.173",
+          "section": "\u00a7181.173",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-jersey-pay-range-disclosure",
+      "title": "New Jersey \u2014 Pay Range Disclosure",
+      "jurisdiction": "NJ",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2025-06-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 10,
+          "benefits_disclosure_required": true,
+          "penalty": "$300 first violation, $600 after"
+        },
+        "summary": "Employers of 10 or more must include the hourly wage or salary (or range) and a general description of benefits in postings and announce promotion opportunities."
+      },
+      "citations": [
+        {
+          "source": "N.J.S.A. 34:6B-22",
+          "url": "https://law.justia.com/codes/new-jersey/title-34/section-34-6b-22/",
+          "section": "34:6B-22",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-york-pay-range-disclosure",
+      "title": "New York \u2014 Pay Range Disclosure",
+      "jurisdiction": "NY",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2023-09-17",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 4,
+          "remote_coverage": "roles performed outside NY that report to a NY supervisor, office or worksite",
+          "penalty": "up to $3,000 per violation"
+        },
+        "summary": "Employers of four or more must include the compensation or range and the job description in postings for jobs, promotions or transfers performed in New York or reporting to a New York supervisor."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Lab. Law \u00a7194-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/194-B",
+          "section": "\u00a7194-b",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "rhode-island-pay-range-disclosure",
+      "title": "Rhode Island \u2014 Pay Range Disclosure",
+      "jurisdiction": "RI",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "on_request",
+          "current_employees_on_request": true
+        },
+        "summary": "Employers must provide the wage range to applicants on request and before discussing compensation, and to employees at hire, on moving to a new position and on request."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a728-6-22",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-6/28-6-22.htm",
+          "section": "\u00a728-6-22",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vermont-pay-range-disclosure",
+      "title": "Vermont \u2014 Pay Range Disclosure",
+      "jurisdiction": "VT",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 5
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 5
+        },
+        "summary": "Employers of five or more must include the compensation or range in advertisements for positions physically located in Vermont or remote positions predominantly performed there."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7495n",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00495n",
+          "section": "\u00a7495n",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "washington-pay-range-disclosure",
+      "title": "Washington \u2014 Pay Range Disclosure",
+      "jurisdiction": "WA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 15
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 15,
+          "benefits_disclosure_required": true,
+          "remote_coverage": "postings for roles that could be filled by a Washington resident, including remote roles",
+          "notes": "2025 amendments added a 5-day cure period and fixed-rate option"
+        },
+        "summary": "Employers of 15 or more must include the wage scale or salary range and a general description of benefits in every job posting."
+      },
+      "citations": [
+        {
+          "source": "RCW 49.58.110",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.58.110",
+          "section": "\u00a749.58.110",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "maine-pay-range-disclosure",
+      "title": "Maine \u2014 Pay Range Disclosure",
+      "jurisdiction": "ME",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2026-07-29",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 10,
+          "remote_coverage": "postings for positions that can be performed in Maine"
+        },
+        "summary": "Employers of 10 or more must include the range of compensation in job postings, including third-party postings, for positions that can be performed in Maine."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7622-A (LD 54, 2026)",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec622-A.html",
+          "section": "\u00a7622-A",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "virginia-pay-range-disclosure",
+      "title": "Virginia \u2014 Pay Range Disclosure",
+      "jurisdiction": "VA",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "remote_coverage": "postings for remote roles that could be filled in Virginia",
+          "notes": "Citation section number unverified"
+        },
+        "summary": "Employers must include the wage or salary (or range) in job postings, with a 15-business-day cure period after notice of a violation."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a740.1-28.7:12 (HB 636 / SB 215, 2026)",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-28.7:12/",
+          "section": "\u00a740.1-28.7:12",
+          "kind": "statute"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "delaware-pay-range-disclosure",
+      "title": "Delaware \u2014 Pay Range Disclosure",
+      "jurisdiction": "DE",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2027-09-26",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 26
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 26,
+          "benefits_disclosure_required": true,
+          "penalty": "up to $10,000 per violation",
+          "notes": "Effective date reported as 2027-09-26 (some sources say 2027-06-30)"
+        },
+        "summary": "From 2027 employers of 26 or more must include a good-faith pay range and a description of benefits in internal and external job postings."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7709C (2025)",
+          "url": "https://delcode.delaware.gov/title19/c007/sc02/index.html",
+          "section": "\u00a7709C",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "new-york-city-pay-range-disclosure",
+      "title": "New York City \u2014 Pay Range Disclosure",
+      "jurisdiction": "New York City",
+      "topic": "hiring.general.salary_history",
+      "status": "active",
+      "effectiveFrom": "2022-11-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "location.city",
+            "op": "=",
+            "value": "New York City"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 4
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 4,
+          "remote_coverage": "any role that could be performed, in whole or part, in NYC including remote"
+        },
+        "summary": "Employers of four or more must state the good-faith minimum and maximum salary in every advertisement for a job, promotion or transfer that could be performed in New York City."
+      },
+      "citations": [
+        {
+          "source": "NYC Admin. Code \u00a78-107(32)",
+          "url": "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-2820",
+          "section": "\u00a78-107(32)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ]
+    }
+  ]
+}

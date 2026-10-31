@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T00:56:11.034Z",
+  "generatedAt": "2026-10-31T01:11:32.085Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "dfcc08df820c3377",
+  "rulesVersion": "6a5ba9e4f8bb426b",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,6 +39,227 @@
     }
   ],
   "rules": [
+    {
+      "id": "wa-wage-notice-at-hire",
+      "title": "Washington — Wage Notice at Hire",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.notices",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "none",
+          "notes": "Sick leave notice may be electronic; no signature required"
+        },
+        "summary": "Washington requires no general pay-term notice at hire; a written paid sick leave rights notice must be given by the start of employment.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "WAC 296-128-755",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-128-755",
+          "section": "§296-128-755",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "c04e0983e58e29f7"
+    },
+    {
+      "id": "washington-ban-the-box",
+      "title": "Washington — Ban the Box",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2018-06-07",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "when_otherwise_qualified"
+        },
+        "summary": "Employers may not ask about criminal history, run a background check or advertise exclusions until the applicant is determined otherwise qualified for the position.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.94.010 (Fair Chance Act)",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.94.010",
+          "section": "§49.94.010",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "6f67ba139a186eb2"
+    },
+    {
+      "id": "seattle-ban-the-box",
+      "title": "Seattle — Ban the Box",
+      "jurisdiction": "Seattle",
+      "jurisdictionId": "us-wa-seattle",
+      "jurisdictionType": "city",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2013-11-13",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_application",
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Seattle employers may not exclude applicants with records in ads or applications, may ask about criminal history only after an initial screening, and need a legitimate business reason plus a chance to explain before an adverse decision.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Seattle Municipal Code ch. 14.17 (Fair Chance Employment)",
+          "url": "https://library.municode.com/wa/seattle/codes/municipal_code?nodeId=TIT14HURI_CH14.17THUSCRHIEMDE",
+          "section": "§14.17.020",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "318adaa59e0eb0c3"
+    },
+    {
+      "id": "washington-salary-history-ban",
+      "title": "Washington — Salary History Ban",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2019-07-28",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "confirm_after_offer_allowed": true,
+          "pay_range_on_request": true
+        },
+        "summary": "Employers may not seek wage history or require it to meet criteria; they may confirm volunteered history and must give the minimum wage or salary on request after an offer.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.58.100",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.58.100",
+          "section": "§49.58.100",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "caa53e093e84ade9"
+    },
+    {
+      "id": "washington-pay-range-disclosure",
+      "title": "Washington — Pay Range Disclosure",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 15,
+          "benefits_disclosure_required": true,
+          "remote_coverage": "postings for roles that could be filled by a Washington resident, including remote roles",
+          "notes": "2025 amendments added a 5-day cure period and fixed-rate option"
+        },
+        "summary": "Employers of 15 or more must include the wage scale or salary range and a general description of benefits in every job posting.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "RCW 49.58.110",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=49.58.110",
+          "section": "§49.58.110",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "37c4fe1dbac0755f"
+    },
     {
       "id": "wa-dv-leave",
       "title": "Washington — Domestic Violence Leave (reasonable leave, all employers)",
@@ -4217,6 +4438,249 @@
       ]
     },
     {
+      "code": "hiring.ban_the_box",
+      "name": "Ban the box (criminal history inquiries)",
+      "description": "When in the hiring process an employer may first ask about or consider an applicant's criminal history, and what assessment and notice are owed before an adverse decision.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_timing",
+          "type": "enum",
+          "values": [
+            "after_application",
+            "after_interview",
+            "when_otherwise_qualified",
+            "after_conditional_offer"
+          ],
+          "required": true,
+          "description": "Earliest point a criminal-history question or background check is allowed"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "individualized_assessment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer must weigh the offense against the job before rescinding an offer"
+        },
+        {
+          "name": "notice_and_response_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a written notice and chance to respond is owed before a final adverse decision"
+        },
+        {
+          "name": "lookback_years",
+          "type": "number",
+          "required": false,
+          "description": "Convictions older than this may not be considered"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exemptions (positions where a background check is required by law) and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair chance act",
+        "criminal history inquiry",
+        "background check timing",
+        "conviction history",
+        "fair chance hiring"
+      ]
+    },
+    {
+      "code": "hiring.pay_transparency",
+      "name": "Pay range disclosure",
+      "description": "Whether and when an employer must disclose the pay range for a position: in the job posting, on request, or before an offer.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "disclosure",
+          "type": "enum",
+          "values": [
+            "in_posting",
+            "on_request",
+            "before_offer"
+          ],
+          "required": true,
+          "description": "When the range must be given"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "benefits_disclosure_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a description of benefits must accompany the range"
+        },
+        {
+          "name": "current_employees_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether current employees may request the range for their own position"
+        },
+        {
+          "name": "remote_coverage",
+          "type": "string",
+          "required": false,
+          "description": "How postings for remote or out-of-state roles are treated"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Civil penalty per violation"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Promotion postings, third-party postings, cure periods"
+        }
+      ],
+      "synonyms": [
+        "salary range posting",
+        "pay transparency law",
+        "wage range disclosure",
+        "job posting salary"
+      ]
+    },
+    {
+      "code": "hiring.salary_history_ban",
+      "name": "Salary history ban",
+      "description": "Whether an employer may ask applicants about, or rely on, their prior pay.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether asking about pay history (directly or through an agent) is barred"
+        },
+        {
+          "name": "reliance_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether known pay history may not be used to set pay"
+        },
+        {
+          "name": "confirm_after_offer_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may confirm volunteered history after making an offer with compensation"
+        },
+        {
+          "name": "pay_range_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether applicants may demand the pay range"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Carve-outs such as internal transfers or volunteered information"
+        }
+      ],
+      "synonyms": [
+        "pay history ban",
+        "prior salary inquiry",
+        "compensation history",
+        "salary question ban"
+      ]
+    },
+    {
+      "code": "hiring.wage_notice",
+      "name": "Wage notice at hire",
+      "description": "Whether the employer must tell each new hire the rate of pay, payday and related terms, in what form, and how changes must be announced.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_form",
+          "type": "enum",
+          "values": [
+            "individual_written",
+            "individual_or_posting",
+            "oral_or_written",
+            "posting_only",
+            "on_request",
+            "none"
+          ],
+          "required": true,
+          "description": "How the pay terms must be communicated at hire"
+        },
+        {
+          "name": "contents",
+          "type": "string",
+          "required": false,
+          "description": "What the notice must state"
+        },
+        {
+          "name": "language_requirement",
+          "type": "string",
+          "required": false,
+          "description": "Languages the notice must be given in"
+        },
+        {
+          "name": "change_notice",
+          "type": "string",
+          "required": false,
+          "description": "How and how far in advance changes to pay terms must be announced"
+        },
+        {
+          "name": "acknowledgment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must sign and the employer keep the acknowledgment"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Agency templates, exemptions and retention periods"
+        }
+      ],
+      "synonyms": [
+        "wage theft prevention act notice",
+        "notice of pay rate",
+        "new hire notice",
+        "pay rate notice",
+        "LS 54",
+        "2810.5 notice"
+      ]
+    },
+    {
       "code": "leave.bereavement",
       "name": "Bereavement leave",
       "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
@@ -6310,14 +6774,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1246,
-    "rulesIncluded": 72,
-    "excludedByProfile": 1167,
+    "rulesConsidered": 1359,
+    "rulesIncluded": 77,
+    "excludedByProfile": 1275,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 8
+    "fullyResolved": 13
   },
-  "checksum": "9fb6fe732a4894fa5f11b957060b234036adf6df1b3f4774fd3682aae0f51f43"
+  "checksum": "138bab2a6ed6ab410907a11160763218896a1d12333e4280ed4fe0446b9af50d"
 }
