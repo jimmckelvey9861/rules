@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-30T21:06:28.831Z",
-  "asOf": "2026-10-30",
+  "generatedAt": "2026-10-31T00:56:11.047Z",
+  "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "50b5ba62c6cae8bb",
+  "rulesVersion": "dfcc08df820c3377",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -1528,6 +1528,1061 @@
         }
       ],
       "hash": "158f9318c2b237f1"
+    },
+    {
+      "id": "federal-hours-worked-standard",
+      "title": "FLSA — Hours Worked Standard",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true,
+          "notes": "Hours worked = time the employee is suffered or permitted to work; the Portal-to-Portal Act excludes ordinary commuting and activities preliminary or postliminary to the principal activity (incl. security screening, Integrity Staffing v. Busk 2014); 29 CFR 785.47 lets insubstantial, irregular minutes be disregarded"
+        },
+        "summary": "Under the FLSA all time an employee is suffered or permitted to work is paid, except ordinary commuting and preliminary or postliminary activities excluded by the Portal-to-Portal Act; a de minimis exception exists.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.11 (work suffered or permitted)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "§785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. §254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "§254",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR §785.47 (de minimis)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.47",
+          "section": "§785.47",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "2be36d7afed49545"
+    },
+    {
+      "id": "federal-travel-commute",
+      "title": "FLSA — Travel Time (Commute)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "commute"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "commute"
+        },
+        "summary": "Ordinary home-to-work travel is not hours worked, even to different worksites, unless the employee works during the trip.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "§254",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR §785.35",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.35",
+          "section": "§785.35",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "2968f2305bbd8fb7"
+    },
+    {
+      "id": "federal-travel-between-worksites",
+      "title": "FLSA — Travel Time (Between Worksites)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between job sites during the workday, or from the employer's premises to the first site after reporting, is hours worked.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.38",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.38",
+          "section": "§785.38",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "d82c664d2b218bff"
+    },
+    {
+      "id": "federal-travel-special-one-day",
+      "title": "FLSA — Travel Time (Special One Day Assignment)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "special_one_day_assignment"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "special_one_day_assignment",
+          "notes": "Employer may deduct the normal home-to-work commute time"
+        },
+        "summary": "A special one-day assignment in another city is hours worked, less the time of the employee's normal commute.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.37",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.37",
+          "section": "§785.37",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "e03339efebd8171a"
+    },
+    {
+      "id": "federal-travel-out-of-town",
+      "title": "FLSA — Travel Time (Out Of Town)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "out_of_town"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": true
+        },
+        "summary": "Overnight travel away from home is hours worked only during the employee's normal working hours (including corresponding hours on non-working days); passenger time outside those hours is unpaid unless work is done.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.39",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.39",
+          "section": "§785.39",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR §785.41",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.41",
+          "section": "§785.41",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "7393283605a8f1a9"
+    },
+    {
+      "id": "federal-travel-employer-mandated-transport",
+      "title": "FLSA — Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "employer_mandated_transport"
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "employer_mandated_transport"
+        },
+        "summary": "Riding employer-provided transport from a meeting point to the worksite is not hours worked under the Portal-to-Portal Act unless the travel is itself a principal activity; several states (CA, NY, WA, MD, PA, MA) count it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "§254",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR §785.33",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.33",
+          "section": "§785.33",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "e5e81958a669d3b7"
+    },
+    {
+      "id": "federal-oncall-restricted",
+      "title": "FLSA — Restricted On-Call Time",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.is_on_call",
+        "shift.on_call_restricted"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "engaged to wait: employee must remain on the premises or so close that the time cannot be used effectively for personal purposes"
+        },
+        "summary": "An employee required to stay on or near the premises while on call is working and must be paid.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.17",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.17",
+          "section": "§785.17",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR §785.15",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.15",
+          "section": "§785.15",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "866278bddfc08d16"
+    },
+    {
+      "id": "federal-oncall-unrestricted",
+      "title": "FLSA — Unrestricted On-Call Time",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.is_on_call",
+        "shift.on_call_restricted"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": false,
+          "situation": "on_call_unrestricted",
+          "test": "waiting to be engaged: employee may leave a contact number and use the time for personal purposes",
+          "notes": "Time actually spent responding to calls is paid"
+        },
+        "summary": "An on-call employee who need only leave a contact number and can use the time freely is not working; only time responding to calls is paid.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.17",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.17",
+          "section": "§785.17",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "5243da6282ef00c6"
+    },
+    {
+      "id": "federal-training-mandatory",
+      "title": "FLSA — Mandatory Training and Meetings",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.training",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.is_training",
+        "shift.training_is_voluntary"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting",
+          "notes": "Attendance is not voluntary if required or if the employee is led to believe non-attendance would hurt their job"
+        },
+        "summary": "Required training, orientation and meetings are hours worked.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.27",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.27",
+          "section": "§785.27",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR §785.28",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.28",
+          "section": "§785.28",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "14046601de32fbfc"
+    },
+    {
+      "id": "federal-training-voluntary",
+      "title": "FLSA — Voluntary Training Outside Hours",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.training",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.is_training",
+        "shift.training_is_voluntary"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": false,
+          "situation": "voluntary_training",
+          "exclusion_test": "all four: outside regular hours, genuinely voluntary, not directly related to the employee's current job, and no productive work performed",
+          "notes": "Training to acquire a new or additional skill is not 'directly related'; apprenticeship instruction and independent courses are excluded"
+        },
+        "summary": "Training is unpaid only when it is outside regular hours, voluntary, not directly related to the current job and involves no productive work; otherwise it is hours worked.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.27",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.27",
+          "section": "§785.27",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR §785.29",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.29",
+          "section": "§785.29",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR §785.31",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.31",
+          "section": "§785.31",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "7213ce599efcf6f2"
+    },
+    {
+      "id": "federal-timeclock-rounding",
+      "title": "FLSA — Time Clock Rounding",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "pay.compensable_time.rounding",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type",
+        "shift.timeclock_rounding_minutes"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true,
+          "meal_period_rounding_permitted": true,
+          "notes": "Rounding to the nearest 5, 6 or 15 minutes is accepted where it averages out and does not fail to pay for all time actually worked over a period"
+        },
+        "summary": "Punches may be rounded to the nearest quarter hour (or smaller increment) if the practice is neutral and does not, over time, fail to pay employees for all hours worked.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 CFR §785.48",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.48",
+          "section": "§785.48",
+          "kind": "regulation"
+        }
+      ],
+      "hash": "c74884a203833393"
+    },
+    {
+      "id": "ca-hours-worked-standard",
+      "title": "California — Hours Worked Standard",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "control_test",
+          "portal_to_portal_adopted": false,
+          "de_minimis_allowed": false,
+          "notes": "Control test (Morillion); no de minimis for regularly recurring minutes (Troester); mandatory on-site security checks are paid (Frlekin v. Apple 2020)"
+        },
+        "summary": "California pays for all time the employee is subject to the employer's control, whether or not working; the Portal-to-Portal exclusions and the federal de minimis rule do not apply.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Morillion v. Royal Packing Co., 22 Cal.4th 575 (2000)",
+          "url": "https://scholar.google.com/scholar_case?case=11406480726686727614",
+          "kind": "case"
+        },
+        {
+          "source": "Troester v. Starbucks Corp., 5 Cal.5th 829 (2018)",
+          "url": "https://scholar.google.com/scholar_case?case=11216905521487185313",
+          "kind": "case"
+        }
+      ],
+      "hash": "c052485a109453ae"
+    },
+    {
+      "id": "ca-travel-employer-mandated-transport",
+      "title": "California — Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "shift.travel_type",
+        "op": "=",
+        "value": "employer_mandated_transport"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "employer_mandated_transport",
+          "notes": "Optional employer-provided transport the employee may decline is not"
+        },
+        "summary": "Time riding employer-required transport (e.g. a mandatory bus from a meeting point) is hours worked because the employee is under the employer's control.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Morillion v. Royal Packing Co., 22 Cal.4th 575 (2000)",
+          "url": "https://scholar.google.com/scholar_case?case=11406480726686727614",
+          "kind": "case"
+        }
+      ],
+      "hash": "e58ce8ad170f4366"
+    },
+    {
+      "id": "ca-travel-commute",
+      "title": "California — Travel Time (Commute)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "shift.travel_type",
+        "op": "=",
+        "value": "commute"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "commute",
+          "notes": "Commute in an employer vehicle with restrictions on personal use may be compensable"
+        },
+        "summary": "An ordinary commute the employee controls is not hours worked; it becomes paid if the employer requires a particular route, vehicle or reporting point.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Morillion v. Royal Packing Co., 22 Cal.4th 575 (2000)",
+          "url": "https://scholar.google.com/scholar_case?case=11406480726686727614",
+          "kind": "case"
+        },
+        {
+          "source": "DLSE Enforcement Policies and Interpretations Manual §46 (travel time)",
+          "url": "https://www.dir.ca.gov/dlse/dlsemanual/dlse_enfcmanual.pdf",
+          "section": "§46",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "c3b24613d5626b6e"
+    },
+    {
+      "id": "ca-travel-out-of-town",
+      "title": "California — Travel Time (Out Of Town)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "shift.travel_type",
+        "op": "=",
+        "value": "out_of_town"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": false,
+          "minimum_wage_rate_allowed": true
+        },
+        "summary": "All time spent travelling on employer-required out-of-town trips is hours worked, including as a passenger outside normal hours, less the normal commute; a lower agreed travel rate (at least minimum wage) may be set in advance.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "DLSE Enforcement Policies and Interpretations Manual §46 (travel time)",
+          "url": "https://www.dir.ca.gov/dlse/dlsemanual/dlse_enfcmanual.pdf",
+          "section": "§46",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "9de2a089c187597d"
+    },
+    {
+      "id": "ca-travel-between-worksites",
+      "title": "California — Travel Time (Between Worksites)",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "fact": "shift.travel_type",
+        "op": "=",
+        "value": "between_worksites"
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.travel_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites during the day is hours worked.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "DLSE Enforcement Policies and Interpretations Manual §46 (travel time)",
+          "url": "https://www.dir.ca.gov/dlse/dlsemanual/dlse_enfcmanual.pdf",
+          "section": "§46",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "6b52c3e17c0f6882"
+    },
+    {
+      "id": "ca-oncall-restricted",
+      "title": "California — Restricted On-Call Time",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.travel_waiting",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.is_on_call",
+        "shift.on_call_restricted"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "control test: degree of restriction on the employee's activities (Mendiola)",
+          "notes": "Sleep time may be excluded only where a wage order expressly allows it"
+        },
+        "summary": "On-call time on the employer's premises or under its control is hours worked, including sleep time on 24-hour shifts, because the employee cannot use it for their own purposes.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Mendiola v. CPS Security Solutions, Inc., 60 Cal.4th 833 (2015)",
+          "url": "https://scholar.google.com/scholar_case?case=4731467917571626571",
+          "kind": "case"
+        }
+      ],
+      "hash": "9beeecf61daca40a"
+    },
+    {
+      "id": "ca-training-mandatory",
+      "title": "California — Mandatory Training and Meetings",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.training",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.is_training",
+        "shift.training_is_voluntary"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting",
+          "expenses_reimbursable": true
+        },
+        "summary": "Required training, orientation and meetings are hours worked and the employer must bear their cost; a training rate lower than the regular rate (at least minimum wage) may be set in advance.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 §2(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "§2(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Cal. Lab. Code §2802",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2802.&lawCode=LAB",
+          "section": "§2802",
+          "kind": "statute"
+        }
+      ],
+      "hash": "06d286b79ee30e3a"
+    },
+    {
+      "id": "ca-timeclock-rounding",
+      "title": "California — Time Clock Rounding",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "pay.compensable_time.rounding",
+      "topicCode": "pay.compensable_time",
+      "enforcement": "kronto",
+      "status": "active",
+      "effectiveFrom": "2021-02-25",
+      "appliesWhen": {
+        "fact": "shift.timeclock_rounding_minutes",
+        "op": ">",
+        "value": 0
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [
+        "shift.timeclock_rounding_minutes"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true,
+          "meal_period_rounding_permitted": false,
+          "exact_capture_bars_rounding": true,
+          "notes": "See's Candy (2012) allowed neutral rounding; Camp v. Home Depot review pending at the Supreme Court"
+        },
+        "summary": "Neutral rounding survives only where the system does not capture exact time; meal-period punches may never be rounded (Donohue) and an employer that records exact punches must pay to the minute (Camp, Woodworth), so pay-to-the-minute is the safe practice.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "§510",
+          "kind": "statute"
+        },
+        {
+          "source": "Donohue v. AMN Services, LLC, 11 Cal.5th 58 (2021)",
+          "url": "https://scholar.google.com/scholar_case?case=1316213631585540406",
+          "kind": "case"
+        },
+        {
+          "source": "Camp v. Home Depot U.S.A., Inc., 84 Cal.App.5th 638 (2022), review granted",
+          "url": "https://scholar.google.com/scholar_case?case=5067262091425456656",
+          "kind": "case"
+        }
+      ],
+      "hash": "4c6d83136467046a"
     },
     {
       "id": "ca-minimum-wage-2025",
@@ -4705,6 +5760,167 @@
       ]
     },
     {
+      "code": "pay.compensable_training",
+      "name": "Compensable training and meetings",
+      "description": "Whether time in training, lectures, orientation or meetings counts as hours worked.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "compensable",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the time must be paid"
+        },
+        {
+          "name": "situation",
+          "type": "enum",
+          "values": [
+            "mandatory_training_or_meeting",
+            "voluntary_training"
+          ],
+          "required": true,
+          "description": "Whether attendance is required"
+        },
+        {
+          "name": "exclusion_test",
+          "type": "string",
+          "required": false,
+          "description": "Conditions under which the time may be unpaid"
+        },
+        {
+          "name": "expenses_reimbursable",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer must also bear the cost of required training"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exceptions such as state-mandated licensing courses"
+        }
+      ],
+      "synonyms": [
+        "training pay",
+        "paid orientation",
+        "mandatory meeting pay",
+        "paid training time"
+      ]
+    },
+    {
+      "code": "pay.compensable_travel",
+      "name": "Compensable travel time",
+      "description": "Whether a kind of travel counts as hours worked.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "compensable",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the travel must be paid"
+        },
+        {
+          "name": "travel_type",
+          "type": "enum",
+          "values": [
+            "commute",
+            "between_worksites",
+            "special_one_day_assignment",
+            "out_of_town",
+            "employer_mandated_transport"
+          ],
+          "required": true,
+          "description": "The travel situation the rule decides"
+        },
+        {
+          "name": "during_normal_hours_only",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether only travel that overlaps the employee's normal working hours (including on non-working days) is paid"
+        },
+        {
+          "name": "minimum_wage_rate_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may pay travel at an agreed rate as low as the minimum wage instead of the regular rate"
+        },
+        {
+          "name": "distance_threshold_miles",
+          "type": "number",
+          "unit": "miles",
+          "required": false,
+          "description": "Distance beyond which the travel becomes compensable"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exceptions and the governing test"
+        }
+      ],
+      "synonyms": [
+        "travel pay",
+        "drive time pay",
+        "commute time",
+        "travel between job sites",
+        "overnight travel pay"
+      ]
+    },
+    {
+      "code": "pay.compensable_waiting",
+      "name": "Compensable waiting and on-call time",
+      "description": "Whether on-call or waiting time counts as hours worked.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "compensable",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the time must be paid"
+        },
+        {
+          "name": "situation",
+          "type": "enum",
+          "values": [
+            "on_call_restricted",
+            "on_call_unrestricted",
+            "waiting_engaged",
+            "sleep_time_on_premises"
+          ],
+          "required": true,
+          "description": "The waiting situation the rule decides"
+        },
+        {
+          "name": "test",
+          "type": "string",
+          "required": false,
+          "description": "The legal test applied (engaged to wait vs waiting to be engaged, control test)"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exceptions and agreements that change the result"
+        }
+      ],
+      "synonyms": [
+        "on-call pay",
+        "standby pay",
+        "waiting time",
+        "engaged to wait",
+        "sleep time"
+      ]
+    },
+    {
       "code": "pay.equal_pay",
       "name": "Equal pay",
       "description": "Employees doing the same or comparable work may not be paid differently because of a protected characteristic; some states also protect employees who discuss wages.",
@@ -4804,6 +6020,54 @@
       ]
     },
     {
+      "code": "pay.hours_worked_standard",
+      "name": "Hours-worked standard",
+      "description": "Which definition of compensable time governs in the jurisdiction: the FLSA with its Portal-to-Portal exclusions, a state regulation of its own, or a control test that counts any time under the employer's control.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "standard",
+          "type": "enum",
+          "values": [
+            "flsa_by_reference",
+            "state_regulation",
+            "control_test",
+            "no_state_law"
+          ],
+          "required": true,
+          "description": "flsa_by_reference: the state adopts or defers to 29 CFR 785; state_regulation: the state has its own hours-worked rule (often close to federal but without some exclusions); control_test: any time subject to the employer's control is paid; no_state_law: only the FLSA applies"
+        },
+        {
+          "name": "portal_to_portal_adopted",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the state excludes ordinary commuting and pre/post-shift activities the way 29 U.S.C. §254 does"
+        },
+        {
+          "name": "de_minimis_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether small amounts of off-the-clock time may be disregarded"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Where the state departs from federal law"
+        }
+      ],
+      "synonyms": [
+        "hours worked",
+        "compensable time",
+        "time worked",
+        "working time definition",
+        "portal-to-portal"
+      ]
+    },
+    {
       "code": "pay.pay_frequency",
       "name": "Pay frequency",
       "description": "How often wages must be paid and how soon after the pay period ends; many states let exempt or salaried staff be paid less often.",
@@ -4872,6 +6136,62 @@
         "semimonthly pay",
         "weekly pay law",
         "payday frequency"
+      ]
+    },
+    {
+      "code": "pay.timeclock_rounding",
+      "name": "Time clock rounding",
+      "description": "Whether punches may be rounded to an increment, and on what conditions.",
+      "behaviors": [
+        "warning",
+        "prohibition"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "permitted",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether rounding is lawful at all"
+        },
+        {
+          "name": "max_increment_minutes",
+          "type": "number",
+          "unit": "minutes",
+          "required": false,
+          "description": "Largest increment the authority accepts"
+        },
+        {
+          "name": "neutrality_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the policy must round both ways and not under-pay over time"
+        },
+        {
+          "name": "meal_period_rounding_permitted",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether meal-period punches may be rounded"
+        },
+        {
+          "name": "exact_capture_bars_rounding",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether rounding is barred when the system records exact punch times"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Governing cases and agency guidance"
+        }
+      ],
+      "synonyms": [
+        "time rounding",
+        "punch rounding",
+        "7-minute rule",
+        "quarter hour rounding",
+        "pay to the minute"
       ]
     },
     {
@@ -5910,6 +7230,19 @@
       "derived": "another shift on the same date with a gap of more than 60 minutes between them"
     },
     {
+      "path": "shift.is_training",
+      "type": "boolean",
+      "description": "Whether the shift is training, orientation, a lecture or a meeting rather than productive work",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "training shift",
+        "orientation",
+        "staff meeting",
+        "mandatory meeting"
+      ]
+    },
+    {
       "path": "shift.meal_break_provided",
       "type": "boolean",
       "description": "Whether a meal break was provided",
@@ -5928,6 +7261,18 @@
       "category": "4. Shift",
       "group": "4.4 Breaks",
       "derived": "shift length is 6 hours or less and no meal break is scheduled"
+    },
+    {
+      "path": "shift.on_call_restricted",
+      "type": "boolean",
+      "description": "Whether an on-call employee must stay on or near the premises (or so constrained they cannot use the time for their own purposes)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "restricted on-call",
+        "engaged to wait",
+        "on-premises standby"
+      ]
     },
     {
       "path": "shift.rest_break_provided",
@@ -5978,6 +7323,52 @@
       "derived": "hour component of the shift start time (0-23)"
     },
     {
+      "path": "shift.timeclock_rounding_minutes",
+      "type": "number",
+      "description": "Increment the timekeeping system rounds punches to, in minutes (0 when time is paid to the minute)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "time rounding",
+        "punch rounding",
+        "7-minute rule",
+        "quarter-hour rounding"
+      ]
+    },
+    {
+      "path": "shift.training_is_voluntary",
+      "type": "boolean",
+      "description": "Whether attendance at the training or meeting is genuinely voluntary (not required, and no adverse consequence for skipping it)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "voluntary training",
+        "optional training"
+      ]
+    },
+    {
+      "path": "shift.travel_type",
+      "type": "enum",
+      "description": "Kind of travel the shift involves, for compensable-time rules",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "enumValues": [
+        "none",
+        "commute",
+        "between_worksites",
+        "special_one_day_assignment",
+        "out_of_town",
+        "employer_mandated_transport"
+      ],
+      "synonyms": [
+        "travel time",
+        "drive time",
+        "travel between sites",
+        "out of town travel",
+        "company shuttle"
+      ]
+    },
+    {
       "path": "termination.is_mass_layoff",
       "type": "boolean",
       "description": "Whether this is part of a mass layoff",
@@ -6001,14 +7392,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1149,
-    "rulesIncluded": 68,
-    "excludedByProfile": 1074,
+    "rulesConsidered": 1246,
+    "rulesIncluded": 87,
+    "excludedByProfile": 1152,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 6
+    "fullyResolved": 7
   },
-  "checksum": "25bdee51cba6ebac2a422d1c193dde1374ccfda021b6234adc9f535b3b722fd9"
+  "checksum": "dfc1bd3e6d7b2288c66ba3768f55be1bb03c88800aafd8504f8e349e685df03d"
 }

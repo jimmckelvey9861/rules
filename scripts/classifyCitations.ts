@@ -25,6 +25,7 @@ const ORDINANCE = [
   /\bMontgomery County\b/i, /\bSan Francisco\b/, /\bLos Angeles\b/, /\bDenver\b/,
 ];
 const CONSTITUTION = [/\bConst\.?\b/];
+const CASE = [/\bv\.\s/, /\bIn re\b/];
 const STATUTE = [
   /§/, /\bU\.S\.C\./, /\bStat\.?\b/, /\bCode\b/, /\bILCS\b/, /\bRSA\b/, /\bMRSA\b/, /\bV\.?S\.?A\.?\b/, /\bRCW\b/, /\bORS\b/,
   /\bNRS\b/, /\bKRS\b/, /\bHRS\b/, /\bMGL\b/, /\bMCL\b/, /\bNCGS\b/, /\bNDCC\b/, /\bSDCL\b/, /\bO\.S\.\b/, /\bP\.S\.\b/,
@@ -38,6 +39,7 @@ export function classifySource(source: string, url?: string): CitationKind | und
   // an IWC Wage Order mentions "Order" and must beat the statute patterns.
   if (/^no state .* law/i.test(source)) return "guidance";
   if (CONSTITUTION.some(re => re.test(source))) return "constitution";
+  if (CASE.some(re => re.test(source))) return "case";
   // A state statute that merely mentions a city ("NYC Minimum Wage (NY Labor Law §652)") is still a statute.
   if (/\b(NY|New York) Labor Law\b/.test(source) && !/Admin(istrative)? Code/i.test(source)) {
     return /NYCRR/.test(source) ? "regulation" : "statute";

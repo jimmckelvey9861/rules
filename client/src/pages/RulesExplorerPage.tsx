@@ -206,6 +206,7 @@ const TOPIC_COLORS: Record<string, string> = {
   "sep.warn": "bg-red-100 text-red-800",
   "sep.final_pay": "bg-stone-200 text-stone-800",
   "pay.wage_protection": "bg-fuchsia-100 text-fuchsia-800",
+  "pay.compensable_time": "bg-lime-100 text-lime-800",
 };
 
 /** "pay.minimum_wage.general" -> "pay.minimum_wage" */
