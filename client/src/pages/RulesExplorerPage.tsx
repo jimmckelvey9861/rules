@@ -211,6 +211,8 @@ const TOPIC_COLORS: Record<string, string> = {
   "protect.general": "bg-red-100 text-red-800",
   "coverage.general": "bg-slate-100 text-slate-800",
   "sep.records": "bg-stone-100 text-stone-800",
+  "sep.post_employment": "bg-fuchsia-100 text-fuchsia-800",
+  "sep.procedures": "bg-orange-100 text-orange-800",
 };
 
 /** "pay.minimum_wage.general" -> "pay.minimum_wage" */

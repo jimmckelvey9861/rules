@@ -60,7 +60,9 @@ export type Topic =
   | "hiring"
   | "workplace_protections"
   | "compliance"
-  | "record_retention";
+  | "record_retention"
+  | "post_employment"
+  | "separation";
 
 export const ALL_TOPICS: Topic[] = [
   "day_of_rest",
@@ -87,6 +89,8 @@ export const ALL_TOPICS: Topic[] = [
   "workplace_protections",
   "compliance",
   "record_retention",
+  "post_employment",
+  "separation",
 ];
 
 export const ALL_STATES = [
@@ -355,6 +359,8 @@ const STATES_WITH_HIRING: StateCode[] = [...ALL_STATES]; // every state carries 
 const STATES_WITH_WORKPLACE_PROTECTIONS: StateCode[] = [...ALL_STATES]; // every state carries anti-discrimination, OSHA-authority and whistleblower rules
 const STATES_WITH_COMPLIANCE: StateCode[] = [...ALL_STATES]; // every state has a state-poster rule
 const STATES_WITH_RECORD_RETENTION: StateCode[] = [...ALL_STATES]; // every state has a payroll-record-retention rule
+const STATES_WITH_POST_EMPLOYMENT: StateCode[] = [...ALL_STATES]; // every state has a non-compete rule
+const STATES_WITH_SEPARATION: StateCode[] = [...ALL_STATES]; // every state has a health-continuation rule
 const STATES_WITH_COMPENSABLE_TIME: StateCode[] = [...ALL_STATES]; // every state carries an hours-worked standard rule (FLSA by reference, own regulation, control test or no state law)
 const STATES_WITH_WAGE_PROTECTION: StateCode[] = [...ALL_STATES]; // pay frequency, deductions and equal pay rules for every state (no-law states carry explicit FLSA-only rules)
 
@@ -383,6 +389,8 @@ const TOPIC_TO_STATES: Record<Topic, readonly StateCode[]> = {
   workplace_protections: STATES_WITH_WORKPLACE_PROTECTIONS,
   compliance: STATES_WITH_COMPLIANCE,
   record_retention: STATES_WITH_RECORD_RETENTION,
+  post_employment: STATES_WITH_POST_EMPLOYMENT,
+  separation: STATES_WITH_SEPARATION,
 };
 
 // ─── Local (City/County) Coverage ──────────────────────────────────
@@ -558,6 +566,8 @@ export function matrixTopicFor(topic: string, obligation?: string): Topic | unde
     case "protect.general": return "workplace_protections";
     case "coverage.general": return "compliance";
     case "sep.records": return "record_retention";
+    case "sep.post_employment": return "post_employment";
+    case "sep.procedures": return "separation";
     case "leave.sick": return "sick_leave";
     case "leave.family_medical": return "family_medical_leave";
     case "leave.civic_emergency": return "civic_leave";
@@ -586,6 +596,8 @@ export const MATRIX_ROWS_BY_TOPIC_CODE: Record<string, readonly Topic[]> = {
   "protect.general": ["workplace_protections"],
   "coverage.general": ["compliance"],
   "sep.records": ["record_retention"],
+  "sep.post_employment": ["post_employment"],
+  "sep.procedures": ["separation"],
   "leave.sick": ["sick_leave"],
   "leave.family_medical": ["family_medical_leave"],
   "leave.civic_emergency": ["civic_leave"],

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T12:54:33.663Z",
+  "generatedAt": "2026-10-31T13:55:54.761Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "66854779918b541f",
+  "rulesVersion": "51fbbf27cdf5fa9f",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -4895,6 +4895,243 @@
       "hash": "367b13562e06c7c7"
     },
     {
+      "id": "il-noncompete",
+      "title": "Illinois: non-compete agreements",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sep.post_employment.noncompete",
+      "topicCode": "sep.post_employment",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2022-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Employer must advise in writing to consult counsel and give 14 days to review; adequate consideration (2+ years continued employment or other); void for COVID-related layoffs unless base pay continues; attorneys' fees to prevailing employee.",
+          "income_threshold_usd": 75000,
+          "threshold_year": 2022,
+          "advance_notice_days": 14,
+          "exempt_categories": "employees earning $75,000 or less ($80,000 from 2027); non-solicits below $45,000; construction and public-sector union employees"
+        },
+        "summary": "Illinois restricts employee non-competes by statute. Employer must advise in writing to consult counsel and give 14 days to review; adequate consideration (2+ years continued employment or other); void for COVID-related layoffs unless base pay continues; attorneys' fees to prevailing employee.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 90 (Freedom to Work Act)",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "5b529f67032a109c"
+    },
+    {
+      "id": "federal-ftc-noncompete-rule",
+      "title": "Federal: FTC non-compete rule set aside",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.post_employment.noncompete",
+      "topicCode": "sep.post_employment",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2024-08-20",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "The FTC's 2024 Non-Compete Clause Rule (16 C.F.R. Part 910) was set aside nationwide in Ryan LLC v. FTC (N.D. Tex., 2024-08-20) and the FTC dropped its appeal in September 2025; the agency pursues case-by-case enforcement under FTC Act § 5. State law governs enforceability."
+        },
+        "summary": "No federal rule bans non-competes: the FTC's 2024 rule was vacated, so state law controls.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Ryan LLC v. FTC, No. 3:24-cv-00986 (N.D. Tex. Aug. 20, 2024)",
+          "url": "https://www.law.cornell.edu/cfr/text/16/part-910",
+          "kind": "case"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "d2b3a9c9c7639073"
+    },
+    {
+      "id": "il-separation-notice",
+      "title": "Illinois: separation and unemployment notice",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sep.procedures.separation_notice",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Pamphlet 'What Every Worker Should Know About Unemployment Insurance'",
+          "deadline": "at separation or when laid off 7+ days",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Illinois employers must give all separated employees 'Pamphlet 'What Every Worker Should Know About Unemployment Insurance'' at separation or when laid off 7+ days.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "56 Ill. Adm. Code 2720.100",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "4869bc016444bf65"
+    },
+    {
+      "id": "federal-cobra",
+      "title": "Federal: COBRA continuation coverage (20+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.procedures.health_continuation",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1986-07-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "federal_cobra",
+          "min_employees": 20,
+          "months": 18,
+          "employer_scope": "group health plans of employers with 20+ employees on more than 50% of business days in the prior year",
+          "notes": "18 months after termination or hours reduction (29 with disability, 36 for death, divorce or Medicare entitlement); plan administrator sends the election notice within 44 days; qualified beneficiaries get 60 days to elect and may be charged 102% of premium."
+        },
+        "summary": "Employers with 20+ employees must offer COBRA continuation of group health coverage for 18 to 36 months after a qualifying event.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §§ 1161-1168",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        },
+        {
+          "source": "26 U.S.C. § 4980B",
+          "url": "https://www.law.cornell.edu/uscode/text/26/4980B",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b7a1c684c0b20731"
+    },
+    {
+      "id": "il-health-continuation",
+      "title": "Illinois: state health continuation (mini-COBRA)",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "sep.procedures.health_continuation",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "all fully insured group policies",
+          "notes": "12 months (24 for spouse and dependents); 3 months prior coverage; 30 days after notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Illinois requires continuation of group health coverage for up to 12 months for all fully insured group policies. 12 months (24 for spouse and dependents); 3 months prior coverage; 30 days after notice.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Illinois insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f99cecd373c87b86"
+    },
+    {
       "id": "federal-flsa-payroll-records",
       "title": "Federal: FLSA payroll records",
       "jurisdiction": "Federal",
@@ -7954,6 +8191,177 @@
       ]
     },
     {
+      "code": "sep.health_continuation",
+      "name": "Health coverage continuation",
+      "description": "Whether federal COBRA or a state mini-COBRA law requires continued group health coverage after separation, for how long and for which employers.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "federal_cobra",
+            "state_continuation",
+            "none"
+          ],
+          "required": true,
+          "description": "Source of the continuation right"
+        },
+        {
+          "name": "months",
+          "type": "number",
+          "unit": "months",
+          "required": true,
+          "description": "Maximum continuation period after termination"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "employer_scope",
+          "type": "string",
+          "required": false,
+          "description": "Employers and plans the law reaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Election windows, prior-coverage requirements, extended periods and citations"
+        }
+      ],
+      "synonyms": [
+        "COBRA",
+        "mini-COBRA",
+        "state continuation",
+        "Cal-COBRA",
+        "health continuation",
+        "continuation coverage"
+      ]
+    },
+    {
+      "code": "sep.noncompete",
+      "name": "Non-compete enforceability",
+      "description": "Whether employee non-compete agreements are banned, restricted or enforceable, and the thresholds, notice and duration limits that apply.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "enforceability",
+          "type": "enum",
+          "values": [
+            "banned",
+            "restricted",
+            "enforceable"
+          ],
+          "required": true,
+          "description": "banned: void for employees generally; restricted: statutory limits (income floor, notice, duration, exempt groups); enforceable: common-law reasonableness"
+        },
+        {
+          "name": "income_threshold_usd",
+          "type": "number",
+          "unit": "usd_per_year",
+          "required": false,
+          "description": "Annual earnings below which non-competes are void"
+        },
+        {
+          "name": "threshold_year",
+          "type": "number",
+          "required": false,
+          "description": "Year the threshold figure applies to (indexed thresholds change annually)"
+        },
+        {
+          "name": "advance_notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of advance written notice required before the agreement binds (0 = copy must be given before offer acceptance)"
+        },
+        {
+          "name": "max_duration_months",
+          "type": "number",
+          "unit": "months",
+          "required": false,
+          "description": "Statutory or presumptive maximum post-employment duration"
+        },
+        {
+          "name": "exempt_categories",
+          "type": "string",
+          "required": false,
+          "description": "Worker groups the restraint may not reach"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Consideration, garden leave, choice-of-law, penalty and pending-change wrinkles"
+        }
+      ],
+      "synonyms": [
+        "non-compete",
+        "noncompete",
+        "covenant not to compete",
+        "restrictive covenant",
+        "non-solicit",
+        "garden leave",
+        "Freedom to Work Act"
+      ]
+    },
+    {
+      "code": "sep.separation_notice",
+      "name": "Separation and unemployment notice",
+      "description": "Whether the employer must give departing employees a written separation notice or unemployment insurance information, and by when.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "document",
+          "type": "string",
+          "required": true,
+          "description": "Form or pamphlet required"
+        },
+        {
+          "name": "deadline",
+          "type": "string",
+          "required": true,
+          "description": "When it must be given"
+        },
+        {
+          "name": "recipients",
+          "type": "string",
+          "required": false,
+          "description": "Which separations trigger it"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Delivery method and verification notes"
+        }
+      ],
+      "synonyms": [
+        "separation notice",
+        "termination letter",
+        "unemployment notice",
+        "DOL-800",
+        "UC-61",
+        "LB-0489",
+        "notice of availability of unemployment benefits"
+      ]
+    },
+    {
       "code": "sep.warn_notice",
       "name": "Mass layoff / plant closing notice (WARN)",
       "description": "Advance written notice owed to employees and the state before a plant closing or mass layoff.",
@@ -8534,14 +8942,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1706,
-    "rulesIncluded": 108,
-    "excludedByProfile": 1591,
+    "rulesConsidered": 1840,
+    "rulesIncluded": 113,
+    "excludedByProfile": 1720,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 20
+    "fullyResolved": 23
   },
-  "checksum": "b83ae10a5281171ef4ab1a904ee371de2f6d3c8d82fc6554a67ab6b04238f9e0"
+  "checksum": "30836e386986dd9dc9ec4cacf89f2de5400e175b9d783279a2f56ac5827af3da"
 }

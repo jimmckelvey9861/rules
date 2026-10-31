@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T12:54:33.673Z",
+  "generatedAt": "2026-10-31T13:55:54.772Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "66854779918b541f",
+  "rulesVersion": "51fbbf27cdf5fa9f",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -3561,6 +3561,240 @@
       "hash": "12712aa73582eb3a"
     },
     {
+      "id": "tx-noncompete",
+      "title": "Texas: non-compete agreements",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "sep.post_employment.noncompete",
+      "topicCode": "sep.post_employment",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Enforceable if ancillary to an otherwise enforceable agreement and reasonable; courts must reform overbroad terms.",
+          "exempt_categories": "physicians and other healthcare practitioners: 1 year, 5 miles, capped buyout (2025)"
+        },
+        "summary": "Texas enforces reasonable employee non-competes. Enforceable if ancillary to an otherwise enforceable agreement and reasonable; courts must reform overbroad terms.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Bus. & Com. Code § 15.50 et seq.",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "b07bcf1ed1995f1d"
+    },
+    {
+      "id": "federal-ftc-noncompete-rule",
+      "title": "Federal: FTC non-compete rule set aside",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.post_employment.noncompete",
+      "topicCode": "sep.post_employment",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2024-08-20",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "The FTC's 2024 Non-Compete Clause Rule (16 C.F.R. Part 910) was set aside nationwide in Ryan LLC v. FTC (N.D. Tex., 2024-08-20) and the FTC dropped its appeal in September 2025; the agency pursues case-by-case enforcement under FTC Act § 5. State law governs enforceability."
+        },
+        "summary": "No federal rule bans non-competes: the FTC's 2024 rule was vacated, so state law controls.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Ryan LLC v. FTC, No. 3:24-cv-00986 (N.D. Tex. Aug. 20, 2024)",
+          "url": "https://www.law.cornell.edu/cfr/text/16/part-910",
+          "kind": "case"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "d2b3a9c9c7639073"
+    },
+    {
+      "id": "tx-service-letter",
+      "title": "Texas: written reason for termination on request",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "sep.procedures.service_letter",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "discharged employees",
+          "trigger": "on request (where the employer provides a reason)",
+          "deadline": "10 days after the request",
+          "notes": "An employer that gives a reason for discharge must give the true reason in writing within 10 days of a request, and may not use information not disclosed."
+        },
+        "summary": "Texas employers must give discharged employees a written statement of the reason for separation: on request (where the employer provides a reason); due 10 days after the request. An employer that gives a reason for discharge must give the true reason in writing within 10 days of a request, and may not use information not disclosed.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code § 52.031",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "7d23d8c59d2b0dd0"
+    },
+    {
+      "id": "federal-cobra",
+      "title": "Federal: COBRA continuation coverage (20+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.procedures.health_continuation",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1986-07-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "federal_cobra",
+          "min_employees": 20,
+          "months": 18,
+          "employer_scope": "group health plans of employers with 20+ employees on more than 50% of business days in the prior year",
+          "notes": "18 months after termination or hours reduction (29 with disability, 36 for death, divorce or Medicare entitlement); plan administrator sends the election notice within 44 days; qualified beneficiaries get 60 days to elect and may be charged 102% of premium."
+        },
+        "summary": "Employers with 20+ employees must offer COBRA continuation of group health coverage for 18 to 36 months after a qualifying event.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §§ 1161-1168",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        },
+        {
+          "source": "26 U.S.C. § 4980B",
+          "url": "https://www.law.cornell.edu/uscode/text/26/4980B",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b7a1c684c0b20731"
+    },
+    {
+      "id": "tx-health-continuation",
+      "title": "Texas: state health continuation (mini-COBRA)",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "sep.procedures.health_continuation",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "fully insured groups (also 6 months after federal COBRA ends)",
+          "notes": "Tex. Ins. Code ch. 1251, subch. F; 3 months prior coverage; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Texas requires continuation of group health coverage for up to 9 months for fully insured groups (also 6 months after federal COBRA ends). Tex. Ins. Code ch. 1251, subch. F; 3 months prior coverage; 60 days to elect.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Texas insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "ae721ad3fd0e6579"
+    },
+    {
       "id": "federal-flsa-payroll-records",
       "title": "Federal: FLSA payroll records",
       "jurisdiction": "Federal",
@@ -5526,6 +5760,174 @@
       ]
     },
     {
+      "code": "sep.health_continuation",
+      "name": "Health coverage continuation",
+      "description": "Whether federal COBRA or a state mini-COBRA law requires continued group health coverage after separation, for how long and for which employers.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "federal_cobra",
+            "state_continuation",
+            "none"
+          ],
+          "required": true,
+          "description": "Source of the continuation right"
+        },
+        {
+          "name": "months",
+          "type": "number",
+          "unit": "months",
+          "required": true,
+          "description": "Maximum continuation period after termination"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "employer_scope",
+          "type": "string",
+          "required": false,
+          "description": "Employers and plans the law reaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Election windows, prior-coverage requirements, extended periods and citations"
+        }
+      ],
+      "synonyms": [
+        "COBRA",
+        "mini-COBRA",
+        "state continuation",
+        "Cal-COBRA",
+        "health continuation",
+        "continuation coverage"
+      ]
+    },
+    {
+      "code": "sep.noncompete",
+      "name": "Non-compete enforceability",
+      "description": "Whether employee non-compete agreements are banned, restricted or enforceable, and the thresholds, notice and duration limits that apply.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "enforceability",
+          "type": "enum",
+          "values": [
+            "banned",
+            "restricted",
+            "enforceable"
+          ],
+          "required": true,
+          "description": "banned: void for employees generally; restricted: statutory limits (income floor, notice, duration, exempt groups); enforceable: common-law reasonableness"
+        },
+        {
+          "name": "income_threshold_usd",
+          "type": "number",
+          "unit": "usd_per_year",
+          "required": false,
+          "description": "Annual earnings below which non-competes are void"
+        },
+        {
+          "name": "threshold_year",
+          "type": "number",
+          "required": false,
+          "description": "Year the threshold figure applies to (indexed thresholds change annually)"
+        },
+        {
+          "name": "advance_notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of advance written notice required before the agreement binds (0 = copy must be given before offer acceptance)"
+        },
+        {
+          "name": "max_duration_months",
+          "type": "number",
+          "unit": "months",
+          "required": false,
+          "description": "Statutory or presumptive maximum post-employment duration"
+        },
+        {
+          "name": "exempt_categories",
+          "type": "string",
+          "required": false,
+          "description": "Worker groups the restraint may not reach"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Consideration, garden leave, choice-of-law, penalty and pending-change wrinkles"
+        }
+      ],
+      "synonyms": [
+        "non-compete",
+        "noncompete",
+        "covenant not to compete",
+        "restrictive covenant",
+        "non-solicit",
+        "garden leave",
+        "Freedom to Work Act"
+      ]
+    },
+    {
+      "code": "sep.service_letter",
+      "name": "Written reason for termination",
+      "description": "Whether a departing employee may demand a written statement of the reason for separation, and how fast the employer must answer.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "who",
+          "type": "string",
+          "required": true,
+          "description": "Who may request"
+        },
+        {
+          "name": "trigger",
+          "type": "string",
+          "required": true,
+          "description": "How and when the request must be made"
+        },
+        {
+          "name": "deadline",
+          "type": "string",
+          "required": false,
+          "description": "Employer response deadline"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Contents, penalties and evidentiary effect"
+        }
+      ],
+      "synonyms": [
+        "service letter",
+        "reason for termination",
+        "termination reason letter",
+        "statement of reasons for discharge"
+      ]
+    },
+    {
       "code": "wage.minimum",
       "name": "Minimum wage",
       "description": "The lowest hourly rate an employer may pay a covered employee.",
@@ -5884,14 +6286,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1706,
-    "rulesIncluded": 79,
-    "excludedByProfile": 1620,
+    "rulesConsidered": 1840,
+    "rulesIncluded": 84,
+    "excludedByProfile": 1749,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 9
+    "fullyResolved": 12
   },
-  "checksum": "86519f1e1e1d0f87cbd89a34028a97ea83b75d88e062f63dbef66a1a5093adfa"
+  "checksum": "6bbe30d222369202f4bd2287eb436eeb5264324b02bd950fe75d503a9fade14e"
 }

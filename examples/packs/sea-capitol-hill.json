@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T12:54:33.651Z",
+  "generatedAt": "2026-10-31T13:55:54.746Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "66854779918b541f",
+  "rulesVersion": "51fbbf27cdf5fa9f",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -5553,6 +5553,200 @@
       "hash": "ea09180272629712"
     },
     {
+      "id": "wa-noncompete",
+      "title": "Washington: non-compete agreements",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sep.post_employment.noncompete",
+      "topicCode": "sep.post_employment",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Terms disclosed in writing before acceptance of the offer; over 18 months presumptively unreasonable; laid-off employees must receive base pay during the restriction; Washington law and forum; $5,000 minimum penalty. ESHB 1155 (2026) phases in a near-total ban from 2027.",
+          "income_threshold_usd": 126858,
+          "threshold_year": 2026,
+          "advance_notice_days": 0,
+          "max_duration_months": 18,
+          "exempt_categories": "employees earning below the indexed threshold; franchisee no-poach clauses"
+        },
+        "summary": "Washington restricts employee non-competes by statute. Terms disclosed in writing before acceptance of the offer; over 18 months presumptively unreasonable; laid-off employees must receive base pay during the restriction; Washington law and forum; $5,000 minimum penalty. ESHB 1155 (2026) phases in a near-total ban from 2027.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Wash. Rev. Code ch. 49.62",
+          "url": "https://law.justia.com/codes/washington/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "115d15f301220d3f"
+    },
+    {
+      "id": "federal-ftc-noncompete-rule",
+      "title": "Federal: FTC non-compete rule set aside",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.post_employment.noncompete",
+      "topicCode": "sep.post_employment",
+      "enforcement": "informational",
+      "status": "active",
+      "effectiveFrom": "2024-08-20",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "The FTC's 2024 Non-Compete Clause Rule (16 C.F.R. Part 910) was set aside nationwide in Ryan LLC v. FTC (N.D. Tex., 2024-08-20) and the FTC dropped its appeal in September 2025; the agency pursues case-by-case enforcement under FTC Act § 5. State law governs enforceability."
+        },
+        "summary": "No federal rule bans non-competes: the FTC's 2024 rule was vacated, so state law controls.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Ryan LLC v. FTC, No. 3:24-cv-00986 (N.D. Tex. Aug. 20, 2024)",
+          "url": "https://www.law.cornell.edu/cfr/text/16/part-910",
+          "kind": "case"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "d2b3a9c9c7639073"
+    },
+    {
+      "id": "federal-cobra",
+      "title": "Federal: COBRA continuation coverage (20+ employees)",
+      "jurisdiction": "Federal",
+      "jurisdictionId": "us",
+      "jurisdictionType": "federal",
+      "topic": "sep.procedures.health_continuation",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "1986-07-01",
+      "appliesWhen": {
+        "fact": "employee.worker_type",
+        "op": "=",
+        "value": "w2_employee"
+      },
+      "satisfiedBy": [
+        "employer.total_employees"
+      ],
+      "factsNeeded": [
+        "employee.worker_type"
+      ],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "federal_cobra",
+          "min_employees": 20,
+          "months": 18,
+          "employer_scope": "group health plans of employers with 20+ employees on more than 50% of business days in the prior year",
+          "notes": "18 months after termination or hours reduction (29 with disability, 36 for death, divorce or Medicare entitlement); plan administrator sends the election notice within 44 days; qualified beneficiaries get 60 days to elect and may be charged 102% of premium."
+        },
+        "summary": "Employers with 20+ employees must offer COBRA continuation of group health coverage for 18 to 36 months after a qualifying event.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. §§ 1161-1168",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        },
+        {
+          "source": "26 U.S.C. § 4980B",
+          "url": "https://www.law.cornell.edu/uscode/text/26/4980B",
+          "kind": "statute"
+        }
+      ],
+      "hash": "b7a1c684c0b20731"
+    },
+    {
+      "id": "wa-health-continuation",
+      "title": "Washington: state health continuation (mini-COBRA)",
+      "jurisdiction": "WA",
+      "jurisdictionId": "us-wa",
+      "jurisdictionType": "state",
+      "topic": "sep.procedures.health_continuation",
+      "topicCode": "sep.procedures",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Washington has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. § 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ],
+      "hash": "388f423c4d918a05"
+    },
+    {
       "id": "federal-flsa-payroll-records",
       "title": "Federal: FLSA payroll records",
       "jurisdiction": "Federal",
@@ -8707,6 +8901,133 @@
       ]
     },
     {
+      "code": "sep.health_continuation",
+      "name": "Health coverage continuation",
+      "description": "Whether federal COBRA or a state mini-COBRA law requires continued group health coverage after separation, for how long and for which employers.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "federal_cobra",
+            "state_continuation",
+            "none"
+          ],
+          "required": true,
+          "description": "Source of the continuation right"
+        },
+        {
+          "name": "months",
+          "type": "number",
+          "unit": "months",
+          "required": true,
+          "description": "Maximum continuation period after termination"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "employer_scope",
+          "type": "string",
+          "required": false,
+          "description": "Employers and plans the law reaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Election windows, prior-coverage requirements, extended periods and citations"
+        }
+      ],
+      "synonyms": [
+        "COBRA",
+        "mini-COBRA",
+        "state continuation",
+        "Cal-COBRA",
+        "health continuation",
+        "continuation coverage"
+      ]
+    },
+    {
+      "code": "sep.noncompete",
+      "name": "Non-compete enforceability",
+      "description": "Whether employee non-compete agreements are banned, restricted or enforceable, and the thresholds, notice and duration limits that apply.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "enforceability",
+          "type": "enum",
+          "values": [
+            "banned",
+            "restricted",
+            "enforceable"
+          ],
+          "required": true,
+          "description": "banned: void for employees generally; restricted: statutory limits (income floor, notice, duration, exempt groups); enforceable: common-law reasonableness"
+        },
+        {
+          "name": "income_threshold_usd",
+          "type": "number",
+          "unit": "usd_per_year",
+          "required": false,
+          "description": "Annual earnings below which non-competes are void"
+        },
+        {
+          "name": "threshold_year",
+          "type": "number",
+          "required": false,
+          "description": "Year the threshold figure applies to (indexed thresholds change annually)"
+        },
+        {
+          "name": "advance_notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of advance written notice required before the agreement binds (0 = copy must be given before offer acceptance)"
+        },
+        {
+          "name": "max_duration_months",
+          "type": "number",
+          "unit": "months",
+          "required": false,
+          "description": "Statutory or presumptive maximum post-employment duration"
+        },
+        {
+          "name": "exempt_categories",
+          "type": "string",
+          "required": false,
+          "description": "Worker groups the restraint may not reach"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Consideration, garden leave, choice-of-law, penalty and pending-change wrinkles"
+        }
+      ],
+      "synonyms": [
+        "non-compete",
+        "noncompete",
+        "covenant not to compete",
+        "restrictive covenant",
+        "non-solicit",
+        "garden leave",
+        "Freedom to Work Act"
+      ]
+    },
+    {
       "code": "wage.minimum",
       "name": "Minimum wage",
       "description": "The lowest hourly rate an employer may pay a covered employee.",
@@ -9222,14 +9543,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1706,
-    "rulesIncluded": 118,
-    "excludedByProfile": 1581,
+    "rulesConsidered": 1840,
+    "rulesIncluded": 122,
+    "excludedByProfile": 1711,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 24
+    "fullyResolved": 26
   },
-  "checksum": "3f51c2d65a05434a6d64d4c7223eddbb7a0bb1441ff2af083ee08742cbbe8dc5"
+  "checksum": "2bdc92d04267130737d1139971f1b1b4217412a56ecd509f11ec3a70ac2f0f2d"
 }
