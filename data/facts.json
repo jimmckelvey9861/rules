@@ -773,6 +773,77 @@
       ]
     },
     {
+      "path": "shift.travel_type",
+      "type": "enum",
+      "description": "Kind of travel the shift involves, for compensable-time rules",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "enumValues": [
+        "none",
+        "commute",
+        "between_worksites",
+        "special_one_day_assignment",
+        "out_of_town",
+        "employer_mandated_transport"
+      ],
+      "synonyms": [
+        "travel time",
+        "drive time",
+        "travel between sites",
+        "out of town travel",
+        "company shuttle"
+      ]
+    },
+    {
+      "path": "shift.on_call_restricted",
+      "type": "boolean",
+      "description": "Whether an on-call employee must stay on or near the premises (or so constrained they cannot use the time for their own purposes)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "restricted on-call",
+        "engaged to wait",
+        "on-premises standby"
+      ]
+    },
+    {
+      "path": "shift.is_training",
+      "type": "boolean",
+      "description": "Whether the shift is training, orientation, a lecture or a meeting rather than productive work",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "training shift",
+        "orientation",
+        "staff meeting",
+        "mandatory meeting"
+      ]
+    },
+    {
+      "path": "shift.training_is_voluntary",
+      "type": "boolean",
+      "description": "Whether attendance at the training or meeting is genuinely voluntary (not required, and no adverse consequence for skipping it)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "voluntary training",
+        "optional training"
+      ]
+    },
+    {
+      "path": "shift.timeclock_rounding_minutes",
+      "type": "number",
+      "description": "Increment the timekeeping system rounds punches to, in minutes (0 when time is paid to the minute)",
+      "category": "4. Shift",
+      "group": "4.3 Shift Type",
+      "synonyms": [
+        "time rounding",
+        "punch rounding",
+        "7-minute rule",
+        "quarter-hour rounding"
+      ]
+    },
+    {
       "path": "shift.is_school_day",
       "type": "boolean",
       "description": "Whether it is a school day (for minor labor rules)",

@@ -54,7 +54,7 @@
         "source": { "type": "string", "description": "Formal cite or document name" },
         "url": { "type": "string", "format": "uri" },
         "section": { "type": "string" },
-        "kind": { "enum": ["statute", "regulation", "ordinance", "constitution", "guidance"] }
+        "kind": { "enum": ["statute", "regulation", "ordinance", "constitution", "case", "guidance"] }
       }
     },
     "rule": {

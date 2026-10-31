@@ -85,9 +85,9 @@ export type RuleStatus = "active" | "draft" | "repealed" | "pending";
  * and change more often; guidance pages (agency FAQs, fact sheets) are the
  * least stable and should never be a rule's only citation.
  */
-export type CitationKind = "statute" | "regulation" | "ordinance" | "constitution" | "guidance";
+export type CitationKind = "statute" | "regulation" | "ordinance" | "constitution" | "case" | "guidance";
 
-export const CITATION_KINDS: readonly CitationKind[] = ["statute", "regulation", "ordinance", "constitution", "guidance"];
+export const CITATION_KINDS: readonly CitationKind[] = ["statute", "regulation", "ordinance", "constitution", "case", "guidance"];
 
 export interface Citation {
   /** Formal cite or document name, e.g. "Cal. Lab. Code §512(a)" */

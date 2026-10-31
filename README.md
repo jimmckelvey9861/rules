@@ -51,10 +51,10 @@ data/
   jurisdictions.json    — Federal, 50 states + DC, 5 territories, 30 local jurisdictions (FIPS, parent,
                           preemption flags with statute citations; 28 states preempt some local labor rule)
   result-vocabulary.json — The obligation types a rule can impose, with typed parameters
-  facts.json            — Fact registry: every fact a rule may test (118 facts in 8 categories, typed,
+  facts.json            — Fact registry: every fact a rule may test (125 facts in 8 categories, typed,
                           with enum values and plain-language synonyms)
   profiles/             — Business profiles (sample multi-state retail chain)
-  rules/<topic>.json    — All rules, one file per taxonomy topic code (1149 rules across 17 topics)
+  rules/<topic>.json    — All rules, one file per taxonomy topic code (1246 rules across 18 topics)
   schema/               — JSON Schema for rule files and facts.json (editor validation)
   link-report.json      — Output of the link checker (written by npm run check-links)
 scripts/
@@ -181,8 +181,8 @@ Law changes are modelled as rule history, never as edits that lose the past:
 
 ## Sources and links
 
-Every citation carries a `kind` (`statute`, `regulation`, `ordinance`, `constitution`
-or `guidance`). Statutes and ordinances are the durable authority; guidance pages
+Every citation carries a `kind` (`statute`, `regulation`, `ordinance`, `constitution`,
+`case` or `guidance`). A `case` is a court decision that settles how a statute applies. Statutes and ordinances are the durable authority; guidance pages
 (agency FAQs) churn and may never be a rule's only citation. `npm run
 classify-citations` fills in `kind` for new citations from the wording of
 `source`.
@@ -208,7 +208,7 @@ report is attached as an artifact. Only broken links fail the nightly run.
 
 ## Rules
 
-1149 rules across 17 taxonomy topics (48 sub-topics) and 87 jurisdictions.
+1246 rules across 18 taxonomy topics (51 sub-topics) and 87 jurisdictions.
 `GET /api/coverage` reports which jurisdiction × topic cells have a rule, are
-confirmed to have no law, or are unchecked; its 19 rows are the historical topic
-names (plus lactation breaks, civic leave, hour limits, personal leave, final pay and equal pay / wage protection), which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.
+confirmed to have no law, or are unchecked; its 20 rows are the historical topic
+names (plus lactation breaks, civic leave, hour limits, personal leave, final pay, equal pay / wage protection and compensable time), which `matrixTopicFor` in `server/rules/coverageMatrix.ts` maps codes onto.

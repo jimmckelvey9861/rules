@@ -1,0 +1,4109 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "pay.compensable_time",
+  "rules": [
+    {
+      "id": "federal-hours-worked-standard",
+      "title": "FLSA \u2014 Hours Worked Standard",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true,
+          "notes": "Hours worked = time the employee is suffered or permitted to work; the Portal-to-Portal Act excludes ordinary commuting and activities preliminary or postliminary to the principal activity (incl. security screening, Integrity Staffing v. Busk 2014); 29 CFR 785.47 lets insubstantial, irregular minutes be disregarded"
+        },
+        "summary": "Under the FLSA all time an employee is suffered or permitted to work is paid, except ordinary commuting and preliminary or postliminary activities excluded by the Portal-to-Portal Act; a de minimis exception exists."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.11 (work suffered or permitted)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7785.47 (de minimis)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.47",
+          "section": "\u00a7785.47",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-travel-commute",
+      "title": "FLSA \u2014 Travel Time (Commute)",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "commute"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "commute"
+        },
+        "summary": "Ordinary home-to-work travel is not hours worked, even to different worksites, unless the employee works during the trip."
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7785.35",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.35",
+          "section": "\u00a7785.35",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-travel-between-worksites",
+      "title": "FLSA \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between job sites during the workday, or from the employer's premises to the first site after reporting, is hours worked."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.38",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.38",
+          "section": "\u00a7785.38",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-travel-special-one-day",
+      "title": "FLSA \u2014 Travel Time (Special One Day Assignment)",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "special_one_day_assignment"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "special_one_day_assignment",
+          "notes": "Employer may deduct the normal home-to-work commute time"
+        },
+        "summary": "A special one-day assignment in another city is hours worked, less the time of the employee's normal commute."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.37",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.37",
+          "section": "\u00a7785.37",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-travel-out-of-town",
+      "title": "FLSA \u2014 Travel Time (Out Of Town)",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "out_of_town"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": true
+        },
+        "summary": "Overnight travel away from home is hours worked only during the employee's normal working hours (including corresponding hours on non-working days); passenger time outside those hours is unpaid unless work is done."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.39",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.39",
+          "section": "\u00a7785.39",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR \u00a7785.41",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.41",
+          "section": "\u00a7785.41",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-travel-employer-mandated-transport",
+      "title": "FLSA \u2014 Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "employer_mandated_transport"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "employer_mandated_transport"
+        },
+        "summary": "Riding employer-provided transport from a meeting point to the worksite is not hours worked under the Portal-to-Portal Act unless the travel is itself a principal activity; several states (CA, NY, WA, MD, PA, MA) count it."
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR \u00a7785.33",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.33",
+          "section": "\u00a7785.33",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-oncall-restricted",
+      "title": "FLSA \u2014 Restricted On-Call Time",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "engaged to wait: employee must remain on the premises or so close that the time cannot be used effectively for personal purposes"
+        },
+        "summary": "An employee required to stay on or near the premises while on call is working and must be paid."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.17",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.17",
+          "section": "\u00a7785.17",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR \u00a7785.15",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.15",
+          "section": "\u00a7785.15",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-oncall-unrestricted",
+      "title": "FLSA \u2014 Unrestricted On-Call Time",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": false,
+          "situation": "on_call_unrestricted",
+          "test": "waiting to be engaged: employee may leave a contact number and use the time for personal purposes",
+          "notes": "Time actually spent responding to calls is paid"
+        },
+        "summary": "An on-call employee who need only leave a contact number and can use the time freely is not working; only time responding to calls is paid."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.17",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.17",
+          "section": "\u00a7785.17",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-training-mandatory",
+      "title": "FLSA \u2014 Mandatory Training and Meetings",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting",
+          "notes": "Attendance is not voluntary if required or if the employee is led to believe non-attendance would hurt their job"
+        },
+        "summary": "Required training, orientation and meetings are hours worked."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.27",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.27",
+          "section": "\u00a7785.27",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR \u00a7785.28",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.28",
+          "section": "\u00a7785.28",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-training-voluntary",
+      "title": "FLSA \u2014 Voluntary Training Outside Hours",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": false,
+          "situation": "voluntary_training",
+          "exclusion_test": "all four: outside regular hours, genuinely voluntary, not directly related to the employee's current job, and no productive work performed",
+          "notes": "Training to acquire a new or additional skill is not 'directly related'; apprenticeship instruction and independent courses are excluded"
+        },
+        "summary": "Training is unpaid only when it is outside regular hours, voluntary, not directly related to the current job and involves no productive work; otherwise it is hours worked."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.27",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.27",
+          "section": "\u00a7785.27",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR \u00a7785.29",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.29",
+          "section": "\u00a7785.29",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR \u00a7785.31",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.31",
+          "section": "\u00a7785.31",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "federal-timeclock-rounding",
+      "title": "FLSA \u2014 Time Clock Rounding",
+      "jurisdiction": "Federal",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true,
+          "meal_period_rounding_permitted": true,
+          "notes": "Rounding to the nearest 5, 6 or 15 minutes is accepted where it averages out and does not fail to pay for all time actually worked over a period"
+        },
+        "summary": "Punches may be rounded to the nearest quarter hour (or smaller increment) if the practice is neutral and does not, over time, fail to pay employees for all hours worked."
+      },
+      "citations": [
+        {
+          "source": "29 CFR \u00a7785.48",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.48",
+          "section": "\u00a7785.48",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "al-hours-worked-standard",
+      "title": "Alabama \u2014 Hours Worked Standard",
+      "jurisdiction": "AL",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Alabama has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "fl-hours-worked-standard",
+      "title": "Florida \u2014 Hours Worked Standard",
+      "jurisdiction": "FL",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Florida has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ga-hours-worked-standard",
+      "title": "Georgia \u2014 Hours Worked Standard",
+      "jurisdiction": "GA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Georgia has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "la-hours-worked-standard",
+      "title": "Louisiana \u2014 Hours Worked Standard",
+      "jurisdiction": "LA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Louisiana has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ms-hours-worked-standard",
+      "title": "Mississippi \u2014 Hours Worked Standard",
+      "jurisdiction": "MS",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Mississippi has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "sc-hours-worked-standard",
+      "title": "South Carolina \u2014 Hours Worked Standard",
+      "jurisdiction": "SC",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "South Carolina has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "tn-hours-worked-standard",
+      "title": "Tennessee \u2014 Hours Worked Standard",
+      "jurisdiction": "TN",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Tennessee has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wy-hours-worked-standard",
+      "title": "Wyoming \u2014 Hours Worked Standard",
+      "jurisdiction": "WY",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "no_state_law",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Wyoming has no state hours-worked law; the FLSA definition and Portal-to-Portal exclusions govern."
+      },
+      "citations": [
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 U.S.C. \u00a7254 (Portal-to-Portal Act)",
+          "url": "https://www.law.cornell.edu/uscode/text/29/254",
+          "section": "\u00a7254",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-hours-worked-standard",
+      "title": "Arizona \u2014 Hours Worked Standard",
+      "jurisdiction": "AZ",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Arizona follows the federal hours-worked rules; the state minimum wage act defines hours worked by reference to FLSA practice."
+      },
+      "citations": [
+        {
+          "source": "ARS \u00a723-362",
+          "url": "https://www.azleg.gov/ars/23/00362.htm",
+          "section": "\u00a723-362",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "de-hours-worked-standard",
+      "title": "Delaware \u2014 Hours Worked Standard",
+      "jurisdiction": "DE",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Delaware follows the federal hours-worked rules; the Minimum Wage Act has no separate hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "19 Del. C. \u00a7901",
+          "url": "https://delcode.delaware.gov/title19/c009/index.html",
+          "section": "\u00a7901",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "id-hours-worked-standard",
+      "title": "Idaho \u2014 Hours Worked Standard",
+      "jurisdiction": "ID",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Idaho follows the federal hours-worked rules; Idaho has no state hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "Idaho Code \u00a744-1502",
+          "url": "https://legislature.idaho.gov/statutesrules/idstat/Title44/T44CH15/SECT44-1502/",
+          "section": "\u00a744-1502",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "in-hours-worked-standard",
+      "title": "Indiana \u2014 Hours Worked Standard",
+      "jurisdiction": "IN",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Indiana follows the federal hours-worked rules; the Minimum Wage Law incorporates FLSA concepts and the state has no separate regulation."
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a722-2-2-3",
+          "url": "https://iga.in.gov/laws/2024/ic/titles/22#22-2-2-3",
+          "section": "\u00a722-2-2-3",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ia-hours-worked-standard",
+      "title": "Iowa \u2014 Hours Worked Standard",
+      "jurisdiction": "IA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Iowa follows the federal hours-worked rules; the Division of Labor adopts the federal hours-worked regulations by reference (chapter cited at chapter level; section unverified)."
+      },
+      "citations": [
+        {
+          "source": "875 IAC ch. 217 (Iowa minimum wage rules adopting 29 CFR 785)",
+          "url": "https://www.legis.iowa.gov/docs/iac/chapter/875.217.pdf",
+          "section": "ch. 217",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "me-hours-worked-standard",
+      "title": "Maine \u2014 Hours Worked Standard",
+      "jurisdiction": "ME",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Maine follows the federal hours-worked rules; Maine has no state hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7664",
+          "url": "https://legislature.maine.gov/statutes/26/title26sec664.html",
+          "section": "\u00a7664",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "mi-hours-worked-standard",
+      "title": "Michigan \u2014 Hours Worked Standard",
+      "jurisdiction": "MI",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Michigan follows the federal hours-worked rules; the Workforce Opportunity Wage Act follows FLSA hours-worked concepts."
+      },
+      "citations": [
+        {
+          "source": "MCL \u00a7408.414a",
+          "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-414a",
+          "section": "\u00a7408.414a",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "mo-hours-worked-standard",
+      "title": "Missouri \u2014 Hours Worked Standard",
+      "jurisdiction": "MO",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Missouri follows the federal hours-worked rules; Missouri's minimum wage law is interpreted in accordance with the FLSA."
+      },
+      "citations": [
+        {
+          "source": "RSMo \u00a7290.505",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=290.505",
+          "section": "\u00a7290.505",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ne-hours-worked-standard",
+      "title": "Nebraska \u2014 Hours Worked Standard",
+      "jurisdiction": "NE",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Nebraska follows the federal hours-worked rules; Nebraska has no state hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "Neb. Rev. Stat. \u00a748-1203",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=48-1203",
+          "section": "\u00a748-1203",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nm-hours-worked-standard",
+      "title": "New Mexico \u2014 Hours Worked Standard",
+      "jurisdiction": "NM",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "New Mexico follows the federal hours-worked rules; New Mexico has no separate hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "NMSA \u00a750-4-22",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-50/article-4/section-50-4-22/",
+          "section": "\u00a750-4-22",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nc-hours-worked-standard",
+      "title": "North Carolina \u2014 Hours Worked Standard",
+      "jurisdiction": "NC",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "North Carolina follows the federal hours-worked rules; the Wage and Hour Act exempts FLSA-covered employers from state hours rules and NCDOL applies federal practice (incl. 7-minute rounding)."
+      },
+      "citations": [
+        {
+          "source": "N.C. Gen. Stat. \u00a795-25.14(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_95/GS_95-25.14.html",
+          "section": "\u00a795-25.14",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "oh-hours-worked-standard",
+      "title": "Ohio \u2014 Hours Worked Standard",
+      "jurisdiction": "OH",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Ohio follows the federal hours-worked rules; overtime is paid 'in the manner and methods provided in' the FLSA."
+      },
+      "citations": [
+        {
+          "source": "Ohio Rev. Code \u00a74111.03",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-4111.03",
+          "section": "\u00a74111.03",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ok-hours-worked-standard",
+      "title": "Oklahoma \u2014 Hours Worked Standard",
+      "jurisdiction": "OK",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Oklahoma follows the federal hours-worked rules; Oklahoma has no state hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "40 O.S. \u00a7197.4",
+          "url": "https://law.justia.com/codes/oklahoma/title-40/section-40-197-4/",
+          "section": "\u00a7197.4",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ri-hours-worked-standard",
+      "title": "Rhode Island \u2014 Hours Worked Standard",
+      "jurisdiction": "RI",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Rhode Island follows the federal hours-worked rules; Rhode Island has no separate hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a728-12-4.1",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-12/28-12-4.1.htm",
+          "section": "\u00a728-12-4.1",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "sd-hours-worked-standard",
+      "title": "South Dakota \u2014 Hours Worked Standard",
+      "jurisdiction": "SD",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "South Dakota follows the federal hours-worked rules; South Dakota has no state hours-worked regulation."
+      },
+      "citations": [
+        {
+          "source": "SDCL \u00a760-11-3",
+          "url": "https://sdlegislature.gov/Statutes/60-11-3",
+          "section": "\u00a760-11-3",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "tx-hours-worked-standard",
+      "title": "Texas \u2014 Hours Worked Standard",
+      "jurisdiction": "TX",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Texas follows the federal hours-worked rules; the Texas Workforce Commission applies 29 CFR 785, including neutral rounding."
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a762.151 (Payday/Minimum Wage Act)",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.62.htm#62.151",
+          "section": "\u00a762.151",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ut-hours-worked-standard",
+      "title": "Utah \u2014 Hours Worked Standard",
+      "jurisdiction": "UT",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Utah follows the federal hours-worked rules; Utah's minimum wage act defers to FLSA hours-worked practice."
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a734-40-104",
+          "url": "https://le.utah.gov/xcode/Title34/Chapter40/34-40-S104.html",
+          "section": "\u00a734-40-104",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "vt-hours-worked-standard",
+      "title": "Vermont \u2014 Hours Worked Standard",
+      "jurisdiction": "VT",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Vermont follows the federal hours-worked rules; Vermont's minimum wage rules follow federal hours-worked practice (state rule section unverified)."
+      },
+      "citations": [
+        {
+          "source": "21 V.S.A. \u00a7384",
+          "url": "https://legislature.vermont.gov/statutes/section/21/005/00384",
+          "section": "\u00a7384",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "va-hours-worked-standard",
+      "title": "Virginia \u2014 Hours Worked Standard",
+      "jurisdiction": "VA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Virginia follows the federal hours-worked rules; Virginia's overtime provision incorporates the FLSA definition of hours worked."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a740.1-29.2",
+          "url": "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-29.2/",
+          "section": "\u00a740.1-29.2",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wv-hours-worked-standard",
+      "title": "West Virginia \u2014 Hours Worked Standard",
+      "jurisdiction": "WV",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "West Virginia follows the federal hours-worked rules; the state minimum wage law applies to few employers and its hours rules track the FLSA (42 CSR 8 section unverified)."
+      },
+      "citations": [
+        {
+          "source": "W. Va. Code \u00a721-5C-1",
+          "url": "https://code.wvlegislature.gov/21-5C-1/",
+          "section": "\u00a721-5C-1",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ak-hours-worked-standard",
+      "title": "Alaska \u2014 Hours Worked Standard",
+      "jurisdiction": "AK",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Alaska follows the federal hours-worked rules; the Alaska Wage and Hour Act is construed with the FLSA and the Portal-to-Portal exclusions apply (8 AAC 15.100 section unverified)."
+      },
+      "citations": [
+        {
+          "source": "AS \u00a723.10.095",
+          "url": "https://www.akleg.gov/basis/statutes.asp#23.10.095",
+          "section": "\u00a723.10.095",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ar-hours-worked-standard",
+      "title": "Arkansas \u2014 Hours Worked Standard",
+      "jurisdiction": "AR",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Arkansas follows the federal hours-worked rules; the Department of Labor's minimum wage rules follow federal hours-worked practice."
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a711-4-203",
+          "url": "https://law.justia.com/codes/arkansas/title-11/chapter-4/subchapter-2/section-11-4-203/",
+          "section": "\u00a711-4-203",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "hi-hours-worked-standard",
+      "title": "Hawaii \u2014 Hours Worked Standard",
+      "jurisdiction": "HI",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Hawaii follows the federal hours-worked rules; Hawaii defines hours worked as time the employee is required to be at the place of employment or on duty, in line with federal practice (HAR 12-20 section unverified)."
+      },
+      "citations": [
+        {
+          "source": "HRS \u00a7387-1",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0387/HRS_0387-0001.htm",
+          "section": "\u00a7387-1",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ks-hours-worked-standard",
+      "title": "Kansas \u2014 Hours Worked Standard",
+      "jurisdiction": "KS",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "Kansas follows the federal hours-worked rules; Kansas applies federal hours-worked practice to the few employers not covered by the FLSA (K.A.R. 49-30-1 section unverified)."
+      },
+      "citations": [
+        {
+          "source": "K.S.A. \u00a744-1202",
+          "url": "https://www.ksrevisor.gov/statutes/chapters/ch44/044_012_0002.html",
+          "section": "\u00a744-1202",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nh-hours-worked-standard",
+      "title": "New Hampshire \u2014 Hours Worked Standard",
+      "jurisdiction": "NH",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "New Hampshire follows the federal hours-worked rules; New Hampshire follows federal hours-worked practice; employer-required travel beyond the commute must be paid at no less than the minimum wage (N.H. Code Admin. R. Lab 803.03, section unverified)."
+      },
+      "citations": [
+        {
+          "source": "RSA 279:1",
+          "url": "https://www.gencourt.state.nh.us/rsa/html/XXIII/279/279-1.htm",
+          "section": "279:1",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "dc-hours-worked-standard",
+      "title": "District of Columbia \u2014 Hours Worked Standard",
+      "jurisdiction": "DC",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "flsa_by_reference",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": true
+        },
+        "summary": "District of Columbia follows the federal hours-worked rules; the District defines working time broadly as time the employee is required to be at the place of employment or on duty, applied with federal practice (7 DCMR 999 definitions unverified)."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a732-1002",
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/32-1002",
+          "section": "\u00a732-1002",
+          "kind": "statute"
+        },
+        {
+          "source": "29 CFR Part 785 (FLSA hours worked)",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.11",
+          "section": "\u00a7785.11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-hours-worked-standard",
+      "title": "California \u2014 Hours Worked Standard",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "control_test",
+          "portal_to_portal_adopted": false,
+          "de_minimis_allowed": false,
+          "notes": "Control test (Morillion); no de minimis for regularly recurring minutes (Troester); mandatory on-site security checks are paid (Frlekin v. Apple 2020)"
+        },
+        "summary": "California pays for all time the employee is subject to the employer's control, whether or not working; the Portal-to-Portal exclusions and the federal de minimis rule do not apply."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Morillion v. Royal Packing Co., 22 Cal.4th 575 (2000)",
+          "url": "https://scholar.google.com/scholar_case?case=11406480726686727614",
+          "kind": "case"
+        },
+        {
+          "source": "Troester v. Starbucks Corp., 5 Cal.5th 829 (2018)",
+          "url": "https://scholar.google.com/scholar_case?case=11216905521487185313",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "co-hours-worked-standard",
+      "title": "Colorado \u2014 Hours Worked Standard",
+      "jurisdiction": "CO",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": false,
+          "de_minimis_allowed": false,
+          "notes": "Time worked includes on-premises waiting for assignments; off-site on-call depends on restriction"
+        },
+        "summary": "Colorado counts all time performing labor or services for the employer's benefit, including required pre- and post-shift tasks (gear, check-in, security, clean-up) that take more than one minute."
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #39, 7 CCR 1103-1, Rule 1.9 (time worked)",
+          "url": "https://cdle.colorado.gov/laws-regulations-guidance",
+          "section": "Rule 1.9",
+          "kind": "regulation"
+        },
+        {
+          "source": "CDLE INFO #20: Time Worked That Must Be Paid",
+          "url": "https://cdle.colorado.gov/sites/cdle/files/INFO%20%2320%20Time%20Worked%20That%20Must%20Be%20Paid%20under%20Colorado%20Law%201.26.23%20accessible.pdf",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-hours-worked-standard",
+      "title": "Connecticut \u2014 Hours Worked Standard",
+      "jurisdiction": "CT",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Connecticut regulations define hours worked (including on-call time the employee cannot use freely) and make travel at the employer's request compensable."
+      },
+      "citations": [
+        {
+          "source": "Conn. Agencies Regs. \u00a731-60-10 (travel time)",
+          "url": "https://eregulations.ct.gov/eRegsPortal/Browse/RCSA/Title_31Subtitle_31-60Section_31-60-10/",
+          "section": "\u00a731-60-10",
+          "kind": "regulation"
+        },
+        {
+          "source": "Conn. Agencies Regs. \u00a731-60-11 (hours worked; on-call)",
+          "url": "https://eregulations.ct.gov/eRegsPortal/Browse/RCSA/Title_31Subtitle_31-60Section_31-60-11/",
+          "section": "\u00a731-60-11",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "il-hours-worked-standard",
+      "title": "Illinois \u2014 Hours Worked Standard",
+      "jurisdiction": "IL",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Illinois defines hours worked as all time the employee is required to be on duty or at a prescribed workplace, including travel between worksites and required training, close to federal practice."
+      },
+      "citations": [
+        {
+          "source": "56 Ill. Adm. Code 210.110 (hours worked)",
+          "url": "https://www.ilga.gov/commission/jcar/admincode/056/056002100A01100R.html",
+          "section": "\u00a7210.110",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ky-hours-worked-standard",
+      "title": "Kentucky \u2014 Hours Worked Standard",
+      "jurisdiction": "KY",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Kentucky's hours-worked regulation tracks the federal rules but counts overnight travel that cuts across the workday without the federal passenger-time exclusion."
+      },
+      "citations": [
+        {
+          "source": "803 KAR 1:065 (hours worked)",
+          "url": "https://apps.legislature.ky.gov/law/kar/titles/803/001/065/",
+          "section": "\u00a71:065",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "md-hours-worked-standard",
+      "title": "Maryland \u2014 Hours Worked Standard",
+      "jurisdiction": "MD",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": false,
+          "notes": "Amaya v. DGS Construction (2022-07-13)"
+        },
+        "summary": "Maryland counts time the employee is required to be on the premises, on duty or at a prescribed workplace; the Court of Appeals held in 2022 that the Portal-to-Portal exclusions were never adopted, so waiting at and travelling from a prescribed meeting point can be paid time."
+      },
+      "citations": [
+        {
+          "source": "COMAR 09.12.41.10 (hours of work)",
+          "url": "https://dsd.maryland.gov/regulations/Pages/09.12.41.10.aspx",
+          "section": "\u00a709.12.41.10",
+          "kind": "regulation"
+        },
+        {
+          "source": "Amaya v. DGS Construction, LLC, 479 Md. 515 (2022)",
+          "url": "https://mdcourts.gov/data/opinions/coa/2022/14a21.pdf",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "ma-hours-worked-standard",
+      "title": "Massachusetts \u2014 Hours Worked Standard",
+      "jurisdiction": "MA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Massachusetts defines working time to include on-call time the employee cannot use effectively and travel between worksites or from a required reporting point; treble damages apply to unpaid time."
+      },
+      "citations": [
+        {
+          "source": "454 CMR 27.02 (working time) and 27.04",
+          "url": "https://www.mass.gov/regulations/454-CMR-2700-minimum-wage",
+          "section": "\u00a727.02, \u00a727.04",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "mn-hours-worked-standard",
+      "title": "Minnesota \u2014 Hours Worked Standard",
+      "jurisdiction": "MN",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Minnesota counts training, call time, cleaning and waiting time and restricted on-call time as hours worked; rest breaks under 20 minutes may not be deducted."
+      },
+      "citations": [
+        {
+          "source": "Minn. R. 5200.0120 (hours worked)",
+          "url": "https://www.revisor.mn.gov/rules/5200.0120/",
+          "section": "\u00a75200.0120",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "mt-hours-worked-standard",
+      "title": "Montana \u2014 Hours Worked Standard",
+      "jurisdiction": "MT",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Montana's hours-worked rules mirror the federal interpretations on waiting, on-call, travel and training time."
+      },
+      "citations": [
+        {
+          "source": "ARM 24.16.1001 to 24.16.1010 (hours worked)",
+          "url": "https://rules.mt.gov/gateway/ChapterHome.asp?Chapter=24%2E16",
+          "section": "\u00a724.16.1001",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nv-hours-worked-standard",
+      "title": "Nevada \u2014 Hours Worked Standard",
+      "jurisdiction": "NV",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Nevada pays for all time the employee is working or under the employer's control, including travel between worksites and employer-required travel, but not the ordinary commute."
+      },
+      "citations": [
+        {
+          "source": "NRS \u00a7608.016",
+          "url": "https://www.leg.state.nv.us/nrs/nrs-608.html#NRS608Sec016",
+          "section": "\u00a7608.016",
+          "kind": "statute"
+        },
+        {
+          "source": "NAC 608.115 (hours worked; travel)",
+          "url": "https://www.leg.state.nv.us/nac/nac-608.html#NAC608Sec115",
+          "section": "\u00a7608.115",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nj-hours-worked-standard",
+      "title": "New Jersey \u2014 Hours Worked Standard",
+      "jurisdiction": "NJ",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "New Jersey regulations define hours worked, including restricted on-call time and time waiting at the employer's direction, in line with federal practice."
+      },
+      "citations": [
+        {
+          "source": "N.J.A.C. 12:56-5.1 to 5.8 (hours worked)",
+          "url": "https://regulations.justia.com/states/new-jersey/title-12/chapter-56/subchapter-5/",
+          "section": "\u00a712:56-5",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-hours-worked-standard",
+      "title": "New York \u2014 Hours Worked Standard",
+      "jurisdiction": "NY",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": false
+        },
+        "summary": "New York counts time the employee is required to be available for work at a place prescribed by the employer, which reaches mandatory pre-shift logistics and employer-required transit; the citation URL is a placeholder for the Labor Department regulation."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.1(b)",
+          "url": "https://regs.health.ny.gov/",
+          "section": "\u00a7142-2.1(b)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nd-hours-worked-standard",
+      "title": "North Dakota \u2014 Hours Worked Standard",
+      "jurisdiction": "ND",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "North Dakota's wage order sets out travel, on-call, waiting and training rules that follow the federal interpretations, with state-mandated occupational training excluded."
+      },
+      "citations": [
+        {
+          "source": "N.D. Admin. Code 46-02-07-02 (standards that apply)",
+          "url": "https://ndlegis.gov/information/acdata/pdf/46-02-07.pdf",
+          "section": "\u00a746-02-07-02",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-hours-worked-standard",
+      "title": "Oregon \u2014 Hours Worked Standard",
+      "jurisdiction": "OR",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true,
+          "de_minimis_allowed": false
+        },
+        "summary": "Oregon's rules define hours worked and specify waiting, sleeping, preparatory, training and travel time; they follow federal structure but courts have read Oregon law to bar time rounding."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0040 to 839-020-0046 (hours worked)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0040",
+          "section": "\u00a7839-020-0040",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "pa-hours-worked-standard",
+      "title": "Pennsylvania \u2014 Hours Worked Standard",
+      "jurisdiction": "PA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": false,
+          "de_minimis_allowed": false,
+          "notes": "Heimbach v. Amazon (2021-07-21)"
+        },
+        "summary": "Pennsylvania's Minimum Wage Act defines hours worked to include time at the employer's direction on or off premises and travel as part of duties; the Supreme Court held in 2021 that the Portal-to-Portal exclusions and de minimis rule do not apply, so security screening time is paid."
+      },
+      "citations": [
+        {
+          "source": "34 Pa. Code \u00a7231.1 (hours worked)",
+          "url": "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/034/chapter231/s231.1.html",
+          "section": "\u00a7231.1",
+          "kind": "regulation"
+        },
+        {
+          "source": "Heimbach v. Amazon.com, Inc., 255 A.3d 191 (Pa. 2021)",
+          "url": "https://www.pacourts.us/assets/opinions/Supreme/out/J-70-2020mo%20-%20104740584146211425.pdf",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "wa-hours-worked-standard",
+      "title": "Washington \u2014 Hours Worked Standard",
+      "jurisdiction": "WA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": false,
+          "notes": "Port of Tacoma v. Sacks (Wash. Ct. App. 2021) and Anderson v. DSHS: all work-related travel compensable"
+        },
+        "summary": "Washington counts all time the employee is authorized or required to be on duty on the premises or at a prescribed workplace; unlike federal law all out-of-town travel is paid."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-002(8) (hours worked)",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-126-002",
+          "section": "\u00a7296-126-002(8)",
+          "kind": "regulation"
+        },
+        {
+          "source": "L&I Administrative Policy ES.C.2, Hours Worked (rev. 2021-07-19)",
+          "url": "https://lni.wa.gov/workers-rights/_docs/esc2.pdf",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-hours-worked-standard",
+      "title": "Wisconsin \u2014 Hours Worked Standard",
+      "jurisdiction": "WI",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.hours_worked_standard",
+        "params": {
+          "standard": "state_regulation",
+          "portal_to_portal_adopted": true
+        },
+        "summary": "Wisconsin adopts most federal hours-worked interpretations but counts all travel time, including passenger time on overnight trips outside normal hours."
+      },
+      "citations": [
+        {
+          "source": "Wis. Admin. Code DWD 272.12 (hours worked)",
+          "url": "https://docs.legis.wisconsin.gov/code/admin_code/dwd/272/12",
+          "section": "\u00a7272.12",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ca-travel-employer-mandated-transport",
+      "title": "California \u2014 Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "employer_mandated_transport"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "employer_mandated_transport",
+          "notes": "Optional employer-provided transport the employee may decline is not"
+        },
+        "summary": "Time riding employer-required transport (e.g. a mandatory bus from a meeting point) is hours worked because the employee is under the employer's control."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Morillion v. Royal Packing Co., 22 Cal.4th 575 (2000)",
+          "url": "https://scholar.google.com/scholar_case?case=11406480726686727614",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "ca-travel-commute",
+      "title": "California \u2014 Travel Time (Commute)",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "commute"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "commute",
+          "notes": "Commute in an employer vehicle with restrictions on personal use may be compensable"
+        },
+        "summary": "An ordinary commute the employee controls is not hours worked; it becomes paid if the employer requires a particular route, vehicle or reporting point."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Morillion v. Royal Packing Co., 22 Cal.4th 575 (2000)",
+          "url": "https://scholar.google.com/scholar_case?case=11406480726686727614",
+          "kind": "case"
+        },
+        {
+          "source": "DLSE Enforcement Policies and Interpretations Manual \u00a746 (travel time)",
+          "url": "https://www.dir.ca.gov/dlse/dlsemanual/dlse_enfcmanual.pdf",
+          "section": "\u00a746",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-travel-out-of-town",
+      "title": "California \u2014 Travel Time (Out Of Town)",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "out_of_town"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": false,
+          "minimum_wage_rate_allowed": true
+        },
+        "summary": "All time spent travelling on employer-required out-of-town trips is hours worked, including as a passenger outside normal hours, less the normal commute; a lower agreed travel rate (at least minimum wage) may be set in advance."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "DLSE Enforcement Policies and Interpretations Manual \u00a746 (travel time)",
+          "url": "https://www.dir.ca.gov/dlse/dlsemanual/dlse_enfcmanual.pdf",
+          "section": "\u00a746",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-travel-between-worksites",
+      "title": "California \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites during the day is hours worked."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "DLSE Enforcement Policies and Interpretations Manual \u00a746 (travel time)",
+          "url": "https://www.dir.ca.gov/dlse/dlsemanual/dlse_enfcmanual.pdf",
+          "section": "\u00a746",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-oncall-restricted",
+      "title": "California \u2014 Restricted On-Call Time",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "control test: degree of restriction on the employee's activities (Mendiola)",
+          "notes": "Sleep time may be excluded only where a wage order expressly allows it"
+        },
+        "summary": "On-call time on the employer's premises or under its control is hours worked, including sleep time on 24-hour shifts, because the employee cannot use it for their own purposes."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Mendiola v. CPS Security Solutions, Inc., 60 Cal.4th 833 (2015)",
+          "url": "https://scholar.google.com/scholar_case?case=4731467917571626571",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "ca-training-mandatory",
+      "title": "California \u2014 Mandatory Training and Meetings",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting",
+          "expenses_reimbursable": true
+        },
+        "summary": "Required training, orientation and meetings are hours worked and the employer must bear their cost; a training rate lower than the regular rate (at least minimum wage) may be set in advance."
+      },
+      "citations": [
+        {
+          "source": "IWC Wage Order 7-2001 \u00a72(K) (hours worked)",
+          "url": "https://www.dir.ca.gov/iwc/IWCArticle7.pdf",
+          "section": "\u00a72(K)",
+          "kind": "regulation"
+        },
+        {
+          "source": "Cal. Lab. Code \u00a72802",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2802.&lawCode=LAB",
+          "section": "\u00a72802",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ca-timeclock-rounding",
+      "title": "California \u2014 Time Clock Rounding",
+      "jurisdiction": "CA",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2021-02-25",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true,
+          "meal_period_rounding_permitted": false,
+          "exact_capture_bars_rounding": true,
+          "notes": "See's Candy (2012) allowed neutral rounding; Camp v. Home Depot review pending at the Supreme Court"
+        },
+        "summary": "Neutral rounding survives only where the system does not capture exact time; meal-period punches may never be rounded (Donohue) and an employer that records exact punches must pay to the minute (Camp, Woodworth), so pay-to-the-minute is the safe practice."
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code \u00a7510",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=510.&lawCode=LAB",
+          "section": "\u00a7510",
+          "kind": "statute"
+        },
+        {
+          "source": "Donohue v. AMN Services, LLC, 11 Cal.5th 58 (2021)",
+          "url": "https://scholar.google.com/scholar_case?case=1316213631585540406",
+          "kind": "case"
+        },
+        {
+          "source": "Camp v. Home Depot U.S.A., Inc., 84 Cal.App.5th 638 (2022), review granted",
+          "url": "https://scholar.google.com/scholar_case?case=5067262091425456656",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "wa-travel-out-of-town",
+      "title": "Washington \u2014 Travel Time (Out Of Town)",
+      "jurisdiction": "WA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2021-09-08",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "out_of_town"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": false
+        },
+        "summary": "All out-of-town travel required for work is hours worked in Washington, including travel to the airport and passenger time outside normal hours; only free time at the destination is unpaid."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-002(8)",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-126-002",
+          "section": "\u00a7296-126-002(8)",
+          "kind": "regulation"
+        },
+        {
+          "source": "L&I Administrative Policy ES.C.2, Hours Worked (rev. 2021-07-19)",
+          "url": "https://lni.wa.gov/workers-rights/_docs/esc2.pdf",
+          "kind": "guidance"
+        },
+        {
+          "source": "Port of Tacoma v. Sacks, 19 Wn. App. 2d 295 (2021)",
+          "url": "https://www.courts.wa.gov/opinions/pdf/D2%2054498-1-II%20Published%20Opinion.pdf",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "wa-travel-between-worksites",
+      "title": "Washington \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "WA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites during the day, and from a required reporting point to the first site, is hours worked."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-002(8)",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-126-002",
+          "section": "\u00a7296-126-002(8)",
+          "kind": "regulation"
+        },
+        {
+          "source": "L&I Administrative Policy ES.C.2, Hours Worked (rev. 2021-07-19)",
+          "url": "https://lni.wa.gov/workers-rights/_docs/esc2.pdf",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-timeclock-rounding",
+      "title": "Washington \u2014 Time Clock Rounding",
+      "jurisdiction": "WA",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true,
+          "meal_period_rounding_permitted": false
+        },
+        "summary": "Neutral rounding to the nearest quarter hour is accepted for shift punches but not for meal or rest periods; a policy that favours the employer in practice is unlawful (Bennett v. Providence, 2025)."
+      },
+      "citations": [
+        {
+          "source": "WAC 296-126-002(8)",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-126-002",
+          "section": "\u00a7296-126-002(8)",
+          "kind": "regulation"
+        },
+        {
+          "source": "L&I Administrative Policy ES.C.2, Hours Worked (rev. 2021-07-19)",
+          "url": "https://lni.wa.gov/workers-rights/_docs/esc2.pdf",
+          "kind": "guidance"
+        },
+        {
+          "source": "WAC 296-126-092 (meal and rest periods)",
+          "url": "https://app.leg.wa.gov/wac/default.aspx?cite=296-126-092",
+          "section": "\u00a7296-126-092",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-travel-special-one-day-assignment",
+      "title": "Oregon \u2014 Travel Time (Special One Day Assignment)",
+      "jurisdiction": "OR",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "special_one_day_assignment"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "special_one_day_assignment",
+          "distance_threshold_miles": 30
+        },
+        "summary": "A one-day assignment to a site more than 30 miles from the regular workplace is hours worked; call-backs within the 30-mile radius count only the time beyond the normal commute."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0045 (travel time)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0045",
+          "section": "\u00a7839-020-0045",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-travel-between-worksites",
+      "title": "Oregon \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "OR",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between job sites during the workday, or from a required reporting location to the site, is hours worked."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0045 (travel time)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0045",
+          "section": "\u00a7839-020-0045",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-training-mandatory",
+      "title": "Oregon \u2014 Mandatory Training and Meetings",
+      "jurisdiction": "OR",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting",
+          "exclusion_test": "all four federal criteria (OAR 839-020-0044(1))",
+          "notes": "Required certification training outside regular hours is not compensable (subsection 7)"
+        },
+        "summary": "Training and meetings are hours worked unless outside regular hours, voluntary, not directly job-related and without productive work; state-mandated certification training outside hours is excluded."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0044 (lectures, meetings and training programs)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0044",
+          "section": "\u00a7839-020-0044",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "or-timeclock-rounding",
+      "title": "Oregon \u2014 Time Clock Rounding",
+      "jurisdiction": "OR",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2022-11-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": false,
+          "neutrality_required": true,
+          "meal_period_rounding_permitted": false,
+          "notes": "Eisele v. Home Depot (D. Or. 2022-11)"
+        },
+        "summary": "Oregon law has been held not to permit time rounding; BOLI advises employers who round to true up unpaid minutes each pay period or round only in the employee's favour."
+      },
+      "citations": [
+        {
+          "source": "OAR 839-020-0040 (hours worked, generally)",
+          "url": "https://oregon.public.law/rules/oar_839-020-0040",
+          "section": "\u00a7839-020-0040",
+          "kind": "regulation"
+        },
+        {
+          "source": "Eisele v. Home Depot U.S.A., Inc., 643 F. Supp. 3d 1166 (D. Or. 2022)",
+          "url": "https://casetext.com/case/eisele-v-home-depot-usa-inc",
+          "kind": "case"
+        },
+        {
+          "source": "Oregon BOLI, Timekeeping and rounding",
+          "url": "https://www.oregon.gov/boli/employers/pages/hours-worked.aspx",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-travel-between-worksites",
+      "title": "Colorado \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "CO",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel for the employer's benefit, such as driving between appointments or sites, is time worked."
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #39, 7 CCR 1103-1, Rule 1.9",
+          "url": "https://cdle.colorado.gov/laws-regulations-guidance",
+          "section": "Rule 1.9",
+          "kind": "regulation"
+        },
+        {
+          "source": "CDLE INFO #20C: Travel and Sleep Time",
+          "url": "https://cdle.colorado.gov/sites/cdle/files/info_%2320c_what_travel_time_and_sleep_time_is_and_isn%E2%80%99t_%E2%80%9Ctime_worked%E2%80%9D_that_must_be_paid_12.08.23.pdf",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-travel-commute",
+      "title": "Colorado \u2014 Travel Time (Commute)",
+      "jurisdiction": "CO",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "commute"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": false,
+          "travel_type": "commute"
+        },
+        "summary": "Regular commuting is not time worked unless the employee works during it or it follows other time worked."
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #39, 7 CCR 1103-1, Rule 1.9",
+          "url": "https://cdle.colorado.gov/laws-regulations-guidance",
+          "section": "Rule 1.9",
+          "kind": "regulation"
+        },
+        {
+          "source": "CDLE INFO #20C: Travel and Sleep Time",
+          "url": "https://cdle.colorado.gov/sites/cdle/files/info_%2320c_what_travel_time_and_sleep_time_is_and_isn%E2%80%99t_%E2%80%9Ctime_worked%E2%80%9D_that_must_be_paid_12.08.23.pdf",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-training-mandatory",
+      "title": "Colorado \u2014 Mandatory Training and Meetings",
+      "jurisdiction": "CO",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2020-03-16",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting"
+        },
+        "summary": "Meetings, information sharing and training before, after or outside scheduled shifts are time worked."
+      },
+      "citations": [
+        {
+          "source": "COMPS Order #39, 7 CCR 1103-1, Rule 1.9",
+          "url": "https://cdle.colorado.gov/laws-regulations-guidance",
+          "section": "Rule 1.9",
+          "kind": "regulation"
+        },
+        {
+          "source": "CDLE INFO #20A",
+          "url": "https://cdle.colorado.gov/sites/cdle/files/INFO%20%2320%20Time%20Worked%20That%20Must%20Be%20Paid%20under%20Colorado%20Law%201.26.23%20accessible.pdf",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-travel-employer-mandated-transport",
+      "title": "Maryland \u2014 Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "MD",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2022-07-13",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "employer_mandated_transport"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "employer_mandated_transport"
+        },
+        "summary": "Waiting at and riding from a meeting point the employer prescribes can be hours worked because Maryland never adopted the Portal-to-Portal exclusions (question of fact)."
+      },
+      "citations": [
+        {
+          "source": "COMAR 09.12.41.10",
+          "url": "https://dsd.maryland.gov/regulations/Pages/09.12.41.10.aspx",
+          "section": "\u00a709.12.41.10",
+          "kind": "regulation"
+        },
+        {
+          "source": "Amaya v. DGS Construction, LLC, 479 Md. 515 (2022)",
+          "url": "https://mdcourts.gov/data/opinions/coa/2022/14a21.pdf",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "md-training-mandatory",
+      "title": "Maryland \u2014 Mandatory Training and Meetings",
+      "jurisdiction": "MD",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting"
+        },
+        "summary": "Required training and meetings are hours worked; unpaid only if outside hours, voluntary, not job-related and without productive work."
+      },
+      "citations": [
+        {
+          "source": "COMAR 09.12.41.10",
+          "url": "https://dsd.maryland.gov/regulations/Pages/09.12.41.10.aspx",
+          "section": "\u00a709.12.41.10",
+          "kind": "regulation"
+        },
+        {
+          "source": "Maryland DLLR, Training and Meetings",
+          "url": "https://www.dllr.state.md.us/labor/wagepay/wptrainmeet.shtml",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-travel-employer-mandated-transport",
+      "title": "Pennsylvania \u2014 Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "PA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2021-07-21",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "employer_mandated_transport"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "employer_mandated_transport"
+        },
+        "summary": "Travel and waiting the employer requires as part of duties, including mandatory transit from a reporting point and security screening, is hours worked under the Minimum Wage Act, which has no Portal-to-Portal exclusion."
+      },
+      "citations": [
+        {
+          "source": "34 Pa. Code \u00a7231.1",
+          "url": "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/034/chapter231/s231.1.html",
+          "section": "\u00a7231.1",
+          "kind": "regulation"
+        },
+        {
+          "source": "Heimbach v. Amazon.com, Inc., 255 A.3d 191 (Pa. 2021)",
+          "url": "https://www.pacourts.us/assets/opinions/Supreme/out/J-70-2020mo%20-%20104740584146211425.pdf",
+          "kind": "case"
+        }
+      ]
+    },
+    {
+      "id": "ny-travel-employer-mandated-transport",
+      "title": "New York \u2014 Travel Time (Employer Mandated Transport)",
+      "jurisdiction": "NY",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "employer_mandated_transport"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "employer_mandated_transport"
+        },
+        "summary": "Time an employee is required to be available for work at a place the employer prescribes, including mandatory transit from a reporting point, is hours worked."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.1(b)",
+          "url": "https://regs.health.ny.gov/",
+          "section": "\u00a7142-2.1(b)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ny-travel-between-worksites",
+      "title": "New York \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "NY",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites during the workday is hours worked."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.1(b)",
+          "url": "https://regs.health.ny.gov/",
+          "section": "\u00a7142-2.1(b)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ma-travel-between-worksites",
+      "title": "Massachusetts \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "MA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites, and travel from a location the employee must report to before going to a worksite, is working time; related transportation expenses must be reimbursed."
+      },
+      "citations": [
+        {
+          "source": "454 CMR 27.04 (on-call and travel time)",
+          "url": "https://www.mass.gov/regulations/454-CMR-2700-minimum-wage",
+          "section": "\u00a727.04",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ma-oncall-restricted",
+      "title": "Massachusetts \u2014 Restricted On-Call Time",
+      "jurisdiction": "MA",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "454 CMR 27.04(2)"
+        },
+        "summary": "On-call time is working time when the employee cannot use it effectively for their own purposes; leaving a number and being free to go is not."
+      },
+      "citations": [
+        {
+          "source": "454 CMR 27.04 (on-call and travel time)",
+          "url": "https://www.mass.gov/regulations/454-CMR-2700-minimum-wage",
+          "section": "\u00a727.04",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ct-travel-between-worksites",
+      "title": "Connecticut \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "CT",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites and travel the employer requires beyond the normal commute is hours worked."
+      },
+      "citations": [
+        {
+          "source": "Conn. Agencies Regs. \u00a731-60-10",
+          "url": "https://eregulations.ct.gov/eRegsPortal/Browse/RCSA/Title_31Subtitle_31-60Section_31-60-10/",
+          "section": "\u00a731-60-10",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "il-travel-between-worksites",
+      "title": "Illinois \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "IL",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites during the workday is hours worked."
+      },
+      "citations": [
+        {
+          "source": "56 Ill. Adm. Code 210.110",
+          "url": "https://www.ilga.gov/commission/jcar/admincode/056/056002100A01100R.html",
+          "section": "\u00a7210.110",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "mn-oncall-restricted",
+      "title": "Minnesota \u2014 Restricted On-Call Time",
+      "jurisdiction": "MN",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "Minn. R. 5200.0120 subp. 2"
+        },
+        "summary": "An employee required to stay on or so near the premises that the time cannot be used for personal purposes is working while on call."
+      },
+      "citations": [
+        {
+          "source": "Minn. R. 5200.0120",
+          "url": "https://www.revisor.mn.gov/rules/5200.0120/",
+          "section": "\u00a75200.0120",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "mn-training-mandatory",
+      "title": "Minnesota \u2014 Mandatory Training and Meetings",
+      "jurisdiction": "MN",
+      "topic": "pay.compensable_time.training",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          },
+          {
+            "fact": "shift.is_training",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.training_is_voluntary",
+            "op": "=",
+            "value": false
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_training",
+        "params": {
+          "compensable": true,
+          "situation": "mandatory_training_or_meeting"
+        },
+        "summary": "Training time is hours worked."
+      },
+      "citations": [
+        {
+          "source": "Minn. R. 5200.0120",
+          "url": "https://www.revisor.mn.gov/rules/5200.0120/",
+          "section": "\u00a75200.0120",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nj-oncall-restricted",
+      "title": "New Jersey \u2014 Restricted On-Call Time",
+      "jurisdiction": "NJ",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          },
+          {
+            "fact": "shift.is_on_call",
+            "op": "=",
+            "value": true
+          },
+          {
+            "fact": "shift.on_call_restricted",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_waiting",
+        "params": {
+          "compensable": true,
+          "situation": "on_call_restricted",
+          "test": "N.J.A.C. 12:56-5.6"
+        },
+        "summary": "On-call employees required to remain on the premises or so close they cannot use the time freely are working."
+      },
+      "citations": [
+        {
+          "source": "N.J.A.C. 12:56-5.6",
+          "url": "https://regulations.justia.com/states/new-jersey/title-12/chapter-56/subchapter-5/section-12-56-5-6/",
+          "section": "\u00a712:56-5.6",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "wi-travel-out-of-town",
+      "title": "Wisconsin \u2014 Travel Time (Out Of Town)",
+      "jurisdiction": "WI",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "out_of_town"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": false
+        },
+        "summary": "All travel time on an overnight trip for the employer is hours worked; Wisconsin does not apply the federal passenger-time exclusion."
+      },
+      "citations": [
+        {
+          "source": "Wis. Admin. Code DWD 272.12(2)(g)",
+          "url": "https://docs.legis.wisconsin.gov/code/admin_code/dwd/272/12",
+          "section": "\u00a7272.12(2)(g)",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "ky-travel-out-of-town",
+      "title": "Kentucky \u2014 Travel Time (Out Of Town)",
+      "jurisdiction": "KY",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "out_of_town"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "out_of_town",
+          "during_normal_hours_only": false,
+          "notes": "Survey-based; section number unverified"
+        },
+        "summary": "Overnight travel that cuts across the workday is hours worked; Kentucky states no exception for passenger time outside normal hours (encoding approximate; verify against the regulation text)."
+      },
+      "citations": [
+        {
+          "source": "803 KAR 1:065 \u00a77",
+          "url": "https://apps.legislature.ky.gov/law/kar/titles/803/001/065/",
+          "section": "\u00a77",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nv-travel-between-worksites",
+      "title": "Nevada \u2014 Travel Time (Between Worksites)",
+      "jurisdiction": "NV",
+      "topic": "pay.compensable_time.travel_waiting",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          },
+          {
+            "fact": "shift.travel_type",
+            "op": "=",
+            "value": "between_worksites"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.compensable_travel",
+        "params": {
+          "compensable": true,
+          "travel_type": "between_worksites"
+        },
+        "summary": "Travel between worksites and travel the employer requires is hours worked; the ordinary commute is not."
+      },
+      "citations": [
+        {
+          "source": "NAC 608.115",
+          "url": "https://www.leg.state.nv.us/nac/nac-608.html#NAC608Sec115",
+          "section": "\u00a7608.115",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "nc-timeclock-rounding",
+      "title": "North Carolina \u2014 Time Clock Rounding",
+      "jurisdiction": "NC",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true
+        },
+        "summary": "North Carolina accepts the federal 7-minute rule: with quarter-hour rounding, 1-7 minutes round down and 8-14 round up."
+      },
+      "citations": [
+        {
+          "source": "N.C. Gen. Stat. \u00a795-25.14",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_95/GS_95-25.14.html",
+          "section": "\u00a795-25.14",
+          "kind": "statute"
+        },
+        {
+          "source": "NCDOL, Recording Time and Rounding",
+          "url": "https://www.labor.nc.gov/workplace-rights/employee-rights-regarding-time-worked-and-overtime-compensation/recording-time-and-rounding",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-timeclock-rounding",
+      "title": "New York \u2014 Time Clock Rounding",
+      "jurisdiction": "NY",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true
+        },
+        "summary": "The New York Labor Department follows the federal rounding regulation: neutral rounding to the nearest quarter hour is permitted."
+      },
+      "citations": [
+        {
+          "source": "12 NYCRR \u00a7142-2.1(b)",
+          "url": "https://regs.health.ny.gov/",
+          "section": "\u00a7142-2.1(b)",
+          "kind": "regulation"
+        },
+        {
+          "source": "29 CFR \u00a7785.48",
+          "url": "https://www.law.cornell.edu/cfr/text/29/785.48",
+          "section": "\u00a7785.48",
+          "kind": "regulation"
+        }
+      ]
+    },
+    {
+      "id": "tx-timeclock-rounding",
+      "title": "Texas \u2014 Time Clock Rounding",
+      "jurisdiction": "TX",
+      "topic": "pay.compensable_time.rounding",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          },
+          {
+            "fact": "shift.timeclock_rounding_minutes",
+            "op": ">",
+            "value": 0
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "pay.timeclock_rounding",
+        "params": {
+          "permitted": true,
+          "max_increment_minutes": 15,
+          "neutrality_required": true
+        },
+        "summary": "Texas applies the federal standard: neutral rounding to the nearest quarter hour is permitted."
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a762.151",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.62.htm#62.151",
+          "section": "\u00a762.151",
+          "kind": "statute"
+        },
+        {
+          "source": "Texas Workforce Commission, Rounding Practices",
+          "url": "https://efte.twc.texas.gov/rounding_practices.html",
+          "kind": "guidance"
+        }
+      ]
+    }
+  ]
+}
