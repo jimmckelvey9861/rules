@@ -14,7 +14,8 @@
     "hour_of_day": "Hour of the day, 0-24, local time",
     "employees": "Count of employees",
     "miles": "Miles",
-    "degrees_f": "Degrees Fahrenheit"
+    "degrees_f": "Degrees Fahrenheit",
+    "years": "Years"
   },
   "obligations": [
     {
@@ -1317,6 +1318,176 @@
         "public policy exception",
         "wrongful discharge",
         "whistleblowing"
+      ]
+    },
+    {
+      "code": "compliance.posting",
+      "name": "Workplace poster requirement",
+      "description": "Which federal or state notices must be displayed (or delivered electronically) for employees.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "level",
+          "type": "enum",
+          "values": [
+            "federal",
+            "state",
+            "local"
+          ],
+          "required": true,
+          "description": "Whether the poster set is federal or state"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the posting duty attaches"
+        },
+        {
+          "name": "posters",
+          "type": "string",
+          "required": true,
+          "description": "Posters or notices required"
+        },
+        {
+          "name": "digital_posting",
+          "type": "enum",
+          "values": [
+            "required",
+            "encouraged",
+            "allowed_in_addition",
+            "none_stated"
+          ],
+          "required": false,
+          "description": "Whether electronic posting is required, encouraged, allowed in addition to physical posting, or unaddressed"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Remote-worker delivery rules and size or industry conditions"
+        }
+      ],
+      "synonyms": [
+        "labor law poster",
+        "required posters",
+        "workplace notices",
+        "posting requirements",
+        "all-in-one poster"
+      ]
+    },
+    {
+      "code": "records.retention",
+      "name": "Employment record retention",
+      "description": "How long payroll, time, personnel and compliance records must be kept.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "years",
+          "type": "number",
+          "unit": "years",
+          "required": true,
+          "description": "Minimum retention period that governs (longer of state and federal)"
+        },
+        {
+          "name": "records",
+          "type": "string",
+          "required": true,
+          "description": "Records covered"
+        },
+        {
+          "name": "level",
+          "type": "enum",
+          "values": [
+            "federal",
+            "state"
+          ],
+          "required": false,
+          "description": "Source of the rule"
+        },
+        {
+          "name": "state_years",
+          "type": "number",
+          "unit": "years",
+          "required": false,
+          "description": "The state's own stated period where it differs from the governing period"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Location, format, inspection and penalty wrinkles"
+        }
+      ],
+      "synonyms": [
+        "record retention",
+        "recordkeeping",
+        "payroll records",
+        "time records",
+        "how long to keep records",
+        "I-9 retention"
+      ]
+    },
+    {
+      "code": "records.personnel_file_access",
+      "name": "Employee access to personnel file",
+      "description": "Whether employees may inspect or copy their personnel records, how often and how fast the employer must respond.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": true,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "who",
+          "type": "string",
+          "required": true,
+          "description": "Who may request access"
+        },
+        {
+          "name": "frequency",
+          "type": "string",
+          "required": false,
+          "description": "How often access may be demanded"
+        },
+        {
+          "name": "response_deadline",
+          "type": "string",
+          "required": false,
+          "description": "How quickly the employer must allow inspection or provide copies"
+        },
+        {
+          "name": "copies_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether copies must be provided"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Fees, exclusions, rebuttal rights and penalties"
+        }
+      ],
+      "synonyms": [
+        "personnel file",
+        "personnel records",
+        "employee file access",
+        "right to inspect records",
+        "Bullard-Plawecki"
       ]
     }
   ]
