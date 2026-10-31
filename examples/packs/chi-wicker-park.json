@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T00:56:11.042Z",
+  "generatedAt": "2026-10-31T01:11:32.093Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "dfcc08df820c3377",
+  "rulesVersion": "6a5ba9e4f8bb426b",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,6 +39,231 @@
     }
   ],
   "rules": [
+    {
+      "id": "il-wage-notice-at-hire",
+      "title": "Illinois — Wage Notice at Hire",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.notices",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate of pay (all compensation); time and place of payment",
+          "change_notice": "in writing before the effective date",
+          "acknowledgment_required": true,
+          "notes": "56 Ill. Adm. Code 300.630"
+        },
+        "summary": "Employers must notify each new hire in writing of the rate of pay and the time and place of payment, acknowledged by both parties where possible, and give written notice of changes before they take effect.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 115/10",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001150K10",
+          "section": "115/10",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "d8e0a5e899e28549"
+    },
+    {
+      "id": "illinois-ban-the-box",
+      "title": "Illinois — Ban the Box",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2015-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_interview",
+          "min_employees": 15,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Employers of 15 or more may not ask about criminal history until the applicant is selected for an interview or, if none, until a conditional offer; the Human Rights Act (2021) also requires an individualized assessment and notice before an adverse decision.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 75/15 (Job Opportunities for Qualified Applicants Act)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3549&ChapterID=68",
+          "section": "75/15",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "128a0e2c817e2239"
+    },
+    {
+      "id": "chicago-ban-the-box",
+      "title": "Chicago — Ban the Box",
+      "jurisdiction": "Chicago",
+      "jurisdictionId": "us-il-chicago",
+      "jurisdictionType": "city",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-04-24",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Chicago employers may not consider criminal history until after a conditional offer and must give written notice, an individualized assessment and 5 business days to respond before rescinding.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Chicago Municipal Code §6-10-054 (Human Rights Ordinance, criminal history)",
+          "url": "https://codelibrary.amlegal.com/codes/chicago/latest/chicago_il/0-0-0-2630053",
+          "section": "§6-10-054",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "cccd8dea8a0c8827"
+    },
+    {
+      "id": "illinois-salary-history-ban",
+      "title": "Illinois — Salary History Ban",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2019-09-29",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not screen by or ask about wage, salary or benefits history, including from prior employers; applicants may volunteer and discuss expectations.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 112/10(b-5)",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001120K10",
+          "section": "112/10(b-5)",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "36e5428b4d28c694"
+    },
+    {
+      "id": "illinois-pay-range-disclosure",
+      "title": "Illinois — Pay Range Disclosure",
+      "jurisdiction": "IL",
+      "jurisdictionId": "us-il",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2025-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 15,
+          "benefits_disclosure_required": true,
+          "penalty": "up to $10,000 per violation after cure periods"
+        },
+        "summary": "Employers of 15 or more must include the pay scale and a description of benefits in every job posting, including third-party postings, and announce promotion opportunities to current employees.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 112/10(b-20)",
+          "url": "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=082001120K10",
+          "section": "112/10(b-20)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "8e37ed5230caf16c"
+    },
     {
       "id": "il-voting-leave",
       "title": "Illinois Voting Leave",
@@ -3681,6 +3906,249 @@
       ]
     },
     {
+      "code": "hiring.ban_the_box",
+      "name": "Ban the box (criminal history inquiries)",
+      "description": "When in the hiring process an employer may first ask about or consider an applicant's criminal history, and what assessment and notice are owed before an adverse decision.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_timing",
+          "type": "enum",
+          "values": [
+            "after_application",
+            "after_interview",
+            "when_otherwise_qualified",
+            "after_conditional_offer"
+          ],
+          "required": true,
+          "description": "Earliest point a criminal-history question or background check is allowed"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "individualized_assessment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer must weigh the offense against the job before rescinding an offer"
+        },
+        {
+          "name": "notice_and_response_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a written notice and chance to respond is owed before a final adverse decision"
+        },
+        {
+          "name": "lookback_years",
+          "type": "number",
+          "required": false,
+          "description": "Convictions older than this may not be considered"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exemptions (positions where a background check is required by law) and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair chance act",
+        "criminal history inquiry",
+        "background check timing",
+        "conviction history",
+        "fair chance hiring"
+      ]
+    },
+    {
+      "code": "hiring.pay_transparency",
+      "name": "Pay range disclosure",
+      "description": "Whether and when an employer must disclose the pay range for a position: in the job posting, on request, or before an offer.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "disclosure",
+          "type": "enum",
+          "values": [
+            "in_posting",
+            "on_request",
+            "before_offer"
+          ],
+          "required": true,
+          "description": "When the range must be given"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "benefits_disclosure_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a description of benefits must accompany the range"
+        },
+        {
+          "name": "current_employees_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether current employees may request the range for their own position"
+        },
+        {
+          "name": "remote_coverage",
+          "type": "string",
+          "required": false,
+          "description": "How postings for remote or out-of-state roles are treated"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Civil penalty per violation"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Promotion postings, third-party postings, cure periods"
+        }
+      ],
+      "synonyms": [
+        "salary range posting",
+        "pay transparency law",
+        "wage range disclosure",
+        "job posting salary"
+      ]
+    },
+    {
+      "code": "hiring.salary_history_ban",
+      "name": "Salary history ban",
+      "description": "Whether an employer may ask applicants about, or rely on, their prior pay.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether asking about pay history (directly or through an agent) is barred"
+        },
+        {
+          "name": "reliance_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether known pay history may not be used to set pay"
+        },
+        {
+          "name": "confirm_after_offer_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may confirm volunteered history after making an offer with compensation"
+        },
+        {
+          "name": "pay_range_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether applicants may demand the pay range"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Carve-outs such as internal transfers or volunteered information"
+        }
+      ],
+      "synonyms": [
+        "pay history ban",
+        "prior salary inquiry",
+        "compensation history",
+        "salary question ban"
+      ]
+    },
+    {
+      "code": "hiring.wage_notice",
+      "name": "Wage notice at hire",
+      "description": "Whether the employer must tell each new hire the rate of pay, payday and related terms, in what form, and how changes must be announced.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_form",
+          "type": "enum",
+          "values": [
+            "individual_written",
+            "individual_or_posting",
+            "oral_or_written",
+            "posting_only",
+            "on_request",
+            "none"
+          ],
+          "required": true,
+          "description": "How the pay terms must be communicated at hire"
+        },
+        {
+          "name": "contents",
+          "type": "string",
+          "required": false,
+          "description": "What the notice must state"
+        },
+        {
+          "name": "language_requirement",
+          "type": "string",
+          "required": false,
+          "description": "Languages the notice must be given in"
+        },
+        {
+          "name": "change_notice",
+          "type": "string",
+          "required": false,
+          "description": "How and how far in advance changes to pay terms must be announced"
+        },
+        {
+          "name": "acknowledgment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must sign and the employer keep the acknowledgment"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Agency templates, exemptions and retention periods"
+        }
+      ],
+      "synonyms": [
+        "wage theft prevention act notice",
+        "notice of pay rate",
+        "new hire notice",
+        "pay rate notice",
+        "LS 54",
+        "2810.5 notice"
+      ]
+    },
+    {
       "code": "leave.bereavement",
       "name": "Bereavement leave",
       "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
@@ -5928,14 +6396,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1246,
-    "rulesIncluded": 65,
-    "excludedByProfile": 1174,
+    "rulesConsidered": 1359,
+    "rulesIncluded": 70,
+    "excludedByProfile": 1282,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 7
+    "fullyResolved": 12
   },
-  "checksum": "46c3c390b2da8a7ef9edc76261eac1340256b6807ceba5712d7a9791ea3fcc4c"
+  "checksum": "f7c9ee771bd2ed80c587d85891df0cbc381c5dafe2ea731ebf1a6bf0c944fe9d"
 }

@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T00:56:11.047Z",
+  "generatedAt": "2026-10-31T01:11:32.098Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "dfcc08df820c3377",
+  "rulesVersion": "6a5ba9e4f8bb426b",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -40,6 +40,238 @@
     }
   ],
   "rules": [
+    {
+      "id": "ca-wage-notice-at-hire",
+      "title": "California — Wage Notice at Hire",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.notices",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2012-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate(s) and basis; overtime rates; payday; allowances; employer legal and DBA names, address, phone; workers' comp carrier; paid sick leave; emergency declarations",
+          "language_requirement": "language the employer normally uses for employment communications (Labor Commissioner templates)",
+          "change_notice": "written notice within 7 calendar days unless shown on a timely wage statement",
+          "acknowledgment_required": false,
+          "notes": "Wage Theft Prevention Act of 2011; exempt employees and public employers excluded"
+        },
+        "summary": "Non-exempt new hires must receive a written notice of pay rate and basis, overtime rates, payday, allowances, employer names and addresses, workers' compensation carrier and paid sick leave rights; changes must be noticed within 7 days.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §2810.5",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2810.5.&lawCode=LAB",
+          "section": "§2810.5",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "78a85702c47c1b6e"
+    },
+    {
+      "id": "california-ban-the-box",
+      "title": "California — Ban the Box",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 5,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Employers of five or more may not ask about or consider conviction history until after a conditional offer, must make an individualized assessment and give written notice with at least 5 business days to respond before rescinding.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Gov. Code §12952 (Fair Chance Act)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=12952.&lawCode=GOV",
+          "section": "§12952",
+          "kind": "statute"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "32a7c578a035f404"
+    },
+    {
+      "id": "los-angeles-ban-the-box",
+      "title": "Los Angeles — Ban the Box",
+      "jurisdiction": "Los Angeles",
+      "jurisdictionId": "us-ca-los-angeles",
+      "jurisdictionType": "city",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2017-01-22",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 10,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true
+        },
+        "summary": "Employers of 10 or more may not ask about criminal history until after a conditional offer and must perform a written assessment and a fair chance process before withdrawing it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Los Angeles Municipal Code ch. XVIII art. 9 §189.00 et seq. (Fair Chance Initiative for Hiring)",
+          "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-186391",
+          "section": "§189.00",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "ce73d3ee93ea9648"
+    },
+    {
+      "id": "california-salary-history-ban",
+      "title": "California — Salary History Ban",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2018-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": false,
+          "pay_range_on_request": true,
+          "notes": "Volunteered history may be considered but may not alone justify a pay gap"
+        },
+        "summary": "Employers may not seek or rely on an applicant's salary history and must provide the pay scale on reasonable request.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §432.3",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=432.3.&lawCode=LAB",
+          "section": "§432.3",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "d279b0a30402f988"
+    },
+    {
+      "id": "california-pay-range-disclosure",
+      "title": "California — Pay Range Disclosure",
+      "jurisdiction": "CA",
+      "jurisdictionId": "us-ca",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 15,
+          "current_employees_on_request": true,
+          "remote_coverage": "postings for roles that could be filled by a California resident",
+          "penalty": "$100 to $10,000 per violation",
+          "notes": "SB 642 amendments effective 2026-01-01"
+        },
+        "summary": "Employers of 15 or more must include the good-faith pay scale in every job posting (including third-party postings) and give current employees the scale for their position on request.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Cal. Lab. Code §432.3(c)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=432.3.&lawCode=LAB",
+          "section": "§432.3(c)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "fd00ad431404e0e1"
+    },
     {
       "id": "ca-voting-leave",
       "title": "California Voting Leave",
@@ -5010,6 +5242,249 @@
       ]
     },
     {
+      "code": "hiring.ban_the_box",
+      "name": "Ban the box (criminal history inquiries)",
+      "description": "When in the hiring process an employer may first ask about or consider an applicant's criminal history, and what assessment and notice are owed before an adverse decision.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_timing",
+          "type": "enum",
+          "values": [
+            "after_application",
+            "after_interview",
+            "when_otherwise_qualified",
+            "after_conditional_offer"
+          ],
+          "required": true,
+          "description": "Earliest point a criminal-history question or background check is allowed"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "individualized_assessment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer must weigh the offense against the job before rescinding an offer"
+        },
+        {
+          "name": "notice_and_response_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a written notice and chance to respond is owed before a final adverse decision"
+        },
+        {
+          "name": "lookback_years",
+          "type": "number",
+          "required": false,
+          "description": "Convictions older than this may not be considered"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exemptions (positions where a background check is required by law) and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair chance act",
+        "criminal history inquiry",
+        "background check timing",
+        "conviction history",
+        "fair chance hiring"
+      ]
+    },
+    {
+      "code": "hiring.pay_transparency",
+      "name": "Pay range disclosure",
+      "description": "Whether and when an employer must disclose the pay range for a position: in the job posting, on request, or before an offer.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "disclosure",
+          "type": "enum",
+          "values": [
+            "in_posting",
+            "on_request",
+            "before_offer"
+          ],
+          "required": true,
+          "description": "When the range must be given"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "benefits_disclosure_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a description of benefits must accompany the range"
+        },
+        {
+          "name": "current_employees_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether current employees may request the range for their own position"
+        },
+        {
+          "name": "remote_coverage",
+          "type": "string",
+          "required": false,
+          "description": "How postings for remote or out-of-state roles are treated"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Civil penalty per violation"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Promotion postings, third-party postings, cure periods"
+        }
+      ],
+      "synonyms": [
+        "salary range posting",
+        "pay transparency law",
+        "wage range disclosure",
+        "job posting salary"
+      ]
+    },
+    {
+      "code": "hiring.salary_history_ban",
+      "name": "Salary history ban",
+      "description": "Whether an employer may ask applicants about, or rely on, their prior pay.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether asking about pay history (directly or through an agent) is barred"
+        },
+        {
+          "name": "reliance_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether known pay history may not be used to set pay"
+        },
+        {
+          "name": "confirm_after_offer_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may confirm volunteered history after making an offer with compensation"
+        },
+        {
+          "name": "pay_range_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether applicants may demand the pay range"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Carve-outs such as internal transfers or volunteered information"
+        }
+      ],
+      "synonyms": [
+        "pay history ban",
+        "prior salary inquiry",
+        "compensation history",
+        "salary question ban"
+      ]
+    },
+    {
+      "code": "hiring.wage_notice",
+      "name": "Wage notice at hire",
+      "description": "Whether the employer must tell each new hire the rate of pay, payday and related terms, in what form, and how changes must be announced.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_form",
+          "type": "enum",
+          "values": [
+            "individual_written",
+            "individual_or_posting",
+            "oral_or_written",
+            "posting_only",
+            "on_request",
+            "none"
+          ],
+          "required": true,
+          "description": "How the pay terms must be communicated at hire"
+        },
+        {
+          "name": "contents",
+          "type": "string",
+          "required": false,
+          "description": "What the notice must state"
+        },
+        {
+          "name": "language_requirement",
+          "type": "string",
+          "required": false,
+          "description": "Languages the notice must be given in"
+        },
+        {
+          "name": "change_notice",
+          "type": "string",
+          "required": false,
+          "description": "How and how far in advance changes to pay terms must be announced"
+        },
+        {
+          "name": "acknowledgment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must sign and the employer keep the acknowledgment"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Agency templates, exemptions and retention periods"
+        }
+      ],
+      "synonyms": [
+        "wage theft prevention act notice",
+        "notice of pay rate",
+        "new hire notice",
+        "pay rate notice",
+        "LS 54",
+        "2810.5 notice"
+      ]
+    },
+    {
       "code": "leave.bereavement",
       "name": "Bereavement leave",
       "description": "Job-protected time off after the death of a family member (or a pregnancy or reproductive loss where the law covers it).",
@@ -7392,14 +7867,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1246,
-    "rulesIncluded": 87,
-    "excludedByProfile": 1152,
+    "rulesConsidered": 1359,
+    "rulesIncluded": 92,
+    "excludedByProfile": 1260,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 7
+    "fullyResolved": 12
   },
-  "checksum": "dfc1bd3e6d7b2288c66ba3768f55be1bb03c88800aafd8504f8e349e685df03d"
+  "checksum": "ea29567fd17e09e00f2c65474248c37ece77b1cf051a60848729e68c4051361f"
 }

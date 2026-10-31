@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T00:56:11.049Z",
+  "generatedAt": "2026-10-31T01:11:32.100Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "dfcc08df820c3377",
+  "rulesVersion": "6a5ba9e4f8bb426b",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -33,6 +33,49 @@
     }
   ],
   "rules": [
+    {
+      "id": "tx-wage-notice-at-hire",
+      "title": "Texas — Wage Notice at Hire",
+      "jurisdiction": "TX",
+      "jurisdictionId": "us-tx",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.notices",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "posting_only",
+          "change_notice": "60 days' written notice before requiring direct deposit"
+        },
+        "summary": "Texas requires paydays to be posted and payroll-card fees disclosed; no individual wage notice at hire.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code §61.012",
+          "url": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.61.htm#61.012",
+          "section": "§61.012",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "df03a9e8f62062cf"
+    },
     {
       "id": "tx-voting-leave",
       "title": "Texas Voting Leave",
@@ -2497,6 +2540,69 @@
       ]
     },
     {
+      "code": "hiring.wage_notice",
+      "name": "Wage notice at hire",
+      "description": "Whether the employer must tell each new hire the rate of pay, payday and related terms, in what form, and how changes must be announced.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_form",
+          "type": "enum",
+          "values": [
+            "individual_written",
+            "individual_or_posting",
+            "oral_or_written",
+            "posting_only",
+            "on_request",
+            "none"
+          ],
+          "required": true,
+          "description": "How the pay terms must be communicated at hire"
+        },
+        {
+          "name": "contents",
+          "type": "string",
+          "required": false,
+          "description": "What the notice must state"
+        },
+        {
+          "name": "language_requirement",
+          "type": "string",
+          "required": false,
+          "description": "Languages the notice must be given in"
+        },
+        {
+          "name": "change_notice",
+          "type": "string",
+          "required": false,
+          "description": "How and how far in advance changes to pay terms must be announced"
+        },
+        {
+          "name": "acknowledgment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must sign and the employer keep the acknowledgment"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Agency templates, exemptions and retention periods"
+        }
+      ],
+      "synonyms": [
+        "wage theft prevention act notice",
+        "notice of pay rate",
+        "new hire notice",
+        "pay rate notice",
+        "LS 54",
+        "2810.5 notice"
+      ]
+    },
+    {
       "code": "leave.family_medical",
       "name": "Family and medical leave entitlement",
       "description": "Weeks of job-protected family or medical leave the employee is entitled to in a benefit year.",
@@ -3900,14 +4006,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1246,
-    "rulesIncluded": 43,
-    "excludedByProfile": 1196,
+    "rulesConsidered": 1359,
+    "rulesIncluded": 44,
+    "excludedByProfile": 1308,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 3
+    "fullyResolved": 4
   },
-  "checksum": "840a5725b64ce476bee91ab2a5231bdc92fafe9118cb5e87b7502b2f1d77eb7b"
+  "checksum": "2ae7136e924beb4b15acea9fc8d5494ae4007517a1541dde839c64706860c64f"
 }

@@ -738,6 +738,71 @@
         { "name": "notes", "type": "string", "required": false, "description": "Governing cases and agency guidance" }
       ],
       "synonyms": ["time rounding", "punch rounding", "7-minute rule", "quarter hour rounding", "pay to the minute"]
+    },
+    {
+      "code": "hiring.ban_the_box",
+      "name": "Ban the box (criminal history inquiries)",
+      "description": "When in the hiring process an employer may first ask about or consider an applicant's criminal history, and what assessment and notice are owed before an adverse decision.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "inquiry_timing", "type": "enum", "values": ["after_application", "after_interview", "when_otherwise_qualified", "after_conditional_offer"], "required": true, "description": "Earliest point a criminal-history question or background check is allowed" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the law attaches" },
+        { "name": "individualized_assessment_required", "type": "boolean", "required": false, "description": "Whether the employer must weigh the offense against the job before rescinding an offer" },
+        { "name": "notice_and_response_required", "type": "boolean", "required": false, "description": "Whether a written notice and chance to respond is owed before a final adverse decision" },
+        { "name": "lookback_years", "type": "number", "required": false, "description": "Convictions older than this may not be considered" },
+        { "name": "notes", "type": "string", "required": false, "description": "Exemptions (positions where a background check is required by law) and other wrinkles" }
+      ],
+      "synonyms": ["fair chance act", "criminal history inquiry", "background check timing", "conviction history", "fair chance hiring"]
+    },
+    {
+      "code": "hiring.salary_history_ban",
+      "name": "Salary history ban",
+      "description": "Whether an employer may ask applicants about, or rely on, their prior pay.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "inquiry_prohibited", "type": "boolean", "required": true, "description": "Whether asking about pay history (directly or through an agent) is barred" },
+        { "name": "reliance_prohibited", "type": "boolean", "required": false, "description": "Whether known pay history may not be used to set pay" },
+        { "name": "confirm_after_offer_allowed", "type": "boolean", "required": false, "description": "Whether the employer may confirm volunteered history after making an offer with compensation" },
+        { "name": "pay_range_on_request", "type": "boolean", "required": false, "description": "Whether applicants may demand the pay range" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the law attaches" },
+        { "name": "notes", "type": "string", "required": false, "description": "Carve-outs such as internal transfers or volunteered information" }
+      ],
+      "synonyms": ["pay history ban", "prior salary inquiry", "compensation history", "salary question ban"]
+    },
+    {
+      "code": "hiring.pay_transparency",
+      "name": "Pay range disclosure",
+      "description": "Whether and when an employer must disclose the pay range for a position: in the job posting, on request, or before an offer.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "disclosure", "type": "enum", "values": ["in_posting", "on_request", "before_offer"], "required": true, "description": "When the range must be given" },
+        { "name": "min_employees", "type": "number", "unit": "employees", "required": false, "description": "Employer size at which the law attaches" },
+        { "name": "benefits_disclosure_required", "type": "boolean", "required": false, "description": "Whether a description of benefits must accompany the range" },
+        { "name": "current_employees_on_request", "type": "boolean", "required": false, "description": "Whether current employees may request the range for their own position" },
+        { "name": "remote_coverage", "type": "string", "required": false, "description": "How postings for remote or out-of-state roles are treated" },
+        { "name": "penalty", "type": "string", "required": false, "description": "Civil penalty per violation" },
+        { "name": "notes", "type": "string", "required": false, "description": "Promotion postings, third-party postings, cure periods" }
+      ],
+      "synonyms": ["salary range posting", "pay transparency law", "wage range disclosure", "job posting salary"]
+    },
+    {
+      "code": "hiring.wage_notice",
+      "name": "Wage notice at hire",
+      "description": "Whether the employer must tell each new hire the rate of pay, payday and related terms, in what form, and how changes must be announced.",
+      "behaviors": ["warning"],
+      "kronto": "inform",
+      "params": [
+        { "name": "notice_form", "type": "enum", "values": ["individual_written", "individual_or_posting", "oral_or_written", "posting_only", "on_request", "none"], "required": true, "description": "How the pay terms must be communicated at hire" },
+        { "name": "contents", "type": "string", "required": false, "description": "What the notice must state" },
+        { "name": "language_requirement", "type": "string", "required": false, "description": "Languages the notice must be given in" },
+        { "name": "change_notice", "type": "string", "required": false, "description": "How and how far in advance changes to pay terms must be announced" },
+        { "name": "acknowledgment_required", "type": "boolean", "required": false, "description": "Whether the employee must sign and the employer keep the acknowledgment" },
+        { "name": "notes", "type": "string", "required": false, "description": "Agency templates, exemptions and retention periods" }
+      ],
+      "synonyms": ["wage theft prevention act notice", "notice of pay rate", "new hire notice", "pay rate notice", "LS 54", "2810.5 notice"]
     }
   ]
 }

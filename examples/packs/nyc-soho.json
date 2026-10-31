@@ -1,9 +1,9 @@
 {
   "format": "kronto-rule-pack/1",
-  "generatedAt": "2026-10-31T00:56:11.039Z",
+  "generatedAt": "2026-10-31T01:11:32.090Z",
   "asOf": "2026-10-31",
   "horizonDays": 365,
-  "rulesVersion": "dfcc08df820c3377",
+  "rulesVersion": "6a5ba9e4f8bb426b",
   "vocabularyVersion": "2026-10-30",
   "business": "Northwind Outfitters (sample)",
   "location": {
@@ -39,6 +39,280 @@
     }
   ],
   "rules": [
+    {
+      "id": "ny-wage-notice-at-hire",
+      "title": "New York — Wage Notice at Hire",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.notices",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2011-04-09",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.wage_notice",
+        "params": {
+          "notice_form": "individual_written",
+          "contents": "rate(s) and basis; regular and overtime rates for non-exempt employees; payday; allowances; employer legal and DBA names, address, phone",
+          "language_requirement": "English and the employee's identified primary language (DOL templates)",
+          "change_notice": "at least 7 calendar days before the change unless shown on the wage statement",
+          "acknowledgment_required": true,
+          "notes": "Form LS 54 and variants; damages up to $5,000 per employee"
+        },
+        "summary": "Employers must give each new hire a written notice (Wage Theft Prevention Act) of rate and basis of pay, overtime rate, payday, allowances and employer names and addresses in English and the employee's primary language, with a signed acknowledgment kept 6 years and 7 days' written notice of changes.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Lab. Law §195(1)",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/195",
+          "section": "§195(1)",
+          "kind": "statute"
+        },
+        {
+          "source": "Ezel, New-Hire Wage Notice Requirements by State (survey)",
+          "url": "https://ezel.ai/surveys/new-hire-wage-notice-requirements",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "5fd7cee8affce387"
+    },
+    {
+      "id": "new-york-city-ban-the-box",
+      "title": "New York City — Ban the Box",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "hiring.general.ban_the_box",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2015-10-27",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.ban_the_box",
+        "params": {
+          "inquiry_timing": "after_conditional_offer",
+          "min_employees": 4,
+          "individualized_assessment_required": true,
+          "notice_and_response_required": true,
+          "notes": "Amended 2021-07-29 to cover pending arrests and current employees"
+        },
+        "summary": "Employers of four or more may not ask about criminal history until after a conditional offer, must apply the Article 23-A factors in a written analysis and hold the position open at least 5 business days for the applicant's response.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin. Code §8-107(11-a) (Fair Chance Act)",
+          "url": "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-2820",
+          "section": "§8-107(11-a)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Accurate, Ban the Box Laws by Jurisdiction (survey)",
+          "url": "https://accurate.com/ban-the-box/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f93c9e8376e256af"
+    },
+    {
+      "id": "new-york-salary-history-ban",
+      "title": "New York — Salary History Ban",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2020-01-06",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true,
+          "confirm_after_offer_allowed": true
+        },
+        "summary": "Employers may not rely on or seek an applicant's or employee's wage history; they may confirm history the applicant volunteers to support a higher offer.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Lab. Law §194-a",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/194-A",
+          "section": "§194-a",
+          "kind": "statute"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "f00756d9a7d36b1f"
+    },
+    {
+      "id": "new-york-city-salary-history-ban",
+      "title": "New York City — Salary History Ban",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2017-10-31",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.salary_history_ban",
+        "params": {
+          "inquiry_prohibited": true,
+          "reliance_prohibited": true
+        },
+        "summary": "Employers may not ask about an applicant's salary or benefits history or rely on it to set pay unless the applicant volunteers it.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin. Code §8-107(25)",
+          "url": "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-2820",
+          "section": "§8-107(25)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "HR Dive, Salary history bans: a running list (survey)",
+          "url": "https://www.hrdive.com/news/salary-history-ban-states-list/516662/",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "2733c4c1c5c983ad"
+    },
+    {
+      "id": "new-york-pay-range-disclosure",
+      "title": "New York — Pay Range Disclosure",
+      "jurisdiction": "NY",
+      "jurisdictionId": "us-ny",
+      "jurisdictionType": "state",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2023-09-17",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 4,
+          "remote_coverage": "roles performed outside NY that report to a NY supervisor, office or worksite",
+          "penalty": "up to $3,000 per violation"
+        },
+        "summary": "Employers of four or more must include the compensation or range and the job description in postings for jobs, promotions or transfers performed in New York or reporting to a New York supervisor.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "N.Y. Lab. Law §194-b",
+          "url": "https://www.nysenate.gov/legislation/laws/LAB/194-B",
+          "section": "§194-b",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "59c6fa8afaa71b9e"
+    },
+    {
+      "id": "new-york-city-pay-range-disclosure",
+      "title": "New York City — Pay Range Disclosure",
+      "jurisdiction": "New York City",
+      "jurisdictionId": "us-ny-new-york-city",
+      "jurisdictionType": "city",
+      "topic": "hiring.general.salary_history",
+      "topicCode": "hiring.general",
+      "enforcement": "hr",
+      "status": "active",
+      "effectiveFrom": "2022-11-01",
+      "appliesWhen": {
+        "all": []
+      },
+      "satisfiedBy": [
+        "employer.total_employees",
+        "location.city",
+        "location.state"
+      ],
+      "factsNeeded": [],
+      "result": {
+        "type": "warning",
+        "obligation": "hiring.pay_transparency",
+        "params": {
+          "disclosure": "in_posting",
+          "min_employees": 4,
+          "remote_coverage": "any role that could be performed, in whole or part, in NYC including remote"
+        },
+        "summary": "Employers of four or more must state the good-faith minimum and maximum salary in every advertisement for a job, promotion or transfer that could be performed in New York City.",
+        "kronto": "inform"
+      },
+      "citations": [
+        {
+          "source": "NYC Admin. Code §8-107(32)",
+          "url": "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-2820",
+          "section": "§8-107(32)",
+          "kind": "ordinance"
+        },
+        {
+          "source": "Clockspot, Pay Transparency Laws by State (survey)",
+          "url": "https://www.clockspot.com/research/pay-transparency-laws-by-state",
+          "kind": "guidance"
+        }
+      ],
+      "hash": "19d55393901c2d9c"
+    },
     {
       "id": "ny-jury-duty-pay",
       "title": "New York Jury Duty Pay",
@@ -4304,6 +4578,249 @@
       ]
     },
     {
+      "code": "hiring.ban_the_box",
+      "name": "Ban the box (criminal history inquiries)",
+      "description": "When in the hiring process an employer may first ask about or consider an applicant's criminal history, and what assessment and notice are owed before an adverse decision.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_timing",
+          "type": "enum",
+          "values": [
+            "after_application",
+            "after_interview",
+            "when_otherwise_qualified",
+            "after_conditional_offer"
+          ],
+          "required": true,
+          "description": "Earliest point a criminal-history question or background check is allowed"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "individualized_assessment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer must weigh the offense against the job before rescinding an offer"
+        },
+        {
+          "name": "notice_and_response_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a written notice and chance to respond is owed before a final adverse decision"
+        },
+        {
+          "name": "lookback_years",
+          "type": "number",
+          "required": false,
+          "description": "Convictions older than this may not be considered"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Exemptions (positions where a background check is required by law) and other wrinkles"
+        }
+      ],
+      "synonyms": [
+        "fair chance act",
+        "criminal history inquiry",
+        "background check timing",
+        "conviction history",
+        "fair chance hiring"
+      ]
+    },
+    {
+      "code": "hiring.pay_transparency",
+      "name": "Pay range disclosure",
+      "description": "Whether and when an employer must disclose the pay range for a position: in the job posting, on request, or before an offer.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "disclosure",
+          "type": "enum",
+          "values": [
+            "in_posting",
+            "on_request",
+            "before_offer"
+          ],
+          "required": true,
+          "description": "When the range must be given"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "benefits_disclosure_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a description of benefits must accompany the range"
+        },
+        {
+          "name": "current_employees_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether current employees may request the range for their own position"
+        },
+        {
+          "name": "remote_coverage",
+          "type": "string",
+          "required": false,
+          "description": "How postings for remote or out-of-state roles are treated"
+        },
+        {
+          "name": "penalty",
+          "type": "string",
+          "required": false,
+          "description": "Civil penalty per violation"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Promotion postings, third-party postings, cure periods"
+        }
+      ],
+      "synonyms": [
+        "salary range posting",
+        "pay transparency law",
+        "wage range disclosure",
+        "job posting salary"
+      ]
+    },
+    {
+      "code": "hiring.salary_history_ban",
+      "name": "Salary history ban",
+      "description": "Whether an employer may ask applicants about, or rely on, their prior pay.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "inquiry_prohibited",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether asking about pay history (directly or through an agent) is barred"
+        },
+        {
+          "name": "reliance_prohibited",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether known pay history may not be used to set pay"
+        },
+        {
+          "name": "confirm_after_offer_allowed",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employer may confirm volunteered history after making an offer with compensation"
+        },
+        {
+          "name": "pay_range_on_request",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether applicants may demand the pay range"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the law attaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Carve-outs such as internal transfers or volunteered information"
+        }
+      ],
+      "synonyms": [
+        "pay history ban",
+        "prior salary inquiry",
+        "compensation history",
+        "salary question ban"
+      ]
+    },
+    {
+      "code": "hiring.wage_notice",
+      "name": "Wage notice at hire",
+      "description": "Whether the employer must tell each new hire the rate of pay, payday and related terms, in what form, and how changes must be announced.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "notice_form",
+          "type": "enum",
+          "values": [
+            "individual_written",
+            "individual_or_posting",
+            "oral_or_written",
+            "posting_only",
+            "on_request",
+            "none"
+          ],
+          "required": true,
+          "description": "How the pay terms must be communicated at hire"
+        },
+        {
+          "name": "contents",
+          "type": "string",
+          "required": false,
+          "description": "What the notice must state"
+        },
+        {
+          "name": "language_requirement",
+          "type": "string",
+          "required": false,
+          "description": "Languages the notice must be given in"
+        },
+        {
+          "name": "change_notice",
+          "type": "string",
+          "required": false,
+          "description": "How and how far in advance changes to pay terms must be announced"
+        },
+        {
+          "name": "acknowledgment_required",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the employee must sign and the employer keep the acknowledgment"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Agency templates, exemptions and retention periods"
+        }
+      ],
+      "synonyms": [
+        "wage theft prevention act notice",
+        "notice of pay rate",
+        "new hire notice",
+        "pay rate notice",
+        "LS 54",
+        "2810.5 notice"
+      ]
+    },
+    {
       "code": "leave.domestic_violence",
       "name": "Domestic violence, safe and crime victim leave",
       "description": "Job-protected time off for an employee (or family member) who is a victim of domestic violence, sexual assault, stalking or another crime, for court, medical, counseling, relocation or safety needs; some laws instead require reasonable accommodation.",
@@ -6532,14 +7049,14 @@
     }
   ],
   "stats": {
-    "rulesConsidered": 1246,
-    "rulesIncluded": 76,
-    "excludedByProfile": 1163,
+    "rulesConsidered": 1359,
+    "rulesIncluded": 82,
+    "excludedByProfile": 1270,
     "excludedExpired": 7,
     "excludedNotYetEffective": 0,
     "excludedInactive": 0,
     "upcoming": 0,
-    "fullyResolved": 7
+    "fullyResolved": 13
   },
-  "checksum": "7ceff350a6f675871810dfaa7ea6b8ec412d905c31a89d726eae7c935a722c8d"
+  "checksum": "f01432134b499bcd3b381805b6da8cf8d0ac41c3f8e3086a572630e8320afa09"
 }
