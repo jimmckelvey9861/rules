@@ -15,7 +15,9 @@
     "employees": "Count of employees",
     "miles": "Miles",
     "degrees_f": "Degrees Fahrenheit",
-    "years": "Years"
+    "years": "Years",
+    "usd_per_year": "US dollars per year",
+    "months": "Months"
   },
   "obligations": [
     {
@@ -1488,6 +1490,218 @@
         "employee file access",
         "right to inspect records",
         "Bullard-Plawecki"
+      ]
+    },
+    {
+      "code": "sep.noncompete",
+      "name": "Non-compete enforceability",
+      "description": "Whether employee non-compete agreements are banned, restricted or enforceable, and the thresholds, notice and duration limits that apply.",
+      "behaviors": [
+        "prohibition",
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "enforceability",
+          "type": "enum",
+          "values": [
+            "banned",
+            "restricted",
+            "enforceable"
+          ],
+          "required": true,
+          "description": "banned: void for employees generally; restricted: statutory limits (income floor, notice, duration, exempt groups); enforceable: common-law reasonableness"
+        },
+        {
+          "name": "income_threshold_usd",
+          "type": "number",
+          "unit": "usd_per_year",
+          "required": false,
+          "description": "Annual earnings below which non-competes are void"
+        },
+        {
+          "name": "threshold_year",
+          "type": "number",
+          "required": false,
+          "description": "Year the threshold figure applies to (indexed thresholds change annually)"
+        },
+        {
+          "name": "advance_notice_days",
+          "type": "number",
+          "unit": "days",
+          "required": false,
+          "description": "Days of advance written notice required before the agreement binds (0 = copy must be given before offer acceptance)"
+        },
+        {
+          "name": "max_duration_months",
+          "type": "number",
+          "unit": "months",
+          "required": false,
+          "description": "Statutory or presumptive maximum post-employment duration"
+        },
+        {
+          "name": "exempt_categories",
+          "type": "string",
+          "required": false,
+          "description": "Worker groups the restraint may not reach"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Consideration, garden leave, choice-of-law, penalty and pending-change wrinkles"
+        }
+      ],
+      "synonyms": [
+        "non-compete",
+        "noncompete",
+        "covenant not to compete",
+        "restrictive covenant",
+        "non-solicit",
+        "garden leave",
+        "Freedom to Work Act"
+      ]
+    },
+    {
+      "code": "sep.separation_notice",
+      "name": "Separation and unemployment notice",
+      "description": "Whether the employer must give departing employees a written separation notice or unemployment insurance information, and by when.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "document",
+          "type": "string",
+          "required": true,
+          "description": "Form or pamphlet required"
+        },
+        {
+          "name": "deadline",
+          "type": "string",
+          "required": true,
+          "description": "When it must be given"
+        },
+        {
+          "name": "recipients",
+          "type": "string",
+          "required": false,
+          "description": "Which separations trigger it"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Delivery method and verification notes"
+        }
+      ],
+      "synonyms": [
+        "separation notice",
+        "termination letter",
+        "unemployment notice",
+        "DOL-800",
+        "UC-61",
+        "LB-0489",
+        "notice of availability of unemployment benefits"
+      ]
+    },
+    {
+      "code": "sep.service_letter",
+      "name": "Written reason for termination",
+      "description": "Whether a departing employee may demand a written statement of the reason for separation, and how fast the employer must answer.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "who",
+          "type": "string",
+          "required": true,
+          "description": "Who may request"
+        },
+        {
+          "name": "trigger",
+          "type": "string",
+          "required": true,
+          "description": "How and when the request must be made"
+        },
+        {
+          "name": "deadline",
+          "type": "string",
+          "required": false,
+          "description": "Employer response deadline"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Contents, penalties and evidentiary effect"
+        }
+      ],
+      "synonyms": [
+        "service letter",
+        "reason for termination",
+        "termination reason letter",
+        "statement of reasons for discharge"
+      ]
+    },
+    {
+      "code": "sep.health_continuation",
+      "name": "Health coverage continuation",
+      "description": "Whether federal COBRA or a state mini-COBRA law requires continued group health coverage after separation, for how long and for which employers.",
+      "behaviors": [
+        "warning"
+      ],
+      "kronto": "inform",
+      "params": [
+        {
+          "name": "coverage",
+          "type": "enum",
+          "values": [
+            "federal_cobra",
+            "state_continuation",
+            "none"
+          ],
+          "required": true,
+          "description": "Source of the continuation right"
+        },
+        {
+          "name": "months",
+          "type": "number",
+          "unit": "months",
+          "required": true,
+          "description": "Maximum continuation period after termination"
+        },
+        {
+          "name": "min_employees",
+          "type": "number",
+          "unit": "employees",
+          "required": false,
+          "description": "Employer size at which the duty attaches"
+        },
+        {
+          "name": "employer_scope",
+          "type": "string",
+          "required": false,
+          "description": "Employers and plans the law reaches"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "description": "Election windows, prior-coverage requirements, extended periods and citations"
+        }
+      ],
+      "synonyms": [
+        "COBRA",
+        "mini-COBRA",
+        "state continuation",
+        "Cal-COBRA",
+        "health continuation",
+        "continuation coverage"
       ]
     }
   ]

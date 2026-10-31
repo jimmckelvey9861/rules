@@ -1,0 +1,2349 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sep.post_employment",
+  "rules": [
+    {
+      "id": "al-noncompete",
+      "title": "Alabama: non-compete agreements",
+      "jurisdiction": "AL",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Restrictive covenants enforceable if reasonable; up to 2 years is presumptively reasonable.",
+          "max_duration_months": 24,
+          "exempt_categories": "professionals (physicians, lawyers, others licensed) under \u00a7 8-1-190(b)"
+        },
+        "summary": "Alabama enforces reasonable employee non-competes. Restrictive covenants enforceable if reasonable; up to 2 years is presumptively reasonable."
+      },
+      "citations": [
+        {
+          "source": "Ala. Code \u00a7 8-1-190",
+          "url": "https://law.justia.com/codes/alabama/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-noncompete",
+      "title": "Alaska: non-compete agreements",
+      "jurisdiction": "AK",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "No statute; courts enforce reasonable restraints and may reform overbroad ones."
+        },
+        "summary": "Alaska enforces reasonable employee non-competes. No statute; courts enforce reasonable restraints and may reform overbroad ones."
+      },
+      "citations": [
+        {
+          "source": "Alaska common law (reasonableness)",
+          "url": "https://law.justia.com/codes/alaska/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "az-noncompete",
+      "title": "Arizona: non-compete agreements",
+      "jurisdiction": "AZ",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness test; blue-penciling allowed but courts will not rewrite.",
+          "exempt_categories": "broadcast industry employees"
+        },
+        "summary": "Arizona enforces reasonable employee non-competes. Reasonableness test; blue-penciling allowed but courts will not rewrite."
+      },
+      "citations": [
+        {
+          "source": "Ariz. common law (Valley Medical v. Farber); Ariz. Rev. Stat. \u00a7 23-494 (broadcast employees)",
+          "url": "https://law.justia.com/codes/arizona/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-noncompete",
+      "title": "Arkansas: non-compete agreements",
+      "jurisdiction": "AR",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "2015 statute: enforceable where the employer has a protectable interest and the restraint is reasonable; 2 years presumptively reasonable; courts reform overbroad terms."
+        },
+        "summary": "Arkansas enforces reasonable employee non-competes. 2015 statute: enforceable where the employer has a protectable interest and the restraint is reasonable; 2 years presumptively reasonable; courts reform overbroad terms."
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a7 4-75-101",
+          "url": "https://law.justia.com/codes/arkansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-noncompete",
+      "title": "California: non-compete agreements",
+      "jurisdiction": "CA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "banned",
+          "notes": "Void regardless of where signed; employers had to notify affected employees in writing by 2024-02-14; employees may sue for injunctive relief and fees.",
+          "exempt_categories": "none (sale-of-business and partnership exceptions only)"
+        },
+        "summary": "California bans employee non-competes. Void regardless of where signed; employers had to notify affected employees in writing by 2024-02-14; employees may sue for injunctive relief and fees."
+      },
+      "citations": [
+        {
+          "source": "Cal. Bus. & Prof. Code \u00a7\u00a7 16600, 16600.1, 16600.5",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-noncompete",
+      "title": "Colorado: non-compete agreements",
+      "jurisdiction": "CO",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2022-08-10",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Allowed only to protect trade secrets for highly compensated workers; separate written notice 14 days before start or before the agreement; $5,000 per worker penalty; Colorado law and forum required.",
+          "income_threshold_usd": 127091,
+          "threshold_year": 2026,
+          "advance_notice_days": 14,
+          "exempt_categories": "workers below the highly compensated threshold; non-solicits at 60% of threshold"
+        },
+        "summary": "Colorado restricts employee non-competes by statute. Allowed only to protect trade secrets for highly compensated workers; separate written notice 14 days before start or before the agreement; $5,000 per worker penalty; Colorado law and forum required."
+      },
+      "citations": [
+        {
+          "source": "Colo. Rev. Stat. \u00a7 8-2-113",
+          "url": "https://law.justia.com/codes/colorado/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-noncompete",
+      "title": "Connecticut: non-compete agreements",
+      "jurisdiction": "CT",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Five-factor reasonableness test; broadcast and security-guard statutes; consideration at signing required.",
+          "exempt_categories": "physicians limited to 1 year and 15 miles; APRNs and PAs similar limits"
+        },
+        "summary": "Connecticut enforces reasonable employee non-competes. Five-factor reasonableness test; broadcast and security-guard statutes; consideration at signing required."
+      },
+      "citations": [
+        {
+          "source": "Conn. common law; Conn. Gen. Stat. \u00a7 20-14p (physicians)",
+          "url": "https://law.justia.com/codes/connecticut/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-noncompete",
+      "title": "Delaware: non-compete agreements",
+      "jurisdiction": "DE",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness with reformation; physician non-competes void since 2025.",
+          "exempt_categories": "physicians (void)"
+        },
+        "summary": "Delaware enforces reasonable employee non-competes. Reasonableness with reformation; physician non-competes void since 2025."
+      },
+      "citations": [
+        {
+          "source": "Del. common law; 6 Del. C. \u00a7 2707 (physicians)",
+          "url": "https://law.justia.com/codes/delaware/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "dc-noncompete",
+      "title": "District of Columbia: non-compete agreements",
+      "jurisdiction": "DC",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2022-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes allowed only for highly compensated employees (indexed threshold), capped at 365 days (730 for medical specialists), with written notice 14 days before start or execution; employer must give statutory notice text.",
+          "income_threshold_usd": 162164,
+          "threshold_year": 2026,
+          "advance_notice_days": 14,
+          "max_duration_months": 12,
+          "exempt_categories": "workers below the highly compensated threshold"
+        },
+        "summary": "District of Columbia restricts employee non-competes by statute. Non-competes allowed only for highly compensated employees (indexed threshold), capped at 365 days (730 for medical specialists), with written notice 14 days before start or execution; employer must give statutory notice text."
+      },
+      "citations": [
+        {
+          "source": "D.C. Code \u00a7 32-581.01 et seq. (Ban on Non-Compete Agreements Amendment Act)",
+          "url": "https://law.justia.com/codes/district-of-columbia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-noncompete",
+      "title": "Florida: non-compete agreements",
+      "jurisdiction": "FL",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Strongly pro-enforcement; 6 months to 2 years presumptively reasonable; 2025 CHOICE Act allows up to 4 years for covered employees earning over twice the county average wage with 7 days to review and counsel notice.",
+          "advance_notice_days": 7
+        },
+        "summary": "Florida enforces reasonable employee non-competes. Strongly pro-enforcement; 6 months to 2 years presumptively reasonable; 2025 CHOICE Act allows up to 4 years for covered employees earning over twice the county average wage with 7 days to review and counsel notice."
+      },
+      "citations": [
+        {
+          "source": "Fla. Stat. \u00a7 542.335; \u00a7 542.41 et seq. (CHOICE Act)",
+          "url": "https://law.justia.com/codes/florida/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-noncompete",
+      "title": "Georgia: non-compete agreements",
+      "jurisdiction": "GA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Restrictive Covenants Act (2011): 2 years presumptively reasonable; courts may blue-pencil.",
+          "max_duration_months": 24,
+          "exempt_categories": "employees who are not sales, management, key or professional employees"
+        },
+        "summary": "Georgia enforces reasonable employee non-competes. Restrictive Covenants Act (2011): 2 years presumptively reasonable; courts may blue-pencil."
+      },
+      "citations": [
+        {
+          "source": "Ga. Code \u00a7 13-8-53",
+          "url": "https://law.justia.com/codes/georgia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-noncompete",
+      "title": "Hawaii: non-compete agreements",
+      "jurisdiction": "HI",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes and non-solicits void for employees of technology businesses since 2015; reasonableness for others.",
+          "exempt_categories": "technology business employees (void)"
+        },
+        "summary": "Hawaii restricts employee non-competes by statute. Non-competes and non-solicits void for employees of technology businesses since 2015; reasonableness for others."
+      },
+      "citations": [
+        {
+          "source": "Haw. Rev. Stat. \u00a7 480-4(d)",
+          "url": "https://law.justia.com/codes/hawaii/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "id-noncompete",
+      "title": "Idaho: non-compete agreements",
+      "jurisdiction": "ID",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Key employees and independent contractors; 18 months presumptively reasonable.",
+          "max_duration_months": 18
+        },
+        "summary": "Idaho enforces reasonable employee non-competes. Key employees and independent contractors; 18 months presumptively reasonable."
+      },
+      "citations": [
+        {
+          "source": "Idaho Code \u00a7 44-2701 et seq.",
+          "url": "https://law.justia.com/codes/idaho/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-noncompete",
+      "title": "Illinois: non-compete agreements",
+      "jurisdiction": "IL",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2022-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Employer must advise in writing to consult counsel and give 14 days to review; adequate consideration (2+ years continued employment or other); void for COVID-related layoffs unless base pay continues; attorneys' fees to prevailing employee.",
+          "income_threshold_usd": 75000,
+          "threshold_year": 2022,
+          "advance_notice_days": 14,
+          "exempt_categories": "employees earning $75,000 or less ($80,000 from 2027); non-solicits below $45,000; construction and public-sector union employees"
+        },
+        "summary": "Illinois restricts employee non-competes by statute. Employer must advise in writing to consult counsel and give 14 days to review; adequate consideration (2+ years continued employment or other); void for COVID-related layoffs unless base pay continues; attorneys' fees to prevailing employee."
+      },
+      "citations": [
+        {
+          "source": "820 ILCS 90 (Freedom to Work Act)",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-noncompete",
+      "title": "Indiana: non-compete agreements",
+      "jurisdiction": "IN",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; physician non-competes restricted since 2020 and banned for primary care in 2025.",
+          "exempt_categories": "primary care physicians (void since 2025-07-01); other physicians restricted"
+        },
+        "summary": "Indiana enforces reasonable employee non-competes. Reasonableness; physician non-competes restricted since 2020 and banned for primary care in 2025."
+      },
+      "citations": [
+        {
+          "source": "Ind. common law; Ind. Code \u00a7 25-22.5-5.5 (physicians)",
+          "url": "https://law.justia.com/codes/indiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-noncompete",
+      "title": "Iowa: non-compete agreements",
+      "jurisdiction": "IA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness with reformation; 2023 law bars non-competes for agency-placed healthcare workers.",
+          "exempt_categories": "healthcare and mental-health workers placed by staffing agencies"
+        },
+        "summary": "Iowa enforces reasonable employee non-competes. Reasonableness with reformation; 2023 law bars non-competes for agency-placed healthcare workers."
+      },
+      "citations": [
+        {
+          "source": "Iowa common law; Iowa Code \u00a7 135Q (healthcare staffing)",
+          "url": "https://law.justia.com/codes/iowa/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-noncompete",
+      "title": "Kansas: non-compete agreements",
+      "jurisdiction": "KS",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; meaningful consideration required at signing."
+        },
+        "summary": "Kansas enforces reasonable employee non-competes. Reasonableness; meaningful consideration required at signing."
+      },
+      "citations": [
+        {
+          "source": "Kan. common law (Weber v. Tillman)",
+          "url": "https://law.justia.com/codes/kansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ky-noncompete",
+      "title": "Kentucky: non-compete agreements",
+      "jurisdiction": "KY",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; continued employment can be consideration; courts may reform."
+        },
+        "summary": "Kentucky enforces reasonable employee non-competes. Reasonableness; continued employment can be consideration; courts may reform."
+      },
+      "citations": [
+        {
+          "source": "Ky. common law",
+          "url": "https://law.justia.com/codes/kentucky/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-noncompete",
+      "title": "Louisiana: non-compete agreements",
+      "jurisdiction": "LA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes void unless they meet the statutory form: maximum 2 years and listing the specific parishes or municipalities covered.",
+          "max_duration_months": 24
+        },
+        "summary": "Louisiana restricts employee non-competes by statute. Non-competes void unless they meet the statutory form: maximum 2 years and listing the specific parishes or municipalities covered."
+      },
+      "citations": [
+        {
+          "source": "La. R.S. \u00a7 23:921",
+          "url": "https://law.justia.com/codes/louisiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-noncompete",
+      "title": "Maine: non-compete agreements",
+      "jurisdiction": "ME",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2019-09-19",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Employer must disclose before the offer and give a copy 3 business days before signing; agreement not effective until 1 year of employment or 6 months after signing, whichever is later; $5,000 civil penalty.",
+          "income_threshold_usd": 63840,
+          "threshold_year": 2026,
+          "advance_notice_days": 3,
+          "exempt_categories": "employees earning at or below 400% of the federal poverty level"
+        },
+        "summary": "Maine restricts employee non-competes by statute. Employer must disclose before the offer and give a copy 3 business days before signing; agreement not effective until 1 year of employment or 6 months after signing, whichever is later; $5,000 civil penalty."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7 599-A",
+          "url": "https://law.justia.com/codes/maine/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-noncompete",
+      "title": "Maryland: non-compete agreements",
+      "jurisdiction": "MD",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2019-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes null and void for covered low-wage workers; healthcare practitioners above the threshold limited to 1 year and 10 miles.",
+          "income_threshold_usd": 46800,
+          "threshold_year": 2024,
+          "exempt_categories": "employees earning 150% of the state minimum wage or less; healthcare and veterinary practitioners earning $350,000 or less (2025)"
+        },
+        "summary": "Maryland restricts employee non-competes by statute. Non-competes null and void for covered low-wage workers; healthcare practitioners above the threshold limited to 1 year and 10 miles."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a7 3-716",
+          "url": "https://law.justia.com/codes/maryland/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-noncompete",
+      "title": "Massachusetts: non-compete agreements",
+      "jurisdiction": "MA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2018-10-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Agreement must be given by the formal offer or 10 business days before start, state the right to counsel, be signed by both, and provide garden leave (50% of pay) or other agreed consideration; 12-month cap; Massachusetts law and forum.",
+          "advance_notice_days": 10,
+          "max_duration_months": 12,
+          "exempt_categories": "FLSA non-exempt employees, students, employees 18 or younger, and employees laid off or terminated without cause"
+        },
+        "summary": "Massachusetts restricts employee non-competes by statute. Agreement must be given by the formal offer or 10 business days before start, state the right to counsel, be signed by both, and provide garden leave (50% of pay) or other agreed consideration; 12-month cap; Massachusetts law and forum."
+      },
+      "citations": [
+        {
+          "source": "Mass. Gen. Laws c. 149, \u00a7 24L (Noncompetition Agreement Act)",
+          "url": "https://law.justia.com/codes/massachusetts/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-noncompete",
+      "title": "Michigan: non-compete agreements",
+      "jurisdiction": "MI",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonable as to duration, geography and line of business; courts may limit overbroad terms."
+        },
+        "summary": "Michigan enforces reasonable employee non-competes. Reasonable as to duration, geography and line of business; courts may limit overbroad terms."
+      },
+      "citations": [
+        {
+          "source": "Mich. Comp. Laws \u00a7 445.774a",
+          "url": "https://law.justia.com/codes/michigan/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-noncompete",
+      "title": "Minnesota: non-compete agreements",
+      "jurisdiction": "MN",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2023-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "banned",
+          "notes": "Non-competes signed on or after 2023-07-01 are void; non-solicit and confidentiality agreements remain allowed; choice-of-law and forum clauses outside Minnesota void.",
+          "exempt_categories": "none (sale-of-business and dissolution exceptions)"
+        },
+        "summary": "Minnesota bans employee non-competes. Non-competes signed on or after 2023-07-01 are void; non-solicit and confidentiality agreements remain allowed; choice-of-law and forum clauses outside Minnesota void."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7 181.988",
+          "url": "https://law.justia.com/codes/minnesota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-noncompete",
+      "title": "Mississippi: non-compete agreements",
+      "jurisdiction": "MS",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; courts may reform."
+        },
+        "summary": "Mississippi enforces reasonable employee non-competes. Reasonableness; courts may reform."
+      },
+      "citations": [
+        {
+          "source": "Miss. common law",
+          "url": "https://law.justia.com/codes/mississippi/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-noncompete",
+      "title": "Missouri: non-compete agreements",
+      "jurisdiction": "MO",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Customer and employee non-solicits of up to 1 year presumptively reasonable by statute; non-competes under common-law reasonableness.",
+          "exempt_categories": "secretarial and clerical employees"
+        },
+        "summary": "Missouri enforces reasonable employee non-competes. Customer and employee non-solicits of up to 1 year presumptively reasonable by statute; non-competes under common-law reasonableness."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7 431.202; Mo. common law",
+          "url": "https://law.justia.com/codes/missouri/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-noncompete",
+      "title": "Montana: non-compete agreements",
+      "jurisdiction": "MT",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Contracts restraining a lawful profession are void except sale-of-business and partnership cases; Montana courts nonetheless enforce narrowly drawn employee non-competes under the Dobbins test."
+        },
+        "summary": "Montana restricts employee non-competes by statute. Contracts restraining a lawful profession are void except sale-of-business and partnership cases; Montana courts nonetheless enforce narrowly drawn employee non-competes under the Dobbins test."
+      },
+      "citations": [
+        {
+          "source": "Mont. Code \u00a7 28-2-703; \u00a7 28-2-704",
+          "url": "https://law.justia.com/codes/montana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ne-noncompete",
+      "title": "Nebraska: non-compete agreements",
+      "jurisdiction": "NE",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Only restraints limited to clients the employee actually served are enforceable; no blue-penciling, so an overbroad covenant fails entirely."
+        },
+        "summary": "Nebraska restricts employee non-competes by statute. Only restraints limited to clients the employee actually served are enforceable; no blue-penciling, so an overbroad covenant fails entirely."
+      },
+      "citations": [
+        {
+          "source": "Neb. common law (Mertz v. Pharmacists Mutual)",
+          "url": "https://law.justia.com/codes/nebraska/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-noncompete",
+      "title": "Nevada: non-compete agreements",
+      "jurisdiction": "NV",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2017-06-03",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes need valuable consideration and reasonable scope; unenforceable against hourly workers; after a layoff enforceable only while the employer pays salary and benefits; courts must reform overbroad terms.",
+          "exempt_categories": "hourly (non-salaried) employees (void since 2021-10-01)"
+        },
+        "summary": "Nevada restricts employee non-competes by statute. Non-competes need valuable consideration and reasonable scope; unenforceable against hourly workers; after a layoff enforceable only while the employer pays salary and benefits; courts must reform overbroad terms."
+      },
+      "citations": [
+        {
+          "source": "Nev. Rev. Stat. \u00a7 613.195",
+          "url": "https://law.justia.com/codes/nevada/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nh-noncompete",
+      "title": "New Hampshire: non-compete agreements",
+      "jurisdiction": "NH",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2019-09-08",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "A copy must be given before the offer is accepted (or before a change in position), otherwise unenforceable; low-wage non-competes void.",
+          "income_threshold_usd": 30160,
+          "threshold_year": 2026,
+          "advance_notice_days": 0,
+          "exempt_categories": "low-wage employees earning 200% of the federal minimum wage or less; physician associates (2026)"
+        },
+        "summary": "New Hampshire restricts employee non-competes by statute. A copy must be given before the offer is accepted (or before a change in position), otherwise unenforceable; low-wage non-competes void."
+      },
+      "citations": [
+        {
+          "source": "N.H. Rev. Stat. \u00a7 275:70; \u00a7 275:70-a",
+          "url": "https://law.justia.com/codes/new-hampshire/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-noncompete",
+      "title": "New Jersey: non-compete agreements",
+      "jurisdiction": "NJ",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness with reformation; reform bills (S1407) pending."
+        },
+        "summary": "New Jersey enforces reasonable employee non-competes. Reasonableness with reformation; reform bills (S1407) pending."
+      },
+      "citations": [
+        {
+          "source": "N.J. common law (Solari / Whitmyer)",
+          "url": "https://law.justia.com/codes/new-jersey/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nm-noncompete",
+      "title": "New Mexico: non-compete agreements",
+      "jurisdiction": "NM",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Healthcare practitioner non-competes unenforceable; other employees under common-law reasonableness.",
+          "exempt_categories": "healthcare practitioners (dentists, physicians, nurses, PAs and others, expanded 2025)"
+        },
+        "summary": "New Mexico restricts employee non-competes by statute. Healthcare practitioner non-competes unenforceable; other employees under common-law reasonableness."
+      },
+      "citations": [
+        {
+          "source": "N.M. Stat. \u00a7 24-1I-1 et seq. (Health Care Practitioner Non-Compete)",
+          "url": "https://law.justia.com/codes/new-mexico/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-noncompete",
+      "title": "New York: non-compete agreements",
+      "jurisdiction": "NY",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Enforced only to protect legitimate interests (trade secrets, unique services); ban bills passed the legislature in 2023 and 2025 but were not enacted as of 2026.",
+          "exempt_categories": "broadcast employees (Labor Law \u00a7 202-k)"
+        },
+        "summary": "New York enforces reasonable employee non-competes. Enforced only to protect legitimate interests (trade secrets, unique services); ban bills passed the legislature in 2023 and 2025 but were not enacted as of 2026."
+      },
+      "citations": [
+        {
+          "source": "N.Y. common law (BDO Seidman v. Hirshberg)",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nc-noncompete",
+      "title": "North Carolina: non-compete agreements",
+      "jurisdiction": "NC",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Must be in writing, signed and supported by consideration at hire or new consideration later; strict reasonableness; strict blue-pencil only."
+        },
+        "summary": "North Carolina enforces reasonable employee non-competes. Must be in writing, signed and supported by consideration at hire or new consideration later; strict reasonableness; strict blue-pencil only."
+      },
+      "citations": [
+        {
+          "source": "N.C. Gen. Stat. \u00a7 75-4",
+          "url": "https://law.justia.com/codes/north-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nd-noncompete",
+      "title": "North Dakota: non-compete agreements",
+      "jurisdiction": "ND",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "banned",
+          "notes": "Contracts restraining a lawful profession are void; customer non-solicits are treated as non-competes.",
+          "exempt_categories": "none (sale-of-business and dissolution exceptions)"
+        },
+        "summary": "North Dakota bans employee non-competes. Contracts restraining a lawful profession are void; customer non-solicits are treated as non-competes."
+      },
+      "citations": [
+        {
+          "source": "N.D. Cent. Code \u00a7 9-08-06",
+          "url": "https://law.justia.com/codes/north-dakota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oh-noncompete",
+      "title": "Ohio: non-compete agreements",
+      "jurisdiction": "OH",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness with judicial modification."
+        },
+        "summary": "Ohio enforces reasonable employee non-competes. Reasonableness with judicial modification."
+      },
+      "citations": [
+        {
+          "source": "Ohio common law (Raimonde v. Van Vlerah)",
+          "url": "https://law.justia.com/codes/ohio/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ok-noncompete",
+      "title": "Oklahoma: non-compete agreements",
+      "jurisdiction": "OK",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "banned",
+          "notes": "Employee non-competes void; an agreement may only bar direct solicitation of established customers.",
+          "exempt_categories": "none (customer non-solicits allowed)"
+        },
+        "summary": "Oklahoma bans employee non-competes. Employee non-competes void; an agreement may only bar direct solicitation of established customers."
+      },
+      "citations": [
+        {
+          "source": "15 Okla. Stat. \u00a7\u00a7 217-219A",
+          "url": "https://law.justia.com/codes/oklahoma/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-noncompete",
+      "title": "Oregon: non-compete agreements",
+      "jurisdiction": "OR",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2008-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Written notice 2 weeks before the first day (or on bona fide advancement), signed copy within 30 days after termination, 12-month cap; otherwise void; employer may instead pay garden leave of 50% of salary.",
+          "income_threshold_usd": 116427,
+          "threshold_year": 2026,
+          "advance_notice_days": 14,
+          "max_duration_months": 12,
+          "exempt_categories": "non-exempt employees and those earning below the indexed threshold"
+        },
+        "summary": "Oregon restricts employee non-competes by statute. Written notice 2 weeks before the first day (or on bona fide advancement), signed copy within 30 days after termination, 12-month cap; otherwise void; employer may instead pay garden leave of 50% of salary."
+      },
+      "citations": [
+        {
+          "source": "Or. Rev. Stat. \u00a7 653.295",
+          "url": "https://law.justia.com/codes/oregon/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-noncompete",
+      "title": "Pennsylvania: non-compete agreements",
+      "jurisdiction": "PA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; consideration beyond continued at-will employment required mid-employment.",
+          "exempt_categories": "healthcare practitioners limited to 1 year (void if dismissed)"
+        },
+        "summary": "Pennsylvania enforces reasonable employee non-competes. Reasonableness; consideration beyond continued at-will employment required mid-employment."
+      },
+      "citations": [
+        {
+          "source": "Pa. common law (Socko v. Mid-Atlantic); Fair Contracting for Health Care Practitioners Act (2024)",
+          "url": "https://law.justia.com/codes/pennsylvania/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-noncompete",
+      "title": "Rhode Island: non-compete agreements",
+      "jurisdiction": "RI",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2020-01-15",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes unenforceable against the listed groups; reasonableness for others.",
+          "income_threshold_usd": 39900,
+          "threshold_year": 2026,
+          "exempt_categories": "FLSA non-exempt employees, students, employees 18 or younger, and low-wage employees (at or below 250% of the federal poverty level)"
+        },
+        "summary": "Rhode Island restricts employee non-competes by statute. Non-competes unenforceable against the listed groups; reasonableness for others."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a7 28-59-3",
+          "url": "https://law.justia.com/codes/rhode-island/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-noncompete",
+      "title": "South Carolina: non-compete agreements",
+      "jurisdiction": "SC",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Strict reasonableness; no blue-penciling, so an unreasonable term voids the covenant."
+        },
+        "summary": "South Carolina enforces reasonable employee non-competes. Strict reasonableness; no blue-penciling, so an unreasonable term voids the covenant."
+      },
+      "citations": [
+        {
+          "source": "S.C. common law",
+          "url": "https://law.justia.com/codes/south-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-noncompete",
+      "title": "South Dakota: non-compete agreements",
+      "jurisdiction": "SD",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Statute allows non-competes of up to 2 years within a specified area.",
+          "max_duration_months": 24
+        },
+        "summary": "South Dakota enforces reasonable employee non-competes. Statute allows non-competes of up to 2 years within a specified area."
+      },
+      "citations": [
+        {
+          "source": "S.D. Codified Laws \u00a7 53-9-11",
+          "url": "https://law.justia.com/codes/south-dakota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-noncompete",
+      "title": "Tennessee: non-compete agreements",
+      "jurisdiction": "TN",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; 2026 law (HB 1034) adds a $70,000 income floor from 2026-07-01 (see tn-noncompete-threshold).",
+          "exempt_categories": "physicians limited to 2 years and 10 miles"
+        },
+        "summary": "Tennessee enforces reasonable employee non-competes. Reasonableness; 2026 law (HB 1034) adds a $70,000 income floor from 2026-07-01 (see tn-noncompete-threshold)."
+      },
+      "citations": [
+        {
+          "source": "Tenn. common law; Tenn. Code \u00a7 63-1-148 (physicians)",
+          "url": "https://law.justia.com/codes/tennessee/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-noncompete",
+      "title": "Texas: non-compete agreements",
+      "jurisdiction": "TX",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Enforceable if ancillary to an otherwise enforceable agreement and reasonable; courts must reform overbroad terms.",
+          "exempt_categories": "physicians and other healthcare practitioners: 1 year, 5 miles, capped buyout (2025)"
+        },
+        "summary": "Texas enforces reasonable employee non-competes. Enforceable if ancillary to an otherwise enforceable agreement and reasonable; courts must reform overbroad terms."
+      },
+      "citations": [
+        {
+          "source": "Tex. Bus. & Com. Code \u00a7 15.50 et seq.",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ut-noncompete",
+      "title": "Utah: non-compete agreements",
+      "jurisdiction": "UT",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2016-05-10",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Post-employment non-competes signed after 2016-05-10 may not exceed 1 year; broadcast-employee limits.",
+          "max_duration_months": 12
+        },
+        "summary": "Utah restricts employee non-competes by statute. Post-employment non-competes signed after 2016-05-10 may not exceed 1 year; broadcast-employee limits."
+      },
+      "citations": [
+        {
+          "source": "Utah Code \u00a7 34-51-201",
+          "url": "https://law.justia.com/codes/utah/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vt-noncompete",
+      "title": "Vermont: non-compete agreements",
+      "jurisdiction": "VT",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; reform bills not enacted."
+        },
+        "summary": "Vermont enforces reasonable employee non-competes. Reasonableness; reform bills not enacted."
+      },
+      "citations": [
+        {
+          "source": "Vt. common law",
+          "url": "https://law.justia.com/codes/vermont/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "va-noncompete",
+      "title": "Virginia: non-compete agreements",
+      "jurisdiction": "VA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2020-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Non-competes with covered low-wage employees void; employer must post the statute; $10,000 civil penalty per violation.",
+          "income_threshold_usd": 78365,
+          "threshold_year": 2025,
+          "exempt_categories": "low-wage employees (average weekly wage below the state average) and, from 2025-07-01, employees entitled to overtime"
+        },
+        "summary": "Virginia restricts employee non-competes by statute. Non-competes with covered low-wage employees void; employer must post the statute; $10,000 civil penalty per violation."
+      },
+      "citations": [
+        {
+          "source": "Va. Code \u00a7 40.1-28.7:8",
+          "url": "https://law.justia.com/codes/virginia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wa-noncompete",
+      "title": "Washington: non-compete agreements",
+      "jurisdiction": "WA",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2020-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "notes": "Terms disclosed in writing before acceptance of the offer; over 18 months presumptively unreasonable; laid-off employees must receive base pay during the restriction; Washington law and forum; $5,000 minimum penalty. ESHB 1155 (2026) phases in a near-total ban from 2027.",
+          "income_threshold_usd": 126858,
+          "threshold_year": 2026,
+          "advance_notice_days": 0,
+          "max_duration_months": 18,
+          "exempt_categories": "employees earning below the indexed threshold; franchisee no-poach clauses"
+        },
+        "summary": "Washington restricts employee non-competes by statute. Terms disclosed in writing before acceptance of the offer; over 18 months presumptively unreasonable; laid-off employees must receive base pay during the restriction; Washington law and forum; $5,000 minimum penalty. ESHB 1155 (2026) phases in a near-total ban from 2027."
+      },
+      "citations": [
+        {
+          "source": "Wash. Rev. Code ch. 49.62",
+          "url": "https://law.justia.com/codes/washington/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wv-noncompete",
+      "title": "West Virginia: non-compete agreements",
+      "jurisdiction": "WV",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Reasonableness; courts may reform.",
+          "exempt_categories": "physicians limited to 1 year and 30 miles"
+        },
+        "summary": "West Virginia enforces reasonable employee non-competes. Reasonableness; courts may reform."
+      },
+      "citations": [
+        {
+          "source": "W. Va. common law; W. Va. Code \u00a7 47-11E-2 (physicians)",
+          "url": "https://law.justia.com/codes/west-virginia/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-noncompete",
+      "title": "Wisconsin: non-compete agreements",
+      "jurisdiction": "WI",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "Enforceable only if reasonably necessary; an unreasonable covenant is void in full (no blue-penciling)."
+        },
+        "summary": "Wisconsin enforces reasonable employee non-competes. Enforceable only if reasonably necessary; an unreasonable covenant is void in full (no blue-penciling)."
+      },
+      "citations": [
+        {
+          "source": "Wis. Stat. \u00a7 103.465",
+          "url": "https://law.justia.com/codes/wisconsin/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wy-noncompete",
+      "title": "Wyoming: non-compete agreements",
+      "jurisdiction": "WY",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2025-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          }
+        ]
+      },
+      "result": {
+        "type": "prohibition",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "banned",
+          "notes": "Non-competes signed on or after 2025-07-01 void except for the listed groups, trade-secret protection and sale-of-business cases; physician non-competes allowed with patient notice.",
+          "exempt_categories": "executive and management personnel, their professional staff, and equity holders"
+        },
+        "summary": "Wyoming bans employee non-competes. Non-competes signed on or after 2025-07-01 void except for the listed groups, trade-secret protection and sale-of-business cases; physician non-competes allowed with patient notice."
+      },
+      "citations": [
+        {
+          "source": "Wyo. Stat. \u00a7 1-23-108 (SF 107)",
+          "url": "https://law.justia.com/codes/wyoming/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        },
+        {
+          "source": "Non-Compete Checker, Non-Compete Laws by State (2026)",
+          "url": "https://noncompetechecker.com/non-compete-laws",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-noncompete-threshold",
+      "title": "Tennessee: non-compete income floor (from 2026-07-01)",
+      "jurisdiction": "TN",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2026-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "restricted",
+          "income_threshold_usd": 70000,
+          "threshold_year": 2026,
+          "exempt_categories": "employees earning less than $70,000 a year",
+          "notes": "HB 1034 (signed 2026-05-07) voids non-competes for employees below the threshold; reasonableness applies above it."
+        },
+        "summary": "From 2026-07-01 Tennessee voids non-competes for employees earning under $70,000 a year."
+      },
+      "citations": [
+        {
+          "source": "Tenn. HB 1034 (2026)",
+          "url": "https://law.justia.com/codes/tennessee/",
+          "kind": "statute"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-ftc-noncompete-rule",
+      "title": "Federal: FTC non-compete rule set aside",
+      "jurisdiction": "Federal",
+      "topic": "sep.post_employment.noncompete",
+      "status": "active",
+      "effectiveFrom": "2024-08-20",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.noncompete",
+        "params": {
+          "enforceability": "enforceable",
+          "notes": "The FTC's 2024 Non-Compete Clause Rule (16 C.F.R. Part 910) was set aside nationwide in Ryan LLC v. FTC (N.D. Tex., 2024-08-20) and the FTC dropped its appeal in September 2025; the agency pursues case-by-case enforcement under FTC Act \u00a7 5. State law governs enforceability."
+        },
+        "summary": "No federal rule bans non-competes: the FTC's 2024 rule was vacated, so state law controls."
+      },
+      "citations": [
+        {
+          "source": "Ryan LLC v. FTC, No. 3:24-cv-00986 (N.D. Tex. Aug. 20, 2024)",
+          "url": "https://www.law.cornell.edu/cfr/text/16/part-910",
+          "kind": "case"
+        },
+        {
+          "source": "Loio, Non-Compete Laws by State: 50-State Tracker (2026)",
+          "url": "https://loio.com/guides/non-compete-tracker-state-by-state/",
+          "kind": "guidance"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3517 @@
+{
+  "$schema": "../schema/rules-file.schema.json",
+  "topic": "sep.procedures",
+  "rules": [
+    {
+      "id": "al-separation-notice",
+      "title": "Alabama: separation and unemployment notice",
+      "jurisdiction": "AL",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of availability of unemployment compensation benefits (state form or equivalent)",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Alabama employers must give all separated employees 'Notice of availability of unemployment compensation benefits (state form or equivalent)' at separation."
+      },
+      "citations": [
+        {
+          "source": "Ala. Admin. Code r. 480-4-2-. (Act 2020-); Ala. Code \u00a7 25-4-",
+          "url": "https://law.justia.com/codes/alabama/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ak-separation-notice",
+      "title": "Alaska: separation and unemployment notice",
+      "jurisdiction": "AK",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of availability of unemployment insurance benefits",
+          "deadline": "within 7 days after the last day of paid work",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Alaska employers must give all separated employees 'Notice of availability of unemployment insurance benefits' within 7 days after the last day of paid work."
+      },
+      "citations": [
+        {
+          "source": "Alaska Admin. Code tit. 8, \u00a7 85. (AS 23.20.)",
+          "url": "https://law.justia.com/codes/alaska/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "az-separation-notice",
+      "title": "Arizona: separation and unemployment notice",
+      "jurisdiction": "AZ",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Pamphlet UIB-1015A, Take Care of Unemployment Business",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Arizona employers must give all separated employees 'Pamphlet UIB-1015A, Take Care of Unemployment Business' at separation."
+      },
+      "citations": [
+        {
+          "source": "Ariz. Admin. Code R6-3-1703",
+          "url": "https://law.justia.com/codes/arizona/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-separation-notice",
+      "title": "Arkansas: separation and unemployment notice",
+      "jurisdiction": "AR",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of potential unemployment benefit availability",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Arkansas employers must give all separated employees 'Notice of potential unemployment benefit availability' at separation."
+      },
+      "citations": [
+        {
+          "source": "Ark. Code \u00a7 11-10-; DWS guidance (2020)",
+          "url": "https://law.justia.com/codes/arkansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-separation-notice",
+      "title": "California: separation and unemployment notice",
+      "jurisdiction": "CA",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Pamphlet DE 2320 'For Your Benefit' and written notice of change in employment relationship (plus HIPP notice)",
+          "deadline": "by the effective date of separation (change notice immediately)",
+          "recipients": "all discharged, laid off or leave-of-absence employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "California employers must give all discharged, laid off or leave-of-absence employees 'Pamphlet DE 2320 'For Your Benefit' and written notice of change in employment relationship (plus HIPP notice)' by the effective date of separation (change notice immediately)."
+      },
+      "citations": [
+        {
+          "source": "Cal. Unemp. Ins. Code \u00a7 1089; Cal. Lab. Code \u00a7 2808(b); 22 CCR \u00a7 1089-1",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-separation-notice",
+      "title": "Colorado: separation and unemployment notice",
+      "jurisdiction": "CO",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of unemployment insurance availability with employer name, address, account number and separation details",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Colorado employers must give all separated employees 'Notice of unemployment insurance availability with employer name, address, account number and separation details' at separation."
+      },
+      "citations": [
+        {
+          "source": "7 CCR 1101-2, Reg. 2.9; Colo. Rev. Stat. \u00a7 8-74-101(1)",
+          "url": "https://law.justia.com/codes/colorado/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-separation-notice",
+      "title": "Connecticut: separation and unemployment notice",
+      "jurisdiction": "CT",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form UC-61, Unemployment Notice",
+          "deadline": "immediately at termination",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Connecticut employers must give all separated employees 'Form UC-61, Unemployment Notice' immediately at termination."
+      },
+      "citations": [
+        {
+          "source": "Conn. Agencies Regs. \u00a7 31-222-9",
+          "url": "https://law.justia.com/codes/connecticut/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-separation-notice",
+      "title": "Georgia: separation and unemployment notice",
+      "jurisdiction": "GA",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form DOL-800, Separation Notice",
+          "deadline": "on the last day of work (or mailed within 3 days if unavailable)",
+          "recipients": "all separated employees, including layoffs",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Georgia employers must give all separated employees, including layoffs 'Form DOL-800, Separation Notice' on the last day of work (or mailed within 3 days if unavailable)."
+      },
+      "citations": [
+        {
+          "source": "Ga. Comp. R. & Regs. 300-2-7-.04(a); Ga. Code \u00a7 34-8-190(c)",
+          "url": "https://law.justia.com/codes/georgia/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "il-separation-notice",
+      "title": "Illinois: separation and unemployment notice",
+      "jurisdiction": "IL",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Pamphlet 'What Every Worker Should Know About Unemployment Insurance'",
+          "deadline": "at separation or when laid off 7+ days",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Illinois employers must give all separated employees 'Pamphlet 'What Every Worker Should Know About Unemployment Insurance'' at separation or when laid off 7+ days."
+      },
+      "citations": [
+        {
+          "source": "56 Ill. Adm. Code 2720.100",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-separation-notice",
+      "title": "Iowa: separation and unemployment notice",
+      "jurisdiction": "IA",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Separation Notice Alleging Disqualification (filed with Iowa Workforce Development)",
+          "deadline": "within 10 days of separation",
+          "recipients": "employer filing when it believes the worker is disqualified",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Iowa employers must give employer filing when it believes the worker is disqualified 'Separation Notice Alleging Disqualification (filed with Iowa Workforce Development)' within 10 days of separation."
+      },
+      "citations": [
+        {
+          "source": "Iowa Code \u00a7 96.6(2); 871 IAC 24.",
+          "url": "https://law.justia.com/codes/iowa/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-separation-notice",
+      "title": "Louisiana: separation and unemployment notice",
+      "jurisdiction": "LA",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form LWC-77, Separation Notice Alleging Disqualification (filed with the Louisiana Workforce Commission; copy to worker)",
+          "deadline": "within 3 days after separation",
+          "recipients": "separated workers",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Louisiana employers must give separated workers 'Form LWC-77, Separation Notice Alleging Disqualification (filed with the Louisiana Workforce Commission; copy to worker)' within 3 days after separation."
+      },
+      "citations": [
+        {
+          "source": "La. Admin. Code tit. 40, \u00a7 IV.369; La. R.S. 23:1601",
+          "url": "https://law.justia.com/codes/louisiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-separation-notice",
+      "title": "Maryland: separation and unemployment notice",
+      "jurisdiction": "MD",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of availability of unemployment insurance benefits (state template)",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Maryland employers must give all separated employees 'Notice of availability of unemployment insurance benefits (state template)' at separation."
+      },
+      "citations": [
+        {
+          "source": "Md. Code, Lab. & Empl. \u00a7 8- (2020 SB 780)",
+          "url": "https://law.justia.com/codes/maryland/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-separation-notice",
+      "title": "Massachusetts: separation and unemployment notice",
+      "jurisdiction": "MA",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Pamphlet 'How to File a Claim for Unemployment Insurance Benefits' (Form 0590-A)",
+          "deadline": "within 30 days of separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Massachusetts employers must give all separated employees 'Pamphlet 'How to File a Claim for Unemployment Insurance Benefits' (Form 0590-A)' within 30 days of separation."
+      },
+      "citations": [
+        {
+          "source": "430 CMR 4.04(1)",
+          "url": "https://law.justia.com/codes/massachusetts/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-separation-notice",
+      "title": "Michigan: separation and unemployment notice",
+      "jurisdiction": "MI",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form UIA 1711, Unemployment Compensation Notice to Employee",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Michigan employers must give all separated employees 'Form UIA 1711, Unemployment Compensation Notice to Employee' at separation."
+      },
+      "citations": [
+        {
+          "source": "Mich. Comp. Laws \u00a7 421.28(1)(a); UIA guidance",
+          "url": "https://law.justia.com/codes/michigan/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-separation-notice",
+      "title": "Missouri: separation and unemployment notice",
+      "jurisdiction": "MO",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form M-INF-288-5, Notice to Employee of Availability of Unemployment Benefits",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Missouri employers must give all separated employees 'Form M-INF-288-5, Notice to Employee of Availability of Unemployment Benefits' at separation."
+      },
+      "citations": [
+        {
+          "source": "8 CSR 10-3.010",
+          "url": "https://law.justia.com/codes/missouri/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-separation-notice",
+      "title": "Nevada: separation and unemployment notice",
+      "jurisdiction": "NV",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form NUCS-4139, Notice to Employees Regarding Unemployment Insurance",
+          "deadline": "at separation",
+          "recipients": "employees laid off or leaving",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Nevada employers must give employees laid off or leaving 'Form NUCS-4139, Notice to Employees Regarding Unemployment Insurance' at separation."
+      },
+      "citations": [
+        {
+          "source": "Nev. Admin. Code \u00a7 612.; DETR guidance",
+          "url": "https://law.justia.com/codes/nevada/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-separation-notice",
+      "title": "New Jersey: separation and unemployment notice",
+      "jurisdiction": "NJ",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form BC-10, Instructions for Claiming Unemployment Benefits",
+          "deadline": "at separation (for layoffs of 7+ days)",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "New Jersey employers must give all separated employees 'Form BC-10, Instructions for Claiming Unemployment Benefits' at separation (for layoffs of 7+ days)."
+      },
+      "citations": [
+        {
+          "source": "N.J.A.C. 12:17-3.1",
+          "url": "https://law.justia.com/codes/new-jersey/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-separation-notice",
+      "title": "New York: separation and unemployment notice",
+      "jurisdiction": "NY",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Written notice of the exact date of termination and of cancellation of benefits (within 5 working days) plus Record of Employment Form IA 12.3",
+          "deadline": "within 5 working days of termination",
+          "recipients": "all terminated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "New York employers must give all terminated employees 'Written notice of the exact date of termination and of cancellation of benefits (within 5 working days) plus Record of Employment Form IA 12.3' within 5 working days of termination."
+      },
+      "citations": [
+        {
+          "source": "N.Y. Labor Law \u00a7 195(6); 12 NYCRR 472.8",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-separation-notice",
+      "title": "Pennsylvania: separation and unemployment notice",
+      "jurisdiction": "PA",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form UC-1609, Employer Information",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Pennsylvania employers must give all separated employees 'Form UC-1609, Employer Information' at separation."
+      },
+      "citations": [
+        {
+          "source": "Pa. UC Law \u00a7 206.1 (43 P.S. \u00a7 766.1)",
+          "url": "https://law.justia.com/codes/pennsylvania/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-separation-notice",
+      "title": "Rhode Island: separation and unemployment notice",
+      "jurisdiction": "RI",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of availability of unemployment insurance benefits (state sample language)",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Rhode Island employers must give all separated employees 'Notice of availability of unemployment insurance benefits (state sample language)' at separation."
+      },
+      "citations": [
+        {
+          "source": "R.I. Gen. Laws \u00a7 28-42- (2020); DLT guidance",
+          "url": "https://law.justia.com/codes/rhode-island/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-separation-notice",
+      "title": "South Carolina: separation and unemployment notice",
+      "jurisdiction": "SC",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Notice of Availability of Unemployment Insurance Benefits",
+          "deadline": "at separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "South Carolina employers must give all separated employees 'Notice of Availability of Unemployment Insurance Benefits' at separation."
+      },
+      "citations": [
+        {
+          "source": "S.C. Code Regs. 47- (2020 Emergency Reg); DEW guidance",
+          "url": "https://law.justia.com/codes/south-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-separation-notice",
+      "title": "Tennessee: separation and unemployment notice",
+      "jurisdiction": "TN",
+      "topic": "sep.procedures.separation_notice",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.separation_notice",
+        "params": {
+          "document": "Form LB-0489, Separation Notice",
+          "deadline": "within 24 hours of separation",
+          "recipients": "all separated employees",
+          "notes": "Section of the authority unverified; confirm the current form on the state agency site."
+        },
+        "summary": "Tennessee employers must give all separated employees 'Form LB-0489, Separation Notice' within 24 hours of separation."
+      },
+      "citations": [
+        {
+          "source": "Tenn. Comp. R. & Regs. 0800-09-01-.02",
+          "url": "https://law.justia.com/codes/tennessee/",
+          "kind": "statute"
+        },
+        {
+          "source": "OnPay, State Separation Notice Requirements (2026)",
+          "url": "https://onpay.com/insights/separation-notice-requirements-by-state-guide/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mn-service-letter",
+      "title": "Minnesota: written reason for termination on request",
+      "jurisdiction": "MN",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "involuntarily terminated employees",
+          "trigger": "written request within 15 working days of termination",
+          "deadline": "10 working days after the request",
+          "notes": "Employer must give the truthful reason in writing; the statement may not be used as evidence of defamation."
+        },
+        "summary": "Minnesota employers must give involuntarily terminated employees a written statement of the reason for separation: written request within 15 working days of termination; due 10 working days after the request. Employer must give the truthful reason in writing; the statement may not be used as evidence of defamation."
+      },
+      "citations": [
+        {
+          "source": "Minn. Stat. \u00a7 181.933",
+          "url": "https://law.justia.com/codes/minnesota/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        },
+        {
+          "source": "Legal 500 / Barnes & Thornburg, Minnesota Allows Employees to Ask Why Their Employment Was Terminated (2026)",
+          "url": "https://www.legal500.com/intelligence/united-states/employment-and-hr/the-state-of-employment-law-minnesota-allows-employees-to-ask-why-their-employment-was-terminated",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-service-letter",
+      "title": "Missouri: written reason for termination on request",
+      "jurisdiction": "MO",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 7
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "employees of employers with 7+ employees who worked 90+ days",
+          "trigger": "written request by certified mail within 1 year of separation",
+          "deadline": "45 days after the request",
+          "notes": "Letter must state the nature and character of service, duration, and the true cause of leaving; punitive damages for failure."
+        },
+        "summary": "Missouri employers must give employees of employers with 7+ employees who worked 90+ days a written statement of the reason for separation: written request by certified mail within 1 year of separation; due 45 days after the request. Letter must state the nature and character of service, duration, and the true cause of leaving; punitive damages for failure."
+      },
+      "citations": [
+        {
+          "source": "Mo. Rev. Stat. \u00a7 290.140",
+          "url": "https://law.justia.com/codes/missouri/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-service-letter",
+      "title": "Indiana: written reason for termination on request",
+      "jurisdiction": "IN",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "discharged or departing employees",
+          "trigger": "on request",
+          "deadline": "reasonable time",
+          "notes": "Service letter stating nature and character of service, duration, and the true cause of discharge or quitting; only where the employer required a written application or recommendation."
+        },
+        "summary": "Indiana employers must give discharged or departing employees a written statement of the reason for separation: on request; due reasonable time. Service letter stating nature and character of service, duration, and the true cause of discharge or quitting; only where the employer required a written application or recommendation."
+      },
+      "citations": [
+        {
+          "source": "Ind. Code \u00a7 22-6-3-1",
+          "url": "https://law.justia.com/codes/indiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-service-letter",
+      "title": "Kansas: written reason for termination on request",
+      "jurisdiction": "KS",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "former employees",
+          "trigger": "on request",
+          "deadline": "reasonable time",
+          "notes": "Employer must furnish a service letter stating the length of service, nature of service and rate of pay; refusal is a misdemeanor."
+        },
+        "summary": "Kansas employers must give former employees a written statement of the reason for separation: on request; due reasonable time. Employer must furnish a service letter stating the length of service, nature of service and rate of pay; refusal is a misdemeanor."
+      },
+      "citations": [
+        {
+          "source": "Kan. Stat. \u00a7 44-808(3)",
+          "url": "https://law.justia.com/codes/kansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-service-letter",
+      "title": "Montana: written reason for termination on request",
+      "jurisdiction": "MT",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "discharged employees",
+          "trigger": "on request",
+          "deadline": "reasonable time",
+          "notes": "Employer must give a written statement of the reasons for discharge; failure bars the employer from later relying on other reasons under the Wrongful Discharge from Employment Act."
+        },
+        "summary": "Montana employers must give discharged employees a written statement of the reason for separation: on request; due reasonable time. Employer must give a written statement of the reasons for discharge; failure bars the employer from later relying on other reasons under the Wrongful Discharge from Employment Act."
+      },
+      "citations": [
+        {
+          "source": "Mont. Code \u00a7 39-2-801",
+          "url": "https://law.justia.com/codes/montana/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-service-letter",
+      "title": "Maine: written reason for termination on request",
+      "jurisdiction": "ME",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "terminated employees",
+          "trigger": "written request within 15 days of termination",
+          "deadline": "15 days after the request",
+          "notes": "Employer must state the reasons for termination in writing; $50 to $500 civil penalty for failure."
+        },
+        "summary": "Maine employers must give terminated employees a written statement of the reason for separation: written request within 15 days of termination; due 15 days after the request. Employer must state the reasons for termination in writing; $50 to $500 civil penalty for failure."
+      },
+      "citations": [
+        {
+          "source": "26 M.R.S. \u00a7 630",
+          "url": "https://law.justia.com/codes/maine/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-service-letter",
+      "title": "Texas: written reason for termination on request",
+      "jurisdiction": "TX",
+      "topic": "sep.procedures.service_letter",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.service_letter",
+        "params": {
+          "who": "discharged employees",
+          "trigger": "on request (where the employer provides a reason)",
+          "deadline": "10 days after the request",
+          "notes": "An employer that gives a reason for discharge must give the true reason in writing within 10 days of a request, and may not use information not disclosed."
+        },
+        "summary": "Texas employers must give discharged employees a written statement of the reason for separation: on request (where the employer provides a reason); due 10 days after the request. An employer that gives a reason for discharge must give the true reason in writing within 10 days of a request, and may not use information not disclosed."
+      },
+      "citations": [
+        {
+          "source": "Tex. Lab. Code \u00a7 52.031",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "Chron, States That Require an Employment Termination Letter",
+          "url": "https://work.chron.com/states-require-employment-termination-letter-24010.html",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "federal-cobra",
+      "title": "Federal: COBRA continuation coverage (20+ employees)",
+      "jurisdiction": "Federal",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "1986-07-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "employee.worker_type",
+            "op": "=",
+            "value": "w2_employee"
+          },
+          {
+            "fact": "employer.total_employees",
+            "op": ">=",
+            "value": 20
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "federal_cobra",
+          "min_employees": 20,
+          "months": 18,
+          "employer_scope": "group health plans of employers with 20+ employees on more than 50% of business days in the prior year",
+          "notes": "18 months after termination or hours reduction (29 with disability, 36 for death, divorce or Medicare entitlement); plan administrator sends the election notice within 44 days; qualified beneficiaries get 60 days to elect and may be charged 102% of premium."
+        },
+        "summary": "Employers with 20+ employees must offer COBRA continuation of group health coverage for 18 to 36 months after a qualifying event."
+      },
+      "citations": [
+        {
+          "source": "29 U.S.C. \u00a7\u00a7 1161-1168",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        },
+        {
+          "source": "26 U.S.C. \u00a7 4980B",
+          "url": "https://www.law.cornell.edu/uscode/text/26/4980B",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "al-health-continuation",
+      "title": "Alabama: state health continuation (mini-COBRA)",
+      "jurisdiction": "AL",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Alabama has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ak-health-continuation",
+      "title": "Alaska: state health continuation (mini-COBRA)",
+      "jurisdiction": "AK",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Alaska has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "az-health-continuation",
+      "title": "Arizona: state health continuation (mini-COBRA)",
+      "jurisdiction": "AZ",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AZ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "employers with 1-19 employees, fully insured plans",
+          "notes": "Enacted 2018 (A.R.S. \u00a7 20-2330); 36 months for certain events; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Arizona requires continuation of group health coverage for up to 18 months for employers with 1-19 employees, fully insured plans. Enacted 2018 (A.R.S. \u00a7 20-2330); 36 months for certain events; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Arizona insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/arizona/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ar-health-continuation",
+      "title": "Arkansas: state health continuation (mini-COBRA)",
+      "jurisdiction": "AR",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "AR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 4,
+          "employer_scope": "fully insured group plans not subject to COBRA",
+          "notes": "120 days; 3 months prior coverage; 10 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Arkansas requires continuation of group health coverage for up to 4 months for fully insured group plans not subject to COBRA. 120 days; 3 months prior coverage; 10 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Arkansas insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/arkansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ca-health-continuation",
+      "title": "California: state health continuation (mini-COBRA)",
+      "jurisdiction": "CA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 36,
+          "employer_scope": "employers with 2-19 employees (Cal-COBRA); also extends federal COBRA to 36 months",
+          "notes": "Cal. Health & Safety Code \u00a7 1366.20 et seq.; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "California requires continuation of group health coverage for up to 36 months for employers with 2-19 employees (Cal-COBRA); also extends federal COBRA to 36 months. Cal. Health & Safety Code \u00a7 1366.20 et seq.; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "California insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/california/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "co-health-continuation",
+      "title": "Colorado: state health continuation (mini-COBRA)",
+      "jurisdiction": "CO",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "group plans not subject to COBRA",
+          "notes": "6 months prior coverage; 30 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Colorado requires continuation of group health coverage for up to 18 months for group plans not subject to COBRA. 6 months prior coverage; 30 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Colorado insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/colorado/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ct-health-continuation",
+      "title": "Connecticut: state health continuation (mini-COBRA)",
+      "jurisdiction": "CT",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "CT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 30,
+          "employer_scope": "fully insured groups of any size",
+          "notes": "36 months for death, divorce or Medicare; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Connecticut requires continuation of group health coverage for up to 30 months for fully insured groups of any size. 36 months for death, divorce or Medicare; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Connecticut insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/connecticut/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "de-health-continuation",
+      "title": "Delaware: state health continuation (mini-COBRA)",
+      "jurisdiction": "DE",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "employers with 1-19 employees",
+          "notes": "30 days from notice to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Delaware requires continuation of group health coverage for up to 9 months for employers with 1-19 employees. 30 days from notice to elect."
+      },
+      "citations": [
+        {
+          "source": "Delaware insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/delaware/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "dc-health-continuation",
+      "title": "District of Columbia: state health continuation (mini-COBRA)",
+      "jurisdiction": "DC",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "DC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 3,
+          "employer_scope": "small groups (fewer than 20 employees)",
+          "notes": "3 months; 45 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "District of Columbia requires continuation of group health coverage for up to 3 months for small groups (fewer than 20 employees). 3 months; 45 days to elect."
+      },
+      "citations": [
+        {
+          "source": "District of Columbia insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/district-of-columbia/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "fl-health-continuation",
+      "title": "Florida: state health continuation (mini-COBRA)",
+      "jurisdiction": "FL",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "FL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "employers with fewer than 20 employees",
+          "notes": "29 months if disabled; 30 days from carrier notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Florida requires continuation of group health coverage for up to 18 months for employers with fewer than 20 employees. 29 months if disabled; 30 days from carrier notice."
+      },
+      "citations": [
+        {
+          "source": "Florida insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/florida/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ga-health-continuation",
+      "title": "Georgia: state health continuation (mini-COBRA)",
+      "jurisdiction": "GA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "GA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 3,
+          "employer_scope": "all group plans",
+          "notes": "3 months plus the fractional month; 6 months prior coverage. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Georgia requires continuation of group health coverage for up to 3 months for all group plans. 3 months plus the fractional month; 6 months prior coverage."
+      },
+      "citations": [
+        {
+          "source": "Georgia insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/georgia/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "hi-health-continuation",
+      "title": "Hawaii: state health continuation (mini-COBRA)",
+      "jurisdiction": "HI",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "HI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Hawaii has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "id-health-continuation",
+      "title": "Idaho: state health continuation (mini-COBRA)",
+      "jurisdiction": "ID",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ID"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Idaho has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "il-health-continuation",
+      "title": "Illinois: state health continuation (mini-COBRA)",
+      "jurisdiction": "IL",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IL"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "all fully insured group policies",
+          "notes": "12 months (24 for spouse and dependents); 3 months prior coverage; 30 days after notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Illinois requires continuation of group health coverage for up to 12 months for all fully insured group policies. 12 months (24 for spouse and dependents); 3 months prior coverage; 30 days after notice."
+      },
+      "citations": [
+        {
+          "source": "Illinois insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/illinois/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "in-health-continuation",
+      "title": "Indiana: state health continuation (mini-COBRA)",
+      "jurisdiction": "IN",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "small employer plans",
+          "notes": "1 year of employment required; 30 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Indiana requires continuation of group health coverage for up to 12 months for small employer plans. 1 year of employment required; 30 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Indiana insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/indiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ia-health-continuation",
+      "title": "Iowa: state health continuation (mini-COBRA)",
+      "jurisdiction": "IA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "IA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "all fully insured group policies",
+          "notes": "3 months prior coverage; 10 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Iowa requires continuation of group health coverage for up to 9 months for all fully insured group policies. 3 months prior coverage; 10 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Iowa insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/iowa/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ks-health-continuation",
+      "title": "Kansas: state health continuation (mini-COBRA)",
+      "jurisdiction": "KS",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "all fully insured group policies",
+          "notes": "3 months prior coverage; 31 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Kansas requires continuation of group health coverage for up to 18 months for all fully insured group policies. 3 months prior coverage; 31 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Kansas insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/kansas/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ky-health-continuation",
+      "title": "Kentucky: state health continuation (mini-COBRA)",
+      "jurisdiction": "KY",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "KY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "all fully insured group policies",
+          "notes": "3 months prior coverage; 31 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Kentucky requires continuation of group health coverage for up to 18 months for all fully insured group policies. 3 months prior coverage; 31 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Kentucky insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/kentucky/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "la-health-continuation",
+      "title": "Louisiana: state health continuation (mini-COBRA)",
+      "jurisdiction": "LA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "LA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "fully insured group policies",
+          "notes": "3 months prior coverage; election by end of the month after the event. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Louisiana requires continuation of group health coverage for up to 12 months for fully insured group policies. 3 months prior coverage; election by end of the month after the event."
+      },
+      "citations": [
+        {
+          "source": "Louisiana insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/louisiana/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "me-health-continuation",
+      "title": "Maine: state health continuation (mini-COBRA)",
+      "jurisdiction": "ME",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ME"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "all group policies",
+          "notes": "6 months of employment required; 31 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Maine requires continuation of group health coverage for up to 12 months for all group policies. 6 months of employment required; 31 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Maine insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/maine/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "md-health-continuation",
+      "title": "Maryland: state health continuation (mini-COBRA)",
+      "jurisdiction": "MD",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "fully insured groups not subject to COBRA",
+          "notes": "3 months prior coverage; 45 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Maryland requires continuation of group health coverage for up to 18 months for fully insured groups not subject to COBRA. 3 months prior coverage; 45 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Maryland insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/maryland/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ma-health-continuation",
+      "title": "Massachusetts: state health continuation (mini-COBRA)",
+      "jurisdiction": "MA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "employers with 2-19 employees (Mini-COBRA)",
+          "notes": "29 months disability, 36 months death or divorce; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Massachusetts requires continuation of group health coverage for up to 18 months for employers with 2-19 employees (Mini-COBRA). 29 months disability, 36 months death or divorce; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Massachusetts insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/massachusetts/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mi-health-continuation",
+      "title": "Michigan: state health continuation (mini-COBRA)",
+      "jurisdiction": "MI",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Michigan has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "mn-health-continuation",
+      "title": "Minnesota: state health continuation (mini-COBRA)",
+      "jurisdiction": "MN",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "all group policies",
+          "notes": "Indefinite if totally disabled; 36 months for divorce or death; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Minnesota requires continuation of group health coverage for up to 18 months for all group policies. Indefinite if totally disabled; 36 months for divorce or death; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Minnesota insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/minnesota/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ms-health-continuation",
+      "title": "Mississippi: state health continuation (mini-COBRA)",
+      "jurisdiction": "MS",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MS"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "fully insured group policies",
+          "notes": "3 months prior coverage; 30 days after notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Mississippi requires continuation of group health coverage for up to 12 months for fully insured group policies. 3 months prior coverage; 30 days after notice."
+      },
+      "citations": [
+        {
+          "source": "Mississippi insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/mississippi/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mo-health-continuation",
+      "title": "Missouri: state health continuation (mini-COBRA)",
+      "jurisdiction": "MO",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MO"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "employers not subject to federal COBRA",
+          "notes": "36 months for death or divorce; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Missouri requires continuation of group health coverage for up to 18 months for employers not subject to federal COBRA. 36 months for death or divorce; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Missouri insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/missouri/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "mt-health-continuation",
+      "title": "Montana: state health continuation (mini-COBRA)",
+      "jurisdiction": "MT",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "MT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Montana has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "ne-health-continuation",
+      "title": "Nebraska: state health continuation (mini-COBRA)",
+      "jurisdiction": "NE",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NE"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 6,
+          "employer_scope": "employers not subject to COBRA, involuntary terminations",
+          "notes": "12 months for dependents on death; 10 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Nebraska requires continuation of group health coverage for up to 6 months for employers not subject to COBRA, involuntary terminations. 12 months for dependents on death; 10 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Nebraska insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/nebraska/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nv-health-continuation",
+      "title": "Nevada: state health continuation (mini-COBRA)",
+      "jurisdiction": "NV",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Nevada has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "nh-health-continuation",
+      "title": "New Hampshire: state health continuation (mini-COBRA)",
+      "jurisdiction": "NH",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "fully insured group plans",
+          "notes": "36 months for death, divorce or age-out; 45 days to elect (RSA 415:18). Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "New Hampshire requires continuation of group health coverage for up to 18 months for fully insured group plans. 36 months for death, divorce or age-out; 45 days to elect (RSA 415:18)."
+      },
+      "citations": [
+        {
+          "source": "New Hampshire insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/new-hampshire/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nj-health-continuation",
+      "title": "New Jersey: state health continuation (mini-COBRA)",
+      "jurisdiction": "NJ",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NJ"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "employers with 2-50 employees",
+          "notes": "36 months for dependents; employee must have worked 25+ hours a week; 30 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "New Jersey requires continuation of group health coverage for up to 18 months for employers with 2-50 employees. 36 months for dependents; employee must have worked 25+ hours a week; 30 days to elect."
+      },
+      "citations": [
+        {
+          "source": "New Jersey insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/new-jersey/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nm-health-continuation",
+      "title": "New Mexico: state health continuation (mini-COBRA)",
+      "jurisdiction": "NM",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NM"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 6,
+          "employer_scope": "all group policies",
+          "notes": "30 days after notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "New Mexico requires continuation of group health coverage for up to 6 months for all group policies. 30 days after notice."
+      },
+      "citations": [
+        {
+          "source": "New Mexico insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/new-mexico/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ny-health-continuation",
+      "title": "New York: state health continuation (mini-COBRA)",
+      "jurisdiction": "NY",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 36,
+          "employer_scope": "fully insured groups of any size (also extends federal COBRA to 36 months)",
+          "notes": "N.Y. Ins. Law \u00a7\u00a7 3221(m), 4305(e); 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "New York requires continuation of group health coverage for up to 36 months for fully insured groups of any size (also extends federal COBRA to 36 months). N.Y. Ins. Law \u00a7\u00a7 3221(m), 4305(e); 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "New York insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/new-york/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nc-health-continuation",
+      "title": "North Carolina: state health continuation (mini-COBRA)",
+      "jurisdiction": "NC",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "NC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "fully insured groups not subject to COBRA",
+          "notes": "3 months prior coverage; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "North Carolina requires continuation of group health coverage for up to 18 months for fully insured groups not subject to COBRA. 3 months prior coverage; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "North Carolina insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/north-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "nd-health-continuation",
+      "title": "North Dakota: state health continuation (mini-COBRA)",
+      "jurisdiction": "ND",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "ND"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "all group policies",
+          "notes": "39 weeks; 36 months for a former spouse; 10 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "North Dakota requires continuation of group health coverage for up to 9 months for all group policies. 39 weeks; 36 months for a former spouse; 10 days to elect."
+      },
+      "citations": [
+        {
+          "source": "North Dakota insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/north-dakota/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "oh-health-continuation",
+      "title": "Ohio: state health continuation (mini-COBRA)",
+      "jurisdiction": "OH",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OH"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "involuntary terminations under fully insured plans",
+          "notes": "31 days, or 10 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Ohio requires continuation of group health coverage for up to 12 months for involuntary terminations under fully insured plans. 31 days, or 10 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Ohio insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/ohio/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ok-health-continuation",
+      "title": "Oklahoma: state health continuation (mini-COBRA)",
+      "jurisdiction": "OK",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OK"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 6,
+          "employer_scope": "groups not subject to COBRA",
+          "notes": "63 days minimum; 31 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Oklahoma requires continuation of group health coverage for up to 6 months for groups not subject to COBRA. 63 days minimum; 31 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Oklahoma insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/oklahoma/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "or-health-continuation",
+      "title": "Oregon: state health continuation (mini-COBRA)",
+      "jurisdiction": "OR",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "OR"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "employers with fewer than 20 employees",
+          "notes": "3 months prior coverage; 10 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Oregon requires continuation of group health coverage for up to 9 months for employers with fewer than 20 employees. 3 months prior coverage; 10 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Oregon insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/oregon/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "pa-health-continuation",
+      "title": "Pennsylvania: state health continuation (mini-COBRA)",
+      "jurisdiction": "PA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "PA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "employers with 2-19 employees",
+          "notes": "Act 2 of 2009; 3 months prior coverage; 30 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Pennsylvania requires continuation of group health coverage for up to 9 months for employers with 2-19 employees. Act 2 of 2009; 3 months prior coverage; 30 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Pennsylvania insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/pennsylvania/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ri-health-continuation",
+      "title": "Rhode Island: state health continuation (mini-COBRA)",
+      "jurisdiction": "RI",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "RI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "most employers",
+          "notes": "Not longer than the period of employment; 30 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Rhode Island requires continuation of group health coverage for up to 18 months for most employers. Not longer than the period of employment; 30 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Rhode Island insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/rhode-island/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sc-health-continuation",
+      "title": "South Carolina: state health continuation (mini-COBRA)",
+      "jurisdiction": "SC",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SC"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 6,
+          "employer_scope": "fully insured groups",
+          "notes": "6 months prior coverage; payment due before each policy month. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "South Carolina requires continuation of group health coverage for up to 6 months for fully insured groups. 6 months prior coverage; payment due before each policy month."
+      },
+      "citations": [
+        {
+          "source": "South Carolina insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/south-carolina/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "sd-health-continuation",
+      "title": "South Dakota: state health continuation (mini-COBRA)",
+      "jurisdiction": "SD",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "SD"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "group and self-insured programs",
+          "notes": "29 months disability; 36 months death or divorce; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "South Dakota requires continuation of group health coverage for up to 18 months for group and self-insured programs. 29 months disability; 36 months death or divorce; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "South Dakota insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/south-dakota/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tn-health-continuation",
+      "title": "Tennessee: state health continuation (mini-COBRA)",
+      "jurisdiction": "TN",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TN"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 3,
+          "employer_scope": "all group policies",
+          "notes": "15 months for death or divorce; 3 months prior coverage. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Tennessee requires continuation of group health coverage for up to 3 months for all group policies. 15 months for death or divorce; 3 months prior coverage."
+      },
+      "citations": [
+        {
+          "source": "Tennessee insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/tennessee/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "tx-health-continuation",
+      "title": "Texas: state health continuation (mini-COBRA)",
+      "jurisdiction": "TX",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "TX"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 9,
+          "employer_scope": "fully insured groups (also 6 months after federal COBRA ends)",
+          "notes": "Tex. Ins. Code ch. 1251, subch. F; 3 months prior coverage; 60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Texas requires continuation of group health coverage for up to 9 months for fully insured groups (also 6 months after federal COBRA ends). Tex. Ins. Code ch. 1251, subch. F; 3 months prior coverage; 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Texas insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/texas/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "ut-health-continuation",
+      "title": "Utah: state health continuation (mini-COBRA)",
+      "jurisdiction": "UT",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "UT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "groups where COBRA does not apply",
+          "notes": "60 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Utah requires continuation of group health coverage for up to 12 months for groups where COBRA does not apply. 60 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Utah insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/utah/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "vt-health-continuation",
+      "title": "Vermont: state health continuation (mini-COBRA)",
+      "jurisdiction": "VT",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VT"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "group policies",
+          "notes": "60 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Vermont requires continuation of group health coverage for up to 18 months for group policies. 60 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Vermont insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/vermont/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "va-health-continuation",
+      "title": "Virginia: state health continuation (mini-COBRA)",
+      "jurisdiction": "VA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "VA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Virginia has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wa-health-continuation",
+      "title": "Washington: state health continuation (mini-COBRA)",
+      "jurisdiction": "WA",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WA"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "none",
+          "months": 0,
+          "employer_scope": "no general state continuation law; only federal COBRA (20+ employees) applies",
+          "notes": "Some of these states have narrow provisions (conversion rights, strike or disability situations, domestic-violence victims) that are not general continuation rights."
+        },
+        "summary": "Washington has no general mini-COBRA law; only employers with 20+ employees owe continuation coverage under federal COBRA."
+      },
+      "citations": [
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        },
+        {
+          "source": "29 U.S.C. \u00a7 1161",
+          "url": "https://www.law.cornell.edu/uscode/text/29/1161",
+          "kind": "statute"
+        }
+      ]
+    },
+    {
+      "id": "wv-health-continuation",
+      "title": "West Virginia: state health continuation (mini-COBRA)",
+      "jurisdiction": "WV",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WV"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "involuntary layoffs under fully insured plans",
+          "notes": "Election deadline not specified. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "West Virginia requires continuation of group health coverage for up to 18 months for involuntary layoffs under fully insured plans. Election deadline not specified."
+      },
+      "citations": [
+        {
+          "source": "West Virginia insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/west-virginia/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wi-health-continuation",
+      "title": "Wisconsin: state health continuation (mini-COBRA)",
+      "jurisdiction": "WI",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WI"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 18,
+          "employer_scope": "fully insured groups of any size",
+          "notes": "3 months prior coverage; 30 days from notice. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Wisconsin requires continuation of group health coverage for up to 18 months for fully insured groups of any size. 3 months prior coverage; 30 days from notice."
+      },
+      "citations": [
+        {
+          "source": "Wisconsin insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/wisconsin/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "wy-health-continuation",
+      "title": "Wyoming: state health continuation (mini-COBRA)",
+      "jurisdiction": "WY",
+      "topic": "sep.procedures.health_continuation",
+      "status": "active",
+      "effectiveFrom": "2000-01-01",
+      "appliesWhen": {
+        "all": [
+          {
+            "fact": "location.state",
+            "op": "=",
+            "value": "WY"
+          }
+        ]
+      },
+      "result": {
+        "type": "warning",
+        "obligation": "sep.health_continuation",
+        "params": {
+          "coverage": "state_continuation",
+          "months": 12,
+          "employer_scope": "groups not subject to COBRA",
+          "notes": "31 days to elect. Applies to fully insured plans issued in the state; self-funded plans are governed by ERISA/COBRA only."
+        },
+        "summary": "Wyoming requires continuation of group health coverage for up to 12 months for groups not subject to COBRA. 31 days to elect."
+      },
+      "citations": [
+        {
+          "source": "Wyoming insurance code (state continuation)",
+          "url": "https://law.justia.com/codes/wyoming/",
+          "kind": "statute"
+        },
+        {
+          "source": "KFF, Expanded COBRA Continuation Coverage for Small Firm Employees",
+          "url": "https://www.kff.org/private-insurance/state-indicator/expanded-cobra-continuation-coverage-for-small-firm-employees/",
+          "kind": "guidance"
+        },
+        {
+          "source": "FindCoverage, Mini-COBRA State Law by State (2026)",
+          "url": "https://findcoverage.net/mini-cobra-state-law-2026/",
+          "kind": "guidance"
+        }
+      ]
+    }
+  ]
+}

@@ -167,12 +167,20 @@
           "subtopics": [
             { "code": "sep.final_pay.timing", "name": "Final paycheck deadline" }
           ] },
-        { "code": "sep.procedures", "name": "Separation Procedures", "enforcement": "hr", "legacyTopic": "separation", "subtopics": [] },
+        { "code": "sep.procedures", "name": "Separation Procedures", "enforcement": "hr", "legacyTopic": "separation",
+          "subtopics": [
+            { "code": "sep.procedures.separation_notice", "name": "Separation and unemployment notices" },
+            { "code": "sep.procedures.service_letter", "name": "Written reason for termination" },
+            { "code": "sep.procedures.health_continuation", "name": "Health coverage continuation (COBRA and mini-COBRA)" }
+          ] },
         { "code": "sep.warn", "name": "Mass Layoffs & Closures (WARN)", "enforcement": "hr", "legacyTopic": "warn_act",
           "subtopics": [
             { "code": "sep.warn.notice", "name": "Notice period and triggers" }
           ] },
-        { "code": "sep.post_employment", "name": "Post-Employment Restrictions", "enforcement": "informational", "legacyTopic": "post_employment", "subtopics": [] },
+        { "code": "sep.post_employment", "name": "Post-Employment Restrictions", "enforcement": "informational", "legacyTopic": "post_employment",
+          "subtopics": [
+            { "code": "sep.post_employment.noncompete", "name": "Non-compete agreements" }
+          ] },
         { "code": "sep.records", "name": "Record Retention", "enforcement": "informational", "legacyTopic": "record_retention",
           "subtopics": [
             { "code": "sep.records.retention", "name": "Payroll and time record retention" },
